@@ -1,0 +1,22 @@
+
+/* Bilingual header and visible editorial status */
+.language-switch{display:flex;align-items:center;gap:9px;border-left:1px solid var(--line);padding-left:12px;white-space:nowrap;font:bold 11px var(--sans);letter-spacing:.13em;color:#8a8175}
+.language-switch a{padding:7px 2px;color:#b1a99c}
+.language-switch a[aria-current="page"]{color:var(--gold-bright);border-bottom:1px solid var(--gold)}
+.translation-notice{background:#241f1a;border-bottom:1px solid rgba(194,166,126,.3);font-size:11px;letter-spacing:.07em}
+.translation-notice .container{display:flex;gap:12px;align-items:center;min-height:36px}
+.translation-notice .container>span:first-child,.translation-notice a{color:var(--gold-bright)}
+.translation-notice a{margin-left:auto;text-decoration:underline;text-underline-offset:3px}
+.locale-landing{min-height:70vh;display:flex;align-items:center;text-align:center;padding:90px 0;background:radial-gradient(ellipse at 50% 26%,#694a3326,transparent 58%),#0b0e10}
+.locale-landing__symbol{font:84px var(--serif);color:var(--gold);line-height:1}
+.locale-landing h1{font-size:clamp(50px,7vw,87px);line-height:1.11;letter-spacing:-.05em;margin:29px 0}
+.locale-landing h1 em{font-weight:400;color:var(--gold-bright)}
+.locale-landing p{max-width:620px;margin:11px auto}
+.locale-landing__en{font:21px var(--serif);color:#d4c6b1}
+.locale-landing__links{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin:43px 0}
+.locale-landing__links a{border:1px solid var(--line);padding:26px 16px;display:flex;flex-direction:column;gap:10px;font:29px var(--serif);transition:border-color .2s}
+.locale-landing__links a:hover{border-color:var(--gold)}
+.locale-landing__links a span{font:11px var(--sans);letter-spacing:.11em;color:var(--gold)}
+@media(max-width:1210px){.site-header__inner{gap:12px}.site-nav{gap:12px}.header-project{display:none}.language-switch{margin-left:5px}}
+@media(max-width:930px){.language-switch{margin-left:auto;border:0}.menu-toggle{margin-left:0;order:3}.site-nav{order:5}html:not(.has-js) .site-nav{display:flex}html:not(.has-js) .menu-toggle{display:none}}
+@media(max-width:540px){.locale-landing h1{font-size:46px}.locale-landing__links{grid-template-columns:1fr}.language-switch{margin-left:auto}.site-header__inner{gap:9px}.brand{min-width:180px}}
