@@ -1,33 +1,42 @@
 name: Validate and deploy
+
 on:
   push:
-    branches: [main]
+    branches:
+      - main
   workflow_dispatch:
+
 permissions:
   contents: read
   pages: write
   id-token: write
+
 concurrency:
-  group: pages
+  group: github-pages
   cancel-in-progress: false
+
 jobs:
-  validate:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Verify static site
+      - name: Checkout website files
+        uses: actions/checkout@v4
+      - name: Validate website
         run: python3 scripts/validate_site.py
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Upload website artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: '.'
+
   deploy:
-    needs: validate
+    needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v4
-        with:
-          path: '.'
-      - id: deployment
+      - name: Publish website
+        id: deployment
         uses: actions/deploy-pages@v4
