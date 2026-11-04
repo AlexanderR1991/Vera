@@ -1,0 +1,35 @@
+name: Kritische Prüfung
+description: Einen Einwand oder Gegenbeleg dokumentieren
+title: "[Kritik] "
+body:
+  - type: textarea
+    id: stelle
+    attributes:
+      label: Betroffene Stelle
+      description: These, URL, Zitat oder Datei
+    validations:
+      required: true
+  - type: dropdown
+    id: art
+    attributes:
+      label: Art der Aussage
+      options:
+        - Wissen
+        - Hypothese
+        - Metapher
+        - Praxis
+        - Unklar
+  - type: textarea
+    id: einwand
+    attributes:
+      label: Einwand
+    validations:
+      required: true
+  - type: textarea
+    id: belege
+    attributes:
+      label: Quellen und Gegenbelege
+  - type: textarea
+    id: vorschlag
+    attributes:
+      label: Vorschlag zur Korrektur
