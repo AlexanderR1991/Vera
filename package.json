@@ -1,0 +1,19 @@
+{
+  "name": "grundtext-des-wirklichen",
+  "version": "0.3.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "predev": "node scripts/build-locales.mjs",
+    "dev": "astro dev",
+    "prebuild": "node scripts/build-locales.mjs",
+    "build": "astro build && node scripts/verify-dist.mjs",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "^6.0.0"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}
