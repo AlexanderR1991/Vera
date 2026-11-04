@@ -1,0 +1,18 @@
+---
+import Layout from "../layouts/SiteLayout.astro";
+import {pathFor} from "../lib/paths.mjs";
+---
+<Layout lang="de" root={true}>
+<section class="locale-landing"><div class="narrow">
+<div class="locale-landing__symbol">◇</div>
+<p class="section-kicker">GRUNDTEXT DES WIRKLICHEN · INTERNATIONAL EDITION</p>
+<h1>Eine Wirklichkeit.<br/><em>Viele Sprachen.</em></h1>
+<p class="locale-landing__en">One reality. Many languages.</p>
+<p>Ein öffentliches, korrigierbares Erkenntnisprojekt. Wähle deinen Zugang.</p>
+<p class="locale-landing__en">An open, revisable project of inquiry. Choose your language.</p>
+<div class="locale-landing__links">
+<a href={pathFor("de")}>Deutsch <span>Originalfassung ↗</span></a>
+<a href={pathFor("en")}>English <span>Translation draft ↗</span></a>
+</div><p class="small-note">Weitere Sprachen können später folgen. / More languages may follow.</p>
+</div></section>
+</Layout>

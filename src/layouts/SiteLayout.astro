@@ -1,0 +1,55 @@
+---
+import {ui,navigation} from "../lib/ui.mjs";
+import {pathFor,absoluteFor,base} from "../lib/paths.mjs";
+const {lang="de",slug="index",root=false}=Astro.props;
+const t=ui[lang];
+const title=root?"Choose your language / Sprache wählen":t.titles[slug];
+const siteRoot="https://alexanderr1991.github.io"+base;
+const canonical=root?siteRoot:absoluteFor(lang,slug);
+---
+<!doctype html>
+<html lang={lang}>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="theme-color" content="#0b0d0f" />
+<meta name="color-scheme" content="dark" />
+<meta name="description" content={t.description} />
+<meta property="og:type" content="website" />
+<meta property="og:title" content={title+" · Grundtext des Wirklichen"} />
+<meta property="og:description" content={t.description} />
+<meta property="og:locale" content={lang==="de"?"de_DE":"en_GB"} />
+<link rel="canonical" href={canonical} />
+<link rel="alternate" hreflang="de" href={absoluteFor("de",slug)} />
+<link rel="alternate" hreflang="en" href={absoluteFor("en",slug)} />
+<link rel="alternate" hreflang="x-default" href={siteRoot} />
+<link rel="icon" type="image/svg+xml" href={base+"assets/signet.svg"} />
+<link rel="stylesheet" href={base+"assets/style.css"} />
+<title>{title} · Grundtext des Wirklichen</title>
+<script is:inline src={base+"assets/site.js"} defer></script>
+</head>
+<body>
+<a class="skip-link" href="#inhalt">{lang==="de"?"Zum Inhalt springen":"Skip to content"}</a>
+<header class="site-header"><div class="site-header__inner">
+<a class="brand" href={pathFor(lang)} aria-label={lang==="de"?"Grundtext des Wirklichen – Startseite":"Grundtext des Wirklichen – homepage"}>
+<img src={base+"assets/signet.svg"} alt="" width="38" height="38" /><span class="brand__name">GRUNDTEXT<span>DES WIRKLICHEN</span><small>{t.subtitle}</small></span>
+</a>
+<button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-navigation"><span>{t.menu}</span><span class="menu-lines" aria-hidden="true">☰</span></button>
+<nav id="site-navigation" class="site-nav" aria-label={lang==="de"?"Hauptnavigation":"Main navigation"}>
+{navigation.map(([slugName,i])=><a href={pathFor(lang,slugName)} aria-current={!root&&slug===slugName?"page":undefined}>{t.nav[i]}</a>)}
+</nav>
+<div class="language-switch" aria-label={lang==="de"?"Sprache":"Language"}>
+<a href={pathFor("de",slug)} lang="de" hreflang="de" aria-current={!root&&lang==="de"?"page":undefined}>DE</a><span aria-hidden="true">/</span>
+<a href={pathFor("en",slug)} lang="en" hreflang="en" aria-current={!root&&lang==="en"?"page":undefined}>EN</a>
+</div>
+<a class="header-project" href="https://github.com/AlexanderR1991/grundtext-des-wirklichen" target="_blank" rel="noopener noreferrer">GITHUB <span aria-hidden="true">↗</span></a>
+</div></header>
+<div class="edition-line"><span>{t.archive}</span><span>{t.motto}</span></div>
+{lang==="en"&&!root&&<div class="translation-notice"><div class="container"><span aria-hidden="true">◇</span><span>{t.status}</span><a href={pathFor("de",slug)}>Deutsch →</a></div></div>}
+<main id="inhalt"><slot /></main>
+<footer class="footer"><div class="container footer__grid">
+<div><img src={base+"assets/signet.svg"} width="54" height="54" alt="" /><h2>{t.footerTitle}</h2><p>{t.footerDescription}</p></div>
+<div class="footer__links"><div><strong>{t.explore}</strong><a href={pathFor(lang,"atlas")}>{t.nav[1]}</a><a href={pathFor(lang,"bibliothek")}>{t.nav[2]}</a><a href={pathFor(lang,"pruefstand")}>{t.nav[3]}</a></div>
+<div><strong>{t.project}</strong><a href={pathFor(lang,"methode")}>{t.nav[4]}</a><a href={pathFor(lang,"mitwirken")}>{t.nav[5]}</a><a href="https://github.com/AlexanderR1991/grundtext-des-wirklichen" target="_blank" rel="noopener noreferrer">{t.source} ↗</a></div></div>
+</div><div class="container footer__bottom"><span>{t.copyright}</span><span>{t.disclosure}</span></div></footer>
+</body></html>

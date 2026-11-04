@@ -1,0 +1,7 @@
+---
+import LocalPage from "../../components/LocalPage.astro";
+import {slugs} from "../../lib/paths.mjs";
+export function getStaticPaths(){return slugs.map(slug=>({params:{slug}}));}
+const {slug}=Astro.params;
+---
+<LocalPage lang="en" slug={slug} />
