@@ -1,42 +1,42 @@
-name: Validate and deploy
-
+name: Build and publish multilingual Astro site
 on:
   push:
-    branches:
-      - main
+    branches: [main]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
-
 permissions:
   contents: read
   pages: write
   id-token: write
-
 concurrency:
-  group: github-pages
+  group: astro-pages
   cancel-in-progress: false
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout website files
-        uses: actions/checkout@v4
-      - name: Validate website
-        run: python3 scripts/validate_site.py
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
-      - name: Upload website artifact
-        uses: actions/upload-pages-artifact@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          path: '.'
-
+          node-version: '22'
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Build and validate
+        run: npm run build
+      - uses: actions/configure-pages@v5
+        if: github.event_name != 'pull_request'
+      - uses: actions/upload-pages-artifact@v4
+        if: github.event_name != 'pull_request'
+        with:
+          path: dist
   deploy:
+    if: github.event_name != 'pull_request'
     needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Publish website
-        id: deployment
+      - id: deployment
         uses: actions/deploy-pages@v4

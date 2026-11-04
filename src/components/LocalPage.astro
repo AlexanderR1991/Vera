@@ -1,0 +1,7 @@
+---
+import Layout from "../layouts/SiteLayout.astro";
+import {getPage} from "../lib/pages.mjs";
+const {lang,slug}=Astro.props;
+const content=getPage(lang,slug);
+---
+<Layout lang={lang} slug={slug}><Fragment set:html={content} /></Layout>

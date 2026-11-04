@@ -1,15 +1,16 @@
 # Versionsgeschichte
 
+## 0.3 – 2026-11-04
+- Astro migration for the static published output.
+- Eight German pages and eight English translation drafts with a shared design.
+- Bilingual landing page and page-to-page language switch.
+- Canonical and hreflang metadata; redirects from former .html paths.
+- GitHub Actions builds and verifies both editions before publishing.
+- The original German HTML files remain the source for this transition; Markdown/MDX remains planned.
+- English has not undergone independent review.
+
 ## 0.2 – 2026-11-04
-- Redaktionelle und gestalterische Grundarchitektur von Grund auf entwickelt.
-- Responsives Portal, Wissensatlas, Bibliothek, erstes Lesestück mit umschaltbarer Lesetiefe und Prüfstand integriert.
-- Neun Thesen aus Version 0.1 unverändert im Kern übernommen und um offene Prüffragen ergänzt.
-- Mitwirkungsformular erstellt nur einen GitHub-Entwurfslink; es sendet keine Inhalte direkt.
-- Automatische Validierung vor der Veröffentlichung in den GitHub-Pages-Workflow aufgenommen.
-- Weiterhin keine Lizenzentscheidung, eigenständige fachliche Begutachtung oder Veröffentlichung privater Manuskripte.
+- Responsive portal, knowledge atlas, library, two-level reading sample and critical theses.
 
 ## 0.1 – 2026-11-04
-- Erste öffentliche Arbeitsfassung mit neun philosophischen Thesen.
-- Prüfverfahren und Diskussionsregeln formuliert.
-- Statische Website und GitHub-Pages-Workflow vorbereitet.
-- Keine unabhängige fachliche Prüfung; Lizenzentscheidung ausstehend.
+- Nine provisional philosophical principles and the first public version.
