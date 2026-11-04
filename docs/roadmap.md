@@ -1,0 +1,40 @@
+# Roadmap
+
+Die Reihenfolge folgt sachlichen Abhängigkeiten, nicht festen Veröffentlichungsterminen.
+
+## 0.2 – Visuelles Fundament (umgesetzt)
+- [x] Responsives Portal und neue visuelle Sprache
+- [x] Wissensatlas mit Suche und sechs Themenfeldern
+- [x] Bibliothek mit gekennzeichneten Entwürfen und Planungen
+- [x] Lesestück mit zwei Lesetiefen
+- [x] Thesen-Prüfstand und Beitragsentwurf
+- [x] Qualitätsprüfung im GitHub-Pages-Workflow
+
+## 0.3 – Redaktion und Bildwelt
+- [ ] Sichtprüfung auf Desktop, Tablet und Smartphone
+- [ ] Originalgrafiken und ornamentale Illustrationen vertiefen
+- [ ] Lesbarkeit, Kontrast und Bedienbarkeit testen
+- [ ] Autorenschaft, Lizenzen und Moderation klären
+
+## 0.4 – Belastbare Kapitel
+- [ ] Erstes umfangreiches Kapitel mit überprüfbaren Fachquellen
+- [ ] Schema für Status, Belege, Einwände und Änderungen
+- [ ] Naive Warum-Fragen an entscheidenden Stellen einbauen
+- [ ] Gegenpositionen dokumentieren
+- [ ] Atlas, Kapitel und Prüfstand verknüpfen
+
+## 0.5 – Kollaboration
+- [ ] Diskussions- und Reviewverfahren etablieren
+- [ ] Versionierung auf Thesenebene
+- [ ] Glossar und Volltextsuche
+- [ ] Bei Bedarf Astro/MDX und Pagefind einführen
+- [ ] Geprüfte Übersetzungen ergänzen
+
+## 1.0 – Verantwortbare Öffnung
+- [ ] Lizenz, Rechte und redaktionelle Verantwortung geklärt
+- [ ] Moderation und Meldemöglichkeit eingerichtet
+- [ ] Quellenapparat und methodische Grenzen sichtbar
+- [ ] Breite öffentliche Einladung; optional eigene Domain
+
+## Nicht-Ziele
+Keine weltanschauliche Gefolgschaft, keine autoritären Wahrheitsnoten, keine private Biografie ohne Freigabe, keine behauptete wissenschaftliche Validierung allein durch ästhetische Wirkung.
