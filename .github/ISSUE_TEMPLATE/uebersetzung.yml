@@ -1,0 +1,38 @@
+name: "Übersetzung / Translation review"
+description: "Bedeutung und Wortwahl einer Sprachfassung prüfen / Improve translation accuracy"
+title: "[Übersetzung / Translation] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Die deutsche Fassung ist derzeit Ausgangspunkt. Die englische Ausgabe ist ein Übersetzungsentwurf.
+        German is currently the original; English is a translation draft.
+  - type: input
+    id: quelle
+    attributes:
+      label: "Link zur Seite / Page link"
+      placeholder: "https://alexanderr1991.github.io/grundtext-des-wirklichen/en/..."
+    validations:
+      required: true
+  - type: textarea
+    id: original
+    attributes:
+      label: "Originalsatz / Original sentence"
+    validations:
+      required: true
+  - type: textarea
+    id: aktuell
+    attributes:
+      label: "Derzeitige Übersetzung / Current translation"
+    validations:
+      required: true
+  - type: textarea
+    id: vorschlag
+    attributes:
+      label: "Verbesserung / Suggested translation"
+    validations:
+      required: true
+  - type: textarea
+    id: grund
+    attributes:
+      label: "Begründung und Nuance / Reasoning and nuance"

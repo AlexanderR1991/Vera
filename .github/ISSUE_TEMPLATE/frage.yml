@@ -1,0 +1,26 @@
+name: "Frage / Question"
+description: "Verständnisfrage oder offene Frage / Ask about a concept, passage, or open problem"
+title: "[Frage / Question] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Jede ernst gemeinte Frage ist willkommen – auch ohne Vorwissen.
+        Every sincere question is welcome, including beginner questions.
+  - type: textarea
+    id: frage
+    attributes:
+      label: "Deine Frage / Your question"
+      description: "Was möchtest du verstehen? / What would you like to understand?"
+      placeholder: "Warum ...? / Why ...?"
+    validations:
+      required: true
+  - type: input
+    id: stelle
+    attributes:
+      label: "Stelle im Werk / Relevant page (optional)"
+      description: "Link oder These / Link or thesis"
+  - type: textarea
+    id: bereits
+    attributes:
+      label: "Was du bereits verstanden hast / What you understand so far (optional)"
