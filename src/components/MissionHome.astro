@@ -42,13 +42,6 @@ const t=copy[lang];
     </div>
     <div class="container mission-status"><span>WIRKLICH {project.version} · {t.status}</span><a href={pathFor(lang,"projektstatus")}>{lang==="de"?"Was 1.0 leistet und was offen ist ↗":"What 1.0 offers and what remains open ↗"}</a></div>
   </section>
-  <section class="mission-origin" aria-labelledby="mission-origin-title"><div class="container mission-origin__inner">
-    <p class="section-kicker">{lang==="de"?"UNSER URSPRUNG · VOM BUCH ZUR WERKSTATT":"OUR ORIGIN · FROM A BOOK TO A WORKSHOP"}</p>
-    <h2 id="mission-origin-title">{lang==="de"?"Am Anfang stand ein Buch: Die Richtung.":"It began with a book: Die Richtung."}</h2>
-    <p>{lang==="de"?"Aus der Arbeit an dem Buch „Die Richtung“ entstand die Idee zu WIRKLICH: Fragen nach Wahrheit und Orientierung nicht in einem abgeschlossenen Text zu belassen, sondern sie gemeinsam, nachvollziehbar und korrigierbar weiterzuverfolgen. Das Buch ist der gedankliche Ursprung, nicht der Beweis für unsere Aussagen.":"The idea for WIRKLICH grew out of work on the book “Die Richtung”: questions about truth and orientation should not end with a finished text, but become a shared, inspectable and revisable inquiry. The book is the intellectual origin, not evidence for our claims."}</p>
-    <a class="subtle-link" href={pathFor(lang,"mission")+"#ursprung"}>{lang==="de"?"Die Entstehungsgeschichte lesen ↗":"Read about the project's origins ↗"}</a>
-    <a class="subtle-link" href={pathFor(lang,"die-richtung")}>{lang==="de"?"Die Richtung · Buch frei lesen ↗":"Die Richtung · Read the open book ↗"}</a>
-  </div></section>
   <section class="mission-trust" aria-labelledby="mission-trust-title"><div class="container">
     <p class="section-kicker">{lang==="de"?"UNSER MASSSTAB · VERTRAUEN DURCH PRÜFUNG":"OUR STANDARD · TRUST THROUGH SCRUTINY"}</p>
     <h2 id="mission-trust-title">{lang==="de"?"Etwas ist nicht wahr, weil es auf wirklich.org steht. Es soll dort stehen, weil es der Prüfung standhält.":"Something is not true because it appears on wirklich.org. It belongs there only if it withstands scrutiny."}</h2>
@@ -79,11 +72,6 @@ const t=copy[lang];
 </Layout>
 
 <style>
-.mission-origin{padding:42px 0 12px}
-.mission-origin__inner{padding:30px 34px;border:1px solid var(--line)}
-.mission-origin h2{font-size:clamp(24px,3.1vw,40px);line-height:1.2;max-width:900px;margin:10px 0 16px}
-.mission-origin p:not(.section-kicker){max-width:800px}
-.mission-origin .subtle-link{display:inline-block;margin-top:10px}
 .mission-trust{padding:42px 0 48px}
 .mission-trust .container{border-left:2px solid var(--gold);padding-left:26px}
 .mission-trust h2{font-size:clamp(24px,3.2vw,42px);line-height:1.3;max-width:900px;margin:12px 0 18px}
