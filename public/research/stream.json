@@ -1,0 +1,12 @@
+{
+  "schema": 1,
+  "updated_at": null,
+  "status": "automatic_discovery_not_fact_checked",
+  "analysis": "metadata_only",
+  "source": "Crossref",
+  "source_queries_succeeded": 0,
+  "new_items": 0,
+  "agents_enabled": false,
+  "errors": [],
+  "items": []
+}
