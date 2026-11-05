@@ -1,0 +1,20 @@
+---
+import {pathFor} from "../lib/paths.mjs";
+const {lang="de"}=Astro.props;
+const en=lang==="en";
+---
+<section class="section theology-teaser" aria-label={en?"Bridges between religions":"Brücken zwischen den Religionen"}>
+<div class="container theology-teaser__inner">
+<p class="section-kicker">{en?"LIBER PONTIUM · THEOLOGY & DIALOGUE":"LIBER PONTIUM · THEOLOGIE UND DIALOG"}</p>
+<h2>{en?"WE BUILD BRIDGES":"WIR BAUEN BRÜCKEN"}<br/><em>{en?"BETWEEN RELIGIONS.":"ZWISCHEN DEN RELIGIONEN."}</em></h2>
+<p>{en?"Not so that everyone believes the same thing, but so we can understand each other without abandoning the search for truth.":"Nicht, damit alle dasselbe glauben. Sondern damit wir einander verstehen, ohne die Wahrheitssuche aufzugeben."}</p>
+<a class="button button--ghost" href={pathFor(lang,"bruecken-zwischen-den-religionen")}>{en?"Explore the dialogue ↗":"Den Dialog entdecken ↗"}</a>
+</div></section>
+<style>
+.theology-teaser{overflow:hidden;background:radial-gradient(ellipse at 50% 0%,#94764c30,transparent 65%),#0b1012;text-align:center}
+.theology-teaser__inner{max-width:1080px}
+.theology-teaser h2{font:400 clamp(39px,6.2vw,86px)/1.07 var(--serif);letter-spacing:-.05em;max-width:1050px;margin:24px auto 28px;text-wrap:balance}
+.theology-teaser h2 em{color:#e0c699;font-weight:400}
+.theology-teaser p:not(.section-kicker){font:clamp(17px,2vw,24px)/1.65 var(--serif);max-width:730px;margin:0 auto 34px;color:#dacdbb}
+@media(max-width:600px){.theology-teaser h2{font-size:clamp(34px,9vw,52px);hyphens:auto}}
+</style>

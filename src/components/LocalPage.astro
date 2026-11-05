@@ -3,6 +3,7 @@ import Layout from "../layouts/SiteLayout.astro";
 import HorizonTeaser from "./HorizonTeaser.astro";
 import LoveTeaser from "./LoveTeaser.astro";
 import PolicyTeaser from "./PolicyTeaser.astro";
+import TheologyTeaser from "./TheologyTeaser.astro";
 import {getPage} from "../lib/pages.mjs";
 const {lang,slug}=Astro.props;
 const content=getPage(lang,slug);
@@ -27,11 +28,17 @@ const anchors={
     atlas:['<section class="section"><div class="narrow text-center">',"last"],
     bibliothek:['<section class="section section--paper">',"last"],
     pruefstand:['<section class="section"><div class="narrow text-center">',"last"]
+  },
+  theology:{
+    index:['<section class="closing">', "last"],
+    atlas:['<section class="section"><div class="narrow text-center">', "last"],
+    bibliothek:['<section class="section section--paper">', "last"],
+    pruefstand:['<section class="section"><div class="narrow text-center">', "last"]
   }
 };
 const insertions=[];
-const priority={horizon:0,love:1,politics:2};
-for(const kind of ["horizon","love","politics"]){
+const priority={horizon:0,love:1,politics:2,theology:3};
+for(const kind of ["horizon","love","politics","theology"]){
  const config=anchors[kind][slug];
  if(!config)continue;
  const [marker,position]=config;
@@ -53,6 +60,7 @@ segments.push({kind:"html",body:content.slice(position)});
  part.kind==="html"?<Fragment set:html={part.body}/>:
  part.kind==="horizon"?<HorizonTeaser lang={lang} from={slug}/>:
  part.kind==="love"?<LoveTeaser lang={lang} from={slug}/>:
- <PolicyTeaser lang={lang} from={slug}/>
+ part.kind==="politics"?<PolicyTeaser lang={lang} from={slug}/>:
+ <TheologyTeaser lang={lang} from={slug}/>
 )}
 </Layout>

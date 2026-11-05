@@ -1,6 +1,6 @@
 import {access,readFile} from "node:fs/promises";
 import {join} from "node:path";
-const out=join(process.cwd(),"dist"),slugs=["index","atlas","bibliothek","lesestueck-wahrheit","manifest","pruefstand","methode","mitwirken","erkenntnishorizont","warum-liebe-wirkt","politik-die-dem-menschen-dient"],errors=[];
+const out=join(process.cwd(),"dist"),slugs=["index","atlas","bibliothek","lesestueck-wahrheit","manifest","pruefstand","methode","mitwirken","erkenntnishorizont","warum-liebe-wirkt","politik-die-dem-menschen-dient","bruecken-zwischen-den-religionen"],errors=[];
 for(const lang of ["de","en"]){
  for(const slug of slugs){
   const file=join(out,lang,...(slug==="index"?[]:[slug]),"index.html");
@@ -57,6 +57,21 @@ for(const lang of ["de","en"]){
    const html=await readFile(location,"utf8");
    if(!html.includes("/"+lang+"/politik-die-dem-menschen-dient/")||!html.includes(required))
      errors.push("Missing political chapter discovery from "+lang+"/"+slug);
+ }
+}
+if(errors.length){console.error(errors.join("\n"));process.exit(1);}
+
+for(const lang of ["de","en"]){
+ const chapter=await readFile(join(out,lang,"bruecken-zwischen-den-religionen","index.html"),"utf8");
+ for(const token of ["theology-hero","theology-principles","theology-boundary"]){
+  if(!chapter.includes(token))errors.push("Theology "+lang+" missing "+token);
+ }
+ if(!chapter.includes(lang==="de"?"WIR BAUEN BRÜCKEN":"WE BUILD BRIDGES"))
+  errors.push("Theology manifesto missing for "+lang);
+ for(const slug of ["index","atlas","bibliothek","pruefstand"]){
+  const html=await readFile(join(out,lang,...(slug==="index"?[]:[slug]),"index.html"),"utf8");
+  if(!html.includes("theology-teaser")||!html.includes("/"+lang+"/bruecken-zwischen-den-religionen/"))
+    errors.push("Theology teaser missing from "+lang+"/"+slug);
  }
 }
 if(errors.length){console.error(errors.join("\n"));process.exit(1);}

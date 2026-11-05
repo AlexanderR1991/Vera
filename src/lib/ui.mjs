@@ -32,7 +32,8 @@ export const ui = {
       "forschungsstrom": "Forschungsstrom",
       "erkenntnishorizont": "Der Horizont des Erkennbaren",
       "warum-liebe-wirkt": "Warum Liebe wirkt",
-      "politik-die-dem-menschen-dient": "Politik, die dem Menschen dient"
+      "politik-die-dem-menschen-dient": "Politik, die dem Menschen dient",
+      "bruecken-zwischen-den-religionen": "Brücken zwischen den Religionen"
     },
     "description": "Ein offenes, korrigierbares Erkenntnisprojekt über Wahrheit, Wirklichkeit und menschliches Handeln."
   },
@@ -69,7 +70,8 @@ export const ui = {
       "forschungsstrom": "Research Stream",
       "erkenntnishorizont": "The Horizon of the Knowable",
       "warum-liebe-wirkt": "Why Love Works",
-      "politik-die-dem-menschen-dient": "Politics That Serves People"
+      "politik-die-dem-menschen-dient": "Politics That Serves People",
+      "bruecken-zwischen-den-religionen": "Bridges Between Religions"
     },
     "description": "An open and revisable inquiry into truth, reality, human dignity, and responsible action."
   }
