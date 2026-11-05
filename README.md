@@ -53,7 +53,7 @@ Alle Kapitel haben einen DE/EN-Sprachwechsel. Englisch bleibt ein unabhängig un
 
 [Frage stellen](https://github.com/AlexanderR1991/grundtext-des-wirklichen/issues/new?template=frage.yml) · [Aussage herausfordern](https://github.com/AlexanderR1991/grundtext-des-wirklichen/issues/new?template=angriff.yml) · [Quelle prüfen](https://github.com/AlexanderR1991/grundtext-des-wirklichen/issues/new?template=quellenpruefung.yml) · [Diskutieren](https://github.com/AlexanderR1991/grundtext-des-wirklichen/discussions) · [Beitragsleitfaden / Contribution guide](CONTRIBUTING.md)
 
-Faire Vergütung, Erholung und transparente Finanzierung gehören zur [Mission](docs/mission.md). Zahlungswege und Organisationsform sind noch nicht eingerichtet. Förderung darf keine redaktionellen Ergebnisse kaufen.
+Faire Vergütung, Erholung und transparente Finanzierung gehören zur [Mission](docs/mission.md). Ein freiwilliger Unterstützungsweg ist auf der Mitwirkenseite eingerichtet; Organisationsform und laufendes Budget sind weiter auszugestalten. Förderung darf keine redaktionellen Ergebnisse kaufen.
 
 ## Entwicklung / Development
 

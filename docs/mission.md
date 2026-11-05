@@ -78,7 +78,7 @@ Menschen entscheiden über redaktionelle Aufnahme und verantworten die Begründu
 
 Menschen dürfen von sinnvoller Arbeit leben. Faire Vergütung, Erholung und tragfähige Arbeitszeiten gehören zur Mission. Der frei zugängliche Kern soll erhalten bleiben. Geldquellen, Interessen, Ausgaben und Vergütungsregeln sollen nachvollziehbar sein; Geld darf keinen Belegstatus und keine redaktionelle Vorzugsbehandlung kaufen.
 
-Das ist ein Finanzierungsprinzip. Zahlungswege, Rechtsform, Budget und institutionelle Zuständigkeiten sind noch einzurichten. Der Entwurf eröffnet keine Zahlungen und geht keine Verpflichtungen ein.
+Das ist ein Finanzierungsprinzip. Ein freiwilliger Unterstützungsweg über PayPal wurde inzwischen auf der Mitwirkenseite eingerichtet. Rechtsform, laufendes Budget, Vergütungsregeln und institutionelle Zuständigkeiten sind weiter auszugestalten. Dieser Gesamtentwurf eröffnet keine zusätzlichen Zahlungen und geht keine Verpflichtungen ein.
 
 ## 8. Der nächste glaubwürdige Schritt
 
@@ -94,7 +94,7 @@ Erst nach gezeigtem Nutzen folgen mehr Themen und mehr Autonomie. Der langfristi
 
 Knowledge, open inquiry and decision-making are distinct spaces. Claim type, evidential or argumentative support, and review status are recorded separately; formal proof, empirical evidence and ethical justification do not form a single ladder of truth. Existing chapters become fields of the same mission without being reduced to a universal formula.
 
-AI contributes research leads and critique. It does not certify truth or authorize editorial decisions. The rules themselves need evaluation. Fair pay and rest are legitimate project needs; transparent funding must remain separate from editorial judgment. Payment channels and shared governance have not yet been established.
+AI contributes research leads and critique. It does not certify truth or authorize editorial decisions. The rules themselves need evaluation. Fair pay and rest are legitimate project needs; transparent funding must remain separate from editorial judgment. A voluntary support channel is available; organizational arrangements and shared governance remain work ahead.
 
 Three unreviewed demonstration records now illustrate the approach. The next goal is ten fully examined, narrowly scoped claims, followed by an independent comparison of the method against alternatives, including error detection, false alarms, understanding, time and costs. Wider scope follows demonstrated benefit. The English website provides the complete translation draft.
 

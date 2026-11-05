@@ -8,6 +8,7 @@ Die Reihenfolge folgt überprüfbaren Voraussetzungen. Die Kapitel bleiben erhal
 
 - [x] Zweisprachige statische Website mit Atlas, Bibliothek, neun Leitsätzen und Beitragswegen
 - [x] Kapitel zu Erkenntnishorizont, Liebe, Politik, Religion, Militär und Ernährung
+- [x] Freiwilliger Unterstützungsweg auf der Mitwirkenseite
 - [x] Offene Lizenzen für Projekttexte und Software mit dokumentierten Ausnahmen
 - [x] Recherche- und Angriffsschwarm als begrenzte Prototypen; Ergebnisse bleiben ungeprüft
 - [x] Gemeinsame Mission und konzentrierte Startseite statt einer wachsenden Reihe einzelner Ankündigungen
@@ -48,7 +49,7 @@ Keine Vorregistrierung oder Wirksamkeit ist bislang nachgewiesen. Ohne tragfähi
 - [ ] Fachprüfung, Redaktion und Moderation als unterschiedliche Aufgaben besetzen
 - [ ] Einsprüche und Interessenkonflikte dokumentierbar bearbeiten
 - [ ] Finanzierung, Ausgaben und faire Vergütung transparent festlegen
-- [ ] Organisatorische und rechtliche Voraussetzungen eines Zahlungswegs klären
+- [ ] Organisationsform, laufendes Budget und Vergütungsregeln für die bestehende freiwillige Unterstützung klären
 - [ ] Ausstieg, Export und Weiterverwendung praktisch ermöglichen
 - [ ] Kontraste, Tastaturbedienung, mobile Nutzung und unterschiedliche Lesebedürfnisse prüfen
 
