@@ -12,6 +12,7 @@ We welcome questions, objections, sources and improvements. **You do not need pr
 
 | Deutsch | English | Einstieg / Entry |
 |---|---|---|
+| Einen Härtetest einreichen | Challenge a claim | [Angriffsschwarm / Adversarial challenge](https://github.com/AlexanderR1991/grundtext-des-wirklichen/issues/new?template=angriff.yml) |
 | Eine Frage stellen | Ask a question | [Frage / Question](https://github.com/AlexanderR1991/grundtext-des-wirklichen/issues/new?template=frage.yml) |
 | Eine Idee vorschlagen | Propose an idea | [Idee / Idea](https://github.com/AlexanderR1991/grundtext-des-wirklichen/issues/new?template=idee.yml) |
 | Einen Beleg untersuchen | Examine evidence | [Quellenprüfung / Evidence](https://github.com/AlexanderR1991/grundtext-des-wirklichen/issues/new?template=quellenpruefung.yml) |
