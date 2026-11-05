@@ -1,0 +1,74 @@
+---
+import Layout from "../layouts/SiteLayout.astro";
+import {pathFor} from "../lib/paths.mjs";
+import copy from "../lib/common-ground-copy.json";
+const {lang="de"}=Astro.props;
+const t=copy[lang];
+---
+<Layout lang={lang} slug="schnittmengen">
+<section class="common-hero"><div class="narrow">
+<p class="section-kicker">{t.tag}</p>
+<h1>{t.title}<br/><em>{t.subtitle}</em></h1>
+<p class="common-lead">{t.lead}</p><p class="common-note">{t.status}</p>
+<a class="button button--gold" href="#fragen">{lang==="de"?"Mit den Fragen beginnen ↓":"Start with the questions ↓"}</a>
+</div></section>
+<section class="section section--paper common-section"><div class="narrow">
+<h2>{t.introTitle}</h2><p>{t.intro}</p><p>{t.introNote}</p>
+</div></section>
+<section class="section common-section" id="fragen"><div class="container">
+<h2>{t.stepsTitle}</h2>
+<ol class="common-grid common-steps">{t.steps.map(([title,body],i)=><li>
+<span class="section-kicker" aria-hidden="true">{String(i+1).padStart(2,"0")} / 06</span><h3>{title}</h3><p>{body}</p>
+</li>)}</ol>
+</div></section>
+<section class="section section--paper common-section" id="ergebnis"><div class="container">
+<h2>{t.outcomesTitle}</h2>
+<div class="common-grid common-outcomes">{t.outcomes.map(([title,body])=><article><h3>{title}</h3><p>{body}</p></article>)}</div>
+</div></section>
+<section class="section common-section"><div class="narrow">
+<p class="section-kicker">{t.exampleTag}</p><h2>{t.exampleTitle}</h2><p>{t.example}</p><p>{t.exampleNote}</p>
+</div></section>
+<section class="section section--paper common-section" id="grenzen"><div class="narrow">
+<h2>{t.boundariesTitle}</h2><ul class="common-boundaries">{t.boundaries.map(text=><li>{text}</li>)}</ul>
+</div></section>
+<section class="section common-section" id="arbeitsblatt"><div class="narrow">
+<h2>{t.worksheetTitle}</h2><p>{t.worksheetIntro}</p>
+<ol class="common-worksheet">{t.worksheet.map(text=><li>{text}</li>)}</ol>
+</div></section>
+<section class="section section--paper common-section" id="pruefung"><div class="narrow">
+<h2>{t.evaluationTitle}</h2><p>{t.evaluation}</p><p>{t.counter}</p>
+<h3>{t.sourcesTitle}</h3>
+<ul class="common-sources">
+<li><a href="https://peacemaker.un.org/en/documents/united-nations-guidance-effective-mediation">United Nations (2012): Guidance for Effective Mediation ↗</a><p>{t.un}</p></li>
+<li><a href="https://doi.org/10.1017/bpp.2018.25">Paluck, Green &amp; Green (2019): The contact hypothesis re-evaluated ↗</a><p>{t.contact}</p></li>
+</ul>
+</div></section>
+<section class="section common-section common-final"><div class="narrow">
+<h2>{t.inviteTitle}</h2><blockquote>{t.invite}</blockquote>
+<div class="button-row"><a class="button button--gold" href={pathFor(lang,"mitwirken")}>{t.methodLink}</a><a class="button button--ghost" href={pathFor(lang,"bruecken-zwischen-den-religionen")}>{t.theologyLink}</a></div>
+</div></section>
+</Layout>
+<style>
+.common-hero{padding:100px 0;background:radial-gradient(ellipse at 50% 0%,#a17d4430,transparent 65%),#0c1214;text-align:center;border-bottom:1px solid var(--line)}
+.common-hero h1{font:400 clamp(42px,6.5vw,85px)/1.12 var(--serif);letter-spacing:-.04em;text-wrap:balance;margin:25px 0}
+.common-hero h1 em{color:var(--gold-bright);font-weight:400}
+.common-lead{font:clamp(22px,2.6vw,29px)/1.6 var(--serif);color:#e0d3be}
+.common-note{font-size:14px;line-height:1.7;margin:24px 0 32px}
+.common-section h2{font:400 clamp(33px,4.4vw,58px)/1.18 var(--serif);letter-spacing:-.025em;text-wrap:balance;margin:0 0 30px}
+.common-section h3{font:400 clamp(24px,2.5vw,31px)/1.3 var(--serif);margin:18px 0}
+.common-section .narrow>p,.common-boundaries,.common-worksheet{font:clamp(17px,1.7vw,20px)/1.85 var(--serif)}
+.common-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;padding:0;list-style:none;margin:36px 0 0}
+.common-grid>li,.common-grid>article{border:1px solid var(--line);padding:28px;background:#ffffff03;min-width:0}
+.common-grid p{font-size:16px;line-height:1.8;margin:0}
+.common-outcomes{grid-template-columns:repeat(3,minmax(0,1fr))}
+.common-boundaries,.common-sources{padding-left:1.25em}
+.common-boundaries li,.common-sources li{margin:22px 0}
+.common-worksheet{padding:20px 24px 20px 48px;border:1px solid var(--line);background:#ffffff03}
+.common-worksheet li{padding:14px 0;border-bottom:1px solid var(--line)}
+.common-worksheet li:last-child{border:0}
+.common-sources a{text-decoration:underline;text-underline-offset:4px}
+.common-sources p{font-size:16px;line-height:1.8}
+.common-final blockquote{font:italic clamp(23px,3vw,34px)/1.65 var(--serif);color:var(--gold-bright);margin:0 0 35px}
+@media(max-width:800px){.common-outcomes{grid-template-columns:1fr}}
+@media(max-width:620px){.common-hero{padding:70px 0}.common-grid{grid-template-columns:1fr}.common-grid>li,.common-grid>article{padding:22px}.common-hero h1{hyphens:auto}}
+</style>
