@@ -37,3 +37,7 @@ Phase 0.2: Statisches HTML, CSS, Vanilla-JavaScript und GitHub Pages; keine exte
 
 ## Schutz
 Private Manuskripte und Gespräche gehören nicht ohne ausdrückliche Freigabe ins Projekt. Keine erfundenen Quellen, Fachreviews oder Projektmitglieder. Texte CC BY-SA 4.0, Software MIT gemäß [LICENSING.md](../LICENSING.md); Rechte an fremdem Material, Projektsignet und redaktionelle Verantwortung vor breiter Verbreitung gesondert klären.
+
+## Erkenntnishorizont (0.4)
+
+Das Modell mit Mensch M, älterem Horizont a, gegenwärtigem Horizont b und offenen Kandidaten x₁–x₄ ist ein **philosophisches Denkbild**. Es wird ausdrücklich nicht als empirisch validierte geometrische oder mathematische Theorie dargestellt. Die frühere Foto-Skizze wird nicht veröffentlicht. Das Projekt unterscheidet unbelegte Hypothesen, widerlegte Aussagen und nicht empirisch prüfbare Fragen. Mathematik und empirische Wissenschaft haben unterschiedliche Begründungsverfahren; KI kann Forschung unterstützen, liefert aber keine automatische Wahrheit.
