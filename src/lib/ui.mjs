@@ -18,7 +18,7 @@ export const ui = {
     "project": "PROJEKT",
     "source": "Quelltext",
     "status": "Originalfassung · Arbeitsstand 0.3",
-    "copyright": "© Autorenschaft und Lizenz noch in Klärung · Fassung 0.3 · 2026",
+    "copyright": "© 2026 AlexanderR1991 & Mitwirkende · Texte CC BY-SA 4.0 · Code MIT",
     "disclosure": "MIT KI-UNTERSTÜTZUNG ERSTELLT · OFFEN FÜR KRITIK",
     "titles": {
       "index": "Auftakt",
@@ -51,7 +51,7 @@ export const ui = {
     "project": "PROJECT",
     "source": "Source code",
     "status": "Translation draft · Not independently reviewed",
-    "copyright": "© Authorship and license pending · Edition 0.3 · 2026",
+    "copyright": "© 2026 AlexanderR1991 & contributors · Text CC BY-SA 4.0 · Code MIT",
     "disclosure": "CREATED WITH AI ASSISTANCE · OPEN TO CRITICISM",
     "titles": {
       "index": "Introduction",

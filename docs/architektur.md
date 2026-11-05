@@ -36,4 +36,4 @@ Die Schönheit darf zum Denken einladen; sie darf es nicht ersetzen. Gestaltung 
 Phase 0.2: Statisches HTML, CSS, Vanilla-JavaScript und GitHub Pages; keine externen Fonts oder Tracker. Bei vielen Kapiteln Umstieg auf einen statischen Seitengenerator und lokalen Suchindex. Backend und Anmeldung erst bei realem Bedarf.
 
 ## Schutz
-Private Manuskripte und Gespräche gehören nicht ohne ausdrückliche Freigabe ins Projekt. Keine erfundenen Quellen, Fachreviews oder Projektmitglieder. Rechte, Lizenz und redaktionelle Verantwortung vor breiter Verbreitung klären.
+Private Manuskripte und Gespräche gehören nicht ohne ausdrückliche Freigabe ins Projekt. Keine erfundenen Quellen, Fachreviews oder Projektmitglieder. Texte CC BY-SA 4.0, Software MIT gemäß [LICENSING.md](../LICENSING.md); Rechte an fremdem Material, Projektsignet und redaktionelle Verantwortung vor breiter Verbreitung gesondert klären.
