@@ -28,7 +28,8 @@ export const ui = {
       "manifest": "Der Grundtext",
       "pruefstand": "Prüfstand",
       "methode": "Unsere Methode",
-      "mitwirken": "Mitwirken"
+      "mitwirken": "Mitwirken",
+      "erkenntnishorizont": "Der Horizont des Erkennbaren"
     },
     "description": "Ein offenes, korrigierbares Erkenntnisprojekt über Wahrheit, Wirklichkeit und menschliches Handeln."
   },
@@ -61,7 +62,8 @@ export const ui = {
       "manifest": "Foundational Text",
       "pruefstand": "The Examination",
       "methode": "Our Method",
-      "mitwirken": "Contribute"
+      "mitwirken": "Contribute",
+      "erkenntnishorizont": "The Horizon of the Knowable"
     },
     "description": "An open and revisable inquiry into truth, reality, human dignity, and responsible action."
   }

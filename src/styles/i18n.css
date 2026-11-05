@@ -48,3 +48,84 @@
 @media(max-width:1130px){.community-shortcuts{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:930px){.hero .hero__manifesto{margin-right:0;max-width:790px}.hero__premise{max-width:710px}}
 @media(max-width:660px){.hero .hero__manifesto{font-size:clamp(35px,9vw,54px);line-height:1.18}.hero__premise{font-size:18px}.hero .hero__foot{margin-top:55px}.community-shortcuts{grid-template-columns:1fr}.community-shortcuts a{min-height:150px}.locale-landing .locale-landing__question{font-size:clamp(34px,9vw,50px)}}
+
+
+/* Version 0.4 · Horizon of the Knowable */
+.horizon-hero{padding:115px 0 90px;background:radial-gradient(ellipse at 78% 39%,#6b4e342b,transparent 53%),#0b0e10;border-bottom:1px solid var(--line)}
+.horizon-hero__grid{display:grid;grid-template-columns:1.1fr .65fr;gap:50px;align-items:center}
+.horizon-hero h1{font-size:clamp(58px,7.2vw,105px);letter-spacing:-.055em;line-height:1.07;margin:26px 0}
+.horizon-hero h1 em{color:var(--gold-bright);font-weight:400}
+.horizon-lead{font:clamp(19px,2vw,23px)/1.75 var(--serif);max-width:780px;color:#d2cabb}
+.horizon-badges{display:flex;gap:9px;flex-wrap:wrap;margin-top:25px}
+.horizon-badges span{font-size:10px;letter-spacing:.12em;border:1px solid var(--line);color:var(--gold);padding:7px 12px}
+.horizon-hero__sigil{position:relative;display:grid;place-items:center;height:330px;width:330px;margin:auto;border:1px solid #b99a6f70;border-radius:50%;color:var(--gold);font:76px var(--serif);box-shadow:0 0 80px #ab8a5010,inset 0 0 65px #aa8b5712}
+.horizon-hero__sigil::before{content:"";position:absolute;inset:51px;border:1px dashed #c6ab7978;border-radius:50%}
+.horizon-hero__sigil::after{content:"";position:absolute;inset:-28px;border:1px solid #a98a6038;border-radius:50%}
+.horizon-hero__sigil i{position:absolute;left:87%;top:19%;height:9px;width:9px;border:1px dashed var(--gold);border-radius:50%}
+.horizon-model .section-heading{margin-bottom:36px}
+.horizon-figure{border:1px solid var(--line);background:radial-gradient(ellipse at center,#2b241e59,transparent 73%),#0d1214;padding:24px;margin:0}
+.horizon-diagram{display:block;width:100%;height:auto;min-height:240px}
+.horizon-figure figcaption{font-size:12px;line-height:1.7;color:var(--muted);border-top:1px solid var(--line);padding:16px 5px 0}
+.horizon-figure__alt{font-size:12px;line-height:1.75;color:#a6a39b;max-width:1100px;margin:13px auto 44px}
+.horizon-legend{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+.horizon-legend article{border:1px solid var(--line);background:#14191a;display:flex;gap:23px;padding:28px}
+.horizon-legend article:last-child{grid-column:1/-1}
+.horizon-legend__symbol{color:var(--gold-bright);font:27px var(--serif);min-width:88px}
+.horizon-legend h3{font:25px var(--serif);margin:0 0 7px}
+.horizon-legend p{font-size:13px;line-height:1.85;margin:0}
+.horizon-thesis{border-left:2px solid var(--gold);margin:53px 0 0;padding:8px 30px 6px;background:linear-gradient(90deg,#b9976120,transparent 70%)}
+.horizon-thesis span{letter-spacing:.19em;font-size:10px;color:var(--gold)}
+.horizon-thesis blockquote{font:clamp(22px,2.6vw,37px)/1.5 var(--serif);margin:18px 0;color:#e8dece}
+.horizon-child{background:radial-gradient(ellipse at center,#4c3b2623,transparent 71%),var(--ink)}
+.horizon-child p:not(.section-kicker){font:clamp(18px,2vw,22px)/1.85 var(--serif);max-width:760px}
+.horizon-child blockquote{font:clamp(25px,3.3vw,43px)/1.4 var(--serif);color:var(--gold-bright);border-left:1px solid var(--gold);padding-left:23px;margin:35px 0 0}
+.horizon-distinction-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:38px}
+.horizon-distinction-grid article{padding:32px 36px;border:1px solid var(--line);background:#101516}
+.horizon-distinction-grid article span{color:var(--gold);letter-spacing:.15em;font-size:10px}
+.horizon-distinction-grid h3{font:clamp(24px,2.6vw,33px)/1.28 var(--serif);margin:22px 0 12px}
+.horizon-distinction-grid p{font-size:14px;line-height:1.9}
+.horizon-process__grid{display:grid;grid-template-columns:1fr 1fr;gap:12%}
+.horizon-process h2,.horizon-collaboration h2{font:clamp(39px,4.2vw,61px)/1.14 var(--serif);margin:24px 0}
+.horizon-process__quote{border-top:1px solid var(--gold);margin-top:46px;padding-top:21px;font:23px/1.65 var(--serif);color:var(--gold-bright)}
+.horizon-process ol{padding:0;margin:0;list-style:none;border-top:1px solid var(--line)}
+.horizon-process li{display:grid;grid-template-columns:40px 1fr;gap:15px;border-bottom:1px solid var(--line);padding:18px 0}
+.horizon-process li b{font:13px var(--serif);color:var(--gold)}
+.horizon-process li strong{font:26px var(--serif);font-weight:400}
+.horizon-process li p{font-size:13px;margin:4px 0 0}
+.horizon-collaboration{display:grid;grid-template-columns:1fr 1fr;gap:10%}
+.horizon-collaboration>div+div{border-left:1px solid var(--line);padding-left:8%}
+.horizon-collaboration p:not(.section-kicker){font-size:15px;line-height:1.95}
+.horizon-collaboration blockquote{font:24px/1.55 var(--serif);color:var(--gold);border-top:1px solid var(--line);padding-top:17px;margin-top:24px}
+.horizon-collaboration .button-row{margin-top:30px}
+.horizon-sources ul{list-style:none;margin:29px 0;padding:0;border-top:1px solid var(--line)}
+.horizon-sources li{padding:17px 0;border-bottom:1px solid var(--line)}
+.horizon-sources li a{font:17px/1.6 var(--serif);color:var(--gold-bright)}
+.horizon-sources li small{display:block;color:var(--muted);margin-top:5px;font-size:12px}
+.horizon-return{margin-top:45px}
+.horizon-teaser{background:radial-gradient(ellipse at 82% 35%,#553d2b31,transparent 54%),#101516}
+.horizon-teaser__grid{display:grid;grid-template-columns:1.3fr .7fr;gap:65px;align-items:center}
+.horizon-teaser h2{font:clamp(40px,4.8vw,68px)/1.2 var(--serif);letter-spacing:-.04em;margin:20px 0}
+.horizon-teaser h2 em{color:var(--gold-bright);font-weight:400}
+.horizon-teaser p:not(.section-kicker){font-size:15px;line-height:1.85;max-width:690px}
+.horizon-teaser .button{margin-top:16px}
+.horizon-teaser__drawing{max-width:340px;width:100%;margin:auto}
+.horizon-teaser__drawing svg{width:100%;height:auto;display:block}
+@media(max-width:800px){
+.horizon-hero__grid,.horizon-teaser__grid{grid-template-columns:1fr;gap:24px}
+.horizon-hero__sigil{display:none}
+.horizon-teaser__drawing{display:none}
+.horizon-process__grid,.horizon-collaboration{grid-template-columns:1fr;gap:40px}
+.horizon-collaboration>div+div{border-left:none;border-top:1px solid var(--line);padding:32px 0 0}
+}
+@media(max-width:660px){
+.horizon-hero{padding:70px 0 62px}
+.horizon-hero h1{font-size:clamp(44px,11vw,65px)}
+.horizon-figure{padding:6px}
+.horizon-figure figcaption{padding:14px}
+.horizon-legend,.horizon-distinction-grid{grid-template-columns:1fr}
+.horizon-legend article:last-child{grid-column:auto}
+.horizon-legend article{padding:20px;gap:18px}
+.horizon-legend__symbol{min-width:68px;font-size:22px}
+.horizon-distinction-grid article{padding:24px}
+.horizon-process h2,.horizon-collaboration h2{font-size:40px}
+}

@@ -1,7 +1,24 @@
 ---
 import Layout from "../layouts/SiteLayout.astro";
+import HorizonTeaser from "./HorizonTeaser.astro";
 import {getPage} from "../lib/pages.mjs";
 const {lang,slug}=Astro.props;
 const content=getPage(lang,slug);
+const anchors={
+  index:'<section class="section section--paper" id="felder">',
+  atlas:'<section class="section"><div class="narrow text-center">',
+  bibliothek:'<section class="section section--paper">',
+  methode:'<section class="section section--paper">'
+};
+const hasTeaser=Object.hasOwn(anchors,slug);
+const anchor=anchors[slug];
+const splitAt=hasTeaser?(slug==="index"?content.indexOf(anchor):content.lastIndexOf(anchor)):-1;
+if(hasTeaser&&splitAt<0)throw Error("Missing semantic insertion point: "+slug);
+const first=splitAt<0?content:content.slice(0,splitAt);
+const last=splitAt<0?"":content.slice(splitAt);
 ---
-<Layout lang={lang} slug={slug}><Fragment set:html={content} /></Layout>
+<Layout lang={lang} slug={slug}>
+  <Fragment set:html={first}/>
+  {hasTeaser&&<HorizonTeaser lang={lang} from={slug}/>}
+  {last&&<Fragment set:html={last}/>}
+</Layout>

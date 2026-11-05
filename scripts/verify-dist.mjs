@@ -1,6 +1,6 @@
 import {access,readFile} from "node:fs/promises";
 import {join} from "node:path";
-const out=join(process.cwd(),"dist"),slugs=["index","atlas","bibliothek","lesestueck-wahrheit","manifest","pruefstand","methode","mitwirken"],errors=[];
+const out=join(process.cwd(),"dist"),slugs=["index","atlas","bibliothek","lesestueck-wahrheit","manifest","pruefstand","methode","mitwirken","erkenntnishorizont"],errors=[];
 for(const lang of ["de","en"]){
  for(const slug of slugs){
   const file=join(out,lang,...(slug==="index"?[]:[slug]),"index.html");
@@ -21,4 +21,9 @@ try{
  if(!en.includes("Reality is under no obligation")||!de.includes("Die Wirklichkeit ist nicht verpflichtet"))errors.push("Critical thesis mismatch");
 }catch{errors.push("Missing thesis pages");}
 if(errors.length){console.error(errors.join("\n"));process.exit(1);}
-console.log("Verified 16 localized pages, canonical/hreflang, legacy redirect assets and key translations.");
+console.log("Verified 18 localized pages, canonical/hreflang, legacy redirect assets and key translations.");
+
+for(const lang of ["de","en"]){
+ const chapter=await readFile(join(out,lang,"erkenntnishorizont","index.html"),"utf8");
+ if(!chapter.includes("horizon-diagram")||!chapter.includes("x₄")){console.error("Missing accessible horizon illustration for "+lang);process.exit(1);}
+}
