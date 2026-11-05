@@ -29,6 +29,14 @@
 
 Wenn du die Website oder einen Text direkt verbessern möchtest, erstelle einen **Pull Request**. Wie das ohne Vorkenntnisse geht, steht in [CONTRIBUTING.md](CONTRIBUTING.md). / To edit the website or its texts, open a pull request; see the bilingual [contribution guide](CONTRIBUTING.md).
 
+## Horizont des Erkennbaren / Horizon of the Knowable
+
+Ein neues zweisprachiges Kapitel untersucht den Erkenntnishorizont als **philosophisches Modell**. M steht für den Menschen, a/b für frühere und gegenwärtige Möglichkeiten der Erkenntnis, x₁–x₃ für unbekannte oder ungeprüfte Kandidaten und x₄ für einen denkbaren künftigen Zugang. **Unbekannt bedeutet nicht wahr.** Die Darstellung untersucht auch, wie Philosophie, Mathematik, Wissenschaft und KI bei der Suche helfen können, ohne Beweise zu ersetzen.
+
+Das ursprüngliche Foto einer Handskizze bleibt privat; die Website verwendet eine eigenständige zugängliche SVG-Illustration.
+
+[Deutsch: Der Horizont des Erkennbaren](https://alexanderr1991.github.io/grundtext-des-wirklichen/de/erkenntnishorizont/) · [English: The Horizon of the Knowable](https://alexanderr1991.github.io/grundtext-des-wirklichen/en/erkenntnishorizont/)
+
 ## Unser Anspruch / Our standard
 
 **Kritik ist willkommen, Zustimmung nicht erforderlich.** Die neun Leitsätze sind vorläufige, hauptsächlich philosophisch-normative Aussagen und keine wissenschaftlich bestätigte Gesamttheorie. Behauptungen über Tatsachen benötigen Quellen; Metaphern dürfen keine empirischen Belege ersetzen.
