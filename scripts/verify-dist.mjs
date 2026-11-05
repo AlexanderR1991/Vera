@@ -1,6 +1,6 @@
 import {access,readFile} from "node:fs/promises";
 import {join} from "node:path";
-const out=join(process.cwd(),"dist"),slugs=["index","atlas","bibliothek","lesestueck-wahrheit","manifest","pruefstand","methode","mitwirken","erkenntnishorizont","warum-liebe-wirkt","politik-die-dem-menschen-dient","bruecken-zwischen-den-religionen","militaer-und-verantwortung","angriffsschwarm"],errors=[];
+const out=join(process.cwd(),"dist"),slugs=["index","atlas","bibliothek","lesestueck-wahrheit","manifest","pruefstand","methode","mitwirken","erkenntnishorizont","warum-liebe-wirkt","politik-die-dem-menschen-dient","bruecken-zwischen-den-religionen","militaer-und-verantwortung","ernaehrung-und-verantwortung","angriffsschwarm"],errors=[];
 for(const lang of ["de","en"]){
  for(const slug of slugs){
   const file=join(out,lang,...(slug==="index"?[]:[slug]),"index.html");
@@ -21,7 +21,7 @@ try{
  if(!en.includes("Reality is under no obligation")||!de.includes("Die Wirklichkeit ist nicht verpflichtet"))errors.push("Critical thesis mismatch");
 }catch{errors.push("Missing thesis pages");}
 if(errors.length){console.error(errors.join("\n"));process.exit(1);}
-console.log("Verified 28 localized pages, canonical/hreflang, legacy redirect assets and key translations.");
+console.log("Verified 30 localized pages, canonical/hreflang, legacy redirect assets and key translations.");
 
 for(const lang of ["de","en"]){
  const chapter=await readFile(join(out,lang,"erkenntnishorizont","index.html"),"utf8");
@@ -97,3 +97,18 @@ for(const lang of ["de","en"]){
  }
 }
 if(errors.length){console.error(errors.join("\\n"));process.exit(1);}
+
+
+// Liber Alimenti: bilingual nutrition, sources, countermodels and editorial discovery.
+for(const lang of ["de","en"]){
+ const chapter=await readFile(join(out,lang,"ernaehrung-und-verantwortung","index.html"),"utf8");
+ for(const token of ["nut-hero","nut-grid","nut-exam","nut-sources","e-a","e-d","who.int/news-room/fact-sheets/detail/healthy-diet","dge.de/"]){
+  if(!chapter.includes(token))errors.push("Nutrition chapter "+lang+" lacks "+token);
+ }
+ for(const slug of ["index","atlas","bibliothek","pruefstand"]){
+  const html=await readFile(join(out,lang,...(slug==="index"?[]:[slug]),"index.html"),"utf8");
+  if(!html.includes("nutrition-teaser")||!html.includes("/"+lang+"/ernaehrung-und-verantwortung/"))
+   errors.push("Nutrition discovery missing from "+lang+"/"+slug);
+ }
+}
+if(errors.length){console.error(errors.join("\n"));process.exit(1);}

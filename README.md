@@ -79,6 +79,16 @@ Ein zweisprachiges theologisches Kapitel eröffnet einen respektvollen, aber kri
 - [English: Military Power and Responsibility (translation draft)](https://alexanderr1991.github.io/grundtext-des-wirklichen/en/militaer-und-verantwortung/)
 - [Offenes Forschungsprogramm mit Quellen](docs/forschungsprogramm-militaer.md)
 
+## Ernährung, Leben und Verantwortung / Nutrition and Responsibility
+
+**Liber Alimenti (Version 0.8)** verbindet Zellbiologie und Stoffwechsel mit evidenzbasierter Ernährung, Lebensmittelzugang, persönlicher Freiheit, Tierwohl und ökologischen Folgen. Eine einfache Warum-Frage führt zur wissenschaftlichen Prüfung: Was benötigt der Körper? Welche Aussagen sind wirklich belegt? Wie behandeln wir Zielkonflikte, ohne Menschen für ihre Ernährung zu verurteilen?
+
+**Keine Ernährungsreligion und kein universell bewiesener Speiseplan.** Das deutsch-englische Kapitel stützt sich auf WHO-Leitlinien (2026), DGE-Empfehlungen und die DGE-Neubewertung veganer Ernährung (2024) sowie WHO/FAO-Prinzipien für nachhaltige Ernährung (2019). Vier offene Forschungsfragen E-A bis E-D sind ausdrücklich nicht vorregistriert oder bestätigt.
+
+- [Deutsch: Ernährung und Verantwortung](https://alexanderr1991.github.io/grundtext-des-wirklichen/de/ernaehrung-und-verantwortung/)
+- [English: Nutrition and Responsibility (translation draft)](https://alexanderr1991.github.io/grundtext-des-wirklichen/en/ernaehrung-und-verantwortung/)
+- [Offenes Forschungsprogramm, Evidenzstand und Quellen](docs/forschungsprogramm-ernaehrung.md)
+
 ## Angriffsschwarm / Adversarial Swarm
 
 **Greift unsere Thesen an.** Der Angriffsschwarm stellt öffentliche Behauptungen täglich einem KI-gestützten Gegenargument, einer fairen Verteidigung und einer kritischen Einordnung gegenüber. Alle Ergebnisse sind **ungeprüfte KI-Entwürfe**, keine unabhängigen Fachgutachten; der tägliche Workflow benötigt einen konfigurierten API-Schlüssel.

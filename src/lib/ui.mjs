@@ -35,7 +35,8 @@ export const ui = {
       "warum-liebe-wirkt": "Warum Liebe wirkt",
       "politik-die-dem-menschen-dient": "Politik, die dem Menschen dient",
       "bruecken-zwischen-den-religionen": "Brücken zwischen den Religionen",
-      "militaer-und-verantwortung": "Militär und Verantwortung"
+      "militaer-und-verantwortung": "Militär und Verantwortung",
+      "ernaehrung-und-verantwortung": "Ernährung und Verantwortung"
     },
     "description": "Ein offenes, korrigierbares Erkenntnisprojekt über Wahrheit, Wirklichkeit und menschliches Handeln."
   },
@@ -75,7 +76,8 @@ export const ui = {
       "warum-liebe-wirkt": "Why Love Works",
       "politik-die-dem-menschen-dient": "Politics That Serves People",
       "bruecken-zwischen-den-religionen": "Bridges Between Religions",
-      "militaer-und-verantwortung": "Military Power and Responsibility"
+      "militaer-und-verantwortung": "Military Power and Responsibility",
+      "ernaehrung-und-verantwortung": "Nutrition and Responsibility"
     },
     "description": "An open and revisable inquiry into truth, reality, human dignity, and responsible action."
   }

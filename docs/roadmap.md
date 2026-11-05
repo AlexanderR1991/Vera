@@ -67,3 +67,13 @@ Keine weltanschauliche Gefolgschaft, keine autoritären Wahrheitsnoten, keine pr
 - [x] Quellen von UN, IKRK und OSZE einordnen; KI-Waffensysteme als offene Rechtsfrage behandeln
 - [ ] Unabhängiges Fachreview in humanitärem Völkerrecht, Friedensforschung und demokratischer Kontrolle
 - [ ] Systematische vergleichende Literaturrecherche, Fallanalysen und Übersetzungsprüfung
+
+## 0.8 – Liber Alimenti: Ernährung, Leben und Verantwortung
+- [x] Zweisprachiges Kapitel vom Zellstoffwechsel bis zum Ernährungssystem
+- [x] WHO-, DGE- und WHO/FAO-Quellen nach Geltungsbereich unterscheiden
+- [x] Individuelle Bedürfnisse, Zugang, Tierwohl und Umwelt als Zielkonflikte behandeln
+- [x] Fallprüfung einer Schulverpflegung und vier offene Hypothesen E-A bis E-D
+- [x] Startseite, Atlas, Bibliothek, Prüfstand und Sitemap zweisprachig verknüpfen
+- [ ] Systematische Literaturrecherche zu einzelnen Ernährungsinterventionen mit Unsicherheitsbewertung
+- [ ] Unabhängige Begutachtung durch Ernährungswissenschaft, Public Health und Betroffene
+- [ ] Professionelles Übersetzungsreview; laufende Aktualisierung an neue Empfehlungen

@@ -5,6 +5,7 @@ import LoveTeaser from "./LoveTeaser.astro";
 import PolicyTeaser from "./PolicyTeaser.astro";
 import TheologyTeaser from "./TheologyTeaser.astro";
 import MilitaryTeaser from "./MilitaryTeaser.astro";
+import NutritionTeaser from "./NutritionTeaser.astro";
 import {getPage} from "../lib/pages.mjs";
 const {lang,slug}=Astro.props;
 const content=getPage(lang,slug);
@@ -36,6 +37,12 @@ const anchors={
     bibliothek:['<section class="section section--paper">', "last"],
     pruefstand:['<section class="section"><div class="narrow text-center">', "last"]
   },
+  nutrition:{
+    index:['<section class="closing">',"last"],
+    atlas:['<section class="section"><div class="narrow text-center">',"last"],
+    bibliothek:['<section class="section section--paper">',"last"],
+    pruefstand:['<section class="section"><div class="narrow text-center">',"last"]
+  },
   military:{
     index:['<section class="closing">',"last"],
     atlas:['<section class="section"><div class="narrow text-center">',"last"],
@@ -44,8 +51,8 @@ const anchors={
   }
 };
 const insertions=[];
-const priority={horizon:0,love:1,politics:2,theology:3,military:4};
-for(const kind of ["horizon","love","politics","theology","military"]){
+const priority={horizon:0,love:1,politics:2,theology:3,military:4,nutrition:5};
+for(const kind of ["horizon","love","politics","theology","military","nutrition"]){
  const config=anchors[kind][slug];
  if(!config)continue;
  const [marker,position]=config;
@@ -69,6 +76,7 @@ segments.push({kind:"html",body:content.slice(position)});
  part.kind==="love"?<LoveTeaser lang={lang} from={slug}/>:
  part.kind==="politics"?<PolicyTeaser lang={lang} from={slug}/>:
  part.kind==="theology"?<TheologyTeaser lang={lang} from={slug}/>:
- <MilitaryTeaser lang={lang}/>
+ part.kind==="military"?<MilitaryTeaser lang={lang}/>:
+ <NutritionTeaser lang={lang}/>
 )}
 </Layout>

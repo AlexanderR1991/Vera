@@ -58,3 +58,7 @@
 
 ## 0.1 – 2026-11-04
 - Nine provisional philosophical principles and the first public version.
+
+
+## 0.8 · 05.11.2026 – Liber Alimenti
+Einführung des zweisprachigen Kapitels Ernährung, Leben und Verantwortung. Unterscheidung von Physiologie, evidenzbasierter Gesundheit, sozialem Zugang und ökologisch-ethischen Bewertungen. Ein Schulverpflegungs-Dilemma und vier offene Hypothesen (E-A bis E-D) führen die korrigierbare Prüfmethode fort. WHO (2026), DGE (2024) und WHO/FAO (2019) als Orientierung mit expliziten Geltungsgrenzen; kein individueller Ernährungsplan und keine Bestätigung der Forschungsfragen.
