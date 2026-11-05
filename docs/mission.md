@@ -8,6 +8,22 @@ Der Grundtext soll Menschen befähigen, unter Unsicherheit besser zu verstehen, 
 
 Die zweisprachige öffentliche Darstellung liegt unter `/de/mission/` und `/en/mission/`. Dieser Entwurf führt die bisherigen Themen und die in [PR #18](https://github.com/AlexanderR1991/grundtext-des-wirklichen/pull/18) vorgeschlagene Vision eines offenen Wissenssystems zusammen. Er behauptet keine bereits erreichte Leistungsfähigkeit.
 
+## Wir sind Forschung!
+
+**Wir stellen Fragen. Wir machen unsere Annahmen sichtbar. Wir suchen nach dem, was sie verändern könnte. Jede begründete Korrektur ist ein Fortschritt — auch wenn sie unser eigenes Regelwerk trifft.**
+
+Das ist ein Arbeitsanspruch, der sich an nachvollziehbarer Forschung bewähren muss. Für jedes konkrete Forschungsvorhaben verpflichten wir uns zu fünf Schritten:
+
+1. **Frage begrenzen:** Begriffe, Aussageart und Geltungsbereich benennen; offene Fragen als offen kennzeichnen.
+2. **Prüfung vorab bestimmen:** Gegenmodelle und Einwände ernst nehmen, eine passende Methode wählen und vor der Prüfung festhalten, welche Befunde oder Argumente eine Revision verlangen würden.
+3. **Arbeit nachvollziehbar machen:** Quellen, Methoden, Auswertung und Grenzen dokumentieren. Daten und Code zugänglich machen, soweit Rechte und der Schutz Beteiligter es erlauben; fehlenden Zugang offenlegen.
+4. **Ergebnisoffen auswerten:** Auch Nullbefunde, gescheiterte Tests und ungeklärte Widersprüche dokumentieren. Unabhängige Prüfung ermöglichen; KI-Ausgaben bleiben bis zur Prüfung Entwürfe.
+5. **Sichtbar korrigieren:** Aussagen bei tragfähigen Einwänden eingrenzen, ändern oder zurückziehen. Gründe, Version und redaktionelle Verantwortung dokumentieren. Das gilt auch für unsere Methode.
+
+Derzeit entwickeln wir Fragen, Methoden und ungeprüfte Prototypen. Welche Aussagen bereits gestützt sind, muss jede einzelne Prüfung zeigen. Unser Forschungsanspruch ist kein Beleg für ein Ergebnis. Werte und Metaphern behalten ihre eigenen Begründungswege.
+
+**Stellt uns Fragen. Forscht mit.** Eine sorgfältige Quellenprüfung, ein Gegenbeispiel oder eine dokumentierte Wiederholung kann ebenso beitragen wie eine neue Idee.
+
 ## 1. Warum das Raumschiff?
 
 Es ist ein **Organisationsbild**: Menschen erkunden gemeinsam das Unbekannte, benötigen Orientierung und müssen Fehler erkennen können. Das Bild liefert weder einen physikalischen Beweis noch eine natürliche Rangordnung der Besatzung. Wer widerspricht, gehört deshalb nicht weniger dazu.
@@ -89,6 +105,8 @@ Danach die Methode selbst vergleichen: vorab definierte Aufgaben und Bewertungsr
 Erst nach gezeigtem Nutzen folgen mehr Themen und mehr Autonomie. Der langfristige Anspruch einer nächsten Generation freien Wissens — vielleicht einmal Ergänzung oder Alternative zu Wikipedia — wird durch Qualität verdient. Eine Zugehörigkeit oder offizielle Nachfolge wird nicht behauptet.
 
 ## English summary
+
+**We are research!** This is a commitment to clear questions, appropriate tests, inspectable work, evaluation without a predetermined conclusion, and visible correction. For each concrete project, we specify possible grounds for revision before testing, document methods and limitations, share data and code where rights and participant protection permit, and disclose access restrictions. Null findings, failed tests and unresolved contradictions belong in the record. Independent scrutiny must be possible; AI outputs remain drafts until examined. Corrections include reasons, version and editorial responsibility, and may also change our own framework. We are currently developing questions, methods and unreviewed prototypes; this commitment does not establish any result. Ask us questions. Join the research.
 
 **Examine knowledge. Act with care. Correct our course.** Foundations of Reality is an open workshop for understanding, accountable decisions and revision under uncertainty. A spacecraft is an organizing metaphor, not a scientific claim or a hierarchy of human worth.
 

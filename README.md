@@ -1,5 +1,7 @@
 # Grundtext des Wirklichen · Foundations of Reality
 
+**Wir sind Forschung! / We are research!**
+
 > **Wissen prüfen. Menschlich handeln. Den Kurs korrigieren.**
 >
 > *Examine knowledge. Act with care. Correct our course.*
@@ -7,6 +9,10 @@
 Was wäre, wenn wir ein Werk schreiben, das für immer lernen darf?
 
 Wir entwickeln eine offene Werkstatt, in der Menschen Wissen prüfen, Entscheidungen begründen und aus Irrtümern lernen. Wissenschaft, Philosophie und KI tragen unterschiedliche Werkzeuge bei. Menschliche Würde, Freiheit und Fürsorge sind offengelegte Werte; konkrete Wirkungen bleiben zu untersuchen.
+
+Unser Forschungsanspruch verpflichtet uns: klare Fragen, passende Prüfungen, nachvollziehbare Methoden, dokumentierte Gegenbefunde und sichtbare Korrekturen. Auch unser eigenes Regelwerk steht zur Prüfung. Dieser Anspruch muss sich an der Arbeit bewähren; er bescheinigt keinem Ergebnis Wahrheit. [Forschungsanspruch und fünf Arbeitsschritte](docs/mission.md#wir-sind-forschung).
+
+Our research commitment calls for clear questions, appropriate tests, inspectable methods, documented counterevidence and visible corrections. Our own framework is open to examination too. This commitment must be demonstrated through the work; it does not certify any result.
 
 [Website](https://alexanderr1991.github.io/grundtext-des-wirklichen/) · [Deutsch](https://alexanderr1991.github.io/grundtext-des-wirklichen/de/) · [English draft](https://alexanderr1991.github.io/grundtext-des-wirklichen/en/) · [Mission / Blueprint](docs/mission.md) · [Roadmap](docs/roadmap.md)
 
