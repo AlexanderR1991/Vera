@@ -1,0 +1,71 @@
+.mission-hero{padding:80px 0 0;background:radial-gradient(ellipse at 86% 32%,#29413b30,transparent 45%)}
+.mission-hero__grid{display:grid;grid-template-columns:1.22fr 1fr;gap:70px;align-items:center}
+.mission-hero h1{font-size:clamp(50px,5.6vw,82px);line-height:1.1;letter-spacing:-.045em;margin:27px 0}
+.mission-hero h1 em{color:var(--gold-bright);font-weight:400}
+.mission-lead{font-size:18px;max-width:620px;line-height:1.8}
+.mission-premise{font:italic 20px/1.6 var(--serif);max-width:490px;margin:32px 0;color:var(--gold)}
+.mission-instrument{border:1px solid var(--line);padding:25px 30px;background:#10171988}
+.mission-instrument svg{width:100%;max-height:230px;color:var(--gold);display:block}
+.mission-instrument h2{font-size:28px;line-height:1.2;margin:8px 0 15px}
+.mission-instrument p:not(.section-kicker){font-size:13px;line-height:1.7}
+.mission-instrument dl{margin:22px 0 0;display:grid;gap:15px}
+.mission-instrument dl>div{border-top:1px solid var(--line);padding-top:12px}
+.mission-instrument dt{font-size:9px;color:var(--gold);letter-spacing:.17em}
+.mission-instrument dd{margin:4px 0 0;font-size:12px;color:var(--text-soft)}
+.mission-status{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;border-top:1px solid var(--line);padding:18px 0;margin-top:65px;font-size:12px;color:var(--text-soft)}
+.mission-status a{color:var(--gold)}
+.mission-section h2{font-size:clamp(35px,4.1vw,55px);line-height:1.16;margin:0 0 24px}
+.mission-rooms{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.mission-rooms article{border-top:1px solid var(--gold);padding-top:24px;display:flex;flex-direction:column;align-items:flex-start}
+.mission-rooms h3{font-size:30px;line-height:1.15;margin:22px 0 16px}
+.mission-rooms p{font-size:15px}
+.mission-rooms .subtle-link{margin-top:auto}
+.mission-note{font-size:12px!important;line-height:1.7;color:#a8ada8!important;margin-top:18px}
+.mission-fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.mission-field{padding:28px!important;border-right:1px solid var(--line);border-bottom:1px solid var(--line);position:relative;background:transparent!important;display:block;transition:background .18s}
+.mission-field:hover{background:#c2a67e0a!important}
+.mission-field h3{font-size:28px;line-height:1.2;margin:30px 0 14px}
+.mission-field p{font-size:14px;margin-bottom:30px}
+.mission-field>span:last-child{color:var(--gold);font-size:20px}
+.mission-split{display:grid;grid-template-columns:1.1fr .85fr;gap:90px;align-items:center}
+.mission-split h2{margin:18px 0 25px}
+.mission-simple{border-left:1px solid var(--gold);padding:30px}
+.mission-simple h3{font-size:37px;line-height:1.2}
+.mission-center{justify-content:center}
+.mission-document{padding:70px 0 100px}
+.mission-document header{max-width:850px;margin-bottom:50px}
+.mission-document h1{font-size:clamp(45px,6vw,76px);line-height:1.1;letter-spacing:-.04em;margin:18px 0 25px}
+.mission-document h2{font-size:clamp(29px,3.5vw,42px);line-height:1.2;margin:0 0 25px}
+.mission-document h3{font-size:25px;line-height:1.25;margin:0 0 14px}
+.mission-document section{padding:45px 0;border-top:1px solid var(--line);scroll-margin-top:130px}
+.mission-document section>p{max-width:900px}
+.mission-toc{display:flex;flex-wrap:wrap;gap:10px 23px;margin:30px 0;font-size:13px;color:var(--gold)}
+.mission-toc a,.mission-document p a,.claim-card a{text-decoration:underline;text-underline-offset:4px}
+.mission-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px}
+.mission-grid>article{border:1px solid var(--line);padding:26px}
+.mission-callout{border-left:2px solid var(--gold);padding:10px 22px;margin:25px 0;background:#c2a67e08}
+.mission-table-wrap{overflow:auto}
+.mission-table{border-collapse:collapse;width:100%;font-size:14px;margin:20px 0}
+.mission-table th,.mission-table td{text-align:left;vertical-align:top;padding:16px;border-bottom:1px solid var(--line)}
+.mission-table th{color:var(--gold);font-weight:500}
+.mission-table td{color:var(--text-soft)}
+.mission-steps{padding-left:25px;max-width:900px}
+.mission-steps li{padding:8px 0 8px 10px;color:var(--text-soft)}
+.mission-steps strong{color:var(--text)}
+.claim-tools{display:flex;align-items:end;gap:20px;flex-wrap:wrap;border:1px solid var(--line);padding:22px;margin:30px 0}
+.claim-tools label{font-size:12px;color:var(--gold);display:flex;flex-direction:column;gap:6px;flex:1;min-width:160px}
+.claim-tools input,.claim-tools select{background:var(--ink);border:1px solid #62675f;padding:10px;color:var(--text);width:100%;border-radius:0;min-height:46px}
+.claim-card{padding:35px 0!important;scroll-margin-top:130px}
+.claim-meta{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:12px;color:var(--gold);margin-bottom:22px}
+.claim-card .claim-statement{font:27px/1.45 var(--serif);color:var(--text);max-width:950px}
+.claim-card dl{display:grid;grid-template-columns:minmax(120px,.28fr) 1fr;gap:14px 30px;max-width:1050px}
+.claim-card dt{font-size:12px;color:var(--gold)}
+.claim-card dd{margin:0;font-size:14px;color:var(--text-soft)}
+.claim-card dd ul{margin:0;padding-left:18px}
+.claim-card details{margin:24px 0;font-size:14px}
+.claim-card summary{cursor:pointer;color:var(--gold);padding:10px 0}
+.claim-card details p{font-size:13px;margin:12px 0}
+.claim-card .button{margin-top:15px;text-decoration:none}
+@media(max-width:1050px){.mission-hero__grid{gap:35px}.mission-fields{grid-template-columns:repeat(2,minmax(0,1fr))}.mission-split{gap:40px}.mission-hero h1{font-size:55px}}
+@media(max-width:760px){.mission-hero{padding-top:50px}.mission-hero__grid,.mission-rooms,.mission-split,.mission-grid{grid-template-columns:1fr}.mission-hero h1{font-size:clamp(43px,9vw,62px)}.mission-instrument{margin-top:10px}.mission-instrument svg{max-height:180px}.mission-rooms{gap:40px}.mission-fields{grid-template-columns:1fr}.mission-split{gap:30px}.mission-simple{padding:20px}.mission-status{margin-top:40px}.mission-document{padding-top:45px}.mission-table{min-width:570px}.claim-card dl{grid-template-columns:1fr;gap:7px}.claim-card dd{margin-bottom:14px}.claim-tools{align-items:stretch}.mission-field h3{margin-top:20px}}
+@media(prefers-reduced-motion:reduce){.mission-field{transition:none}}

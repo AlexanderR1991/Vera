@@ -6,21 +6,24 @@ export const ui = {
       "Auftakt",
       "Atlas",
       "Bibliothek",
-      "Prüfstand",
+      "Aussagen",
       "Methode",
       "Mitwirken"
     ],
-    "archive": "ARCHIV / ARBEITSFASSUNG 0.6",
+    "archive": "ARCHIV / ARBEITSFASSUNG 0.9",
     "motto": "ERKENNTNIS IST KEIN ENDZUSTAND",
     "footerTitle": "Die Wirklichkeit steht über diesem Werk.",
     "footerDescription": "Ein philosophischer Entwurf, der korrigierbar bleiben soll.",
     "explore": "ERKUNDEN",
     "project": "PROJEKT",
     "source": "Quelltext",
-    "status": "Originalfassung · Arbeitsstand 0.6",
+    "status": "Originalfassung · Arbeitsstand 0.9",
     "copyright": "© 2026 AlexanderR1991 & Mitwirkende · Texte CC BY-SA 4.0 · Code MIT",
     "disclosure": "MIT KI-UNTERSTÜTZUNG ERSTELLT · OFFEN FÜR KRITIK",
     "titles": {
+      "mission": "Unsere Mission",
+      "baum-des-wissens": "Der fliegende Baum",
+      "aussagen": "Aussagenregister",
       "index": "Auftakt",
       "atlas": "Wissensatlas",
       "bibliothek": "Bibliothek",
@@ -49,11 +52,11 @@ export const ui = {
       "Introduction",
       "Atlas",
       "Library",
-      "Examination",
+      "Claims",
       "Method",
       "Contribute"
     ],
-    "archive": "ARCHIVE / WORKING DRAFT 0.6",
+    "archive": "ARCHIVE / WORKING DRAFT 0.9",
     "motto": "KNOWLEDGE IS NEVER COMPLETE",
     "footerTitle": "Reality stands above this work.",
     "footerDescription": "A philosophical proposal designed to remain open to correction.",
@@ -64,6 +67,9 @@ export const ui = {
     "copyright": "© 2026 AlexanderR1991 & contributors · Text CC BY-SA 4.0 · Code MIT",
     "disclosure": "CREATED WITH AI ASSISTANCE · OPEN TO CRITICISM",
     "titles": {
+      "mission": "Our Mission",
+      "baum-des-wissens": "The Flying Tree",
+      "aussagen": "Claim Register",
       "index": "Introduction",
       "atlas": "Atlas of Knowledge",
       "bibliothek": "Library",
@@ -86,4 +92,4 @@ export const ui = {
     "description": "An open and revisable inquiry into truth, reality, human dignity, and responsible action."
   }
 };
-export const navigation = [["index",0],["atlas",1],["bibliothek",2],["pruefstand",3],["methode",4],["mitwirken",5]];
+export const navigation = [["index",0],["atlas",1],["bibliothek",2],["aussagen",3],["methode",4],["mitwirken",5]];
