@@ -22,6 +22,7 @@ export const ui = {
     "disclosure": "MIT KI-UNTERSTÜTZUNG ERSTELLT · OFFEN FÜR KRITIK",
     "titles": {
       "mission": "Unsere Mission",
+      "baum-des-wissens": "Der fliegende Baum",
       "aussagen": "Aussagenregister",
       "index": "Auftakt",
       "atlas": "Wissensatlas",
@@ -32,6 +33,7 @@ export const ui = {
       "methode": "Unsere Methode",
       "mitwirken": "Mitwirken",
       "fragen-und-ki-prompt": "Stellt uns Fragen! · KI-Prompt",
+      "kunst-und-erkenntnis": "Kunst und Erkenntnis",
       "forschungsstrom": "Forschungsstrom",
       "angriffsschwarm": "Angriffsschwarm",
       "erkenntnishorizont": "Der Horizont des Erkennbaren",
@@ -67,6 +69,7 @@ export const ui = {
     "disclosure": "CREATED WITH AI ASSISTANCE · OPEN TO CRITICISM",
     "titles": {
       "mission": "Our Mission",
+      "baum-des-wissens": "The Flying Tree",
       "aussagen": "Claim Register",
       "index": "Introduction",
       "atlas": "Atlas of Knowledge",
@@ -77,6 +80,7 @@ export const ui = {
       "methode": "Our Method",
       "mitwirken": "Contribute",
       "fragen-und-ki-prompt": "Ask us questions! · AI prompt",
+      "kunst-und-erkenntnis": "Art and Inquiry",
       "forschungsstrom": "Research Stream",
       "angriffsschwarm": "Adversarial Swarm",
       "erkenntnishorizont": "The Horizon of the Knowable",

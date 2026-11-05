@@ -29,6 +29,17 @@ Unser **öffentlicher Erkenntnisprompt 1.0** nimmt die Methode mit in ein KI-Ges
 - [Prompt DE](public/prompts/erkenntnisprompt-v1.de.txt) · [Prompt EN](public/prompts/erkenntnisprompt-v1.en.txt) · [Konzept / Concept](docs/erkenntnisprompt.md)
 
 
+## Ein Baum, der vorwärts fliegt / A tree that flies forward
+
+Seine Äste sammeln Philosophie, Fachwissen, Erfahrungen, Kunst und Gegenfragen. Sechs Arbeitsebenen verbinden menschliche Stimmen mit begründeten Zusammenhängen und verantwortbarem Handeln. Mehrfachzuordnungen und ungelöster Dissens bleiben sichtbar. Die Themenkarte umfasst 22 veränderbare Äste mit lesbaren Entwürfen, verlinkten Vorschlägen und offenen Feldern; sie behauptet keine Vollständigkeit.
+
+The branches gather philosophy, disciplinary knowledge, experience, art and objections. Six stages of work connect human voices to reasoned relationships and accountable action. Multiple memberships, gaps and unresolved disagreement remain visible.
+
+- [Gesamtprüfung und erste Korrekturen / Review and first corrections](docs/gesamtpruefung-baum.md)
+- [B-01 · Wer fehlt? / Who is missing?](https://github.com/AlexanderR1991/grundtext-des-wirklichen/issues/28)
+- [B-02 · Werte und Verantwortung / Values and accountability](https://github.com/AlexanderR1991/grundtext-des-wirklichen/issues/29)
+- [B-03 · Nutzen unserer Methode / Usefulness of our method](https://github.com/AlexanderR1991/grundtext-des-wirklichen/issues/30)
+
 ## Ein gemeinsames System / A shared system
 
 Unser „Raumschiff“ ist ein Organisationsbild: Kompass, Karte, Instrumente, Prüfstand, Antrieb und Logbuch. Die Besatzung kann ihren Kurs korrigieren — auch den Bauplan. Es verbindet drei Räume:
@@ -61,8 +72,26 @@ The next goal is ten narrowly scoped, fully examined claims. Independent evaluat
 | Religion / Religion | [Brücken zwischen den Religionen](https://alexanderr1991.github.io/grundtext-des-wirklichen/de/bruecken-zwischen-den-religionen/) | [Dialogprinzipien](docs/theologischer-dialog.md) |
 | Frieden / Peace | [Militär und Verantwortung](https://alexanderr1991.github.io/grundtext-des-wirklichen/de/militaer-und-verantwortung/) | [Forschungsprogramm](docs/forschungsprogramm-militaer.md) |
 | Ernährung / Nutrition | [Ernährung und Verantwortung](https://alexanderr1991.github.io/grundtext-des-wirklichen/de/ernaehrung-und-verantwortung/) | [Forschungsprogramm](docs/forschungsprogramm-ernaehrung.md) |
+| Kunst / Art | [Kunst und Erkenntnis](https://alexanderr1991.github.io/grundtext-des-wirklichen/de/kunst-und-erkenntnis/) | [Konzept und offene Fragen](docs/kunst-und-erkenntnis.md) |
 
 Alle Kapitel haben einen DE/EN-Sprachwechsel. Englisch bleibt ein unabhängig ungeprüfter Übersetzungsentwurf. Kein Kapitel behauptet eine bewiesene Universaltheorie.
+
+## Kunst und Erkenntnis / Art and Inquiry
+
+**KUNST DARF UNS WIDERSPRECHEN. / ART MAY CHALLENGE US.**
+
+Liber Artis öffnet das Projekt für Bilder, Musik, Literatur, Film, Tanz, Spiele und Performance. Werk, Erleben, Deutung, überprüfbare Behauptung und Werturteil bleiben unterscheidbar. Ein erster literarischer Entwurf und drei offene Forschungsfragen laden zum Widerspruch ein; Kunst muss keine Hypothese beweisen.
+
+Art may ask its own questions, including uncomfortable ones about this project. The chapter distinguishes experience and interpretation from testable claims, and welcomes alternative readings. The research proposals are untested.
+
+- [Deutsch: Kunst und Erkenntnis](https://alexanderr1991.github.io/grundtext-des-wirklichen/de/kunst-und-erkenntnis/)
+- [English: Art and Inquiry (translation draft)](https://alexanderr1991.github.io/grundtext-des-wirklichen/en/kunst-und-erkenntnis/)
+- [Konzept, offene Fragen und Quellen / Concept, questions and sources](docs/kunst-und-erkenntnis.md)
+- [Kunst & Gegenlesart einreichen / Submit art & an alternative reading](https://github.com/AlexanderR1991/grundtext-des-wirklichen/issues/new?template=kunst.yml)
+
+Der Forschungsstrom sucht zusätzlich in arXiv und nimmt Kunst als siebtes Crossref-Themenfeld auf. Quellen aus dem übrigen Netz können über die Quellenprüfung eingebracht werden. Begrenzte Metadatensuche und offene Einreichungen sind keine vollständige Erfassung des Netzes oder fachliche Bestätigung.
+
+The research stream also searches arXiv and adds art as a seventh Crossref topic. Other web sources enter through source submissions. Bounded metadata discovery and open submissions are not comprehensive internet coverage or scholarly validation.
 
 ## KI und Mitwirkung / AI and contribution
 

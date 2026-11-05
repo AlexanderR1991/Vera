@@ -1,5 +1,7 @@
 ---
+import ArtTeaser from "./ArtTeaser.astro";
 import InquiryTeaser from "./InquiryTeaser.astro";
+import TreeBridge from "./TreeBridge.astro";
 import Layout from "../layouts/SiteLayout.astro";
 import copy from "../lib/mission-copy.json";
 import {pathFor} from "../lib/paths.mjs";
@@ -39,6 +41,7 @@ const t=copy[lang];
     <div class="container mission-status"><span>{t.status}</span><a href={pathFor(lang,"mission")+"#stand"}>{lang==="de"?"Was bereits existiert ↗":"What exists today ↗"}</a></div>
   </section>
   <InquiryTeaser lang={lang} />
+  <TreeBridge lang={lang} />
   <section class="section mission-section" aria-labelledby="rooms-title"><div class="container">
     <div class="section-heading"><h2 id="rooms-title">{t.roomsTitle}</h2><p>{t.roomsIntro}</p></div>
     <div class="mission-rooms">{t.rooms.map(room=><article><span class="section-kicker">{room.number}</span><h3>{room.title}</h3><p>{room.text}</p><p class="mission-note">{room.note}</p><a class="subtle-link" href={pathFor(lang,room.slug)+(room.hash||"")}>{room.link}</a></article>)}</div>
@@ -55,6 +58,7 @@ const t=copy[lang];
     <div><p class="section-kicker">{lang==="de"?"ERSTER FUNKTIONIERENDER PROTOTYP":"FIRST WORKING PROTOTYPE"}</p><h2>{t.pilotTitle}</h2><p>{t.pilotText}</p><a class="button button--gold" href={pathFor(lang,"aussagen")}>{t.registerLink}</a><p class="mission-note">{t.pilotNote}</p></div>
     <div class="mission-simple"><p class="section-kicker">{lang==="de"?"DIE EINFACHE FRAGE":"THE SIMPLE QUESTION"}</p><h3>{t.simpleTitle}</h3><p>{t.simpleText}</p><a class="subtle-link" href={pathFor(lang,"lesestueck-wahrheit")}>{t.simpleLink}</a></div>
   </div></section>
+  <ArtTeaser lang={lang} />
   <section class="closing"><div class="container closing__inside"><p class="section-kicker">{lang==="de"?"DIE BESATZUNG":"THE CREW"}</p><h2>{t.crewTitle}</h2><p>{t.crewText}</p><div class="button-row mission-center"><a class="button button--gold" href={pathFor(lang,"mitwirken")}>{t.crewLink}</a><a class="button button--ghost" href={pathFor(lang,"angriffsschwarm")}>{t.challengeLink}</a></div></div></section>
 </Layout>
 
