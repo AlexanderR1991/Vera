@@ -30,3 +30,9 @@ Im [Aussagenregister](aussagenregister.md) wird dieses Verfahren an drei ungepr�
 Separate claim type, support and review status. Empirical claims need evidence; formal claims need explicit premises and derivation; ethical judgments need reasons and affected perspectives; interpretations need context; metaphors need clear limits. Hypotheses describe a provisional state. Practical proposals combine empirical and normative questions.
 
 The process and its usefulness also require examination. It is not an established independent peer-review system, and a review label does not certify truth.
+
+## Stellt uns Fragen! / Ask us questions!
+
+Verständnisfragen und Einwände gegen die Methode selbst sind willkommen. Der [öffentliche Erkenntnisprompt](erkenntnisprompt.md) überträgt dieses Prüfverfahren in ein kopierbares KI-Gespräch. Er fordert auch die Prüfung seiner eigenen Regeln; eine Verbesserung der Antwortqualität ist damit noch nicht nachgewiesen.
+
+Questions and challenges to the method itself are welcome. The [public inquiry prompt](erkenntnisprompt.md) makes this procedure available for AI conversations and includes scrutiny of its own rules. Improved answer quality has not yet been demonstrated.

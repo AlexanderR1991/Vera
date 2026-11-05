@@ -1,0 +1,116 @@
+---
+import Layout from "../layouts/SiteLayout.astro";
+import {pathFor,base} from "../lib/paths.mjs";
+import promptDe from "../../public/prompts/erkenntnisprompt-v1.de.txt?raw";
+import promptEn from "../../public/prompts/erkenntnisprompt-v1.en.txt?raw";
+const {lang="de"}=Astro.props;
+const en=lang==="en";
+const prompt=en?promptEn:promptDe;
+const examples=en?[
+  ["Start simply", "Why should I trust this framework?"],
+  ["Challenge a claim", "Which finding would change your view about love?"],
+  ["Bring a dilemma", "What should we do when freedom and protection conflict?"]
+]:[
+  ["Einfach anfangen", "Warum sollte ich diesem Regelwerk vertrauen?"],
+  ["Eine These prüfen", "Welcher Befund würde eure Ansicht über Liebe ändern?"],
+  ["Ein Dilemma mitbringen", "Was tun wir, wenn Freiheit und Schutz einander widersprechen?"]
+];
+---
+<Layout lang={lang} slug="fragen-und-ki-prompt">
+  <section class="page-intro inquiry-hero">
+    <div class="container">
+      <p class="section-kicker">{en?"OPEN QUESTIONS · OPEN INQUIRY":"OFFENE FRAGEN · OFFENES DENKEN"}</p>
+      <h1>{en?"ASK US":"STELLT UNS"}<br /><em>{en?"QUESTIONS!":"FRAGEN!"}</em></h1>
+      <p class="page-intro__lead">{en?"The questions that begin with ‘why’. The ones that make us pause. The ones that could change everything we have written.":"Die Fragen, die mit ‚Warum?‘ anfangen. Die, bei denen wir stocken. Die, nach denen wir alles noch einmal anders schreiben müssen."}</p>
+      <p class="inquiry-lead">{en?"You do not need to believe us. You may ask us to explain, substantiate or correct our claims. This invitation includes the framework itself.":"Ihr müsst uns nicht glauben. Ihr dürft von uns verlangen, dass wir erklären, begründen und korrigieren. Diese Einladung gilt auch für das Regelwerk selbst."}</p>
+      <div class="button-row">
+        <a class="button button--gold" href="https://github.com/AlexanderR1991/grundtext-des-wirklichen/issues/new?template=frage.yml">{en?"Ask a question ↗":"Eine Frage stellen ↗"}</a>
+        <a class="button button--ghost" href="#prompt">{en?"Get the AI prompt ↓":"Zum KI-Prompt ↓"}</a>
+      </div>
+      <p class="small-note">{en?"Questions are submitted publicly on GitHub; an account is required. Do not include private information. This page is not a live AI chat.":"Fragen werden öffentlich über GitHub eingereicht; dafür ist ein Konto nötig. Bitte keine privaten Angaben veröffentlichen. Diese Seite ist kein Live-Chat mit einer KI."}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <p class="section-kicker">{en?"NO PRIOR KNOWLEDGE REQUIRED":"VORWISSEN NICHT ERFORDERLICH"}</p>
+      <h2>{en?"Where would you begin?":"Womit würdet ihr anfangen?"}</h2>
+      <div class="inquiry-examples">
+        {examples.map(([label,question])=><article><p class="section-kicker">{label}</p><h3>{question}</h3></article>)}
+      </div>
+      <p class="inquiry-lead">{en?"Our standard for an answer: explain the claim, show its grounds, take the strongest objection seriously and say what remains open. If we lack expertise or evidence, we say so. A submitted question is not yet a reviewed answer; no response time is promised.":"Unser Maßstab für eine Antwort: die Aussage erklären, ihre Gründe zeigen, den stärksten Einwand ernst nehmen und sagen, was offenbleibt. Fehlen uns Fachkenntnis oder Belege, benennen wir das. Eine eingereichte Frage ist noch keine geprüfte Antwort; eine feste Antwortzeit versprechen wir nicht."}</p>
+      <a class="subtle-link" href={pathFor(lang,"angriffsschwarm")}>{en?"Submit a structured challenge →":"Einen begründeten Einwand einreichen →"}</a>
+    </div>
+  </section>
+
+  <section class="section section--paper" id="prompt" aria-labelledby="prompt-title">
+    <div class="container">
+      <p class="section-kicker">{en?"THE PUBLIC INQUIRY PROMPT · DRAFT 1.0":"DER ÖFFENTLICHE ERKENNTNISPROMPT · FASSUNG 1.0"}</p>
+      <h2 id="prompt-title">{en?"Take the method with you.":"Nehmt die Methode mit."}</h2>
+      <p class="inquiry-lead">{en?"Copy the prompt into an AI conversation and add your question at the end. It asks for evidence, objections and correction – and invites the AI to challenge this very prompt. Its effectiveness has not yet been systematically evaluated.":"Kopiert den Prompt in ein KI-Gespräch und ergänzt am Ende eure Frage. Er fordert Belege, Gegenargumente und Korrektur – und lädt die KI ein, diesen Prompt selbst zu hinterfragen. Seine Wirksamkeit wurde bisher nicht systematisch untersucht."}</p>
+      <ol class="inquiry-steps">
+        <li>{en?"Copy the full text or download it.":"Den vollständigen Text kopieren oder herunterladen."}</li>
+        <li>{en?"Replace the final placeholder with your question and any relevant context.":"Den Platzhalter am Ende durch eure Frage und nötigen Kontext ersetzen."}</li>
+        <li>{en?"Submit it to your AI, then check the answer and its sources.":"An eure KI senden und anschließend die Antwort und ihre Quellen prüfen."}</li>
+      </ol>
+      <div class="button-row inquiry-tools">
+        <button class="button button--gold" type="button" data-copy-inquiry hidden>{en?"Copy full prompt":"Vollständigen Prompt kopieren"}</button>
+        <a class="button button--ghost" href={base+"prompts/erkenntnisprompt-v1."+lang+".txt"} download>{en?"Download TXT ↓":"Als TXT herunterladen ↓"}</a>
+        <a class="subtle-link" href={pathFor(en?"de":"en","fragen-und-ki-prompt")+"#prompt"} lang={en?"de":"en"}>{en?"Deutsche Fassung →":"English version →"}</a>
+      </div>
+      <p class="inquiry-status" data-copy-status role="status" aria-live="polite"></p>
+      <label class="section-kicker" for="inquiry-prompt">{en?"FULL TEXT · SELECT AND COPY MANUALLY IF NEEDED":"VOLLSTÄNDIGER TEXT · BEI BEDARF MARKIEREN UND MANUELL KOPIEREN"}</label>
+      <textarea id="inquiry-prompt" class="inquiry-prompt" readonly rows="22" spellcheck="false" aria-describedby="prompt-limit">{prompt}</textarea>
+      <p id="prompt-limit" class="small-note">{en?"A prompt can guide a conversation; it cannot guarantee correctness, create missing tools or replace independent review. The text remains available without JavaScript.":"Ein Prompt kann ein Gespräch anleiten; er garantiert keine Richtigkeit, schafft keine fehlenden Werkzeuge und ersetzt keine unabhängige Prüfung. Der Text bleibt auch ohne JavaScript verfügbar."}</p>
+      <p class="small-note">{en?"Text: AlexanderR1991 & contributors · CC BY-SA 4.0. When sharing or adapting, credit the source, mark changes and follow the license.":"Text: AlexanderR1991 & Mitwirkende · CC BY-SA 4.0. Beim Teilen oder Bearbeiten Quelle nennen, Änderungen kenntlich machen und die Lizenz beachten."} <a class="inquiry-text-link" href="https://github.com/AlexanderR1991/grundtext-des-wirklichen/blob/main/LICENSING.md">{en?"License scope ↗":"Lizenzdetails ↗"}</a></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="narrow">
+      <p class="section-kicker">{en?"THE PROMPT ALSO FACES SCRUTINY":"AUCH DER PROMPT STEHT AUF DEM PRÜFSTAND"}</p>
+      <h2>{en?"Show us where it fails.":"Zeigt uns, wo er scheitert."}</h2>
+      <p>{en?"Does it invent sources? Agree too readily? Confuse values with facts? Make a simple answer needlessly complicated? These are useful findings, not disloyalty.":"Erfindet er Quellen? Stimmt er zu schnell zu? Verwechselt er Werte mit Tatsachen? Macht er eine einfache Antwort unnötig kompliziert? Das wären hilfreiche Befunde, kein Verrat am Projekt."}</p>
+      <p>{en?"For a useful report, include prompt version, model and date, the exact question, the relevant answer excerpt, the error and a proposed correction. Remove private information first. A single good answer does not establish effectiveness; that requires repeated comparisons with and without the prompt, predefined criteria and independent assessment.":"Für einen brauchbaren Bericht: Promptversion, Modell und Datum, genaue Frage, relevanter Antwortausschnitt, Fehler und Korrekturvorschlag. Private Angaben vorher entfernen. Eine einzelne gute Antwort belegt keine Wirksamkeit; dafür braucht es wiederholte Vergleiche mit und ohne Prompt, vorher festgelegte Kriterien und unabhängige Bewertung."}</p>
+      <div class="button-row">
+        <a class="button button--gold" href="https://github.com/AlexanderR1991/grundtext-des-wirklichen/issues/new?template=kritik.yml">{en?"Report a failure ↗":"Fehler oder Verbesserung einreichen ↗"}</a>
+        <a class="button button--ghost" href={pathFor(lang,"methode")}>{en?"Read the method →":"Methode lesen →"}</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  const button=document.querySelector<HTMLButtonElement>("[data-copy-inquiry]");
+  const field=document.querySelector<HTMLTextAreaElement>("#inquiry-prompt");
+  const status=document.querySelector<HTMLParagraphElement>("[data-copy-status]");
+  if(button&&field&&status){
+    const en=document.documentElement.lang==="en";
+    button.hidden=false;
+    button.addEventListener("click",async()=>{
+      try{
+        if(!navigator.clipboard?.writeText)throw new Error("Clipboard unavailable");
+        await navigator.clipboard.writeText(field.value);
+        status.textContent=en?"Full prompt copied. Add your question at the end.":"Vollständiger Prompt kopiert. Ergänze am Ende deine Frage.";
+      }catch{
+        field.focus();field.select();
+        status.textContent=en?"Automatic copying is unavailable. The full text is selected; use your device’s Copy command or download the TXT file.":"Automatisches Kopieren ist nicht verfügbar. Der vollständige Text ist markiert; nutze die Kopierfunktion deines Geräts oder lade die TXT-Datei herunter.";
+      }
+    });
+  }
+</script>
+
+<style>
+  .inquiry-hero .small-note{margin-top:20px}
+  .inquiry-lead{max-width:850px;font-size:17px;margin:26px 0}
+  .inquiry-examples{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin:44px 0 32px}
+  .inquiry-examples article{border-top:1px solid var(--gold);padding-top:22px}
+  .inquiry-examples h3{font-size:27px;line-height:1.4}
+  .inquiry-steps{padding-left:22px;color:var(--text-soft);max-width:850px;margin:28px 0}
+  .inquiry-steps li{margin:8px 0}
+  .inquiry-tools .subtle-link{margin:0}
+  .inquiry-status{min-height:1.8em;margin:12px 0;font-size:14px;color:var(--gold-bright)}
+  .inquiry-prompt{display:block;width:100%;resize:vertical;min-height:300px;margin:12px 0 20px;padding:28px;border:1px solid #776b58;background:#0b1012;color:var(--text);font:15px/1.8 var(--sans);overflow-wrap:anywhere;border-radius:0}
+  .inquiry-text-link{text-decoration:underline;text-underline-offset:3px}
+  @media(max-width:760px){.inquiry-examples{grid-template-columns:1fr;gap:16px}.inquiry-prompt{padding:18px;font-size:16px}.inquiry-tools{align-items:stretch}.inquiry-tools .button{width:100%}}
+</style>

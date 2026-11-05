@@ -1,4 +1,5 @@
 ---
+import InquiryTeaser from "./InquiryTeaser.astro";
 import Layout from "../layouts/SiteLayout.astro";
 import copy from "../lib/mission-copy.json";
 import {pathFor} from "../lib/paths.mjs";
@@ -37,6 +38,7 @@ const t=copy[lang];
     </div>
     <div class="container mission-status"><span>{t.status}</span><a href={pathFor(lang,"mission")+"#stand"}>{lang==="de"?"Was bereits existiert ↗":"What exists today ↗"}</a></div>
   </section>
+  <InquiryTeaser lang={lang} />
   <section class="section mission-section" aria-labelledby="rooms-title"><div class="container">
     <div class="section-heading"><h2 id="rooms-title">{t.roomsTitle}</h2><p>{t.roomsIntro}</p></div>
     <div class="mission-rooms">{t.rooms.map(room=><article><span class="section-kicker">{room.number}</span><h3>{room.title}</h3><p>{room.text}</p><p class="mission-note">{room.note}</p><a class="subtle-link" href={pathFor(lang,room.slug)+(room.hash||"")}>{room.link}</a></article>)}</div>

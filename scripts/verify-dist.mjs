@@ -1,6 +1,6 @@
 import {access,readFile} from "node:fs/promises";
 import {join} from "node:path";
-const out=join(process.cwd(),"dist"),slugs=["index","mission","aussagen","forschungsstrom","atlas","bibliothek","lesestueck-wahrheit","manifest","pruefstand","methode","mitwirken","erkenntnishorizont","warum-liebe-wirkt","politik-die-dem-menschen-dient","bruecken-zwischen-den-religionen","militaer-und-verantwortung","ernaehrung-und-verantwortung","angriffsschwarm"],errors=[];
+const out=join(process.cwd(),"dist"),slugs=["index","mission","aussagen","fragen-und-ki-prompt","forschungsstrom","atlas","bibliothek","lesestueck-wahrheit","manifest","pruefstand","methode","mitwirken","erkenntnishorizont","warum-liebe-wirkt","politik-die-dem-menschen-dient","bruecken-zwischen-den-religionen","militaer-und-verantwortung","ernaehrung-und-verantwortung","angriffsschwarm"],errors=[];
 for(const lang of ["de","en"]){
  for(const slug of slugs){
   const file=join(out,lang,...(slug==="index"?[]:[slug]),"index.html");
@@ -122,14 +122,14 @@ for(const lang of ["de","en"]){
  const home=await readFile(join(out,lang,"index.html"),"utf8");
  const mission=await readFile(join(out,lang,"mission/index.html"),"utf8");
  const register=await readFile(join(out,lang,"aussagen/index.html"),"utf8");
- for(const slug of ["mission","aussagen"]){
+ for(const slug of ["mission","aussagen","fragen-und-ki-prompt"]){
   const route="/grundtext-des-wirklichen/"+lang+"/"+slug+"/";
   if(!home.includes(route)||!sitemap.includes(route))errors.push("Undiscoverable route "+route);
  }
  for(const c of registry.claims){
   if(!register.includes('id="'+c.id+'"')||!register.includes(c.statement[lang]))errors.push("Missing rendered claim "+lang+"/"+c.id);
  }
- for(const id of ["bauplan","erkenntnis","entscheidungen","ki","versorgung","stand"]){
+ for(const id of ["forschung","bauplan","erkenntnis","entscheidungen","ki","versorgung","stand"]){
   if(!mission.includes('id="'+id+'"'))errors.push("Missing mission anchor "+lang+"/"+id);
  }
  for(const [page,html] of [["home",home],["mission",mission],["register",register]]){
