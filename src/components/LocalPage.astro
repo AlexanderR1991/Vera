@@ -2,12 +2,13 @@
 import Layout from "../layouts/SiteLayout.astro";
 import HorizonTeaser from "./HorizonTeaser.astro";
 import LoveTeaser from "./LoveTeaser.astro";
+import PolicyTeaser from "./PolicyTeaser.astro";
 import {getPage} from "../lib/pages.mjs";
 const {lang,slug}=Astro.props;
 const content=getPage(lang,slug);
 
-// Deliberate editorial placements; these belong to the site layout,
-// not to independent translated HTML copies.
+// Shared editorial placements apply to both languages.
+// They avoid duplicating a different teaser in every translated HTML file.
 const anchors={
   horizon:{
     index:['<section class="section section--paper" id="felder">',"first"],
@@ -20,10 +21,17 @@ const anchors={
     atlas:['<section class="section"><div class="narrow text-center">',"last"],
     bibliothek:['<section class="section"><div class="container"><div class="section-heading">',"first"],
     pruefstand:['<section class="section"><div class="narrow text-center">',"last"]
+  },
+  politics:{
+    index:['<section class="closing">',"last"],
+    atlas:['<section class="section"><div class="narrow text-center">',"last"],
+    bibliothek:['<section class="section section--paper">',"last"],
+    pruefstand:['<section class="section"><div class="narrow text-center">',"last"]
   }
 };
 const insertions=[];
-for(const kind of ["horizon","love"]){
+const priority={horizon:0,love:1,politics:2};
+for(const kind of ["horizon","love","politics"]){
  const config=anchors[kind][slug];
  if(!config)continue;
  const [marker,position]=config;
@@ -31,7 +39,7 @@ for(const kind of ["horizon","love"]){
  if(at<0)throw Error("Missing editorial placement for "+kind+" on "+slug);
  insertions.push({kind,at});
 }
-insertions.sort((a,b)=>a.at-b.at||(a.kind==="horizon"?-1:1));
+insertions.sort((a,b)=>a.at-b.at||priority[a.kind]-priority[b.kind]);
 const segments=[];let position=0;
 for(const insertion of insertions){
  segments.push({kind:"html",body:content.slice(position,insertion.at)});
@@ -44,6 +52,7 @@ segments.push({kind:"html",body:content.slice(position)});
 {segments.map(part=>
  part.kind==="html"?<Fragment set:html={part.body}/>:
  part.kind==="horizon"?<HorizonTeaser lang={lang} from={slug}/>:
- <LoveTeaser lang={lang} from={slug}/>
+ part.kind==="love"?<LoveTeaser lang={lang} from={slug}/>:
+ <PolicyTeaser lang={lang} from={slug}/>
 )}
 </Layout>

@@ -47,6 +47,16 @@ Das ursprüngliche Foto einer Handskizze bleibt privat; die Website verwendet ei
 - [English: Why Love Works (translation draft)](https://alexanderr1991.github.io/grundtext-des-wirklichen/en/warum-liebe-wirkt/)
 - [Offenes Forschungsprogramm mit Quellen](docs/forschungsprogramm-liebe.md)
 
+## Politik, die dem Menschen dient / Politics That Serves People
+
+**Liber Civitatis (Version 0.6)** behandelt Politik als Frage nach legitimer und begrenzter Macht. Die deutsche und englische Fassung verbinden Menschenwürde, Freiheitsrechte, demokratische Legitimation, Rechtsstaat, soziale Handlungsmöglichkeiten und Korrigierbarkeit mit ernsthaften Zielkonflikten.
+
+**Kein Parteiprogramm und keine wissenschaftlich bewiesene Staatslehre.** Wir vergleichen alternative politische Ziele und Instrumente, stellen überprüfbare Hypothesen P-A bis P-E auf und benennen die Grenzen unserer Quellen. Ein eigener Abschnitt untersucht, wie KI Arbeit, Macht und Chancen verändern könnte, ohne Gewissheit über ihre Zukunft zu behaupten.
+
+- [Deutsch: Politik, die dem Menschen dient](https://alexanderr1991.github.io/grundtext-des-wirklichen/de/politik-die-dem-menschen-dient/)
+- [English: Politics That Serves People (translation draft)](https://alexanderr1991.github.io/grundtext-des-wirklichen/en/politik-die-dem-menschen-dient/)
+- [Offene Forschungsagenda und Quellen](docs/forschungsprogramm-politik.md)
+
 ## Unser Anspruch / Our standard
 
 **Kritik ist willkommen, Zustimmung nicht erforderlich.** Die neun Leitsätze sind vorläufige, hauptsächlich philosophisch-normative Aussagen und keine wissenschaftlich bestätigte Gesamttheorie. Behauptungen über Tatsachen benötigen Quellen; Metaphern dürfen keine empirischen Belege ersetzen.

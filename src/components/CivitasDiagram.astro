@@ -1,0 +1,36 @@
+---
+const {lang="de"}=Astro.props;
+const en=lang==="en";
+---
+<figure class="civitas-figure">
+<svg viewBox="0 0 1120 530" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="civitas-title civitas-desc">
+<title id="civitas-title">{en?"Governance as a revisable feedback cycle":"Politik als korrigierbarer Kreislauf"}</title>
+<desc id="civitas-desc">{en?"Citizens, legitimate institutions, public decisions, and consequences are connected in a circle of responsibility and feedback. Rights and independent review form an outer constraint. The diagram is conceptual, not mathematical.":"Bürger, legitime Institutionen, öffentliche Entscheidungen und ihre Folgen bilden einen Kreislauf aus Verantwortung und Rückmeldung. Grundrechte und unabhängige Kontrolle begrenzen ihn von außen. Das Schaubild ist konzeptionell, nicht mathematisch."}</desc>
+<defs><radialGradient id="civitas-illum"><stop offset="0" stop-color="#b99d6d" stop-opacity=".16"/><stop offset="1" stop-color="#b99d6d" stop-opacity="0"/></radialGradient></defs>
+<rect width="1120" height="530" fill="url(#civitas-illum)"/>
+<g fill="none" stroke="#a89270"><circle cx="555" cy="260" r="211" stroke-width="1.5" stroke-dasharray="3 10" opacity=".7"/><circle cx="555" cy="260" r="141" opacity=".2"/><path d="M555 103Q737 102 745 260Q747 414 555 419Q363 416 365 260Q371 110 555 103Z" stroke="#dbc394" stroke-width="2" opacity=".7"/></g>
+<g fill="#101617" stroke="#d2b58a" stroke-width="2">
+<circle cx="555" cy="104" r="60"/><circle cx="746" cy="260" r="60"/><circle cx="555" cy="419" r="60"/><circle cx="364" cy="260" r="60"/>
+</g>
+<g font-family="Georgia,serif" font-size="23" fill="#e1d6c1" text-anchor="middle">
+<text x="555" y="97">{en?"People":"Menschen"}</text>
+<text x="555" y="121" font-size="16" fill="#b4a38e">{en?"Voice":"Stimme"}</text>
+<text x="746" y="254">{en?"Institutions":"Institutionen"}</text><text x="746" y="278" font-size="16" fill="#b4a38e">{en?"Mandate":"Mandat"}</text>
+<text x="555" y="413">{en?"Decisions":"Beschlüsse"}</text><text x="555" y="437" font-size="16" fill="#b4a38e">{en?"Responsibility":"Verantwortung"}</text>
+<text x="364" y="254">{en?"Effects":"Folgen"}</text><text x="364" y="278" font-size="16" fill="#b4a38e">{en?"Feedback":"Rückmeldung"}</text>
+</g>
+<g stroke="#bd9e72" stroke-width="1.5" fill="none"><path d="M611 113 697 202"/><path d="M737 321 612 407"/><path d="M496 420 409 316"/><path d="M370 199 496 112"/></g>
+<g fill="#cfb486"><path d="m688 198 13 9-3-18Z"/><path d="m626 393-17 17 22-8Z"/><path d="m422 313-16 7 4-19Z"/><path d="m487 129 10-20-21 10Z"/></g>
+<g stroke="#b79d76" fill="none" stroke-width="1.2">
+<path d="M555 62V36M555 480v23M306 260H265M810 260H855"/>
+</g>
+<g font-family="Arial,sans-serif" letter-spacing="2.2" font-size="11" fill="#b8aa90" text-anchor="middle">
+<text x="555" y="22">{en?"FUNDAMENTAL RIGHTS":"GRUNDRECHTE"}</text>
+<text x="555" y="523">{en?"INDEPENDENT REVIEW":"UNABHÄNGIGE KONTROLLE"}</text>
+<text x="209" y="263">{en?"RULE OF LAW":"RECHTSSTAAT"}</text>
+<text x="923" y="263">{en?"PUBLIC REASONS":"ÖFFENTLICHE GRÜNDE"}</text>
+</g>
+<g stroke="#d3b88a" fill="none"><path d="M538 258h34M555 241v34"/><circle cx="555" cy="258" r="32" stroke-dasharray="2 5"/></g>
+</svg>
+<figcaption><slot /></figcaption>
+</figure>

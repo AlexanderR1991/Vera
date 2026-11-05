@@ -1,5 +1,14 @@
 # Versionsgeschichte
 
+## 0.6.0 – 2026-11-05
+- „Politik, die dem Menschen dient / Politics That Serves People“ als überparteilichen Forschungsentwurf zweisprachig ergänzt.
+- Sechs normative Ausgangspunkte, fünf offene empirische Hypothesen und mehrere legitime politische Zielkonflikte ausformuliert.
+- Neue konzeptionelle SVG-Darstellung zu Bürgern, Institutionen, Entscheidungen, Folgen und rechtsstaatlicher Kontrolle.
+- Empirische Befunde und Grenzen aus OECD-Vertrauensbefragung, deliberativer Beteiligungsforschung und OECD-KI-Prinzipien; Grundgesetz als rechtlicher Bezug.
+- KI-Verteilung, Sicherung von Handlungsspielräumen und Verantwortung ohne feste parteipolitische Festlegung thematisiert.
+- Verweise auf Startseite, Atlas, Bibliothek und Prüfstand; Sitemap und automatisierte Build-Prüfung ergänzt.
+- Forschungsprotokoll mit Gegenhypothesen, Kriterien zur Evaluation und ethischen Grenzen bereitgestellt.
+
 ## 0.5.0 – 2026-11-05
 - „Warum Liebe wirkt / Why Love Works“ als eigenen Forschungsbereich mit zwei vollständigen Sprachfassungen eingerichtet.
 - Begrifflich zwischen Anziehung, Bindung und Fürsorge unterschieden; eine originäre, als Metapher gekennzeichnete SVG-Darstellung ergänzt.

@@ -48,3 +48,13 @@ Keine weltanschauliche Gefolgschaft, keine autoritären Wahrheitsnoten, keine pr
 - [ ] Systematische Literaturrecherche mit Einschluss- und Ausschlusskriterien
 - [ ] Unabhängiges Fachreview und professionelle Übersetzungsprüfung
 - [ ] Vor etwaigen eigenen Studien: ethische Freigabe und Vorregistrierung
+
+## 0.6 – Liber Civitatis: politische Verantwortung
+- [x] Zweisprachigen, überparteilichen politischen Denkentwurf veröffentlichen
+- [x] Normative Werte von empirischen Behauptungen trennen
+- [x] Institutionelle Zielkonflikte und berechtigte politische Gegenpositionen zeigen
+- [x] Fünf offene Hypothesen und einen kontrollierbaren Politikzyklus dokumentieren
+- [x] KI und die Verteilung gesellschaftlicher Chancen als offene politische Frage aufnehmen
+- [ ] Fachreview in Recht, Politikwissenschaft und Ökonomie
+- [ ] Systematische vergleichende Evidenzprüfung politischer Instrumente
+- [ ] Öffentliche Einwände und redaktionelle Revisionen dokumentieren

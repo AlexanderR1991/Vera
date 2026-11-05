@@ -1,6 +1,6 @@
 import {access,readFile} from "node:fs/promises";
 import {join} from "node:path";
-const out=join(process.cwd(),"dist"),slugs=["index","atlas","bibliothek","lesestueck-wahrheit","manifest","pruefstand","methode","mitwirken","erkenntnishorizont","warum-liebe-wirkt"],errors=[];
+const out=join(process.cwd(),"dist"),slugs=["index","atlas","bibliothek","lesestueck-wahrheit","manifest","pruefstand","methode","mitwirken","erkenntnishorizont","warum-liebe-wirkt","politik-die-dem-menschen-dient"],errors=[];
 for(const lang of ["de","en"]){
  for(const slug of slugs){
   const file=join(out,lang,...(slug==="index"?[]:[slug]),"index.html");
@@ -21,7 +21,7 @@ try{
  if(!en.includes("Reality is under no obligation")||!de.includes("Die Wirklichkeit ist nicht verpflichtet"))errors.push("Critical thesis mismatch");
 }catch{errors.push("Missing thesis pages");}
 if(errors.length){console.error(errors.join("\n"));process.exit(1);}
-console.log("Verified 20 localized pages, canonical/hreflang, legacy redirect assets and key translations.");
+console.log("Verified 22 localized pages, canonical/hreflang, legacy redirect assets and key translations.");
 
 for(const lang of ["de","en"]){
  const chapter=await readFile(join(out,lang,"erkenntnishorizont","index.html"),"utf8");
@@ -39,5 +39,24 @@ for(const lang of ["de","en"]){
  const library=await readFile(join(out,lang,"bibliothek","index.html"),"utf8");
  if(!portal.includes("/"+lang+"/warum-liebe-wirkt/"))errors.push("Missing home teaser for "+lang);
  if(!library.includes("/"+lang+"/warum-liebe-wirkt/"))errors.push("Missing library teaser for "+lang);
+}
+if(errors.length){console.error(errors.join("\n"));process.exit(1);}
+
+
+// Liber Civitatis: evidence, counter-arguments, civic hypotheses,
+// reciprocal routes and editorial discovery links in both languages.
+for(const lang of ["de","en"]){
+ const chapter=await readFile(join(out,lang,"politik-die-dem-menschen-dient","index.html"),"utf8");
+ for(const token of ["civitas-figure","civitas-rights","civitas-tradeoffs","civitas-hypothesis-grid",
+    "civitas-counter__grid","oecd.org/en/topics/ai-principles.html","gesetze-im-internet.de"]){
+   if(!chapter.includes(token))errors.push("Civic chapter "+lang+" lacks "+token);
+ }
+ for(const [slug,required] of [["index","civitas-teaser"],["bibliothek","civitas-teaser"],
+    ["atlas","civitas-teaser"],["pruefstand","civitas-teaser"]]){
+   const location=join(out,lang,...(slug==="index"?[]:[slug]),"index.html");
+   const html=await readFile(location,"utf8");
+   if(!html.includes("/"+lang+"/politik-die-dem-menschen-dient/")||!html.includes(required))
+     errors.push("Missing political chapter discovery from "+lang+"/"+slug);
+ }
 }
 if(errors.length){console.error(errors.join("\n"));process.exit(1);}
