@@ -1,0 +1,27 @@
+---
+import {pathFor} from "../lib/paths.mjs";
+const {lang="de"}=Astro.props;
+const en=lang==="en";
+---
+<section class="section inquiry-teaser" aria-labelledby="inquiry-invitation">
+  <div class="container inquiry-teaser__grid">
+    <div>
+      <p class="section-kicker">{en?"A QUESTION CAN CHANGE THE WORK":"EINE FRAGE KANN DAS WERK VERÄNDERN"}</p>
+      <h2 id="inquiry-invitation">{en?"ASK US QUESTIONS!":"STELLT UNS FRAGEN!"}</h2>
+    </div>
+    <div>
+      <p>{en?"The simple ones. The difficult ones. The ones that challenge our foundations. You need neither prior knowledge nor agreement. A good question deserves an honest answer – including ‘we do not know yet’.":"Die einfachen. Die unbequemen. Die, die an unsere Grundlagen gehen. Ihr braucht weder Vorwissen noch Zustimmung. Eine gute Frage verdient eine ehrliche Antwort – auch: ‚Das wissen wir noch nicht.‘"}</p>
+      <div class="button-row">
+        <a class="button button--gold" href="https://github.com/AlexanderR1991/grundtext-des-wirklichen/issues/new?template=frage.yml">{en?"Ask a question ↗":"Eine Frage stellen ↗"}</a>
+        <a class="button button--ghost" href={pathFor(lang,"fragen-und-ki-prompt")+"#prompt"}>{en?"Take the AI prompt →":"KI-Prompt mitnehmen →"}</a>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  .inquiry-teaser{background:linear-gradient(120deg,#252219,#101719);padding:68px 0}
+  .inquiry-teaser__grid{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center}
+  .inquiry-teaser h2{font-size:clamp(34px,4.6vw,64px);margin:12px 0 0;color:var(--gold-bright)}
+  .inquiry-teaser p{max-width:620px}
+  @media(max-width:760px){.inquiry-teaser__grid{grid-template-columns:1fr;gap:24px}}
+</style>

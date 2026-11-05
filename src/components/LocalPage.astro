@@ -6,6 +6,7 @@ import PolicyTeaser from "./PolicyTeaser.astro";
 import TheologyTeaser from "./TheologyTeaser.astro";
 import MilitaryTeaser from "./MilitaryTeaser.astro";
 import NutritionTeaser from "./NutritionTeaser.astro";
+import InquiryTeaser from "./InquiryTeaser.astro";
 import {getPage} from "../lib/pages.mjs";
 const {lang,slug}=Astro.props;
 const content=getPage(lang,slug);
@@ -13,6 +14,11 @@ const content=getPage(lang,slug);
 // Shared editorial placements apply to both languages.
 // They avoid duplicating a different teaser in every translated HTML file.
 const anchors={
+  inquiry:{
+    index:['<section class="oath section" aria-labelledby="oath-title">',"first"],
+    methode:['<section class="section section--paper">',"last"],
+    mitwirken:['<section class="section section--paper community-start" aria-labelledby="community-heading">',"first"]
+  },
   horizon:{
     index:['<section class="section section--paper" id="felder">',"first"],
     atlas:['<section class="section"><div class="narrow text-center">',"last"],
@@ -51,8 +57,8 @@ const anchors={
   }
 };
 const insertions=[];
-const priority={horizon:0,love:1,politics:2,theology:3,military:4,nutrition:5};
-for(const kind of ["horizon","love","politics","theology","military","nutrition"]){
+const priority={inquiry:-1,horizon:0,love:1,politics:2,theology:3,military:4,nutrition:5};
+for(const kind of ["inquiry","horizon","love","politics","theology","military","nutrition"]){
  const config=anchors[kind][slug];
  if(!config)continue;
  const [marker,position]=config;
@@ -72,6 +78,7 @@ segments.push({kind:"html",body:content.slice(position)});
 <Layout lang={lang} slug={slug}>
 {segments.map(part=>
  part.kind==="html"?<Fragment set:html={part.body}/>:
+ part.kind==="inquiry"?<InquiryTeaser lang={lang}/>:
  part.kind==="horizon"?<HorizonTeaser lang={lang} from={slug}/>:
  part.kind==="love"?<LoveTeaser lang={lang} from={slug}/>:
  part.kind==="politics"?<PolicyTeaser lang={lang} from={slug}/>:

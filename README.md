@@ -10,6 +10,18 @@
 
 [Website & Sprachauswahl](https://alexanderr1991.github.io/grundtext-des-wirklichen/) · [Deutsch](https://alexanderr1991.github.io/grundtext-des-wirklichen/de/) · [English draft](https://alexanderr1991.github.io/grundtext-des-wirklichen/en/)
 
+## Stellt uns Fragen! / Ask us questions!
+
+**Die einfachen. Die unbequemen. Die, die unser Regelwerk verändern könnten.** Ihr braucht weder Vorwissen noch Zustimmung. Wir wollen erklären, begründen und korrigieren – und offen sagen, was wir nicht wissen.
+
+Unser **öffentlicher Erkenntnisprompt 1.0** nimmt die Methode mit in ein KI-Gespräch: Aussagearten trennen, Belege prüfen, das stärkste Gegenargument suchen und Revision ermöglichen. Er prüft auch sich selbst. Seine Wirksamkeit ist noch nicht systematisch untersucht; er garantiert keine richtigen Antworten.
+
+**Bring the simple questions, the difficult ones, and those that might change our framework.** The public inquiry prompt asks an AI to examine evidence, objections and its own assumptions. It remains open to correction and has not been systematically evaluated.
+
+- [Fragen & KI-Prompt · Deutsch](https://alexanderr1991.github.io/grundtext-des-wirklichen/de/fragen-und-ki-prompt/)
+- [Questions & AI prompt · English](https://alexanderr1991.github.io/grundtext-des-wirklichen/en/fragen-und-ki-prompt/)
+- [Prompt DE](public/prompts/erkenntnisprompt-v1.de.txt) · [Prompt EN](public/prompts/erkenntnisprompt-v1.en.txt) · [Konzept / Concept](docs/erkenntnisprompt.md)
+
 ## Austausch / Discussions
 
 [Im offenen Forum diskutieren / Join our discussions](https://github.com/AlexanderR1991/grundtext-des-wirklichen/discussions) · [Begrüßung als Vorlage / Welcome draft](docs/community/welcome-discussion.md)
