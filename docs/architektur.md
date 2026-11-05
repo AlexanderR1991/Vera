@@ -41,3 +41,7 @@ Private Manuskripte und Gespräche gehören nicht ohne ausdrückliche Freigabe i
 ## Erkenntnishorizont (0.4)
 
 Das Modell mit Mensch M, älterem Horizont a, gegenwärtigem Horizont b und offenen Kandidaten x₁–x₄ ist ein **philosophisches Denkbild**. Es wird ausdrücklich nicht als empirisch validierte geometrische oder mathematische Theorie dargestellt. Die frühere Foto-Skizze wird nicht veröffentlicht. Das Projekt unterscheidet unbelegte Hypothesen, widerlegte Aussagen und nicht empirisch prüfbare Fragen. Mathematik und empirische Wissenschaft haben unterschiedliche Begründungsverfahren; KI kann Forschung unterstützen, liefert aber keine automatische Wahrheit.
+
+## Liber Amoris – Liebe als Forschungsfrage (0.5)
+
+Ein zweisprachiger Bereich behandelt Liebe als heterogenes Phänomen. Anziehung, Bindung und Fürsorge werden unterschieden; philosophische Arbeitsdefinitionen sind **keine** empirischen Ergebnisse. Studien über soziale Beziehungen, stressbezogene Co-Regulation und theoretische Unterstützungsmodelle dürfen nicht als allgemeiner Kausalbeweis für Liebe ausgegeben werden. Vier Hypothesen enthalten Messideen, Gegenmodelle und einen ausdrücklich vorläufigen Status. Rechte, Autonomie und Gewaltprävention bleiben unaufhebbare ethische Grenzen.

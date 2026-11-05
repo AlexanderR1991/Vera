@@ -40,3 +40,11 @@ Die Reihenfolge folgt sachlichen Abhängigkeiten, nicht festen Veröffentlichung
 
 ## Nicht-Ziele
 Keine weltanschauliche Gefolgschaft, keine autoritären Wahrheitsnoten, keine private Biografie ohne Freigabe, keine behauptete wissenschaftliche Validierung allein durch ästhetische Wirkung.
+
+## 0.5 – Warum Liebe wirkt
+- [x] Zweisprachigen Forschungsbereich mit philosophischem Arbeitsbegriff erstellen
+- [x] Primärquellen und wissenschaftstheoretische Grenzen sichtbar machen
+- [x] Vier falsifizierbare Forschungsansätze mit Gegenmodellen dokumentieren
+- [ ] Systematische Literaturrecherche mit Einschluss- und Ausschlusskriterien
+- [ ] Unabhängiges Fachreview und professionelle Übersetzungsprüfung
+- [ ] Vor etwaigen eigenen Studien: ethische Freigabe und Vorregistrierung

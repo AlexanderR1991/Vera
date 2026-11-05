@@ -1,24 +1,49 @@
 ---
 import Layout from "../layouts/SiteLayout.astro";
 import HorizonTeaser from "./HorizonTeaser.astro";
+import LoveTeaser from "./LoveTeaser.astro";
 import {getPage} from "../lib/pages.mjs";
 const {lang,slug}=Astro.props;
 const content=getPage(lang,slug);
+
+// Deliberate editorial placements; these belong to the site layout,
+// not to independent translated HTML copies.
 const anchors={
-  index:'<section class="section section--paper" id="felder">',
-  atlas:'<section class="section"><div class="narrow text-center">',
-  bibliothek:'<section class="section section--paper">',
-  methode:'<section class="section section--paper">'
+  horizon:{
+    index:['<section class="section section--paper" id="felder">',"first"],
+    atlas:['<section class="section"><div class="narrow text-center">',"last"],
+    bibliothek:['<section class="section section--paper">',"last"],
+    methode:['<section class="section section--paper">',"last"]
+  },
+  love:{
+    index:['<section class="closing">',"last"],
+    atlas:['<section class="section"><div class="narrow text-center">',"last"],
+    bibliothek:['<section class="section"><div class="container"><div class="section-heading">',"first"],
+    pruefstand:['<section class="section"><div class="narrow text-center">',"last"]
+  }
 };
-const hasTeaser=Object.hasOwn(anchors,slug);
-const anchor=anchors[slug];
-const splitAt=hasTeaser?(slug==="index"?content.indexOf(anchor):content.lastIndexOf(anchor)):-1;
-if(hasTeaser&&splitAt<0)throw Error("Missing semantic insertion point: "+slug);
-const first=splitAt<0?content:content.slice(0,splitAt);
-const last=splitAt<0?"":content.slice(splitAt);
+const insertions=[];
+for(const kind of ["horizon","love"]){
+ const config=anchors[kind][slug];
+ if(!config)continue;
+ const [marker,position]=config;
+ const at=position==="last"?content.lastIndexOf(marker):content.indexOf(marker);
+ if(at<0)throw Error("Missing editorial placement for "+kind+" on "+slug);
+ insertions.push({kind,at});
+}
+insertions.sort((a,b)=>a.at-b.at||(a.kind==="horizon"?-1:1));
+const segments=[];let position=0;
+for(const insertion of insertions){
+ segments.push({kind:"html",body:content.slice(position,insertion.at)});
+ segments.push({kind:insertion.kind});
+ position=insertion.at;
+}
+segments.push({kind:"html",body:content.slice(position)});
 ---
 <Layout lang={lang} slug={slug}>
-  <Fragment set:html={first}/>
-  {hasTeaser&&<HorizonTeaser lang={lang} from={slug}/>}
-  {last&&<Fragment set:html={last}/>}
+{segments.map(part=>
+ part.kind==="html"?<Fragment set:html={part.body}/>:
+ part.kind==="horizon"?<HorizonTeaser lang={lang} from={slug}/>:
+ <LoveTeaser lang={lang} from={slug}/>
+)}
 </Layout>

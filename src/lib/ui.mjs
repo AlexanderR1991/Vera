@@ -29,7 +29,8 @@ export const ui = {
       "pruefstand": "Prüfstand",
       "methode": "Unsere Methode",
       "mitwirken": "Mitwirken",
-      "erkenntnishorizont": "Der Horizont des Erkennbaren"
+      "erkenntnishorizont": "Der Horizont des Erkennbaren",
+      "warum-liebe-wirkt": "Warum Liebe wirkt"
     },
     "description": "Ein offenes, korrigierbares Erkenntnisprojekt über Wahrheit, Wirklichkeit und menschliches Handeln."
   },
@@ -63,7 +64,8 @@ export const ui = {
       "pruefstand": "The Examination",
       "methode": "Our Method",
       "mitwirken": "Contribute",
-      "erkenntnishorizont": "The Horizon of the Knowable"
+      "erkenntnishorizont": "The Horizon of the Knowable",
+      "warum-liebe-wirkt": "Why Love Works"
     },
     "description": "An open and revisable inquiry into truth, reality, human dignity, and responsible action."
   }

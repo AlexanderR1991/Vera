@@ -1,6 +1,6 @@
 import {access,readFile} from "node:fs/promises";
 import {join} from "node:path";
-const out=join(process.cwd(),"dist"),slugs=["index","atlas","bibliothek","lesestueck-wahrheit","manifest","pruefstand","methode","mitwirken","erkenntnishorizont"],errors=[];
+const out=join(process.cwd(),"dist"),slugs=["index","atlas","bibliothek","lesestueck-wahrheit","manifest","pruefstand","methode","mitwirken","erkenntnishorizont","warum-liebe-wirkt"],errors=[];
 for(const lang of ["de","en"]){
  for(const slug of slugs){
   const file=join(out,lang,...(slug==="index"?[]:[slug]),"index.html");
@@ -21,9 +21,23 @@ try{
  if(!en.includes("Reality is under no obligation")||!de.includes("Die Wirklichkeit ist nicht verpflichtet"))errors.push("Critical thesis mismatch");
 }catch{errors.push("Missing thesis pages");}
 if(errors.length){console.error(errors.join("\n"));process.exit(1);}
-console.log("Verified 18 localized pages, canonical/hreflang, legacy redirect assets and key translations.");
+console.log("Verified 20 localized pages, canonical/hreflang, legacy redirect assets and key translations.");
 
 for(const lang of ["de","en"]){
  const chapter=await readFile(join(out,lang,"erkenntnishorizont","index.html"),"utf8");
  if(!chapter.includes("horizon-diagram")||!chapter.includes("x₄")){console.error("Missing accessible horizon illustration for "+lang);process.exit(1);}
 }
+
+// Research chapter integrity checks: both languages, claims, sources,
+// opposing perspectives and links in the shared editorial navigation.
+for(const lang of ["de","en"]){
+ const chapter=await readFile(join(out,lang,"warum-liebe-wirkt","index.html"),"utf8");
+ for(const token of ["love-figure","love-hypothesis-grid","love-counter__grid","10.1371/journal.pmed.1000316","10.1177/1088868314544222"]){
+   if(!chapter.includes(token))errors.push("Love chapter "+lang+" lacks "+token);
+ }
+ const portal=await readFile(join(out,lang,"index.html"),"utf8");
+ const library=await readFile(join(out,lang,"bibliothek","index.html"),"utf8");
+ if(!portal.includes("/"+lang+"/warum-liebe-wirkt/"))errors.push("Missing home teaser for "+lang);
+ if(!library.includes("/"+lang+"/warum-liebe-wirkt/"))errors.push("Missing library teaser for "+lang);
+}
+if(errors.length){console.error(errors.join("\n"));process.exit(1);}

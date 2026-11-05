@@ -37,6 +37,16 @@ Das ursprüngliche Foto einer Handskizze bleibt privat; die Website verwendet ei
 
 [Deutsch: Der Horizont des Erkennbaren](https://alexanderr1991.github.io/grundtext-des-wirklichen/de/erkenntnishorizont/) · [English: The Horizon of the Knowable](https://alexanderr1991.github.io/grundtext-des-wirklichen/en/erkenntnishorizont/)
 
+## Warum Liebe wirkt / Why Love Works
+
+**Ein neuer Forschungsbereich (Version 0.5)** untersucht Liebe als biologisches, psychologisches und ethisches Phänomen. Er trennt romantische Anziehung, Bindung und Fürsorge; behandelt bestehende wissenschaftliche Befunde, vier **nicht vorregistrierte** Hypothesen (L-A bis L-D) und Gegenmodelle zu Abhängigkeit, Selbstaufgabe, Kontrolle und Gewalt.
+
+**Wir behaupten nicht, Liebe universell bewiesen zu haben.** Wir untersuchen stattdessen, unter welchen Bedingungen fürsorgliche Beziehungen Gesundheit, Autonomie und Kooperation fördern könnten – und wann nicht. Korrelation ist kein Kausalnachweis; eine philosophische Definition ist kein naturwissenschaftliches Gesetz.
+
+- [Deutsch: Warum Liebe wirkt](https://alexanderr1991.github.io/grundtext-des-wirklichen/de/warum-liebe-wirkt/)
+- [English: Why Love Works (translation draft)](https://alexanderr1991.github.io/grundtext-des-wirklichen/en/warum-liebe-wirkt/)
+- [Offenes Forschungsprogramm mit Quellen](docs/forschungsprogramm-liebe.md)
+
 ## Unser Anspruch / Our standard
 
 **Kritik ist willkommen, Zustimmung nicht erforderlich.** Die neun Leitsätze sind vorläufige, hauptsächlich philosophisch-normative Aussagen und keine wissenschaftlich bestätigte Gesamttheorie. Behauptungen über Tatsachen benötigen Quellen; Metaphern dürfen keine empirischen Belege ersetzen.
