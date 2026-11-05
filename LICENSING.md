@@ -33,6 +33,10 @@ published adaptation. **Commercial sharing and adaptations are allowed.**
 The project retains editorial control over its official edition but does not
 control independent adaptations made under this license.
 
+### Die Richtung · Open book text edition
+
+The explicitly released text-only edition `public/books/die-richtung-2.0-lesefassung.txt` contains an extraction from the author's 196-page book, including chapter prose, descriptions and art credits. The original prose is offered under **CC BY-SA 4.0** to the extent the author/contributors have rights to license it. The separately provided illustrated PDF is **not hosted in this repository**; neither artwork reproductions nor independently protected third-party content are relicensed by this notice. The extraction has not undergone line-by-line proofreading against the designed PDF. The book is a historical/intellectual origin, not a peer-reviewed scientific source.
+
 ## B · Software / Quellcode
 
 **MIT License**
@@ -69,8 +73,9 @@ MIT must not be interpreted to relicense book prose.
   this repository does not relicense those materials.
 - Official license texts (MIT and Creative Commons) remain governed by their
   respective source terms, not by this project's prose license.
-- Unpublished private manuscripts, chats, and personal information are not
-  covered by this repository license because they are not published here.
+- Unpublished private manuscripts (apart from the expressly released open text
+  edition of “Die Richtung”), chats, and personal information are not covered
+  by this repository license because they are not published here.
 - Public-domain portions remain public domain; this license does not create
   new rights in material that lacks copyright protection.
 
