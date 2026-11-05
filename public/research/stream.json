@@ -1,12 +1,617 @@
 {
   "schema": 1,
-  "updated_at": null,
+  "updated_at": "2026-11-05T23:38:48+00:00",
   "status": "automatic_discovery_not_fact_checked",
   "analysis": "metadata_only",
-  "source": "Crossref",
-  "source_queries_succeeded": 0,
-  "new_items": 0,
+  "source": "Crossref + arXiv",
+  "source_queries": {
+    "Crossref": 4,
+    "arXiv": 3
+  },
+  "source_queries_succeeded": 7,
+  "new_items": 33,
   "agents_enabled": false,
-  "errors": [],
-  "items": []
+  "errors": [
+    "Crossref/bewusstsein: HTTPError: HTTP Error 429: Too Many Requests",
+    "Crossref/liebe: HTTPError: HTTP Error 429: Too Many Requests",
+    "Crossref/kunst: HTTPError: HTTP Error 429: Too Many Requests"
+  ],
+  "items": [
+    {
+      "id": "10.16997/jdd.1451",
+      "topic": "gesellschaft",
+      "title": "Title Pending 1451",
+      "date": "2034-05-30",
+      "authors": [],
+      "venue": "Journal of Deliberative Democracy",
+      "url": "https://doi.org/10.16997/jdd.1451",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "10.61838/iki.547",
+      "topic": "wirklichkeit",
+      "title": "An Analysis of Twentieth-Century Epistemology: The Turn from Idealism to Realism",
+      "date": "2027-01-01",
+      "authors": [
+        "Mohammadmahdi Naderi"
+      ],
+      "venue": "Islamic Knowledge and Insight",
+      "url": "https://doi.org/10.61838/iki.547",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "10.1016/j.jtbi.2026.112599",
+      "topic": "leben",
+      "title": "Echoes before collapse: Deep learning detection of flickering in complex systems",
+      "date": "2027-01-01",
+      "authors": [
+        "Yazdan Babazadeh Maghsoodlo",
+        "Madhur Anand",
+        "Chris T. Bauch"
+      ],
+      "venue": "Journal of Theoretical Biology",
+      "url": "https://doi.org/10.1016/j.jtbi.2026.112599",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "10.1016/j.shpsa.2026.102228",
+      "topic": "wirklichkeit",
+      "title": "Can structural realism leave the comfort zone?",
+      "date": "2026-12-01",
+      "authors": [
+        "Michele Pizzochero",
+        "Andrea Oldofredi"
+      ],
+      "venue": "Studies in History and Philosophy of Science",
+      "url": "https://doi.org/10.1016/j.shpsa.2026.102228",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "10.1016/j.ailsci.2026.100187",
+      "topic": "ki",
+      "title": "Designing an LLM-based evaluation system for agentic AI in drug discovery through human alignment",
+      "date": "2026-12-01",
+      "authors": [
+        "Emma Granqvist",
+        "Rocío Mercado",
+        "Samuel Genheden"
+      ],
+      "venue": "Artificial Intelligence in the Life Sciences",
+      "url": "https://doi.org/10.1016/j.ailsci.2026.100187",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "10.16997/jdd.2205",
+      "topic": "gesellschaft",
+      "title": "Beyond Speech: Deliberating Energy Justice Using Visual Artifacts",
+      "date": "2026-11-05",
+      "authors": [
+        "Simone Haarbosch",
+        "Tamara Metze",
+        "Bas van Vliet"
+      ],
+      "venue": "Journal of Deliberative Democracy",
+      "url": "https://doi.org/10.16997/jdd.2205",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "10.1177/14789299261502662",
+      "topic": "gesellschaft",
+      "title": "Rationality and pluralism in deliberative democracy: What about a deliberative pluralism?",
+      "date": "2026-11-04",
+      "authors": [
+        "Plamen Makariev"
+      ],
+      "venue": "Political Studies Review",
+      "url": "https://doi.org/10.1177/14789299261502662",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "arxiv:2611.05439v1",
+      "topic": "ki",
+      "title": "Learning Implicit Solves for Dynamic Simulations",
+      "date": "2026-11-03",
+      "authors": [
+        "Chawit Kaewnuratchadasorn",
+        "Jiaji Wang",
+        "Xin Nie"
+      ],
+      "venue": "arXiv",
+      "url": "https://arxiv.org/abs/2611.05439v1",
+      "source": "arXiv bibliographic metadata",
+      "source_type": "repository_manuscript",
+      "peer_review": "not_verified",
+      "version": "1",
+      "related_doi": "",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "arxiv:2611.05207v1",
+      "topic": "ki",
+      "title": "Multi-Objective Generative Optimization via Expected Hypervolume Fine-Tuning",
+      "date": "2026-11-03",
+      "authors": [
+        "Juan Guevara",
+        "Riccardo De Santi",
+        "Andreas Krause",
+        "Raul Astudillo"
+      ],
+      "venue": "arXiv",
+      "url": "https://arxiv.org/abs/2611.05207v1",
+      "source": "arXiv bibliographic metadata",
+      "source_type": "repository_manuscript",
+      "peer_review": "not_verified",
+      "version": "1",
+      "related_doi": "",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "arxiv:2611.04809v1",
+      "topic": "ki",
+      "title": "RAHC: Rule-Augmented Hyper-Relational Knowledge Graph Completion for Materials Synthesis",
+      "date": "2026-11-03",
+      "authors": [
+        "Jiawei Sun",
+        "Sijia Xu",
+        "Zihan Chen",
+        "Zhengyi Yang"
+      ],
+      "venue": "arXiv",
+      "url": "https://arxiv.org/abs/2611.04809v1",
+      "source": "arXiv bibliographic metadata",
+      "source_type": "repository_manuscript",
+      "peer_review": "not_verified",
+      "version": "1",
+      "related_doi": "",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "arxiv:2611.04371v1",
+      "topic": "ki",
+      "title": "Embodied AI for Scientific Discovery: From Physical Action to Scientific Evidence",
+      "date": "2026-11-03",
+      "authors": [
+        "Wenhao Xu",
+        "Changwei Wang",
+        "Shunpeng Chen",
+        "Yukun Song",
+        "Sifan Zhou"
+      ],
+      "venue": "arXiv",
+      "url": "https://arxiv.org/abs/2611.04371v1",
+      "source": "arXiv bibliographic metadata",
+      "source_type": "repository_manuscript",
+      "peer_review": "not_verified",
+      "version": "1",
+      "related_doi": "",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "arxiv:2611.04087v1",
+      "topic": "ki",
+      "title": "ScienceVision: Can AI Observe and Reason Like a Scientist?",
+      "date": "2026-11-02",
+      "authors": [
+        "Tianyi Ma",
+        "Jing Gu",
+        "Haozhe Zhao",
+        "Liang Chen",
+        "Yunfan Zhang"
+      ],
+      "venue": "arXiv",
+      "url": "https://arxiv.org/abs/2611.04087v1",
+      "source": "arXiv bibliographic metadata",
+      "source_type": "repository_manuscript",
+      "peer_review": "not_verified",
+      "version": "1",
+      "related_doi": "",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "arxiv:2611.01626v1",
+      "topic": "kunst",
+      "title": "Special and General Computational Aesthetics",
+      "date": "2026-11-01",
+      "authors": [
+        "Ganqing Luo",
+        "Chuan Li",
+        "Liaoruxing Zhang",
+        "Xin Jin"
+      ],
+      "venue": "arXiv",
+      "url": "https://arxiv.org/abs/2611.01626v1",
+      "source": "arXiv bibliographic metadata",
+      "source_type": "repository_manuscript",
+      "peer_review": "not_verified",
+      "version": "1",
+      "related_doi": "",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "10.3390/philosophies11060203",
+      "topic": "wirklichkeit",
+      "title": "Predictive Epistemology: Complexity, Evolutionary Epistemology, and the Anticipation of Scientific Change",
+      "date": "2026-11-01",
+      "authors": [
+        "Miguel Fuentes"
+      ],
+      "venue": "Philosophies",
+      "url": "https://doi.org/10.3390/philosophies11060203",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "10.3389/fsysb.2026.1980056",
+      "topic": "leben",
+      "title": "A framework for understanding mast cell activation syndrome from a complex adaptive systems perspective",
+      "date": "2026-10-30",
+      "authors": [
+        "Werner Richardt Van Zyl",
+        "Sanchen Henning"
+      ],
+      "venue": "Frontiers in Systems Biology",
+      "url": "https://doi.org/10.3389/fsysb.2026.1980056",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "10.5007/1808-1711.2026.e111088",
+      "topic": "wirklichkeit",
+      "title": "Review of Michel Ghins, Scientific Realism and Laws of Nature: A Metaphysics of Causal Powers (Cham: Springer, 2024)",
+      "date": "2026-10-28",
+      "authors": [
+        "Roberto Miguel Azar"
+      ],
+      "venue": "Principia: an international journal of epistemology",
+      "url": "https://doi.org/10.5007/1808-1711.2026.e111088",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "10.20318/eunomia.2026.10855",
+      "topic": "gesellschaft",
+      "title": "Democracia deliberativa",
+      "date": "2026-10-28",
+      "authors": [
+        "Cicerón Muro Cabral"
+      ],
+      "venue": "EUNOMÍA. Revista en Cultura de la Legalidad",
+      "url": "https://doi.org/10.20318/eunomia.2026.10855",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "10.68854/rccqng25",
+      "topic": "ki",
+      "title": "Artificial Intelligence and the Scientific Method: A Theoretical Examination of Discovery, Explanation and Reproducibility in AI-Driven Science",
+      "date": "2026-10-27",
+      "authors": [
+        "NWOGBOJI Emmanuel Usulor",
+        "Atolagbe Umar Kawu",
+        "Igwe Emmanuel Sunday"
+      ],
+      "venue": "IIAR Journal of Artificial Intelligence and Emerging Technologies",
+      "url": "https://doi.org/10.68854/rccqng25",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "10.1007/s44163-026-02577-2",
+      "topic": "ki",
+      "title": "AI-driven scientific discovery requires scientific maturity beyond model opacity",
+      "date": "2026-10-25",
+      "authors": [
+        "Yuqiang Liu",
+        "Siguang Zhang"
+      ],
+      "venue": "Discover Artificial Intelligence",
+      "url": "https://doi.org/10.1007/s44163-026-02577-2",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "10.1371/journal.pcsy.0000122",
+      "topic": "leben",
+      "title": "Beyond learning and reasoning: Meta-cognition for AI working inside complex systems",
+      "date": "2026-10-23",
+      "authors": [
+        "Alexiei Dingli"
+      ],
+      "venue": "PLOS Complex Systems",
+      "url": "https://doi.org/10.1371/journal.pcsy.0000122",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "10.3923/jai.2026.94.99",
+      "topic": "ki",
+      "title": "Generative Artificial Intelligence in Scientific Research and Scholarly Communication: A PRISMA-Compliant Systematic Review",
+      "date": "2026-10-15",
+      "authors": [
+        "Muhammad Imran Pasha"
+      ],
+      "venue": "Journal of Artificial Intelligence",
+      "url": "https://doi.org/10.3923/jai.2026.94.99",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "arxiv:2610.20856v1",
+      "topic": "bewusstsein",
+      "title": "Awakening as a Trait-Level Transformation of Consciousness",
+      "date": "2026-10-14",
+      "authors": [
+        "Riku Ihalainen",
+        "Victor Oswald",
+        "Gulshan Kumar",
+        "Genevieve Major",
+        "Balachundhar Subramaniam"
+      ],
+      "venue": "arXiv",
+      "url": "https://arxiv.org/abs/2610.20856v1",
+      "source": "arXiv bibliographic metadata",
+      "source_type": "repository_manuscript",
+      "peer_review": "not_verified",
+      "version": "1",
+      "related_doi": "",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "arxiv:2610.12845v1",
+      "topic": "kunst",
+      "title": "Towards Defining, Measuring, and Leveraging Creativity in AI Applications",
+      "date": "2026-10-09",
+      "authors": [
+        "Jingyi Yang",
+        "Alexander Tuzhilin"
+      ],
+      "venue": "arXiv",
+      "url": "https://arxiv.org/abs/2610.12845v1",
+      "source": "arXiv bibliographic metadata",
+      "source_type": "repository_manuscript",
+      "peer_review": "not_verified",
+      "version": "1",
+      "related_doi": "10.24963/ijcai.2026/412",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "arxiv:2610.10654v1",
+      "topic": "bewusstsein",
+      "title": "Some Twitch chats exhibit multifractal characteristics resembling stream-of-consciousness narrative",
+      "date": "2026-10-07",
+      "authors": [
+        "Marcin Ból",
+        "Stanisław Drożdż",
+        "Robert Kluszczyński",
+        "Jarosław Kwapień",
+        "Marcin Wątorek"
+      ],
+      "venue": "arXiv",
+      "url": "https://arxiv.org/abs/2610.10654v1",
+      "source": "arXiv bibliographic metadata",
+      "source_type": "repository_manuscript",
+      "peer_review": "not_verified",
+      "version": "1",
+      "related_doi": "",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "10.1007/s40747-026-02517-8",
+      "topic": "leben",
+      "title": "Artificial neural networks as discrete complex systems: native vector-ternary training via the leech lattice $$\\Lambda _{24}$$",
+      "date": "2026-10-05",
+      "authors": [
+        "Alexander Lavicka"
+      ],
+      "venue": "Complex & Intelligent Systems",
+      "url": "https://doi.org/10.1007/s40747-026-02517-8",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "arxiv:2610.04057v1",
+      "topic": "bewusstsein",
+      "title": "MEM as an Extension of Recurrent Processing Theory: Toward a Motivational Account of Consciousness",
+      "date": "2026-10-02",
+      "authors": [
+        "Wiesław L. Galus",
+        "Janusz A. Starzyk"
+      ],
+      "venue": "arXiv",
+      "url": "https://arxiv.org/abs/2610.04057v1",
+      "source": "arXiv bibliographic metadata",
+      "source_type": "repository_manuscript",
+      "peer_review": "not_verified",
+      "version": "1",
+      "related_doi": "",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "arxiv:2610.01002v1",
+      "topic": "bewusstsein",
+      "title": "What Can Analogy Tell Us About Artificial Consciousness?",
+      "date": "2026-10-01",
+      "authors": [
+        "Keith J. Holyoak",
+        "Martin M. Monti"
+      ],
+      "venue": "arXiv",
+      "url": "https://arxiv.org/abs/2610.01002v1",
+      "source": "arXiv bibliographic metadata",
+      "source_type": "repository_manuscript",
+      "peer_review": "not_verified",
+      "version": "1",
+      "related_doi": "",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "10.1016/j.engappai.2026.115827",
+      "topic": "ki",
+      "title": "Generative Artificial Intelligence and Diffusion models in Drug Discovery: A Critical Review",
+      "date": "2026-10-01",
+      "authors": [
+        "Dipti Mishra",
+        "Garvita Dalmia"
+      ],
+      "venue": "Engineering Applications of Artificial Intelligence",
+      "url": "https://doi.org/10.1016/j.engappai.2026.115827",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "arxiv:2609.38577v1",
+      "topic": "kunst",
+      "title": "Conditional Generation of Creative Chess Puzzles with Diffusion Models",
+      "date": "2026-09-29",
+      "authors": [
+        "Aatu Selkee",
+        "Severi Rissanen",
+        "Xidong Feng",
+        "Tom Zahavy",
+        "Eric Malmi"
+      ],
+      "venue": "arXiv",
+      "url": "https://arxiv.org/abs/2609.38577v1",
+      "source": "arXiv bibliographic metadata",
+      "source_type": "repository_manuscript",
+      "peer_review": "not_verified",
+      "version": "1",
+      "related_doi": "",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "arxiv:2609.38495v1",
+      "topic": "bewusstsein",
+      "title": "Does Global Neuronal Workspace Theory Explain Phenomenal Consciousness? The Motivated Emotional Mind Challenge",
+      "date": "2026-09-29",
+      "authors": [
+        "Wiesław L. Galus",
+        "Janusz A. Starzyk"
+      ],
+      "venue": "arXiv",
+      "url": "https://arxiv.org/abs/2609.38495v1",
+      "source": "arXiv bibliographic metadata",
+      "source_type": "repository_manuscript",
+      "peer_review": "not_verified",
+      "version": "1",
+      "related_doi": "",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "10.5539/ijbm.v21n5p183",
+      "topic": "leben",
+      "title": "Temporal Entrainment of Leadership and Cultural Emergence in Healthcare Complex Adaptive Systems: A Study Protocol",
+      "date": "2026-09-29",
+      "authors": [
+        "Ee Ai Lim",
+        "Rashad Yazdanifard"
+      ],
+      "venue": "International Journal of Business and Management",
+      "url": "https://doi.org/10.5539/ijbm.v21n5p183",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "10.52123/1994-2370-2026-1776",
+      "topic": "gesellschaft",
+      "title": "Social trust in state institutions as a factor of social governance effectiveness",
+      "date": "2026-09-29",
+      "authors": [
+        "Gulayim Tilepova",
+        "Iroda Eshmanova",
+        "Mansur Bekmurodov"
+      ],
+      "venue": "Public Administration and Civil Service",
+      "url": "https://doi.org/10.52123/1994-2370-2026-1776",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "10.1017/psa.2026.10280",
+      "topic": "wirklichkeit",
+      "title": "The Benchmarking Epistemology: Validity Theory for Evaluating Machine Learning Models",
+      "date": "2026-09-28",
+      "authors": [
+        "Timo Freiesleben",
+        "Sebastian Zezulka"
+      ],
+      "venue": "Philosophy of Science",
+      "url": "https://doi.org/10.1017/psa.2026.10280",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    }
+  ]
 }
