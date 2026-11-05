@@ -16,7 +16,7 @@ Die Idee zu **WIRKLICH** entstand aus der Arbeit an dem Buch **„Die Richtung�
 
 **Drei Ebenen bleiben unterscheidbar:** „Die Richtung“ ist der ideelle Ursprung; der öffentlich dokumentierte **„Grundtext des Wirklichen“** ist das philosophische Fundament; **WIRKLICH** ist die gemeinsame Forschungs- und Erkenntniswerkstatt. Ihre Arbeit darf auch die Annahmen ihres Ursprungs widerlegen. Die Herkunft einer Idee belegt nicht ihre Richtigkeit.
 
-„Die Richtung“ wird hier als **nicht im Repository veröffentlichtes Manuskript** erwähnt. Seine Inhalte werden durch diese Erwähnung weder veröffentlicht noch unter die Projektlizenz gestellt. Mitarbeit, Kritik und fachliche Prüfung dürfen niemals die Zustimmung zu diesem Buch voraussetzen.
+**„Die Richtung“ ist jetzt als offene deutsche Text-Lesefassung im Repository veröffentlicht**: [Online lesen](https://alexanderr1991.github.io/grundtext-des-wirklichen/de/die-richtung/) · [vollständigen Text herunterladen](../public/books/die-richtung-2.0-lesefassung.txt). Die Lesefassung enthält die extrahierten Texte der 196-seitigen Ausgabe, nicht aber die reproduzierten Kunstwerke und Modellgrafiken. Für originale redaktionelle Texte gilt CC BY-SA 4.0, soweit die notwendigen Rechte vorliegen; fremde Werke behalten ihre separaten Rechte. Die gestaltete Original-PDF ist derzeit nicht hier bereitgestellt. Mitarbeit, Kritik und fachliche Prüfung dürfen niemals die Zustimmung zu diesem Buch voraussetzen.
 
 ## Unser Maßstab: Eine Adresse ist kein Beweis
 
