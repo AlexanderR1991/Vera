@@ -1,8 +1,8 @@
-# Lizenzkonzept – Entscheidungsvorlage / Licensing decision guide
+# Lizenzkonzept – historische Entscheidungsvorlage / Licensing decision archive
 
-> **Status: Vorschlag, keine Lizenzerteilung.** Diese Datei vergibt keinerlei Nutzungsrechte und ersetzt keine Lizenzdatei.
+> **ENTSCHEIDUNG GETROFFEN (05.11.2026): Texte CC BY-SA 4.0, Code MIT.** Dieses Dokument bleibt als Entscheidungsarchiv erhalten. Verbindliche Zuordnung: [LICENSING.md](../LICENSING.md), [LICENSE](../LICENSE) und [LICENSE-CONTENT.md](../LICENSE-CONTENT.md).
 >
-> **Status: Proposal only, not a license grant.** This document does not itself license any material.
+> **DECISION ACTIVE: text CC BY-SA 4.0, software MIT.** This is a historical decision paper; use the linked operative licensing files.
 
 ## Warum überhaupt?
 Ein öffentliches GitHub-Repository darf angesehen und innerhalb der Plattform geforkt werden. Das allein erteilt noch keine allgemeine Erlaubnis, Texte oder Software beliebig zu kopieren, zu verändern und weiterzugeben. Für eine dauerhaft gemeinschaftlich weiterentwickelbare Bibliothek braucht es eine ausdrückliche Rechtefreigabe.
@@ -58,7 +58,7 @@ Bei KI-unterstützten Texten und Bildern sind menschliche Beiträge, mögliche S
 4. **Wer prüft und übernimmt größere Fremdbeiträge?**
 5. **Sollen Name und Logo separat geschützt bzw. ausdrücklich von pauschalen Freigaben ausgenommen werden?**
 
-**Bis zu dieser Entscheidung bleibt es beim bisherigen Status: keine allgemeine offene Lizenz.**
+**Die Entscheidung wurde am 05.11.2026 umgesetzt.** Nur Rechte im ausdrücklich definierten Umfang werden lizenziert.
 
 ## English summary
 

@@ -14,7 +14,8 @@ Die Reihenfolge folgt sachlichen Abhängigkeiten, nicht festen Veröffentlichung
 - [ ] Sichtprüfung auf Desktop, Tablet und Smartphone
 - [ ] Originalgrafiken und ornamentale Illustrationen vertiefen
 - [ ] Lesbarkeit, Kontrast und Bedienbarkeit testen
-- [ ] Autorenschaft, Lizenzen und Moderation klären
+- [x] Lizenzzuordnung für Originaltexte und Code dokumentieren (CC BY-SA 4.0 / MIT)
+- [ ] Individuelle Bildrechte, neue Mitwirkende und Moderationsverfahren weiter prüfen
 
 ## 0.4 – Belastbare Kapitel
 - [ ] Erstes umfangreiches Kapitel mit überprüfbaren Fachquellen
@@ -31,7 +32,8 @@ Die Reihenfolge folgt sachlichen Abhängigkeiten, nicht festen Veröffentlichung
 - [ ] Geprüfte Übersetzungen ergänzen
 
 ## 1.0 – Verantwortbare Öffnung
-- [ ] Lizenz, Rechte und redaktionelle Verantwortung geklärt
+- [x] Lizenzen für originale Texte und Software festgelegt
+- [ ] Marken-/Bildrechte, Drittmaterial und redaktionelle Verantwortung abschließend klären
 - [ ] Moderation und Meldemöglichkeit eingerichtet
 - [ ] Quellenapparat und methodische Grenzen sichtbar
 - [ ] Breite öffentliche Einladung; optional eigene Domain

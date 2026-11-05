@@ -57,10 +57,13 @@ GitHub Actions prüft Änderungen in Pull Requests und veröffentlicht nur nach 
 - [Beitragsleitfaden / Contribution guide](CONTRIBUTING.md)
 - [Diskussionskodex / Code of conduct](CODE_OF_CONDUCT.md)
 - [Roadmap](docs/roadmap.md)
-- [Lizenzentscheidung / Licensing proposal](docs/license-options.md)
+- [Verbindliche Lizenzzuordnung / License scope](LICENSING.md)
+- [Textlizenz / Content license – CC BY-SA 4.0](LICENSE-CONTENT.md)
+- [Softwarelizenz / Code license – MIT](LICENSE)
+- [Urhebernennung / Contributors](AUTHORS.md)
 
-**Eine offene Lizenz ist noch nicht beschlossen.** Öffentlich lesbarer Code und Text sind nicht automatisch unter einer Open-Source- oder Open-Content-Lizenz. Bis zur Klärung bitte keine umfangreichen fremden Texte, geschützten Bilder oder Inhalte ohne gesicherte Nutzungsrechte einreichen. Fragen und Vorschläge sind bereits erwünscht.
+**Unsere Originaltexte und Übersetzungen: CC BY-SA 4.0.** **Unsere Website-Software: MIT.** Die genaue Zuordnung – besonders bei HTML-Dateien mit Text und Code – erklärt [LICENSING.md](LICENSING.md). Signet/Markenkennzeichen und fremdes Material sind nicht pauschal freigegeben. Bitte nur Inhalte einreichen, für die du die entsprechenden Rechte besitzt.
 
-**No license has been chosen yet.** Public visibility does not automatically grant open reuse rights. Please discuss substantial text/code contributions and their licensing before expecting a merge. Private manuscripts and personal information must not be published without permission.
+**Original written content and translations: CC BY-SA 4.0.** **Original website code: MIT.** Read [LICENSING.md](LICENSING.md) for mixed files and exclusions. Project branding and third-party works are not automatically included. Private manuscripts and personal data remain outside the project.
 
 *Entstanden auf menschliche Initiative mit KI-Unterstützung; fachliche Prüfung und redaktionelle Entscheidungen bleiben menschliche Aufgaben.*

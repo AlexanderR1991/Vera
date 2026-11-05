@@ -8,7 +8,7 @@
 - Spekulationen ohne ausreichende Kennzeichnung der Unsicherheit.
 
 ## Vor breitem öffentlichem Start entscheiden
-- Autorennennung, Rechteinhaberschaft und Lizenz.
+- Autorennennung, Rechteinhaberschaft und Lizenz für jedes neue Material anhand [LICENSING.md](../LICENSING.md) prüfen; CC BY-SA 4.0/MIT gelten nur in der festgelegten Reichweite.
 - Moderation, Verantwortlichkeit und Kontakt.
 - Quellen- und Revisionsregeln.
 - Zielgruppe und weitere Sprachen.

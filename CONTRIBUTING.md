@@ -63,9 +63,9 @@ Issues and PRs are public. Maintainers may request clarification, suggest revisi
 - Keine persönlichen Informationen anderer Menschen, keine privaten Chats, keine unveröffentlichten privaten Manuskripte.
 - Keine beleidigenden, diskriminierenden oder bedrohenden Beiträge (siehe [Code of Conduct](CODE_OF_CONDUCT.md)).
 - Bei Zitaten, Abbildungen und fremden Werken Urheberrechte beachten.
-- **Noch keine Open-Source/Open-Content-Lizenz:** Es besteht derzeit kein pauschales Recht zur Weiterverwendung der Inhalte. Vor der Annahme umfangreicher Text-, Code- oder Designbeiträge müssen die Nutzungsrechte und die geplante Lizenz geklärt werden.
+- **Lizenzvereinbarung für Beiträge:** Mit dem Vorschlag eines eigenen Textbeitrags für die Aufnahme in das Projekt bestätigst du, dass du berechtigt bist, den übernommenen Beitrag unter **CC BY-SA 4.0** veröffentlichen zu lassen; für eigenen Programmcode gilt **MIT**. Du behältst deine Urheberschaft. Bei umfangreichen oder unklaren Beiträgen fragen wir vor dem Merge ausdrücklich nach. Siehe [LICENSING.md](LICENSING.md).
 
-Do not submit personal data, confidential communications or copyrighted third-party materials without permission. **The repository does not yet have an explicit open license.** Submitting a pull request is not an automatic transfer of copyright and does not guarantee that it can be merged or freely reused.
+Do not submit personal data, confidential communications, or third-party materials without permission. By proposing original text for inclusion, you confirm that you have authority to release the **accepted text under CC BY-SA 4.0**; original software contributions are accepted under **MIT**. You retain authorship. Maintainers may request explicit confirmation before merging. See [LICENSING.md](LICENSING.md).
 
 ---
 

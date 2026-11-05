@@ -1,5 +1,12 @@
 # Versionsgeschichte
 
+## 0.3.3 – 2026-11-05
+- Originaltexte und Übersetzungen unter Creative Commons CC BY-SA 4.0, eigene Website-Software unter MIT freigegeben (jeweils soweit die Rechte bestehen).
+- LICENSE, LICENSE-CONTENT.md und LICENSING.md ergänzt; gemischte HTML-/Astro-Dateien rechtlich abgegrenzt.
+- Signet und fremde Werke ausdrücklich von der allgemeinen Freigabe ausgenommen.
+- Website-Footer, README, Beitragsleitfaden und Review-Vorlage aktualisiert.
+- Rechte an neu eingereichten Beiträgen müssen vor deren Übernahme geklärt werden.
+
 ## 0.3.2 – 2026-11-05
 - GitHub Discussions aktiviert und auf der Website und in der README verlinkt.
 - Zweisprachige Begrüßungsdiskussion für die Veröffentlichung als Entwurf hinterlegt.

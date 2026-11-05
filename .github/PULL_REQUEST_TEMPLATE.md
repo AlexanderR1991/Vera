@@ -21,7 +21,8 @@ Provide sources for factual claims and reasons for philosophical positions.
 - [ ] Bei Sprachänderungen habe ich den deutschen und englischen Sinn abgeglichen.
 - [ ] Ich habe die Auswirkungen auf mobile Lesbarkeit und Navigation berücksichtigt.
 - [ ] Wenn ich Code geändert habe, habe ich `npm run build` lokal getestet (oder erklärt, warum nicht).
-- [ ] Bei umfangreichen neuen Inhalten habe ich die noch ungeklärte Lizenzierung beachtet.
+- [ ] Ich habe die [Lizenzzuordnung](../LICENSING.md) beachtet: eigene Texte unter CC BY-SA 4.0, eigener Code unter MIT; Signet und fremdes Material gesondert.
+- [ ] Ich bin berechtigt, die von mir eingereichten eigenen Beiträge unter der zutreffenden Projektlizenz veröffentlichen zu lassen.
 
 ## Offene Fragen / Open questions
 

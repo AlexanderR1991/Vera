@@ -15,7 +15,7 @@ Anyone can suggest ideas through issues or changes through pull requests. **Subm
 - Pull Requests: technisch verfügbar / available
 - GitHub Discussions: aktiviert / enabled
 - Maintainer: Repository-Eigentümer / repository owner
-- Rechtliche Lizenzierung: offen / undecided
+- Rechtliche Lizenzierung: Texte CC BY-SA 4.0; eigener Code MIT; Logo und fremde Materialien ausgenommen / content CC BY-SA 4.0, original code MIT; logo and third-party exceptions
 - Formale wissenschaftliche Begutachtung: nicht eingerichtet / not established
 
 ## Ablauf / Process
@@ -29,9 +29,9 @@ Anyone can suggest ideas through issues or changes through pull requests. **Subm
 
 ## Verantwortung / Responsibilities
 
-Respekt und substantielle Gegenargumente sollen nebeneinander möglich sein. Die Maintainer können toxische oder private Inhalte entfernen, müssen aber nicht vorgetäuschte Einstimmigkeit herstellen. Die Autorenschaft und Lizenzen werden vor einer Ausweitung der redaktionellen Rechte geklärt.
+Respekt und substantielle Gegenargumente sollen nebeneinander möglich sein. Die Maintainer können toxische oder private Inhalte entfernen, müssen aber nicht vorgetäuschte Einstimmigkeit herstellen. Die Lizenzzuordnung ist in [LICENSING.md](../LICENSING.md) dokumentiert. Bei Beiträgen sind Rechte, Zustimmung und angemessene Namensnennung vor der Übernahme zu prüfen; die redaktionelle Verantwortung liegt weiterhin bei den Maintainers.
 
-Respect and strong criticism can coexist. Maintainers can moderate harassment or private material without manufacturing consensus. Authorship and licensing must be resolved before extensive third-party contributions are merged.
+Respect and strong criticism can coexist. Maintainers can moderate harassment or private material without manufacturing consensus. License scope is documented in [LICENSING.md](../LICENSING.md). Author rights and consent require review before third-party contributions are merged; editorial responsibility remains with maintainers.
 
 ## Später / Later
 
