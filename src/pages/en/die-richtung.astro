@@ -1,0 +1,16 @@
+---
+import Layout from "../../layouts/SiteLayout.astro";
+import {pathFor,base} from "../../lib/paths.mjs";
+---
+<Layout lang="en" slug="die-richtung">
+  <section class="container" style="padding:72px 0 100px;max-width:860px">
+    <p class="section-kicker">OUR ORIGIN · OPEN BOOK</p>
+    <h1>Die Richtung</h1>
+    <p class="mission-lead"><em>A revisable path towards truth, freedom and lived being.</em></p>
+    <p>By Alexander Radke. This German-language book is the intellectual starting point of WIRKLICH, not an authority for the claims we publish. Its ideas remain open to criticism and correction.</p>
+    <p>A full <strong>text-only German reading edition</strong> is available. The original illustrated PDF, containing third-party artworks, has not yet been published here. The extraction includes the descriptions and credits but not reproduced images.</p>
+    <p><a class="button button--gold" href={pathFor("de","die-richtung")}>Read the book in German ↗</a></p>
+    <p><a href={base+"books/die-richtung-2.0-lesefassung.txt"} download>Download the German full text ↗</a></p>
+    <p>Original written material is published under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> where the relevant rights are held. External works retain their own licenses. The manuscript's publication does not constitute independent scholarly review.</p>
+  </section>
+</Layout>
