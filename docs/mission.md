@@ -1,4 +1,6 @@
-# Mission 0.9 · Ein offenes Erkenntnissystem
+# WIRKLICH 1.0 · Ein offenes Erkenntnissystem
+
+Die [erste Werkzeugfassung](release-1.0.md) macht diese Mission mit einem persönlichen Prüfblatt und einem öffentlichen Projektstatus benutzbar. Grundtext des Wirklichen bleibt unser philosophisches Fundament. Welche Qualität die Methode erreicht, soll der [vorbereitete Vergleich](evaluation-v1.md) erst untersuchen.
 
 **Überarbeiteter Gesamtentwurf · 5. November 2026 · fachlich nicht unabhängig begutachtet**
 

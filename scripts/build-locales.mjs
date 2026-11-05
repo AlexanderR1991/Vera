@@ -1,6 +1,7 @@
 import {readFile,mkdir,writeFile,copyFile} from "node:fs/promises";
 import path from "node:path";
 const root=process.cwd();
+const project=JSON.parse(await readFile(path.join(root,"public/project.json"),"utf8"));
 const base="/grundtext-des-wirklichen/";
 const names=["index","atlas","bibliothek","lesestueck-wahrheit","manifest","pruefstand","methode","mitwirken"];
 const mapping={index:"home",atlas:"atlas",bibliothek:"library","lesestueck-wahrheit":"reading",manifest:"manifest",pruefstand:"proof",methode:"method",mitwirken:"contribute"};
@@ -51,8 +52,9 @@ for(const name of names){
  const begin='<main id="inhalt">',start=html.indexOf(begin),end=html.indexOf("</main>",start);
  if(start<0||end<0)throw Error("Missing main in "+name);
  const body=html.slice(start+begin.length,end);
- const de=convertLinks(body.replaceAll("VOLUME 0.2","VOLUME 0.3").replaceAll("ARBEITSFASSUNG 0.2","ARBEITSFASSUNG 0.3"),"de");
- const en=convertLinks(translate(body,mapping[name]),"en");
+ const releaseLabels=text=>text.replace(/VOLUME 0\.[23]/g,"VERSION "+project.version).replace(/ARBEITSFASSUNG 0\.[23]/g,"WERKZEUGFASSUNG "+project.version).replace(/WORKING DRAFT 0\.[23]/g,"TOOL RELEASE "+project.version);
+ const de=convertLinks(releaseLabels(body),"de");
+ const en=convertLinks(releaseLabels(translate(body,mapping[name])),"en");
  for(const [lang,text] of [["de",de],["en",en]]){
    const file=path.join(root,"src/generated/pages",lang,name+".html");
    await mkdir(path.dirname(file),{recursive:true});await writeFile(file,text,"utf8");

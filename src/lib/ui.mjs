@@ -1,6 +1,7 @@
+import project from "../../public/project.json";
 export const ui = {
   "de": {
-    "subtitle": "Ein offenes Erkenntnisprojekt",
+    "subtitle": project.subtitle.de,
     "menu": "Menü",
     "nav": [
       "Auftakt",
@@ -8,19 +9,22 @@ export const ui = {
       "Bibliothek",
       "Aussagen",
       "Methode",
-      "Mitwirken"
+      "Mitwirken",
+      "Werkstatt"
     ],
-    "archive": "ARCHIV / ARBEITSFASSUNG 0.9",
+    "archive": "WIRKLICH / VERSION " + project.version,
     "motto": "ERKENNTNIS IST KEIN ENDZUSTAND",
     "footerTitle": "Die Wirklichkeit steht über diesem Werk.",
-    "footerDescription": "Ein philosophischer Entwurf, der korrigierbar bleiben soll.",
+    "footerDescription": "Die offene Erkenntniswerkstatt. Fragen stellen, Wissen prüfen und verantwortlich handeln. Unser Fundament: der Grundtext des Wirklichen.",
     "explore": "ERKUNDEN",
     "project": "PROJEKT",
     "source": "Quelltext",
-    "status": "Originalfassung · Arbeitsstand 0.9",
+    "status": "Originalfassung · Werkzeugfassung " + project.version,
     "copyright": "© 2026 AlexanderR1991 & Mitwirkende · Texte CC BY-SA 4.0 · Code MIT",
     "disclosure": "MIT KI-UNTERSTÜTZUNG ERSTELLT · OFFEN FÜR KRITIK",
     "titles": {
+      "werkstatt": "Dein Prüfblatt",
+      "projektstatus": "Version und Projektstatus",
       "mission": "Unsere Mission",
       "baum-des-wissens": "Der fliegende Baum",
       "aussagen": "Aussagenregister",
@@ -44,10 +48,10 @@ export const ui = {
       "militaer-und-verantwortung": "Militär und Verantwortung",
       "ernaehrung-und-verantwortung": "Ernährung und Verantwortung"
     },
-    "description": "Ein offenes, korrigierbares Erkenntnisprojekt über Wahrheit, Wirklichkeit und menschliches Handeln."
+    "description": "WIRKLICH ist die offene Erkenntniswerkstatt: Fragen klären, Belege und Gegenargumente prüfen und verantwortlich handeln. Mit exportierbaren Prüfblättern und offenem Projektstatus."
   },
   "en": {
-    "subtitle": "An open project of inquiry",
+    "subtitle": project.subtitle.en,
     "menu": "Menu",
     "nav": [
       "Introduction",
@@ -55,12 +59,13 @@ export const ui = {
       "Library",
       "Claims",
       "Method",
-      "Contribute"
+      "Contribute",
+      "Workshop"
     ],
-    "archive": "ARCHIVE / WORKING DRAFT 0.9",
+    "archive": "WIRKLICH / VERSION " + project.version,
     "motto": "KNOWLEDGE IS NEVER COMPLETE",
     "footerTitle": "Reality stands above this work.",
-    "footerDescription": "A philosophical proposal designed to remain open to correction.",
+    "footerDescription": "The open inquiry workshop. Ask questions, examine knowledge and act responsibly. Our foundation: Grundtext des Wirklichen.",
     "explore": "EXPLORE",
     "project": "PROJECT",
     "source": "Source code",
@@ -68,6 +73,8 @@ export const ui = {
     "copyright": "© 2026 AlexanderR1991 & contributors · Text CC BY-SA 4.0 · Code MIT",
     "disclosure": "CREATED WITH AI ASSISTANCE · OPEN TO CRITICISM",
     "titles": {
+      "werkstatt": "Your Inquiry Worksheet",
+      "projektstatus": "Version and Project Status",
       "mission": "Our Mission",
       "baum-des-wissens": "The Flying Tree",
       "aussagen": "Claim Register",
@@ -91,7 +98,7 @@ export const ui = {
       "militaer-und-verantwortung": "Military Power and Responsibility",
       "ernaehrung-und-verantwortung": "Nutrition and Responsibility"
     },
-    "description": "An open and revisable inquiry into truth, reality, human dignity, and responsible action."
+    "description": "WIRKLICH is the open inquiry workshop: clarify questions, examine evidence and objections, and act responsibly. With exportable worksheets and an open project status."
   }
 };
-export const navigation = [["index",0],["atlas",1],["bibliothek",2],["aussagen",3],["methode",4],["mitwirken",5]];
+export const navigation = [["index",0],["werkstatt",6],["atlas",1],["bibliothek",2],["aussagen",3],["methode",4],["mitwirken",5]];

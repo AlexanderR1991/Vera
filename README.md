@@ -1,4 +1,16 @@
-# Grundtext des Wirklichen · Foundations of Reality
+# WIRKLICH · Die offene Erkenntniswerkstatt
+
+**Version 1.0.0 · The open inquiry workshop · 5. November 2026**
+
+Aus einer Frage wird ein nachvollziehbarer Prüfweg: Begriffe klären, Gründe prüfen, den stärksten Einwand ernst nehmen und den nächsten Schritt begrenzen. **Grundtext des Wirklichen** bleibt unser philosophisches Fundament; WIRKLICH ist der Name der gemeinsamen Werkstatt.
+
+[Mit einer Frage beginnen / Start a worksheet](https://alexanderr1991.github.io/grundtext-des-wirklichen/de/werkstatt/) · [Projektstatus / Project status](https://alexanderr1991.github.io/grundtext-des-wirklichen/de/projektstatus/) · [Was 1.0 bedeutet / Release scope](docs/release-1.0.md) · [Projektprofil / Project profile](public/project.json)
+
+Das neue Prüfblatt verarbeitet Eingaben auf der Seite, bietet Text- und JSON-Export, validierten JSON-Import und ausdrücklich ausgelöste Browserspeicherung. Es ruft keine KI auf und veröffentlicht keine Eingaben. Ein vollständiges Blatt ist kein fachlich geprüfter Registereintrag. Die Statusseite zählt den tatsächlichen Bestand und benennt ausstehende Prüfungen.
+
+**Die nächsten drei Ziele:** P-01, zehn fachkundig geprüfte Aussagen; P-02, ein [vorab festgelegter Methodenvergleich](docs/evaluation-v1.md); P-03, unabhängige Einspruchswege, zugängliche Nutzung und [transparente Finanzierung](docs/finanzierung.md). Alle drei sind offene Aufgaben. Die drei bisherigen Registereinträge bleiben ungeprüft.
+
+The first integrated tool release makes it possible to structure a question, examine reasons and objections, name revision conditions and export a reusable worksheet. The former project name remains the title of its philosophical foundation. Existing addresses and licenses are retained. Expert review, evaluation of the method and independent appeals remain pending.
 
 **Wir sind Forschung! / We are research!**
 
@@ -108,7 +120,7 @@ Faire Vergütung, Erholung und transparente Finanzierung gehören zur [Mission](
 Statische Astro-Website auf GitHub Pages; Node.js ab 22.12.
 
 ```sh
-npm install
+npm ci
 npm run dev
 npm run test:claims
 npm run build

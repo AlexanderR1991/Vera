@@ -1,5 +1,14 @@
 # Versionsgeschichte
 
+## 1.0.0 · 2026-11-05 – WIRKLICH · Die offene Erkenntniswerkstatt
+- Neuer öffentlicher Projektname WIRKLICH; Grundtext des Wirklichen bleibt der Titel des philosophischen Fundaments. Bisherige Webadressen, Aussagekennungen, Signet, Attribution und Lizenzen bleiben erhalten.
+- Benutzbares zweisprachiges Prüfblatt für fünf Aussagearten: Frage, vorläufige Aussage, Geltungsbereich, Belege oder Gründe, Einwand, Revisionsbedingungen und nächster Schritt.
+- Lokale Text-/JSON-Exporte, validierter JSON-Import und bewusst ausgelöste Browserspeicherung; keine Übermittlung der Eingaben, keine KI-Bewertung und keine automatische Veröffentlichung.
+- Öffentliche zweisprachige Statusseite mit aus Register und Themenkarte abgeleiteten Bestandszahlen und dokumentierten Automatik-Datenständen.
+- Drei priorisierte Folgeaufgaben mit Kriterien: geprüfter Aussagenbestand, Vergleich der Methode und tragfähige Verantwortung. Evaluationsentwurf und offener Finanzierungsstand dokumentiert.
+- Projektprofil, globale Websiteversion und Paketversion auf 1.0.0 vereinheitlicht; automatische Versions-, Export- und Statusprüfungen ergänzt.
+- 1.0 bezeichnet eine zusammenhängende Werkzeugfassung. Die bisherigen drei Registereinträge bleiben ungeprüft; kein Fachreview oder Wirksamkeitsnachweis wird aus der Versionsnummer abgeleitet.
+
 ## 2026-11-05 · Fliegender Baum und Selbstprüfung · redaktioneller Entwurf
 - Gesamtansicht in DE/EN mit sechs Arbeitsebenen, 22 mehrfach zugeordneten Themen, sichtbaren Lücken und verlinkten Änderungsvorschlägen.
 - Drei öffentliche Issues B-01–B-03 mit zwölf Selbstkritikfragen, konkreten Ausgangsstellen, Einwänden und Revisionsbedingungen veröffentlicht.

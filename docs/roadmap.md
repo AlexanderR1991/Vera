@@ -1,6 +1,8 @@
 # Roadmap · Von der Vision zum belastbaren Erkenntnissystem
 
-**Stand: Gesamtentwurf 0.9 · 5. November 2026**
+**Stand: WIRKLICH 1.0.0 · 5. November 2026**
+
+Die erste zusammenhängende Werkzeugfassung ist in [Release 1.0](release-1.0.md) beschrieben. Das neue Prüfblatt und die öffentliche Statusseite machen den Arbeitsweg benutzbar. Die folgenden Freigabekriterien betreffen die Qualität des Bestands und die Prüfung der Methode; die Versionsnummer ersetzt sie nicht. P-01 entspricht dem geprüften Bestand, P-02 dem Methodenvergleich und P-03 der tragfähigen Verantwortung.
 
 Die Reihenfolge folgt überprüfbaren Voraussetzungen. Die Kapitel bleiben erhalten; als Nächstes vertiefen wir ihre Begründungen. Die [Mission](mission.md) beschreibt das gemeinsame Ziel. Frühere Entwicklungsschritte sind in der Git-Versionsgeschichte erhalten.
 
@@ -15,6 +17,9 @@ Die Reihenfolge folgt überprüfbaren Voraussetzungen. Die Kapitel bleiben erhal
 - [x] Aussagenregister mit stabilen Kennungen, Herkunft, Einwänden, Revisionsbedingungen und JSON-Export
 - [x] Drei Demonstrationseinträge; **keiner fachlich freigegeben**
 - [x] Automatische Strukturprüfung des Registers; **keine automatische Wahrheitsprüfung**
+- [x] Zweisprachiges persönliches Prüfblatt mit Text-/JSON-Export, validiertem Import und optionalem Browserspeicher
+- [x] Öffentlicher Projektstatus mit Bestandszahlen aus den Daten und einheitlichem Versionsprofil
+- [x] [Konkreter Entwurf für den Methodenvergleich](evaluation-v1.md); **noch kein Versuch und keine Vorregistrierung**
 
 ## Etappe 1 · Ein kleiner, vollständig geprüfter Bestand
 
@@ -36,7 +41,7 @@ Die [Gesamtprüfung des fliegenden Baums](gesamtpruefung-baum.md) verknüpft die
 
 **Freigabekriterium:** Ein vorab beschriebener Vergleich mit unabhängiger Bewertung. Ein gescheiterter Vergleich wird ebenso dokumentiert wie ein erfolgreicher.
 
-- [ ] Aufgaben, Vergleichsbedingungen und Bewertungskriterien vorab definieren
+- [ ] Den vorhandenen [Protokollentwurf](evaluation-v1.md) mit unabhängigen Beteiligten prüfen und Aufgaben, Vergleichsbedingungen, Stichprobe und Bewertungskriterien vorab verbindlich festlegen
 - [ ] Prüfung mit und ohne strukturierte KI-Gegenkritik vergleichen
 - [ ] Fehlererkennung, Fehlalarme, Verständnis von Unsicherheit, Zeit und Kosten erfassen
 - [ ] Modellabhängigkeit, gemeinsame Fehler und menschliche Automatisierungsverzerrung untersuchen

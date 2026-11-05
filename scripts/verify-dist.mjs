@@ -1,4 +1,4 @@
-import {access,readFile} from "node:fs/promises";
+import {access,readFile,readdir} from "node:fs/promises";
 import {join} from "node:path";
 import {fields,topics,topicStates,selfReviews} from "../src/lib/tree.mjs";
 const out=join(process.cwd(),"dist"),slugs=["index","kunst-und-erkenntnis","mission","baum-des-wissens","aussagen","fragen-und-ki-prompt","forschungsstrom","atlas","bibliothek","lesestueck-wahrheit","manifest","pruefstand","methode","mitwirken","erkenntnishorizont","warum-liebe-wirkt","politik-die-dem-menschen-dient","bruecken-zwischen-den-religionen","militaer-und-verantwortung","ernaehrung-und-verantwortung","angriffsschwarm"],errors=[];
@@ -201,3 +201,39 @@ for (const lang of ["de", "en"]) {
 }
 if(errors.length){console.error(errors.join("\n"));process.exit(1);}
 console.log('Verified symbol/mathematics workshop: bilingual routes, 64 states, six controls, exports and discovery.');
+
+// Release identity and the new routes must agree with the published source data.
+const project=JSON.parse(await readFile("public/project.json","utf8"));
+const {summarizeProject}=await import("../src/lib/inquiry.mjs");
+const discovery=JSON.parse(await readFile("public/research/stream.json","utf8"));
+const criticism=JSON.parse(await readFile("public/research/angriffe.json","utf8"));
+const stats=summarizeProject(registry,topics,discovery,criticism);
+for(const lang of ["de","en"]){
+ for(const entry of await readdir(join(out,lang),{withFileTypes:true})){
+  const file=entry.isDirectory()?join(out,lang,entry.name,"index.html"):join(out,lang,entry.name);
+  if(!entry.isDirectory()&&!entry.name.endsWith(".html"))continue;
+  const html=await readFile(file,"utf8");
+  if(!html.includes(`data-project-version="${project.version}"`)||!/<title>[^<]* · WIRKLICH<\/title>/.test(html))errors.push("Release identity mismatch "+file);
+  if(html.includes("<title>undefined"))errors.push("Undefined page title "+file);
+ }
+ for(const slug of ["werkstatt","projektstatus"]){
+  const file=join(out,lang,slug,"index.html"),html=await readFile(file,"utf8");
+  if(!html.includes(`<html lang="${lang}"`)||!html.includes('rel="canonical"')||!html.includes('hreflang="en"')||!html.includes('hreflang="de"'))errors.push("Missing release page metadata "+file);
+  if(!sitemap.includes('/'+lang+'/'+slug+'/'))errors.push("Release page missing from sitemap "+file);
+  const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
+  if(new Set(ids).size!==ids.length)errors.push("Duplicate release page anchor "+file);
+ }
+ const worksheet=await readFile(join(out,lang,"werkstatt/index.html"),"utf8");
+ for(const token of ['data-inquiry-workbench','data-export-json','data-export-text','data-import','data-local-save','<noscript>']){
+  if(!worksheet.includes(token))errors.push("Missing workbench capability "+lang+"/"+token);
+ }
+ for(const field of ["question","claim","scope","support","objection","revision","action"]){
+  if(!worksheet.includes(`name="${field}"`)||!worksheet.includes(`for="inquiry-${field}"`))errors.push("Missing accessible workbench field "+lang+"/"+field);
+ }
+ const status=await readFile(join(out,lang,"projektstatus/index.html"),"utf8");
+ for(const key of ["claims","reviewed","drafts","open"]){
+  if(!status.includes(`data-stat="${key}">${stats[key]}</dd>`))errors.push("Incorrect derived status count "+lang+"/"+key);
+ }
+}
+if(errors.length){console.error(errors.join("\n"));process.exit(1);}
+console.log(`Verified WIRKLICH ${project.version}: shared identity, accessible worksheet exports/import, bilingual release routes and data-derived status counts.`);
