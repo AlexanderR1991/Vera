@@ -58,3 +58,12 @@ Keine weltanschauliche Gefolgschaft, keine autoritären Wahrheitsnoten, keine pr
 - [ ] Fachreview in Recht, Politikwissenschaft und Ökonomie
 - [ ] Systematische vergleichende Evidenzprüfung politischer Instrumente
 - [ ] Öffentliche Einwände und redaktionelle Revisionen dokumentieren
+
+## 0.7 – Liber Custodiae: Militär, Frieden und Verantwortung
+- [x] Zweisprachiges Kapitel zu Verteidigung, Recht und Grenzen militärischer Macht
+- [x] Jus ad bellum, jus in bello und normative Forschung getrennt darstellen
+- [x] Pazifismus, Abschreckung, Gehorsam und Freiheit als reale Zielkonflikte prüfen
+- [x] Nicht-operatives Fallbeispiel und vier offene Hypothesen M-A bis M-D
+- [x] Quellen von UN, IKRK und OSZE einordnen; KI-Waffensysteme als offene Rechtsfrage behandeln
+- [ ] Unabhängiges Fachreview in humanitärem Völkerrecht, Friedensforschung und demokratischer Kontrolle
+- [ ] Systematische vergleichende Literaturrecherche, Fallanalysen und Übersetzungsprüfung

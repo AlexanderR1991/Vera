@@ -1,0 +1,20 @@
+---
+import {pathFor} from "../lib/paths.mjs";
+const {lang="de"}=Astro.props;
+const en=lang==="en";
+---
+<section class="section military-teaser" aria-label={en?"Military power and responsibility":"Militär und Verantwortung"}>
+<div class="container military-teaser__inner">
+<p class="section-kicker">{en?"LIBER CUSTODIAE · DEFENCE AND ETHICS":"LIBER CUSTODIAE · VERTEIDIGUNG UND ETHIK"}</p>
+<h2>{en?"THE RIGHT":"DAS RECHT"}<br/><em>{en?"TO PROTECT.":"ZU SCHÜTZEN."}</em></h2>
+<p>{en?"When is force justified to protect others—and when does it destroy what it promises to defend? A revisable examination of military power, law, conscience and peace.":"Wann ist Gewalt zum Schutz anderer gerechtfertigt – und wann zerstört sie, was sie zu verteidigen vorgibt? Eine korrigierbare Prüfung von militärischer Macht, Recht, Gewissen und Frieden."}</p>
+<a class="button button--ghost" href={pathFor(lang,"militaer-und-verantwortung")}>{en?"Examine military responsibility ↗":"Militärische Verantwortung prüfen ↗"}</a>
+</div></section>
+<style>
+.military-teaser{background:radial-gradient(ellipse at 18% 30%,#87664728,transparent 60%),#0e1516;text-align:center}
+.military-teaser__inner{max-width:1050px}
+.military-teaser h2{font:clamp(44px,6vw,83px)/1.07 var(--serif);letter-spacing:-.05em;margin:25px auto}
+.military-teaser h2 em{color:var(--gold-bright);font-weight:400}
+.military-teaser p:not(.section-kicker){font:clamp(17px,2vw,23px)/1.72 var(--serif);max-width:780px;margin:0 auto 32px;color:#d7cbb9}
+@media(max-width:620px){.military-teaser h2{font-size:clamp(39px,10vw,57px)}}
+</style>
