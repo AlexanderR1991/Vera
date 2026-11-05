@@ -81,6 +81,16 @@ Eingang: [Adversarial Challenge Issue](https://github.com/AlexanderR1991/grundte
 
 **Erstes überprüfbares Ziel:** Aus M-01 einen kurzen englischen Fachentwurf mit exakt formuliertem Satz, Beweis, Grenzen, relevanter Literatur und offenem Peer-Kommentar entwickeln. Das bereits bekannte, elementare Beispiel darf **nicht** als neue mathematische Entdeckung ausgegeben werden.
 
+## 6. Bestehende mathematische Gegenkräfte / Relevant prior work
+
+Das Projekt beginnt **nicht bei null**. Gerade Theoreme über unvereinbare Anforderungen sind geeignete Ausgangspunkte. Ihre Voraussetzungen müssen jeweils nachgelesen und dürfen nicht unbesehen auf unseren Kodex übertragen werden.
+
+- **Arrow (Theorem zur Sozialwahl):** Unter spezifischen Bedingungen für die Aggregation individueller Präferenzen – unter anderem uneingeschränkte Domäne, Pareto-Bedingung, Unabhängigkeit irrelevanter Alternativen und Nicht-Diktatur – gibt es keine allgemeine Aggregationsregel, die alle Anforderungen erfüllt. **Prüffrage:** Verlangt unser Modell überhaupt eine Aggregation individueller Rangfolgen? Wenn ja, welche Axiome übernehmen wir und welche nicht? [Stanford Encyclopedia of Philosophy, ausführliche Fassung (2025)](https://plato.stanford.edu/entries/arrows-theorem/).
+- **Amartya Sen (1970), „The Impossibility of a Paretian Liberal“:** Ein bestimmter schwacher Begriff individueller Entscheidungsrechte kann mit einem Pareto-Prinzip und weiteren formalen Anforderungen in Konflikt geraten. **Prüffrage:** Unter welchen Annahmen kollidieren die Priorität der Freiheit anderer und aggregierte Wohlfahrt? [Originalartikel, Journal of Political Economy, DOI: 10.1086/259614](https://doi.org/10.1086/259614); [Harvard-Forschungsarchiv](https://dash.harvard.edu/entities/publication/73120378-8203-6bd4-e053-0100007fdf3b).
+- **Kleinberg, Mullainathan & Raghavan (2016), „Inherent Trade-Offs in the Fair Determination of Risk Scores“:** Drei mathematisch definierte Fairnessanforderungen können außerhalb eng begrenzter Spezialfälle nicht gleichzeitig erfüllt werden. **Prüffrage:** Welche Eigenschaften unseres vorgeschlagenen Verfahrens könnten in ähnlicher Weise unvereinbar sein? Das Ergebnis bezieht sich auf Risikoscores, nicht unmittelbar auf Moral oder Liebe. [arXiv:1609.05807](https://arxiv.org/abs/1609.05807).
+
+**Redlichkeit:** Keiner dieser bestehenden Sätze widerlegt automatisch den Grundtext. Sie liefern **präzise Prüfmethoden und mögliche Gegenmodelle**. Erst nach Definition unserer tatsächlichen Behauptungen kann man bestimmen, was daraus folgt.
+
 ## English précis
 
 We invite mathematicians, logicians, philosophers, statisticians and critical researchers to **disprove or delimit specific claims** of the project. The +1/−1 metaphor is currently a heuristic, not a validated moral metric. Challenge M-01 demonstrates that multi-criterion Pareto dominance can be incomplete: vectors (1,0) and (0,1) are incomparable. A complete ranking needs additional, explicit assumptions. The useful research task is to **define and scrutinize those assumptions**, distinguish mathematical validity from empirical adequacy and ethics, and publish counterexamples and corrections. We have **no claimed affiliation, endorsement or peer review** from arXiv, Harvard or any other research institution.
