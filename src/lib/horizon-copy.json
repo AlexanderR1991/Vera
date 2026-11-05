@@ -1,0 +1,268 @@
+{
+  "de": {
+    "eyebrow": "LIBER MUNDI / ERKENNTNISTHEORIE",
+    "h1a": "Der Horizont",
+    "h1b": "des Erkennbaren.",
+    "lead": "Eine Zeichnung, eine philosophische Frage: Wie gelangen wir von dem, was wir heute erklären können, zu Erkenntnissen, für die uns noch Begriffe, Messungen oder Methoden fehlen?",
+    "note": "Konzeptmodell · kein naturwissenschaftliches Gesetz · Entwurf 0.4",
+    "figureLabel": "Schematische Darstellung: M steht für den Menschen; a und b für ältere und heutige Erkenntnishorizonte. x₁ bis x₃ sind offene Kandidaten, nicht bestätigte Wahrheiten. Ein hypothetischer Forschungspfad führt zu x₄.",
+    "figCaption": "Eigenständige schematische Rekonstruktion nach einer eingebrachten Handskizze. Abstände und Positionen sind weder messbar noch maßstabsgetreu.",
+    "model": "DIE ZEICHEN",
+    "legend": [
+      [
+        "M",
+        "Der Mensch",
+        "Wir erkennen die Welt aus einer begrenzten Perspektive."
+      ],
+      [
+        "a",
+        "Früherer Horizont",
+        "Eine historische Stufe unserer Begriffe, Modelle und Beobachtungsmöglichkeiten – nicht der Zeitpunkt, an dem Wahrheit begann."
+      ],
+      [
+        "b",
+        "Heutiger Horizont",
+        "Ein größerer, aber unvollständiger Bereich begründbarer Beschreibungen. Seine Gestalt variiert je nach Fachgebiet."
+      ],
+      [
+        "x₁ · x₂ · x₃",
+        "Offene Kandidaten",
+        "Unbekannte Sachverhalte, Hypothesen, metaphysische Fragen oder auch Irrtümer. Außerhalb heißt nicht automatisch wahr."
+      ],
+      [
+        "x₄",
+        "Möglicher neuer Zugang",
+        "Ein ferner Kandidat, der durch neue Fragen, Methoden und Prüfungen erschlossen werden könnte – ohne Garantie."
+      ]
+    ],
+    "thesisTitle": "Der Horizont wandert.",
+    "thesisIntro": "Die Wirklichkeit muss sich nicht verändern, damit unsere Beschreibung von ihr besser wird. Entscheidend ist, dass wir unsere Grenzen nicht mit den Grenzen der Welt verwechseln.",
+    "strongest": "DIE STÄRKSTE AUSSAGE DES MODELLS",
+    "strongestText": "Der Erkenntnishorizont ist veränderlich. Was heute nicht gut begründet ist, kann morgen prüfbar werden – es kann sich aber ebenso als falsch oder unentscheidbar erweisen.",
+    "questionEyebrow": "DIE NAIVE FRAGE",
+    "questionTitle": "Aber warum reicht es nicht, etwas einfach zu glauben?",
+    "questionBody": "Stell dir vor, du stehst nachts am Waldrand. Hinter den Bäumen hörst du ein Geräusch. Vielleicht ist es ein Tier. Vielleicht nur der Wind. Beide Ideen sind möglich. Erst wenn du hinschaust, misst oder weitere Hinweise findest, kannst du entscheiden, welche Erklärung besser trägt.",
+    "questionAside": "Eine Möglichkeit ist noch keine Entdeckung.",
+    "division": "VIER WICHTIGE UNTERSCHEIDUNGEN",
+    "distinctions": [
+      [
+        "01",
+        "Mathematik ist nicht bloß Meinung",
+        "In einem geeigneten formalen System folgt etwa 1 + 1 = 2 aus Definitionen und Rechenregeln. Mathematik kann neue Strukturen präzise erfassen; ob ein mathematisches Modell die Natur richtig beschreibt, ist zusätzlich eine empirische Frage."
+      ],
+      [
+        "02",
+        "Unbekannt ist nicht gleich esoterisch",
+        "Esoterik umfasst sehr unterschiedliche Traditionen und Behauptungen. Manche sind historisch oder kulturell interessant, manche prinzipiell prüfbar, manche nicht. Unser Modell gibt keiner Behauptung einen Wahrheitsbonus, nur weil sie außerhalb etablierter Erklärungen liegt."
+      ],
+      [
+        "03",
+        "Widerlegt, offen und unprüfbar sind verschieden",
+        "Eine bereits gut widerlegte Behauptung steht nicht einfach als „noch unbewiesene Wahrheit“ im Raum. Eine offene Hypothese benötigt nachvollziehbare Gegenproben. Eine nicht empirisch prüfbare Frage kann philosophisch bedeutsam sein, ohne als naturwissenschaftlicher Befund zu gelten."
+      ],
+      [
+        "04",
+        "Es gibt nicht einen einzigen Rand des Wissens",
+        "Mathematik, Physik, Psychologie und Ethik kennen unterschiedliche Formen von Begründung und Unsicherheit. Die beiden Kreise sind ein Denkbild, keine vollständige Kartografie aller Erkenntnis."
+      ]
+    ],
+    "methodEyebrow": "DER PFAD ZUM NÄCHSTEN HORIZONT",
+    "methodTitle": "Wie könnte aus x eine Erkenntnis werden?",
+    "path": [
+      [
+        "01",
+        "Fragen",
+        "Was genau soll x bedeuten? Welche Aussage machen wir?"
+      ],
+      [
+        "02",
+        "Formulieren",
+        "Können wir eine klare Hypothese und alternative Erklärungen benennen?"
+      ],
+      [
+        "03",
+        "Operationalisieren",
+        "Welche Beobachtung, Berechnung oder Messung könnte einen Unterschied zeigen?"
+      ],
+      [
+        "04",
+        "Prüfen",
+        "Was würde die Hypothese stützen, was ihr widersprechen?"
+      ],
+      [
+        "05",
+        "Unabhängig kontrollieren",
+        "Lassen sich Befunde nachprüfen? Welche Fehlerquellen gibt es?"
+      ],
+      [
+        "06",
+        "Korrigieren",
+        "Vorläufig akzeptieren, verändern oder zurückweisen. Den Horizont neu zeichnen."
+      ]
+    ],
+    "aiTitle": "Was leisten Philosophie, Mathematik und KI?",
+    "aiBody": "Philosophie klärt Begriffe, Voraussetzungen und Grenzen. Mathematik modelliert Beziehungen und erzwingt logische Präzision. Wissenschaftliche Methoden verknüpfen Modelle mit überprüfbaren Beobachtungen. KI kann Muster erkennen, Ideen kombinieren und Forschungsarbeit beschleunigen. Sie liefert aber weder automatisch Wahrheit noch ersetzt sie unabhängige Prüfung.",
+    "aiWarning": "Mehr berechnete Antworten bedeuten nicht zwangsläufig mehr Verständnis.",
+    "roleTitle": "Die Rolle unseres Projekts",
+    "roleBody": "Wir möchten nicht behaupten, den Weg zu x₄ bereits zu kennen. Wir möchten einen Ort schaffen, an dem offene Fragen sauber beschrieben, konkurrierende Antworten gesammelt, begründete Kritik ernst genommen und Korrekturen sichtbar werden.",
+    "principle": "Nicht das Verborgene ist automatisch wahr. Wahrhaftig ist die Bereitschaft, unsere Vermutungen der Wirklichkeit auszusetzen.",
+    "sources": "QUELLEN UND GRENZEN",
+    "sourceIntro": "Das Horizontmodell selbst ist eine eigene philosophische Darstellung, kein wissenschaftlich validiertes Messmodell. Die folgenden Quellen stützen lediglich einzelne methodische Unterscheidungen.",
+    "refs": [
+      [
+        "Stanford Encyclopedia of Philosophy: Science and Pseudo-Science",
+        "https://plato.stanford.edu/entries/pseudo-science/",
+        "Zur komplexen Unterscheidung zwischen Wissenschaft, nichtwissenschaftlichen Fragen und Pseudowissenschaft."
+      ],
+      [
+        "Stanford Encyclopedia of Philosophy: Proof Theory",
+        "https://plato.stanford.edu/entries/proof-theory/",
+        "Zur formalen Natur mathematischer Beweise und arithmetischer Axiomensysteme."
+      ],
+      [
+        "Messeri & Crockett (2024), Nature: Artificial intelligence and illusions of understanding",
+        "https://www.nature.com/articles/s41586-024-07146-0",
+        "Zum Risiko, KI-gestützte Forschungsproduktion mit sicherem Verständnis zu verwechseln."
+      ]
+    ],
+    "forum": "Im Forum diskutieren ↗",
+    "methods": "Zur Erkenntnismethode ↗",
+    "atlas": "Zurück zum Atlas ↗",
+    "badge0": "Gedankenmodell",
+    "badge1": "Keine empirische Behauptung",
+    "badge2": "Offen für Kritik"
+  },
+  "en": {
+    "eyebrow": "LIBER MUNDI / EPISTEMOLOGY",
+    "h1a": "The Horizon",
+    "h1b": "of the Knowable.",
+    "lead": "One sketch, one philosophical question: how do we move from what we can explain today to discoveries for which we do not yet have the words, measurements, or methods?",
+    "note": "Conceptual model · not a law of nature · draft 0.4",
+    "figureLabel": "Conceptual diagram: M represents the human observer; a and b are earlier and current horizons of knowledge. x₁ to x₃ are open candidates, not established truths. A hypothetical research path points toward x₄.",
+    "figCaption": "An original schematic reconstruction of a hand-drawn idea. Distances and positions are neither measurable nor drawn to scale.",
+    "model": "READING THE SYMBOLS",
+    "legend": [
+      [
+        "M",
+        "The human observer",
+        "We understand the world from a limited perspective."
+      ],
+      [
+        "a",
+        "Earlier horizon",
+        "An earlier stage of our concepts, models, and observational tools—not the moment when truth began."
+      ],
+      [
+        "b",
+        "Present horizon",
+        "A wider, still incomplete area of justified descriptions. Its shape differs between disciplines."
+      ],
+      [
+        "x₁ · x₂ · x₃",
+        "Open candidates",
+        "Unknown phenomena, hypotheses, metaphysical questions, or simply errors. Being outside does not make a claim true."
+      ],
+      [
+        "x₄",
+        "Possible new access",
+        "A distant candidate that might become accessible through better questions, methods, and testing—with no guarantee."
+      ]
+    ],
+    "thesisTitle": "The horizon moves.",
+    "thesisIntro": "Reality need not change for our account of it to improve. What matters is refusing to mistake the limits of our knowledge for the limits of the world.",
+    "strongest": "THE MODEL'S STRONGEST CLAIM",
+    "strongestText": "The horizon of inquiry can change. What is poorly supported today might become testable tomorrow—or turn out to be false or undecidable.",
+    "questionEyebrow": "THE CHILDLIKE QUESTION",
+    "questionTitle": "But why isn't believing something enough?",
+    "questionBody": "Imagine standing at the edge of a forest at night. You hear something beyond the trees. Perhaps it is an animal; perhaps only the wind. Both ideas are possible. Only by looking, measuring, or gathering further clues can you decide which explanation holds up better.",
+    "questionAside": "A possibility is not yet a discovery.",
+    "division": "FOUR IMPORTANT DISTINCTIONS",
+    "distinctions": [
+      [
+        "01",
+        "Mathematics is more than opinion",
+        "Within a suitable formal system, 1 + 1 = 2 follows from definitions and the rules of arithmetic. Mathematics can describe new structures precisely; whether a mathematical model describes nature correctly is a further empirical question."
+      ],
+      [
+        "02",
+        "The unknown is not necessarily esoteric",
+        "Esotericism covers very different traditions and claims. Some are historically or culturally interesting, some are testable in principle, and others are not. Our model does not give a claim special credibility simply because it lies outside established explanations."
+      ],
+      [
+        "03",
+        "Refuted, open, and untestable are different",
+        "A well-refuted claim is not merely a “truth awaiting proof.” An open hypothesis needs meaningful attempts to challenge it. An empirically untestable question may still matter philosophically without counting as a scientific finding."
+      ],
+      [
+        "04",
+        "Knowledge has no single boundary",
+        "Mathematics, physics, psychology, and ethics employ different kinds of reasoning and face different uncertainties. The two circles are a useful metaphor, not a complete map of all knowledge."
+      ]
+    ],
+    "methodEyebrow": "THE PATH TOWARD ANOTHER HORIZON",
+    "methodTitle": "How might x become knowledge?",
+    "path": [
+      [
+        "01",
+        "Ask",
+        "What does x mean? What exactly is being claimed?"
+      ],
+      [
+        "02",
+        "Formulate",
+        "Can we state a clear hypothesis and plausible alternatives?"
+      ],
+      [
+        "03",
+        "Operationalize",
+        "What observation, calculation, or measurement could make a difference?"
+      ],
+      [
+        "04",
+        "Test",
+        "What would support the hypothesis—and what would count against it?"
+      ],
+      [
+        "05",
+        "Check independently",
+        "Can others examine the findings? What could have gone wrong?"
+      ],
+      [
+        "06",
+        "Revise",
+        "Provisionally accept, modify, or reject. Redraw the horizon."
+      ]
+    ],
+    "aiTitle": "What can philosophy, mathematics, and AI contribute?",
+    "aiBody": "Philosophy clarifies concepts, assumptions, and limits. Mathematics models relationships and enforces logical precision. Scientific methods connect models with testable observations. AI can discover patterns, combine ideas, and accelerate research. It does not automatically deliver truth or replace independent scrutiny.",
+    "aiWarning": "Producing more answers does not necessarily mean understanding more.",
+    "roleTitle": "The role of this project",
+    "roleBody": "We do not claim to know the path to x₄. We want to build a place where open questions are stated clearly, competing answers are considered, reasoned criticism is welcomed, and revisions remain visible.",
+    "principle": "The hidden is not automatically true. Intellectual honesty means allowing reality to challenge our conjectures.",
+    "sources": "SOURCES AND LIMITATIONS",
+    "sourceIntro": "This horizon model is an original philosophical illustration, not a scientifically validated measurement model. The sources below support particular methodological distinctions, not the diagram as a proven law.",
+    "refs": [
+      [
+        "Stanford Encyclopedia of Philosophy: Science and Pseudo-Science",
+        "https://plato.stanford.edu/entries/pseudo-science/",
+        "On the complex boundary between science, non-scientific inquiry, and pseudoscience."
+      ],
+      [
+        "Stanford Encyclopedia of Philosophy: Proof Theory",
+        "https://plato.stanford.edu/entries/proof-theory/",
+        "On the formal character of mathematical proof and arithmetic axioms."
+      ],
+      [
+        "Messeri & Crockett (2024), Nature: Artificial intelligence and illusions of understanding",
+        "https://www.nature.com/articles/s41586-024-07146-0",
+        "On risks of treating AI-enabled research output as genuine understanding."
+      ]
+    ],
+    "forum": "Discuss in the forum ↗",
+    "methods": "Explore our method ↗",
+    "atlas": "Back to the atlas ↗",
+    "badge0": "Conceptual model",
+    "badge1": "Not an empirical claim",
+    "badge2": "Open to criticism"
+  }
+}
