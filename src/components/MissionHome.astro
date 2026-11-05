@@ -47,9 +47,18 @@ const t=copy[lang];
     <div class="section-heading"><h2 id="fields-title">{t.fieldsTitle}</h2><p>{t.fieldsIntro}</p></div>
     <div class="mission-fields">{t.fields.map((field,i)=><a class:list={["mission-field",field.className]} href={pathFor(lang,field.slug)}><span class="section-kicker">0{i+1}</span><h3>{field.name}</h3><p>{field.question}</p><span aria-hidden="true">↗</span></a>)}</div>
   </div></section>
+  <aside class="workshop-entry container" aria-label={lang==="de"?"Neue Werkzeuge":"New tools"}>
+    <p>{lang==="de"?"Esoterik & Mathematik: Übersetze eine Idee in ein Modell, erkunde die 64 Linienmuster des I Ging und prüfe Vorhersagen gegen ein Zufallsmodell.":"Esotericism & mathematics: translate an idea into a model, explore 64 I Ching line patterns and examine predictions against a chance model."}</p>
+    <a class="subtle-link" href={pathFor(lang,"esoterik-und-mathematik")}>{lang==="de"?"Werkstatt öffnen ↗":"Open the workshop ↗"}</a>
+  </aside>
   <section class="section mission-section"><div class="container mission-split">
     <div><p class="section-kicker">{lang==="de"?"ERSTER FUNKTIONIERENDER PROTOTYP":"FIRST WORKING PROTOTYPE"}</p><h2>{t.pilotTitle}</h2><p>{t.pilotText}</p><a class="button button--gold" href={pathFor(lang,"aussagen")}>{t.registerLink}</a><p class="mission-note">{t.pilotNote}</p></div>
     <div class="mission-simple"><p class="section-kicker">{lang==="de"?"DIE EINFACHE FRAGE":"THE SIMPLE QUESTION"}</p><h3>{t.simpleTitle}</h3><p>{t.simpleText}</p><a class="subtle-link" href={pathFor(lang,"lesestueck-wahrheit")}>{t.simpleLink}</a></div>
   </div></section>
   <section class="closing"><div class="container closing__inside"><p class="section-kicker">{lang==="de"?"DIE BESATZUNG":"THE CREW"}</p><h2>{t.crewTitle}</h2><p>{t.crewText}</p><div class="button-row mission-center"><a class="button button--gold" href={pathFor(lang,"mitwirken")}>{t.crewLink}</a><a class="button button--ghost" href={pathFor(lang,"angriffsschwarm")}>{t.challengeLink}</a></div></div></section>
 </Layout>
+
+<style>
+.workshop-entry{margin-block:36px;padding:24px;border:1px solid var(--line)}
+.workshop-entry p{max-width:920px;margin:0}.workshop-entry .subtle-link{margin-top:16px}
+</style>

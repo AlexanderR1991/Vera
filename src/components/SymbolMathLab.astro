@@ -1,0 +1,158 @@
+---
+import Layout from '../layouts/SiteLayout.astro';
+import {pathFor} from '../lib/paths.mjs';
+import {copy} from '../lib/symbol-math-copy.mjs';
+import {binaryWord, linesBottomUp, hammingDistance, binomialUpperTail} from '../lib/symbol-math.mjs';
+import '../styles/symbol-math.css';
+const {lang = 'de'} = Astro.props;
+const t = copy[lang];
+const initial = 42, reference = 0;
+const example = t.templates[0];
+const stats = binomialUpperTail(20, 15, .5);
+const number = value => value.toLocaleString(lang, {maximumSignificantDigits: 6});
+const sections = ['symbol-modell', 'binaerraum', 'zufallsmodell'];
+---
+<Layout lang={lang} slug="esoterik-und-mathematik">
+<div class="symbol-lab" data-symbol-lab data-lang={lang}>
+  <section class="lab-hero">
+    <div class="container">
+      <p class="section-kicker">{t.kicker}</p>
+      <h1>{t.title}<br/><em>{t.emphasis}</em></h1>
+      <p class="lab-lead">{t.lead}</p>
+      <p class="lab-principle">{t.principle}</p>
+      <nav class="lab-jumps" aria-label={lang === 'de' ? 'Werkzeuge' : 'Tools'}>
+        {t.nav.map((label, i) => <a href={`#${sections[i]}`}><span>0{i+1}</span>{label}<b aria-hidden="true">↘</b></a>)}
+      </nav>
+      <div class="lab-types">{t.kinds.map(([title, text]) => <div><strong>{title}</strong><p>{text}</p></div>)}</div>
+      <noscript><p class="lab-note">{t.nojs}</p></noscript>
+    </div>
+  </section>
+
+  <section class="section section--paper lab-section" id="symbol-modell" aria-labelledby="lab-editor-title">
+    <div class="container">
+      <p class="section-kicker">01 / {t.nav[0]}</p>
+      <h2 id="lab-editor-title">{t.editorTitle}</h2>
+      <p class="lab-intro">{t.editorIntro}</p>
+      <form data-worksheet novalidate>
+        <fieldset disabled data-interactive>
+          <legend class="lab-sr-only">{t.editorTitle}</legend>
+          <div class="lab-template-row">
+            <label for="lab-template">{t.example}<select id="lab-template" data-template>{t.templates.map((item, i) => <option value={i}>{item.name}</option>)}</select></label>
+            <button type="button" class="button button--ghost" data-load-template>{t.load}</button>
+          </div>
+          <label class="lab-type-field" for="lab-claim-type">{t.type}<select id="lab-claim-type" name="claimType">{t.typeOptions.map(([value, label]) => <option value={value} selected={value === example.claimType}>{label}</option>)}</select></label>
+          <p class="lab-small" id="lab-field-hint">{t.fieldHint}</p>
+          <div class="lab-fields">
+            {t.fields.map(([key, label]) => <label for={`lab-${key}`}><span>{label}</span><textarea id={`lab-${key}`} name={key} rows={key === 'symbol' ? 2 : 4} required maxlength="4000" aria-describedby="lab-field-hint">{example[key]}</textarea></label>)}
+          </div>
+          <button type="submit" class="button button--gold">{t.preview} ↗</button>
+        </fieldset>
+      </form>
+      <p class="lab-small" data-worksheet-status role="status"></p>
+      <section class="lab-worksheet" data-worksheet-result hidden aria-labelledby="lab-worksheet-title">
+        <h3 id="lab-worksheet-title">{t.worksheetTitle}</h3>
+        <p class="lab-tag">{t.draft}</p>
+        <pre data-worksheet-preview></pre>
+        <div class="button-row"><button type="button" class="button button--gold" data-download="json">{t.downloadJson}</button><button type="button" class="button button--ghost" data-download="txt">{t.downloadText}</button></div>
+      </section>
+      <p class="lab-small">{t.worksheetHint}</p>
+      <p class="lab-small">{t.privacy}</p>
+    </div>
+  </section>
+
+  <section class="section lab-section" id="binaerraum" aria-labelledby="lab-binary-title">
+    <div class="container">
+      <p class="section-kicker">02 / {t.nav[1]}</p>
+      <h2 id="lab-binary-title">{t.binaryTitle}</h2>
+      <p class="lab-intro">{t.binaryIntro}</p>
+      <p class="lab-note">{t.convention}</p>
+      <div class="lab-binary-top">
+        <fieldset class="lab-line-controls" disabled data-interactive>
+          <legend>{t.current}</legend>
+          {[5,4,3,2,1,0].map(i => <button type="button" data-line={i} aria-pressed={!!((initial >> i) & 1)} aria-label={`${t.line} ${i+1}: ${(initial >> i) & 1 ? t.solid : t.broken}; ${t.toggle}`}>
+            <span class="lab-line-number">{i+1}</span><span class:list={['lab-line', {'is-solid': !!((initial >> i) & 1)}]} aria-hidden="true"><i></i><i></i></span><span data-line-bit>{(initial >> i) & 1}</span>
+          </button>)}
+        </fieldset>
+        <div class="lab-binary-readout">
+          <div role="status" aria-live="polite" aria-atomic="true">
+            <p class="lab-small">{t.address} · b₆ b₅ b₄ b₃ b₂ b₁</p>
+            <div class="lab-binary-word" data-binary-word>{binaryWord(initial)}</div>
+            <dl class="lab-metrics">
+              <div><dt>{t.decimal}</dt><dd data-decimal>{initial}</dd></div>
+              <div><dt>{t.reference} (ID)</dt><dd data-reference>{reference}</dd></div>
+              <div><dt>{t.distance}</dt><dd data-distance>{hammingDistance(initial, reference)}</dd></div>
+            </dl>
+            <p class="lab-small">{t.neighbours}: <span data-neighbours>{[0,1,2,3,4,5].map(i => initial ^ (1 << i)).sort((a,b) => a-b).join(', ')}</span></p>
+          </div>
+          <fieldset class="button-row" disabled data-interactive>
+            <legend class="lab-sr-only">{lang === 'de' ? 'Muster verändern' : 'Change pattern'}</legend>
+            <button type="button" class="button button--gold" data-pin>{t.pin}</button>
+            <button type="button" class="button button--ghost" data-invert>{t.invert}</button>
+            <button type="button" class="button button--ghost" data-reset-binary>{t.reset}</button>
+          </fieldset>
+        </div>
+      </div>
+      <h3>{t.mapTitle}</h3><p class="lab-small" id="lab-map-hint">{t.mapHint}</p>
+      <fieldset disabled data-interactive>
+        <legend class="lab-sr-only">{t.mapTitle}</legend>
+        <div class="lab-pattern-grid" aria-describedby="lab-map-hint">
+          {Array.from({length: 64}, (_, value) => <button type="button" class:list={['lab-pattern', {'is-current': value === initial, 'is-reference': value === reference, 'is-neighbour': hammingDistance(value, initial) === 1}]} data-state={value} aria-pressed={value === initial} aria-label={`ID ${value}: ${binaryWord(value)}`}>
+            <span class="lab-mini-lines" aria-hidden="true">{linesBottomUp(value).reverse().map(bit => <span class:list={['lab-line', {'is-solid': !!bit}]}><i></i><i></i></span>)}</span>
+            <span class="lab-pattern-id">{value}<small data-marker>{value === initial ? t.currentShort : value === reference ? t.referenceShort : hammingDistance(value, initial) === 1 ? '•' : ''}</small></span>
+          </button>)}
+        </div>
+      </fieldset>
+      <div class="lab-boundaries"><article><h3>{t.formal}</h3><p>{t.formalText}</p></article><article><h3>{t.boundary}</h3><p>{t.boundaryText}</p></article></div>
+    </div>
+  </section>
+
+  <section class="section section--paper lab-section" id="zufallsmodell" aria-labelledby="lab-stats-title">
+    <div class="container">
+      <p class="section-kicker">03 / {t.nav[2]}</p>
+      <h2 id="lab-stats-title">{t.statsTitle}</h2>
+      <p class="lab-intro">{t.statsIntro}</p>
+      <p class="lab-tag" data-data-status>{t.sample}</p>
+      <form data-statistics novalidate>
+        <fieldset disabled data-interactive>
+          <legend class="lab-sr-only">{t.statsTitle}</legend>
+          <div class="lab-stat-inputs">
+            <label for="lab-n">{t.statLabels[0]}<input id="lab-n" name="n" type="number" min="1" max="10000" step="1" value="20" required aria-describedby="lab-stat-help"/></label>
+            <label for="lab-k">{t.statLabels[1]}<input id="lab-k" name="k" type="number" min="0" max="20" step="1" value="15" required aria-describedby="lab-stat-help"/></label>
+            <label for="lab-p0">{t.statLabels[2]}<input id="lab-p0" name="p0" type="number" min="0" max="1" step="any" value="0.5" required aria-describedby="lab-stat-help"/></label>
+            <label for="lab-m">{t.statLabels[3]}<input id="lab-m" name="m" type="number" min="1" max="1000000" step="1" value="1" required aria-describedby="lab-stat-help"/></label>
+          </div>
+          <p class="lab-small" id="lab-stat-help">{t.statHelp}</p>
+          <button type="submit" class="button button--gold">{t.calculate} ↗</button>
+        </fieldset>
+      </form>
+      <p class="lab-small" data-stats-status role="status"></p>
+      <div class="lab-stat-result" data-stat-result aria-live="polite" aria-atomic="true">
+        <p class="lab-tag">{t.modelOnly}</p>
+        <dl class="lab-metrics lab-result-values">
+          <div><dt>{t.expected}</dt><dd data-expected>{number(stats.expected)}</dd></div>
+          <div><dt>{t.observed}</dt><dd data-observed>75 %</dd></div>
+          <div><dt>{t.delta}</dt><dd data-delta>+25 <small>{t.points}</small></dd></div>
+          <div><dt>{t.rawP}</dt><dd data-tail>{number(stats.tail)}</dd></div>
+          <div><dt>{t.adjustedP}</dt><dd data-adjusted>{number(stats.adjusted)}</dd></div>
+        </dl>
+      </div>
+      <p class="lab-formula">P(X ≥ k) = ∑<sub>j=k</sub><sup>n</sup> C(n,j) p₀<sup>j</sup> (1 − p₀)<sup>n−j</sup></p>
+      <p class="lab-small">{t.formulaWords}</p>
+      <p class="lab-note">{t.pMeaning}</p>
+      <p>{t.correction}</p>
+      <h3>{t.assumptionsTitle}</h3><ul class="lab-assumptions">{t.assumptions.map(item => <li>{item}</li>)}</ul>
+    </div>
+  </section>
+
+  <section class="section lab-section lab-sources" aria-labelledby="lab-sources-title"><div class="narrow">
+    <p class="section-kicker">GRUNDTEXT · LABORATORIUM</p>
+    <h2 id="lab-sources-title">{t.sourcesTitle}</h2><p class="lab-intro">{t.sourceIntro}</p>
+    <ul>{t.sources.map(([name, href, description]) => <li><a href={href} target="_blank" rel="noopener noreferrer">{name} ↗</a><p>{description}</p></li>)}</ul>
+    <div class="button-row"><a class="button button--ghost" href={pathFor(lang, 'erkenntnishorizont')}>{t.horizon} ↗</a><a class="button button--ghost" href={pathFor(lang, 'methode')}>{t.method} ↗</a></div>
+  </div></section>
+</div>
+<script>
+  import {initSymbolMathLab} from '../client/symbol-math-lab.mjs';
+  initSymbolMathLab();
+</script>
+</Layout>

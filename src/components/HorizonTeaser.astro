@@ -25,7 +25,7 @@ const summary=descriptions[from]||descriptions.index;
 <p class="section-kicker">{subtitle[en?1:0]}</p>
 <h2>{headline[0]}<br/><em>{headline[1]}</em></h2>
 <p>{summary[en?1:0]}</p>
-<a class="button button--ghost" href={pathFor(lang,"erkenntnishorizont")}>{link}</a>
+<div class="button-row"><a class="button button--ghost" href={pathFor(lang,"erkenntnishorizont")}>{link}</a><a class="button button--ghost" href={pathFor(lang,"esoterik-und-mathematik")}>{en?"Try the symbol & mathematics tools ↗":"Werkzeuge: Esoterik & Mathematik ↗"}</a></div>
 </div>
 <div class="horizon-teaser__drawing" aria-hidden="true">
 <svg viewBox="0 0 340 300" focusable="false">
