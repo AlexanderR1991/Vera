@@ -10,6 +10,16 @@
 
 [Website & Sprachauswahl](https://alexanderr1991.github.io/grundtext-des-wirklichen/) · [Deutsch](https://alexanderr1991.github.io/grundtext-des-wirklichen/de/) · [English draft](https://alexanderr1991.github.io/grundtext-des-wirklichen/en/)
 
+## Vision: die nächste Generation freien Wissens / Next-generation free knowledge
+
+**Wikipedia machte freies Wissen zugänglich. Wir wollen auch seine Begründungen, Grenzen und möglichen Korrekturen zugänglich machen.**
+
+*Wikipedia made free knowledge accessible. We aim to make its reasoning, limitations and possible revisions accessible too.*
+
+Langfristig wollen wir eine **Weiterentwicklung des enzyklopädischen Prinzips** erproben: Jede bedeutende Aussage soll mit Belegen, Gegenbelegen, Unsicherheit und dokumentierten Revisionen verknüpft sein. **Gesichertes beziehungsweise quellengestütztes Wissen und eigene offene Forschung bleiben deutlich getrennt.** Das ist eine strategische Vision, **keine Behauptung, bereits Wikipedia zu ersetzen oder mit Wikimedia verbunden zu sein**. / This is an ambition, not an existing Wikipedia replacement or Wikimedia affiliation.
+
+[Die vollständige zweisprachige Vision und ihre überprüfbaren Etappen / Full bilingual vision and testable milestones](docs/vision-wissenssystem.md)
+
 ## Austausch / Discussions
 
 [Im offenen Forum diskutieren / Join our discussions](https://github.com/AlexanderR1991/grundtext-des-wirklichen/discussions) · [Begrüßung als Vorlage / Welcome draft](docs/community/welcome-discussion.md)
