@@ -29,6 +29,17 @@ Unser **öffentlicher Erkenntnisprompt 1.0** nimmt die Methode mit in ein KI-Ges
 - [Prompt DE](public/prompts/erkenntnisprompt-v1.de.txt) · [Prompt EN](public/prompts/erkenntnisprompt-v1.en.txt) · [Konzept / Concept](docs/erkenntnisprompt.md)
 
 
+## Ein Baum, der vorwärts fliegt / A tree that flies forward
+
+Seine Äste sammeln Philosophie, Fachwissen, Erfahrungen, Kunst und Gegenfragen. Sechs Arbeitsebenen verbinden menschliche Stimmen mit begründeten Zusammenhängen und verantwortbarem Handeln. Mehrfachzuordnungen und ungelöster Dissens bleiben sichtbar. Die Themenkarte umfasst 22 veränderbare Äste mit lesbaren Entwürfen, verlinkten Vorschlägen und offenen Feldern; sie behauptet keine Vollständigkeit.
+
+The branches gather philosophy, disciplinary knowledge, experience, art and objections. Six stages of work connect human voices to reasoned relationships and accountable action. Multiple memberships, gaps and unresolved disagreement remain visible.
+
+- [Gesamtprüfung und erste Korrekturen / Review and first corrections](docs/gesamtpruefung-baum.md)
+- [B-01 · Wer fehlt? / Who is missing?](https://github.com/AlexanderR1991/grundtext-des-wirklichen/issues/28)
+- [B-02 · Werte und Verantwortung / Values and accountability](https://github.com/AlexanderR1991/grundtext-des-wirklichen/issues/29)
+- [B-03 · Nutzen unserer Methode / Usefulness of our method](https://github.com/AlexanderR1991/grundtext-des-wirklichen/issues/30)
+
 ## Ein gemeinsames System / A shared system
 
 Unser „Raumschiff“ ist ein Organisationsbild: Kompass, Karte, Instrumente, Prüfstand, Antrieb und Logbuch. Die Besatzung kann ihren Kurs korrigieren — auch den Bauplan. Es verbindet drei Räume:

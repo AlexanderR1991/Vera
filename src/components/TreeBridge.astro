@@ -1,0 +1,10 @@
+---
+import {pathFor} from "../lib/paths.mjs";
+import "../styles/tree.css";
+const {lang="de"}=Astro.props;
+const t=(de,en)=>lang==="en"?en:de;
+---
+<aside class="tree-bridge container" aria-label={t("Das Ganze im Blick","The project as a whole")}>
+ <div><p class="section-kicker">{t("DAS GANZE IM BLICK","THE PROJECT AS A WHOLE")}</p><p>{t("Viele Äste. Gemeinsame Fragen. Eine Methode, die auch sich selbst prüft.","Many branches. Shared questions. A method that examines itself too.")}</p></div>
+ <a class="subtle-link" href={pathFor(lang,"baum-des-wissens")}>{t("Den fliegenden Baum erkunden ↗","Explore the flying tree ↗")}</a>
+</aside>
