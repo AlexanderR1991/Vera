@@ -1,0 +1,37 @@
+name: "Quelle prüfen / Examine evidence"
+description: "Faktische Aussage, Beleg oder Gegenbeleg prüfen / Review a factual claim or source"
+title: "[Quelle / Evidence] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Bitte zwischen empirischer Behauptung, philosophischer These und Metapher unterscheiden.
+        Distinguish empirical claims from philosophical positions and metaphors.
+  - type: textarea
+    id: aussage
+    attributes:
+      label: "Zu prüfende Aussage / Claim to examine"
+      description: "Möglichst genaue Stelle oder Formulierung / Quote the precise claim"
+    validations:
+      required: true
+  - type: input
+    id: stelle
+    attributes:
+      label: "Link oder Kapitel / Link or chapter"
+  - type: textarea
+    id: belege
+    attributes:
+      label: "Quellen und Daten / Sources and data"
+      description: "DOI, Publikation, Originalquelle, Datum, Methode / DOI, paper, original source, date, methodology"
+    validations:
+      required: true
+  - type: textarea
+    id: kritik
+    attributes:
+      label: "Was stützt oder widerlegt die Aussage? / Supporting or conflicting evidence"
+    validations:
+      required: true
+  - type: textarea
+    id: korrektur
+    attributes:
+      label: "Mögliche Korrektur / Proposed correction (optional)"

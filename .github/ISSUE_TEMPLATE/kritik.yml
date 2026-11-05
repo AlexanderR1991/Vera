@@ -1,35 +1,41 @@
-name: Kritische Prüfung
-description: Einen Einwand oder Gegenbeleg dokumentieren
-title: "[Kritik] "
+name: "Kritische Prüfung / Challenge a thesis"
+description: "Einwand oder Gegenbeleg zu einer These / Submit a reasoned objection"
+title: "[Kritik / Critique] "
 body:
+  - type: markdown
+    attributes:
+      value: |
+        Wir nehmen eine These ernst, wenn wir bereit sind, sie zu prüfen.
+        We take a thesis seriously by remaining willing to challenge it.
   - type: textarea
     id: stelle
     attributes:
-      label: Betroffene Stelle
-      description: These, URL, Zitat oder Datei
+      label: "Betroffene Stelle / Relevant passage"
+      description: "These, URL, Zitat oder Datei / Thesis, URL, quotation, or file"
     validations:
       required: true
   - type: dropdown
     id: art
     attributes:
-      label: Art der Aussage
+      label: "Art der Aussage / Kind of claim"
       options:
-        - Wissen
-        - Hypothese
-        - Metapher
-        - Praxis
-        - Unklar
+        - "Wissen / Empirical knowledge"
+        - "Hypothese / Hypothesis"
+        - "Metapher / Metaphor"
+        - "Praxis / Practical proposal"
+        - "Normative These / Normative thesis"
+        - "Unklar / Unclear"
   - type: textarea
     id: einwand
     attributes:
-      label: Einwand
+      label: "Einwand / Objection"
     validations:
       required: true
   - type: textarea
     id: belege
     attributes:
-      label: Quellen und Gegenbelege
+      label: "Quellen und Gegenbelege / Evidence and counterexamples"
   - type: textarea
     id: vorschlag
     attributes:
-      label: Vorschlag zur Korrektur
+      label: "Vorschlag zur Korrektur / Suggested revision"

@@ -1,0 +1,31 @@
+name: "Idee / Proposal"
+description: "Neuen Gedanken oder Abschnitt vorschlagen / Suggest an idea or improvement"
+title: "[Idee / Proposal] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Ideen sind Ausgangspunkte für Prüfung, keine automatisch übernommenen Wahrheiten.
+        Ideas are starting points for examination, not automatically accepted claims.
+  - type: textarea
+    id: gedanke
+    attributes:
+      label: "Die Idee / The idea"
+      description: "Beschreibe den Kern möglichst präzise / Describe the proposal clearly"
+    validations:
+      required: true
+  - type: textarea
+    id: warum
+    attributes:
+      label: "Warum ist sie wichtig? / Why does it matter?"
+    validations:
+      required: true
+  - type: textarea
+    id: gegenposition
+    attributes:
+      label: "Gegenargumente oder Grenzen / Alternatives or limitations"
+      description: "Was könnte gegen die Idee sprechen? / What might count against it?"
+  - type: textarea
+    id: quellen
+    attributes:
+      label: "Quellen / Sources (optional)"
