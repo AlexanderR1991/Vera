@@ -10,6 +10,24 @@ Der Grundtext soll Menschen befähigen, unter Unsicherheit besser zu verstehen, 
 
 Die zweisprachige öffentliche Darstellung liegt unter `/de/mission/` und `/en/mission/`. Dieser Entwurf führt die bisherigen Themen und die in [PR #18](https://github.com/AlexanderR1991/grundtext-des-wirklichen/pull/18) vorgeschlagene Vision eines offenen Wissenssystems zusammen. Er behauptet keine bereits erreichte Leistungsfähigkeit.
 
+## Unser Maßstab: Eine Adresse ist kein Beweis
+
+> **Etwas ist nicht wahr, weil es auf wirklich.org steht. Es soll dort stehen, weil es der Prüfung standhält.**
+
+Die langfristige Hoffnung ist, dass Menschen eines Tages mit „Das steht auf wirklich.org“ auf eine nachvollziehbare Prüfung verweisen können. Die Adresse darf jedoch niemals selbst als Beleg gelten. *wirklich.org* ist hier eine angestrebte öffentliche Adresse, keine Behauptung einer bereits registrierten Domain, unabhängiger Begutachtung oder institutioneller Autorität.
+
+Für künftig als redaktionell geprüft veröffentlichte Aussagen setzen wir fünf überprüfbare Anforderungen:
+
+1. **Präzise Aussage:** Wortlaut, Aussageart, Geltungsbereich und verantwortliche Bearbeitung müssen erkennbar sein.
+2. **Nachvollziehbare Gründe:** Relevante Belege, Prämissen und ihre Grenzen müssen zugänglich oder Zugangsbeschränkungen offengelegt sein.
+3. **Stärkster Einwand:** Belastbare Gegenbelege, Alternativen und ungelöste Widersprüche dürfen nicht verschwiegen werden.
+4. **Ehrlicher Status:** Unsicherheit und tatsächlicher Prüfstand müssen sichtbar bleiben; eine KI-Ausgabe oder interne Zustimmung ersetzt keine unabhängige Fachprüfung.
+5. **Korrigierbare Geschichte:** Versionen, substanzielle Einwände, Entscheidungen und Gründe für Änderungen oder Rücknahmen bleiben nachvollziehbar.
+
+Bei empirischen und historischen Behauptungen heißt das Quellen- und Methodenprüfung, bei formalen Behauptungen die nachvollziehbare Ableitung aus expliziten Voraussetzungen, bei normativen Urteilen die offene Begründung der Werte und Zielkonflikte. Nicht jede Aussage ist im wissenschaftlichen Sinn beweisbar. Wo diese Anforderungen nicht erfüllt sind, ist *ungeprüft*, *offen* oder *umstritten* auszuweisen — nicht durch die Marke zu ersetzen.
+
+**Unser Ziel ist nicht: „Glaubt uns.“ Unser Ziel ist: „Prüft unsere Begründung.“** Der heutige Prototyp erfüllt diesen Anspruch noch nicht flächendeckend. Das [Aussagenregister](aussagenregister.md) und die [erste 1.0-Werkzeugfassung](release-1.0.md) sind Schritte dorthin, keine Beglaubigung.
+
 ## Wir sind Forschung!
 
 **Wir stellen Fragen. Wir machen unsere Annahmen sichtbar. Wir suchen nach dem, was sie verändern könnte. Jede begründete Korrektur ist ein Fortschritt — auch wenn sie unser eigenes Regelwerk trifft.**
