@@ -1,0 +1,494 @@
+{
+  "de": {
+    "eyebrow": "LIBER CIVITATIS · POLITIK ALS OFFENE FRAGE",
+    "titleA": "Politik, die",
+    "titleB": "dem Menschen dient.",
+    "lead": "Wie organisieren Menschen ein gemeinsames Leben, ohne ihre Freiheit, ihre Würde oder ihre Unterschiede aufzugeben? Ein offener Entwurf über die Begrenzung von Macht, tragfähige Institutionen und die Kunst der gemeinsamen Korrektur.",
+    "status": [
+      "Überparteilicher Denkentwurf",
+      "Rechtsstaat und Menschenwürde als normative Ausgangspunkte",
+      "Empirische Hypothesen · keine fertige Staatslehre"
+    ],
+    "drawing": "Die Bürger stehen in einem offenen Kreislauf mit demokratischen Institutionen, überprüfbaren Entscheidungen und ihren Folgen. Grundrechte und unabhängige Kontrolle begrenzen die Macht. Dies ist eine konzeptionelle Skizze, kein mathematisches Staatsmodell.",
+    "firstLabel": "DIE FRAGE VOR JEDER PARTEI",
+    "firstTitle": "Wozu brauchen wir überhaupt Politik?",
+    "first": "Weil wir miteinander leben und uns dennoch nicht in allem einig sind. Wir teilen Straßen, Schulen, Ressourcen und eine Zukunft. Entscheidungen darüber können nicht nur aus dem Wunsch des Einzelnen entstehen. Politik versucht, verbindliche Entscheidungen legitim zu treffen, Konflikte friedlich zu bearbeiten und ihre eigene Macht zu begrenzen.",
+    "naiveLabel": "DIE EINFACHE FRAGE",
+    "naiveTitle": "Aber warum darf nicht einfach jeder machen, was er will?",
+    "naiveText": "Stell dir fünf Kinder vor, die denselben kleinen Garten benutzen. Eines möchte dort Fußball spielen, eines Blumen pflanzen, eines in Ruhe lesen. Jede Idee kann schön sein. Aber alle beanspruchen denselben Platz. Wenn nur das stärkste Kind entscheidet, ist es für die anderen nicht mehr wirklich ihr Garten. Also brauchen sie Regeln, ein Verfahren zum Widersprechen und die Möglichkeit, schlechte Regeln zu ändern.",
+    "naiveQuote": "Freiheit wird zur gemeinsamen Aufgabe, sobald unsere Handlungen die Freiheit anderer berühren.",
+    "principleLabel": "P-00 · PHILOSOPHISCHE ARBEITSDEFINITION",
+    "principle": "Politik ist die fortlaufende, überprüfbare Gestaltung gemeinsamer Regeln zwischen Menschen, deren Interessen und Überzeugungen nicht vollständig übereinstimmen.",
+    "principleNote": "Diese Definition setzt eine normative Richtung: Macht soll Menschen dienen, nicht Menschen der Macht. Sie ist keine naturwissenschaftliche Erkenntnis und keine Behauptung, dass nur ein politisches System alle Konflikte lösen könne.",
+    "rightsLabel": "UNSER NORMATIVER AUSGANGSPUNKT",
+    "rightsTitle": "Sechs Bindungen der Macht.",
+    "rights": [
+      [
+        "01",
+        "Gleiche Würde",
+        "Jeder Mensch ist als Person zu achten. Politische Mehrheiten machen andere nicht weniger wertvoll. Der rechtliche Schutz kann je nach Verfassung anders ausgestaltet sein."
+      ],
+      [
+        "02",
+        "Freiheit und Grundrechte",
+        "Rede, Gewissen, Privatleben, politische Teilhabe und persönliche Entfaltung benötigen verlässlichen Schutz – auch gegen den Staat selbst."
+      ],
+      [
+        "03",
+        "Demokratische Legitimation",
+        "Verbindliche Macht benötigt rechtmäßige Verfahren, Öffentlichkeit und die Möglichkeit, Verantwortliche abzulösen oder Entscheidungen anzufechten."
+      ],
+      [
+        "04",
+        "Rechtsstaatliche Begrenzung",
+        "Unabhängige Gerichte, Gewaltenteilung und überprüfbare Verfahren sollen Machtmissbrauch erschweren. Auch demokratische Mehrheiten unterliegen rechtlichen Schranken."
+      ],
+      [
+        "05",
+        "Soziale Handlungsfähigkeit",
+        "Formale Rechte bleiben unvollständig nutzbar, wenn grundlegende Sicherheit, Bildung und reale Teilhabemöglichkeiten fehlen. Über die geeigneten Mittel lässt sich legitim streiten."
+      ],
+      [
+        "06",
+        "Korrigierbarkeit und Zukunft",
+        "Politische Folgen sollen beobachtet, Fehler öffentlich korrigiert und Lasten zwischen Generationen nachvollziehbar abgewogen werden."
+      ]
+    ],
+    "rightsWarning": "Diese Werte sind ein offener normativer Entwurf. Ihre Gewichtung kann in konkreten Fragen kollidieren. Das Projekt erhebt keinen Anspruch, diese Konflikte mit einer einzigen Zahl zu lösen.",
+    "evidenceLabel": "BEFUNDE, DIE WIR ERNST NEHMEN",
+    "evidenceTitle": "Was Institutionen und Vertrauen verbindet.",
+    "evidence": [
+      {
+        "n": "01",
+        "kind": "VERFASSUNGSRECHT · DEUTSCHLAND",
+        "title": "Macht ist an Würde und demokratische Ordnung gebunden",
+        "text": "Das deutsche Grundgesetz stellt die Menschenwürde in Artikel 1 unter besonderen Schutz und beschreibt in Artikel 20 die demokratische, soziale und rechtsstaatliche Ordnung. Das ist eine geltende rechtliche Grundlage Deutschlands, kein weltweit einheitliches politisches Modell.",
+        "limit": "Rechtliche Normen belegen nicht, dass ihre Ziele überall verwirklicht werden. Andere Länder haben andere Verfassungsordnungen.",
+        "source": "Grundgesetz, Artikel 1 und 20 · offizieller Gesetzestext",
+        "url": "https://www.gesetze-im-internet.de/gg/BJNR000010949.html"
+      },
+      {
+        "n": "02",
+        "kind": "OECD · BEOBACHTUNGSBEFRAGUNG 2023",
+        "title": "Politische Mitsprache hängt mit Vertrauen zusammen",
+        "text": "In einer OECD-Befragung in 30 Ländern vertrauten 2023 etwa 39 % ihrer nationalen Regierung in hohem oder mittlerem Maße. Das empfundene politische Mitspracherecht war stark mit Vertrauen verbunden. Diese Zahlen beschreiben die befragten Länder und den damaligen Zeitraum.",
+        "limit": "Befragungsdaten und Zusammenhänge zeigen allein nicht, dass eine bestimmte Reform ursächlich Vertrauen erzeugt.",
+        "source": "OECD Survey on Drivers of Trust in Public Institutions – 2024 Results",
+        "url": "https://www.oecd.org/en/publications/oecd-survey-on-drivers-of-trust-in-public-institutions-2024-results_9a20554b-en.html"
+      },
+      {
+        "n": "03",
+        "kind": "OECD · VERGLEICHENDE INSTITUTIONENFORSCHUNG",
+        "title": "Bürgerräte sind ein reales ergänzendes Verfahren",
+        "text": "Die OECD dokumentiert 716 deliberative Beteiligungsverfahren zwischen 1979 und 2023 in 28 OECD-Ländern mit insgesamt über 80.000 per Los ausgewählten Teilnehmenden. Sie können schwierige Zielkonflikte sichtbar machen und Empfehlungen erarbeiten.",
+        "limit": "Die erfasste Zahl beweist weder die Wirksamkeit jedes Verfahrens noch, dass Bürgerräte gewählte Parlamente ersetzen sollten.",
+        "source": "OECD, Government at a Glance 2025 · Citizen participation",
+        "url": "https://www.oecd.org/en/publications/government-at-a-glance-2025_0efd0bcd-en/full-report/citizen-participation-and-deliberation_52b90285.html"
+      },
+      {
+        "n": "04",
+        "kind": "INTERNATIONALE POLITISCHE LEITPRINZIPIEN",
+        "title": "KI-Governance muss Rechte und Verantwortung mitdenken",
+        "text": "Die 2024 aktualisierten OECD-KI-Prinzipien betonen Menschenrechte, demokratische Werte, Transparenz, Sicherheit und Rechenschaftspflicht. Sie bieten Orientierung für den Umgang mit KI, aber keine automatische Lösung für Arbeitsmarkt- und Verteilungskonflikte.",
+        "limit": "Leitprinzipien sind keine empirische Bestätigung einer bestimmten Steuer-, Sozial- oder Regulierungspolitik.",
+        "source": "OECD AI Principles · aktualisiert 2024",
+        "url": "https://www.oecd.org/en/topics/ai-principles.html"
+      }
+    ],
+    "positionsLabel": "LEGITIME POLITISCHE GEGENPOSITIONEN",
+    "positionsTitle": "Gute Ziele kollidieren. Mittel bleiben strittig.",
+    "tradeoffs": [
+      {
+        "pair": "Freiheit ↔ Sicherheit",
+        "left": "Mehr Schutz durch staatliche Eingriffe",
+        "right": "Mehr Schutz vor staatlichen Eingriffen",
+        "question": "Welches Risiko ist wie groß – und welcher Eingriff ist notwendig, verhältnismäßig und überprüfbar?"
+      },
+      {
+        "pair": "Markt ↔ öffentliche Sicherung",
+        "left": "Dezentrale Entscheidungen, Wettbewerb, Innovation",
+        "right": "Solidarische Absicherung, Korrektur von Marktversagen",
+        "question": "Welche Kombination schafft Chancen, ohne Macht zu konzentrieren oder Anreize zu zerstören?"
+      },
+      {
+        "pair": "Mehrheitsentscheidung ↔ Grundrechte",
+        "left": "Demokratische Responsivität und Entscheidungskraft",
+        "right": "Schutz von Minderheiten und Rechtspositionen",
+        "question": "Wo liegen rechtliche Grenzen, und wer kontrolliert sie unabhängig?"
+      },
+      {
+        "pair": "Gegenwart ↔ nächste Generationen",
+        "left": "Akute Probleme und heutige Bedürfnisse",
+        "right": "Langfristige Lebensgrundlagen und Tragfähigkeit",
+        "question": "Wie verteilen wir Kosten und Risiken fair über die Zeit?"
+      },
+      {
+        "pair": "Expertenwissen ↔ Bürgerperspektive",
+        "left": "Fachliche Kompetenz und überprüfbare Daten",
+        "right": "Lebensweltliches Wissen und politische Mitsprache",
+        "question": "Wie können beide einander korrigieren, ohne dass Expertise oder Beteiligung bloße Dekoration wird?"
+      }
+    ],
+    "hypLabel": "FÜNF OFFENE POLITISCHE HYPOTHESEN",
+    "hypTitle": "Vorschläge, die widerlegbar bleiben müssen.",
+    "hypIntro": "Keine dieser Hypothesen ist durch unser Projekt getestet oder wissenschaftlich bewiesen. Jede benötigt eine konkrete Politikmaßnahme, passende Vergleichsgruppen und eine ehrliche Evaluation.",
+    "hypotheses": [
+      {
+        "code": "P-A",
+        "title": "Beteiligung und Vertrauen",
+        "idea": "Faire und nachvollziehbare Mitwirkung kann das Vertrauen in öffentliche Entscheidungen erhöhen.",
+        "test": "Vorher-nachher-Vergleiche mit geeigneten Kontrollgruppen; wahrgenommene Mitsprache, Vertrauen, tatsächliche Teilnahme.",
+        "against": "Selbstselektion, symbolische Beteiligung oder enttäuschte Erwartungen können Effekte umkehren."
+      },
+      {
+        "code": "P-B",
+        "title": "Transparenz und Verantwortlichkeit",
+        "idea": "Öffentlich begründete Entscheidungen und unabhängige Kontrolle könnten Amtsmissbrauch begrenzen.",
+        "test": "Messung von Rechenschaftsprozessen, Korruptionsrisiken, Datenzugang und korrigierten Fehlentscheidungen.",
+        "against": "Transparenz allein kann Informationen überfluten, Verantwortung verwässern oder vertrauliche Rechte verletzen."
+      },
+      {
+        "code": "P-C",
+        "title": "Soziale Sicherheit und Freiheit",
+        "idea": "Verlässliche Absicherung kann reale Handlungsspielräume stärken, ohne zwangsläufig alle Leistungsanreize aufzuheben.",
+        "test": "Vergleich verschiedener Modelle von Transfers, Bildung, Weiterbildung und Beschäftigungssicherung nach Lebenslagen.",
+        "against": "Kosten, Fehlanreize, Anspruchshürden, Steuerwirkungen und Umsetzungskapazität können Ziele konterkarieren."
+      },
+      {
+        "code": "P-D",
+        "title": "KI-Wandel und Verteilung",
+        "idea": "Wenn KI Aufgaben verdrängt oder Produktivität verändert, könnten frühzeitige Beteiligung und mehrere Sicherungsinstrumente Übergänge abfedern.",
+        "test": "Arbeitsmarkt-, Lohn- und Verteilungsdaten, regionale Unterschiede, Zugang zu Umschulung und öffentlichen Leistungen.",
+        "against": "Tempo und Richtung von KI-Effekten sind unsicher; starre Regeln können Innovation hemmen oder Fehlallokationen erzeugen."
+      },
+      {
+        "code": "P-E",
+        "title": "Korrigierbare Gesetze",
+        "idea": "Befristete Erprobung, Evaluation und begründete Revision können Fehlentwicklungen früher sichtbar machen.",
+        "test": "Vergleich regulierter Pilotprogramme mit dauerhaft ungeprüften Maßnahmen, inklusive Nebenwirkungen und Verteilung.",
+        "against": "Häufige Änderungen können Vertrauen und Planungssicherheit beschädigen; nicht jede Wirkung ist kurzfristig messbar."
+      }
+    ],
+    "aiLabel": "DIE NEUE MACHTFRAGE",
+    "aiTitle": "Wer erhält die Freiheit, die KI ermöglichen könnte?",
+    "aiText": "Technik kann Wohlstand und neue Fähigkeiten ermöglichen. Sie kann zugleich Macht, Einkommen und Entscheidungsmöglichkeiten ungleich verteilen. Ob daraus Freiheit oder neue Abhängigkeit entsteht, ist keine Frage, die ein Modell allein entscheidet. Politische Alternativen reichen von Wettbewerbspolitik und Regulierung über soziale Sicherung und öffentliche Infrastruktur bis zu Bildungs- und Arbeitsmarktreformen. Jede Variante hat Kosten, Risiken und Gegenargumente.",
+    "aiNote": "Unser Werk unterstützt keine bestimmte Partei und behauptet keine sichere Prognose der KI-Arbeitslosigkeit. Wir stellen die Verteilung von Chancen, Lasten und Entscheidungsmacht zur offenen Prüfung.",
+    "procedureLabel": "EIN OFFENES VERFAHREN FÜR POLITISCHE VORSCHLÄGE",
+    "procedureTitle": "Wie aus einem Ziel eine überprüfbare Politik werden kann.",
+    "steps": [
+      [
+        "01",
+        "Problem und Betroffene bestimmen",
+        "Wessen Rechte, Lebenslagen und Interessen werden berührt? Wer wird bisher nicht gehört?"
+      ],
+      [
+        "02",
+        "Wertekonflikte offenlegen",
+        "Welche Ziele stehen einander gegenüber? Welche Grundrechte begrenzen die Mittel?"
+      ],
+      [
+        "03",
+        "Alternativen nebeneinanderstellen",
+        "Mindestens zwei ernstzunehmende Wege und die Option des Nicht-Handelns vergleichen."
+      ],
+      [
+        "04",
+        "Wirkungen und Kosten prüfen",
+        "Quellen, Unsicherheit, Finanzierung, Nebenwirkungen und mögliche Verlierer offen dokumentieren."
+      ],
+      [
+        "05",
+        "Legitim entscheiden und kontrollieren",
+        "Zuständigkeiten, demokratische Verfahren, unabhängige Überprüfung und Widerspruch ermöglichen."
+      ],
+      [
+        "06",
+        "Evaluation und Revision vorsehen",
+        "Vorab Kriterien festlegen; Fehlentwicklungen erkennbar machen; Regeln begründet verändern."
+      ]
+    ],
+    "counterLabel": "WAS DIESER ENTWURF NICHT IST",
+    "counterTitle": "Keine Formel für den perfekten Staat.",
+    "counterText": "Wissenschaft kann Folgen bestimmter Regeln untersuchen. Sie kann nicht allein festlegen, welche Freiheit gegen welches Risiko abzuwägen ist. Eine Politik, die behauptet, sämtliche Konflikte durch Mathematik oder KI endgültig zu lösen, würde genau jene Machtbegrenzung verfehlen, die sie verspricht.",
+    "counterpoints": [
+      [
+        "Kein parteipolitischer Ersatz",
+        "Das Projekt ist kein Wahlprogramm und keine neue politische Bewegung. Menschen unterschiedlicher demokratischer Positionen sollen seine Annahmen prüfen dürfen."
+      ],
+      [
+        "Kein KI-Souverän",
+        "KI darf bei Analyse und Verständlichkeit helfen. Demokratische Legitimation, Verantwortung, Grundrechtsschutz und menschliche Anfechtbarkeit bleiben wesentlich."
+      ],
+      [
+        "Kein Einheitsmaß für Moral",
+        "Das +1/−1-Modell bleibt eine philosophische Metapher, keine objektive Bewertungsskala für Menschen, Parteien oder politische Maßnahmen."
+      ],
+      [
+        "Kein blindes Vertrauen in Effizienz",
+        "Eine schnellere Verwaltung ist nur dann besser, wenn sie gleichzeitig rechtmäßig, zugänglich, fair und überprüfbar bleibt."
+      ]
+    ],
+    "closingLabel": "EIN GESELLSCHAFTLICHER GRUNDSATZ",
+    "closingTitle": "Macht ist kein Selbstzweck.",
+    "closingQuote": "Eine Politik wird nicht dadurch gut, dass sie ihre Absicht für gut erklärt. Sie muss sich an ihren Folgen, ihren Grenzen und an den Menschen messen lassen, deren Leben sie berührt.",
+    "closingText": "Vielleicht ist die wichtigste politische Fähigkeit nicht, für immer recht zu haben – sondern Macht so zu organisieren, dass sie sich korrigieren lassen muss.",
+    "sourcesLabel": "QUELLEN, STATUS UND MITWIRKUNG",
+    "sourcesText": "Die Quellen stützen konkrete verfassungsrechtliche Grundlagen, Beobachtungsdaten und institutionelle Verfahren. Sie beweisen weder unsere normative Definition noch eine universelle politische Ideologie.",
+    "sourceRead": "Primärquelle ansehen ↗",
+    "forum": "Im Forum diskutieren ↗",
+    "critique": "Gegenargument einreichen ↗",
+    "back": "Zur Bibliothek ↗",
+    "love": "Warum Liebe wirkt ↗",
+    "proof": "Zum Prüfstand ↗",
+    "tagFinding": "BEFUND UND KONTEXT",
+    "tagLimit": "GRENZE DER AUSSAGE",
+    "tagTest": "MÖGLICHE PRÜFUNG",
+    "tagAgainst": "GEGENMODELL"
+  },
+  "en": {
+    "eyebrow": "LIBER CIVITATIS · POLITICS AS AN OPEN QUESTION",
+    "titleA": "Politics That",
+    "titleB": "Serves People.",
+    "lead": "How can people organize shared life without surrendering freedom, dignity, or their differences? An open proposal about limiting power, building institutions that endure, and correcting collective mistakes.",
+    "status": [
+      "Nonpartisan philosophical proposal",
+      "Human dignity and rule of law as normative foundations",
+      "Empirical hypotheses · not a completed political theory"
+    ],
+    "drawing": "Citizens form an open feedback loop with democratic institutions, accountable decisions, and their consequences. Rights and independent oversight constrain power. This conceptual diagram is not a mathematical theory of the state.",
+    "firstLabel": "THE QUESTION BEFORE PARTY POLITICS",
+    "firstTitle": "Why do we need politics at all?",
+    "first": "Because we live together without agreeing about everything. We share roads, schools, resources, and a future. Decisions about them cannot simply follow the wishes of one person. Politics attempts to make collective decisions legitimate, manage conflicts peacefully, and place limits on its own authority.",
+    "naiveLabel": "THE SIMPLE QUESTION",
+    "naiveTitle": "Why can't everyone just do whatever they want?",
+    "naiveText": "Imagine five children sharing a little garden. One wants to play football, another wants to grow flowers, and another wants a quiet place to read. Each wish may be reasonable, but the space is shared. If only the strongest child decides, the garden is no longer equally theirs. They need rules, a way to object, and a chance to change a bad rule.",
+    "naiveQuote": "Freedom becomes a shared task when our actions affect the freedom of others.",
+    "principleLabel": "P-00 · PHILOSOPHICAL WORKING DEFINITION",
+    "principle": "Politics is the ongoing, accountable shaping of shared rules among people whose interests and convictions never fully coincide.",
+    "principleNote": "This definition advances a normative direction: power should serve people, not the other way around. It is not a scientific finding, nor a claim that one political model can eliminate every conflict.",
+    "rightsLabel": "OUR NORMATIVE STARTING POINT",
+    "rightsTitle": "Six restraints on power.",
+    "rights": [
+      [
+        "01",
+        "Equal dignity",
+        "Every person deserves respect as a person. Electoral majorities do not make others less valuable. Legal protections are structured differently across constitutional systems."
+      ],
+      [
+        "02",
+        "Freedom and fundamental rights",
+        "Expression, conscience, privacy, political participation, and personal development require dependable protection—including against the state."
+      ],
+      [
+        "03",
+        "Democratic legitimacy",
+        "Binding authority needs lawful processes, public accountability, and opportunities to replace decision-makers or challenge decisions."
+      ],
+      [
+        "04",
+        "Rule-of-law constraints",
+        "Independent courts, separated powers, and reviewable procedures are intended to make abuse harder. Even elected majorities face legal limits."
+      ],
+      [
+        "05",
+        "Real capacity to participate",
+        "Formal rights can be hard to use without basic security, education, and genuine opportunities. People can legitimately disagree about the best means."
+      ],
+      [
+        "06",
+        "Correction and the future",
+        "Policy consequences should be examined, errors openly corrected, and burdens across generations transparently considered."
+      ]
+    ],
+    "rightsWarning": "These values form an open normative proposal. Their relative weight may conflict in real cases. This project does not claim to resolve those conflicts with one number.",
+    "evidenceLabel": "FINDINGS WE SHOULD TAKE SERIOUSLY",
+    "evidenceTitle": "Institutions, trust, and their limits.",
+    "evidence": [
+      {
+        "n": "01",
+        "kind": "CONSTITUTIONAL LAW · GERMANY",
+        "title": "Power is constrained by dignity and democratic order",
+        "text": "Germany's Basic Law protects human dignity in Article 1 and sets out democratic, social, and rule-of-law foundations in Article 20. This is part of Germany's constitutional framework, not a political model uniformly adopted across the world.",
+        "limit": "Legal commitments do not prove that their ideals are fully realized. Other countries have different constitutional arrangements.",
+        "source": "German Basic Law, Articles 1 and 20 · official text",
+        "url": "https://www.gesetze-im-internet.de/englisch_gg/"
+      },
+      {
+        "n": "02",
+        "kind": "OECD · 2023 OBSERVATIONAL SURVEY",
+        "title": "Feeling politically heard is linked to institutional trust",
+        "text": "In an OECD survey across 30 countries, around 39% reported high or moderately high trust in their national government in 2023. The sense of having a say in government action was strongly associated with trust. These numbers describe the participating countries and that period.",
+        "limit": "Survey associations alone cannot establish that a particular reform causes trust to rise.",
+        "source": "OECD Survey on Drivers of Trust in Public Institutions – 2024 Results",
+        "url": "https://www.oecd.org/en/publications/oecd-survey-on-drivers-of-trust-in-public-institutions-2024-results_9a20554b-en.html"
+      },
+      {
+        "n": "03",
+        "kind": "OECD · COMPARATIVE INSTITUTIONAL STUDY",
+        "title": "Citizens' assemblies are an existing complementary tool",
+        "text": "The OECD documented 716 deliberative participation processes across 28 OECD countries between 1979 and 2023, involving more than 80,000 randomly selected citizens. They can help examine difficult trade-offs and develop recommendations.",
+        "limit": "The number of cases does not prove every process is effective or that assemblies should replace elected parliaments.",
+        "source": "OECD, Government at a Glance 2025 · Citizen participation",
+        "url": "https://www.oecd.org/en/publications/government-at-a-glance-2025_0efd0bcd-en/full-report/citizen-participation-and-deliberation_52b90285.html"
+      },
+      {
+        "n": "04",
+        "kind": "INTERNATIONAL POLICY PRINCIPLES",
+        "title": "Governing AI involves rights and accountability",
+        "text": "The OECD AI Principles, updated in 2024, emphasize human rights, democratic values, transparency, safety, and accountability. They provide orientation, not an automatic answer to labor-market or distributional conflicts.",
+        "limit": "Policy principles are not empirical proof of any particular tax, welfare, or regulatory instrument.",
+        "source": "OECD AI Principles · updated 2024",
+        "url": "https://www.oecd.org/en/topics/ai-principles.html"
+      }
+    ],
+    "positionsLabel": "LEGITIMATE COMPETING POLITICAL VIEWS",
+    "positionsTitle": "Good goals conflict. Means remain contested.",
+    "tradeoffs": [
+      {
+        "pair": "Liberty ↔ security",
+        "left": "Greater protection through public intervention",
+        "right": "Greater protection against intrusive government",
+        "question": "How large is the threat, and is an intervention necessary, proportionate, and reviewable?"
+      },
+      {
+        "pair": "Markets ↔ public provision",
+        "left": "Decentralized choice, competition, and innovation",
+        "right": "Collective insurance and correction of market failures",
+        "question": "Which mixture expands opportunity without concentrating power or destroying incentives?"
+      },
+      {
+        "pair": "Majority rule ↔ rights",
+        "left": "Democratic responsiveness and capacity to act",
+        "right": "Protection of minorities and individual rights",
+        "question": "Where do legal limits apply, and who can enforce them independently?"
+      },
+      {
+        "pair": "Present ↔ future generations",
+        "left": "Urgent problems and present needs",
+        "right": "Long-term ecological and fiscal sustainability",
+        "question": "How can we share costs and risks fairly over time?"
+      },
+      {
+        "pair": "Expertise ↔ citizens' experience",
+        "left": "Specialized knowledge and verifiable evidence",
+        "right": "Lived experience and meaningful political voice",
+        "question": "How can each correct the other without becoming mere window dressing?"
+      }
+    ],
+    "hypLabel": "FIVE OPEN POLITICAL HYPOTHESES",
+    "hypTitle": "Proposals that must remain open to refutation.",
+    "hypIntro": "None of these hypotheses has been independently tested or established by our project. Each would require a concrete intervention, suitable comparisons, and an honest evaluation.",
+    "hypotheses": [
+      {
+        "code": "P-A",
+        "title": "Participation and trust",
+        "idea": "Fair, meaningful participation with clear feedback may improve trust in public decisions.",
+        "test": "Pre/post comparisons with suitable control groups; perceived voice, trust, and actual participation.",
+        "against": "Self-selection, tokenistic consultation, or disappointed expectations could reverse the effect."
+      },
+      {
+        "code": "P-B",
+        "title": "Transparency and accountability",
+        "idea": "Publicly explained decisions and independent oversight may help limit abuse of authority.",
+        "test": "Review processes, corruption risks, access to information, and corrected policy errors.",
+        "against": "Transparency alone may overload people, blur responsibility, or undermine legitimate privacy."
+      },
+      {
+        "code": "P-C",
+        "title": "Social security and liberty",
+        "idea": "Reliable support may expand real freedom without necessarily eliminating incentives to work or innovate.",
+        "test": "Compare models of cash support, education, retraining, and employment protection across different groups.",
+        "against": "Costs, perverse incentives, eligibility barriers, taxation, or limited administrative capacity may undermine intended benefits."
+      },
+      {
+        "code": "P-D",
+        "title": "AI transition and distribution",
+        "idea": "If AI displaces tasks or reshapes productivity, early participation and varied protective measures may ease transitions.",
+        "test": "Jobs, wages, distributional impacts, local differences, retraining access, and public-service outcomes.",
+        "against": "The speed and direction of AI effects are uncertain; rigid policies may hinder innovation or allocate resources poorly."
+      },
+      {
+        "code": "P-E",
+        "title": "Policies that can be revised",
+        "idea": "Time-limited pilots, evaluation, and explained revisions may reveal problems sooner.",
+        "test": "Compare monitored pilots with policies without systematic review, including externalities and unequal impacts.",
+        "against": "Frequent revisions can erode trust and predictability; some outcomes take years to measure."
+      }
+    ],
+    "aiLabel": "THE NEW QUESTION OF POWER",
+    "aiTitle": "Who receives the freedom that AI might create?",
+    "aiText": "Technology can create prosperity and expand human capabilities. It can also distribute power, income, and decision-making opportunities unequally. Whether the outcome is greater freedom or new dependence is not something a model can decide on its own. Options include competition policy, regulation, social insurance, public infrastructure, education, and labor-market measures. Each has costs, risks, and objections.",
+    "aiNote": "This project endorses no political party and makes no certain prediction of AI-driven unemployment. The allocation of opportunities, burdens, and decision-making power remains an open public question.",
+    "procedureLabel": "AN OPEN PROCESS FOR POLICY PROPOSALS",
+    "procedureTitle": "From a political goal to accountable policy.",
+    "steps": [
+      [
+        "01",
+        "Define the problem and those affected",
+        "Whose rights, circumstances, and interests are at stake? Who has not been heard?"
+      ],
+      [
+        "02",
+        "Expose conflicts between values",
+        "Which goals compete? Which fundamental rights constrain the proposed means?"
+      ],
+      [
+        "03",
+        "Compare alternatives",
+        "Consider at least two serious approaches alongside doing nothing."
+      ],
+      [
+        "04",
+        "Examine effects and costs",
+        "Document evidence, uncertainty, funding, side effects, and those who could lose out."
+      ],
+      [
+        "05",
+        "Decide legitimately and oversee",
+        "Make responsibilities, democratic procedures, independent review, and avenues for appeal visible."
+      ],
+      [
+        "06",
+        "Evaluate and revise",
+        "Agree on criteria in advance; identify failures; change policies with reasons."
+      ]
+    ],
+    "counterLabel": "WHAT THIS PROPOSAL IS NOT",
+    "counterTitle": "No formula for the perfect state.",
+    "counterText": "Science can investigate the consequences of rules. It cannot, by itself, decide how much liberty to trade for how much risk. A political system claiming to resolve all conflict through mathematics or AI would violate the very principle of constrained power it promises.",
+    "counterpoints": [
+      [
+        "Not a substitute for party politics",
+        "This is not an election manifesto or a new political movement. People from differing democratic traditions should be able to challenge its assumptions."
+      ],
+      [
+        "Not an AI sovereign",
+        "AI may support analysis and comprehension. Democratic legitimacy, responsibility, fundamental rights, and human appeal remain essential."
+      ],
+      [
+        "Not a single morality metric",
+        "The +1/−1 model remains a philosophical metaphor, not an objective score for people, parties, or public policies."
+      ],
+      [
+        "Not blind faith in efficiency",
+        "Faster public services are only an improvement when they remain lawful, accessible, fair, and reviewable."
+      ]
+    ],
+    "closingLabel": "A PRINCIPLE FOR PUBLIC LIFE",
+    "closingTitle": "Power is not an end in itself.",
+    "closingQuote": "A policy does not become good because its authors declare good intentions. It must be examined through its consequences, its limits, and the lives of those it affects.",
+    "closingText": "Perhaps the most important political skill is not being right forever—but organizing power so that it can be corrected.",
+    "sourcesLabel": "SOURCES, STATUS, AND PARTICIPATION",
+    "sourcesText": "These sources establish specific legal foundations, observational findings, and institutional practices. They do not prove our normative definition or any universal political ideology.",
+    "sourceRead": "Read the source ↗",
+    "forum": "Discuss in the forum ↗",
+    "critique": "Submit a counterargument ↗",
+    "back": "Back to the library ↗",
+    "love": "Why Love Works ↗",
+    "proof": "Explore the examination ↗",
+    "tagFinding": "FINDING AND CONTEXT",
+    "tagLimit": "LIMIT OF THE CLAIM",
+    "tagTest": "POSSIBLE TEST",
+    "tagAgainst": "COUNTERMODEL"
+  }
+}

@@ -1,0 +1,73 @@
+---
+import Layout from "../layouts/SiteLayout.astro";
+import Diagram from "./CivitasDiagram.astro";
+import content from "../lib/policy-copy.json";
+import {pathFor} from "../lib/paths.mjs";
+const {lang="de"}=Astro.props;
+const t=content[lang];
+const github="https://github.com/AlexanderR1991/grundtext-des-wirklichen";
+---
+<Layout lang={lang} slug="politik-die-dem-menschen-dient">
+<section class="civitas-hero"><div class="container">
+<p class="section-kicker">{t.eyebrow}</p>
+<h1>{t.titleA}<br/><em>{t.titleB}</em></h1>
+<p class="civitas-hero__lead">{t.lead}</p>
+<div class="civitas-status">{t.status.map(label=><span>{label}</span>)}</div>
+</div></section>
+<section class="section section--paper"><div class="container">
+<div class="section-heading"><div><p class="section-kicker">{t.firstLabel}</p><h2>{t.firstTitle}</h2></div><p>{t.first}</p></div>
+<Diagram lang={lang}>{t.drawing}</Diagram>
+<div class="civitas-thesis"><span class="section-kicker">{t.principleLabel}</span><blockquote>{t.principle}</blockquote><p>{t.principleNote}</p></div>
+</div></section>
+<section class="section civitas-naive"><div class="narrow">
+<p class="section-kicker">{t.naiveLabel}</p><h2>{t.naiveTitle}</h2><p>{t.naiveText}</p><blockquote>{t.naiveQuote}</blockquote>
+</div></section>
+<section class="section section--paper" id="grundsaetze"><div class="container">
+<p class="section-kicker">{t.rightsLabel}</p><h2 class="civitas-section-title">{t.rightsTitle}</h2>
+<div class="civitas-rights">{t.rights.map(([n,title,description])=><article><span>{n} / 06</span><h3>{title}</h3><p>{description}</p></article>)}</div>
+<p class="civitas-warning">{t.rightsWarning}</p>
+</div></section>
+<section class="section civitas-evidence" id="befunde"><div class="container">
+<p class="section-kicker">{t.evidenceLabel}</p><h2 class="civitas-section-title">{t.evidenceTitle}</h2>
+<div class="civitas-evidence__list">{t.evidence.map(e=><article><div class="civitas-evidence__number">{e.n} / 04</div>
+<div><span class="civitas-type">{e.kind}</span><h3>{e.title}</h3><p>{e.text}</p>
+<div class="civitas-limit"><b>{t.tagLimit}</b><p>{e.limit}</p></div>
+<a href={e.url} target="_blank" rel="noopener noreferrer">{e.source} ↗</a>
+</div></article>)}</div>
+</div></section>
+<section class="section section--paper" id="zielkonflikte"><div class="container">
+<p class="section-kicker">{t.positionsLabel}</p><h2 class="civitas-section-title">{t.positionsTitle}</h2>
+<div class="civitas-tradeoffs">{t.tradeoffs.map(x=><article><h3>{x.pair}</h3>
+<div class="civitas-tradeoffs__sides"><p>{x.left}</p><p>{x.right}</p></div>
+<div class="civitas-tradeoffs__question">{x.question}</div>
+</article>)}</div>
+</div></section>
+<section class="section civitas-hypotheses" id="hypothesen"><div class="container">
+<p class="section-kicker">{t.hypLabel}</p><h2 class="civitas-section-title">{t.hypTitle}</h2><p class="civitas-section-lead">{t.hypIntro}</p>
+<div class="civitas-hypothesis-grid">{t.hypotheses.map(h=><article id={h.code.toLowerCase()}>
+<span>{h.code}</span><h3>{h.title}</h3><p class="civitas-claim">{h.idea}</p>
+<div><b>{t.tagTest}</b><p>{h.test}</p></div>
+<div><b>{t.tagAgainst}</b><p>{h.against}</p></div>
+</article>)}</div>
+</div></section>
+<section class="section section--paper civitas-ai" id="ki-und-macht"><div class="container civitas-ai__grid">
+<div><p class="section-kicker">{t.aiLabel}</p><h2>{t.aiTitle}</h2></div>
+<div><p>{t.aiText}</p><blockquote>{t.aiNote}</blockquote></div>
+</div></section>
+<section class="section civitas-process" id="verfahren"><div class="container civitas-process__grid">
+<div><p class="section-kicker">{t.procedureLabel}</p><h2>{t.procedureTitle}</h2></div>
+<ol>{t.steps.map(([n,title,description])=><li><b>{n}</b><div><strong>{title}</strong><p>{description}</p></div></li>)}</ol>
+</div></section>
+<section class="section section--paper civitas-counter" id="grenzen"><div class="container">
+<p class="section-kicker">{t.counterLabel}</p><h2 class="civitas-section-title">{t.counterTitle}</h2><p class="civitas-section-lead">{t.counterText}</p>
+<div class="civitas-counter__grid">{t.counterpoints.map(([title,description],i)=><article><span>{String(i+1).padStart(2,"0")} / 04</span><h3>{title}</h3><p>{description}</p></article>)}</div>
+</div></section>
+<section class="section civitas-finale"><div class="narrow"><p class="section-kicker">{t.closingLabel}</p><h2>{t.closingTitle}</h2><blockquote>{t.closingQuote}</blockquote><p>{t.closingText}</p>
+<div class="button-row"><a class="button button--gold" href={github+"/discussions"} target="_blank" rel="noopener noreferrer">{t.forum}</a><a class="button button--ghost" href={github+"/issues/new?template=quellenpruefung.yml"} target="_blank" rel="noopener noreferrer">{t.critique}</a></div>
+</div></section>
+<section class="section civitas-sources"><div class="narrow">
+<p class="section-kicker">{t.sourcesLabel}</p><p>{t.sourcesText}</p>
+<ol>{t.evidence.map(e=><li><a href={e.url} target="_blank" rel="noopener noreferrer">{e.source} ↗</a><small>{e.kind}</small></li>)}</ol>
+<div class="button-row"><a class="subtle-link" href={pathFor(lang,"bibliothek")}>{t.back}</a><a class="subtle-link" href={pathFor(lang,"warum-liebe-wirkt")}>{t.love}</a><a class="subtle-link" href={pathFor(lang,"pruefstand")}>{t.proof}</a></div>
+</div></section>
+</Layout>

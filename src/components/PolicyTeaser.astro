@@ -1,0 +1,31 @@
+---
+import {pathFor} from "../lib/paths.mjs";
+const {lang="de",from="index"}=Astro.props;
+const en=lang==="en";
+const labels={
+ index:["LIBER CIVITATIS · EIN POLITISCHER ENTWURF","LIBER CIVITATIS · A POLITICAL PROPOSAL"],
+ atlas:["GESELLSCHAFT · RECHTE · MACHT","SOCIETY · RIGHTS · POWER"],
+ bibliothek:["NEUES KAPITEL · POLITIK UND GEMEINSCHAFT","NEW CHAPTER · POLITICS AND COMMUNITY"],
+ pruefstand:["POLITISCHE HYPOTHESEN P-A BIS P-E","POLITICAL HYPOTHESES P-A TO P-E"]
+};
+const descriptions={
+ index:["Wie lässt sich Macht begrenzen, Freiheit schützen und politische Verantwortung überprüfbar machen? Ein überparteilicher Forschungsentwurf mit Gegenargumenten.","How can we constrain power, safeguard freedom, and keep public decisions accountable? A nonpartisan research proposal with counterarguments."],
+ atlas:["Vom gemeinsamen Leben zur demokratischen Legitimation, Rechtsstaatlichkeit und der Verteilung neuer technologischer Chancen.","From shared life to democratic legitimacy, rule of law, and the distribution of new technological opportunities."],
+ bibliothek:["Sechs normative Grundsätze, fünf offene Hypothesen und ernsthafte Zielkonflikte statt eines parteipolitischen Programms.","Six normative principles, five open hypotheses, and serious trade-offs rather than a party manifesto."],
+ pruefstand:["Hypothesen über Mitsprache, Transparenz, soziale Sicherheit, KI-Wandel und korrigierbare Gesetzgebung – alle offen für Kritik.","Hypotheses about participation, transparency, social security, AI transition, and revisable legislation—all open to challenge."]
+};
+const label=(labels[from]||labels.index)[en?1:0];
+const desc=(descriptions[from]||descriptions.index)[en?1:0];
+---
+<section class="section civitas-teaser" aria-label={label}>
+<div class="container civitas-teaser__grid"><div>
+<p class="section-kicker">{label}</p>
+<h2>{en?"Politics That":"Politik, die"}<br/><em>{en?"Serves People.":"dem Menschen dient."}</em></h2>
+<p>{desc}</p>
+<a class="button button--ghost" href={pathFor(lang,"politik-die-dem-menschen-dient")}>{en?"Explore the proposal ↗":"Politischen Entwurf lesen ↗"}</a>
+</div><div class="civitas-teaser__drawing" aria-hidden="true">
+<svg viewBox="0 0 360 300"><g stroke="#baa179" stroke-width="1.4" fill="none"><circle cx="180" cy="151" r="124" stroke-dasharray="3 10"/><circle cx="180" cy="151" r="79"/><path d="M180 72 259 151 180 230 101 151Z" /></g>
+<g fill="#14191a" stroke="#d5b78a" stroke-width="1.8"><circle cx="180" cy="72" r="19"/><circle cx="259" cy="151" r="19"/><circle cx="180" cy="230" r="19"/><circle cx="101" cy="151" r="19"/></g>
+<circle cx="180" cy="151" r="5" fill="#e2c69c"/>
+</svg></div>
+</div></section>
