@@ -57,6 +57,18 @@ Das ursprüngliche Foto einer Handskizze bleibt privat; die Website verwendet ei
 - [English: Politics That Serves People (translation draft)](https://alexanderr1991.github.io/grundtext-des-wirklichen/en/politik-die-dem-menschen-dient/)
 - [Offene Forschungsagenda und Quellen](docs/forschungsprogramm-politik.md)
 
+## Brücken zwischen den Religionen / Bridges Between Religions
+
+**WIR BAUEN BRÜCKEN ZWISCHEN DEN RELIGIONEN.**
+
+Nicht, damit alle dasselbe glauben. Sondern damit wir einander verstehen, ohne die Wahrheitssuche aufzugeben.
+
+Ein zweisprachiges theologisches Kapitel eröffnet einen respektvollen, aber kritischen Dialog mit religiösen und nichtreligiösen Weltanschauungen. Unterschiede werden nicht geleugnet, Gewissensfreiheit und Widerspruch gehören dazu. Es wird **keine religiöse Einheitswahrheit** behauptet.
+
+- [Deutsch: Brücken zwischen den Religionen](https://alexanderr1991.github.io/grundtext-des-wirklichen/de/bruecken-zwischen-den-religionen/)
+- [English: Bridges Between Religions](https://alexanderr1991.github.io/grundtext-des-wirklichen/en/bruecken-zwischen-den-religionen/)
+- [Dialogprinzipien und Forschungsfragen](docs/theologischer-dialog.md)
+
 ## Unser Anspruch / Our standard
 
 **Kritik ist willkommen, Zustimmung nicht erforderlich.** Die neun Leitsätze sind vorläufige, hauptsächlich philosophisch-normative Aussagen und keine wissenschaftlich bestätigte Gesamttheorie. Behauptungen über Tatsachen benötigen Quellen; Metaphern dürfen keine empirischen Belege ersetzen.
