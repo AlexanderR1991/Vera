@@ -4,6 +4,12 @@
 
 Aus einer Frage wird ein nachvollziehbarer Prüfweg: Begriffe klären, Gründe prüfen, den stärksten Einwand ernst nehmen und den nächsten Schritt begrenzen. **Grundtext des Wirklichen** bleibt unser philosophisches Fundament; WIRKLICH ist der Name der gemeinsamen Werkstatt.
 
+## Unser Ursprung: „Die Richtung“ / Our origin: “Die Richtung”
+
+Die Idee zu **WIRKLICH** entstand aus der Arbeit an dem Buch **„Die Richtung“**. Aus dem Nachdenken über Wahrheit und Orientierung entwickelte sich die Idee, eine öffentliche Werkstatt zu schaffen, in der Aussagen begründet, angegriffen und korrigiert werden können. Das Buch bleibt der **gedankliche Ursprung**, der öffentliche **Grundtext des Wirklichen** das philosophische Fundament und **WIRKLICH** die offene Plattform. Auch die Ausgangsideen dürfen sich als falsch erweisen.
+
+**“Die Richtung”** is the intellectual starting point for WIRKLICH, not a source of scientific authority. The book is not published in this repository; mentioning it does not release or license the private manuscript. [Entstehung und Abgrenzung / Origins and scope](docs/mission.md#ursprung-aus-die-richtung-wurde-eine-offene-erkenntniswerkstatt).
+
 [Mit einer Frage beginnen / Start a worksheet](https://alexanderr1991.github.io/grundtext-des-wirklichen/de/werkstatt/) · [Projektstatus / Project status](https://alexanderr1991.github.io/grundtext-des-wirklichen/de/projektstatus/) · [Was 1.0 bedeutet / Release scope](docs/release-1.0.md) · [Projektprofil / Project profile](public/project.json)
 
 Das neue Prüfblatt verarbeitet Eingaben auf der Seite, bietet Text- und JSON-Export, validierten JSON-Import und ausdrücklich ausgelöste Browserspeicherung. Es ruft keine KI auf und veröffentlicht keine Eingaben. Ein vollständiges Blatt ist kein fachlich geprüfter Registereintrag. Die Statusseite zählt den tatsächlichen Bestand und benennt ausstehende Prüfungen.
