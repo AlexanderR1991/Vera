@@ -10,6 +10,14 @@ Der Grundtext soll Menschen befähigen, unter Unsicherheit besser zu verstehen, 
 
 Die zweisprachige öffentliche Darstellung liegt unter `/de/mission/` und `/en/mission/`. Dieser Entwurf führt die bisherigen Themen und die in [PR #18](https://github.com/AlexanderR1991/grundtext-des-wirklichen/pull/18) vorgeschlagene Vision eines offenen Wissenssystems zusammen. Er behauptet keine bereits erreichte Leistungsfähigkeit.
 
+## Ursprung: Aus „Die Richtung“ wurde eine offene Erkenntniswerkstatt
+
+Die Idee zu **WIRKLICH** entstand aus der Arbeit an dem Buch **„Die Richtung“**. Ausgangspunkt war die Frage, wie Menschen Wahrheit, Orientierung und verantwortliches Handeln finden können. Aus der Beschäftigung damit erwuchs der Wunsch, nicht nur ein Buch zu schreiben, sondern einen öffentlichen, überprüfbaren und korrigierbaren Raum für solche Fragen zu schaffen.
+
+**Drei Ebenen bleiben unterscheidbar:** „Die Richtung“ ist der ideelle Ursprung; der öffentlich dokumentierte **„Grundtext des Wirklichen“** ist das philosophische Fundament; **WIRKLICH** ist die gemeinsame Forschungs- und Erkenntniswerkstatt. Ihre Arbeit darf auch die Annahmen ihres Ursprungs widerlegen. Die Herkunft einer Idee belegt nicht ihre Richtigkeit.
+
+„Die Richtung“ wird hier als **nicht im Repository veröffentlichtes Manuskript** erwähnt. Seine Inhalte werden durch diese Erwähnung weder veröffentlicht noch unter die Projektlizenz gestellt. Mitarbeit, Kritik und fachliche Prüfung dürfen niemals die Zustimmung zu diesem Buch voraussetzen.
+
 ## Unser Maßstab: Eine Adresse ist kein Beweis
 
 > **Etwas ist nicht wahr, weil es auf wirklich.org steht. Es soll dort stehen, weil es der Prüfung standhält.**
@@ -131,6 +139,10 @@ Das ist ein Finanzierungsprinzip. Ein freiwilliger Unterstützungsweg über PayP
 Danach die Methode selbst vergleichen: vorab definierte Aufgaben und Bewertungsregeln, ein Vergleich ohne strukturierte KI-Gegenkritik, unabhängige Bewertung und Erfassung von Fehlern, Fehlalarmen, Verständnis, Zeit und Kosten. Das ist ein Studienentwurf, kein bereits durchgeführter Versuch und keine Vorregistrierung.
 
 Erst nach gezeigtem Nutzen folgen mehr Themen und mehr Autonomie. Der langfristige Anspruch einer nächsten Generation freien Wissens — vielleicht einmal Ergänzung oder Alternative zu Wikipedia — wird durch Qualität verdient. Eine Zugehörigkeit oder offizielle Nachfolge wird nicht behauptet.
+
+## English note on origins
+
+WIRKLICH grew out of work on the book **“Die Richtung”**. The manuscript is the intellectual origin, the publicly documented **“Grundtext des Wirklichen”** is the philosophical foundation, and **WIRKLICH** is the open inquiry workshop. A project's origin is not evidence for its claims; contributions and corrections may also challenge the originating ideas. The manuscript itself is not published or licensed through this repository.
 
 ## English summary
 
