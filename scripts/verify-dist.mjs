@@ -1,7 +1,7 @@
 import {access,readFile} from "node:fs/promises";
 import {join} from "node:path";
 import {fields,topics,topicStates,selfReviews} from "../src/lib/tree.mjs";
-const out=join(process.cwd(),"dist"),slugs=["index","mission","baum-des-wissens","aussagen","fragen-und-ki-prompt","forschungsstrom","atlas","bibliothek","lesestueck-wahrheit","manifest","pruefstand","methode","mitwirken","erkenntnishorizont","warum-liebe-wirkt","politik-die-dem-menschen-dient","bruecken-zwischen-den-religionen","militaer-und-verantwortung","ernaehrung-und-verantwortung","angriffsschwarm"],errors=[];
+const out=join(process.cwd(),"dist"),slugs=["index","kunst-und-erkenntnis","mission","baum-des-wissens","aussagen","fragen-und-ki-prompt","forschungsstrom","atlas","bibliothek","lesestueck-wahrheit","manifest","pruefstand","methode","mitwirken","erkenntnishorizont","warum-liebe-wirkt","politik-die-dem-menschen-dient","bruecken-zwischen-den-religionen","militaer-und-verantwortung","ernaehrung-und-verantwortung","angriffsschwarm"],errors=[];
 for(const lang of ["de","en"]){
  for(const slug of slugs){
   const file=join(out,lang,...(slug==="index"?[]:[slug]),"index.html");

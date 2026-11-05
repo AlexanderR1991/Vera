@@ -19,6 +19,10 @@ const de=lang==="de";
           ?"AUTOMATISCH GEFUNDEN ≠ WISSENSCHAFTLICH BESTÄTIGT"
           :"AUTOMATICALLY FOUND ≠ SCIENTIFICALLY VERIFIED"}
       </div>
+      <p>{de
+        ?"Quellenkanäle: Crossref in sieben Themenfeldern einschließlich Kunst; arXiv für Kunst, Bewusstsein und KI. Kleine, thematische Stichproben aus den letzten 45 Tagen, keine systematische Gesamtsuche."
+        :"Source channels: Crossref across seven topics including art; arXiv for art, consciousness and AI. Small topic samples from the past 45 days, not a systematic search."}</p>
+      <a class="subtle-link" href={pathFor(lang,"kunst-und-erkenntnis")+"#netz"}>{de?"Kunst und weitere Netzquellen einbringen →":"Contribute art and other web sources →"}</a>
     </div>
   </section>
   <section class="section section--paper">
@@ -38,10 +42,11 @@ const de=lang==="de";
         <div id="stream-meta"></div>
         <div id="stream-items" class="stream-grid"></div>
       </div>
+      <noscript><p>{de?"Die laufende Liste benötigt JavaScript. Die vollständigen Daten kannst du direkt öffnen:":"The live list requires JavaScript. You can open the complete data directly:"} <a href="https://raw.githubusercontent.com/AlexanderR1991/grundtext-des-wirklichen/main/public/research/stream.json">JSON ↗</a></p></noscript>
       <div class="stream-bottom">
         <p>{de
-          ?"Ein DOI-Link ist kein Qualitätsurteil. Zur Aufnahme einer Aussage ins Werk gehören Originallektüre, Methodenkritik, Gegenbelege und eine menschliche Entscheidung."
-          :"A DOI link is not a quality judgment. Admission into the book requires reading the primary source, assessing the methods and opposing evidence, and a human editorial decision."}</p>
+          ?"Ein DOI- oder arXiv-Link ist kein Qualitätsurteil. arXiv selbst führt kein Peer Review durch. Versionen und Zeitschriftenfassungen desselben Werks zählen nicht als unabhängige Belege. Zur Aufnahme einer Aussage gehören Originallektüre, Methodenkritik, Gegenbelege und eine menschliche Entscheidung."
+          :"A DOI or arXiv link is not a quality judgement. arXiv itself does not conduct peer review. Versions and journal editions of the same work are not independent evidence. Admission of a claim requires primary-source reading, methodological criticism, counterevidence and a human decision."}</p>
         <a href="https://github.com/AlexanderR1991/grundtext-des-wirklichen/blob/main/docs/wahrheitsschwarm.md" target="_blank" rel="noopener noreferrer">
           {de?"Methodik und Betriebsgrenzen ↗":"Method and operational limitations ↗"}
         </a>
@@ -82,11 +87,21 @@ const de=lang==="de";
             " · " + data.items.length + (de?" Hinweise":" leads") +
             " · " + (data.agents_enabled ? (de?"Kritische KI-Rollen aktiv":"Critical AI roles active")
                                          : (de?"KI-Rollen noch nicht aktiv":"AI roles not active"));
-          if (!data.items.length) {
-            list.append(txt("p", de ? "Noch keine Daten. Der erste Workflow-Lauf steht aus." :
-              "No data yet. The first workflow run is pending."));
+          if (data.source_queries) {
+            const sources = ["Crossref", "arXiv"].map(name => name + ": " + (data.source_queries[name] || 0));
+            meta.append(txt("p", (de?"Erfolgreiche Quellenabfragen: ":"Successful source queries: ") + sources.join(" · ")));
+          } else {
+            meta.append(txt("p", de?"Dieser Datenstand weist noch keine getrennten Quellenkanäle aus.":"This dataset does not yet report separate source channels."));
           }
-          for (const item of data.items.slice(0, 40)) {
+          if (Array.isArray(data.errors) && data.errors.length) {
+            meta.append(txt("p", de?"Einige Abfragen sind fehlgeschlagen. Ältere Einträge bleiben erhalten; die Liste kann unvollständig sein.":"Some queries failed. Older entries are retained; the list may be incomplete."));
+          }
+          if (!data.items.length) {
+            list.append(txt("p", data.updated_at
+              ? (de?"Derzeit sind keine passenden Literaturhinweise gespeichert.":"No matching literature leads are currently stored.")
+              : (de?"Noch keine Daten. Der erste Workflow-Lauf steht aus.":"No data yet. The first workflow run is pending.")));
+          }
+          for (const item of data.items.slice(0, 80)) {
             const card = document.createElement("article");
             card.className = "stream-card";
             card.append(txt("p", (item.topic || "?").toUpperCase() +
@@ -95,8 +110,14 @@ const de=lang==="de";
             card.append(heading);
             const info = [item.date,item.venue,(item.authors||[]).slice(0,3).join(", ")].filter(Boolean).join(" · ");
             card.append(txt("p", info, "stream-detail"));
-            if (typeof item.url === "string" && item.url.startsWith("https://doi.org/")) {
-              const a = txt("a", de?"DOI / Originalnachweis ↗":"DOI / Source record ↗");
+            card.append(txt("p", item.source || (de?"Quelle nicht ausgewiesen":"Source unspecified"), "stream-detail"));
+            const arxiv = typeof item.url === "string" && /^https:\/\/arxiv\.org\/abs\/(?:\d{4}\.\d{4,5}|[a-z][a-z.\-]+\/\d{7})v[1-9]\d*$/i.test(item.url);
+            if (arxiv) {
+              card.append(txt("p", de?"Repositoriumsmanuskript · Peer Review nicht verifiziert":"Repository manuscript · peer review not verified", "stream-detail"));
+              if (item.related_doi) card.append(txt("p", (de?"Verknüpfte DOI (keine unabhängige Bestätigung): ":"Related DOI (not independent confirmation): ") + item.related_doi, "stream-detail"));
+            }
+            if (arxiv || (typeof item.url === "string" && item.url.startsWith("https://doi.org/"))) {
+              const a = txt("a", arxiv ? (de?"arXiv / genaue Fassung ↗":"arXiv / exact version ↗") : (de?"DOI / Originalnachweis ↗":"DOI / Source record ↗"));
               a.href = item.url;
               a.target = "_blank";
               a.rel = "noopener noreferrer";
