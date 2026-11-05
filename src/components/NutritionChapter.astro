@@ -1,0 +1,202 @@
+---
+import Layout from "../layouts/SiteLayout.astro";
+import {pathFor} from "../lib/paths.mjs";
+const {lang="de"}=Astro.props;
+const en=lang==="en";
+const t={
+de:{
+kicker:"LIBER ALIMENTI · ERNÄHRUNG, LEBEN UND VERANTWORTUNG",
+title:"Was uns",accent:"nährt.",
+lead:"Jede Mahlzeit verbindet Biologie, persönliche Freiheit und die Welt, aus der unsere Nahrung stammt. Wie entscheiden wir, was gesund, gerecht und verantwortbar ist?",
+status:["Version 0.8 · Offene Arbeitsfassung","Wissenschaftliche Evidenz ≠ moralisches Urteil","Keine individuelle Ernährungsberatung"],
+simpleTitle:"Warum müssen wir überhaupt essen?",
+simple:"Weil unser Körper ununterbrochen arbeitet. Zellen brauchen Energie und Baustoffe: zum Bewegen, Denken, Reparieren und Wachsen. Bei der Verdauung zerlegen wir Nahrung in nutzbare Bestandteile. Aus Nährstoffen gewinnen Zellen unter anderem ATP – einen unmittelbar nutzbaren Energieträger. Doch Essen bedeutet mehr als Stoffwechsel: Es verbindet uns mit anderen Lebewesen, Menschen und Ökosystemen.",
+quote:"Eine gute Ernährung muss nicht nur einen Körper versorgen. Sie sollte ein Leben ermöglichen, ohne andere Leben aus dem Blick zu verlieren.",
+quoteNote:"Philosophische Leitthese – keine naturwissenschaftlich bewiesene Universalnorm.",
+levelsTitle:"Drei Maßstäbe. Keine einfache Gesamtzahl.",
+levels:[
+["01 · BIOLOGIE","Was braucht der Körper?","Energie, essenzielle Nährstoffe, ausreichend Wasser und sichere Lebensmittel. Bedarf und Verträglichkeit hängen unter anderem von Alter, Aktivität, Gesundheit und Lebensphase ab."],
+["02 · MENSCH","Was ist für Menschen möglich?","Essen ist Genuss, Gemeinschaft, Kultur und manchmal Belastung. Einkommen, Zeit, Verfügbarkeit, Behinderung und individuelle Voraussetzungen begrenzen echte Wahlfreiheit."],
+["03 · MITWELT","Welche Folgen entstehen?","Land, Wasser, Klima, Biodiversität, Arbeitsbedingungen und Tierwohl zählen. Umweltbilanzen unterscheiden sich je nach Lebensmittel, Produktionsweise und Vergleichsmaßstab."]
+],
+evidenceTitle:"Was wir aus Leitlinien ableiten können.",
+evidence:[
+["Vielseitig und überwiegend pflanzlich","WHO und DGE betonen Gemüse, Obst, Hülsenfrüchte, Vollkornprodukte und Nüsse. Es gibt verschiedene mögliche gesunde Ernährungsmuster; kein Lebensmittel ist allein der Schlüssel."],
+["Ausreichend, nicht maximal","Energie- und Nährstoffbedarf sollen gedeckt, Mangel und dauerhaftes Übermaß vermieden werden. Eiweiß, Kohlenhydrate und Fette erfüllen verschiedene Funktionen; die optimale Zusammensetzung ist kontextabhängig."],
+["Erprobte Orientierungswerte","Die WHO nennt für Menschen über zehn Jahre mindestens 400 g Gemüse und Obst täglich und mindestens 25 g natürlich vorkommende Ballaststoffe. Die DGE empfiehlt gesunden Erwachsenen in Deutschland unter anderem Wasser, Vielfalt und mehr pflanzliche Lebensmittel."],
+["Risiken begrenzen","WHO-Empfehlungen zielen auf weniger Salz, freie Zucker sowie gesättigte und Transfette. Einzelne Grenzwerte sind bevölkerungsbezogene Orientierung, keine Diagnose oder persönlich optimale Dosis."],
+["Pflanzlich sorgfältig planen","Eine gut geplante vegane Ernährung kann laut DGE für gesunde Erwachsene gesundheitsfördernd sein; Vitamin B12 muss supplementiert werden. Auf potenziell kritische Nährstoffe ist zu achten. Für vulnerable Gruppen ist die Evidenz begrenzter."]
+],
+evidenceNote:"Quellengebundene Zusammenfassungen von WHO (2026) und DGE (2024). Die DGE-Lebensmittelempfehlungen richten sich ausdrücklich an gesunde Erwachsene von 18 bis 65 Jahren mit Mischkost; sie sind kein universeller Speiseplan.",
+conflictsTitle:"Wo gute Ziele kollidieren.",
+conflicts:[
+["Gesundheit ↔ Freiheit","Evidenz kann Entscheidungen verbessern. Eine Pflicht zur vermeintlich perfekten Ernährung kann jedoch Würde, Autonomie und Lebensqualität verletzen.","Wie unterstützen wir informierte Entscheidungen ohne Beschämung?"],
+["Preis ↔ Qualität","Nährstoffreiche, nachhaltige Optionen sind nicht überall preiswert oder verfügbar. Schuldzuweisung an Einzelne übersieht Rahmenbedingungen.","Welche Maßnahmen erhöhen reale Wahlmöglichkeiten?"],
+["Tierwohl ↔ Nährstoffversorgung","Tierische Produkte können Nährstoffe liefern, ihre Produktion kann aber ökologische und ethische Lasten verursachen. Pflanzliche Kost verlangt teilweise bewusste Nährstoffplanung.","Welche Alternativen sind im konkreten Kontext verfügbar?"],
+["Individuelle Erfahrung ↔ Forschung","Menschen berichten über Erfolge mit Fasten, Low Carb oder Supplementen. Anekdoten und kurzfristige Veränderungen belegen nicht automatisch langfristigen Zusatznutzen.","Welche kontrollierten Vergleiche und Schäden wurden erfasst?"]
+],
+examTitle:"Eine Mahlzeit durch unser Prüfverfahren.",
+scenario:"Eine Schule will ihr Mittagessen gesünder und klimafreundlicher gestalten. Das Budget ist begrenzt; Kinder haben unterschiedliche Vorlieben, Allergien und religiöse Vorgaben.",
+steps:[
+["1","Ziel bestimmen","Gesundheit, Sicherheit, Zugänglichkeit, Akzeptanz und ökologische Folgen getrennt benennen."],
+["2","Grenzen schützen","Allergene, Nährstoffbedarf, Hygiene, finanzielle Zugänglichkeit und Nichtdiskriminierung zuerst sichern."],
+["3","Daten sammeln","Nährwert, tatsächliche Verzehrmengen, Kosten, Akzeptanz und plausible Umweltindikatoren erfassen."],
+["4","Alternativen vergleichen","Mehrere ausgewogene Menüs statt eines ideologischen Entweder-oder prüfen."],
+["5","Gegenbelege suchen","Mängel, Abfall, versteckte Kosten und schlechtere Versorgung aktiv aufspüren."],
+["6","Betroffene beteiligen","Kinder, Eltern, Küche, Ernährungsfachkräfte und Träger an Entscheidungen beteiligen."],
+["7","Korrigieren","Ergebnisse nachprüfen, unerwünschte Folgen öffentlich machen und Angebot anpassen."]
+],
+examNote:"Kein Gesamtscore darf medizinische Risiken, Allergien oder die Würde Betroffener überstimmen. Dieses Denkverfahren ersetzt keine qualifizierte Ernährungs- oder medizinische Versorgung.",
+hypTitle:"Vier offene Forschungsfragen.",
+hyp:[
+["E-A","Ernährungsumgebung","Verbessert ein erschwinglicheres, pflanzenbetontes Gemeinschaftsangebot die tatsächliche Nährstoffversorgung?","Pragmatische kontrollierte Vergleiche, Ernährungsprotokolle und Versorgungskriterien.","Selbstselektion, soziale Unterschiede, niedrige Akzeptanz."],
+["E-B","Verständliche Information","Führen transparente, verständliche Informationen über Nährstoffe und Risiken zu besseren informierten Entscheidungen?","Vorab definierte Wissens- und Verhaltensmaße, längerfristiger Vergleich.","Informationsüberlastung, soziale Barrieren, Marketingeinflüsse."],
+["E-C","Nachhaltige Angebote","Kann eine umgestellte Verpflegung Treibhausgas- und Landnutzungsindikatoren verringern, ohne Ernährungssicherheit zu verschlechtern?","Lebenszyklusdaten plus Nährstoff- und Zugänglichkeitsmessungen.","Verlagerte Umweltschäden, Datenunsicherheit, Lebensmittelabfälle."],
+["E-D","Individualisierung","Wann übertrifft individuell angepasste Beratung allgemeine Ernährungsleitlinien bei relevanten Gesundheitszielen?","Registrierte Studien mit patientenrelevanten Endpunkten und Nebenwirkungen.","Regression zum Mittelwert, Erwartungen, geringe Langzeiteffekte."]
+],
+hypNote:"E-A bis E-D sind explorative, nicht vorregistrierte Forschungsfragen. Weder Wirksamkeit noch Kausalität sind damit nachgewiesen.",
+finalTitle:"Was bedeutet verantwortungsvoll essen?",
+final:"Nicht: eine einzige Ernährungsweise zur Wahrheit erklären. Sondern Nährstoffbedarf zuverlässig decken, Risiken offenlegen, Bedürfnisse respektieren, Folgen für andere mitbedenken und Entscheidungen anhand neuer Erkenntnisse korrigieren. Ernährung ist ein Forschungsgebiet – kein Loyalitätstest.",
+sourceTitle:"Öffentliche Quellen, überprüfbar und datiert",
+sources:[
+["WHO: Healthy diet (26.01.2026)","Internationale gesundheitliche Leitlinien; breite Bevölkerungsperspektive."],
+["DGE: Gut essen und trinken (2024)","Lebensmittelbezogene Empfehlungen für gesunde Erwachsene in Deutschland mit Mischkost."],
+["DGE: Neubewertung veganer Ernährung (2024)","Chancen, Risiken, Vitamin B12 und Grenzen für vulnerable Gruppen."],
+["WHO/FAO: Sustainable healthy diets (2019)","Grundprinzipien für Gesundheit, Umwelt, Kultur und Zugänglichkeit."]
+],
+back:"Zur Bibliothek",discuss:"These diskutieren",review:"Quelle kritisieren"
+},
+en:{
+kicker:"LIBER ALIMENTI · NUTRITION, LIFE AND RESPONSIBILITY",
+title:"What",accent:"nourishes us.",
+lead:"Every meal connects biology, human freedom and the world that produces our food. How can we assess what is healthy, fair and responsible?",
+status:["Version 0.8 · Working draft","Scientific evidence ≠ moral judgement","Not individual dietary advice"],
+simpleTitle:"Why do we have to eat at all?",
+simple:"Because our bodies are working constantly. Cells need energy and building materials to move, think, repair and grow. Digestion breaks food down into usable components. Cells obtain, among other things, ATP from nutrients: an immediately useful carrier of energy. But eating is more than metabolism; it links us to other organisms, people and ecosystems.",
+quote:"Good nutrition should do more than sustain a body. It should make a life possible without losing sight of other lives.",
+quoteNote:"A philosophical guiding thesis, not a scientifically proven universal norm.",
+levelsTitle:"Three measures. No single total score.",
+levels:[
+["01 · BIOLOGY","What does the body need?","Energy, essential nutrients, sufficient fluids and safe food. Requirements and tolerance vary with age, activity, health and stage of life."],
+["02 · PEOPLE","What choices are truly possible?","Eating is pleasure, community, culture and sometimes hardship. Income, time, availability, disability and individual circumstances constrain real choice."],
+["03 · THE LIVING WORLD","What are the consequences?","Land, water, climate, biodiversity, working conditions and animal welfare matter. Environmental impacts depend on the food, production system and comparison."]
+],
+evidenceTitle:"What current guidance supports.",
+evidence:[
+["Varied and largely plant-based","WHO and DGE emphasise vegetables, fruit, pulses, whole grains and nuts. Several healthy dietary patterns are possible; no single food is the key."],
+["Enough, not always more","Energy and nutrient needs should be met without persistent deficiency or excess. Proteins, carbohydrates and fats have different roles; useful proportions vary with context."],
+["Practical reference points","WHO recommends at least 400 g of fruit and vegetables and 25 g of naturally occurring dietary fibre daily for people over age ten. DGE highlights water, variety and more plant foods for healthy German adults."],
+["Limit risks","WHO guidance favours less salt, free sugar, saturated fat and trans fat. Population thresholds are reference points, not diagnoses or individually optimal doses."],
+["Plan plant-only diets carefully","DGE finds that well-planned vegan diets can support health in healthy adults, but require vitamin B12 supplementation and attention to potentially critical nutrients. Evidence is more limited for vulnerable groups."]
+],
+evidenceNote:"Source-based summaries of WHO (2026) and DGE (2024). DGE food-based guidance specifically addresses healthy adults aged 18–65 in Germany eating mixed diets; it is not a universal meal plan.",
+conflictsTitle:"Where worthwhile aims collide.",
+conflicts:[
+["Health ↔ freedom","Evidence can guide choices; enforced 'perfect eating' may violate dignity, autonomy and quality of life.","How do we support informed choices without shaming people?"],
+["Price ↔ quality","Nutritious, sustainable options are not equally affordable or accessible. Blaming individuals ignores structural constraints.","What actually increases people's options?"],
+["Animal welfare ↔ nutritional adequacy","Animal foods can supply nutrients but their production carries environmental and ethical costs. Plant-only diets may require deliberate nutrient planning.","Which alternatives are available in the specific setting?"],
+["Experience ↔ research","People report benefits from fasting, low-carb diets or supplements. Anecdotes and short-term changes do not prove lasting added value.","Which controlled comparisons and adverse outcomes exist?"]
+],
+examTitle:"Put a meal through our examination.",
+scenario:"A school wants healthier, lower-impact lunches on a limited budget. Children differ in tastes, allergies and religious requirements.",
+steps:[
+["1","Define outcomes","Keep health, safety, accessibility, acceptance and environmental impacts distinct."],
+["2","Protect boundaries","First secure allergen safety, nutritional adequacy, hygiene, affordability and non-discrimination."],
+["3","Gather evidence","Measure nutritional content, actual intake, costs, acceptance and credible environmental indicators."],
+["4","Compare alternatives","Test several balanced menus instead of imposing a false binary choice."],
+["5","Seek disconfirming evidence","Actively look for deficiencies, waste, hidden costs and unequal access."],
+["6","Include people","Involve children, families, catering staff, nutrition experts and decision-makers."],
+["7","Correct course","Review outcomes, report unintended harm and improve the offer."]
+],
+examNote:"No aggregate score can override medical safety, allergies or human dignity. This method does not replace qualified nutritional or medical care.",
+hypTitle:"Four open research questions.",
+hyp:[
+["E-A","Food environments","Does a more affordable plant-forward communal menu improve actual nutrient adequacy?","Pragmatic controlled comparisons, dietary records and adequacy indicators.","Self-selection, social differences, poor acceptance."],
+["E-B","Understandable information","Does transparent, comprehensible nutrition information improve informed decisions?","Predefined knowledge and behavioural measures, longer-term comparison.","Information overload, social barriers, marketing."],
+["E-C","Sustainable menus","Can food service lower climate and land-use impacts without reducing nutritional security?","Life-cycle indicators alongside nutritional adequacy and access measures.","Displaced harm, uncertain data, food waste."],
+["E-D","Personalisation","When does tailored nutritional counselling outperform general guidance on meaningful health outcomes?","Registered trials with patient-important outcomes and adverse-event monitoring.","Regression to the mean, expectancy, weak long-term effects."]
+],
+hypNote:"E-A to E-D are exploratory and not preregistered. No efficacy or causal relationship is established here.",
+finalTitle:"What does responsible eating mean?",
+final:"Not declaring one dietary ideology the truth. Rather: meeting nutritional needs reliably, acknowledging risks, respecting people, considering consequences for others and changing our minds when evidence improves. Nutrition is a field of inquiry, not a loyalty test.",
+sourceTitle:"Public, dated and reviewable sources",
+sources:[
+["WHO: Healthy diet (26 January 2026)","International health guidance, primarily population-level."],
+["DGE: Eat and drink well (2024)","Food-based guidance for healthy German adults eating mixed diets."],
+["DGE: Revised vegan diet position (2024)","Benefits, risks, vitamin B12 and limits for vulnerable groups."],
+["WHO/FAO: Sustainable healthy diets (2019)","Principles connecting health, environment, culture and accessibility."]
+],
+back:"Back to the library",discuss:"Discuss a claim",review:"Challenge a source"
+}
+}[lang];
+const sources=[
+"https://www.who.int/news-room/fact-sheets/detail/healthy-diet",
+"https://www.dge.de/gesunde-ernaehrung/gut-essen-und-trinken/dge-empfehlungen/",
+"https://www.dge.de/presse/meldungen/2024/positionspapier-zu-veganer-ernaehrung",
+"https://www.who.int/publications/i/item/9789241516648"
+];
+const gh="https://github.com/AlexanderR1991/grundtext-des-wirklichen";
+---
+<Layout lang={lang} slug="ernaehrung-und-verantwortung">
+<section class="nut-hero"><div class="container">
+<p class="section-kicker">{t.kicker}</p><h1>{t.title}<br/><em>{t.accent}</em></h1>
+<p class="nut-lead">{t.lead}</p><div class="nut-tags">{t.status.map(s=><span>{s}</span>)}</div>
+</div></section>
+<section class="section section--paper"><div class="container nut-intro">
+<div><p class="section-kicker">I · {en?"THE SIMPLE QUESTION":"DIE NAIVE FRAGE"}</p><h2>{t.simpleTitle}</h2><p>{t.simple}</p></div>
+<figure class="nut-figure"><svg viewBox="0 0 360 300" role="img" aria-labelledby="nut-figure-title">
+<title id="nut-figure-title">{en?"Food, the cell and its environment: conceptual illustration":"Nahrung, Zelle und Umwelt: schematische Darstellung"}</title>
+<g fill="none" stroke="#d8bc85" stroke-width="1.3"><circle cx="180" cy="144" r="105" stroke-dasharray="3 9" opacity=".65"/><circle cx="180" cy="144" r="60"/><circle cx="180" cy="144" r="32" stroke-width="2"/><path d="M65 144H145m70 0h80M180 40v74m0 60v72" stroke-dasharray="5 8"/><path d="M180 20v10m0 230v10"/></g>
+<g fill="#e7d5ae" font-family="serif" font-size="14" text-anchor="middle"><text x="180" y="148">{en?"CELL":"ZELLE"}</text><text x="180" y="16">{en?"FOOD":"NAHRUNG"}</text><text x="180" y="292">{en?"ENVIRONMENT":"UMWELT"}</text></g>
+</svg><figcaption>{en?"Conceptual illustration; not a biochemical model.":"Denkbild, kein biochemisches Modell."}</figcaption></figure>
+</div></section>
+<section class="section nut-quote"><div class="narrow"><p class="section-kicker">II · {en?"GUIDING THESIS":"LEITTHESE"}</p><blockquote>{t.quote}</blockquote><p>{t.quoteNote}</p></div></section>
+<section class="section section--paper" id="ebenen"><div class="container"><p class="section-kicker">III · {en?"THREE LEVELS":"DREI EBENEN"}</p><h2 class="nut-heading">{t.levelsTitle}</h2><div class="nut-grid nut-grid--three">{t.levels.map(([tag,title,body])=><article><span>{tag}</span><h3>{title}</h3><p>{body}</p></article>)}</div></div></section>
+<section class="section" id="evidenz"><div class="container"><p class="section-kicker">IV · {en?"EVIDENCE, NOT DOGMA":"EVIDENZ STATT DOGMA"}</p><h2 class="nut-heading">{t.evidenceTitle}</h2><div class="nut-grid nut-grid--two">{t.evidence.map(([title,body])=><article><h3>{title}</h3><p>{body}</p></article>)}</div><p class="nut-note">{t.evidenceNote}</p></div></section>
+<section class="section section--paper" id="konflikte"><div class="container"><p class="section-kicker">V · {en?"CONFLICTING VALUES":"ZIELKONFLIKTE"}</p><h2 class="nut-heading">{t.conflictsTitle}</h2><div class="nut-grid nut-grid--two">{t.conflicts.map(([title,body,question])=><article><h3>{title}</h3><p>{body}</p><p class="nut-question">{question}</p></article>)}</div></div></section>
+<section class="section nut-exam" id="pruefverfahren"><div class="container nut-exam__layout"><div><p class="section-kicker">VI · {en?"APPLICATION":"ANWENDUNG"}</p><h2 class="nut-heading">{t.examTitle}</h2><p class="nut-scenario">{t.scenario}</p><p class="nut-note">{t.examNote}</p></div><ol>{t.steps.map(([number,title,body])=><li><span>{number}</span><div><h3>{title}</h3><p>{body}</p></div></li>)}</ol></div></section>
+<section class="section section--paper" id="hypothesen"><div class="container"><p class="section-kicker">VII · {en?"RESEARCH, OPEN TO REFUTATION":"FORSCHUNG, OFFEN FÜR WIDERLEGUNG"}</p><h2 class="nut-heading">{t.hypTitle}</h2><div class="nut-grid nut-grid--two">{t.hyp.map(([id,title,question,test,against])=><article id={id.toLowerCase()}><span>{id}</span><h3>{title}</h3><p class="nut-hyp">{question}</p><p><b>{en?"Possible test":"Mögliche Prüfung"}:</b> {test}</p><p><b>{en?"Countermodel":"Gegenmodell"}:</b> {against}</p></article>)}</div><p class="nut-note">{t.hypNote}</p></div></section>
+<section class="section nut-sources" id="quellen"><div class="container"><p class="section-kicker">VIII · {en?"SOURCES":"QUELLEN"}</p><h2 class="nut-heading">{t.sourceTitle}</h2><ol>{t.sources.map(([label,note],i)=><li><a href={sources[i]} target="_blank" rel="noopener noreferrer">{label} ↗</a><small>{note}</small></li>)}</ol></div></section>
+<section class="section nut-end"><div class="narrow"><p class="section-kicker">IX · {en?"PROVISIONAL CONCLUSION":"VORLÄUFIGER SCHLUSS"}</p><h2>{t.finalTitle}</h2><p>{t.final}</p><div class="button-row"><a class="button button--gold" href={gh+"/discussions"} target="_blank" rel="noopener noreferrer">{t.discuss} ↗</a><a class="button button--ghost" href={gh+"/issues/new?template=quellenpruefung.yml"} target="_blank" rel="noopener noreferrer">{t.review} ↗</a></div><div class="nut-back"><a href={pathFor(lang,"bibliothek")}>{t.back} ↗</a></div></div></section>
+</Layout>
+<style>
+.nut-hero{padding:125px 0 112px;background:radial-gradient(ellipse at 78% 45%,#755d353e,transparent 62%),linear-gradient(120deg,#0c1212,#18201c);border-bottom:1px solid var(--line)}
+.nut-hero h1{font:clamp(65px,8vw,120px)/1.07 var(--serif);letter-spacing:-.053em;margin:22px 0 27px}
+.nut-hero h1 em{font-weight:400;color:var(--gold-bright)}
+.nut-lead{font:clamp(19px,2.3vw,27px)/1.7 var(--serif);max-width:840px;color:#dfd2bc}
+.nut-tags{display:flex;gap:9px;flex-wrap:wrap;margin-top:32px}
+.nut-tags span{border:1px solid var(--line);padding:8px 12px;font-size:11px;color:var(--gold)}
+.nut-intro{display:grid;grid-template-columns:1fr .8fr;gap:8%;align-items:center}
+.nut-intro h2{font:clamp(37px,5vw,65px)/1.2 var(--serif);margin:20px 0}
+.nut-intro p:not(.section-kicker){font:19px/1.85 var(--serif)}
+.nut-figure{margin:0;padding:26px;border:1px solid var(--line);background:#0b1715}
+.nut-figure svg{display:block;width:100%;height:auto}.nut-figure figcaption{font-size:12px;color:var(--muted);text-align:center}
+.nut-quote{background:radial-gradient(ellipse at 40% 50%,#60512c2e,transparent 65%),#0e1716}
+.nut-quote blockquote{font:clamp(27px,3.8vw,51px)/1.42 var(--serif);border-left:2px solid var(--gold);padding-left:28px;color:#eadfc9;margin:27px 0}
+.nut-quote p:not(.section-kicker){font-size:13px;color:var(--muted)}
+.nut-heading{font:clamp(37px,5vw,68px)/1.16 var(--serif);letter-spacing:-.04em;margin:20px 0 38px}
+.nut-grid{display:grid;gap:17px}.nut-grid--three{grid-template-columns:repeat(3,minmax(0,1fr))}.nut-grid--two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.nut-grid article{padding:27px;background:#121a18;border:1px solid var(--line);min-width:0}
+.nut-grid article>span{font-size:11px;letter-spacing:.13em;color:var(--gold)}
+.nut-grid h3{font:clamp(23px,2.5vw,32px)/1.28 var(--serif);margin:14px 0}
+.nut-grid p{font-size:15px;line-height:1.82}
+.nut-grid b{color:var(--gold);font-weight:600}
+.nut-note{border-left:1px solid var(--gold);padding-left:22px;font-size:13px;line-height:1.85;color:#c3b7a7;margin-top:30px}
+.nut-question{margin-top:18px;padding-top:17px;border-top:1px solid #bca17e66;color:var(--gold-bright)}
+.nut-exam{background:#0e1818}.nut-exam__layout{display:grid;grid-template-columns:.9fr 1.1fr;gap:8%}
+.nut-scenario{font:19px/1.8 var(--serif);color:#e2d5c0}
+.nut-exam ol{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.nut-exam li{display:grid;grid-template-columns:28px 1fr;gap:17px;padding:16px 0;border-bottom:1px solid var(--line)}
+.nut-exam li span{font:23px var(--serif);color:var(--gold)}
+.nut-exam li h3{font:24px/1.3 var(--serif);margin:0}.nut-exam li p{font-size:14px;line-height:1.76;margin:8px 0 0}
+.nut-hyp{font:18px/1.7 var(--serif);color:#e3d7c7}
+.nut-sources{background:#121919}.nut-sources ol{list-style:none;padding:0;margin:0;border-top:1px solid var(--line)}
+.nut-sources li{padding:18px 0;border-bottom:1px solid var(--line)}
+.nut-sources a{color:var(--gold-bright);text-decoration:underline;text-underline-offset:4px}
+.nut-sources small{display:block;color:var(--muted);margin-top:6px}
+.nut-end{background:#111a19}.nut-end h2{font:clamp(37px,5vw,66px)/1.18 var(--serif);margin:20px 0}
+.nut-end p:not(.section-kicker){font:19px/1.85 var(--serif)}.nut-end .button-row{margin-top:30px}
+.nut-back{border-top:1px solid var(--line);margin-top:38px;padding-top:22px}.nut-back a{color:var(--gold);font-size:13px}
+@media(max-width:860px){.nut-intro,.nut-exam__layout{grid-template-columns:1fr}.nut-grid--three{grid-template-columns:repeat(2,minmax(0,1fr))}.nut-figure{max-width:420px;margin:auto}}
+@media(max-width:620px){.nut-hero{padding:73px 0}.nut-hero h1{font-size:clamp(54px,12vw,74px)}.nut-grid--two,.nut-grid--three{grid-template-columns:1fr}.nut-grid article{padding:22px}.nut-heading{font-size:clamp(36px,9vw,52px)}}
+</style>
