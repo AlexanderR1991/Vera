@@ -1,0 +1,368 @@
+{
+  "de": {
+    "eyebrow": "LIBER AMORIS · OFFENE FORSCHUNGSFRAGE",
+    "titleA": "Warum Liebe",
+    "titleB": "wirkt.",
+    "lead": "Kann Liebe mehr sein als ein Gefühl? Wir untersuchen, welche Wirkungen Nähe, Fürsorge und Bindung haben – und ob daraus eine tragfähige Ethik des Zusammenlebens folgen kann.",
+    "status": [
+      "Philosophische Leitthese",
+      "Empirische Befunde mit Grenzen",
+      "Forschungsentwurf · keine endgültige Theorie"
+    ],
+    "figureCaption": "Ein begriffliches Netz: Anziehung, Bindung und Fürsorge können sich überschneiden, sind aber weder identisch noch immer konstruktiv. Die Linien sind keine gemessenen neuronalen Verbindungen.",
+    "introLabel": "DIE ERSTE FRAGE",
+    "introTitle": "Was wollen wir eigentlich beweisen?",
+    "introText": "Eine universelle Aussage wie „Liebe ist immer gut“ wäre bereits durch Gegenbeispiele angreifbar. Die prüfbare Frage lautet enger: Unter welchen Bedingungen fördern Fürsorge, sichere Bindung und freiwillige Nähe Gesundheit, Selbstbestimmung und Kooperation – und wann nicht?",
+    "ruleLabel": "L-01 · PHILOSOPHISCHER VORSCHLAG",
+    "rule": "Liebe kann bedeuten, dass das Wohlergehen eines anderen um seiner selbst willen zu einem Grund des eigenen Handelns wird.",
+    "ruleInfo": "Das ist ein Arbeitsbegriff für eine Form fürsorglicher Liebe, keine abschließende Definition aller romantischen, familiären oder platonischen Liebe. Weder lässt sich daraus allein ein Naturgesetz noch eine moralische Pflicht zur Selbstaufgabe ableiten.",
+    "simpleLabel": "DIE EINFACHE FRAGE",
+    "simpleTitle": "Warum fühlt es sich gut an, wenn jemand wirklich für mich da ist?",
+    "simple": "Stell dir vor, du hast Angst vor einer schwierigen Aufgabe. Jemand sagt nicht nur „Du schaffst das“, sondern hört dir zu, hilft dir beim Üben und lässt dich schließlich selbst entscheiden. Vielleicht ist die Aufgabe immer noch schwer. Aber du bist weniger allein – und möglicherweise ein wenig mutiger.",
+    "simpleConclusion": "Die Hilfe verändert nicht unbedingt die Welt. Sie kann verändern, wie wir ihr begegnen.",
+    "distinctionLabel": "BEVOR WIR FORSCHEN",
+    "distinctionTitle": "Liebe ist nicht nur eine Variable.",
+    "dimensions": [
+      [
+        "I",
+        "Anziehung",
+        "Verliebtheit, Begehren und Belohnung können Teil der Liebe sein, sind aber weder notwendig noch hinreichend für aufrichtige Fürsorge."
+      ],
+      [
+        "II",
+        "Bindung",
+        "Verlässliche Nähe kann Sicherheit geben. Bindung kann jedoch auch mit Angst, Kontrolle oder Abhängigkeit verbunden sein."
+      ],
+      [
+        "III",
+        "Fürsorge",
+        "Das Wohlergehen eines anderen wird relevant für unser Handeln. Ob die Fürsorge hilfreich ist, hängt unter anderem von Einwilligung und Autonomie ab."
+      ]
+    ],
+    "evidenceLabel": "WAS DIE FORSCHUNG TATSÄCHLICH ZEIGT",
+    "evidenceTitle": "Drei Hinweise. Kein universeller Beweis.",
+    "evidence": [
+      {
+        "n": "01",
+        "type": "METAANALYSE · BEOBACHTUNG",
+        "headline": "Soziale Beziehungen und Überleben",
+        "text": "Eine Metaanalyse von 148 Studien mit 308.849 Teilnehmenden fand für stärkere soziale Beziehungen eine gepoolte Überlebens-Odds-Ratio von 1,50. Das ist ein Zusammenhang über soziale Beziehungen – nicht ein isolierter Kausalbeweis für romantische Liebe.",
+        "caveat": "Beobachtungsdaten, verschiedene Messinstrumente, beträchtliche Heterogenität; soziale Integration ist nicht dasselbe wie Liebe.",
+        "source": "Holt-Lunstad et al., PLOS Medicine (2010)",
+        "url": "https://doi.org/10.1371/journal.pmed.1000316"
+      },
+      {
+        "n": "02",
+        "type": "KLEINE EXPERIMENTELLE STUDIE",
+        "headline": "Nähe verändert Bedrohungsreaktionen",
+        "text": "Bei 16 verheirateten Frauen war das Halten der Hand des Partners während einer drohenden aversiven Reizung mit geringerer Aktivierung einiger bedrohungsbezogener Hirnnetzwerke verbunden. Auch Beziehungsqualität spielte eine Rolle.",
+        "caveat": "Kleine, spezifische Stichprobe; neuronale Aktivität ist nicht mit dem gesamten Phänomen Liebe gleichzusetzen.",
+        "source": "Coan, Schaefer & Davidson, Psychological Science (2006)",
+        "url": "https://doi.org/10.1111/j.1467-9280.2006.01832.x"
+      },
+      {
+        "n": "03",
+        "type": "THEORETISCHES INTEGRATIONSMODELL",
+        "headline": "Beziehungen können Entwicklung unterstützen",
+        "text": "Feeney und Collins beschreiben, wie zugewandte Unterstützung Menschen in Krisen stabilisieren und beim Verfolgen eigener Ziele stärken könnte. Ihr Modell verbindet „sicheren Hafen“ und „sichere Basis“. Es ist eine Theorie mit empirischen Bezügen, kein einzelner Wirksamkeitsversuch.",
+        "caveat": "Die konkreten Mechanismen und ihre Verallgemeinerbarkeit müssen je nach Situation geprüft werden.",
+        "source": "Feeney & Collins, Personality and Social Psychology Review (2015)",
+        "url": "https://doi.org/10.1177/1088868314544222"
+      }
+    ],
+    "hypLabel": "DIE OFFENE FORSCHUNGSAGENDA",
+    "hypTitle": "Vier Hypothesen, die scheitern dürfen.",
+    "hypIntro": "Diese Hypothesen sind Vorschläge für eine systematische Auswertung vorhandener Forschung. Sie sind noch nicht als Experimente vorregistriert oder von uns unabhängig getestet.",
+    "hypotheses": [
+      {
+        "code": "L-A",
+        "name": "Zuwendung und Stress",
+        "claim": "Verlässliche, freiwillig angenommene Unterstützung kann in belastenden Situationen die Stressreaktion abschwächen.",
+        "measure": "Messbar etwa über subjektives Stresserleben und physiologische Stressmarker, unter Vergleich geeigneter Bedingungen.",
+        "challenge": "Auch vertraute Nähe kann Stress erhöhen; Beziehungskonflikte, Erwartungen und persönliche Unterschiede müssen berücksichtigt werden.",
+        "status": "Vorläufig · teilweise empirisch gestützt"
+      },
+      {
+        "code": "L-B",
+        "name": "Fürsorge und Selbstbestimmung",
+        "claim": "Unterstützung, die Entscheidungen respektiert, könnte langfristig eher Selbstwirksamkeit fördern als kontrollierende Hilfe.",
+        "measure": "Veränderungen in wahrgenommener Autonomie, Handlungskompetenz und langfristiger Zielverfolgung.",
+        "challenge": "Anfangsniveau, Bedarf, Kontext und Selbstselektion könnten scheinbare Vorteile erklären.",
+        "status": "Offen · Mechanismen zu prüfen"
+      },
+      {
+        "code": "L-C",
+        "name": "Vertrauen und Kooperation",
+        "claim": "Verlässliche Beziehungen könnten unter bestimmten Bedingungen kooperatives Handeln begünstigen.",
+        "measure": "Wiederholte kooperative Entscheidungen, Vertrauen und Verhalten in realen sozialen Situationen.",
+        "challenge": "Kooperation kann auch durch Eigennutz, Normen oder Sanktionen entstehen; Vertrauen ist nicht immer angemessen.",
+        "status": "Offen · Abgrenzung nötig"
+      },
+      {
+        "code": "L-D",
+        "name": "Wahrhaftigkeit und Bindung",
+        "claim": "Auf längere Sicht könnten Ehrlichkeit und respektvolle Konfliktbearbeitung zu tragfähigerem Vertrauen beitragen.",
+        "measure": "Längsschnittliche Betrachtung von Vertrauensqualität, Konfliktverhalten und Beziehungsstabilität.",
+        "challenge": "Unangenehme Wahrheiten können kurzfristig schaden; die Art, der Zeitpunkt und die Sicherheit einer Offenlegung zählen.",
+        "status": "Offen · keine allgemeine Garantie"
+      }
+    ],
+    "counterLabel": "GEGENMODELLE UND GRENZEN",
+    "counterTitle": "Liebe verhindert keine Katastrophe.",
+    "counterLead": "Auch echte Zuneigung kann mit Fehlentscheidungen verbunden sein. Wer liebt, kann täuschen, sich aufopfern, Grenzen missachten oder andere kontrollieren. Die Stärke eines Gefühls ist kein Nachweis der Güte einer Handlung.",
+    "counter": [
+      [
+        "Liebe und Kontrolle",
+        "Fürsorge wird problematisch, wenn sie die Entscheidungen anderer ersetzt oder Freiheit einschränkt. Liebe ist keine Rechtfertigung für Zwang."
+      ],
+      [
+        "Liebe und Selbstverlust",
+        "Die Bedürfnisse eines anderen ernst zu nehmen verlangt nicht, das eigene Wohlergehen dauerhaft auszulöschen. Auch Grenzen können Ausdruck von Fürsorge sein."
+      ],
+      [
+        "Liebe und Irrtum",
+        "Wer liebt, kann sich über Motive, Folgen und andere Menschen täuschen. Wahrhaftigkeit und Korrektur bleiben notwendig."
+      ],
+      [
+        "Liebe und Gewalt",
+        "Gewalt und Einschüchterung sind niemals durch behauptete Liebe legitimiert. Bei Gefahr haben Sicherheit und Schutz Vorrang."
+      ]
+    ],
+    "ethicLabel": "ANSCHLUSS AN UNSERE ETHIK",
+    "ethicTitle": "Liebe als Richtung – nicht als Messgerät.",
+    "ethicText": "Unser +1/−1-Modell ist ein philosophischer Kompass, keine wissenschaftliche Güteskala. Liebe könnte eine Motivation sein, Wahrheit, Freiheit und Fürsorge praktisch werden zu lassen. Sie garantiert das Ergebnis nicht. Die stärkere These lautet: Liebe wird konstruktiver, wenn sie sich an Würde, Einwilligung, Selbstbestimmung und Selbstkorrektur messen lässt.",
+    "ethicQuote": "Nicht jeder, der liebt, handelt gut. Aber verantwortliche Liebe fragt, ob der andere durch unser Handeln freier und handlungsfähiger wird.",
+    "howLabel": "WIE WIR WEITERFORSCHEN",
+    "howTitle": "Vom schönen Gedanken zur prüfbaren Frage.",
+    "steps": [
+      [
+        "01",
+        "Begriff klären",
+        "Welche Art von Liebe oder Fürsorge meinen wir – und welche gerade nicht?"
+      ],
+      [
+        "02",
+        "Wirkung festlegen",
+        "Welche beobachtbare Veränderung erwarten wir und bei wem?"
+      ],
+      [
+        "03",
+        "Gegenmodell suchen",
+        "Welche andere Ursache könnte dieselbe Wirkung erklären?"
+      ],
+      [
+        "04",
+        "Quellen prüfen",
+        "Systematische Reviews, Primärstudien, Messqualität und Gegenbefunde vergleichen."
+      ],
+      [
+        "05",
+        "Befund einordnen",
+        "Korrelation, Mechanismus, Intervention und normatives Urteil nicht vermischen."
+      ],
+      [
+        "06",
+        "Korrigieren",
+        "Unsicherheit veröffentlichen; Thesen präzisieren, zurückziehen oder offenlassen."
+      ]
+    ],
+    "closingEyebrow": "EIN WERK, DAS LERNEN DARF",
+    "closingTitle": "Vielleicht ist Liebe nicht das Gegenteil von Vernunft.",
+    "closingText": "Vielleicht ist sie einer der Gründe, weshalb Vernunft zum Wohle anderer eingesetzt wird. Ob diese Formulierung trägt, ist gerade die Frage, die wir untersuchen möchten.",
+    "closingNote": "Keine Heilslehre, kein vollständiger Beweis, keine Empfehlung, in schädlichen Beziehungen auszuharren.",
+    "sourcesLabel": "QUELLEN, STATUS UND MITARBEIT",
+    "sourcesIntro": "Ausgewählte Originalquellen für den Einstieg. Sie belegen einzelne Zusammenhänge und Modelle, nicht die universelle Gültigkeit unserer philosophischen These.",
+    "forum": "Über Liebe diskutieren ↗",
+    "critique": "Einen Gegenbeleg einreichen ↗",
+    "back": "Zur Bibliothek ↗",
+    "horizon": "Zum Erkenntnishorizont ↗",
+    "evidenceTag": "EVIDENZ",
+    "limitationTag": "EINSCHRÄNKUNG",
+    "testTag": "MÖGLICHE PRÜFUNG",
+    "counterTag": "WAS DAGEGEN SPRECHEN KÖNNTE",
+    "statusTag": "STATUS"
+  },
+  "en": {
+    "eyebrow": "LIBER AMORIS · OPEN RESEARCH QUESTION",
+    "titleA": "Why Love",
+    "titleB": "Works.",
+    "lead": "Can love be more than a feeling? We examine what closeness, care, and attachment can do—and whether these effects could support a defensible ethic of living together.",
+    "status": [
+      "Philosophical working thesis",
+      "Empirical findings with limitations",
+      "Research proposal · not a final theory"
+    ],
+    "figureCaption": "A conceptual network: attraction, attachment, and care can overlap, but they are neither identical nor always constructive. The connecting lines do not represent measured neural pathways.",
+    "introLabel": "THE FIRST QUESTION",
+    "introTitle": "What exactly are we trying to prove?",
+    "introText": "A universal statement such as “love is always good” would immediately face counterexamples. A narrower, researchable question is: under what conditions do care, secure bonds, and freely chosen closeness support health, agency, and cooperation—and when do they not?",
+    "ruleLabel": "L-01 · PHILOSOPHICAL PROPOSAL",
+    "rule": "Love may mean that another person's well-being becomes a reason for one's own actions, for that person's sake.",
+    "ruleInfo": "This is a working account of caring love, not a comprehensive definition of romantic, familial, or platonic love. It does not establish a law of nature or imply a moral duty to erase oneself.",
+    "simpleLabel": "THE SIMPLE QUESTION",
+    "simpleTitle": "Why does it help when someone is really there for me?",
+    "simple": "Imagine being afraid of a difficult task. Someone doesn't merely say “You'll be fine”; they listen, help you practice, and then let you make your own choice. The task may still be hard. But you are less alone—and perhaps a little braver.",
+    "simpleConclusion": "Help may not change the world. It can change how we face it.",
+    "distinctionLabel": "BEFORE WE BEGIN",
+    "distinctionTitle": "Love is not a single variable.",
+    "dimensions": [
+      [
+        "I",
+        "Attraction",
+        "Romantic excitement, desire, and reward can be part of love, but are neither necessary nor sufficient for genuine care."
+      ],
+      [
+        "II",
+        "Attachment",
+        "Reliable closeness may provide security. Attachment can also coexist with anxiety, control, or dependency."
+      ],
+      [
+        "III",
+        "Care",
+        "Another person's well-being matters to our actions. Whether care helps depends, among other things, on consent and autonomy."
+      ]
+    ],
+    "evidenceLabel": "WHAT RESEARCH ACTUALLY TELLS US",
+    "evidenceTitle": "Three clues. No universal proof.",
+    "evidence": [
+      {
+        "n": "01",
+        "type": "META-ANALYSIS · OBSERVATIONAL",
+        "headline": "Social relationships and survival",
+        "text": "A meta-analysis of 148 studies involving 308,849 participants reported a pooled survival odds ratio of 1.50 for stronger social relationships. This is an association about social relationships, not an isolated causal proof of romantic love.",
+        "caveat": "Observational studies, differing measures, substantial heterogeneity; social integration is not equivalent to love.",
+        "source": "Holt-Lunstad et al., PLOS Medicine (2010)",
+        "url": "https://doi.org/10.1371/journal.pmed.1000316"
+      },
+      {
+        "n": "02",
+        "type": "SMALL EXPERIMENTAL STUDY",
+        "headline": "Closeness and responses to threat",
+        "text": "In a study of 16 married women, holding a spouse's hand while anticipating an aversive stimulus was associated with reduced activation in some threat-related neural systems. Relationship quality also mattered.",
+        "caveat": "Small, specific sample; brain activation cannot stand in for the whole phenomenon of love.",
+        "source": "Coan, Schaefer & Davidson, Psychological Science (2006)",
+        "url": "https://doi.org/10.1111/j.1467-9280.2006.01832.x"
+      },
+      {
+        "n": "03",
+        "type": "INTEGRATIVE THEORETICAL MODEL",
+        "headline": "Relationships may support thriving",
+        "text": "Feeney and Collins outline how responsive support might help people cope with hardship and pursue goals. Their framework connects the ideas of a safe haven and a secure base. It is a theory informed by research, not a single efficacy experiment.",
+        "caveat": "Specific mechanisms and generalizability need to be examined in context.",
+        "source": "Feeney & Collins, Personality and Social Psychology Review (2015)",
+        "url": "https://doi.org/10.1177/1088868314544222"
+      }
+    ],
+    "hypLabel": "THE OPEN RESEARCH AGENDA",
+    "hypTitle": "Four hypotheses that are allowed to fail.",
+    "hypIntro": "These are proposed directions for reviewing existing research. They have not been preregistered as experiments or independently tested by this project.",
+    "hypotheses": [
+      {
+        "code": "L-A",
+        "name": "Care and stress",
+        "claim": "Reliable, voluntarily accepted support may reduce responses to stress in demanding situations.",
+        "measure": "Potential measures include perceived stress and physiological markers, compared under appropriate conditions.",
+        "challenge": "Even familiar closeness can increase stress; conflict, expectations, and individual differences may matter.",
+        "status": "Provisional · some empirical support"
+      },
+      {
+        "code": "L-B",
+        "name": "Care and autonomy",
+        "claim": "Support that respects choices may strengthen long-term self-efficacy more than controlling help.",
+        "measure": "Changes in perceived autonomy, ability to act, and long-term pursuit of personal goals.",
+        "challenge": "Baseline differences, level of need, context, and self-selection might explain apparent benefits.",
+        "status": "Open · mechanisms require testing"
+      },
+      {
+        "code": "L-C",
+        "name": "Trust and cooperation",
+        "claim": "Reliable relationships may encourage cooperative behavior in certain circumstances.",
+        "measure": "Repeated cooperative choices, trust, and observed behavior in real social settings.",
+        "challenge": "Cooperation can also emerge from self-interest, social norms, or penalties; trust is not always justified.",
+        "status": "Open · careful distinctions needed"
+      },
+      {
+        "code": "L-D",
+        "name": "Truthfulness and bonds",
+        "claim": "In the long term, honesty and respectful conflict resolution may help sustain trust.",
+        "measure": "Longitudinal assessments of trust quality, conflict behavior, and relationship stability.",
+        "challenge": "Difficult disclosures can cause short-term harm; timing, manner, and personal safety matter.",
+        "status": "Open · no universal guarantee"
+      }
+    ],
+    "counterLabel": "COUNTERMODELS AND LIMITS",
+    "counterTitle": "Love does not prevent catastrophe.",
+    "counterLead": "Even sincere affection can accompany serious mistakes. Someone who loves can deceive, sacrifice too much, cross boundaries, or try to control another person. The intensity of a feeling does not prove the goodness of an action.",
+    "counter": [
+      [
+        "Love and control",
+        "Care becomes dangerous when it replaces another person's decisions or restricts freedom. Love cannot justify coercion."
+      ],
+      [
+        "Love and self-erasure",
+        "Taking someone's needs seriously does not require sacrificing your own well-being indefinitely. Boundaries can also express care."
+      ],
+      [
+        "Love and error",
+        "Loving someone does not prevent us from misunderstanding motives, consequences, or other people. Honesty and self-correction still matter."
+      ],
+      [
+        "Love and violence",
+        "Violence and intimidation are never justified by claims of love. When danger is present, safety and protection come first."
+      ]
+    ],
+    "ethicLabel": "LINK TO OUR ETHICAL MODEL",
+    "ethicTitle": "Love as direction—not a measuring instrument.",
+    "ethicText": "Our +1/−1 model is a philosophical compass, not a scientific morality scale. Love might motivate us to put truthfulness, freedom, and care into practice. It does not guarantee a good outcome. A stronger thesis is that love becomes more constructive when assessed against dignity, consent, autonomy, and a willingness to correct ourselves.",
+    "ethicQuote": "Not everyone who loves acts well. But responsible love asks whether our actions help another person become freer and more capable.",
+    "howLabel": "HOW WE WOULD STUDY THIS",
+    "howTitle": "From a beautiful idea to a testable question.",
+    "steps": [
+      [
+        "01",
+        "Define the concept",
+        "Which kind of love or care do we mean—and which do we not?"
+      ],
+      [
+        "02",
+        "Define the outcome",
+        "What observable change do we expect, and for whom?"
+      ],
+      [
+        "03",
+        "Seek alternatives",
+        "What other factor might produce the same result?"
+      ],
+      [
+        "04",
+        "Examine sources",
+        "Compare systematic reviews, primary studies, measurement quality, and conflicting findings."
+      ],
+      [
+        "05",
+        "Interpret carefully",
+        "Distinguish correlation, mechanisms, interventions, and normative judgments."
+      ],
+      [
+        "06",
+        "Revise",
+        "Publish uncertainty; refine, withdraw, or leave hypotheses open."
+      ]
+    ],
+    "closingEyebrow": "A WORK THAT CAN KEEP LEARNING",
+    "closingTitle": "Perhaps love is not the opposite of reason.",
+    "closingText": "Perhaps it is one of the reasons we use reason for the benefit of others. Whether this thought holds up is precisely what we want to investigate.",
+    "closingNote": "Not a doctrine of salvation, not a complete proof, and not advice to remain in harmful relationships.",
+    "sourcesLabel": "SOURCES, STATUS, AND PARTICIPATION",
+    "sourcesIntro": "Selected primary sources for a first investigation. They support particular findings and models, not the universal validity of our philosophical proposal.",
+    "forum": "Discuss love in our forum ↗",
+    "critique": "Submit a counterexample ↗",
+    "back": "Back to the library ↗",
+    "horizon": "Explore the horizon of knowledge ↗",
+    "evidenceTag": "EVIDENCE",
+    "limitationTag": "LIMITATION",
+    "testTag": "POSSIBLE TEST",
+    "counterTag": "WHAT MIGHT CHALLENGE IT",
+    "statusTag": "STATUS"
+  }
+}

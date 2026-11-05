@@ -1,0 +1,72 @@
+---
+import Layout from "../layouts/SiteLayout.astro";
+import Diagram from "./LoveDiagram.astro";
+import content from "../lib/love-copy.json";
+import {pathFor} from "../lib/paths.mjs";
+const {lang="de"}=Astro.props;
+const t=content[lang];
+const url="https://github.com/AlexanderR1991/grundtext-des-wirklichen";
+---
+<Layout lang={lang} slug="warum-liebe-wirkt">
+<section class="love-hero">
+<div class="container love-hero__inner">
+<p class="section-kicker">{t.eyebrow}</p>
+<h1>{t.titleA}<br/><em>{t.titleB}</em></h1>
+<p class="love-hero__lead">{t.lead}</p>
+<div class="love-tags">{t.status.map(label=><span>{label}</span>)}</div>
+</div>
+</section>
+<section class="section section--paper love-concept">
+<div class="container">
+<div class="section-heading"><div><p class="section-kicker">{t.introLabel}</p><h2>{t.introTitle}</h2></div><p>{t.introText}</p></div>
+<Diagram lang={lang}>{t.figureCaption}</Diagram>
+<div class="love-def"><span class="section-kicker">{t.ruleLabel}</span><blockquote>{t.rule}</blockquote><p>{t.ruleInfo}</p></div>
+</div>
+</section>
+<section class="section love-simple"><div class="narrow">
+<p class="section-kicker">{t.simpleLabel}</p><h2>{t.simpleTitle}</h2><p>{t.simple}</p><blockquote>{t.simpleConclusion}</blockquote>
+</div></section>
+<section class="section section--paper"><div class="container">
+<p class="section-kicker">{t.distinctionLabel}</p><h2 class="love-section-title">{t.distinctionTitle}</h2>
+<div class="love-dimensions">{t.dimensions.map(([n,name,desc])=><article><span>{n} / III</span><h3>{name}</h3><p>{desc}</p></article>)}</div>
+</div></section>
+<section class="section love-evidence" id="befunde"><div class="container">
+<p class="section-kicker">{t.evidenceLabel}</p><h2 class="love-section-title">{t.evidenceTitle}</h2>
+<div class="love-evidence__list">{t.evidence.map(e=><article>
+<div class="love-evidence__number">{e.n} / 03</div>
+<div class="love-evidence__content"><span class="love-evidence__type">{e.type}</span>
+<h3>{e.headline}</h3><p>{e.text}</p>
+<div class="love-evidence__caution"><b>{t.limitationTag}</b><p>{e.caveat}</p></div>
+<a href={e.url} target="_blank" rel="noopener noreferrer">{e.source} ↗</a>
+</div></article>)}</div>
+</div></section>
+<section class="section section--paper love-hypotheses" id="hypothesen"><div class="container">
+<p class="section-kicker">{t.hypLabel}</p><h2 class="love-section-title">{t.hypTitle}</h2><p class="love-section-lead">{t.hypIntro}</p>
+<div class="love-hypothesis-grid">{t.hypotheses.map(h=><article id={h.code.toLowerCase()}>
+<div class="love-hypothesis__head"><span>{h.code}</span><small>{h.status}</small></div>
+<h3>{h.name}</h3><p class="love-hypothesis__claim">{h.claim}</p>
+<div class="love-hypothesis__detail"><span>{t.testTag}</span><p>{h.measure}</p></div>
+<div class="love-hypothesis__detail"><span>{t.counterTag}</span><p>{h.challenge}</p></div>
+</article>)}</div>
+</div></section>
+<section class="section love-counter" id="gegenmodelle"><div class="container">
+<p class="section-kicker">{t.counterLabel}</p><h2 class="love-section-title">{t.counterTitle}</h2><p class="love-section-lead">{t.counterLead}</p>
+<div class="love-counter__grid">{t.counter.map(([title,description],i)=><article><span>{String(i+1).padStart(2,"0")} / 04</span><h3>{title}</h3><p>{description}</p></article>)}</div>
+</div></section>
+<section class="section section--paper love-ethic">
+<div class="narrow"><p class="section-kicker">{t.ethicLabel}</p><h2>{t.ethicTitle}</h2><p>{t.ethicText}</p><blockquote>{t.ethicQuote}</blockquote></div>
+</section>
+<section class="section love-process"><div class="container love-process__grid">
+<div><p class="section-kicker">{t.howLabel}</p><h2>{t.howTitle}</h2><p>{t.closingNote}</p></div>
+<ol>{t.steps.map(([n,name,description])=><li><b>{n}</b><div><strong>{name}</strong><p>{description}</p></div></li>)}</ol>
+</div></section>
+<section class="section section--paper love-finale"><div class="narrow">
+<p class="section-kicker">{t.closingEyebrow}</p><h2>{t.closingTitle}</h2><p>{t.closingText}</p>
+<div class="button-row"><a class="button button--gold" href={url+"/discussions"} target="_blank" rel="noopener noreferrer">{t.forum}</a>
+<a class="button button--ghost" href={url+"/issues/new?template=quellenpruefung.yml"} target="_blank" rel="noopener noreferrer">{t.critique}</a></div>
+</div></section>
+<section class="section love-sources"><div class="narrow"><p class="section-kicker">{t.sourcesLabel}</p><p>{t.sourcesIntro}</p>
+<ol>{t.evidence.map(e=><li><a href={e.url} target="_blank" rel="noopener noreferrer">{e.source} ↗</a><small>{e.type}</small></li>)}</ol>
+<div class="button-row"><a class="subtle-link" href={pathFor(lang,"bibliothek")}>{t.back}</a><a class="subtle-link" href={pathFor(lang,"erkenntnishorizont")}>{t.horizon}</a></div>
+</div></section>
+</Layout>
