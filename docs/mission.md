@@ -24,6 +24,14 @@ Derzeit entwickeln wir Fragen, Methoden und ungeprüfte Prototypen. Welche Aussa
 
 **Stellt uns Fragen. Forscht mit.** Eine sorgfältige Quellenprüfung, ein Gegenbeispiel oder eine dokumentierte Wiederholung kann ebenso beitragen wie eine neue Idee.
 
+## Der fliegende Baum: Vielfalt verbinden
+
+Ein vorwärts fliegender Baum ergänzt das Reisebild. Seine nach unten reichenden Äste sammeln Philosophie, Fachwissen, Erfahrung, Kunst und Gegenfragen. Sechs Arbeitsebenen führen von Stimmen über Fragen und Aussagen zu passender Prüfung, begründeten Zusammenhängen und verantwortbarem Handeln. Die Ergebnisse können zu jeder früheren Ebene zurückführen.
+
+Die ganze Menschheit ist unser offener Horizont; der bisherige Bestand ist eine kleine Auswahl. Themen dürfen mehrere Äste verbinden. Aussagearten erhalten keine gemeinsame Wahrheitsrangfolge, und ungelöster Dissens bleibt ein zulässiges Ergebnis. Die Gesamtansicht liegt unter `/de/baum-des-wissens/` und `/en/baum-des-wissens/`.
+
+[Gesamtprüfung und öffentliche Selbstangriffe](gesamtpruefung-baum.md) benennen konkrete Lücken und nächste Aufgaben. The tree gathers diverse voices and connects them through six stages of work while preserving distinct kinds of justification, gaps and unresolved disagreement.
+
 ## 1. Warum das Raumschiff?
 
 Es ist ein **Organisationsbild**: Menschen erkunden gemeinsam das Unbekannte, benötigen Orientierung und müssen Fehler erkennen können. Das Bild liefert weder einen physikalischen Beweis noch eine natürliche Rangordnung der Besatzung. Wer widerspricht, gehört deshalb nicht weniger dazu.

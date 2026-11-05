@@ -1,0 +1,118 @@
+---
+import Layout from "../layouts/SiteLayout.astro";
+import FlyingTreeDiagram from "./FlyingTreeDiagram.astro";
+import {pathFor} from "../lib/paths.mjs";
+import {fields,topics,topicStates,levels,selfReviews,treeSnapshot} from "../lib/tree.mjs";
+import "../styles/tree.css";
+const {lang="de"}=Astro.props;
+const t=(de,en)=>lang==="en"?en:de;
+const names=Object.fromEntries(fields.map(f=>[f.id,f.name[lang]]));
+const destination=topic=>topic.url||pathFor(lang,topic.slug||"atlas")+(topic.slug?"":"#"+topic.fields[0]);
+---
+<Layout lang={lang} slug="baum-des-wissens">
+ <article class="container tree-page">
+  <header>
+   <div class="tree-hero"><div>
+    <p class="section-kicker">{t("DAS GANZE IM BLICK · OFFENER BAUPLAN","THE PROJECT AS A WHOLE · OPEN BLUEPRINT")}</p>
+    <h1>{t("Ein Baum,","A tree")}<br/><em>{t("der vorwärts fliegt.","that flies forward.")}</em></h1>
+    <p class="tree-lead">{t("An seinen nach unten reichenden Ästen sammelt er menschliche Fragen: Philosophie, Fachwissen, Erfahrung, Kunst und Widerspruch. Über gemeinsame Arbeitsebenen verbindet er sie zu Zusammenhängen und verantwortbarem Handeln.","Its downward-reaching branches gather human questions: philosophy, disciplinary knowledge, experience, art and disagreement. Shared stages of work connect them into relationships and accountable action.")}</p>
+    <p>{t("Die ganze Menschheit ist unser offener Horizont. Noch bildet dieser Baum eine kleine, veränderbare Auswahl ab. Jeder neue Ast darf zeigen, was uns bisher fehlt.","All of humanity is our open horizon. This tree currently maps a small, revisable selection. Every new branch may show what we are still missing.")}</p>
+   </div><FlyingTreeDiagram lang={lang}/></div>
+   <nav class="tree-toc" aria-label={t("Auf dieser Seite","On this page")}>{[["ebenen",t("Die Ebenen","The stages")],["aeste",t("Themen erkunden","Explore topics")],["verbinden",t("Zusammenführen","Connect")],["selbstpruefung",t("Uns selbst angreifen","Challenge ourselves")],["arbeit",t("Jetzt arbeiten","Work now")]].map(([id,label])=><a href={"#"+id}>{label}</a>)}</nav>
+   <p class="tree-callout">{t("„Nach oben“ bedeutet mehr Zusammenhang und begründete Verantwortung. Menschen, Kulturen und Erkenntnisarten erhalten dadurch keinen höheren oder niedrigeren Rang. Gemeinsames Verstehen darf einen ungelösten Widerspruch enthalten.","‘Upward’ means more context and reasoned responsibility. It gives no higher or lower rank to people, cultures or kinds of inquiry. Shared understanding may contain an unresolved disagreement.")}</p>
+  </header>
+
+  <section class="tree-section" id="ebenen">
+   <p class="section-kicker">{t("VIELFALT SAMMELN · UNTERSCHIEDE ERHALTEN","GATHER DIVERSITY · PRESERVE DIFFERENCES")}</p>
+   <h2>{t("Sechs Ebenen gemeinsamer Arbeit.","Six stages of shared work.")}</h2>
+   <p>{t("Philosophie hängt an jedem Ast: Sie fragt nach Begriffen, Voraussetzungen, Bedeutung und Werten. Ein Thema darf mehrere Felder verbinden. Die Ebenen helfen beim Arbeiten; Rückfragen können jederzeit zu einem früheren Schritt führen.","Philosophy belongs on every branch: it asks about concepts, premises, meaning and values. A topic may connect several fields. The stages help organize work; questions may return us to an earlier step at any time.")}</p>
+   <ol class="tree-levels">{levels.map(level=><li id={"ebene-"+level.id}><h3>{level.name[lang]}</h3><p>{level.text[lang]}</p></li>)}</ol>
+   <p>{t("Ein mathematischer Beweis bleibt an seine Voraussetzungen gebunden. Eine ethische Entscheidung braucht begründete Werte. Eine Interpretation darf neben anderen Lesarten stehen. Die Begründungslage und der Prüfstatus bleiben jeweils gesondert sichtbar.","A mathematical proof remains tied to its premises. An ethical decision needs reasoned values. An interpretation may coexist with other readings. Support and review status remain visible as separate descriptions.")} <a href={pathFor(lang,"mission")+"#erkenntnis"}>{t("Die passenden Prüfwege ansehen ↗","Explore appropriate methods ↗")}</a></p>
+  </section>
+
+  <section class="tree-section" id="aeste" data-tree-explorer>
+   <p class="section-kicker">{t("OFFENE THEMENKARTE","OPEN TOPIC MAP")}</p>
+   <h2>{t("Jedes Thema darf einen Ast finden.","Every topic may find a branch.")}</h2>
+   <p>{t("Die sechs Felder des Atlas sind veränderbare Einstiege. Mehrfachzuordnungen zeigen Berührungspunkte. Arbeitsentwürfe, Vorschläge und noch offene Themen bleiben unterscheidbar. Auch ein lesbares Kapitel benötigt weitere Prüfung.","The atlas's six fields are revisable entry points. Multiple memberships show intersections. Working drafts, proposals and undeveloped topics remain distinguishable. A readable chapter still requires further examination.")}</p>
+   <p class="tree-note">{t("Bestandsaufnahme vom","Inventory snapshot from")} <time datetime={treeSnapshot}>5.11.2026</time>. {t("Bei verlinkten Änderungsvorschlägen zeigt der Pull Request den aktuellen Stand. Die Karte beansprucht keine Vollständigkeit.","For linked proposals, the pull request shows the current status. The map makes no claim of completeness.")}</p>
+   <form class="tree-filters" hidden data-tree-filters role="search" aria-label={t("Themen filtern","Filter topics")}>
+    <label>{t("Thema oder Frage","Topic or question")}<input type="search" name="query" data-tree-query placeholder={t("z. B. Liebe, Klima, Macht …","e.g. love, climate, power…")}/></label>
+    <label>{t("Atlasfeld","Atlas field")}<select name="field" data-tree-field><option value="">{t("Alle Felder","All fields")}</option>{fields.map(field=><option value={field.id}>{field.name[lang]}</option>)}</select></label>
+    <label>{t("Ausarbeitung","Development")}<select name="state" data-tree-state><option value="">{t("Alle Arbeitsstände","All stages")}</option>{Object.entries(topicStates).map(([state,label])=><option value={state}>{label[lang]}</option>)}</select></label>
+    <button class="button button--ghost" type="button" data-tree-reset>{t("Zurücksetzen","Reset")}</button>
+   </form>
+   <p class="tree-result-count" role="status" aria-live="polite" data-tree-count data-count-label={t("Themen sichtbar","topics shown")}>{topics.length} {t("Themen in dieser Auswahl","topics in this selection")}</p>
+   <div class="tree-table-scroll" role="region" tabindex="0" aria-label={t("Themen und Verbindungen; horizontal scrollbar","Topics and connections; horizontally scrollable")}>
+    <table class="tree-table"><thead><tr><th scope="col">{t("Ast","Branch")}</th><th scope="col">{t("Verbundene Felder & Frage","Connected fields & question")}</th><th scope="col">{t("Stand & Einstieg","Status & entry")}</th></tr></thead><tbody>
+     {topics.map(topic=><tr id={"ast-"+topic.id} data-tree-topic data-fields={topic.fields.join(" ")} data-state={topic.state} data-search={[topic.name[lang],topic.question[lang],...topic.fields.map(f=>names[f])].join(" ")}>
+      <th scope="row">{topic.name[lang]}</th><td><p>{topic.question[lang]}</p><div class="tree-membership">{topic.fields.map(field=><a href={pathFor(lang,"atlas")+"#"+field}>{names[field]}</a>)}</div></td>
+      <td><span class="tree-state">{topicStates[topic.state][lang]}</span><a href={destination(topic)}>{topic.state==="draft"?t("Arbeitsentwurf lesen ↗","Read working draft ↗"):topic.state==="proposed"?t("Vorschlag prüfen ↗","Examine proposal ↗"):t("Im Atlas beginnen ↗","Start in the atlas ↗")}</a></td>
+     </tr>)}
+    </tbody></table>
+   </div>
+   <p hidden data-tree-empty>{t("Kein Thema passt zu diesen Filtern. Setze die Filter zurück oder schlage einen fehlenden Ast vor.","No topic matches these filters. Reset the filters or suggest a missing branch.")}</p>
+   <p><a href="https://github.com/AlexanderR1991/grundtext-des-wirklichen/issues/28">{t("Welche Perspektive oder welches Thema fehlt? ↗","Which perspective or topic is missing? ↗")}</a></p>
+  </section>
+
+  <section class="tree-section" id="verbinden">
+   <p class="section-kicker">{t("EIN BEISPIEL ZUM DURCHARBEITEN","AN EXAMPLE TO WORK THROUGH")}</p>
+   <h2>{t("Eine menschliche Frage verbindet viele Äste.","One human question connects many branches.")}</h2>
+   <p>{t("Gedankenbeispiel: Wie gestalten wir gemeinsame Schulverpflegung? Es zeigt den Arbeitsweg. Ein konkretes Ergebnis wurde hier noch nicht ermittelt.","Thought example: how should we organize shared school meals? It illustrates the workflow. No concrete result has been established here.")}</p>
+   <div class="tree-case">
+    <article><h3>{t("Was wissen wir?","What do we know?")}</h3><p>{t("Ernährung und Gesundheit: Welche Aussage ist für welche Menschen durch welche Quellen gestützt? Welche Alternativen und Unsicherheiten gibt es?","Nutrition and health: which claim is supported for which people by which sources? What alternatives and uncertainties remain?")}</p><a class="subtle-link" href={pathFor(lang,"ernaehrung-und-verantwortung")}>{t("Ernährung ↗","Nutrition ↗")}</a></article>
+    <article><h3>{t("Was wollen wir schützen?","What do we want to protect?")}</h3><p>{t("Zugang, Selbstbestimmung, religiöse und kulturelle Bedürfnisse, Ressourcen und Fürsorge. Betroffene können diese Ziele unterschiedlich gewichten. Forschung ersetzt diese Wertentscheidung nicht.","Access, autonomy, religious and cultural needs, resources and care. Affected people may weigh these goals differently. Research does not replace this value judgment.")}</p><a class="subtle-link" href={pathFor(lang,"politik-die-dem-menschen-dient")}>{t("Politik & Beteiligung ↗","Politics & participation ↗")}</a></article>
+    <article><h3>{t("Was folgt — vorläufig?","What follows, provisionally?")}</h3><p>{t("Alternativen samt Gründen vergleichen, verbleibenden Dissens festhalten und eine begrenzte Maßnahme mit Verantwortung und Auswertung vorschlagen. Beobachtete Folgen können neue Fragen an alle Äste stellen.","Compare alternatives and reasons, record remaining disagreement, and propose a bounded measure with accountability and evaluation. Observed consequences may raise new questions across the branches.")}</p><a class="subtle-link" href={pathFor(lang,"mission")+"#entscheidungen"}>{t("Den Entscheidungsweg prüfen ↗","Examine the decision process ↗")}</a></article>
+   </div>
+   <p class="tree-callout">{t("Zusammenführen heißt: Beziehungen und Grenzen verständlich machen. „Stützt“, „widerspricht“, „gilt nur wenn“ und „bleibt offen“ sind unterschiedliche Ergebnisse. Auch zwei tragfähige Positionen können einander weiter widersprechen.","Bringing things together means making relationships and limits understandable. ‘Supports,’ ‘contradicts,’ ‘holds only if’ and ‘remains open’ are different results. Two defensible positions may continue to disagree.")}</p>
+  </section>
+
+  <section class="tree-section" id="selbstpruefung">
+   <p class="section-kicker">{t("DER BAUM MUSS AUCH UNS WIDERSPRECHEN KÖNNEN","THE TREE MUST BE ABLE TO CONTRADICT US TOO")}</p>
+   <h2>{t("Zwölf unbequeme Fragen an uns selbst.","Twelve uncomfortable questions for ourselves.")}</h2>
+   <p>{t("Drei öffentliche Prüfthreads enthalten die konkreten Ausgangsstellen, die stärkste vertretbare Lesart, Gegenargumente, Revisionsbedingungen und nächste Aufgaben. Diese KI-unterstützte Selbstprüfung wurde im Auftrag des Projektinhabers erstellt. Eine unabhängige Begutachtung steht aus.","Three public review threads contain the specific source passages, their strongest defensible readings, objections, revision conditions and next tasks. This AI-assisted self-review was commissioned by the project owner. Independent review is still outstanding.")}</p>
+   {selfReviews.map(review=><article class="tree-review" id={review.id}><span class="section-kicker">{review.id} · {t("OFFENE SELBSTPRÜFUNG","OPEN SELF-REVIEW")}</span><h3>{review.name[lang]}</h3><p>{review.finding[lang]}</p><ol>{review.questions.map(question=><li>{question[lang]}</li>)}</ol><a class="subtle-link" href={review.url}>{t("Im öffentlichen Prüfthread mitarbeiten ↗","Join the public review thread ↗")}</a></article>)}
+  </section>
+
+  <section class="tree-section" id="arbeit">
+   <p class="section-kicker">{t("VOM BILD ZUR ARBEIT","FROM METAPHOR TO WORK")}</p>
+   <h2>{t("Jetzt muss der Baum etwas tragen.","Now the tree must bear something.")}</h2>
+   <ol class="tree-work">
+    <li><strong>{t("Erste Korrekturen vorlegen.","Propose the first corrections.")}</strong> {t("These 05 soll dauerhafte Unterstützung ausdrücklich einschließen. These 09 soll von „anderen Menschen“ sprechen. Beide Präzisierungen werden in Grundtext, Manifest und Prüfstand gemeinsam zur redaktionellen Prüfung vorgelegt.","Thesis 05 should explicitly include lasting support. Thesis 09 should refer to ‘other people.’ Both clarifications are submitted together for editorial review in the foundational text, manifesto and examination pages.")}</li>
+    <li><strong>{t("Einen kleinen Bestand vollständig bearbeiten.","Examine a small corpus fully.")}</strong> {t("Zehn begrenzte Aussagen mit Quellen oder Voraussetzungen, Gegenargumenten und menschlicher Entscheidung bleiben das nächste Ziel. Die drei bisherigen Registereinträge sind ungeprüfte Demonstrationen.","Ten bounded claims with sources or premises, objections and a human decision remain the next goal. The three existing register entries are unreviewed demonstrations.")}</li>
+    <li><strong>{t("Die Methode mit einer Alternative vergleichen.","Compare the method with an alternative.")}</strong> {t("Aufgaben, vergleichbaren Aufwand und unabhängige Bewertungsregeln vorab festlegen. Fehlererkennung, Fehlalarme, Unsicherheitsverständnis, Zeit und Kosten getrennt erfassen. Ein Vergleich wurde noch nicht durchgeführt.","Define tasks, comparable effort and independent scoring rules in advance. Record error detection, false alarms, uncertainty comprehension, time and costs separately. No comparison has been conducted yet.")}</li>
+    <li><strong>{t("Kritik bis zur begründeten Entscheidung verfolgen.","Follow criticism through to a reasoned decision.")}</strong> {t("Einwand, Antwort, offene Frage und vorgeschlagene Änderung verbinden. Verantwortliche und Interessenkonflikte offenlegen. Solange unabhängige Einspruchsprüfung fehlt, bleibt diese Grenze sichtbar.","Connect the objection, response, open question and proposed revision. Disclose accountability and conflicts of interest. The absence of independent appeals review remains visible.")}</li>
+   </ol>
+   <p>{t("Das Raumschiff beschreibt unsere gemeinsame Reise und ihre Instrumente. Der Baum beschreibt, wie wir Vielfalt sammeln und Zusammenhänge bilden. Beide Bilder dürfen sich ändern, wenn sie unsere Arbeit schlechter erklären.","The spacecraft describes our shared journey and its instruments. The tree describes how we gather diversity and form connections. Both metaphors may change if they explain our work poorly.")} <a href={pathFor(lang,"mission")}>{t("Zur gemeinsamen Mission ↗","Read the shared mission ↗")}</a></p>
+   <div class="button-row"><a class="button button--gold" href={pathFor(lang,"aussagen")}>{t("Am Aussagenregister arbeiten ↗","Work on the claim register ↗")}</a><a class="button button--ghost" href="https://github.com/AlexanderR1991/grundtext-des-wirklichen/issues/30">{t("Unsere Methode prüfen ↗","Examine our method ↗")}</a></div>
+  </section>
+ </article>
+</Layout>
+<script>
+ for(const explorer of document.querySelectorAll<HTMLElement>("[data-tree-explorer]")){
+  const form=explorer.querySelector<HTMLFormElement>("[data-tree-filters]");
+  const query=explorer.querySelector<HTMLInputElement>("[data-tree-query]");
+  const field=explorer.querySelector<HTMLSelectElement>("[data-tree-field]");
+  const state=explorer.querySelector<HTMLSelectElement>("[data-tree-state]");
+  const count=explorer.querySelector<HTMLElement>("[data-tree-count]");
+  const empty=explorer.querySelector<HTMLElement>("[data-tree-empty]");
+  const reset=explorer.querySelector<HTMLButtonElement>("[data-tree-reset]");
+  const rows=Array.from(explorer.querySelectorAll<HTMLTableRowElement>("[data-tree-topic]"));
+  if(!form||!query||!field||!state||!count||!empty||!reset)continue;
+  const normalize=(value:string)=>value.normalize("NFKD").replace(/\p{Diacritic}/gu,"").toLocaleLowerCase();
+  const update=()=>{
+   const terms=normalize(query.value).trim().split(/\s+/).filter(Boolean);
+   let shown=0;
+   for(const row of rows){
+    const text=normalize(row.dataset.search||"");
+    const matches=terms.every(term=>text.includes(term))&&(!field.value||(row.dataset.fields||"").split(" ").includes(field.value))&&(!state.value||row.dataset.state===state.value);
+    row.hidden=!matches;if(matches)shown++;
+   }
+   count.textContent=`${shown} / ${rows.length} ${count.dataset.countLabel}`;
+   empty.hidden=shown!==0;
+  };
+  form.addEventListener("submit",event=>event.preventDefault());
+  query.addEventListener("input",update);field.addEventListener("change",update);state.addEventListener("change",update);
+  reset.addEventListener("click",()=>{query.value="";field.value="";state.value="";update();});
+  form.hidden=false;update();
+ }
+</script>

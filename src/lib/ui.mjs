@@ -22,6 +22,7 @@ export const ui = {
     "disclosure": "MIT KI-UNTERSTÜTZUNG ERSTELLT · OFFEN FÜR KRITIK",
     "titles": {
       "mission": "Unsere Mission",
+      "baum-des-wissens": "Der fliegende Baum",
       "aussagen": "Aussagenregister",
       "index": "Auftakt",
       "atlas": "Wissensatlas",
@@ -66,6 +67,7 @@ export const ui = {
     "disclosure": "CREATED WITH AI ASSISTANCE · OPEN TO CRITICISM",
     "titles": {
       "mission": "Our Mission",
+      "baum-des-wissens": "The Flying Tree",
       "aussagen": "Claim Register",
       "index": "Introduction",
       "atlas": "Atlas of Knowledge",

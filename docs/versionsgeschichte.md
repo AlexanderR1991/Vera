@@ -1,5 +1,12 @@
 # Versionsgeschichte
 
+## 2026-11-05 · Fliegender Baum und Selbstprüfung · redaktioneller Entwurf
+- Gesamtansicht in DE/EN mit sechs Arbeitsebenen, 22 mehrfach zugeordneten Themen, sichtbaren Lücken und verlinkten Änderungsvorschlägen.
+- Drei öffentliche Issues B-01–B-03 mit zwölf Selbstkritikfragen, konkreten Ausgangsstellen, Einwänden und Revisionsbedingungen veröffentlicht.
+- These 05 um die bereits im Register benannte Grenze dauerhafter Unterstützung ergänzt; in These 09 „bessere Menschen“ zu „andere Menschen“ präzisiert und die Sprachfassungen angeglichen.
+- Gesamtprüfung und vorläufigen Einspruchsweg dokumentiert. Kein neuer Wirksamkeitsnachweis und keine unabhängige Begutachtung behauptet.
+- Redaktionelle Änderungen werden gemeinsam als Pull Request zur menschlichen Entscheidung vorgelegt.
+
 ## 0.9 · 2026-11-05 – Gemeinsame Mission
 - Startseite als konzentrierten Einstieg in ein offenes Erkenntnissystem neu gestaltet; bestehende Kapitel bleiben erreichbar.
 - Raumschiff als Organisationsbild: Kompass, Karte, Instrumente, Prüfstand, Antrieb und Logbuch.

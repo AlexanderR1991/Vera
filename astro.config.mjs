@@ -4,5 +4,7 @@ export default defineConfig({
  base:"/grundtext-des-wirklichen",
  output:"static",
  trailingSlash:"always",
+ // Explicit development-preview host; static production output is unaffected.
+ server:{allowedHosts:["terminal.local"]},
  i18n:{locales:["de","en"],defaultLocale:"de",routing:{prefixDefaultLocale:true,redirectToDefaultLocale:false}}
 });

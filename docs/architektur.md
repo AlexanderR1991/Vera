@@ -33,7 +33,7 @@ Die Schönheit darf zum Denken einladen; sie darf es nicht ersetzen. Gestaltung 
 - Spätere Artikel enthalten Status, Version, Quelle, Kritik und Änderungen.
 
 ## Technik
-Phase 0.2: Statisches HTML, CSS, Vanilla-JavaScript und GitHub Pages; keine externen Fonts oder Tracker. Bei vielen Kapiteln Umstieg auf einen statischen Seitengenerator und lokalen Suchindex. Backend und Anmeldung erst bei realem Bedarf.
+Aktuell erzeugt Astro eine statische DE/EN-Website für GitHub Pages. Ältere Unterseiten werden aus den Root-HTML-Dateien und Übersetzungsdaten vorbereitet; neuere Kapitel verwenden gemeinsame Astro-Komponenten. Die ursprüngliche Fassung 0.2 bestand aus statischem HTML, CSS und Vanilla-JavaScript. Keine externen Fonts oder Tracker. Ein lokaler Volltextsuchindex, Backend und Anmeldung bleiben mögliche spätere Schritte bei belegtem Bedarf.
 
 ## Schutz
 Private Manuskripte und Gespräche gehören nicht ohne ausdrückliche Freigabe ins Projekt. Keine erfundenen Quellen, Fachreviews oder Projektmitglieder. Texte CC BY-SA 4.0, Software MIT gemäß [LICENSING.md](../LICENSING.md); Rechte an fremdem Material, Projektsignet und redaktionelle Verantwortung vor breiter Verbreitung gesondert klären.
@@ -59,3 +59,11 @@ Der zweisprachige Bereich trennt *jus ad bellum*, *jus in bello* und zusätzlich
 Die Startseiten werden jetzt aus `MissionHome.astro` und `src/lib/mission-copy.json` gebaut. `MissionPage.astro` erläutert die gemeinsame Architektur; `ClaimRegister.astro` rendert `public/knowledge/claims.json` in beiden Sprachen. Die alten Root-HTML-Dateien bleiben Quelle der bisherigen Unterseiten; die Root-`index.html` ist nur noch der historische, vom Locale-Skript weiterhin eingelesene Auftakt.
 
 Das Register wird vor dem Build strukturell geprüft. Seine drei Einträge sind ungeprüfte Demonstrationen. Es fügt keine KI-Schreibrechte hinzu. Vollständige Trennung der drei Erkenntnisräume, Fachreview und institutionelle Governance sind noch nicht umgesetzt. Siehe [Mission](mission.md), [Datenvertrag](aussagenregister.md) und [Roadmap](roadmap.md).
+
+## Der fliegende Baum · Gesamtprüfung vom 5. November 2026
+
+Das ergänzende Organisationsbild verbindet eine Themenordnung mit sechs Arbeitsebenen: Stimmen, Fragen, Aussagen, Prüfung, Zusammenhänge und rückgekoppeltes Handeln. Die sechs Atlasfelder und die fünf Website-Zugänge bleiben davon unterscheidbar. „Nach oben“ bezeichnet mehr Kontext und Verantwortung; keine Kultur, Person oder Aussageart wird dadurch höher eingestuft.
+
+`KnowledgeTree.astro` rendert die gemeinsamen DE/EN-Daten aus `src/lib/tree.mjs`. Die 22 Themen haben Mehrfachzuordnungen und sichtbare Ausarbeitungsstände. Kerninhalte sind ohne JavaScript lesbar; Filter verbessern den Zugang. Vorschläge aus offenen PRs werden als solche verlinkt. Ein erklärtes Gedankenbeispiel zeigt Verbindungstypen; ein automatisch geprüfter Wissensgraph wird damit nicht behauptet.
+
+[Die Gesamtprüfung](gesamtpruefung-baum.md) dokumentiert den Ausgangsstand, Grenzen, öffentliche Selbstkritik B-01–B-03 und erste Präzisierungen von These 05 und These 09. Die unabhängige Prüfung der Methode und ein tragfähiger Einspruchsweg bleiben offene Arbeit.
