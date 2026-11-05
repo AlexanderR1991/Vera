@@ -157,9 +157,17 @@ def main():
     if successful == 0:
         sys.exit("Crossref unavailable for all topics; existing data unchanged")
     if API_KEY:
-        for doi in fresh[:MAX_ANALYSES]:
-            paper = papers[doi]
+        pending = sorted(
+            (p for p in papers.values()
+             if len(p.get("agent_notes", {})) < len(ROLES)),
+            key=lambda p: (p.get("date", ""), p.get("id", "")),
+            reverse=True,
+        )
+        for paper in pending[:MAX_ANALYSES]:
+            paper.setdefault("agent_notes", {})
             for role in ROLES:
+                if role in paper["agent_notes"]:
+                    continue
                 try:
                     paper["agent_notes"][role] = call_agent(role, paper)
                 except (urllib.error.URLError, ValueError, KeyError, TimeoutError) as err:
