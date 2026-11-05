@@ -1,5 +1,14 @@
 # Versionsgeschichte
 
+## 0.5.0 – 2026-11-05
+- „Warum Liebe wirkt / Why Love Works“ als eigenen Forschungsbereich mit zwei vollständigen Sprachfassungen eingerichtet.
+- Begrifflich zwischen Anziehung, Bindung und Fürsorge unterschieden; eine originäre, als Metapher gekennzeichnete SVG-Darstellung ergänzt.
+- Drei wissenschaftliche Ausgangsquellen mit Evidenztyp und Einschränkungen dokumentiert.
+- Forschungsansätze L-A bis L-D (Stress, Autonomie, Kooperation, Wahrhaftigkeit) mit möglichen Prüfungen und Gegenmodellen.
+- Gegenargumente zu Kontrolle, Selbstaufgabe und Gewalt integriert; keine Behauptung einer bewiesenen universellen Liebesformel.
+- Verweise aus Einstieg, Bibliothek, Atlas und Prüfstand; Sitemap und automatisierte Prüfungen erweitert.
+- Redaktionelles Forschungsprotokoll für künftige Beiträge erstellt.
+
 ## 0.4.0 – 2026-11-05
 - Philosophisches Horizontmodell als eigenes deutsch-englisches Kapitel mit kritischen Einordnungen veröffentlicht.
 - Neue barrierearm beschriebene SVG-Zeichnung nach einer eingebrachten Ideenskizze; private Fotoaufnahme nicht veröffentlicht.
