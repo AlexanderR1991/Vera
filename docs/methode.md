@@ -16,3 +16,9 @@
 6. Behalten, präzisieren oder zurückziehen – mit Begründung.
 
 Der vorgeschlagene Prozess ist kein etablierter unabhängiger Peer Review.
+
+## Stellt uns Fragen! / Ask us questions!
+
+Verständnisfragen und Einwände gegen die Methode selbst sind willkommen. Der [öffentliche Erkenntnisprompt](erkenntnisprompt.md) überträgt dieses Prüfverfahren in ein kopierbares KI-Gespräch. Er fordert auch die Prüfung seiner eigenen Regeln; eine Verbesserung der Antwortqualität ist damit noch nicht nachgewiesen.
+
+Questions and challenges to the method itself are welcome. The [public inquiry prompt](erkenntnisprompt.md) makes this procedure available for AI conversations and includes scrutiny of its own rules. Improved answer quality has not yet been demonstrated.
