@@ -10,6 +10,7 @@ import MilitaryTeaser from "./MilitaryTeaser.astro";
 import NutritionTeaser from "./NutritionTeaser.astro";
 import InquiryTeaser from "./InquiryTeaser.astro";
 import ArtTeaser from "./ArtTeaser.astro";
+import SymbolMathTeaser from "./SymbolMathTeaser.astro";
 import {getPage} from "../lib/pages.mjs";
 const {lang,slug}=Astro.props;
 const content=getPage(lang,slug);
@@ -98,4 +99,5 @@ segments.push({kind:"html",body:content.slice(position)});
  part.kind==="military"?<MilitaryTeaser lang={lang}/>:
  <NutritionTeaser lang={lang}/>
 )}
+{slug==="pruefstand" && <SymbolMathTeaser lang={lang}/>}
 </Layout>

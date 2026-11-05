@@ -181,3 +181,23 @@ for(const lang of ["de","en"]){
 }
 if(errors.length){console.error(errors.join("\n"));process.exit(1);}
 console.log(`Verified ${slugs.length*2} localized pages, mission navigation, register export, tree memberships, proposal status, no-JS content and thesis consistency.`);
+
+// Workshop: both interactive routes, usable static content and discovery paths.
+for (const lang of ["de", "en"]) {
+ const route = `/grundtext-des-wirklichen/${lang}/esoterik-und-mathematik/`;
+ const html = await readFile(join(out, lang, "esoterik-und-mathematik/index.html"), "utf8");
+ for (const token of ['data-symbol-lab', 'data-worksheet', 'data-statistics', '<noscript>', 'data-binary-word', 'data-download="json"', 'data-download="txt"', 'rel="canonical"', 'hreflang="de"', 'hreflang="en"']) {
+  if (!html.includes(token)) errors.push(`Workshop ${lang} lacks ${token}`);
+ }
+ if ((html.match(/data-state="\d+"/g) || []).length !== 64) errors.push(`Workshop ${lang} must show 64 patterns`);
+ if ((html.match(/data-line="\d+"/g) || []).length !== 6) errors.push(`Workshop ${lang} must have six line controls`);
+ if (!html.includes(`<html lang="${lang}"`) || html.includes('<title>undefined')) errors.push(`Workshop ${lang} metadata invalid`);
+ for (const slug of ["index", "atlas", "bibliothek", "pruefstand", "methode", "erkenntnishorizont"]) {
+  const page = await readFile(join(out, lang, ...(slug === 'index' ? [] : [slug]), 'index.html'), 'utf8');
+  if (!page.includes(route)) errors.push(`Workshop not discoverable from ${lang}/${slug}`);
+ }
+ const sitemap = await readFile(join(out, 'sitemap.xml'), 'utf8');
+ if (!sitemap.includes(route)) errors.push(`Workshop ${lang} missing from sitemap`);
+}
+if(errors.length){console.error(errors.join("\n"));process.exit(1);}
+console.log('Verified symbol/mathematics workshop: bilingual routes, 64 states, six controls, exports and discovery.');
