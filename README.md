@@ -18,6 +18,12 @@ The first integrated tool release makes it possible to structure a question, exa
 >
 > *Examine knowledge. Act with care. Correct our course.*
 
+> **Etwas ist nicht wahr, weil es auf wirklich.org steht. Es soll dort stehen, weil es der Prüfung standhält.**
+>
+> *Something is not true because it appears on wirklich.org. It belongs there only if it withstands scrutiny.*
+
+Das ist eine Selbstbindung für die angestrebte öffentliche Adresse, keine Behauptung über Domainbesitz oder den heutigen Prüfstatus. Die Marke darf nie eine Quelle ersetzen. [Vertrauensregel und konkrete Anforderungen](docs/mission.md#unser-maßstab-eine-adresse-ist-kein-beweis).
+
 Was wäre, wenn wir ein Werk schreiben, das für immer lernen darf?
 
 Wir entwickeln eine offene Werkstatt, in der Menschen Wissen prüfen, Entscheidungen begründen und aus Irrtümern lernen. Wissenschaft, Philosophie und KI tragen unterschiedliche Werkzeuge bei. Menschliche Würde, Freiheit und Fürsorge sind offengelegte Werte; konkrete Wirkungen bleiben zu untersuchen.
