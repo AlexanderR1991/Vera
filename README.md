@@ -28,6 +28,9 @@ The first integrated tool release makes it possible to structure a question, exa
 
 **Wir sind Forschung! / We are research!**
 
+**Wir sind Philosophie.** Wir fragen auch, nach welchen Maßstäben wir urteilen und warum.  
+**We are philosophy.** We also ask what standards we use to make judgments, and why. [Was heißt hier Fortschritt? / What counts as progress?](docs/mission.md#wir-sind-philosophie)
+
 > **Wissen prüfen. Menschlich handeln. Den Kurs korrigieren.**
 >
 > *Examine knowledge. Act with care. Correct our course.*
