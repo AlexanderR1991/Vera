@@ -42,6 +42,12 @@ const t=copy[lang];
     </div>
     <div class="container mission-status"><span>WIRKLICH {project.version} · {t.status}</span><a href={pathFor(lang,"projektstatus")}>{lang==="de"?"Was 1.0 leistet und was offen ist ↗":"What 1.0 offers and what remains open ↗"}</a></div>
   </section>
+  <section class="mission-trust" aria-labelledby="mission-trust-title"><div class="container">
+    <p class="section-kicker">{lang==="de"?"UNSER MASSSTAB · VERTRAUEN DURCH PRÜFUNG":"OUR STANDARD · TRUST THROUGH SCRUTINY"}</p>
+    <h2 id="mission-trust-title">{lang==="de"?"Etwas ist nicht wahr, weil es auf wirklich.org steht. Es soll dort stehen, weil es der Prüfung standhält.":"Something is not true because it appears on wirklich.org. It belongs there only if it withstands scrutiny."}</h2>
+    <p>{lang==="de"?"Der Name soll eines Tages zu nachvollziehbaren Belegen, Gegenargumenten und Korrekturen führen — niemals selbst als Beweis gelten. Das ist unser Ziel, nicht der erreichte Prüfstatus unserer bisherigen Inhalte.":"One day, the name should lead people to inspectable evidence, counterarguments and corrections — never serve as proof in itself. This is our aspiration, not a claim that our existing content has passed independent review."}</p>
+    <a class="subtle-link" href={pathFor(lang,"mission")+"#vertrauen"}>{lang==="de"?"Die Vertrauensregel lesen ↗":"Read the trust principle ↗"}</a>
+  </div></section>
   <section class="workbench-entry" aria-labelledby="workbench-entry-title"><div class="container"><div><p class="section-kicker">{lang==="de"?"EIN WERKZEUG FÜR DEINE FRAGE":"A TOOL FOR YOUR QUESTION"}</p><h2 id="workbench-entry-title">{lang==="de"?"Nicht alles wissen. Sorgfältig weiterfragen.":"You can start before you know the answer."}</h2><p>{lang==="de"?"Ordne eine Aussage, ihre Gründe, den stärksten Einwand und deinen nächsten Schritt. Dein Prüfblatt bleibt bei dir und lässt sich als Text oder JSON mitnehmen.":"Organize a claim, its reasons, the strongest objection and your next step. Your worksheet stays with you and can be exported as text or JSON."}</p></div><a class="button button--gold" href={pathFor(lang,"werkstatt")}>{lang==="de"?"Prüfblatt öffnen ↗":"Open worksheet ↗"}</a></div></section>
   <InquiryTeaser lang={lang} />
   <TreeBridge lang={lang} />
@@ -66,6 +72,10 @@ const t=copy[lang];
 </Layout>
 
 <style>
+.mission-trust{padding:42px 0 48px}
+.mission-trust .container{border-left:2px solid var(--gold);padding-left:26px}
+.mission-trust h2{font-size:clamp(24px,3.2vw,42px);line-height:1.3;max-width:900px;margin:12px 0 18px}
+.mission-trust p:not(.section-kicker){max-width:810px}
 .workshop-entry{margin-block:36px;padding:24px;border:1px solid var(--line)}
 .workshop-entry p{max-width:920px;margin:0}.workshop-entry .subtle-link{margin-top:16px}
 </style>
