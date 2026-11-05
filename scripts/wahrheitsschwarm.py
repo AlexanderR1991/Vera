@@ -12,6 +12,7 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
+import xml.etree.ElementTree as ET
 
 OUT = Path(__file__).resolve().parents[1] / "public" / "research" / "stream.json"
 NOW = dt.datetime.now(dt.timezone.utc)
@@ -22,7 +23,17 @@ TOPICS = {
     "liebe": "social connection attachment mental well-being",
     "gesellschaft": "deliberative democracy social trust institutions",
     "ki": "artificial intelligence scientific discovery evaluation",
+    "kunst": "empirical aesthetics art perspective taking interpretation",
 }
+# Bounded discovery, not a systematic review or a crawl of the whole web.
+ARXIV_QUERIES = {
+    "kunst": 'all:"computational creativity" OR all:"empirical aesthetics"',
+    "bewusstsein": 'ti:consciousness OR ti:"conscious perception"',
+    "ki": 'all:"scientific discovery" AND (cat:cs.AI OR cat:cs.LG)',
+}
+ATOM = "{http://www.w3.org/2005/Atom}"
+ARXIV = "{http://arxiv.org/schemas/atom}"
+ARXIV_ID = re.compile(r"(?:\d{4}\.\d{4,5}|[a-z][a-z.\-]+/\d{7})v[1-9]\d*", re.I)
 API_KEY = os.getenv("OPENAI_API_KEY", "")
 MODEL = os.getenv("RESEARCH_MODEL", "gpt-4.1-mini")
 MAX_ANALYSES = min(5, max(0, int(os.getenv("RESEARCH_MAX_ANALYSES", "2"))))
@@ -85,6 +96,59 @@ def discover(topic, query):
         })
     return found
 
+def parse_arxiv(payload, topic):
+    root = ET.fromstring(payload)
+    if root.tag != ATOM + "feed":
+        raise ValueError("Unexpected arXiv response; expected Atom feed")
+    found = []
+    for entry in root.findall(ATOM + "entry"):
+        raw_id = entry.findtext(ATOM + "id", "").strip()
+        url = urllib.parse.urlsplit(raw_id)
+        if url.hostname == "arxiv.org" and url.path.startswith("/api/errors"):
+            raise ValueError("arXiv returned an API error entry")
+        identifier = url.path.removeprefix("/abs/")
+        if (url.scheme not in ("http", "https") or url.netloc != "arxiv.org"
+                or not url.path.startswith("/abs/") or url.query or url.fragment
+                or not ARXIV_ID.fullmatch(identifier)):
+            continue
+        title = clean(entry.findtext(ATOM + "title", ""), 250)
+        if len(title) < 15:
+            continue
+        try:
+            published = dt.date.fromisoformat(entry.findtext(ATOM + "published", "")[:10]).isoformat()
+        except ValueError:
+            continue
+        authors = [clean(author.findtext(ATOM + "name", ""), 100)
+                   for author in entry.findall(ATOM + "author")[:5]]
+        doi = entry.findtext(ARXIV + "doi", "").strip().lower()
+        found.append({
+            "id": "arxiv:" + identifier, "topic": topic, "title": title,
+            "date": published, "authors": [a for a in authors if a],
+            "venue": "arXiv", "url": "https://arxiv.org/abs/" + identifier,
+            "source": "arXiv bibliographic metadata", "source_type": "repository_manuscript",
+            "peer_review": "not_verified", "version": identifier.rsplit("v", 1)[1],
+            "related_doi": doi if DOI.fullmatch(doi) else "",
+            "status": "unreviewed", "source_examined": "metadata_only", "agent_notes": {},
+        })
+    return found[:5]
+
+def discover_arxiv(topic, query):
+    since = (NOW - dt.timedelta(days=45)).strftime("%Y%m%d0000")
+    until = NOW.strftime("%Y%m%d2359")
+    params = urllib.parse.urlencode({
+        "search_query": f"({query}) AND submittedDate:[{since} TO {until}]",
+        "start": 0, "max_results": 5, "sortBy": "submittedDate", "sortOrder": "descending",
+    })
+    req = urllib.request.Request("https://export.arxiv.org/api/query?" + params, headers={
+        "User-Agent": "Grundtext-Wahrheitsschwarm/1.1 (https://github.com/AlexanderR1991/grundtext-des-wirklichen)",
+        "Accept": "application/atom+xml",
+    })
+    with urllib.request.urlopen(req, timeout=25) as response:
+        payload = response.read(1_000_001)
+    if len(payload) > 1_000_000:
+        raise ValueError("arXiv response exceeds metadata size limit")
+    return parse_arxiv(payload, topic)
+
 ROLES = {
     "methodologist": (
         "What is ONE methodological question and ONE data limitation? "
@@ -142,20 +206,36 @@ def main():
     papers = {item["id"]: item for item in old["items"]
               if isinstance(item, dict) and item.get("id")}
     fresh, errors, successful = [], [], 0
+    source_success = {"Crossref": 0, "arXiv": 0}
     for topic, query in TOPICS.items():
         try:
             found = discover(topic, query)
             successful += 1
+            source_success["Crossref"] += 1
             for paper in found:
                 if paper["id"] not in papers:
                     papers[paper["id"]] = paper
                     fresh.append(paper["id"])
             print(topic, len(found))
         except (urllib.error.URLError, ValueError, KeyError, TimeoutError) as err:
-            errors.append(f"{topic}: {type(err).__name__}: {str(err)[:120]}")
+            errors.append(f"Crossref/{topic}: {type(err).__name__}: {str(err)[:120]}")
         time.sleep(0.2)
+    for topic, query in ARXIV_QUERIES.items():
+        # arXiv requires a single connection and at least 3 seconds between calls.
+        time.sleep(3.1)
+        try:
+            found = discover_arxiv(topic, query)
+            successful += 1
+            source_success["arXiv"] += 1
+            for paper in found:
+                if paper["id"] not in papers:
+                    papers[paper["id"]] = paper
+                    fresh.append(paper["id"])
+            print("arXiv/" + topic, len(found))
+        except (urllib.error.URLError, ValueError, ET.ParseError, TimeoutError) as err:
+            errors.append(f"arXiv/{topic}: {type(err).__name__}: {str(err)[:120]}")
     if successful == 0:
-        sys.exit("Crossref unavailable for all topics; existing data unchanged")
+        sys.exit("All discovery sources unavailable; existing data unchanged")
     if API_KEY:
         pending = sorted(
             (p for p in papers.values()
@@ -183,7 +263,8 @@ def main():
         "updated_at": NOW.isoformat(timespec="seconds"),
         "status": "automatic_discovery_not_fact_checked",
         "analysis": "metadata_only",
-        "source": "Crossref",
+        "source": "Crossref + arXiv",
+        "source_queries": source_success,
         "source_queries_succeeded": successful,
         "new_items": len(fresh),
         "agents_enabled": bool(API_KEY),

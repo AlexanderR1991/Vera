@@ -101,6 +101,23 @@ Ein zweisprachiges theologisches Kapitel eröffnet einen respektvollen, aber kri
 - [English: Nutrition and Responsibility (translation draft)](https://alexanderr1991.github.io/grundtext-des-wirklichen/en/ernaehrung-und-verantwortung/)
 - [Offenes Forschungsprogramm, Evidenzstand und Quellen](docs/forschungsprogramm-ernaehrung.md)
 
+## Kunst und Erkenntnis / Art and Inquiry
+
+**KUNST DARF UNS WIDERSPRECHEN. / ART MAY CHALLENGE US.**
+
+Liber Artis öffnet das Projekt für Bilder, Musik, Literatur, Film, Tanz, Spiele und Performance. Werk, Erleben, Deutung, überprüfbare Behauptung und Werturteil bleiben unterscheidbar. Ein erster literarischer Entwurf und drei offene Forschungsfragen laden zum Widerspruch ein; Kunst muss keine Hypothese beweisen.
+
+Art may ask its own questions, including uncomfortable ones about this project. The chapter distinguishes experience and interpretation from testable claims, and welcomes alternative readings. The research proposals are untested.
+
+- [Deutsch: Kunst und Erkenntnis](https://alexanderr1991.github.io/grundtext-des-wirklichen/de/kunst-und-erkenntnis/)
+- [English: Art and Inquiry (translation draft)](https://alexanderr1991.github.io/grundtext-des-wirklichen/en/kunst-und-erkenntnis/)
+- [Konzept, offene Fragen und Quellen / Concept, questions and sources](docs/kunst-und-erkenntnis.md)
+- [Kunst & Gegenlesart einreichen / Submit art & an alternative reading](https://github.com/AlexanderR1991/grundtext-des-wirklichen/issues/new?template=kunst.yml)
+
+Der Forschungsstrom sucht zusätzlich in arXiv und nimmt Kunst als siebtes Crossref-Themenfeld auf. Quellen aus dem übrigen Netz können über die Quellenprüfung eingebracht werden. Begrenzte Metadatensuche und offene Einreichungen sind keine vollständige Erfassung des Netzes oder fachliche Bestätigung.
+
+The research stream also searches arXiv and adds art as a seventh Crossref topic. Other web sources enter through source submissions. Bounded metadata discovery and open submissions are not comprehensive internet coverage or scholarly validation.
+
 ## Angriffsschwarm / Adversarial Swarm
 
 **Greift unsere Thesen an.** Der Angriffsschwarm stellt öffentliche Behauptungen täglich einem KI-gestützten Gegenargument, einer fairen Verteidigung und einer kritischen Einordnung gegenüber. Alle Ergebnisse sind **ungeprüfte KI-Entwürfe**, keine unabhängigen Fachgutachten; der tägliche Workflow benötigt einen konfigurierten API-Schlüssel.

@@ -7,6 +7,10 @@ body:
       value: |
         Bitte zwischen empirischer Behauptung, philosophischer These und Metapher unterscheiden.
         Distinguish empirical claims from philosophical positions and metaphors.
+        Quellen aus dem ganzen öffentlichen Netz sind willkommen; eine Fundstelle ist noch kein Beleg.
+        Sources from across the public web are welcome; a reference is not yet evidence.
+        Kunst und Deutungen können auch über die Vorlage Kunst & Gegenlesart eingebracht werden.
+        Art and interpretations can also use the Art & alternative reading form.
   - type: textarea
     id: aussage
     attributes:
@@ -22,7 +26,7 @@ body:
     id: belege
     attributes:
       label: "Quellen und Daten / Sources and data"
-      description: "DOI, Publikation, Originalquelle, Datum, Methode / DOI, paper, original source, date, methodology"
+      description: "Original-Link, Urheberschaft, Datum/Version, genaue Seite/Zeitmarke; kenntlich machen, ob Volltext oder nur Metadaten gelesen. Original link, creator, date/version, exact page/time; state whether full text or metadata only was read."
     validations:
       required: true
   - type: textarea
@@ -31,6 +35,11 @@ body:
       label: "Was stützt oder widerlegt die Aussage? / Supporting or conflicting evidence"
     validations:
       required: true
+  - type: textarea
+    id: herkunft
+    attributes:
+      label: "Quellenart und Abhängigkeiten / Source type and dependencies (optional)"
+      description: "Studie, Preprint, Essay, Kunstwerk, Erfahrungsbericht? Kopie, Übersetzung oder andere Fassung derselben Quelle? Study, preprint, essay, artwork, experience? Copy, translation or version of another source?"
   - type: textarea
     id: korrektur
     attributes:

@@ -1,0 +1,39 @@
+name: "Kunst & Gegenlesart / Art & alternative reading"
+description: "Ein Werk, eine Deutung oder eine künstlerische Kritik einbringen / Share art or an interpretation"
+title: "[Kunst / Art] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Kunst darf unser Regelwerk herausfordern und eigene Fragen stellen. Ein Werk muss keine Hypothese beweisen.
+        Art may challenge our framework and ask its own questions. A work need not prove a hypothesis.
+        Öffentliches Formular / Public form. Verlinke fremde Werke; lade sie nur mit den nötigen Rechten hoch.
+        Link third-party works; upload them only with the necessary rights. Submission does not transfer rights or guarantee inclusion.
+  - type: textarea
+    id: werk
+    attributes:
+      label: "Werk, Herkunft und Kontext / Work, provenance and context"
+      description: "Original-Link, Titel, Urheberschaft, Datum/Version; eigenen Entwurf kennzeichnen. Original link, title, creator, date/version; label your own draft."
+    validations:
+      required: true
+  - type: textarea
+    id: lesart
+    attributes:
+      label: "Deine Wahrnehmung oder Frage / Your experience or question"
+      description: "Beschreibung, persönliches Erleben und Deutung möglichst trennen. Distinguish description, personal experience and interpretation where possible."
+    validations:
+      required: true
+  - type: textarea
+    id: gegenlesart
+    attributes:
+      label: "Andere mögliche Lesart / Another possible reading (optional)"
+  - type: textarea
+    id: bezug
+    attributes:
+      label: "Bezug zum Projekt / Connection to the project (optional)"
+      description: "Welche konkrete These oder Leerstelle berührt das Werk? Welche neue Frage öffnet es? Which claim or omission does it address? What question does it open?"
+  - type: textarea
+    id: rechte
+    attributes:
+      label: "Rechte und Hilfsmittel / Rights and tools (optional)"
+      description: "Bei gewünschter Übernahme: Rechtehinweis, Lizenz, Änderungen, KI-Beteiligung soweit bekannt. For proposed inclusion: rights statement, licence, modifications, AI involvement where known."
