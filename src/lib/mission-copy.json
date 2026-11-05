@@ -1,6 +1,6 @@
 {
   "de": {
-    "kicker": "WIR SIND FORSCHUNG!",
+    "kicker": "WIRKLICH · DIE OFFENE ERKENNTNISWERKSTATT",
     "headline": "Wissen prüfen.",
     "headlineAccent": "Menschlich handeln.",
     "lead": "Eine offene Forschungswerkstatt, in der Menschen Fragen stellen, Annahmen prüfen und aus Irrtümern lernen. Mit Wissenschaft, Philosophie und KI — und mit Verantwortung für die Folgen. Auch unser eigenes Regelwerk steht zur Prüfung.",
@@ -14,7 +14,7 @@
     "compassText": "Würde · Freiheit · Fürsorge",
     "course": "KURS",
     "courseText": "Fragen · Prüfen · Entscheiden · Lernen",
-    "status": "Arbeitsfassung · unabhängige Fachprüfung offen",
+    "status": "Werkzeugfassung · unabhängige Fachprüfung offen",
     "roomsTitle": "Drei Räume. Klare Grenzen.",
     "roomsIntro": "Eine Quelle, eine Vermutung und ein Werturteil dürfen nebeneinander stehen. Ihre unterschiedlichen Ansprüche müssen sichtbar bleiben.",
     "rooms": [
@@ -44,7 +44,7 @@
     "challengeLink":"Unsere Aussagen herausfordern ↗"
   },
   "en": {
-    "kicker":"WE ARE RESEARCH!",
+    "kicker":"WIRKLICH · THE OPEN INQUIRY WORKSHOP",
     "headline":"Examine knowledge.",
     "headlineAccent":"Act with care.",
     "lead":"An open research workshop where people ask questions, examine assumptions and learn from mistakes. With science, philosophy and AI — and responsibility for the consequences. Our own framework is open to examination too.",
@@ -58,7 +58,7 @@
     "compassText":"Dignity · Freedom · Care",
     "course":"COURSE",
     "courseText":"Ask · Examine · Decide · Learn",
-    "status":"Working draft · independent expert review pending",
+    "status":"Tool release · independent expert review pending",
     "roomsTitle":"Three spaces. Clear boundaries.",
     "roomsIntro":"A source, a conjecture and a value judgment can coexist. Their different claims to justification must remain visible.",
     "rooms":[

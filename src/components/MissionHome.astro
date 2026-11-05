@@ -5,7 +5,9 @@ import TreeBridge from "./TreeBridge.astro";
 import Layout from "../layouts/SiteLayout.astro";
 import copy from "../lib/mission-copy.json";
 import {pathFor} from "../lib/paths.mjs";
+import project from "../../public/project.json";
 import "../styles/mission.css";
+import "../styles/workbench.css";
 const {lang="de"}=Astro.props;
 const t=copy[lang];
 ---
@@ -16,7 +18,7 @@ const t=copy[lang];
         <p class="section-kicker">{t.kicker}</p>
         <h1>{t.headline}<br/><em>{t.headlineAccent}</em></h1>
         <p class="mission-lead">{t.lead}</p>
-        <div class="button-row"><a class="button button--gold" href={pathFor(lang,"mission")}>{t.missionLink}</a><a class="button button--ghost" href={pathFor(lang,"aussagen")}>{t.registerLink}</a></div>
+        <div class="button-row"><a class="button button--gold" href={pathFor(lang,"werkstatt")}>{lang==="de"?"Mit einer Frage beginnen ↗":"Start with a question ↗"}</a><a class="button button--ghost" href={pathFor(lang,"mission")}>{t.missionLink}</a></div>
         <p class="mission-premise">{t.premise}</p>
       </div>
       <aside class="mission-instrument" aria-label={t.shipLabel}>
@@ -38,8 +40,9 @@ const t=copy[lang];
         <dl><div><dt>{t.compass}</dt><dd>{t.compassText}</dd></div><div><dt>{t.course}</dt><dd>{t.courseText}</dd></div></dl>
       </aside>
     </div>
-    <div class="container mission-status"><span>{t.status}</span><a href={pathFor(lang,"mission")+"#stand"}>{lang==="de"?"Was bereits existiert ↗":"What exists today ↗"}</a></div>
+    <div class="container mission-status"><span>WIRKLICH {project.version} · {t.status}</span><a href={pathFor(lang,"projektstatus")}>{lang==="de"?"Was 1.0 leistet und was offen ist ↗":"What 1.0 offers and what remains open ↗"}</a></div>
   </section>
+  <section class="workbench-entry" aria-labelledby="workbench-entry-title"><div class="container"><div><p class="section-kicker">{lang==="de"?"EIN WERKZEUG FÜR DEINE FRAGE":"A TOOL FOR YOUR QUESTION"}</p><h2 id="workbench-entry-title">{lang==="de"?"Nicht alles wissen. Sorgfältig weiterfragen.":"You can start before you know the answer."}</h2><p>{lang==="de"?"Ordne eine Aussage, ihre Gründe, den stärksten Einwand und deinen nächsten Schritt. Dein Prüfblatt bleibt bei dir und lässt sich als Text oder JSON mitnehmen.":"Organize a claim, its reasons, the strongest objection and your next step. Your worksheet stays with you and can be exported as text or JSON."}</p></div><a class="button button--gold" href={pathFor(lang,"werkstatt")}>{lang==="de"?"Prüfblatt öffnen ↗":"Open worksheet ↗"}</a></div></section>
   <InquiryTeaser lang={lang} />
   <TreeBridge lang={lang} />
   <section class="section mission-section" aria-labelledby="rooms-title"><div class="container">

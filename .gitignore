@@ -6,3 +6,5 @@ src/generated/
 public/assets/
 public/*.html
 public/.nojekyll
+__pycache__/
+*.py[cod]

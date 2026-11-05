@@ -1,6 +1,7 @@
 ---
 import {ui,navigation} from "../lib/ui.mjs";
 import {pathFor,absoluteFor,base} from "../lib/paths.mjs";
+import project from "../../public/project.json";
 const {lang="de",slug="index",root=false}=Astro.props;
 const t=ui[lang];
 const title=root?"Choose your language / Sprache wählen":t.titles[slug];
@@ -16,8 +17,10 @@ const canonical=root?siteRoot:absoluteFor(lang,slug);
 <meta name="color-scheme" content="dark" />
 <meta name="description" content={t.description} />
 <meta property="og:type" content="website" />
-<meta property="og:title" content={title+" · Grundtext des Wirklichen"} />
+<meta property="og:title" content={title+" · "+project.name} />
 <meta property="og:description" content={t.description} />
+<meta property="og:url" content={canonical} />
+<meta name="application-name" content={project.name} />
 <meta property="og:locale" content={lang==="de"?"de_DE":"en_GB"} />
 <link rel="canonical" href={canonical} />
 <link rel="alternate" hreflang="de" href={absoluteFor("de",slug)} />
@@ -25,14 +28,14 @@ const canonical=root?siteRoot:absoluteFor(lang,slug);
 <link rel="alternate" hreflang="x-default" href={siteRoot} />
 <link rel="icon" type="image/svg+xml" href={base+"assets/signet.svg"} />
 <link rel="stylesheet" href={base+"assets/style.css"} />
-<title>{title} · Grundtext des Wirklichen</title>
+<title>{title} · {project.name}</title>
 <script is:inline src={base+"assets/site.js"} defer></script>
 </head>
 <body>
 <a class="skip-link" href="#inhalt">{lang==="de"?"Zum Inhalt springen":"Skip to content"}</a>
 <header class="site-header"><div class="site-header__inner">
-<a class="brand" href={pathFor(lang)} aria-label={lang==="de"?"Grundtext des Wirklichen – Startseite":"Grundtext des Wirklichen – homepage"}>
-<img src={base+"assets/signet.svg"} alt="" width="38" height="38" /><span class="brand__name">GRUNDTEXT<span>DES WIRKLICHEN</span><small>{t.subtitle}</small></span>
+<a class="brand" href={pathFor(lang)} aria-label={project.name+(lang==="de"?" – Startseite":" – homepage")}>
+<img src={base+"assets/signet.svg"} alt="" width="38" height="38" /><span class="brand__name">{project.name}<small>{t.subtitle}</small></span>
 </a>
 <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-navigation"><span>{t.menu}</span><span class="menu-lines" aria-hidden="true">☰</span></button>
 <nav id="site-navigation" class="site-nav" aria-label={lang==="de"?"Hauptnavigation":"Main navigation"}>
@@ -44,12 +47,19 @@ const canonical=root?siteRoot:absoluteFor(lang,slug);
 </div>
 <a class="header-project" href="https://github.com/AlexanderR1991/grundtext-des-wirklichen" target="_blank" rel="noopener noreferrer">GITHUB <span aria-hidden="true">↗</span></a>
 </div></header>
-<div class="edition-line"><span>{t.archive}</span><span>{t.motto}</span></div>
+<div class="edition-line"><a href={pathFor(lang,"projektstatus")} data-project-version={project.version}>{t.archive} ↗</a><span>{t.motto}</span></div>
 {lang==="en"&&!root&&<div class="translation-notice"><div class="container"><span aria-hidden="true">◇</span><span>{t.status}</span><a href={pathFor("de",slug)}>Deutsch →</a></div></div>}
 <main id="inhalt"><slot /></main>
 <footer class="footer"><div class="container footer__grid">
 <div><img src={base+"assets/signet.svg"} width="54" height="54" alt="" /><h2>{t.footerTitle}</h2><p>{t.footerDescription}</p></div>
 <div class="footer__links"><div><strong>{t.explore}</strong><a href={pathFor(lang,"baum-des-wissens")}>{lang==="de"?"Der fliegende Baum":"The flying tree"}</a><a href={pathFor(lang,"atlas")}>{t.nav[1]}</a><a href={pathFor(lang,"bibliothek")}>{t.nav[2]}</a><a href={pathFor(lang,"aussagen")}>{t.nav[3]}</a><a href={pathFor(lang,"pruefstand")}>{lang==="de"?"Die neun Thesen":"The nine theses"}</a><a href={pathFor(lang,"esoterik-und-mathematik")}>{lang==="de"?"Esoterik & Mathematik":"Esotericism & Mathematics"}</a><a href={pathFor(lang,"forschungsstrom")}>{lang==="de"?"Forschungsstrom":"Research Stream"}</a><a href={pathFor(lang,"angriffsschwarm")}>{lang==="de"?"Angriffsschwarm":"Adversarial Swarm"}</a><a href={pathFor(lang,"kunst-und-erkenntnis")}>{lang==="de"?"Kunst & Erkenntnis":"Art & inquiry"}</a><a href={pathFor(lang,"ernaehrung-und-verantwortung")}>{lang==="de"?"Ernährung":"Nutrition"}</a></div>
-<div><strong>{t.project}</strong><a href={pathFor(lang,"fragen-und-ki-prompt")}>{lang==="de"?"Fragen & KI-Prompt":"Questions & AI prompt"}</a><a href={pathFor(lang,"mission")}>{lang==="de"?"Unsere Mission":"Our mission"}</a><a href={pathFor(lang,"methode")}>{t.nav[4]}</a><a href={pathFor(lang,"mitwirken")}>{t.nav[5]}</a><a href={pathFor(lang,"mitwirken")+"#unterstuetzen"}>{lang==="de"?"Projekt unterstützen":"Support the project"}</a><a href="https://github.com/AlexanderR1991/grundtext-des-wirklichen/discussions" target="_blank" rel="noopener noreferrer">{lang==="de"?"Diskutieren ↗":"Discuss ↗"}</a><a href="https://github.com/AlexanderR1991/grundtext-des-wirklichen" target="_blank" rel="noopener noreferrer">{t.source} ↗</a></div></div>
+<div><strong>{t.project}</strong><a href={pathFor(lang,"werkstatt")}>{lang==="de"?"Dein Prüfblatt":"Your inquiry worksheet"}</a><a href={pathFor(lang,"projektstatus")}>{lang==="de"?"Version & Projektstatus":"Version & project status"}</a><a href={pathFor(lang,"fragen-und-ki-prompt")}>{lang==="de"?"Fragen & KI-Prompt":"Questions & AI prompt"}</a><a href={pathFor(lang,"mission")}>{lang==="de"?"Unsere Mission":"Our mission"}</a><a href={pathFor(lang,"methode")}>{t.nav[4]}</a><a href={pathFor(lang,"mitwirken")}>{t.nav[5]}</a><a href={pathFor(lang,"mitwirken")+"#unterstuetzen"}>{lang==="de"?"Projekt unterstützen":"Support the project"}</a><a href="https://github.com/AlexanderR1991/grundtext-des-wirklichen/discussions" target="_blank" rel="noopener noreferrer">{lang==="de"?"Diskutieren ↗":"Discuss ↗"}</a><a href="https://github.com/AlexanderR1991/grundtext-des-wirklichen" target="_blank" rel="noopener noreferrer">{t.source} ↗</a></div></div>
 </div><div class="container footer__bottom"><span>{t.copyright}</span><span>{t.disclosure}</span><a href="https://github.com/AlexanderR1991/grundtext-des-wirklichen/blob/main/LICENSING.md" target="_blank" rel="noopener noreferrer">{lang==="de"?"Lizenzdetails & Ausnahmen ↗":"License details & exceptions ↗"}</a></div></footer>
 </body></html>
+
+<style is:global>
+.brand{min-width:200px}.brand__name{font-size:22px;letter-spacing:.12em}.brand__name small{font-size:8px;letter-spacing:.14em;max-width:210px;line-height:1.5}.edition-line a:hover{color:var(--gold-bright)}
+@media(max-width:1130px){.site-nav{gap:12px}.site-nav a{font-size:10px;letter-spacing:.07em}.brand{min-width:184px}}
+@media(max-width:660px){.brand{min-width:0}.brand__name{font-size:20px}.brand__name small{font-size:7px;max-width:175px}.brand img{width:30px;height:30px}.site-header__inner{gap:10px}}
+@media(max-width:420px){.brand__name small{display:none}.site-header__inner{min-height:74px}}
+</style>

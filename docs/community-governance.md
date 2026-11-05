@@ -1,5 +1,7 @@
 # Gemeinschaft und Redaktion / Community & editorial process
 
+**WIRKLICH 1.0 · Grundtext des Wirklichen als philosophisches Fundament**
+
 ## Grundsatz / Principle
 
 > Die Wirklichkeit steht über diesem Werk. / Reality stands above this work.
@@ -28,6 +30,10 @@ Anyone can suggest ideas through issues or changes through pull requests. **Subm
 6. **Dokumentation / Record:** Wichtige Änderungen in der Versionsgeschichte erfassen.
 
 ## Verantwortung / Responsibilities
+
+Ein persönliches Prüfblatt aus der Werkstatt ist ein ungeprüfter Entwurf. Export, Speicherung und Import verleihen weder eine öffentliche Kennung noch eine fachliche Freigabe. Für eine Aufnahme ins Aussagenregister gelten dieselben Quellen-, Rechte-, Revisions- und menschlichen Prüfpflichten wie für andere Beiträge. Ein methodisch vollständiges Blatt darf trotzdem falsch, unklar oder nicht auflösbar sein.
+
+A personal worksheet is an unreviewed draft. Exporting, saving or importing it does not grant a public identifier or expert approval. Admission to the claim register retains the same source, rights, revision and human review requirements as other contributions.
 
 Respekt und substantielle Gegenargumente sollen nebeneinander möglich sein. Die Maintainer können toxische oder private Inhalte entfernen, müssen aber nicht vorgetäuschte Einstimmigkeit herstellen. Die Lizenzzuordnung ist in [LICENSING.md](../LICENSING.md) dokumentiert. Bei Beiträgen sind Rechte, Zustimmung und angemessene Namensnennung vor der Übernahme zu prüfen; die redaktionelle Verantwortung liegt weiterhin bei den Maintainers.
 

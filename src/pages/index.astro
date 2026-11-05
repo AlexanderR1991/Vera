@@ -1,18 +1,19 @@
 ---
 import Layout from "../layouts/SiteLayout.astro";
 import {pathFor} from "../lib/paths.mjs";
+import project from "../../public/project.json";
 ---
 <Layout lang="de" root={true}>
 <section class="locale-landing"><div class="narrow">
 <div class="locale-landing__symbol">◇</div>
-<p class="section-kicker">GRUNDTEXT DES WIRKLICHEN · INTERNATIONAL EDITION</p>
+<p class="section-kicker">{project.name} {project.version} · {project.subtitle.de}</p>
 <p class="locale-landing__premise">Die Menschheit hat über Jahrtausende versucht, Bücher zu schreiben, die für immer recht haben.</p>
 <h1 class="locale-landing__question">Was wäre, wenn wir eines schreiben,<br/><em>das für immer lernen darf?</em></h1>
 <div class="locale-landing__translation" lang="en">
 <p>For thousands of years, humanity has tried to write books that would be right forever.</p>
 <p class="locale-landing__translation-question">What if we wrote one that could keep learning forever?</p>
 </div>
-<p class="locale-landing__invite">Wähle deine Sprache und denke mit. / Choose your language and join the inquiry.</p>
+<p class="locale-landing__invite">Fragen stellen. Wissen prüfen. Verantwortlich handeln.<br/>Ask questions. Examine knowledge. Act responsibly.</p>
 <div class="locale-landing__links">
 <a href={pathFor("de")}>Deutsch <span>Originalfassung ↗</span></a>
 <a href={pathFor("en")}>English <span>Translation draft ↗</span></a>

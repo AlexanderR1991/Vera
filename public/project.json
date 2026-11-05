@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "name": "WIRKLICH",
+  "former_name": "Grundtext des Wirklichen",
+  "version": "1.0.0",
+  "release_date": "2026-11-05",
+  "subtitle": {
+    "de": "Die offene Erkenntniswerkstatt",
+    "en": "The open inquiry workshop"
+  },
+  "release_scope": {
+    "de": "Erste zusammenhängende Werkzeugfassung. Fachprüfung und Wirksamkeitsnachweis der Methode bleiben offen.",
+    "en": "First integrated tool release. Expert review and evaluation of the method remain pending."
+  },
+  "repository": "https://github.com/AlexanderR1991/grundtext-des-wirklichen",
+  "website": "https://alexanderr1991.github.io/grundtext-des-wirklichen/",
+  "languages": ["de", "en"],
+  "licenses": {"original_text": "CC-BY-SA-4.0", "original_software": "MIT", "exceptions": "LICENSING.md"}
+}
