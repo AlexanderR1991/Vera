@@ -36,6 +36,12 @@ Bei empirischen und historischen Behauptungen heißt das Quellen- und Methodenpr
 
 **Unser Ziel ist nicht: „Glaubt uns.“ Unser Ziel ist: „Prüft unsere Begründung.“** Der heutige Prototyp erfüllt diesen Anspruch noch nicht flächendeckend. Das [Aussagenregister](aussagenregister.md) und die [erste 1.0-Werkzeugfassung](release-1.0.md) sind Schritte dorthin, keine Beglaubigung.
 
+## Wir sind Philosophie.
+
+Angenommen, eine Maschine verkürzt einen Arbeitsschritt von zwei Stunden auf eine. Eine Stunde ist gewonnen. Aber wer kann über sie verfügen? Wer von Fortschritt spricht, weil die Arbeit schneller geht, legt einen anderen Maßstab an als jemand, der fragt, ob die Beschäftigten freier über ihre Zeit entscheiden können.
+
+Welchen Maßstab wählen wir, und warum? Wer ihn anders setzt, kann uns einen Grund geben, schon die Frage zu ändern.
+
 ## Wir sind Forschung!
 
 **Wir stellen Fragen. Wir machen unsere Annahmen sichtbar. Wir suchen nach dem, was sie verändern könnte. Jede begründete Korrektur ist ein Fortschritt — auch wenn sie unser eigenes Regelwerk trifft.**

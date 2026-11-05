@@ -22,7 +22,7 @@
       {"number":"03", "title":"Verantwortlich entscheiden", "text":"Was wollen wir schützen? Wer ist betroffen? Welche Folgen würden unseren Kurs ändern?", "note":"Werte werden begründet. Wirkungen werden geprüft. Zielkonflikte bleiben sichtbar.", "slug":"mission", "hash":"#entscheidungen", "link":"Das Verfahren verstehen ↗"}
     ],
     "fieldsTitle":"Viele Fragen. Ein gemeinsamer Prüfweg.",
-    "fieldsIntro":"Die bisherigen Kapitel werden Forschungsfelder derselben Mission. Jede Verbindung ist eine Frage, kein behauptetes universelles Gesetz.",
+    "fieldsIntro":"Wir sind Philosophie. Wer fragt, wie Fürsorge gelingt, muss auch fragen, wo für den anderen Menschen Bevormundung beginnt.",
     "fields":[
       {"name":"Liebe & Beziehungen","question":"Wie hilft Fürsorge, ohne Freiheit zu nehmen?","slug":"warum-liebe-wirkt","className":"love-teaser"},
       {"name":"Leben & Ernährung","question":"Was brauchen Menschen — und wie werden wir den Folgen gerecht?","slug":"ernaehrung-und-verantwortung","className":"nutrition-teaser"},
@@ -65,7 +65,7 @@
       {"number":"03","title":"Decide responsibly","text":"What do we want to protect? Who is affected? Which consequences would change our course?","note":"Values need reasons. Effects need tests. Tradeoffs remain visible.","slug":"mission","hash":"#entscheidungen","link":"Understand the process ↗"}
     ],
     "fieldsTitle":"Many questions. A shared method.",
-    "fieldsIntro":"Our existing chapters become research fields within the same mission. Each connection is a question, not an asserted universal law.",
+    "fieldsIntro":"We are philosophy. When we ask what it means to care for someone, we also need to ask when care starts to feel like being told how to live.",
     "fields":[
       {"name":"Love & relationships","question":"How can care help without taking freedom away?","slug":"warum-liebe-wirkt","className":"love-teaser"},
       {"name":"Life & nutrition","question":"What do people need, and how do we take responsibility for the consequences?","slug":"ernaehrung-und-verantwortung","className":"nutrition-teaser"},
