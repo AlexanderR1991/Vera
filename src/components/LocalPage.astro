@@ -1,4 +1,5 @@
 ---
+import MissionBridge from "./MissionBridge.astro";
 import Layout from "../layouts/SiteLayout.astro";
 import HorizonTeaser from "./HorizonTeaser.astro";
 import LoveTeaser from "./LoveTeaser.astro";
@@ -70,6 +71,7 @@ for(const insertion of insertions){
 segments.push({kind:"html",body:content.slice(position)});
 ---
 <Layout lang={lang} slug={slug}>
+{["methode","pruefstand"].includes(slug)&&<MissionBridge lang={lang}/>}
 {segments.map(part=>
  part.kind==="html"?<Fragment set:html={part.body}/>:
  part.kind==="horizon"?<HorizonTeaser lang={lang} from={slug}/>:
