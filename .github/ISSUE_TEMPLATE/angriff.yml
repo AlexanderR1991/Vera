@@ -1,0 +1,53 @@
+name: "Härtetest / Adversarial challenge"
+description: "Stärkster prüfbarer Einwand gegen eine konkrete These / Strongest testable counterargument"
+title: "[Härtetest / Challenge] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Wir suchen nicht nach Zustimmung. Wir suchen nach guten Gegenargumenten.
+        We seek strong counterarguments, not agreement. No personal attacks, credentials or security probing.
+  - type: input
+    id: source
+    attributes:
+      label: "Exakte Stelle / Exact source"
+      description: "Link zu Datei, Abschnitt, commit/version, möglichst exaktes Zitat"
+      placeholder: "https://github.com/.../blob/<commit>/..."
+    validations:
+      required: true
+  - type: dropdown
+    id: type
+    attributes:
+      label: "Aussageart / Claim type"
+      options:
+        - "Empirisch / Empirical"
+        - "Logisch / Logical"
+        - "Normativ / Normative"
+        - "Interpretativ / Interpretive"
+        - "Metapher / Metaphor"
+        - "Unklar / Unclear"
+    validations:
+      required: true
+  - type: textarea
+    id: steelman
+    attributes:
+      label: "Stärkste faire Lesart / Strongest charitable reading"
+    validations:
+      required: true
+  - type: textarea
+    id: attack
+    attributes:
+      label: "Stärkster Einwand / Strongest objection"
+      description: "Erkläre, was falsch, unbelegt oder zu allgemein sein könnte."
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: "Gegenbeispiel, Quellen, Unsicherheit / Counterexample, sources, uncertainty"
+      description: "Kennzeichne hypothetische Beispiele. Erfinde keine Quellen."
+  - type: textarea
+    id: test
+    attributes:
+      label: "Prüfung und mögliche Revision / Discriminating test and proposed revision"
+      description: "Was würde deinen Einwand widerlegen? Wie könnte der Text korrigiert werden?"
