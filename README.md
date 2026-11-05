@@ -1,22 +1,30 @@
-# WIRKLICH · Die offene Erkenntniswerkstatt
+# WIRKLICH / REALLY?
 
-**Version 1.0.0 · The open inquiry workshop · 5. November 2026**
+**Die offene Erkenntniswerkstatt · The open inquiry workshop**
 
-Aus einer Frage wird ein nachvollziehbarer Prüfweg: Begriffe klären, Gründe prüfen, den stärksten Einwand ernst nehmen und den nächsten Schritt begrenzen. **Grundtext des Wirklichen** bleibt unser philosophisches Fundament; WIRKLICH ist der Name der gemeinsamen Werkstatt.
+[WIRKLICH · Deutsch](https://alexanderr1991.github.io/Wirklich/de/) · [REALLY? · English](https://alexanderr1991.github.io/Wirklich/en/)
+
+„Was ist wirklich?“ ist die Frage hinter dem deutschen Namen. Auf Englisch heißt die Werkstatt **REALLY?**.
+
+In English, our guiding question is *What is real?* The name **REALLY?** is the question anyone can ask when they hear a claim.
+
+**Version 1.0.0 · 5. November 2026**
+
+Aus einer Frage wird ein nachvollziehbarer Prüfweg: Begriffe klären, Gründe prüfen, den stärksten Einwand ernst nehmen und den nächsten Schritt begrenzen. **Grundtext des Wirklichen** bleibt unser philosophisches Fundament.
 
 ## Unser Ursprung: „Die Richtung“ / Our origin: “Die Richtung”
 
 Die Idee zu **WIRKLICH** entstand aus der Arbeit an dem Buch **„Die Richtung“**. Aus dem Nachdenken über Wahrheit und Orientierung entwickelte sich die Idee, eine öffentliche Werkstatt zu schaffen, in der Aussagen begründet, angegriffen und korrigiert werden können. Das Buch bleibt der **gedankliche Ursprung**, der öffentliche **Grundtext des Wirklichen** das philosophische Fundament und **WIRKLICH** die offene Plattform. Auch die Ausgangsideen dürfen sich als falsch erweisen.
 
-**“Die Richtung”** is the intellectual starting point for WIRKLICH, not a source of scientific authority. The **German 2.0 text-only edition is now freely readable and available for reuse** under CC BY-SA 4.0 where the necessary rights are held: [Buch online lesen / Read the book](https://alexanderr1991.github.io/grundtext-des-wirklichen/de/die-richtung/) · [Volltext herunterladen / Download text](public/books/die-richtung-2.0-lesefassung.txt). The original 196-page illustrated PDF is not hosted here; third-party artwork rights remain separate. [Entstehung und Abgrenzung / Origins and scope](docs/mission.md#ursprung-aus-die-richtung-wurde-eine-offene-erkenntniswerkstatt).
+**“Die Richtung”** is the intellectual starting point for WIRKLICH, not a source of scientific authority. The **German 2.0 text-only edition is now freely readable and available for reuse** under CC BY-SA 4.0 where the necessary rights are held: [Buch online lesen / Read the book](https://alexanderr1991.github.io/Wirklich/de/die-richtung/) · [Volltext herunterladen / Download text](public/books/die-richtung-2.0-lesefassung.txt). The original 196-page illustrated PDF is not hosted here; third-party artwork rights remain separate. [Entstehung und Abgrenzung / Origins and scope](docs/mission.md#ursprung-aus-die-richtung-wurde-eine-offene-erkenntniswerkstatt).
 
-[Mit einer Frage beginnen / Start a worksheet](https://alexanderr1991.github.io/grundtext-des-wirklichen/de/werkstatt/) · [Projektstatus / Project status](https://alexanderr1991.github.io/grundtext-des-wirklichen/de/projektstatus/) · [Was 1.0 bedeutet / Release scope](docs/release-1.0.md) · [Projektprofil / Project profile](public/project.json)
+[Mit einer Frage beginnen / Start a worksheet](https://alexanderr1991.github.io/Wirklich/de/werkstatt/) · [Projektstatus / Project status](https://alexanderr1991.github.io/Wirklich/de/projektstatus/) · [Was 1.0 bedeutet / Release scope](docs/release-1.0.md) · [Projektprofil / Project profile](public/project.json)
 
 Das neue Prüfblatt verarbeitet Eingaben auf der Seite, bietet Text- und JSON-Export, validierten JSON-Import und ausdrücklich ausgelöste Browserspeicherung. Es ruft keine KI auf und veröffentlicht keine Eingaben. Ein vollständiges Blatt ist kein fachlich geprüfter Registereintrag. Die Statusseite zählt den tatsächlichen Bestand und benennt ausstehende Prüfungen.
 
 **Die nächsten drei Ziele:** P-01, zehn fachkundig geprüfte Aussagen; P-02, ein [vorab festgelegter Methodenvergleich](docs/evaluation-v1.md); P-03, unabhängige Einspruchswege, zugängliche Nutzung und [transparente Finanzierung](docs/finanzierung.md). Alle drei sind offene Aufgaben. Die drei bisherigen Registereinträge bleiben ungeprüft.
 
-The first integrated tool release makes it possible to structure a question, examine reasons and objections, name revision conditions and export a reusable worksheet. The former project name remains the title of its philosophical foundation. Existing addresses and licenses are retained. Expert review, evaluation of the method and independent appeals remain pending.
+The first integrated tool release makes it possible to structure a question, examine reasons and objections, name revision conditions and export a reusable worksheet. The former project name remains the title of its philosophical foundation. Expert review, evaluation of the method and independent appeals remain pending.
 
 **Wir sind Forschung! / We are research!**
 
@@ -38,7 +46,7 @@ Unser Forschungsanspruch verpflichtet uns: klare Fragen, passende Prüfungen, na
 
 Our research commitment calls for clear questions, appropriate tests, inspectable methods, documented counterevidence and visible corrections. Our own framework is open to examination too. This commitment must be demonstrated through the work; it does not certify any result.
 
-[Website](https://alexanderr1991.github.io/grundtext-des-wirklichen/) · [Deutsch](https://alexanderr1991.github.io/grundtext-des-wirklichen/de/) · [English draft](https://alexanderr1991.github.io/grundtext-des-wirklichen/en/) · [Mission / Blueprint](docs/mission.md) · [Roadmap](docs/roadmap.md)
+[Website](https://alexanderr1991.github.io/Wirklich/) · [Deutsch](https://alexanderr1991.github.io/Wirklich/de/) · [English draft](https://alexanderr1991.github.io/Wirklich/en/) · [Mission / Blueprint](docs/mission.md) · [Roadmap](docs/roadmap.md)
 
 ## Stellt uns Fragen! / Ask us questions!
 
@@ -48,8 +56,8 @@ Unser **öffentlicher Erkenntnisprompt 1.0** nimmt die Methode mit in ein KI-Ges
 
 **Bring the simple questions, the difficult ones, and those that might change our framework.** The public inquiry prompt asks an AI to examine evidence, objections and its own assumptions. It remains open to correction and has not been systematically evaluated.
 
-- [Fragen & KI-Prompt · Deutsch](https://alexanderr1991.github.io/grundtext-des-wirklichen/de/fragen-und-ki-prompt/)
-- [Questions & AI prompt · English](https://alexanderr1991.github.io/grundtext-des-wirklichen/en/fragen-und-ki-prompt/)
+- [Fragen & KI-Prompt · Deutsch](https://alexanderr1991.github.io/Wirklich/de/fragen-und-ki-prompt/)
+- [Questions & AI prompt · English](https://alexanderr1991.github.io/Wirklich/en/fragen-und-ki-prompt/)
 - [Prompt DE](public/prompts/erkenntnisprompt-v1.de.txt) · [Prompt EN](public/prompts/erkenntnisprompt-v1.en.txt) · [Konzept / Concept](docs/erkenntnisprompt.md)
 
 
@@ -82,7 +90,7 @@ Unser „Raumschiff“ ist ein Organisationsbild: Kompass, Karte, Instrumente, P
 
 Das [Aussagenregister](docs/aussagenregister.md) enthält drei **ungeprüfte Demonstrationseinträge** mit stabilen Kennungen, Herkunft, Einwänden, Unsicherheit und Revisionsbedingungen. Die [JSON-Daten](public/knowledge/claims.json) speisen beide Sprachfassungen. Die Quellen dokumentieren zunächst die Herkunft; es gibt keine bestätigten Forschungsergebnisse oder erfundenen Fachreviews.
 
-[Register DE](https://alexanderr1991.github.io/grundtext-des-wirklichen/de/aussagen/) · [Register EN](https://alexanderr1991.github.io/grundtext-des-wirklichen/en/aussagen/)
+[Register DE](https://alexanderr1991.github.io/Wirklich/de/aussagen/) · [Register EN](https://alexanderr1991.github.io/Wirklich/en/aussagen/)
 
 The next goal is ten narrowly scoped, fully examined claims. Independent evaluation, shared governance, sustainable funding and broader coverage follow the [roadmap](docs/roadmap.md). A next generation of free knowledge is our ambition; any credible complement or alternative to Wikipedia must earn its quality. No affiliation or official succession is claimed.
 
@@ -90,13 +98,13 @@ The next goal is ten narrowly scoped, fully examined claims. Independent evaluat
 
 | Feld / Field | Kapitel / Chapter | Vertiefung / Research notes |
 | --- | --- | --- |
-| Erkenntnis / Knowledge | [Horizont des Erkennbaren](https://alexanderr1991.github.io/grundtext-des-wirklichen/de/erkenntnishorizont/) | [Modell und Grenzen](docs/architektur.md) |
-| Liebe / Love | [Warum Liebe wirkt](https://alexanderr1991.github.io/grundtext-des-wirklichen/de/warum-liebe-wirkt/) | [Forschungsprogramm](docs/forschungsprogramm-liebe.md) |
-| Politik / Politics | [Politik, die dem Menschen dient](https://alexanderr1991.github.io/grundtext-des-wirklichen/de/politik-die-dem-menschen-dient/) | [Forschungsprogramm](docs/forschungsprogramm-politik.md) |
-| Religion / Religion | [Brücken zwischen den Religionen](https://alexanderr1991.github.io/grundtext-des-wirklichen/de/bruecken-zwischen-den-religionen/) | [Dialogprinzipien](docs/theologischer-dialog.md) |
-| Frieden / Peace | [Militär und Verantwortung](https://alexanderr1991.github.io/grundtext-des-wirklichen/de/militaer-und-verantwortung/) | [Forschungsprogramm](docs/forschungsprogramm-militaer.md) |
-| Ernährung / Nutrition | [Ernährung und Verantwortung](https://alexanderr1991.github.io/grundtext-des-wirklichen/de/ernaehrung-und-verantwortung/) | [Forschungsprogramm](docs/forschungsprogramm-ernaehrung.md) |
-| Kunst / Art | [Kunst und Erkenntnis](https://alexanderr1991.github.io/grundtext-des-wirklichen/de/kunst-und-erkenntnis/) | [Konzept und offene Fragen](docs/kunst-und-erkenntnis.md) |
+| Erkenntnis / Knowledge | [Horizont des Erkennbaren](https://alexanderr1991.github.io/Wirklich/de/erkenntnishorizont/) | [Modell und Grenzen](docs/architektur.md) |
+| Liebe / Love | [Warum Liebe wirkt](https://alexanderr1991.github.io/Wirklich/de/warum-liebe-wirkt/) | [Forschungsprogramm](docs/forschungsprogramm-liebe.md) |
+| Politik / Politics | [Politik, die dem Menschen dient](https://alexanderr1991.github.io/Wirklich/de/politik-die-dem-menschen-dient/) | [Forschungsprogramm](docs/forschungsprogramm-politik.md) |
+| Religion / Religion | [Brücken zwischen den Religionen](https://alexanderr1991.github.io/Wirklich/de/bruecken-zwischen-den-religionen/) | [Dialogprinzipien](docs/theologischer-dialog.md) |
+| Frieden / Peace | [Militär und Verantwortung](https://alexanderr1991.github.io/Wirklich/de/militaer-und-verantwortung/) | [Forschungsprogramm](docs/forschungsprogramm-militaer.md) |
+| Ernährung / Nutrition | [Ernährung und Verantwortung](https://alexanderr1991.github.io/Wirklich/de/ernaehrung-und-verantwortung/) | [Forschungsprogramm](docs/forschungsprogramm-ernaehrung.md) |
+| Kunst / Art | [Kunst und Erkenntnis](https://alexanderr1991.github.io/Wirklich/de/kunst-und-erkenntnis/) | [Konzept und offene Fragen](docs/kunst-und-erkenntnis.md) |
 
 Alle Kapitel haben einen DE/EN-Sprachwechsel. Englisch bleibt ein unabhängig ungeprüfter Übersetzungsentwurf. Kein Kapitel behauptet eine bewiesene Universaltheorie.
 
@@ -108,8 +116,8 @@ Liber Artis öffnet das Projekt für Bilder, Musik, Literatur, Film, Tanz, Spiel
 
 Art may ask its own questions, including uncomfortable ones about this project. The chapter distinguishes experience and interpretation from testable claims, and welcomes alternative readings. The research proposals are untested.
 
-- [Deutsch: Kunst und Erkenntnis](https://alexanderr1991.github.io/grundtext-des-wirklichen/de/kunst-und-erkenntnis/)
-- [English: Art and Inquiry (translation draft)](https://alexanderr1991.github.io/grundtext-des-wirklichen/en/kunst-und-erkenntnis/)
+- [Deutsch: Kunst und Erkenntnis](https://alexanderr1991.github.io/Wirklich/de/kunst-und-erkenntnis/)
+- [English: Art and Inquiry (translation draft)](https://alexanderr1991.github.io/Wirklich/en/kunst-und-erkenntnis/)
 - [Konzept, offene Fragen und Quellen / Concept, questions and sources](docs/kunst-und-erkenntnis.md)
 - [Kunst & Gegenlesart einreichen / Submit art & an alternative reading](https://github.com/AlexanderR1991/grundtext-des-wirklichen/issues/new?template=kunst.yml)
 

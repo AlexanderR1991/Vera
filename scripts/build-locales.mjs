@@ -2,7 +2,7 @@ import {readFile,mkdir,writeFile,copyFile} from "node:fs/promises";
 import path from "node:path";
 const root=process.cwd();
 const project=JSON.parse(await readFile(path.join(root,"public/project.json"),"utf8"));
-const base="/grundtext-des-wirklichen/";
+const base=new URL(project.website).pathname;
 const names=["index","atlas","bibliothek","lesestueck-wahrheit","manifest","pruefstand","methode","mitwirken"];
 const mapping={index:"home",atlas:"atlas",bibliothek:"library","lesestueck-wahrheit":"reading",manifest:"manifest",pruefstand:"proof",methode:"method",mitwirken:"contribute"};
 const allowed=new Set(["VERITAS","HUMANITAS","I · PRINCIPIUM","QUESTIO PRIMA","LIBER MUNDI / I","BIBLIOTHECA / II","LIBER PRIMUS","VERITAS ET QUAESTIO","I / IV","II / IV","III / IV","IV / IV"]);

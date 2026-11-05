@@ -1,3 +1,5 @@
+import project from "../../public/project.json" with {type: "json"};
+
 // This module structures a user's notes. It neither evaluates truth nor calls AI.
 export const inquirySchema = 1;
 export const maxFieldLength = 12000;
@@ -44,7 +46,7 @@ const typeLabels = {
 export function inquiryMarkdown(note) {
   const clean = createInquiry(note, note.lang);
   const en = clean.lang === "en";
-  const header = en ? "# WIRKLICH · Inquiry worksheet" : "# WIRKLICH · Prüfblatt";
+  const header = en ? `# ${project.english_name} · Inquiry worksheet` : `# ${project.name} · Prüfblatt`;
   const status = en ? "Unreviewed personal draft. Completeness does not establish truth, expert review or agreement." : "Ungeprüfter eigener Entwurf. Vollständigkeit belegt weder Wahrheit noch Fachprüfung oder Zustimmung.";
   const type = typeLabels[clean.lang][inquiryTypes.indexOf(clean.type)];
   return [header, status, `${en ? "Claim type" : "Aussageart"}: ${type}`, ...inquiryFields.map(key => `## ${labels[clean.lang][key]}\n\n${clean[key] || (en ? "[Open]" : "[Offen]")}`)].join("\n\n") + "\n";

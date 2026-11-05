@@ -9,7 +9,7 @@ for(const lang of ["de","en"]){
   if(!html.includes('<html lang="'+lang+'"'))errors.push("Wrong language in "+file);
   if(!html.includes('hreflang="de"')||!html.includes('hreflang="en"'))errors.push("Missing alternate languages in "+file);
   if(!html.includes('rel="canonical"'))errors.push("Missing canonical "+file);
-  if(!html.includes('/grundtext-des-wirklichen/de/')||!html.includes('/grundtext-des-wirklichen/en/'))errors.push("Wrong locale URLs "+file);
+  if(!html.includes('/Wirklich/de/')||!html.includes('/Wirklich/en/'))errors.push("Wrong locale URLs "+file);
   if(!html.includes("assets/style.css"))errors.push("Missing CSS reference "+file);
  }
 }
@@ -124,7 +124,7 @@ for(const lang of ["de","en"]){
  const mission=await readFile(join(out,lang,"mission/index.html"),"utf8");
  const register=await readFile(join(out,lang,"aussagen/index.html"),"utf8");
  for(const slug of ["mission","aussagen","fragen-und-ki-prompt"]){
-  const route="/grundtext-des-wirklichen/"+lang+"/"+slug+"/";
+  const route="/Wirklich/"+lang+"/"+slug+"/";
   if(!home.includes(route)||!sitemap.includes(route))errors.push("Undiscoverable route "+route);
  }
  for(const c of registry.claims){
@@ -184,7 +184,7 @@ console.log(`Verified ${slugs.length*2} localized pages, mission navigation, reg
 
 // Workshop: both interactive routes, usable static content and discovery paths.
 for (const lang of ["de", "en"]) {
- const route = `/grundtext-des-wirklichen/${lang}/esoterik-und-mathematik/`;
+ const route = `/Wirklich/${lang}/esoterik-und-mathematik/`;
  const html = await readFile(join(out, lang, "esoterik-und-mathematik/index.html"), "utf8");
  for (const token of ['data-symbol-lab', 'data-worksheet', 'data-statistics', '<noscript>', 'data-binary-word', 'data-download="json"', 'data-download="txt"', 'rel="canonical"', 'hreflang="de"', 'hreflang="en"']) {
   if (!html.includes(token)) errors.push(`Workshop ${lang} lacks ${token}`);
@@ -209,11 +209,16 @@ const discovery=JSON.parse(await readFile("public/research/stream.json","utf8"))
 const criticism=JSON.parse(await readFile("public/research/angriffe.json","utf8"));
 const stats=summarizeProject(registry,topics,discovery,criticism);
 for(const lang of ["de","en"]){
+ const name=lang==="de"?project.name:project.english_name;
+ const home=await readFile(join(out,lang,"index.html"),"utf8");
+ const heading=home.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/)?.[1];
+ if(heading?.replace(/<[^>]+>/g," ").replace(/\s+/g," ").trim()!==(lang==="de"?"Was ist wirklich?":"What is real?"))errors.push("Missing guiding question on "+lang+" homepage");
  for(const entry of await readdir(join(out,lang),{withFileTypes:true})){
   const file=entry.isDirectory()?join(out,lang,entry.name,"index.html"):join(out,lang,entry.name);
   if(!entry.isDirectory()&&!entry.name.endsWith(".html"))continue;
   const html=await readFile(file,"utf8");
-  if(!html.includes(`data-project-version="${project.version}"`)||!/<title>[^<]* · WIRKLICH<\/title>/.test(html))errors.push("Release identity mismatch "+file);
+  const headerName=html.match(/class="brand__name"[^>]*>\s*([^<]*)/)?.[1].trim();
+  if(!html.includes(`data-project-version="${project.version}"`)||!html.includes(` · ${name}</title>`)||headerName!==name)errors.push("Release identity mismatch "+file);
   if(html.includes("<title>undefined"))errors.push("Undefined page title "+file);
  }
  for(const slug of ["werkstatt","projektstatus"]){

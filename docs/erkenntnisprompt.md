@@ -6,8 +6,8 @@ Die Einladung gilt einfachen Verständnisfragen ebenso wie begründeten Einwänd
 
 ## Nutzen und weiterentwickeln
 
-- [Deutsche Seite mit Kopierfunktion](https://alexanderr1991.github.io/grundtext-des-wirklichen/de/fragen-und-ki-prompt/)
-- [English page with copy button](https://alexanderr1991.github.io/grundtext-des-wirklichen/en/fragen-und-ki-prompt/)
+- [Deutsche Seite mit Kopierfunktion](https://alexanderr1991.github.io/Wirklich/de/fragen-und-ki-prompt/)
+- [English page with copy button](https://alexanderr1991.github.io/Wirklich/en/fragen-und-ki-prompt/)
 - [Vollständiger deutscher Prompt](../public/prompts/erkenntnisprompt-v1.de.txt)
 - [Full English prompt (translation draft)](../public/prompts/erkenntnisprompt-v1.en.txt)
 - [Öffentliche Frage stellen / Ask publicly](https://github.com/AlexanderR1991/grundtext-des-wirklichen/issues/new?template=frage.yml)

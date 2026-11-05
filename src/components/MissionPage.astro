@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/SiteLayout.astro";
 import {pathFor} from "../lib/paths.mjs";
-import project from "../../public/project.json";
+import project from "../../public/project.json" with {type: "json"};
 import "../styles/mission.css";
 const {lang="de"}=Astro.props;
 const en=lang==="en";
@@ -24,7 +24,7 @@ const types=[
 ---
 <Layout lang={lang} slug="mission">
 <article class="container mission-document">
- <header><p class="section-kicker">WIRKLICH {project.version} · {t("UNSERE MISSION","OUR MISSION")}</p>
+ <header><p class="section-kicker">{t(project.name,project.english_name)} {project.version} · {t("UNSERE MISSION","OUR MISSION")}</p>
  <h1>{t("Ein offenes Erkenntnissystem.","An open system of inquiry.")}</h1>
  <p class="mission-lead">{t("Wir wollen Menschen befähigen, unter Unsicherheit besser zu verstehen, begründeter zu entscheiden und ehrlicher zu korrigieren. Der Grundtext ist das gemeinsame Gedächtnis dieser Arbeit.","We want to help people understand more clearly, decide with better reasons and correct mistakes more honestly under uncertainty. The foundational text is the shared memory of this work.")}</p>
  <p>{t("Warum ein Raumschiff? Weil eine Reise ins Unbekannte Orientierung, verlässliche Instrumente, Versorgung und eine lernfähige Besatzung braucht. Das ist ein Organisationsbild. Seine Nützlichkeit muss sich an unserer Arbeit zeigen.","Why a spacecraft? Because exploring the unknown requires orientation, reliable instruments, resources and a crew capable of learning. This is an organizing metaphor. Its usefulness must show in our work.")}</p>

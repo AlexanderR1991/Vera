@@ -10,6 +10,7 @@ test("unfinished notes can be exported, reopened and completed without invented 
   assert.deepEqual(parseInquiry(JSON.stringify(note)),note);
   const reopened = createInquiry({...parseInquiry(JSON.stringify(note)),objection:"Ein dauerhafter Zielkonflikt."});
   assert.equal(missingInquiryFields(reopened).length,5);
+  assert.match(inquiryMarkdown(reopened),/^# WIRKLICH · Prüfblatt\n/);
   assert.match(inquiryMarkdown(reopened),/Ungeprüfter eigener Entwurf/);
   assert.match(inquiryMarkdown(reopened),/Aussageart: Normatives Urteil/);
 });
@@ -19,6 +20,7 @@ test("English notes keep Unicode, quotes and multiline contents through JSON and
   const note = createInquiry({...values,type:"interpretive"},"en");
   assert.deepEqual(parseInquiry(JSON.stringify(note)),note);
   const md = inquiryMarkdown(note);
+  assert.match(md,/^# REALLY\? · Inquiry worksheet\n/);
   assert.match(md,/Unreviewed personal draft/);
   assert.match(md,/Interpretation \/ experience/);
   assert.match(md,/## What would change my position\?/);
