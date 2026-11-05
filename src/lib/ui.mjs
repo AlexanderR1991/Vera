@@ -10,14 +10,14 @@ export const ui = {
       "Methode",
       "Mitwirken"
     ],
-    "archive": "ARCHIV / ARBEITSFASSUNG 0.3",
+    "archive": "ARCHIV / ARBEITSFASSUNG 0.6",
     "motto": "ERKENNTNIS IST KEIN ENDZUSTAND",
     "footerTitle": "Die Wirklichkeit steht über diesem Werk.",
     "footerDescription": "Ein philosophischer Entwurf, der korrigierbar bleiben soll.",
     "explore": "ERKUNDEN",
     "project": "PROJEKT",
     "source": "Quelltext",
-    "status": "Originalfassung · Arbeitsstand 0.3",
+    "status": "Originalfassung · Arbeitsstand 0.6",
     "copyright": "© 2026 AlexanderR1991 & Mitwirkende · Texte CC BY-SA 4.0 · Code MIT",
     "disclosure": "MIT KI-UNTERSTÜTZUNG ERSTELLT · OFFEN FÜR KRITIK",
     "titles": {
@@ -30,7 +30,8 @@ export const ui = {
       "methode": "Unsere Methode",
       "mitwirken": "Mitwirken",
       "erkenntnishorizont": "Der Horizont des Erkennbaren",
-      "warum-liebe-wirkt": "Warum Liebe wirkt"
+      "warum-liebe-wirkt": "Warum Liebe wirkt",
+      "politik-die-dem-menschen-dient": "Politik, die dem Menschen dient"
     },
     "description": "Ein offenes, korrigierbares Erkenntnisprojekt über Wahrheit, Wirklichkeit und menschliches Handeln."
   },
@@ -45,7 +46,7 @@ export const ui = {
       "Method",
       "Contribute"
     ],
-    "archive": "ARCHIVE / WORKING DRAFT 0.3",
+    "archive": "ARCHIVE / WORKING DRAFT 0.6",
     "motto": "KNOWLEDGE IS NEVER COMPLETE",
     "footerTitle": "Reality stands above this work.",
     "footerDescription": "A philosophical proposal designed to remain open to correction.",
@@ -65,7 +66,8 @@ export const ui = {
       "methode": "Our Method",
       "mitwirken": "Contribute",
       "erkenntnishorizont": "The Horizon of the Knowable",
-      "warum-liebe-wirkt": "Why Love Works"
+      "warum-liebe-wirkt": "Why Love Works",
+      "politik-die-dem-menschen-dient": "Politics That Serves People"
     },
     "description": "An open and revisable inquiry into truth, reality, human dignity, and responsible action."
   }
