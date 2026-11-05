@@ -1,5 +1,15 @@
 # Versionsgeschichte
 
+## 0.9 · 2026-11-05 – Gemeinsame Mission
+- Startseite als konzentrierten Einstieg in ein offenes Erkenntnissystem neu gestaltet; bestehende Kapitel bleiben erreichbar.
+- Raumschiff als Organisationsbild: Kompass, Karte, Instrumente, Prüfstand, Antrieb und Logbuch.
+- Wissensraum, Forschungsraum und Entscheidungsraum konzeptionell getrennt.
+- Aussageart, Begründungslage und Prüfstatus statt einer einzigen Wahrheitsleiter.
+- Drei ungeprüfte, zweisprachige Registereinträge mit Kennungen, Gegenargumenten, Revisionsbedingungen, Herkunft und JSON-Export.
+- Faire Vergütung, Erholung, transparente Finanzierung und menschliche Verantwortlichkeit in der Mission verankert.
+- Roadmap auf einen kleinen geprüften Bestand, Vergleich der Methode und institutionelle Tragfähigkeit ausgerichtet.
+- Register-Prüfungen und Build-Kontrollen erweitert; keine neuen automatischen redaktionellen Schreibrechte.
+
 ## 0.6.0 – 2026-11-05
 - „Politik, die dem Menschen dient / Politics That Serves People“ als überparteilichen Forschungsentwurf zweisprachig ergänzt.
 - Sechs normative Ausgangspunkte, fünf offene empirische Hypothesen und mehrere legitime politische Zielkonflikte ausformuliert.

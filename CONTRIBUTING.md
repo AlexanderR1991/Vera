@@ -41,7 +41,7 @@ Auf GitHub benötigst du ein kostenloses Konto.
 
 On GitHub, open the relevant file, click the pencil icon, edit your fork, and open a pull request. Explain *why* the change is better. Do not assume a proposal will automatically be accepted.
 
-**Sprachfassungen / Languages:** Die derzeitigen deutschen Quelltexte liegen in den acht ursprünglichen HTML-Dateien; englische Übersetzungen in `src/i18n/*.en.json`. Für komplizierte Änderungen lieber zuerst ein Issue erstellen. / For complex multilingual edits, start with an issue.
+**Sprachfassungen / Languages:** Der Auftakt liegt in `MissionHome.astro` und `src/lib/mission-copy.json`, Mission und Register in den gleichnamigen Komponenten. Aussagen werden in `public/knowledge/claims.json` gepflegt ([Datenvertrag](docs/aussagenregister.md)). Ältere Unterseiten stammen aus den Root-HTML-Dateien und `src/i18n/*.en.json`; neue Kapitel aus `src/components/` und ihren Kopierdaten. Alle neuen Einträge benötigen DE/EN. / See the same paths for bilingual editing. For complex edits, start with an issue.
 
 ## 3. So prüfen wir Beiträge / How contributions are evaluated
 

@@ -1,79 +1,73 @@
-# Roadmap
+# Roadmap · Von der Vision zum belastbaren Erkenntnissystem
 
-Die Reihenfolge folgt sachlichen Abhängigkeiten, nicht festen Veröffentlichungsterminen.
+**Stand: Gesamtentwurf 0.9 · 5. November 2026**
 
-## 0.2 – Visuelles Fundament (umgesetzt)
-- [x] Responsives Portal und neue visuelle Sprache
-- [x] Wissensatlas mit Suche und sechs Themenfeldern
-- [x] Bibliothek mit gekennzeichneten Entwürfen und Planungen
-- [x] Lesestück mit zwei Lesetiefen
-- [x] Thesen-Prüfstand und Beitragsentwurf
-- [x] Qualitätsprüfung im GitHub-Pages-Workflow
+Die Reihenfolge folgt überprüfbaren Voraussetzungen. Die Kapitel bleiben erhalten; als Nächstes vertiefen wir ihre Begründungen. Die [Mission](mission.md) beschreibt das gemeinsame Ziel. Frühere Entwicklungsschritte sind in der Git-Versionsgeschichte erhalten.
 
-## 0.3 – Redaktion und Bildwelt
-- [ ] Sichtprüfung auf Desktop, Tablet und Smartphone
-- [ ] Originalgrafiken und ornamentale Illustrationen vertiefen
-- [ ] Lesbarkeit, Kontrast und Bedienbarkeit testen
-- [x] Lizenzzuordnung für Originaltexte und Code dokumentieren (CC BY-SA 4.0 / MIT)
-- [ ] Individuelle Bildrechte, neue Mitwirkende und Moderationsverfahren weiter prüfen
+## Bereits vorhanden
 
-## 0.4 – Belastbare Kapitel
-- [ ] Erstes umfangreiches Kapitel mit überprüfbaren Fachquellen
-- [ ] Schema für Status, Belege, Einwände und Änderungen
-- [ ] Naive Warum-Fragen an entscheidenden Stellen einbauen
-- [ ] Gegenpositionen dokumentieren
-- [ ] Atlas, Kapitel und Prüfstand verknüpfen
+- [x] Zweisprachige statische Website mit Atlas, Bibliothek, neun Leitsätzen und Beitragswegen
+- [x] Kapitel zu Erkenntnishorizont, Liebe, Politik, Religion, Militär und Ernährung
+- [x] Freiwilliger Unterstützungsweg auf der Mitwirkenseite
+- [x] Offene Lizenzen für Projekttexte und Software mit dokumentierten Ausnahmen
+- [x] Recherche- und Angriffsschwarm als begrenzte Prototypen; Ergebnisse bleiben ungeprüft
+- [x] Gemeinsame Mission und konzentrierte Startseite statt einer wachsenden Reihe einzelner Ankündigungen
+- [x] Aussagenregister mit stabilen Kennungen, Herkunft, Einwänden, Revisionsbedingungen und JSON-Export
+- [x] Drei Demonstrationseinträge; **keiner fachlich freigegeben**
+- [x] Automatische Strukturprüfung des Registers; **keine automatische Wahrheitsprüfung**
 
-## 0.5 – Kollaboration
-- [ ] Diskussions- und Reviewverfahren etablieren
-- [ ] Versionierung auf Thesenebene
-- [ ] Glossar und Volltextsuche
-- [ ] Bei Bedarf Astro/MDX und Pagefind einführen
-- [ ] Geprüfte Übersetzungen ergänzen
+## Etappe 1 · Ein kleiner, vollständig geprüfter Bestand
 
-## 1.0 – Verantwortbare Öffnung
-- [x] Lizenzen für originale Texte und Software festgelegt
-- [ ] Marken-/Bildrechte, Drittmaterial und redaktionelle Verantwortung abschließend klären
-- [ ] Moderation und Meldemöglichkeit eingerichtet
-- [ ] Quellenapparat und methodische Grenzen sichtbar
-- [ ] Breite öffentliche Einladung; optional eigene Domain
+**Freigabekriterium:** Zehn klar begrenzte Aussagen mit dokumentierter menschlicher Prüfung, belegter Herkunft, Gegenargumenten, Geltungsbereich und verständlicher Erklärung.
 
-## Nicht-Ziele
-Keine weltanschauliche Gefolgschaft, keine autoritären Wahrheitsnoten, keine private Biografie ohne Freigabe, keine behauptete wissenschaftliche Validierung allein durch ästhetische Wirkung.
+- [ ] Pilotfragen und Aufnahme-/Ausschlusskriterien festlegen
+- [ ] Quellen im Volltext lesen; Herkunft von tatsächlicher Stützung unterscheiden
+- [ ] Normative Prämissen, formale Voraussetzungen und empirische Befunde getrennt prüfen
+- [ ] Fachkundige Personen und Interessenkonflikte je Prüfung dokumentieren
+- [ ] Revisionsgründe und offene Minderheitspositionen erfassen
+- [ ] Englische Übersetzung unabhängig prüfen
+- [ ] Leser testen lassen, ob sie Aussageart und Prüfstatus richtig verstehen
 
-## 0.5 – Warum Liebe wirkt
-- [x] Zweisprachigen Forschungsbereich mit philosophischem Arbeitsbegriff erstellen
-- [x] Primärquellen und wissenschaftstheoretische Grenzen sichtbar machen
-- [x] Vier falsifizierbare Forschungsansätze mit Gegenmodellen dokumentieren
-- [ ] Systematische Literaturrecherche mit Einschluss- und Ausschlusskriterien
-- [ ] Unabhängiges Fachreview und professionelle Übersetzungsprüfung
-- [ ] Vor etwaigen eigenen Studien: ethische Freigabe und Vorregistrierung
+**Abbruch oder Revision:** Fehlende Quellen, nicht lösbare Mehrdeutigkeit oder unpassender Geltungsbereich werden sichtbar markiert; die Aussage wird nicht zur Erfüllung einer Quote freigegeben.
 
-## 0.6 – Liber Civitatis: politische Verantwortung
-- [x] Zweisprachigen, überparteilichen politischen Denkentwurf veröffentlichen
-- [x] Normative Werte von empirischen Behauptungen trennen
-- [x] Institutionelle Zielkonflikte und berechtigte politische Gegenpositionen zeigen
-- [x] Fünf offene Hypothesen und einen kontrollierbaren Politikzyklus dokumentieren
-- [x] KI und die Verteilung gesellschaftlicher Chancen als offene politische Frage aufnehmen
-- [ ] Fachreview in Recht, Politikwissenschaft und Ökonomie
-- [ ] Systematische vergleichende Evidenzprüfung politischer Instrumente
-- [ ] Öffentliche Einwände und redaktionelle Revisionen dokumentieren
+## Etappe 2 · Die eigene Methode prüfen
 
-## 0.7 – Liber Custodiae: Militär, Frieden und Verantwortung
-- [x] Zweisprachiges Kapitel zu Verteidigung, Recht und Grenzen militärischer Macht
-- [x] Jus ad bellum, jus in bello und normative Forschung getrennt darstellen
-- [x] Pazifismus, Abschreckung, Gehorsam und Freiheit als reale Zielkonflikte prüfen
-- [x] Nicht-operatives Fallbeispiel und vier offene Hypothesen M-A bis M-D
-- [x] Quellen von UN, IKRK und OSZE einordnen; KI-Waffensysteme als offene Rechtsfrage behandeln
-- [ ] Unabhängiges Fachreview in humanitärem Völkerrecht, Friedensforschung und demokratischer Kontrolle
-- [ ] Systematische vergleichende Literaturrecherche, Fallanalysen und Übersetzungsprüfung
+**Freigabekriterium:** Ein vorab beschriebener Vergleich mit unabhängiger Bewertung. Ein gescheiterter Vergleich wird ebenso dokumentiert wie ein erfolgreicher.
 
-## 0.8 – Liber Alimenti: Ernährung, Leben und Verantwortung
-- [x] Zweisprachiges Kapitel vom Zellstoffwechsel bis zum Ernährungssystem
-- [x] WHO-, DGE- und WHO/FAO-Quellen nach Geltungsbereich unterscheiden
-- [x] Individuelle Bedürfnisse, Zugang, Tierwohl und Umwelt als Zielkonflikte behandeln
-- [x] Fallprüfung einer Schulverpflegung und vier offene Hypothesen E-A bis E-D
-- [x] Startseite, Atlas, Bibliothek, Prüfstand und Sitemap zweisprachig verknüpfen
-- [ ] Systematische Literaturrecherche zu einzelnen Ernährungsinterventionen mit Unsicherheitsbewertung
-- [ ] Unabhängige Begutachtung durch Ernährungswissenschaft, Public Health und Betroffene
-- [ ] Professionelles Übersetzungsreview; laufende Aktualisierung an neue Empfehlungen
+- [ ] Aufgaben, Vergleichsbedingungen und Bewertungskriterien vorab definieren
+- [ ] Prüfung mit und ohne strukturierte KI-Gegenkritik vergleichen
+- [ ] Fehlererkennung, Fehlalarme, Verständnis von Unsicherheit, Zeit und Kosten erfassen
+- [ ] Modellabhängigkeit, gemeinsame Fehler und menschliche Automatisierungsverzerrung untersuchen
+- [ ] Ergebnisse und Grenzen öffentlich dokumentieren
+
+Keine Vorregistrierung oder Wirksamkeit ist bislang nachgewiesen. Ohne tragfähigen Nutzen keine Ausweitung der automatischen Entscheidungsmacht.
+
+## Etappe 3 · Verantwortung und Versorgung verteilen
+
+**Freigabekriterium:** Zuständigkeiten, Einspruchswege und Finanzierung sind nachvollziehbar und im Alltag erprobt.
+
+- [ ] Fachprüfung, Redaktion und Moderation als unterschiedliche Aufgaben besetzen
+- [ ] Einsprüche und Interessenkonflikte dokumentierbar bearbeiten
+- [ ] Finanzierung, Ausgaben und faire Vergütung transparent festlegen
+- [ ] Organisationsform, laufendes Budget und Vergütungsregeln für die bestehende freiwillige Unterstützung klären
+- [ ] Ausstieg, Export und Weiterverwendung praktisch ermöglichen
+- [ ] Kontraste, Tastaturbedienung, mobile Nutzung und unterschiedliche Lesebedürfnisse prüfen
+
+## Etappe 4 · Erst nach Bewährung verbreitern
+
+- [ ] Weitere Kapitel in das strukturierte Aussagenmodell überführen
+- [ ] Quellenketten und Beziehungen zwischen Aussagen modellieren
+- [ ] Volltextsuche, stabile Versionsansichten und differenzierte offene Schnittstellen ergänzen
+- [ ] Weitere Sprachen mit qualifizierter Prüfung aufnehmen
+- [ ] Wissensraum, Forschungsraum und Entscheidungsraum im gesamten Bestand technisch und visuell trennen
+- [ ] Unabhängig prüfen lassen, ob das System als Ergänzung oder Alternative zu bestehenden Wissensangeboten einen Nutzen bringt
+
+Die Wikipedia-Vision ist ein langfristiger Entwicklungsanspruch. Sie bedeutet keine Zugehörigkeit, offizielle Nachfolge oder bereits erreichte Vergleichbarkeit.
+
+## Fortlaufende Arbeit in jedem Forschungsfeld
+
+Systematische Recherche, unabhängiges Fachreview, belastbare Gegenpositionen und laufende Aktualisierung bleiben für Liebe, Ernährung, Politik, Militär, Theologie und Erkenntnis nötig. Veröffentlichte Kapitel sind Arbeitsentwürfe; ihre Existenz ersetzt diese Arbeit nicht.
+
+## English
+
+The next milestone is a small corpus of ten fully examined claims, not more unchecked volume. Independent evaluation of the method comes next, followed by accountable governance and sustainable funding. Broader coverage and more autonomy require demonstrated benefit. The three current records illustrate the structure and do not count as expert-approved knowledge.

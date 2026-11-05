@@ -1,6 +1,6 @@
 # Architektur und Gestaltungsprinzipien
 
-**Stand 0.2 · 4. November 2026**
+**Fortgeschrieben bis Gesamtentwurf 0.9 · 5. November 2026**
 
 ## Leitgedanke
 Die Schönheit darf zum Denken einladen; sie darf es nicht ersetzen. Gestaltung und Argumentation haben unterschiedliche Aufgaben.
@@ -53,3 +53,9 @@ Der politische Forschungsbereich ist **kein Wahlprogramm und keine vollständig 
 ## Liber Custodiae – Militärische Macht und Friedensverantwortung (Version 0.7)
 
 Der zweisprachige Bereich trennt *jus ad bellum*, *jus in bello* und zusätzliche normative bzw. empirische Prüfungen. Militärische Ethik wird weder auf Pazifismus noch auf unbeschränkte Verteidigung reduziert. Das Kapitel zeigt sechs normative Leitplanken, echte Gegeneinwände, ein bewusst nicht-operatives Dilemma und vier offene Forschungsfragen M-A–M-D. Rechtliche Schranken sind keine Variablen einer Maximierungsformel. Ziviler Schutz, demokratische Aufsicht und menschliche Verantwortung – auch für KI – werden anhand verlinkter Primär- und Fachquellen geprüft. Kein Einsatzleitfaden, keine bestätigte Universaltheorie.
+
+## Gemeinsame Mission (0.9)
+
+Die Startseiten werden jetzt aus `MissionHome.astro` und `src/lib/mission-copy.json` gebaut. `MissionPage.astro` erläutert die gemeinsame Architektur; `ClaimRegister.astro` rendert `public/knowledge/claims.json` in beiden Sprachen. Die alten Root-HTML-Dateien bleiben Quelle der bisherigen Unterseiten; die Root-`index.html` ist nur noch der historische, vom Locale-Skript weiterhin eingelesene Auftakt.
+
+Das Register wird vor dem Build strukturell geprüft. Seine drei Einträge sind ungeprüfte Demonstrationen. Es fügt keine KI-Schreibrechte hinzu. Vollständige Trennung der drei Erkenntnisräume, Fachreview und institutionelle Governance sind noch nicht umgesetzt. Siehe [Mission](mission.md), [Datenvertrag](aussagenregister.md) und [Roadmap](roadmap.md).

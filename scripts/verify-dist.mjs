@@ -1,6 +1,6 @@
 import {access,readFile} from "node:fs/promises";
 import {join} from "node:path";
-const out=join(process.cwd(),"dist"),slugs=["index","atlas","bibliothek","lesestueck-wahrheit","manifest","pruefstand","methode","mitwirken","erkenntnishorizont","warum-liebe-wirkt","politik-die-dem-menschen-dient","bruecken-zwischen-den-religionen","militaer-und-verantwortung","ernaehrung-und-verantwortung","angriffsschwarm"],errors=[];
+const out=join(process.cwd(),"dist"),slugs=["index","mission","aussagen","fragen-und-ki-prompt","forschungsstrom","atlas","bibliothek","lesestueck-wahrheit","manifest","pruefstand","methode","mitwirken","erkenntnishorizont","warum-liebe-wirkt","politik-die-dem-menschen-dient","bruecken-zwischen-den-religionen","militaer-und-verantwortung","ernaehrung-und-verantwortung","angriffsschwarm"],errors=[];
 for(const lang of ["de","en"]){
  for(const slug of slugs){
   const file=join(out,lang,...(slug==="index"?[]:[slug]),"index.html");
@@ -21,7 +21,7 @@ try{
  if(!en.includes("Reality is under no obligation")||!de.includes("Die Wirklichkeit ist nicht verpflichtet"))errors.push("Critical thesis mismatch");
 }catch{errors.push("Missing thesis pages");}
 if(errors.length){console.error(errors.join("\n"));process.exit(1);}
-console.log("Verified 30 localized pages, canonical/hreflang, legacy redirect assets and key translations.");
+
 
 for(const lang of ["de","en"]){
  const chapter=await readFile(join(out,lang,"erkenntnishorizont","index.html"),"utf8");
@@ -112,3 +112,31 @@ for(const lang of ["de","en"]){
  }
 }
 if(errors.length){console.error(errors.join("\n"));process.exit(1);}
+
+// Mission routes and the register must remain discoverable in both languages.
+const registry=JSON.parse(await readFile("public/knowledge/claims.json","utf8"));
+const exported=JSON.parse(await readFile(join(out,"knowledge/claims.json"),"utf8"));
+if(JSON.stringify(registry)!==JSON.stringify(exported))errors.push("Register export differs from the rendered source");
+const sitemap=await readFile(join(out,"sitemap.xml"),"utf8");
+for(const lang of ["de","en"]){
+ const home=await readFile(join(out,lang,"index.html"),"utf8");
+ const mission=await readFile(join(out,lang,"mission/index.html"),"utf8");
+ const register=await readFile(join(out,lang,"aussagen/index.html"),"utf8");
+ for(const slug of ["mission","aussagen","fragen-und-ki-prompt"]){
+  const route="/grundtext-des-wirklichen/"+lang+"/"+slug+"/";
+  if(!home.includes(route)||!sitemap.includes(route))errors.push("Undiscoverable route "+route);
+ }
+ for(const c of registry.claims){
+  if(!register.includes('id="'+c.id+'"')||!register.includes(c.statement[lang]))errors.push("Missing rendered claim "+lang+"/"+c.id);
+ }
+ for(const id of ["forschung","bauplan","erkenntnis","entscheidungen","ki","versorgung","stand"]){
+  if(!mission.includes('id="'+id+'"'))errors.push("Missing mission anchor "+lang+"/"+id);
+ }
+ for(const [page,html] of [["home",home],["mission",mission],["register",register]]){
+  const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
+  if(new Set(ids).size!==ids.length)errors.push("Duplicate anchor on "+lang+"/"+page);
+  if(!html.includes('<h1'))errors.push("Missing main heading on "+lang+"/"+page);
+ }
+}
+if(errors.length){console.error(errors.join("\n"));process.exit(1);}
+console.log(`Verified ${slugs.length*2} localized pages, mission navigation, register export, anchors and chapter discovery.`);
