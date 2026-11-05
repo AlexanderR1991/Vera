@@ -1,5 +1,10 @@
 # Versionsgeschichte
 
+## 0.3.2 – 2026-11-05
+- GitHub Discussions aktiviert und auf der Website und in der README verlinkt.
+- Zweisprachige Begrüßungsdiskussion für die Veröffentlichung als Entwurf hinterlegt.
+- Sachliche Lizenzentscheidungshilfe erstellt; noch keine Nutzungsrechte freigegeben.
+
 ## 0.3.1 – 2026-11-05
 - Das Leitmotiv über das ewig lernende Buch sichtbar auf internationaler Startseite sowie in beiden Sprachfassungen verankert.
 - GitHub-Issue-Vorlagen für Fragen, Ideen, Quellenprüfung und Übersetzung hinzugefügt.
