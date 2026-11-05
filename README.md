@@ -8,7 +8,7 @@ Aus einer Frage wird ein nachvollziehbarer Prüfweg: Begriffe klären, Gründe p
 
 Die Idee zu **WIRKLICH** entstand aus der Arbeit an dem Buch **„Die Richtung“**. Aus dem Nachdenken über Wahrheit und Orientierung entwickelte sich die Idee, eine öffentliche Werkstatt zu schaffen, in der Aussagen begründet, angegriffen und korrigiert werden können. Das Buch bleibt der **gedankliche Ursprung**, der öffentliche **Grundtext des Wirklichen** das philosophische Fundament und **WIRKLICH** die offene Plattform. Auch die Ausgangsideen dürfen sich als falsch erweisen.
 
-**“Die Richtung”** is the intellectual starting point for WIRKLICH, not a source of scientific authority. The book is not published in this repository; mentioning it does not release or license the private manuscript. [Entstehung und Abgrenzung / Origins and scope](docs/mission.md#ursprung-aus-die-richtung-wurde-eine-offene-erkenntniswerkstatt).
+**“Die Richtung”** is the intellectual starting point for WIRKLICH, not a source of scientific authority. The **German 2.0 text-only edition is now freely readable and available for reuse** under CC BY-SA 4.0 where the necessary rights are held: [Buch online lesen / Read the book](https://alexanderr1991.github.io/grundtext-des-wirklichen/de/die-richtung/) · [Volltext herunterladen / Download text](public/books/die-richtung-2.0-lesefassung.txt). The original 196-page illustrated PDF is not hosted here; third-party artwork rights remain separate. [Entstehung und Abgrenzung / Origins and scope](docs/mission.md#ursprung-aus-die-richtung-wurde-eine-offene-erkenntniswerkstatt).
 
 [Mit einer Frage beginnen / Start a worksheet](https://alexanderr1991.github.io/grundtext-des-wirklichen/de/werkstatt/) · [Projektstatus / Project status](https://alexanderr1991.github.io/grundtext-des-wirklichen/de/projektstatus/) · [Was 1.0 bedeutet / Release scope](docs/release-1.0.md) · [Projektprofil / Project profile](public/project.json)
 
@@ -144,6 +144,6 @@ Der Build prüft das Register, erstellt beide Sprachfassungen und kontrolliert d
 
 [Neun Leitsätze](docs/grundtext.md) · [Methode](docs/methode.md) · [Governance](docs/community-governance.md) · [Verhaltenskodex](CODE_OF_CONDUCT.md) · [Versionsgeschichte](docs/versionsgeschichte.md)
 
-Originaltexte und Übersetzungen: **CC BY-SA 4.0**. Eigene Software: **MIT**. Signet, Markenkennzeichen und fremdes Material sind ausgenommen; private Manuskripte und Gespräche bleiben außerhalb des Projekts. [Lizenzzuordnung](LICENSING.md) · [Textlizenz](LICENSE-CONTENT.md) · [Softwarelizenz](LICENSE) · [Urhebernennung](AUTHORS.md).
+Originaltexte und Übersetzungen: **CC BY-SA 4.0**. Eigene Software: **MIT**. Signet, Markenkennzeichen und fremdes Material sind ausgenommen; andere private Manuskripte und Gespräche bleiben außerhalb des Projekts; die ausdrücklich freigegebene Textausgabe von „Die Richtung“ ist enthalten. [Lizenzzuordnung](LICENSING.md) · [Textlizenz](LICENSE-CONTENT.md) · [Softwarelizenz](LICENSE) · [Urhebernennung](AUTHORS.md).
 
 **Die Wirklichkeit steht über diesem Werk. Auch über seinem Bauplan.**
