@@ -1,0 +1,144 @@
+---
+import Layout from "../layouts/SiteLayout.astro";
+import {pathFor} from "../lib/paths.mjs";
+const {lang="de"}=Astro.props;
+const de=lang==="de";
+---
+<Layout lang={lang} slug="forschungsstrom">
+  <section class="section stream-hero">
+    <div class="container">
+      <p class="section-kicker">ATLAS / EXPERIMENTUM / AGENTES</p>
+      <h1>{de?"Der lebendige Forschungsstrom":"The Living Research Stream"}</h1>
+      <p class="stream-lead">
+        {de
+          ?"Der Schwarm sucht wissenschaftliche Hinweise, formuliert Gegenfragen und zeigt seine Quellen. Er erklärt keine Behauptung selbst zur Wahrheit."
+          :"The swarm looks for research signals, raises critical questions and shows sources. It never declares a claim true by itself."}
+      </p>
+      <div class="stream-rule">
+        {de
+          ?"AUTOMATISCH GEFUNDEN ≠ WISSENSCHAFTLICH BESTÄTIGT"
+          :"AUTOMATICALLY FOUND ≠ SCIENTIFICALLY VERIFIED"}
+      </div>
+    </div>
+  </section>
+  <section class="section section--paper">
+    <div class="container">
+      <div class="stream-heading">
+        <div>
+          <p class="section-kicker">{de?"ÖFFENTLICHER EINGANGSKORB":"PUBLIC RESEARCH INBOX"}</p>
+          <h2>{de?"Beobachtungen des Schwarms":"The swarm's observations"}</h2>
+        </div>
+        <a href={pathFor(lang,"pruefstand")} class="subtle-link">{de?"Zum Prüfstand":"To the examination"} →</a>
+      </div>
+      <p>{de
+        ?"Alle Einträge sind zunächst ungeprüfte Literaturhinweise. Die KI-Rollen sehen bisher nur Titel und bibliografische Metadaten, keine vollständigen Studien."
+        :"Every entry starts as an unreviewed literature lead. AI roles currently see titles and bibliographic metadata, not full papers."}</p>
+      <div id="research-live" class="stream" data-lang={lang} aria-live="polite">
+        <p id="stream-status">{de?"Forschungsdaten werden geladen …":"Loading research signals …"}</p>
+        <div id="stream-meta"></div>
+        <div id="stream-items" class="stream-grid"></div>
+      </div>
+      <div class="stream-bottom">
+        <p>{de
+          ?"Ein DOI-Link ist kein Qualitätsurteil. Zur Aufnahme einer Aussage ins Werk gehören Originallektüre, Methodenkritik, Gegenbelege und eine menschliche Entscheidung."
+          :"A DOI link is not a quality judgment. Admission into the book requires reading the primary source, assessing the methods and opposing evidence, and a human editorial decision."}</p>
+        <a href="https://github.com/AlexanderR1991/grundtext-des-wirklichen/blob/main/docs/wahrheitsschwarm.md" target="_blank" rel="noopener noreferrer">
+          {de?"Methodik und Betriebsgrenzen ↗":"Method and operational limitations ↗"}
+        </a>
+      </div>
+    </div>
+  </section>
+  <script is:inline>
+    (() => {
+      const node = document.getElementById("research-live");
+      if (!node) return;
+      const de = node.dataset.lang === "de";
+      const status = document.getElementById("stream-status");
+      const meta = document.getElementById("stream-meta");
+      const list = document.getElementById("stream-items");
+      const endpoint = "https://raw.githubusercontent.com/AlexanderR1991/grundtext-des-wirklichen/main/public/research/stream.json";
+      const txt = (tag, value, className) => {
+        const el = document.createElement(tag);
+        el.textContent = String(value ?? "");
+        if (className) el.className = className;
+        return el;
+      };
+      const labels = {
+        methodologist: de ? "Methodenfrage" : "Method question",
+        skeptic: de ? "Gegenhypothese" : "Counterhypothesis",
+        synthesizer: de ? "Nächster Schritt" : "Next verification",
+      };
+      fetch(endpoint, {cache:"no-store"})
+        .then(r => {if (!r.ok) throw Error("HTTP "+r.status); return r.json();})
+        .then(data => {
+          if (!Array.isArray(data.items)) throw Error("Invalid data");
+          const when = data.updated_at
+            ? new Date(data.updated_at).toLocaleString(de?"de-DE":"en-GB")
+            : (de?"Noch kein Lauf":"Not run yet");
+          status.textContent = de
+            ? "Status: automatisierte Quellensuche – nicht fachlich überprüft"
+            : "Status: automated discovery – not scientifically reviewed";
+          meta.textContent = (de?"Letzte Abfrage: ":"Last run: ") + when +
+            " · " + data.items.length + (de?" Hinweise":" leads") +
+            " · " + (data.agents_enabled ? (de?"Kritische KI-Rollen aktiv":"Critical AI roles active")
+                                         : (de?"KI-Rollen noch nicht aktiv":"AI roles not active"));
+          if (!data.items.length) {
+            list.append(txt("p", de ? "Noch keine Daten. Der erste Workflow-Lauf steht aus." :
+              "No data yet. The first workflow run is pending."));
+          }
+          for (const item of data.items.slice(0, 40)) {
+            const card = document.createElement("article");
+            card.className = "stream-card";
+            card.append(txt("p", (item.topic || "?").toUpperCase() +
+              " / " + (de?"UNGEPRÜFT":"UNREVIEWED"), "stream-tag"));
+            const heading = txt("h3", item.title || (de?"Ohne Titel":"Untitled"));
+            card.append(heading);
+            const info = [item.date,item.venue,(item.authors||[]).slice(0,3).join(", ")].filter(Boolean).join(" · ");
+            card.append(txt("p", info, "stream-detail"));
+            if (typeof item.url === "string" && item.url.startsWith("https://doi.org/")) {
+              const a = txt("a", de?"DOI / Originalnachweis ↗":"DOI / Source record ↗");
+              a.href = item.url;
+              a.target = "_blank";
+              a.rel = "noopener noreferrer";
+              card.append(a);
+            }
+            const notes = item.agent_notes || {};
+            for (const [role, title] of Object.entries(labels)) {
+              const entries = notes[role];
+              if (!entries || typeof entries !== "object") continue;
+              const body = Object.values(entries).filter(v=>typeof v==="string" && v);
+              if (!body.length) continue;
+              card.append(txt("h4", title + " · " + (de?"Metadatenanalyse":"Metadata analysis")));
+              for (const line of body) card.append(txt("p", line, "stream-note"));
+            }
+            list.append(card);
+          }
+        })
+        .catch(() => {
+          status.textContent = de
+            ? "Aktuell keine Forschungsdaten abrufbar. Keine Ergebnisse werden erfunden."
+            : "Research signals currently unavailable. No results are fabricated.";
+          meta.textContent = "";
+        });
+    })();
+  </script>
+</Layout>
+<style is:global>
+  .stream-hero{padding-block:6rem 4rem}
+  .stream-hero h1{max-width:14ch;font-size:clamp(3rem,8vw,6rem);line-height:1.02}
+  .stream-lead{max-width:49rem;font-size:clamp(1.15rem,2.1vw,1.5rem)}
+  .stream-rule{margin-top:2rem;border-top:1px solid currentColor;padding-top:1rem;letter-spacing:.12em;font-size:.8rem}
+  .stream-heading{display:flex;justify-content:space-between;gap:1rem;align-items:end;flex-wrap:wrap}
+  .stream{margin-top:2rem}
+  #stream-status{font-weight:700}
+  #stream-meta{opacity:.76;font-size:.9rem;margin-block:1rem 2rem}
+  .stream-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,20rem),1fr));gap:1rem}
+  .stream-card{padding:1.6rem;border:1px solid currentColor;border-color:rgba(130,116,92,.35);background:rgba(100,90,72,.045)}
+  .stream-card h3{font-size:1.25rem;line-height:1.25;overflow-wrap:anywhere;margin:.4rem 0 1rem}
+  .stream-tag{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase}
+  .stream-detail{font-size:.88rem;opacity:.8;line-height:1.6}
+  .stream-card h4{margin-top:1.3rem;font-size:.9rem}
+  .stream-note{font-size:.9rem;margin:.25rem 0;line-height:1.55}
+  .stream-card a{display:inline-block;margin-top:.5rem;overflow-wrap:anywhere}
+  .stream-bottom{margin-top:3rem;padding-top:1.5rem;border-top:1px solid rgba(130,116,92,.35);max-width:55rem}
+</style>

@@ -29,6 +29,7 @@ export const ui = {
       "pruefstand": "Prüfstand",
       "methode": "Unsere Methode",
       "mitwirken": "Mitwirken",
+      "forschungsstrom": "Forschungsstrom",
       "erkenntnishorizont": "Der Horizont des Erkennbaren",
       "warum-liebe-wirkt": "Warum Liebe wirkt",
       "politik-die-dem-menschen-dient": "Politik, die dem Menschen dient"
@@ -65,6 +66,7 @@ export const ui = {
       "pruefstand": "The Examination",
       "methode": "Our Method",
       "mitwirken": "Contribute",
+      "forschungsstrom": "Research Stream",
       "erkenntnishorizont": "The Horizon of the Knowable",
       "warum-liebe-wirkt": "Why Love Works",
       "politik-die-dem-menschen-dient": "Politics That Serves People"
