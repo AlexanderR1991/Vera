@@ -4,8 +4,9 @@ import InquiryTeaser from "./InquiryTeaser.astro";
 import TreeBridge from "./TreeBridge.astro";
 import Layout from "../layouts/SiteLayout.astro";
 import copy from "../lib/mission-copy.json";
+import {ui} from "../lib/ui.mjs";
 import {pathFor} from "../lib/paths.mjs";
-import project from "../../public/project.json";
+import project from "../../public/project.json" with {type: "json"};
 import "../styles/mission.css";
 import "../styles/workbench.css";
 const {lang="de"}=Astro.props;
@@ -15,8 +16,8 @@ const t=copy[lang];
   <section class="mission-hero">
     <div class="container mission-hero__grid">
       <div>
-        <p class="section-kicker">{t.kicker}</p>
-        <h1>{t.headline}<br/><em>{t.headlineAccent}</em></h1>
+        <p class="section-kicker">{ui[lang].name} · {ui[lang].subtitle}</p>
+        <h1>{t.headline} <em>{t.headlineAccent}</em></h1>
         <p class="mission-lead">{t.lead}</p>
         <div class="button-row"><a class="button button--gold" href={pathFor(lang,"werkstatt")}>{lang==="de"?"Mit einer Frage beginnen ↗":"Start with a question ↗"}</a><a class="button button--ghost" href={pathFor(lang,"mission")}>{t.missionLink}</a></div>
         <p class="mission-premise">{t.premise}</p>
@@ -40,7 +41,7 @@ const t=copy[lang];
         <dl><div><dt>{t.compass}</dt><dd>{t.compassText}</dd></div><div><dt>{t.course}</dt><dd>{t.courseText}</dd></div></dl>
       </aside>
     </div>
-    <div class="container mission-status"><span>WIRKLICH {project.version} · {t.status}</span><a href={pathFor(lang,"projektstatus")}>{lang==="de"?"Was 1.0 leistet und was offen ist ↗":"What 1.0 offers and what remains open ↗"}</a></div>
+    <div class="container mission-status"><span>{ui[lang].name} {project.version} · {t.status}</span><a href={pathFor(lang,"projektstatus")}>{lang==="de"?"Was 1.0 leistet und was offen ist ↗":"What 1.0 offers and what remains open ↗"}</a></div>
   </section>
   <section class="mission-origin" aria-labelledby="mission-origin-title"><div class="container mission-origin__inner">
     <p class="section-kicker">{lang==="de"?"UNSER URSPRUNG · VOM BUCH ZUR WERKSTATT":"OUR ORIGIN · FROM A BOOK TO A WORKSHOP"}</p>

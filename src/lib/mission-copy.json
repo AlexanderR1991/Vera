@@ -1,8 +1,7 @@
 {
   "de": {
-    "kicker": "WIRKLICH · DIE OFFENE ERKENNTNISWERKSTATT",
-    "headline": "Wissen prüfen.",
-    "headlineAccent": "Menschlich handeln.",
+    "headline": "Was ist",
+    "headlineAccent": "wirklich?",
     "lead": "Eine offene Forschungswerkstatt, in der Menschen Fragen stellen, Annahmen prüfen und aus Irrtümern lernen. Mit Wissenschaft, Philosophie und KI — und mit Verantwortung für die Folgen. Auch unser eigenes Regelwerk steht zur Prüfung.",
     "missionLink": "Unsere Mission verstehen ↗",
     "registerLink": "Eine Aussage prüfen ↗",
@@ -44,9 +43,8 @@
     "challengeLink":"Unsere Aussagen herausfordern ↗"
   },
   "en": {
-    "kicker":"WIRKLICH · THE OPEN INQUIRY WORKSHOP",
-    "headline":"Examine knowledge.",
-    "headlineAccent":"Act with care.",
+    "headline":"What is",
+    "headlineAccent":"real?",
     "lead":"An open research workshop where people ask questions, examine assumptions and learn from mistakes. With science, philosophy and AI — and responsibility for the consequences. Our own framework is open to examination too.",
     "missionLink":"Understand our mission ↗",
     "registerLink":"Examine a claim ↗",

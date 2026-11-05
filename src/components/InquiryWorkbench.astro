@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/SiteLayout.astro";
-import project from "../../public/project.json";
+import project from "../../public/project.json" with {type: "json"};
 import {pathFor} from "../lib/paths.mjs";
 import "../styles/workbench.css";
 const {lang="de"} = Astro.props;
@@ -38,7 +38,7 @@ const example = en ? {
 <Layout lang={lang} slug="werkstatt">
 <article class="container workbench" data-inquiry-workbench data-lang={lang}>
   <header class="workbench-heading">
-    <p class="section-kicker">WIRKLICH {project.version} · {t("DEIN PRÜFBLATT", "YOUR INQUIRY WORKSHEET")}</p>
+    <p class="section-kicker">{t(project.name, project.english_name)} {project.version} · {t("DEIN PRÜFBLATT", "YOUR INQUIRY WORKSHEET")}</p>
     <h1>{t("Aus einer Frage wird ein nächster Schritt.", "Turn a question into a next step.")}</h1>
     <p class="workbench-lead">{t("Du musst noch keine Antwort haben. Halte fest, was du meinst, was dafür spricht und was dich umdenken ließe. Das Prüfblatt hilft dir beim Ordnen und beim Gespräch mit anderen.","You do not need an answer yet. Record what you mean, what supports it and what would change your mind. The worksheet helps you organize your thoughts and discuss them with others.")}</p>
     <p class="workbench-data-note">{t("Deine Eingaben werden von diesem Werkzeug nicht gesendet. Speichern im Browser, Laden und Dateiexport startest du selbst. Das Werkzeug ordnet deine Texte; es erzeugt keine KI-Antwort und vergibt kein Wahrheitssiegel.","This tool does not send your entries. You choose when to save in your browser, load or export a file. It organizes your text; it does not generate AI answers or certify truth.")}</p>

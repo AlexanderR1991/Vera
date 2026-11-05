@@ -6,7 +6,7 @@ const pkg = await readJSON("package.json");
 const lock = await readJSON("package-lock.json");
 const history = await readFile(new URL("../docs/versionsgeschichte.md",import.meta.url),"utf8");
 const errors = [];
-if (project.schema_version !== 1 || project.name !== "WIRKLICH") errors.push("Invalid public project identity");
+if (project.schema_version !== 1 || project.name !== "WIRKLICH" || project.english_name !== "REALLY?") errors.push("Invalid public project identity");
 if (!/^\d+\.\d+\.\d+$/.test(project.version) || pkg.version !== project.version) errors.push("Package and public project versions must match");
 if (lock.version !== project.version || lock.packages?.[""]?.version !== project.version) errors.push("Dependency lock and project version must match");
 if (!history.includes("## "+project.version+" ·")) errors.push("Release must have a version history entry");

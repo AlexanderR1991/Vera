@@ -1,7 +1,7 @@
 ---
 import {ui,navigation} from "../lib/ui.mjs";
 import {pathFor,absoluteFor,base} from "../lib/paths.mjs";
-import project from "../../public/project.json";
+import project from "../../public/project.json" with {type: "json"};
 const {lang="de",slug="index",root=false}=Astro.props;
 const t=ui[lang];
 const title=root?"Choose your language / Sprache wählen":t.titles[slug];
@@ -17,10 +17,10 @@ const canonical=root?siteRoot:absoluteFor(lang,slug);
 <meta name="color-scheme" content="dark" />
 <meta name="description" content={t.description} />
 <meta property="og:type" content="website" />
-<meta property="og:title" content={title+" · "+project.name} />
+<meta property="og:title" content={title+" · "+t.name} />
 <meta property="og:description" content={t.description} />
 <meta property="og:url" content={canonical} />
-<meta name="application-name" content={project.name} />
+<meta name="application-name" content={t.name} />
 <meta property="og:locale" content={lang==="de"?"de_DE":"en_GB"} />
 <link rel="canonical" href={canonical} />
 <link rel="alternate" hreflang="de" href={absoluteFor("de",slug)} />
@@ -28,14 +28,14 @@ const canonical=root?siteRoot:absoluteFor(lang,slug);
 <link rel="alternate" hreflang="x-default" href={siteRoot} />
 <link rel="icon" type="image/svg+xml" href={base+"assets/signet.svg"} />
 <link rel="stylesheet" href={base+"assets/style.css"} />
-<title>{title} · {project.name}</title>
+<title>{title} · {t.name}</title>
 <script is:inline src={base+"assets/site.js"} defer></script>
 </head>
 <body>
 <a class="skip-link" href="#inhalt">{lang==="de"?"Zum Inhalt springen":"Skip to content"}</a>
 <header class="site-header"><div class="site-header__inner">
-<a class="brand" href={pathFor(lang)} aria-label={project.name+(lang==="de"?" – Startseite":" – homepage")}>
-<img src={base+"assets/signet.svg"} alt="" width="38" height="38" /><span class="brand__name">{project.name}<small>{t.subtitle}</small></span>
+<a class="brand" href={pathFor(lang)} aria-label={t.name+(lang==="de"?" – Startseite":" – homepage")}>
+<img src={base+"assets/signet.svg"} alt="" width="38" height="38" /><span class="brand__name">{t.name}<small>{t.subtitle}</small></span>
 </a>
 <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-navigation"><span>{t.menu}</span><span class="menu-lines" aria-hidden="true">☰</span></button>
 <nav id="site-navigation" class="site-nav" aria-label={lang==="de"?"Hauptnavigation":"Main navigation"}>
@@ -47,7 +47,7 @@ const canonical=root?siteRoot:absoluteFor(lang,slug);
 </div>
 <a class="header-project" href="https://github.com/AlexanderR1991/grundtext-des-wirklichen" target="_blank" rel="noopener noreferrer">GITHUB <span aria-hidden="true">↗</span></a>
 </div></header>
-<div class="edition-line"><a href={pathFor(lang,"projektstatus")} data-project-version={project.version}>{t.archive} ↗</a><span>{t.motto}</span></div>
+<div class="edition-line"><a href={pathFor(lang,"projektstatus")} data-project-version={project.version}>{t.name} / VERSION {project.version} ↗</a><span>{t.motto}</span></div>
 {lang==="en"&&!root&&<div class="translation-notice"><div class="container"><span aria-hidden="true">◇</span><span>{t.status}</span><a href={pathFor("de",slug)}>Deutsch →</a></div></div>}
 <main id="inhalt"><slot /></main>
 <footer class="footer"><div class="container footer__grid">

@@ -6,9 +6,9 @@ WIRKLICH hilft Menschen, aus einer Frage einen nachvollziehbaren Prüfweg und ei
 
 ## Name und Kontinuität
 
-Der öffentliche Projektname lautet **WIRKLICH**. **Grundtext des Wirklichen** bleibt der Titel des philosophischen Fundaments und die bisherige Herkunft des Projekts. Der kurze Name bezeichnet die gemeinsame Werkstatt, nicht die Unfehlbarkeit ihrer Inhalte. Das bestehende Signet bleibt erhalten.
+Die Werkstatt heißt auf Deutsch **WIRKLICH**, auf Englisch **REALLY?**. Das Fragezeichen ist Teil des englischen Namens. Die Leitfrage lautet „Was ist wirklich?“ bzw. „What is real?“. Unter dem Namen stehen je nach Sprache **Die offene Erkenntniswerkstatt** und **The open inquiry workshop**.
 
-Repository, Webadressen, Aussagekennungen, Urhebernennung und Lizenzzuordnung bleiben erhalten. Eine Domainregistrierung, Änderung des Repository-Namens oder neue Organisation ist mit dieser Fassung nicht verbunden. Der englische Zusatz lautet **The open inquiry workshop**; WIRKLICH bleibt in beiden Sprachen der Name.
+**Grundtext des Wirklichen** bezeichnet das philosophische Fundament. Das öffentliche Projektprofil führt WIRKLICH als gemeinsamen Bezeichner und REALLY? als englischen Namen.
 
 ## Das Versprechen von 1.0
 
@@ -44,4 +44,4 @@ Der Ablauf ist absichtlich bescheiden: Ein Feld kann offen bleiben. Ein Gegenarg
 
 ## English
 
-WIRKLICH 1.0 is the first integrated tool release of the open inquiry workshop. The former project name remains the title of its philosophical foundation. Existing addresses, attribution and licenses are retained. A local worksheet supports five claim types, explicit objections, revision conditions, optional browser storage and portable text/JSON files. The project status derives its counts from published data. The three claim records remain unreviewed; method evaluation, independent appeals and sustainable funding remain work to be done.
+The English name of the open inquiry workshop is **REALLY?**. Version 1.0 is its first integrated tool release. The former project name remains the title of its philosophical foundation. A local worksheet supports five claim types, explicit objections, revision conditions, optional browser storage and portable text/JSON files. The project status derives its counts from published data. The three claim records remain unreviewed; method evaluation, independent appeals and sustainable funding remain work to be done.

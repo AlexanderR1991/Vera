@@ -1,6 +1,7 @@
-import project from "../../public/project.json";
+import project from "../../public/project.json" with {type: "json"};
 export const ui = {
   "de": {
+    "name": project.name,
     "subtitle": project.subtitle.de,
     "menu": "Menü",
     "nav": [
@@ -12,7 +13,6 @@ export const ui = {
       "Mitwirken",
       "Werkstatt"
     ],
-    "archive": "WIRKLICH / VERSION " + project.version,
     "motto": "ERKENNTNIS IST KEIN ENDZUSTAND",
     "footerTitle": "Die Wirklichkeit steht über diesem Werk.",
     "footerDescription": "Die offene Erkenntniswerkstatt. Fragen stellen, Wissen prüfen und verantwortlich handeln. Unser Fundament: der Grundtext des Wirklichen.",
@@ -52,6 +52,7 @@ export const ui = {
     "description": "WIRKLICH ist die offene Erkenntniswerkstatt: Fragen klären, Belege und Gegenargumente prüfen und verantwortlich handeln. Mit exportierbaren Prüfblättern und offenem Projektstatus."
   },
   "en": {
+    "name": project.english_name,
     "subtitle": project.subtitle.en,
     "menu": "Menu",
     "nav": [
@@ -63,7 +64,6 @@ export const ui = {
       "Contribute",
       "Workshop"
     ],
-    "archive": "WIRKLICH / VERSION " + project.version,
     "motto": "KNOWLEDGE IS NEVER COMPLETE",
     "footerTitle": "Reality stands above this work.",
     "footerDescription": "The open inquiry workshop. Ask questions, examine knowledge and act responsibly. Our foundation: Grundtext des Wirklichen.",
@@ -100,7 +100,7 @@ export const ui = {
       "militaer-und-verantwortung": "Military Power and Responsibility",
       "ernaehrung-und-verantwortung": "Nutrition and Responsibility"
     },
-    "description": "WIRKLICH is the open inquiry workshop: clarify questions, examine evidence and objections, and act responsibly. With exportable worksheets and an open project status."
+    "description": project.english_name + " Bring a question to the open inquiry workshop. Examine the evidence, test objections and record what would change your mind."
   }
 };
 export const navigation = [["index",0],["werkstatt",6],["atlas",1],["bibliothek",2],["aussagen",3],["methode",4],["mitwirken",5]];
