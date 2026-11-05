@@ -13,7 +13,7 @@ Anyone can suggest ideas through issues or changes through pull requests. **Subm
 - Repository: öffentlich / public
 - Issues: aktiviert / enabled
 - Pull Requests: technisch verfügbar / available
-- GitHub Discussions: noch nicht aktiviert / not enabled yet
+- GitHub Discussions: aktiviert / enabled
 - Maintainer: Repository-Eigentümer / repository owner
 - Rechtliche Lizenzierung: offen / undecided
 - Formale wissenschaftliche Begutachtung: nicht eingerichtet / not established
@@ -35,4 +35,8 @@ Respect and strong criticism can coexist. Maintainers can moderate harassment or
 
 ## Später / Later
 
-Wenn Discussions aktiviert wird, eignen sich dort offene Gespräche, Vorstellungsrunden und die Erkundung von Ideen. **Issues** bleiben für überprüfbare, konkrete Aufgaben und Fehler; **Pull Requests** für tatsächliche Text- und Codeänderungen.
+In [Discussions](https://github.com/AlexanderR1991/grundtext-des-wirklichen/discussions) können offene Gespräche, Vorstellungsrunden und die Erkundung von Ideen stattfinden. **Issues** bleiben für überprüfbare, konkrete Aufgaben und Fehler; **Pull Requests** für tatsächliche Text- und Codeänderungen.
+
+## Erster Beitrag / Welcome discussion
+
+Die zweisprachige Begrüßung liegt als [veröffentlichungsfertiger Entwurf](community/welcome-discussion.md) vor. Die Veröffentlichung als GitHub Discussion muss durch ein Konto mit entsprechendem Zugriff in der GitHub-Oberfläche erfolgen.

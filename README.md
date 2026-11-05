@@ -10,6 +10,12 @@
 
 [Website & Sprachauswahl](https://alexanderr1991.github.io/grundtext-des-wirklichen/) · [Deutsch](https://alexanderr1991.github.io/grundtext-des-wirklichen/de/) · [English draft](https://alexanderr1991.github.io/grundtext-des-wirklichen/en/)
 
+## Austausch / Discussions
+
+[Im offenen Forum diskutieren / Join our discussions](https://github.com/AlexanderR1991/grundtext-des-wirklichen/discussions) · [Begrüßung als Vorlage / Welcome draft](docs/community/welcome-discussion.md)
+
+**Discussions** ist der Ort für offene Fragen und Gespräche. **Issues** sind für konkrete Aufgaben und überprüfbare Einwände; **Pull Requests** schlagen tatsächliche Änderungen an Text oder Code vor.
+
 ## Mitmachen / Contribute
 
 **Du musst nicht programmieren können. / You do not need programming skills.**
@@ -51,6 +57,7 @@ GitHub Actions prüft Änderungen in Pull Requests und veröffentlicht nur nach 
 - [Beitragsleitfaden / Contribution guide](CONTRIBUTING.md)
 - [Diskussionskodex / Code of conduct](CODE_OF_CONDUCT.md)
 - [Roadmap](docs/roadmap.md)
+- [Lizenzentscheidung / Licensing proposal](docs/license-options.md)
 
 **Eine offene Lizenz ist noch nicht beschlossen.** Öffentlich lesbarer Code und Text sind nicht automatisch unter einer Open-Source- oder Open-Content-Lizenz. Bis zur Klärung bitte keine umfangreichen fremden Texte, geschützten Bilder oder Inhalte ohne gesicherte Nutzungsrechte einreichen. Fragen und Vorschläge sind bereits erwünscht.
 
