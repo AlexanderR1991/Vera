@@ -38,6 +38,21 @@ Die Reihenfolge folgt sachlichen Abhängigkeiten, nicht festen Veröffentlichung
 - [ ] Quellenapparat und methodische Grenzen sichtbar
 - [ ] Breite öffentliche Einladung; optional eigene Domain
 
+## Langfristige Vision – vom Nachschlagewerk zum offenen Erkenntnissystem
+
+Die [zweisprachige Vision](vision-wissenssystem.md) beschreibt ein **Entwicklungsziel**, nicht eine bestehende Nachfolge von Wikipedia. Für eine ernsthafte nächste Generation freien Wissens fehlen uns insbesondere:
+
+- [ ] Behauptungs-Schema mit stabiler Kennung, Typ, Geltungsbereich, Evidenz, Gegenbelegen, Unsicherheiten und Revisionsgründen
+- [ ] Strikte technische und visuelle Trennung von quellengestütztem Wissensraum und offener eigener Forschung
+- [ ] Zitierbare Revisionen, Quellenketten und prüfbare menschliche Entscheidungen
+- [ ] Kleiner, methodisch sauber geprüfter Pilotbestand mit einfachen und vertiefenden Lesestufen
+- [ ] Externe Fachprüfungen und veröffentlichte Qualitäts- und Korrekturmetriken
+- [ ] Transparente Moderation, Einspruchsverfahren und geteilte Governance
+- [ ] Barrierearme Suche, maschinenlesbarer Export, Schnittstellen und geprüfte Übersetzungen
+- [ ] Nachhaltiges Organisations- und Finanzierungsmodell ohne versteckte Interessenkonflikte
+
+KI-gestützte Recherche und Gegenkritik dürfen Prüfungen unterstützen, sie aber weder vortäuschen noch eigenmächtig redaktionell abschließen.
+
 ## Nicht-Ziele
 Keine weltanschauliche Gefolgschaft, keine autoritären Wahrheitsnoten, keine private Biografie ohne Freigabe, keine behauptete wissenschaftliche Validierung allein durch ästhetische Wirkung.
 
