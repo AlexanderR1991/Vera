@@ -1,5 +1,13 @@
 # Versionsgeschichte
 
+## 0.4.0 – 2026-11-05
+- Philosophisches Horizontmodell als eigenes deutsch-englisches Kapitel mit kritischen Einordnungen veröffentlicht.
+- Neue barrierearm beschriebene SVG-Zeichnung nach einer eingebrachten Ideenskizze; private Fotoaufnahme nicht veröffentlicht.
+- Hinweise auf das Modell im Einstieg, Atlas, Bibliothek und Methode integriert.
+- Begründungsstatus: nicht bekannt ist nicht bewiesen; Mathematik ist nicht bloß Meinung; KI ersetzt keine kritische Prüfung.
+- Quellen zu Wissenschaftstheorie, mathematischen Beweisen und Risiken KI-gestützter Forschung.
+- Neues Kapitel in Sitemap, Metadaten und GitHub-Buildprüfung aufgenommen.
+
 ## 0.3.3 – 2026-11-05
 - Originaltexte und Übersetzungen unter Creative Commons CC BY-SA 4.0, eigene Website-Software unter MIT freigegeben (jeweils soweit die Rechte bestehen).
 - LICENSE, LICENSE-CONTENT.md und LICENSING.md ergänzt; gemischte HTML-/Astro-Dateien rechtlich abgegrenzt.
