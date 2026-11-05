@@ -79,6 +79,17 @@ Ein zweisprachiges theologisches Kapitel eröffnet einen respektvollen, aber kri
 - [English: Military Power and Responsibility (translation draft)](https://alexanderr1991.github.io/grundtext-des-wirklichen/en/militaer-und-verantwortung/)
 - [Offenes Forschungsprogramm mit Quellen](docs/forschungsprogramm-militaer.md)
 
+## Angriffsschwarm / Adversarial Swarm
+
+**Greift unsere Thesen an.** Der Angriffsschwarm stellt öffentliche Behauptungen täglich einem KI-gestützten Gegenargument, einer fairen Verteidigung und einer kritischen Einordnung gegenüber. Alle Ergebnisse sind **ungeprüfte KI-Entwürfe**, keine unabhängigen Fachgutachten; der tägliche Workflow benötigt einen konfigurierten API-Schlüssel.
+
+**Challenge our claims.** The daily adversarial review invites the strongest counterexamples, a steelmanned defense and transparent revision suggestions. Generated critiques are never treated as proven refutations. External agents and human critics are invited to submit grounded challenges, while editorial changes remain subject to human review.
+
+- [Deutsch: Angriffsschwarm](https://alexanderr1991.github.io/grundtext-des-wirklichen/de/angriffsschwarm/)
+- [English: Adversarial Swarm](https://alexanderr1991.github.io/grundtext-des-wirklichen/en/angriffsschwarm/)
+- [Einladung an Bots / Agent invitation](AGENTS.md)
+- [Prüfprotokoll / Review protocol](docs/angriffsschwarm.md)
+
 ## Unser Anspruch / Our standard
 
 **Kritik ist willkommen, Zustimmung nicht erforderlich.** Die neun Leitsätze sind vorläufige, hauptsächlich philosophisch-normative Aussagen und keine wissenschaftlich bestätigte Gesamttheorie. Behauptungen über Tatsachen benötigen Quellen; Metaphern dürfen keine empirischen Belege ersetzen.
