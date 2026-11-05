@@ -1,0 +1,153 @@
+---
+import Layout from "../layouts/SiteLayout.astro";
+const {lang="de"}=Astro.props;
+const de=lang==="de";
+const repo="https://github.com/AlexanderR1991/grundtext-des-wirklichen";
+---
+<Layout lang={lang} slug="angriffsschwarm">
+  <section class="section attack-hero">
+    <div class="container">
+      <p class="section-kicker">EXAMEN / ADVERSARIA / EVOLUTIO</p>
+      <h1>{de?"Der Angriffsschwarm":"The Adversarial Swarm"}</h1>
+      <p class="attack-intro">{de
+        ?"Wir laden Gegenargumente ein. Eine gute Widerlegung macht unser Werk besser — auch wenn eine liebgewonnene These fallen muss."
+        :"We invite counterarguments. A sound refutation improves this work — even when a cherished claim must be abandoned."}</p>
+      <p class="attack-motto">{de
+        ?"NICHT DAS WERK MUSS GEWINNEN. DIE WAHRHEIT MUSS GEWINNEN."
+        :"THE WORK NEED NOT WIN. TRUTH MUST WIN."}</p>
+      <div class="attack-links">
+        <a href={repo+"/issues/new?template=angriff.yml"} target="_blank" rel="noopener noreferrer">{de?"These angreifen ↗":"Challenge a claim ↗"}</a>
+        <a href={repo+"/blob/main/AGENTS.md"} target="_blank" rel="noopener noreferrer">{de?"Einladung an KI-Agenten ↗":"Invitation to AI agents ↗"}</a>
+        <a href={repo+"/blob/main/docs/angriffsschwarm.md"} target="_blank" rel="noopener noreferrer">{de?"Prüfverfahren ↗":"Review protocol ↗"}</a>
+      </div>
+    </div>
+  </section>
+  <section class="section section--paper">
+    <div class="container">
+      <p class="section-kicker">{de?"ÖFFENTLICHES FEHLERPROTOKOLL":"PUBLIC CHALLENGE LOG"}</p>
+      <h2>{de?"Die Einwände":"The objections"}</h2>
+      <p>{de
+        ?"Die folgenden Beiträge sind KI-generierte Prüfentwürfe, keine extern verifizierten Widerlegungen. Die drei Rollen verwenden dasselbe Modell; sie sind keine unabhängigen Gutachter. Jede vorgeschlagene Korrektur braucht nachprüfbare Quellen und menschliche Prüfung."
+        :"These are AI-generated review drafts, not externally verified refutations. All three roles use the same model and are not independent reviewers. Every proposed revision requires verifiable sources and human assessment."}</p>
+      <div id="attack-live" data-lang={lang} aria-live="polite">
+        <p id="attack-status">{de?"Prüfarchiv wird geladen …":"Loading challenge archive …"}</p>
+        <p id="attack-meta"></p>
+        <div id="attack-cards" class="attack-cards"></div>
+      </div>
+    </div>
+  </section>
+  <script is:inline>
+    (() => {
+      const root=document.getElementById("attack-live");
+      if (!root) return;
+      const de=root.dataset.lang==="de";
+      const status=document.getElementById("attack-status");
+      const meta=document.getElementById("attack-meta");
+      const cards=document.getElementById("attack-cards");
+      const endpoint="https://raw.githubusercontent.com/AlexanderR1991/grundtext-des-wirklichen/main/public/research/angriffe.json";
+      const text=(tag,value,css)=>{
+        const e=document.createElement(tag);
+        e.textContent=String(value??"");
+        if(css)e.className=css;
+        return e;
+      };
+      const sections=[
+        ["adversary",de?"ANGRIFF":"ATTACK",[
+          ["steelman",de?"Stärkste faire Lesart":"Charitable reading"],
+          ["objection",de?"Einwand":"Objection"],
+          ["counterexample",de?"Gegenbeispiel":"Counterexample"],
+          ["test",de?"Entscheidender Test":"Discriminating test"],
+          ["uncertainty",de?"Unsicherheit":"Uncertainty"]
+        ]],
+        ["defender",de?"VERTEIDIGUNG":"DEFENSE",[
+          ["response",de?"Antwort":"Response"],
+          ["concessions",de?"Zugeständnisse":"Concessions"],
+          ["revision",de?"Mögliche Revision":"Potential revision"]
+        ]],
+        ["assessor",de?"KRITISCHE EINORDNUNG":"CRITICAL ASSESSMENT",[
+          ["disposition",de?"Vorläufige Einordnung":"Provisional category"],
+          ["reason",de?"Begründung":"Reasoning"],
+          ["unresolved",de?"Offene Punkte":"Unresolved"],
+          ["next_check",de?"Nächste unabhängige Prüfung":"Next independent check"]
+        ]]
+      ];
+      const statusLabels={
+        plausible_challenge:de?"Einwand plausibel":"Plausible challenge",
+        insufficient_challenge:de?"Einwand bisher nicht ausreichend":"Insufficient challenge so far",
+        needs_evidence:de?"Benötigt externe Belege":"Needs external evidence",
+        conceptual_disagreement:de?"Begrifflicher oder normativer Dissens":"Conceptual / normative disagreement"
+      };
+      fetch(endpoint,{cache:"no-store"}).then(r=>{
+        if(!r.ok)throw Error("HTTP "+r.status);
+        return r.json();
+      }).then(data=>{
+        if(!Array.isArray(data.items))throw Error("Invalid challenge archive");
+        status.textContent=de
+          ?"Status: ungeprüfte KI-Einwände – keine bestätigten Widerlegungen"
+          :"Status: unverified AI objections – no certified refutations";
+        const when=data.updated_at?new Date(data.updated_at).toLocaleString(de?"de-DE":"en-GB"):
+          (de?"Noch kein Lauf":"Not run yet");
+        meta.textContent=(de?"Letzter Lauf: ":"Last run: ")+when+" · "+
+          data.items.length+(de?" Fälle":" cases")+
+          " · "+(data.agents_enabled?(de?"KI-Rollen aktiv":"AI roles active"):
+            (de?"KI-Rollen nicht aktiv":"AI roles inactive"));
+        if(!data.items.length){
+          cards.append(text("p",de
+            ?"Noch keine Angriffe vorhanden. Der Workflow wurde noch nicht mit KI ausgeführt."
+            :"No challenges yet. The AI workflow has not run."));
+        }
+        for(const item of data.items.slice(0,40)){
+          const article=document.createElement("article");
+          article.className="attack-card";
+          article.append(text("p",de?"UNGEPRÜFTER ENTWURF":"UNVERIFIED DRAFT","attack-tag"));
+          article.append(text("h3",item.heading||item.id||"Claim"));
+          const src=String(item.source||"");
+          const link=document.createElement("a");
+          if(/^docs\/[\w./-]+\.md$/.test(src) && !src.includes("..")){
+            link.href="https://github.com/AlexanderR1991/grundtext-des-wirklichen/blob/main/"+src;
+            link.target="_blank"; link.rel="noopener noreferrer";
+            link.textContent=de?"Quelle der These ↗":"Claim source ↗";
+            article.append(link);
+          }
+          if(item.excerpt)article.append(text("p",item.excerpt,"attack-excerpt"));
+          for(const [key,heading,fields] of sections){
+            const section=item[key];
+            if(!section||typeof section!=="object")continue;
+            article.append(text("h4",heading));
+            for(const [field,label] of fields){
+              const val=section[field];
+              if(typeof val!=="string"||!val)continue;
+              const p=document.createElement("p");
+              p.append(text("strong",label+": "));
+              p.append(document.createTextNode(
+                field==="disposition"?(statusLabels[val]||val):val));
+              article.append(p);
+            }
+          }
+          cards.append(article);
+        }
+      }).catch(()=>{
+        status.textContent=de
+          ?"Das öffentliche Prüfarchiv ist derzeit nicht abrufbar."
+          :"The public challenge archive is currently unavailable.";
+        meta.textContent="";
+      });
+    })();
+  </script>
+</Layout>
+<style is:global>
+  .attack-hero{padding-block:6rem 4rem}
+  .attack-hero h1{font-size:clamp(2.6rem,7vw,5.8rem);line-height:1.08;max-width:20ch}
+  .attack-intro{max-width:48rem;font-size:clamp(1.15rem,2.1vw,1.5rem)}
+  .attack-motto{font-size:.9rem;letter-spacing:.12em;margin-top:2rem;border-top:1px solid currentColor;padding-top:1.25rem}
+  .attack-links{display:flex;flex-wrap:wrap;gap:1.2rem;margin-top:1.5rem}
+  #attack-meta{font-size:.9rem;opacity:.75;margin:1.2rem 0 2rem}
+  .attack-cards{display:grid;gap:1.5rem}
+  .attack-card{border:1px solid rgba(130,116,92,.35);padding:clamp(1rem,3vw,2rem)}
+  .attack-card h3{font-size:clamp(1.25rem,2.5vw,1.75rem);overflow-wrap:anywhere}
+  .attack-card h4{font-size:.9rem;letter-spacing:.12em;margin:1.5rem 0 .6rem}
+  .attack-card p{line-height:1.6;overflow-wrap:anywhere}
+  .attack-tag{font-size:.75rem;letter-spacing:.1em}
+  .attack-excerpt{white-space:pre-line;opacity:.85;margin-top:1rem}
+  .attack-card a{display:inline-block;margin:.35rem 0}
+</style>

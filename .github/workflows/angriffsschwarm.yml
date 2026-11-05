@@ -1,0 +1,38 @@
+name: Angriffsschwarm - Adversarial Review
+
+on:
+  schedule:
+    - cron: '33 3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: grundtext-adversarial-review
+  cancel-in-progress: false
+
+jobs:
+  challenge:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run limited adversarial review on public thesis excerpts
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          ATTACK_MODEL: gpt-4.1-mini
+        run: python scripts/angriffsschwarm.py
+      - name: Commit generated drafts only (never editorial text)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/research/angriffe.json
+          if ! git diff --cached --quiet; then
+            git commit -m "research: refresh unverified adversarial challenge [skip ci]"
+            git push
+          fi
