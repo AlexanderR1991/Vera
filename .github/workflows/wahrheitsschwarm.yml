@@ -1,0 +1,35 @@
+name: Wahrheitsschwarm - Forschungsstrom
+on:
+  schedule:
+    - cron: '17 */6 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: grundtext-research-stream
+  cancel-in-progress: false
+jobs:
+  discover:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Quellen finden und kritische Fragen stellen
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          RESEARCH_MODEL: gpt-4.1-mini
+          RESEARCH_MAX_ANALYSES: '2'
+        run: python scripts/wahrheitsschwarm.py
+      - name: Nur Forschungswarteschlange aktualisieren
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/research/stream.json
+          if ! git diff --cached --quiet; then
+            git commit -m "research: refresh unreviewed metadata [skip ci]"
+            git push
+          fi
