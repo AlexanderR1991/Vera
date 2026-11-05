@@ -33,7 +33,8 @@ export const ui = {
       "erkenntnishorizont": "Der Horizont des Erkennbaren",
       "warum-liebe-wirkt": "Warum Liebe wirkt",
       "politik-die-dem-menschen-dient": "Politik, die dem Menschen dient",
-      "bruecken-zwischen-den-religionen": "Brücken zwischen den Religionen"
+      "bruecken-zwischen-den-religionen": "Brücken zwischen den Religionen",
+      "militaer-und-verantwortung": "Militär und Verantwortung"
     },
     "description": "Ein offenes, korrigierbares Erkenntnisprojekt über Wahrheit, Wirklichkeit und menschliches Handeln."
   },
@@ -71,7 +72,8 @@ export const ui = {
       "erkenntnishorizont": "The Horizon of the Knowable",
       "warum-liebe-wirkt": "Why Love Works",
       "politik-die-dem-menschen-dient": "Politics That Serves People",
-      "bruecken-zwischen-den-religionen": "Bridges Between Religions"
+      "bruecken-zwischen-den-religionen": "Bridges Between Religions",
+      "militaer-und-verantwortung": "Military Power and Responsibility"
     },
     "description": "An open and revisable inquiry into truth, reality, human dignity, and responsible action."
   }

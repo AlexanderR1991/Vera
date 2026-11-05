@@ -49,3 +49,7 @@ Ein zweisprachiger Bereich behandelt Liebe als heterogenes Phänomen. Anziehung,
 ## Liber Civitatis – Politik als überprüfbarer Entwurf (Version 0.6)
 
 Der politische Forschungsbereich ist **kein Wahlprogramm und keine vollständig beweisbare Staatslehre**. Menschenwürde, Grundrechte, Rechtsstaat und demokratische Verantwortung bilden eine offen benannte normative Ausgangsposition; die empirische Wirkung konkreter Institutionen und Sozialmaßnahmen bleibt zu prüfen. Das Kapitel unterscheidet geltendes deutsches Verfassungsrecht von internationaler empirischer Forschung, zeigt legitime Zielkonflikte (Freiheit/Sicherheit, Markt/Sicherung, Mehrheit/Rechte, Gegenwart/Zukunft, Experten/Bürger) und dokumentiert fünf angreifbare Hypothesen (P-A–P-E). KI dient der Forschung, nicht als Ersatz demokratischer Entscheidungsverantwortung.
+
+## Liber Custodiae – Militärische Macht und Friedensverantwortung (Version 0.7)
+
+Der zweisprachige Bereich trennt *jus ad bellum*, *jus in bello* und zusätzliche normative bzw. empirische Prüfungen. Militärische Ethik wird weder auf Pazifismus noch auf unbeschränkte Verteidigung reduziert. Das Kapitel zeigt sechs normative Leitplanken, echte Gegeneinwände, ein bewusst nicht-operatives Dilemma und vier offene Forschungsfragen M-A–M-D. Rechtliche Schranken sind keine Variablen einer Maximierungsformel. Ziviler Schutz, demokratische Aufsicht und menschliche Verantwortung – auch für KI – werden anhand verlinkter Primär- und Fachquellen geprüft. Kein Einsatzleitfaden, keine bestätigte Universaltheorie.

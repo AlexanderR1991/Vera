@@ -1,0 +1,231 @@
+---
+import Layout from "../layouts/SiteLayout.astro";
+import {pathFor} from "../lib/paths.mjs";
+const {lang="de"}=Astro.props;
+const en=lang==="en";
+const t={
+  de:{
+    kicker:"LIBER CUSTODIAE · MILITÄR, FRIEDEN UND VERANTWORTUNG",
+    title:"Das Recht",titleAccent:"zu schützen.",
+    lead:"Warum braucht eine freie Gesellschaft Verteidigung? Und welche Grenzen muss gerade die Macht achten, die sie schützen soll?",
+    status:["Version 0.7 · Arbeitsfassung","Normative Ethik ≠ geltendes Recht","Keine militärische Handlungsanweisung"],
+    naiveTitle:"Warum gibt es überhaupt Soldaten?",
+    naive:"Weil Menschen einander bedrohen können und manche Angriffe nur mit organisierter Verteidigung abzuwehren sind. Doch die Fähigkeit, Gewalt auszuüben, macht ihren Einsatz noch nicht richtig. Wer schützen will, muss erklären können, wen er schützt, wovor und mit welchen Grenzen.",
+    quote:"Die höchste Form militärischer Stärke besteht nicht darin, Gewalt ausüben zu können. Sondern darin, Menschen schützen zu können, ohne die Menschlichkeit zu verlieren.",
+    quoteNote:"Philosophische Leitthese dieses Projekts – kein Rechtssatz und kein empirisches Ergebnis.",
+    frameworkTitle:"Drei Fragen. Drei verschiedene Prüfungen.",
+    layers:[
+      ["01 · RECHT","Darf Gewalt eingesetzt werden?","Die UN-Charta enthält ein grundsätzliches Gewaltverbot zwischen Staaten. Selbstverteidigung nach Artikel 51 und vom Sicherheitsrat autorisierte Maßnahmen sind zentrale, rechtlich bestimmte Ausnahmen."],
+      ["02 · RECHT IM KONFLIKT","Wie darf gehandelt werden?","Humanitäres Völkerrecht schützt Menschen im bewaffneten Konflikt. Unterscheidung, Verhältnismäßigkeit im Angriff und Vorsichtsmaßnahmen gelten unabhängig davon, welche Seite den Krieg begonnen hat."],
+      ["03 · ETHIK & EVIDENZ","Was sollte eine Gemeinschaft tun?","Recht ist nicht die vollständige Moral. Prävention, Abschreckung, Verteidigung, Abrüstung und Verhandlung müssen an Folgen, Unsicherheit, Freiheit und langfristiger Friedensfähigkeit geprüft werden."]
+    ],
+    layerNote:"Die Rechtmäßigkeit des Kriegsbeginns (jus ad bellum) darf nicht mit der Rechtmäßigkeit einzelner Handlungen im Krieg (jus in bello) verwechselt werden. Die genaue Rechtsanwendung benötigt qualifizierte Einzelfallprüfung.",
+    principlesTitle:"Sechs Grenzen der Macht.",
+    principles:[
+      ["01","Schutz als Zweck","Militärische Stärke rechtfertigt sich nicht durch Eroberung, Ruhm oder Gehorsam an sich, sondern muss gegenüber legitimen Schutzinteressen und Recht begründet werden."],
+      ["02","Menschen bleiben Menschen","Zivilpersonen, Verwundete, Gefangene und andere geschützte Personen verlieren ihre Würde nicht durch Staatsangehörigkeit, Uniform oder Feindschaft."],
+      ["03","Unterscheiden und schonen","Angriffe müssen zwischen militärischen Zielen und geschützten Personen und Objekten unterscheiden. Verbotene wahllose Angriffe sind keine vertretbare Abkürzung."],
+      ["04","Macht kontrollieren","Streitkräfte brauchen rechtsstaatliche Regeln, demokratisch legitimierte zivile Aufsicht, Rechenschaft und Grenzen für Geheimhaltung."],
+      ["05","Verantwortung statt blinder Gefolgschaft","Befehle entbinden nicht pauschal von rechtlicher Verantwortung. Auf rechtswidrige Anordnungen und institutionelle Fehler muss es überprüfbare Reaktionen geben."],
+      ["06","Frieden mitdenken","Sicherheitspolitik muss mögliche Eskalation, zivile Schäden, Versorgung, Veteranen und Wege zu einer tragfähigen Nachkriegsordnung mitbedenken."]
+    ],
+    conflictsTitle:"Die schwierigen Widersprüche.",
+    conflicts:[
+      ["Pazifismus ↔ Schutzpflicht","Gewaltverzicht bewahrt ein moralisches Prinzip; unter Umständen kann Untätigkeit aber angegriffene Menschen schutzlos lassen.","Welche gewaltfreien und defensiven Alternativen sind realistisch verfügbar?"],
+      ["Abschreckung ↔ Eskalation","Glaubwürdige Verteidigung kann Angriffe unattraktiver machen; Rüstung und Fehlwahrnehmungen können Konflikte zugleich verschärfen.","Woran erkennen wir den Unterschied zwischen Abschreckung und Eskalationsspirale?"],
+      ["Gehorsam ↔ Gewissen","Verlässliche Befehlsketten erleichtern koordinierte Verteidigung; fehlende Kritikfähigkeit schafft Risiken für Missbrauch und Rechtsbrüche.","Wie werden rechtswidrige Befehle erkannt, angefochten und verantwortet?"],
+      ["Sicherheit ↔ Freiheit","Geheimhaltung und Bereitschaft können notwendig sein; unkontrollierte Notstandsbefugnisse können Freiheiten dauerhaft aushöhlen.","Welche Aufsicht ist auch unter Zeitdruck unverzichtbar?"]
+    ],
+    examinationTitle:"Ein Dilemma durch unser Regelwerk.",
+    scenario:"Ein Staat wird angegriffen. Eine verteidigende Armee könnte ein militärisches Ziel bekämpfen, erwartet aber zugleich Schäden für nahegelegene Zivilpersonen.",
+    steps:[
+      ["1","Tatsachen trennen","Was ist gesichert, was ungewiss? Welche Quellen widersprechen einander?"],
+      ["2","Recht vor Nutzen prüfen","Gibt es eine rechtliche Grundlage der Gewaltanwendung? Welche humanitärrechtlichen Grenzen gelten für die konkrete Handlung?"],
+      ["3","Betroffene sichtbar machen","Zivilpersonen, Einsatzkräfte, Verwundete, Gefangene, künftige Generationen und Nachbarstaaten mitdenken."],
+      ["4","Alternativen ernsthaft vergleichen","Nicht-Handeln, Ausweichen, zeitliche Verschiebung, Verhandlung und andere rechtlich zulässige Optionen prüfen."],
+      ["5","Schäden und Fehlurteile prüfen","Unsicherheiten, zivile Folgen und Eskalationsrisiken nicht hinter einer einzigen Kennzahl verstecken."],
+      ["6","Verantwortung benennen","Wer entscheidet? Wer dokumentiert? Welche unabhängige Kontrolle und Rechenschaft sind möglich?"],
+      ["7","Korrigierbar bleiben","Fehler, neue Erkenntnisse und mögliche Rechtsverstöße untersuchen; Schutzmaßnahmen und Doktrin ändern."]
+    ],
+    stop:"Wichtig: Das Verfahren ersetzt weder das humanitäre Völkerrecht noch militärjuristische Expertise. Es berechnet keine zulässige Opferzahl. Eine moralische Gesamtpunktzahl kann ein rechtswidriges Vorgehen niemals legitimieren.",
+    hypothesesTitle:"Vier prüfbare Forschungsfragen.",
+    hypotheses:[
+      ["M-A","Zivile Kontrolle","Senken wirksame demokratische Kontrolle und unabhängige Beschwerdewege institutionellen Machtmissbrauch?","Vergleich verlässlicher Aufsichts- und Beschwerdedaten über Zeit.","Unterschiedliche Bedrohungslagen, Berichtskultur und Scheinkorrelation."],
+      ["M-B","Schutz von Zivilpersonen","Verbessern konsequente Ausbildung, überprüfbare Einsatzregeln und Fehleranalysen den Schutz von Zivilpersonen?","Vergleich dokumentierter Ausbildungs- und Schadensindikatoren bei Berücksichtigung des Einsatzkontexts.","Messprobleme, Selektionsfehler, verdeckte Schäden."],
+      ["M-C","Abschreckung und Deeskalation","Unter welchen Bedingungen wirken Verteidigungsfähigkeit und diplomatische Krisenkanäle zusammen eskalationshemmend?","Historische Fallvergleiche, Krisenverläufe, Gegenbeispiele.","Abschreckungserfolge sind schwer beobachtbar; rivalisierende Ursachen."],
+      ["M-D","Menschliche Kontrolle über KI","Verringern nachvollziehbare menschliche Freigaben und Grenzen automatisierter Systeme Fehlentscheidungen und Schäden?","Unabhängige technische Evaluierung, Fehlermoden, rechtliche Analyse, sicherheitsgeprüfte Tests.","Automation Bias, Scheinkontrolle, unzugängliche Felddaten."]
+    ],
+    hypNote:"Alle M-A bis M-D sind nicht vorregistrierte Forschungsfragen, keine bestätigten Kausalgesetze. Forschung zu Gewalt und Sicherheit erfordert besondere Ethik-, Sicherheits- und Datenschutzprüfung.",
+    aiTitle:"Wenn Software über Leben und Tod mitentscheidet.",
+    ai:"KI verändert Aufklärung, Analyse und Entscheidungsvorbereitung. Autonome Waffensysteme werfen besondere Fragen zu Vorhersagbarkeit, Kontrolle und Verantwortung auf. Das IKRK fordert zusätzliche verbindliche Regeln; diese Forderung ist nicht mit bereits geltendem universellem Verbotsrecht gleichzusetzen.",
+    aiQuote:"Ein System, das Entscheidungen beschleunigt, darf menschliche Verantwortung nicht unsichtbar machen.",
+    finaleTitle:"Woran muss sich Stärke messen lassen?",
+    finale:"Nicht nur daran, was eine Armee verhindern oder besiegen kann. Sondern daran, ob ihr Auftrag begrenzt ist, ob Menschen geschützt werden, ob Verletzungen des Rechts Konsequenzen haben und ob ihr Handeln einen verantwortbaren Frieden wahrscheinlicher macht.",
+    sourceTitle:"Rechtliche Grundlagen und überprüfbare Quellen",
+    sourceNote:"Primär- und Fachquellen zur Orientierung. Rechtliche Auslegung ist kontextabhängig; politisch-ethische Forderungen des Projekts sind als solche ausgewiesen.",
+    sources:[
+      ["UN-Charta, Art. 2(4), 39–42 und 51","Gewaltverbot, Sicherheitsrat, Selbstverteidigung"],
+      ["IKRK: Jus ad bellum und jus in bello","Trennung zwischen Kriegsbeginn und Kriegsführung"],
+      ["IKRK: Häufige Fragen zu den Regeln des Krieges","Unterscheidung, Verhältnismäßigkeit und Vorsorge"],
+      ["OSZE: Verhaltenskodex zu politisch-militärischen Aspekten","Politisch bindende Standards zur demokratischen Kontrolle"],
+      ["IKRK: Autonome Waffensysteme, Briefing 2026","Rechtsfragen und ausdrücklich ausgewiesene Regulierungsforderungen"]
+    ],
+    back:"Zur Bibliothek",policy:"Zum politischen Entwurf",forum:"Offen diskutieren",review:"Quellen kritisieren"
+  },
+  en:{
+    kicker:"LIBER CUSTODIAE · MILITARY POWER, PEACE AND RESPONSIBILITY",
+    title:"The right",titleAccent:"to protect.",
+    lead:"Why does a free society need defence? And what limits must be respected precisely by the power entrusted to protect it?",
+    status:["Version 0.7 · Working draft","Normative ethics ≠ positive law","Not operational military guidance"],
+    naiveTitle:"Why do soldiers exist at all?",
+    naive:"Because people can threaten one another, and some attacks may require organised defence. But the ability to use force does not justify every use of force. Those who claim to protect must be able to explain whom, from what, and within which limits.",
+    quote:"The highest form of military strength is not merely the capacity to use force. It is the capacity to protect people without losing our humanity.",
+    quoteNote:"A philosophical guiding thesis of this project—not a legal provision or empirical finding.",
+    frameworkTitle:"Three questions. Three distinct examinations.",
+    layers:[
+      ["01 · LAW","May force be used?","The UN Charter generally prohibits the use of force between States. Self-defence under Article 51 and Security Council-authorised action are central legally defined exceptions."],
+      ["02 · LAW IN CONFLICT","How may force be used?","International humanitarian law protects people in armed conflict. Distinction, proportionality in attack, and precautions apply irrespective of which party initiated the war."],
+      ["03 · ETHICS & EVIDENCE","What should a community do?","Legality does not exhaust morality. Prevention, deterrence, defence, disarmament and diplomacy should be examined for consequences, uncertainty, freedom and long-term prospects for peace."]
+    ],
+    layerNote:"The legality of resorting to force (jus ad bellum) must not be confused with the legality of conduct during war (jus in bello). Applying the law to a specific case requires qualified legal analysis.",
+    principlesTitle:"Six limits on power.",
+    principles:[
+      ["01","Protection as purpose","Military capability must be justified by legitimate protective aims and law, not conquest, prestige or obedience as ends in themselves."],
+      ["02","People remain people","Civilians, wounded people, detainees and others protected by law do not lose their dignity through nationality, uniforms or enmity."],
+      ["03","Distinguish and spare","Attacks must distinguish military objectives from protected people and objects. Prohibited indiscriminate attacks are not an acceptable shortcut."],
+      ["04","Power under oversight","Armed forces require law, democratically legitimate civilian oversight, accountability and boundaries on secrecy."],
+      ["05","Responsibility, not blind obedience","Orders do not automatically erase legal responsibility. Unlawful instructions and institutional errors require accountable responses."],
+      ["06","Consider the peace","Security policy should consider escalation, civilian harm, infrastructure, veterans and the prospects for a sustainable post-conflict order."]
+    ],
+    conflictsTitle:"The difficult tensions.",
+    conflicts:[
+      ["Pacifism ↔ duty to protect","Renouncing violence preserves a moral principle; at times, inaction may leave people exposed to attack.","Which nonviolent and defensive alternatives are realistically available?"],
+      ["Deterrence ↔ escalation","Credible defence may discourage attacks; arms races and misperceptions may also make crises worse.","How can we distinguish successful deterrence from an escalation spiral?"],
+      ["Orders ↔ conscience","Reliable chains of command help coordinate defence; uncritical obedience can enable abuse and unlawful action.","How can unlawful orders be identified, challenged and accounted for?"],
+      ["Security ↔ liberty","Secrecy and readiness may be necessary; unchecked emergency powers can permanently erode freedom.","Which oversight mechanisms must persist even in emergencies?"]
+    ],
+    examinationTitle:"A dilemma examined by our method.",
+    scenario:"A State is attacked. A defending force considers engaging a military objective while expecting harm to nearby civilians.",
+    steps:[
+      ["1","Separate facts from uncertainty","What is established, what is uncertain, and which sources conflict?"],
+      ["2","Check the law before utility","Is there a legal basis for force? Which IHL constraints apply to the specific conduct?"],
+      ["3","Identify everyone affected","Consider civilians, personnel, wounded people, detainees, future generations and neighbouring countries."],
+      ["4","Compare genuine alternatives","Consider refraining, withdrawal, delaying action, negotiation and other lawful options."],
+      ["5","Test harm and error","Do not hide uncertainty, civilian effects or escalation risks behind a single score."],
+      ["6","Locate accountability","Who decides, documents, reviews and answers for the consequences?"],
+      ["7","Remain corrigible","Investigate failures, new evidence and possible violations; revise safeguards and doctrine."]
+    ],
+    stop:"This procedure cannot replace international humanitarian law or qualified legal expertise. It does not calculate an acceptable number of deaths. No moral aggregate score can legitimise unlawful conduct.",
+    hypothesesTitle:"Four researchable questions.",
+    hypotheses:[
+      ["M-A","Civilian oversight","Does effective democratic oversight and independent complaints reduce abuse of military authority?","Compare reliable oversight and complaint data over time.","Threat variation, reporting culture and spurious correlation."],
+      ["M-B","Civilian protection","Can systematic training, verifiable rules and incident reviews improve civilian protection?","Compare training and harm indicators while accounting for conflict context.","Measurement limits, selection bias and unobserved harm."],
+      ["M-C","Deterrence and de-escalation","Under what conditions can defence capabilities and diplomatic crisis channels jointly reduce escalation?","Historical case comparisons, crisis timelines and counterexamples.","Successful deterrence is hard to observe; multiple plausible causes."],
+      ["M-D","Human control of AI","Do traceable human authorisations and limits on automated systems reduce errors and harm?","Independent technical reviews, failure modes, legal analysis and safety-reviewed tests.","Automation bias, nominal oversight and inaccessible field data."]
+    ],
+    hypNote:"M-A to M-D are unregistered exploratory questions, not established causal laws. Research on violence and security requires particular ethical, safety and privacy review.",
+    aiTitle:"When software shapes life-and-death decisions.",
+    ai:"AI is changing intelligence analysis and decision support. Autonomous weapon systems raise difficult questions of predictability, control and responsibility. The ICRC calls for further binding rules; its proposals should not be confused with an already existing universal ban.",
+    aiQuote:"A system that accelerates decisions must never make human accountability disappear.",
+    finaleTitle:"By what standard should strength be judged?",
+    finale:"Not only by what an army can deter or defeat, but by whether its mission is bounded, people are protected, violations have consequences, and its actions improve the prospects for a responsible peace.",
+    sourceTitle:"Legal foundations and verifiable sources",
+    sourceNote:"Official and expert sources for further examination. Legal application depends on context; the project's ethical proposals are identified as proposals.",
+    sources:[
+      ["UN Charter, Arts. 2(4), 39–42 and 51","Prohibition of force, Security Council, self-defence"],
+      ["ICRC: Jus ad bellum and jus in bello","Distinguishing the resort to war from conduct in war"],
+      ["ICRC: Frequently asked questions on the rules of war","Distinction, proportionality and precautions"],
+      ["OSCE: Code of Conduct on Politico-Military Aspects","Politically binding standards on democratic oversight"],
+      ["ICRC: Autonomous weapon systems, 2026 briefing","Legal questions and clearly identified proposals for new rules"]
+    ],
+    back:"Back to the library",policy:"Politics chapter",forum:"Discuss openly",review:"Challenge a source"
+  }
+}[lang];
+const urls=[
+ "https://www.un.org/en/about-us/un-charter/full-text",
+ "https://www.icrc.org/en/law-and-policy/jus-ad-bellum-and-jus-bello",
+ "https://www.icrc.org/en/document/FAQ-rules-of-war-ihl",
+ "https://www.osce.org/node/660127",
+ "https://www.icrc.org/en/article/autonomous-weapon-systems-and-international-humanitarian-law-selected-issues"
+];
+const gh="https://github.com/AlexanderR1991/grundtext-des-wirklichen";
+---
+<Layout lang={lang} slug="militaer-und-verantwortung">
+<section class="mil-hero"><div class="container">
+<p class="section-kicker">{t.kicker}</p><h1>{t.title}<br/><em>{t.titleAccent}</em></h1>
+<p class="mil-lead">{t.lead}</p><div class="mil-tags">{t.status.map(x=><span>{x}</span>)}</div>
+</div></section>
+<section class="section section--paper"><div class="container mil-opening">
+<div><p class="section-kicker">I · {en?"A SIMPLE QUESTION":"EINE EINFACHE FRAGE"}</p><h2>{t.naiveTitle}</h2><p>{t.naive}</p></div>
+<figure class="mil-symbol"><svg viewBox="0 0 380 340" role="img" aria-labelledby="mil-symbol-title">
+<title id="mil-symbol-title">{en?"Protection under the limits of law":"Schutz unter den Grenzen des Rechts"}</title>
+<g fill="none" stroke="#c2a475" stroke-width="1.2"><circle cx="190" cy="170" r="145" stroke-dasharray="4 11" opacity=".55"/><circle cx="190" cy="170" r="110" opacity=".65"/><circle cx="190" cy="170" r="75"/><path d="M190 102 248 125 244 185Q234 236 190 253Q146 236 136 185L132 125Z" stroke-width="2.2"/><path d="M158 174l23 25 43-54" stroke-width="3"/></g>
+<g fill="#e0c699" font-family="serif" font-size="12" text-anchor="middle"><text x="190" y="18">{en?"LAW":"RECHT"}</text><text x="190" y="333">{en?"ACCOUNTABILITY":"VERANTWORTUNG"}</text></g>
+</svg><figcaption>{en?"Symbolic diagram, not an empirical model.":"Symbolisches Denkbild, kein empirisches Modell."}</figcaption></figure>
+</div></section>
+<section class="section mil-thesis"><div class="narrow"><p class="section-kicker">II · {en?"GUIDING THESIS":"LEITTHESE"}</p><blockquote>{t.quote}</blockquote><p>{t.quoteNote}</p></div></section>
+<section class="section section--paper" id="recht"><div class="container"><p class="section-kicker">III · {en?"LEGAL AND ETHICAL LEVELS":"RECHTLICHE UND ETHISCHE EBENEN"}</p><h2 class="mil-heading">{t.frameworkTitle}</h2>
+<div class="mil-grid mil-grid--three">{t.layers.map(([n,title,description])=><article><span>{n}</span><h3>{title}</h3><p>{description}</p></article>)}</div>
+<p class="mil-caveat">{t.layerNote}</p></div></section>
+<section class="section mil-principles" id="grenzen"><div class="container"><p class="section-kicker">IV · {en?"LIMITS":"GRENZEN"}</p><h2 class="mil-heading">{t.principlesTitle}</h2>
+<div class="mil-grid mil-grid--three">{t.principles.map(([n,title,description])=><article><span>{n} / 06</span><h3>{title}</h3><p>{description}</p></article>)}</div></div></section>
+<section class="section section--paper" id="zielkonflikte"><div class="container"><p class="section-kicker">V · {en?"COUNTERPOSITIONS":"GEGENPOSITIONEN"}</p><h2 class="mil-heading">{t.conflictsTitle}</h2>
+<div class="mil-grid mil-grid--two">{t.conflicts.map(([title,description,question])=><article><h3>{title}</h3><p>{description}</p><p class="mil-question">{question}</p></article>)}</div></div></section>
+<section class="section mil-exam" id="pruefverfahren"><div class="container mil-exam__grid">
+<div><p class="section-kicker">VI · {en?"THE EXAMINATION":"DAS PRÜFVERFAHREN"}</p><h2 class="mil-heading">{t.examinationTitle}</h2><p class="mil-scenario">{t.scenario}</p><p class="mil-caveat">{t.stop}</p></div>
+<ol>{t.steps.map(([n,title,description])=><li><span>{n}</span><div><h3>{title}</h3><p>{description}</p></div></li>)}</ol>
+</div></section>
+<section class="section section--paper" id="hypothesen"><div class="container"><p class="section-kicker">VII · {en?"OPEN RESEARCH":"OFFENE FORSCHUNG"}</p><h2 class="mil-heading">{t.hypothesesTitle}</h2>
+<div class="mil-grid mil-grid--two">{t.hypotheses.map(([id,title,idea,test,against])=><article id={id.toLowerCase()}><span>{id}</span><h3>{title}</h3><p class="mil-claim">{idea}</p><p><b>{en?"Possible test":"Mögliche Prüfung"}:</b> {test}</p><p><b>{en?"Countermodel":"Gegenmodell"}:</b> {against}</p></article>)}</div>
+<p class="mil-caveat">{t.hypNote}</p></div></section>
+<section class="section mil-ai" id="ki"><div class="narrow"><p class="section-kicker">VIII · {en?"AI AND FORCE":"KI UND GEWALT"}</p><h2 class="mil-heading">{t.aiTitle}</h2><p>{t.ai}</p><blockquote>{t.aiQuote}</blockquote></div></section>
+<section class="section section--paper mil-sources" id="quellen"><div class="container"><p class="section-kicker">IX · {en?"SOURCES":"QUELLEN"}</p><h2 class="mil-heading">{t.sourceTitle}</h2><p>{t.sourceNote}</p><ol>{t.sources.map(([label,note],i)=><li><a href={urls[i]} target="_blank" rel="noopener noreferrer">{label} ↗</a><small>{note}</small></li>)}</ol></div></section>
+<section class="section mil-finale"><div class="narrow"><p class="section-kicker">X · {en?"A REVISABLE CONCLUSION":"EIN KORRIGIERBARER SCHLUSS"}</p><h2>{t.finaleTitle}</h2><p>{t.finale}</p>
+<div class="button-row"><a class="button button--gold" href={gh+"/discussions"} target="_blank" rel="noopener noreferrer">{t.forum} ↗</a><a class="button button--ghost" href={gh+"/issues/new?template=quellenpruefung.yml"} target="_blank" rel="noopener noreferrer">{t.review} ↗</a></div>
+<div class="mil-back"><a href={pathFor(lang,"bibliothek")}>{t.back} ↗</a><a href={pathFor(lang,"politik-die-dem-menschen-dient")}>{t.policy} ↗</a></div>
+</div></section>
+</Layout>
+<style>
+.mil-hero{padding:126px 0 110px;background:radial-gradient(ellipse at 85% 45%,#76583d35,transparent 58%),linear-gradient(130deg,#0b1011,#141b1c);border-bottom:1px solid var(--line)}
+.mil-hero h1{font:clamp(64px,8vw,116px)/1.07 var(--serif);letter-spacing:-.052em;margin:22px 0 27px}
+.mil-hero h1 em{color:var(--gold-bright);font-weight:400}
+.mil-lead{font:clamp(19px,2.3vw,27px)/1.7 var(--serif);max-width:860px;color:#d4cbbb}
+.mil-tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:31px}.mil-tags span{border:1px solid var(--line);padding:8px 12px;color:var(--gold);font-size:10px;letter-spacing:.09em}
+.mil-heading{font:clamp(39px,5vw,69px)/1.15 var(--serif);letter-spacing:-.04em;max-width:1000px;margin:20px 0 39px}
+.mil-opening{display:grid;grid-template-columns:1fr .8fr;gap:9%;align-items:center}
+.mil-opening h2{font:clamp(37px,4.6vw,65px)/1.2 var(--serif);margin:20px 0}
+.mil-opening p:not(.section-kicker){font:19px/1.85 var(--serif)}
+.mil-symbol{margin:0;padding:22px;background:#0d1415;border:1px solid var(--line)}.mil-symbol svg{width:100%;height:auto;display:block}
+.mil-symbol figcaption{font-size:12px;color:var(--muted);text-align:center}
+.mil-thesis{background:radial-gradient(ellipse at center,#644c302b,transparent 72%),#101719}
+.mil-thesis blockquote{font:clamp(28px,3.9vw,52px)/1.42 var(--serif);border-left:2px solid var(--gold);padding-left:26px;color:#e8ddc9;margin:25px 0}
+.mil-thesis p:not(.section-kicker){font-size:13px;color:var(--muted)}
+.mil-grid{display:grid;gap:17px}.mil-grid--three{grid-template-columns:repeat(3,minmax(0,1fr))}.mil-grid--two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.mil-grid article{background:#12191a;border:1px solid var(--line);padding:30px;min-width:0}
+.mil-grid article>span{font-size:11px;letter-spacing:.14em;color:var(--gold)}
+.mil-grid h3{font:clamp(24px,2.7vw,33px)/1.25 var(--serif);margin:19px 0 14px}
+.mil-grid p{font-size:14px;line-height:1.82}.mil-caveat{font-size:13px;line-height:1.83;color:#bfb5a5;border-left:1px solid var(--gold);padding-left:21px;margin-top:30px}
+.mil-principles{background:radial-gradient(ellipse at 90% 0%,#66503220,transparent 60%),#0d1214}
+.mil-question{border-top:1px solid #bca17e66;padding-top:18px;margin-top:22px;color:var(--gold-bright)}
+.mil-exam{background:#10181a}.mil-exam__grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:7%}
+.mil-scenario{font:19px/1.8 var(--serif);color:#e2d5c0}
+.mil-exam ol{padding:0;margin:0;list-style:none;border-top:1px solid var(--line)}
+.mil-exam li{display:grid;grid-template-columns:30px 1fr;gap:15px;border-bottom:1px solid var(--line);padding:17px 0}
+.mil-exam li span{font:22px var(--serif);color:var(--gold)}
+.mil-exam li h3{font:24px/1.3 var(--serif);margin:0}.mil-exam li p{font-size:13px;line-height:1.78;margin:7px 0 0}
+.mil-claim{font:17px/1.65 var(--serif);color:#e1d7c6}
+.mil-grid b{color:var(--gold);font-size:11px;letter-spacing:.04em}
+.mil-ai{background:radial-gradient(ellipse at 60% 20%,#86633e24,transparent 70%),#0d1415}
+.mil-ai .narrow>p:not(.section-kicker){font:19px/1.9 var(--serif)}
+.mil-ai blockquote{font:clamp(24px,3vw,37px)/1.5 var(--serif);color:var(--gold-bright);border-left:2px solid var(--gold);padding-left:25px;margin:32px 0 0}
+.mil-sources>div>p:not(.section-kicker){font-size:14px;line-height:1.8}
+.mil-sources ol{padding:0;list-style:none;border-top:1px solid var(--line);margin:26px 0 0}
+.mil-sources li{border-bottom:1px solid var(--line);padding:19px 0}
+.mil-sources a{color:var(--gold-bright);text-decoration:underline;text-underline-offset:4px}
+.mil-sources small{display:block;margin-top:5px;color:var(--muted)}
+.mil-finale{background:#101619}.mil-finale h2{font:clamp(39px,5vw,66px)/1.18 var(--serif);margin:23px 0}
+.mil-finale p:not(.section-kicker){font:19px/1.9 var(--serif)}.mil-finale .button-row{margin-top:30px}
+.mil-back{border-top:1px solid var(--line);padding-top:23px;margin-top:40px;display:flex;gap:20px;flex-wrap:wrap}.mil-back a{color:var(--gold);font-size:13px}
+@media(max-width:880px){.mil-opening,.mil-exam__grid{grid-template-columns:1fr}.mil-grid--three{grid-template-columns:repeat(2,minmax(0,1fr))}.mil-symbol{max-width:440px;margin:auto}}
+@media(max-width:620px){.mil-hero{padding:76px 0 70px}.mil-hero h1{font-size:clamp(54px,12vw,73px)}.mil-grid--three,.mil-grid--two{grid-template-columns:1fr}.mil-grid article{padding:23px}.mil-heading{font-size:clamp(38px,9vw,53px)}.mil-thesis blockquote{padding-left:18px}}
+</style>

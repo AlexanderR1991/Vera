@@ -1,6 +1,6 @@
 import {access,readFile} from "node:fs/promises";
 import {join} from "node:path";
-const out=join(process.cwd(),"dist"),slugs=["index","atlas","bibliothek","lesestueck-wahrheit","manifest","pruefstand","methode","mitwirken","erkenntnishorizont","warum-liebe-wirkt","politik-die-dem-menschen-dient","bruecken-zwischen-den-religionen"],errors=[];
+const out=join(process.cwd(),"dist"),slugs=["index","atlas","bibliothek","lesestueck-wahrheit","manifest","pruefstand","methode","mitwirken","erkenntnishorizont","warum-liebe-wirkt","politik-die-dem-menschen-dient","bruecken-zwischen-den-religionen","militaer-und-verantwortung"],errors=[];
 for(const lang of ["de","en"]){
  for(const slug of slugs){
   const file=join(out,lang,...(slug==="index"?[]:[slug]),"index.html");
@@ -21,7 +21,7 @@ try{
  if(!en.includes("Reality is under no obligation")||!de.includes("Die Wirklichkeit ist nicht verpflichtet"))errors.push("Critical thesis mismatch");
 }catch{errors.push("Missing thesis pages");}
 if(errors.length){console.error(errors.join("\n"));process.exit(1);}
-console.log("Verified 22 localized pages, canonical/hreflang, legacy redirect assets and key translations.");
+console.log("Verified 26 localized pages, canonical/hreflang, legacy redirect assets and key translations.");
 
 for(const lang of ["de","en"]){
  const chapter=await readFile(join(out,lang,"erkenntnishorizont","index.html"),"utf8");
@@ -75,3 +75,16 @@ for(const lang of ["de","en"]){
  }
 }
 if(errors.length){console.error(errors.join("\n"));process.exit(1);}
+
+// Liber Custodiae: bilingual route, legal boundaries, counterpositions, research and discovery.
+for(const lang of ["de","en"]){
+ const chapter=await readFile(join(out,lang,"militaer-und-verantwortung","index.html"),"utf8");
+ for(const token of ["mil-hero","mil-principles","mil-exam","mil-sources","m-a","m-d","un.org/en/about-us/un-charter/full-text","icrc.org"]){
+  if(!chapter.includes(token))errors.push("Military chapter "+lang+" lacks "+token);
+ }
+ for(const slug of ["index","atlas","bibliothek","pruefstand"]){
+  const html=await readFile(join(out,lang,...(slug==="index"?[]:[slug]),"index.html"),"utf8");
+  if(!html.includes("military-teaser")||!html.includes("/"+lang+"/militaer-und-verantwortung/"))errors.push("Missing military discovery "+lang+"/"+slug);
+ }
+}
+if(errors.length){console.error(errors.join("\\n"));process.exit(1);}

@@ -69,6 +69,16 @@ Ein zweisprachiges theologisches Kapitel eröffnet einen respektvollen, aber kri
 - [English: Bridges Between Religions](https://alexanderr1991.github.io/grundtext-des-wirklichen/en/bruecken-zwischen-den-religionen/)
 - [Dialogprinzipien und Forschungsfragen](docs/theologischer-dialog.md)
 
+## Militär, Frieden und Verantwortung / Military Power, Peace and Responsibility
+
+**Liber Custodiae (Version 0.7)** untersucht organisierte Gewalt, Selbstverteidigung, das humanitäre Völkerrecht, zivile Kontrolle und Frieden als schwierige Fragen menschlicher Verantwortung. Es trennt das *Recht zur Gewaltanwendung* (jus ad bellum) strikt von den *Regeln im bewaffneten Konflikt* (jus in bello), zeigt konkurrierende ethische Perspektiven und vier ungeprüfte Forschungsfragen M-A bis M-D.
+
+**Keine Glorifizierung militärischer Macht, keine Einsatzanleitung und kein Anspruch auf eine mathematisch bewiesene Kriegs- oder Friedensethik.** Menschenwürde, rechtliche Schutzgrenzen und überprüfbare Rechenschaft haben Vorrang vor jeder philosophischen Gesamtpunktzahl.
+
+- [Deutsch: Militär und Verantwortung](https://alexanderr1991.github.io/grundtext-des-wirklichen/de/militaer-und-verantwortung/)
+- [English: Military Power and Responsibility (translation draft)](https://alexanderr1991.github.io/grundtext-des-wirklichen/en/militaer-und-verantwortung/)
+- [Offenes Forschungsprogramm mit Quellen](docs/forschungsprogramm-militaer.md)
+
 ## Unser Anspruch / Our standard
 
 **Kritik ist willkommen, Zustimmung nicht erforderlich.** Die neun Leitsätze sind vorläufige, hauptsächlich philosophisch-normative Aussagen und keine wissenschaftlich bestätigte Gesamttheorie. Behauptungen über Tatsachen benötigen Quellen; Metaphern dürfen keine empirischen Belege ersetzen.
