@@ -52,6 +52,12 @@ Derzeit entwickeln wir Fragen, Methoden und ungeprüfte Prototypen. Welche Aussa
 
 **Stellt uns Fragen. Forscht mit.** Eine sorgfältige Quellenprüfung, ein Gegenbeispiel oder eine dokumentierte Wiederholung kann ebenso beitragen wie eine neue Idee.
 
+### Mit bisherigem Wissen Neues erzeugen
+
+Wer Beobachtungen, Methoden oder Erfahrungen miteinander verbindet, kann eine neue Frage formulieren, eine Erklärung vorschlagen oder ein Werkzeug entwerfen. Drei Fragen machen den eigenen Beitrag nachvollziehbar. Was wissen wir schon, und woher? Was fügen wir durch die Verbindung hinzu? Woran könnten andere erkennen, ob die Idee trägt oder geändert werden muss?
+
+Connecting observations, methods or experiences can lead to a new question, a proposed explanation or a tool. What do we already know, and how do we know it? What does the connection add? How could someone tell whether the idea holds up or needs to change?
+
 ## Der fliegende Baum: Vielfalt verbinden
 
 Ein vorwärts fliegender Baum ergänzt das Reisebild. Seine nach unten reichenden Äste sammeln Philosophie, Fachwissen, Erfahrung, Kunst und Gegenfragen. Sechs Arbeitsebenen führen von Stimmen über Fragen und Aussagen zu passender Prüfung, begründeten Zusammenhängen und verantwortbarem Handeln. Die Ergebnisse können zu jeder früheren Ebene zurückführen.
