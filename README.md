@@ -2,9 +2,9 @@
 
 **Die offene Erkenntniswerkstatt · The open inquiry workshop**
 
-Was ist wirklich? Hier kann jeder eine Frage stellen, die Gründe für eine Antwort offenlegen und zeigen, an welcher Stelle ein Einwand sie verändert. Unsere philosophische Grundlage ist der [Grundtext des Wirklichen](docs/grundtext.md).[^ursprung]
+**Mit Philosophie die Menschheit zum Konsens führen.** Hier kann jeder eine Frage stellen. Wenn unsere Antworten auseinandergehen, suchen wir nach einem Punkt, den wir aus eigenen Gründen mittragen. Was strittig bleibt, halten wir fest. Unsere philosophische Grundlage ist der [Grundtext des Wirklichen](docs/grundtext.md).[^ursprung]
 
-What is real? Bring a question, look at the reasons for an answer and see what happens when someone raises an objection. You can start with an unfinished thought.
+**To guide humanity toward consensus through philosophy.** Anyone can bring a question. When our answers differ, we look for a point we can each agree on for our own reasons. We record where we still disagree.
 
 | Einstieg | Deutsch | English |
 | --- | --- | --- |
