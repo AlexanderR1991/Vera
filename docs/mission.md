@@ -28,9 +28,11 @@ Bei empirischen und historischen Behauptungen heißt das Quellen- und Methodenpr
 
 ## Wir sind Philosophie.
 
-Angenommen, eine Maschine verkürzt einen Arbeitsschritt von zwei Stunden auf eine. Eine Stunde ist gewonnen. Aber wer kann über sie verfügen? Wer von Fortschritt spricht, weil die Arbeit schneller geht, legt einen anderen Maßstab an als jemand, der fragt, ob die Beschäftigten freier über ihre Zeit entscheiden können.
+> Mit Philosophie die Menschheit zum Konsens führen.
 
-Welchen Maßstab wählen wir, und warum? Wer ihn anders setzt, kann uns einen Grund geben, schon die Frage zu ändern.
+Angenommen, eine Maschine verkürzt einen Arbeitsschritt von zwei Stunden auf eine. Für einen Kollegen heißt Fortschritt, dass er einen weiteren Auftrag schafft. Für eine Kollegin heißt es, dass sie pünktlich nach Hause kommt. Was meinen die beiden, wenn sie dasselbe Wort benutzen?
+
+Vielleicht finden beide, dass die Beschäftigten mitentscheiden sollten, wie sie die gewonnene Stunde nutzen. Dann teilen sie einen Grundsatz, auch wenn sie sich über den nächsten Auftrag weiter streiten. Wie viel Zeit die Maschine im Alltag tatsächlich spart, können sie gemeinsam nachmessen.
 
 ## Wir sind Forschung!
 
@@ -138,6 +140,10 @@ Erst nach gezeigtem Nutzen folgen mehr Themen und mehr Autonomie. Der langfristi
 
 
 ## English summary
+
+> To guide humanity toward consensus through philosophy.
+
+People who disagree may still find a principle they can each endorse. Where their judgments diverge, we keep the reasons for the disagreement on record.
 
 **We are research!** This is a commitment to clear questions, appropriate tests, inspectable work, evaluation without a predetermined conclusion, and visible correction. For each concrete project, we specify possible grounds for revision before testing, document methods and limitations, share data and code where rights and participant protection permit, and disclose access restrictions. Null findings, failed tests and unresolved contradictions belong in the record. Independent scrutiny must be possible; AI outputs remain drafts until examined. Corrections include reasons, version and editorial responsibility, and may also change our own framework. We are currently developing questions, methods and unreviewed prototypes; this commitment does not establish any result. Ask us questions. Join the research.
 
