@@ -1,5 +1,6 @@
 import {readFile} from "node:fs/promises";
 import {pathToFileURL} from "node:url";
+import {hasHumanReviewRecord,reviewMatchesClaim} from "../src/lib/claims.mjs";
 
 const types=new Set(["empirical","formal","normative","interpretive","metaphor"]);
 const states=new Set(["unreviewed","in_review","reviewed","disputed","withdrawn"]);
@@ -37,7 +38,8 @@ export function validateRegister(data){
   if(c.epistemic_status==="source_supported"&&!(Array.isArray(c.sources)&&c.sources.some(s=>s?.role==="evidence")))fail("source-supported claims require an evidence source");
   if(c.epistemic_status==="formal_proof"&&!bilingual(c.proof))fail("formal proof requires explicit premises and derivation");
   const review=c.human_review;
-  if(review!==null&&(!review||!present(review.reviewer)||!date(review.date)||!bilingual(review.method)||!bilingual(review.decision)))fail("invalid human review record");
+  if(review!==null&&!hasHumanReviewRecord(review))fail("invalid human review record");
+  if(review&&!reviewMatchesClaim(c))fail("human review must match the current claim version and content fingerprint");
   if(c.review_status==="reviewed"&&!review)fail("reviewed status requires an accountable human review record");
   if(c.review_status==="unreviewed"&&review)fail("unreviewed status conflicts with human review record");
   if(!c.ai_assistance||typeof c.ai_assistance.used!=="boolean"||!bilingual(c.ai_assistance.task)||!(c.ai_assistance.model===null||present(c.ai_assistance.model)))fail("incomplete AI provenance");

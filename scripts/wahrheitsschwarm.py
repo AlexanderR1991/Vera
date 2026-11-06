@@ -34,7 +34,10 @@ ARXIV_QUERIES = {
 ATOM = "{http://www.w3.org/2005/Atom}"
 ARXIV = "{http://arxiv.org/schemas/atom}"
 ARXIV_ID = re.compile(r"(?:\d{4}\.\d{4,5}|[a-z][a-z.\-]+/\d{7})v[1-9]\d*", re.I)
-API_KEY = os.getenv("OPENAI_API_KEY", "")
+API_KEY = os.getenv("OPENAI_API_KEY", "").strip()
+# A stored key alone must never opt this repository into paid automation.
+AI_ENABLED = os.getenv("WIRKLICH_AI_ENABLED", "").strip().lower() == "true"
+MAX_COMPLETION_TOKENS = 800
 MODEL = os.getenv("RESEARCH_MODEL", "gpt-4.1-mini")
 MAX_ANALYSES = min(5, max(0, int(os.getenv("RESEARCH_MAX_ANALYSES", "2"))))
 DOI = re.compile(r"^10\.\d{4,9}/\S+$", re.I)
@@ -169,11 +172,14 @@ ROLES = {
 }
 
 def call_agent(role, record):
+    if not (AI_ENABLED and API_KEY):
+        raise RuntimeError("Paid AI is disabled; explicit opt-in and API key required")
     task, keys = ROLES[role]
     metadata = {k: record.get(k) for k in
                 ("title", "topic", "date", "venue", "url", "authors")}
     body = {
         "model": MODEL,
+        "max_completion_tokens": MAX_COMPLETION_TOKENS,
         "messages": [
             {"role": "system", "content":
              "Produce a JSON object only. You have seen bibliographic metadata, NOT "
@@ -243,7 +249,7 @@ def main():
             errors.append(f"arXiv/{topic}: {type(err).__name__}: {str(err)[:120]}")
     if successful == 0:
         sys.exit("All discovery sources unavailable; existing data unchanged")
-    if API_KEY:
+    if AI_ENABLED and API_KEY:
         pending = sorted(
             (p for p in papers.values()
              if len(p.get("agent_notes", {})) < len(ROLES)),
@@ -261,7 +267,7 @@ def main():
                     errors.append(f"{role}: {type(err).__name__}")
             paper["agent_mode"] = "metadata_only"
     else:
-        print("No OPENAI_API_KEY; discovery only. No AI analysis fabricated.")
+        print("Paid AI disabled or key absent; discovery only. No AI analysis fabricated.")
     items = sorted(papers.values(),
                    key=lambda p: (p.get("date", ""), p.get("id", "")),
                    reverse=True)[:80]
@@ -274,7 +280,7 @@ def main():
         "source_queries": source_success,
         "source_queries_succeeded": successful,
         "new_items": len(fresh),
-        "agents_enabled": bool(API_KEY),
+        "agents_enabled": bool(AI_ENABLED and API_KEY),
         "errors": errors[:12],
         "items": items,
     }

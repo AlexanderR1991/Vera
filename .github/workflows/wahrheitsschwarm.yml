@@ -20,6 +20,7 @@ jobs:
           python-version: '3.12'
       - name: Quellen finden und kritische Fragen stellen
         env:
+          WIRKLICH_AI_ENABLED: ${{ vars.WIRKLICH_AI_ENABLED }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           RESEARCH_MODEL: gpt-4.1-mini
           RESEARCH_MAX_ANALYSES: '2'

@@ -34,6 +34,7 @@ const repo="https://github.com/AlexanderR1991/Wirklich";
         <p id="attack-meta"></p>
         <div id="attack-cards" class="attack-cards"></div>
       </div>
+      <noscript><p>{de?"Das Prüfarchiv benötigt JavaScript. Die gespeicherten Entwürfe kannst du direkt öffnen:":"The challenge archive needs JavaScript. You can open the stored drafts directly:"} <a href="https://raw.githubusercontent.com/AlexanderR1991/Wirklich/main/public/research/angriffe.json">JSON ↗</a></p></noscript>
     </div>
   </section>
   <script is:inline>
@@ -104,10 +105,17 @@ const repo="https://github.com/AlexanderR1991/Wirklich";
           const src=String(item.source||"");
           const link=document.createElement("a");
           if(/^docs\/[\w./-]+\.md$/.test(src) && !src.includes("..")){
-            link.href="https://github.com/AlexanderR1991/Wirklich/blob/main/"+src;
+            const revision=String(item.source_commit||"");
+            const pinned=/^[0-9a-f]{40}$/i.test(revision);
+            link.href="https://github.com/AlexanderR1991/Wirklich/blob/"+(pinned?revision:"main")+"/"+src;
             link.target="_blank"; link.rel="noopener noreferrer";
-            link.textContent=de?"Quelle der These ↗":"Claim source ↗";
+            link.textContent=pinned
+              ? (de?"Untersuchte Textfassung ↗":"Examined text version ↗")
+              : (de?"Aktueller Text (ursprüngliche Fassung nicht belegt) ↗":"Current text (original version unrecorded) ↗");
             article.append(link);
+            article.append(text("p",pinned
+              ? (de?"Textfassung: ":"Source revision: ")+revision.slice(0,12)
+              : (de?"Dieser Entwurf ist keiner belegten Textfassung zugeordnet.":"This draft is not linked to a recorded text version.")));
           }
           if(item.excerpt)article.append(text("p",item.excerpt,"attack-excerpt"));
           for(const [key,heading,fields] of sections){

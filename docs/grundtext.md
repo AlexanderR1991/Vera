@@ -32,7 +32,7 @@ Wir werden widersprüchlich handeln. Entscheidend ist nicht das Versprechen der 
 
 ## These 07: +1 und −1 bezeichnen Richtungen, nicht Menschen.
 
-Die Symbole benennen eine Frage: Wirkt eine Entscheidung tendenziell wahrhaftiger, freier und fürsorglicher oder fördert sie Täuschung, Unterdrückung und Schaden? Dies ist eine philosophische Heuristik – keine wissenschaftliche Skala.
+Die Symbole benennen eine Frage: Wirkt eine Entscheidung tendenziell wahrhaftiger, freier und fürsorglicher oder fördert sie Täuschung, Unterdrückung und Schaden? Dies ist eine philosophische Heuristik – keine wissenschaftliche Skala. Frage dabei: verglichen womit, für wen und über welchen Zeitraum? Freiheit, Fürsorge und andere Folgen können in unterschiedliche Richtungen weisen. Solche Zielkonflikte bleiben getrennt sichtbar; „gemischt“ oder „unklar“ ist eine zulässige Antwort.
 
 ## These 08: Erfahrung zählt. Aber sie reicht nicht immer als Beweis.
 

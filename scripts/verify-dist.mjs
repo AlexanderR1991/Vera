@@ -175,7 +175,7 @@ console.log('Verified symbol/mathematics workshop: bilingual routes, 64 states, 
 
 // Release identity and the new routes must agree with the published source data.
 const project=JSON.parse(await readFile("public/project.json","utf8"));
-const {summarizeProject}=await import("../src/lib/inquiry.mjs");
+const {summarizeProject}=await import("../src/lib/project-status.mjs");
 const discovery=JSON.parse(await readFile("public/research/stream.json","utf8"));
 const criticism=JSON.parse(await readFile("public/research/angriffe.json","utf8"));
 const stats=summarizeProject(registry,topics,discovery,criticism);

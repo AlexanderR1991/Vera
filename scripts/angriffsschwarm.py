@@ -14,6 +14,9 @@ import urllib.request
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "public" / "research" / "angriffe.json"
 API_KEY = os.getenv("OPENAI_API_KEY", "").strip()
+# A stored key alone must never opt this repository into paid automation.
+AI_ENABLED = os.getenv("WIRKLICH_AI_ENABLED", "").strip().lower() == "true"
+MAX_COMPLETION_TOKENS = 1800
 MODEL = os.getenv("ATTACK_MODEL", "gpt-4.1-mini")
 UTC_NOW = dt.datetime.now(dt.timezone.utc)
 
@@ -79,6 +82,8 @@ def cases() -> list[dict[str, str]]:
 
 
 def api_call(role: str, payload: dict) -> dict[str, str]:
+    if not (AI_ENABLED and API_KEY):
+        raise RuntimeError("Paid AI is disabled; explicit opt-in and API key required")
     tasks = {
         "adversary": (
             "Reconstruct the STRONGEST charitable interpretation first, then "
@@ -114,6 +119,7 @@ def api_call(role: str, payload: dict) -> dict[str, str]:
     )
     request = {
         "model": MODEL,
+        "max_completion_tokens": MAX_COMPLETION_TOKENS,
         "messages": [
             {"role": "system", "content": sys_prompt},
             {"role": "user", "content": json.dumps(payload, ensure_ascii=False)},
@@ -146,8 +152,8 @@ def api_call(role: str, payload: dict) -> dict[str, str]:
 def main() -> int:
     available = cases()  # validate sections even when model is disabled
     print(f"Adversarial corpus: {len(available)} public targets")
-    if not API_KEY:
-        print("No OPENAI_API_KEY. No requests, no fabricated results, no output change.")
+    if not (AI_ENABLED and API_KEY):
+        print("Paid AI disabled or key absent. No requests, no output change.")
         return 0
     selected = available[UTC_NOW.date().toordinal() % len(available)]
     print(f"Reviewing {selected['id']} ({selected['source']})")

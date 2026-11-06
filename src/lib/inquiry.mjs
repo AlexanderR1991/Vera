@@ -3,14 +3,14 @@ import project from "../../public/project.json" with {type: "json"};
 // This module structures a user's notes. It neither evaluates truth nor calls AI.
 export const inquirySchema = 1;
 export const maxFieldLength = 12000;
-export const inquiryTypes = ["empirical", "formal", "normative", "interpretive", "metaphor"];
+export const inquiryTypes = ["unclassified", "empirical", "formal", "normative", "interpretive", "metaphor"];
 export const inquiryFields = ["question", "claim", "scope", "support", "objection", "revision", "action"];
 const text = value => typeof value === "string" ? value.trim() : "";
 
 export function createInquiry(values = {}, lang = "de") {
   if (!["de", "en"].includes(lang)) throw new Error("Unsupported language");
-  if (!inquiryTypes.includes(values.type || "empirical")) throw new Error("Unknown claim type");
-  const note = {schema_version: inquirySchema, kind: "inquiry_note", lang, type: values.type || "empirical"};
+  if (!inquiryTypes.includes(values.type || "unclassified")) throw new Error("Unknown claim type");
+  const note = {schema_version: inquirySchema, kind: "inquiry_note", lang, type: values.type || "unclassified"};
   for (const key of inquiryFields) {
     if (values[key] != null && typeof values[key] !== "string") throw new Error("Invalid field: " + key);
     const value = text(values[key]);
@@ -40,8 +40,8 @@ const labels = {
   en: {question:"Question", claim:"Provisional claim", scope:"Terms, scope and premises", support:"Evidence or reasons and their limits", objection:"Strongest objection and alternative explanation", revision:"What would change my position?", action:"Next step, affected people and stopping condition"}
 };
 const typeLabels = {
-  de:["Empirische Aussage", "Formale Aussage", "Normatives Urteil", "Interpretation / Erfahrung", "Metapher"],
-  en:["Empirical claim", "Formal claim", "Normative judgment", "Interpretation / experience", "Metaphor"]
+  de:["Noch nicht eingeordnet", "Empirische Aussage", "Formale Aussage", "Normatives Urteil", "Interpretation / Erfahrung", "Metapher"],
+  en:["Not classified yet", "Empirical claim", "Formal claim", "Normative judgment", "Interpretation / experience", "Metaphor"]
 };
 export function inquiryMarkdown(note) {
   const clean = createInquiry(note, note.lang);
@@ -50,19 +50,4 @@ export function inquiryMarkdown(note) {
   const status = en ? "Unreviewed personal draft. Completeness does not establish truth, expert review or agreement." : "Ungeprüfter eigener Entwurf. Vollständigkeit belegt weder Wahrheit noch Fachprüfung oder Zustimmung.";
   const type = typeLabels[clean.lang][inquiryTypes.indexOf(clean.type)];
   return [header, status, `${en ? "Claim type" : "Aussageart"}: ${type}`, ...inquiryFields.map(key => `## ${labels[clean.lang][key]}\n\n${clean[key] || (en ? "[Open]" : "[Offen]")}`)].join("\n\n") + "\n";
-}
-
-export function summarizeProject(registry, topics, discovery, criticism) {
-  const claims = registry.claims;
-  const stream = data => ({items: Array.isArray(data.items) ? data.items.length : 0, updated_at: data.updated_at || null});
-  return {
-    claims: claims.length,
-    reviewed: claims.filter(claim => claim.review_status === "reviewed" && claim.human_review).length,
-    topics: topics.length,
-    drafts: topics.filter(topic => topic.state === "draft").length,
-    proposals: topics.filter(topic => topic.state === "proposed").length,
-    open: topics.filter(topic => topic.state === "open").length,
-    discovery: stream(discovery),
-    criticism: stream(criticism)
-  };
 }

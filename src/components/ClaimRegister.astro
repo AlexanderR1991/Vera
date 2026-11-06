@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/SiteLayout.astro";
 import {absoluteFor,pathFor,base} from "../lib/paths.mjs";
-import project from "../../public/project.json";
+import project from "../../public/project.json" with {type: "json"};
 import register from "../../public/knowledge/claims.json";
 import "../styles/mission.css";
 const {lang="de"}=Astro.props;
@@ -28,6 +28,7 @@ const support={value_commitment:t("Wertentscheidung","Value commitment"),concept
    <dl>
     <dt>{t("Geltungsbereich","Scope")}</dt><dd>{c.scope[lang]}</dd>
     <dt>{t("Begründung","Reasoning")}</dt><dd>{c.rationale[lang]}</dd>
+    {c.epistemic_status==="formal_proof"&&c.proof&&<><dt>{t("Voraussetzungen und Ableitung","Premises and derivation")}</dt><dd>{c.proof[lang]}</dd></>}
     <dt>{t("Beleglage","Evidence")}</dt><dd>{c.evidence_note[lang]}</dd>
     <dt>{t("Starke Einwände","Strong objections")}</dt><dd><ul>{c.counterarguments.map(x=><li>{x[lang]}</li>)}</ul></dd>
     <dt>{t("Was uns umstimmt","What would change our view")}</dt><dd>{c.revision_condition[lang]}</dd>
@@ -36,7 +37,7 @@ const support={value_commitment:t("Wertentscheidung","Value commitment"),concept
    </dl>
    <details><summary>{t("Prüfung, KI-Herkunft und Versionsgeschichte","Review, AI provenance and version history")}</summary>
     <p>{c.human_review?t("Dokumentierte Prüfung: ","Documented review: ")+c.human_review.reviewer:t("Menschliche Fachprüfung: ausstehend. Keine prüfende Person eingetragen.","Human expert review: pending. No reviewer recorded.")}</p>
-    {c.human_review&&<><p>{c.human_review.date} · {c.human_review.method[lang]}</p><p>{c.human_review.decision[lang]}</p></>}
+    {c.human_review&&<><p>{c.human_review.date} · {c.human_review.method[lang]}</p><p>{c.human_review.decision[lang]}</p><p>{t("Diese Prüfung bezieht sich auf Version ","This review refers to version ")}{c.human_review.claim_version}{t(" dieses Eintrags, in beiden Sprachen. Eine geänderte Fassung braucht eine neue Prüfung."," of this entry, in both languages. Changed content requires a new review.")}</p><p>{t("Fingerabdruck des geprüften Inhalts (SHA-256): ","Fingerprint of reviewed content (SHA-256): ")}<code style="overflow-wrap:anywhere">{c.human_review.content_sha256}</code></p></>}
     <p>{c.ai_assistance.task[lang]}</p>
     <p>{t("Modellversion: ","Model version: ")}{c.ai_assistance.model||t("nicht erfasst","not recorded")}</p>
     <ul>{c.history.map(h=><li>v{h.version} · {h.date} · {h.change[lang]}</li>)}</ul>
