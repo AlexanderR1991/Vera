@@ -1,4 +1,4 @@
-import {connections, assessConnection, buildNavigatorNote} from "../lib/navigator.mjs";
+import {connections, assessConnection, buildNavigatorNote, caseWording} from "../lib/navigator.mjs";
 import {topics} from "../lib/tree.mjs";
 import {discover} from "../lib/discovery.mjs";
 
@@ -10,6 +10,7 @@ if (root) {
   const text = value => value?.[lang] ?? "";
   const find = selector => root.querySelector(selector);
   const question = find("[data-nav-question]");
+  const alternativeQuestion = find("[data-nav-alternative-question]");
   const status = find("[data-nav-status]");
   const results = find("[data-nav-results]");
   const topicPanels = root.querySelectorAll(".navigator-topic");
@@ -18,6 +19,7 @@ if (root) {
   const panel = find("[data-nav-connection]");
   const assessment = find("[data-nav-assessment]");
   let connectionId = null;
+  let framing = null;
   let answers = {};
 
   function element(tag, content, className) {
@@ -31,6 +33,7 @@ if (root) {
 
   function clearConnection() {
     connectionId = null;
+    framing = null;
     answers = {};
     panel.hidden = true;
     assessment.hidden = true;
@@ -54,9 +57,11 @@ if (root) {
     return dl;
   }
 
-  function selectConnection(connection) {
+  function selectConnection(connection, wording) {
     clearConnection();
     connectionId = connection.id;
+    framing = wording;
+    find("[data-nav-case-wording]").textContent = caseWording(framing, question.value, alternativeQuestion.value, lang);
     panel.id = "verbindung-" + connection.id;
     answers = Object.fromEntries(connection.conditions.map(condition => [condition.id, "unknown"]));
     find("[data-nav-meta]").textContent = `${connection.id} · v${connection.version} · ${t("ENTWURF", "DRAFT")} · ${connection.type === "normative" ? t("WERTGRUNDSATZ", "VALUE PRINCIPLE") : t("FORMALER ZUSAMMENHANG", "FORMAL RELATION")}`;
@@ -133,12 +138,12 @@ if (root) {
     }
   }
 
-  function openFragment() {
+  function openFragment(wording) {
     const hash = location.hash;
     for (const section of topicPanels) section.hidden = "#" + section.id !== hash;
     const connection = connections.find(item => "#verbindung-" + item.id === hash);
     if (connection) {
-      selectConnection(connection);
+      selectConnection(connection, wording);
       return;
     }
     clearConnection();
@@ -153,12 +158,21 @@ if (root) {
 
   // With JS, the reading-card fragment opens the interactive check instead.
   for (const card of root.querySelectorAll(".navigator-reading-card[id]")) card.removeAttribute("id");
-  window.addEventListener("hashchange", openFragment);
+  window.addEventListener("hashchange", () => openFragment());
+  // Only a direct choice from a wording's search results ties the card to that wording.
+  root.addEventListener("click", event => {
+    const link = event.target.closest('a[href^="#verbindung-"]');
+    if (!link || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    if (location.hash !== link.hash) history.pushState(null, "", link.hash);
+    openFragment(link.dataset.framing);
+  });
 
-  function resultItem(href, title, description, terms, cues) {
+  function resultItem(href, title, description, terms, cues, wording) {
     const item = element("li", undefined, "navigator-result");
     const link = element("a", title);
     link.href = href;
+    if (wording) link.dataset.framing = wording;
     item.append(link, element("p", description));
     if (terms.length) item.append(element("small", t("Gefundene Wörter · ", "Matched words · ") + terms.join(", ")));
     if (cues?.length) {
@@ -167,16 +181,17 @@ if (root) {
     return item;
   }
 
-  function showResults(all = false) {
+  function showResults(mode = "original") {
+    const all = mode === "all";
     clearDiscoveryHash();
     clearConnection();
-    const query = question.value.trim();
+    const query = (mode === "alternative" ? alternativeQuestion : question).value.trim();
     const hits = all ? {topics: [], patterns: connections.map(connection => ({connection, terms: []}))} : discover(query, lang);
     results.hidden = false;
     topicList.replaceChildren(...hits.topics.map(({topic, terms}) =>
       resultItem("#thema-" + topic.id, text(topic.name), text(topic.question), terms)));
     resultList.replaceChildren(...hits.patterns.map(({connection, terms, cues}) =>
-      resultItem("#verbindung-" + connection.id, text(connection.title), text(connection.pattern), terms, cues)));
+      resultItem("#verbindung-" + connection.id, text(connection.title), text(connection.pattern), terms, cues, all ? null : mode)));
     find("[data-nav-topic-hits]").hidden = !hits.topics.length;
     find("[data-nav-pattern-hits]").hidden = !hits.patterns.length;
     const noMatch = !hits.topics.length && !hits.patterns.length;
@@ -184,7 +199,10 @@ if (root) {
     const note = all ? t("Wähle eine Musterkarte, um ihre Voraussetzungen zu prüfen.", "Choose a pattern card to check its conditions.")
       : noMatch ? (query ? t("Zu diesen Wörtern gibt es im bisherigen Bestand keinen Treffer.", "These words have no match in the current collection.") : t("Gib eine Frage oder einen Begriff ein.", "Enter a question or a term."))
       : t("Öffne ein Thema, um Verbindungen zu erkunden. Bei einer Musterkarte prüfst du selbst, ob sie auf deinen Fall passt.", "Open a topic to explore its connections. On a pattern card, you can check whether it fits your case.");
-    find("[data-nav-results-note]").textContent = note;
+    const wording = !all && query && alternativeQuestion.value.trim()
+      ? (mode === "alternative" ? t("Treffer zur anderen Formulierung. ", "Results for the alternative wording. ") : t("Treffer zur Ausgangsfrage. ", "Results for the original question. "))
+      : "";
+    find("[data-nav-results-note]").textContent = wording + note;
     announce(noMatch ? note : t(`Gefundene Themen: ${hits.topics.length}. Musterkarten: ${hits.patterns.length}.`, `Topics found: ${hits.topics.length}. Pattern cards: ${hits.patterns.length}.`));
     find("#navigator-results-title").focus();
   }
@@ -193,11 +211,14 @@ if (root) {
   openFragment();
   root.querySelectorAll("[data-nav-js]").forEach(control => { control.disabled = false; });
   question.addEventListener("input", invalidateQuestion);
+  alternativeQuestion.addEventListener("input", invalidateQuestion);
+  find("[data-nav-search-alternative]").addEventListener("click", () => showResults("alternative"));
   find("[data-nav-search]").addEventListener("submit", event => { event.preventDefault(); showResults(); });
-  find("[data-nav-all]").addEventListener("click", () => showResults(true));
+  find("[data-nav-all]").addEventListener("click", () => showResults("all"));
   root.querySelectorAll("[data-nav-example]").forEach(button => {
     button.addEventListener("click", () => {
       question.value = button.textContent.trim();
+      alternativeQuestion.value = "";
       invalidateQuestion();
       showResults();
     });
@@ -247,7 +268,7 @@ if (root) {
 
   find("[data-nav-export]").addEventListener("click", () => {
     const reflection = Object.fromEntries([...root.querySelectorAll("[data-nav-reflection-field]")].map(field => [field.dataset.navReflectionField, field.value]));
-    const note = buildNavigatorNote({lang, question:question.value, connectionId, answers, reflection});
+    const note = buildNavigatorNote({lang, question:question.value, alternativeQuestion:alternativeQuestion.value, framing, connectionId, answers, reflection});
     const url = URL.createObjectURL(new Blob([note], {type:"text/plain;charset=utf-8"}));
     const link = element("a");
     link.href = url;
@@ -261,6 +282,7 @@ if (root) {
 
   find("[data-nav-reset]").addEventListener("click", () => {
     question.value = "";
+    alternativeQuestion.value = "";
     clearDiscoveryHash();
     topicList.replaceChildren();
     root.querySelectorAll("[data-nav-reflection-field]").forEach(field => { field.value = ""; });

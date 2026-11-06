@@ -1,5 +1,11 @@
 # Versionsgeschichte
 
+## 2026-11-06 · Acht Einwände gegen das Verfahren · Änderungsvorschlag
+
+- [Prüfung der acht Einwände](methodenkritik.md) am Ausgangsstand, mit Erfahrungen aus Kialo, Argüman und DebateGraph.
+- Prüfblatt und Navigator erhalten Hilfen für Mischfragen, Dissens und alternative Formulierungen. Die Regeln für menschliche Einwandprüfung, Regeländerungen und den Umgang mit Wiederholungen werden konkretisiert.
+- P-02 benennt die Befunde, bei denen ein praktischer Nützlichkeitsanspruch für die geprüfte Fassung fallengelassen wird. Der Methodenvergleich und die unabhängige Begutachtung stehen aus.
+
 ## 2026-11-06 · Emporirren · Änderungsvorschlag
 - Aufbauend auf den Spielkarten aus #42: vier erfundene Alltagskarten, ein nicht entscheidender Hinweis, freiwillige Begründung und eigene Anschlussfrage.
 - Startseite erklärt Vermuten, Prüfen und Weiterdenken; Einigkeit ist freiwillig und kein Wahrheitsbeweis.

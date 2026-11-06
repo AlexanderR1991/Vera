@@ -21,6 +21,7 @@
 .navigator .navigator-text-button{border-color:transparent;padding-left:0;text-decoration:underline;text-underline-offset:.23em}
 .navigator-search-actions,.navigator-export-actions{display:flex;flex-wrap:wrap;align-items:center;gap:.7rem 1.5rem;margin-top:1.1rem}
 .navigator-note{font-size:.85rem;line-height:1.7;color:#b5b6aa;max-width:850px}
+[data-nav-case-wording]{overflow-wrap:anywhere}
 .navigator-start>.navigator-note{margin:1.4rem 0 0}
 .navigator details{border-top:1px solid var(--line);padding-top:1.15rem;margin-top:1.3rem}
 .navigator summary{cursor:pointer;color:var(--gold-bright);min-height:44px;padding:.3rem 0;font-size:1rem;line-height:1.6}

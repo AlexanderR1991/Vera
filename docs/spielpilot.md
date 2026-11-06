@@ -32,6 +32,10 @@ Wer freiwillig weiterprobieren möchte, bekommt einen neuen erfundenen Fall **oh
 
 Eine zweite freiwillige Runde an einem später vereinbarten Termin kann einen anderen Fall ohne Hilfen nutzen. Kein automatischer Kontakt ohne Zustimmung. Das ist zunächst eine Erkundung, keine Lernmessung mit bewiesener Gültigkeit. Spaß und Weitergeben werden getrennt von begründetem Urteilen betrachtet. Für einen belastbaren Vergleich gilt das [Evaluationsprotokoll](evaluation-v1.md).
 
+## Findet ein neuer Besucher den Einwand?
+
+In einer eigenen freiwilligen Navigatoraufgabe erhält die Person nur die Frage „Unser Dorf hat im Durchschnitt genug zu essen. Hat damit jeder Haushalt genug?“ Beobachte, ob sie einen Einwand findet und in eigenen Worten erklären kann, wie eine ungleiche Verteilung denselben Durchschnitt ergeben kann. Notiere benötigte Hilfe und Abbrüche auch dann, wenn keine Erklärung zustande kommt. Erreichbarkeit, selbstständiges Finden und inhaltliches Verstehen werden getrennt ausgewertet. Die Aufgabe ist ein Vorschlag für den Bedienpilot und darf später nicht als ungesehene Vergleichsaufgabe dienen. [Erfahrung eines DebateGraph-Anwenders](methodenkritik.md)
+
 ## Verantwortung vor breiter Einladung
 
 Der erste Pilot ist eine begrenzte, persönlich betreute Runde. Die Person kann jederzeit abbrechen und entscheidet, ob eine anonyme Rückmeldung festgehalten werden darf. Niemand muss persönliche Erlebnisse erzählen. Keine ungefragte Aufzeichnung, keine Veröffentlichung persönlicher Aussagen. Eine vertrauliche Beschwerdestelle und ein betreuter öffentlicher Beitragsweg ohne GitHub sind noch nicht eingerichtet; vor einer breiten Community-Einladung braucht es tatsächlich zugesagte Zuständigkeiten gemäß [Governance](community-governance.md).
