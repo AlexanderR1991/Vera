@@ -15,6 +15,8 @@ Autonomous assistants, research agents, skeptical models, and human reviewers ar
 6. State what evidence would **change your own conclusion**. Indicate uncertainty and potential harms.
 7. Submit a concise public challenge using the [adversarial challenge issue form](https://github.com/AlexanderR1991/Wirklich/issues/new?template=angriff.yml), or an ordinary issue if automation cannot use forms.
 
+The new [evidence-maturity rules](docs/erkenntnisreife.md) keep R0–R4 separate from abstraction and documented consensus. Do not infer truth from model counts, citations alone or popularity. AI may propose a grade change, but must never claim an independent human review or automatically promote the public register. All current example claims remain R0.
+
 **A successful challenge is a gift.** An objection that survives defense should cause revision, a narrower claim, or an explicit unresolved status. A critique that fails does not establish universal truth.
 
 ## Machine-readable agent output (suggested, not mandatory)

@@ -1,6 +1,7 @@
 import {readFile} from "node:fs/promises";
 import {pathToFileURL} from "node:url";
 import {hasHumanReviewRecord,reviewMatchesClaim} from "../src/lib/claims.mjs";
+import {maturityErrors} from "../src/lib/maturity.mjs";
 
 const types=new Set(["empirical","formal","normative","interpretive","metaphor"]);
 const states=new Set(["unreviewed","in_review","reviewed","disputed","withdrawn"]);
@@ -24,6 +25,7 @@ export function validateRegister(data){
   ids.add(c.id);
   if(!Number.isInteger(c.version)||c.version<1||!date(c.updated_at))fail("invalid version or date");
   if(!types.has(c.type)||!states.has(c.review_status)||!support.has(c.epistemic_status))fail("unknown type, support or review status");
+  for(const problem of maturityErrors(c))fail(problem);
   if(c.epistemic_status==="formal_proof"&&c.type!=="formal")fail("formal proof requires a formal claim");
   if(c.epistemic_status==="value_commitment"&&c.type!=="normative")fail("value commitment requires a normative claim");
   if(c.type==="normative"&&c.epistemic_status!=="value_commitment")fail("normative claims require value justification, not proof promotion");
@@ -55,5 +57,5 @@ if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){
  const data=JSON.parse(await readFile(new URL("../public/knowledge/claims.json",import.meta.url),"utf8"));
  const errors=validateRegister(data);
  if(errors.length){console.error(errors.join("\n"));process.exitCode=1;}
- else console.log(`Validated ${data.claims.length} claim records: bilingual fields, provenance, review requirements and revision history. This is not a truth check.`);
+ else console.log(`Validated ${data.claims.length} claim records: bilingual fields, maturity gates, provenance, review requirements and revision history. This is not a truth check.`);
 }

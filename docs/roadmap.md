@@ -17,6 +17,7 @@ Die Reihenfolge folgt überprüfbaren Voraussetzungen. Die Kapitel bleiben erhal
 - [x] Aussagenregister mit stabilen Kennungen, Herkunft, Einwänden, Revisionsbedingungen und JSON-Export
 - [x] Drei Demonstrationseinträge; **keiner fachlich freigegeben**
 - [x] Automatische Strukturprüfung des Registers; **keine automatische Wahrheitsprüfung**
+- [x] Reversible Erkenntnisreife R0–R4 als gesonderte Registerangabe, Abstraktion und Konsens unabhängig; Struktur-Sperren, DE/EN-Anzeige, synthetische Tests. **Keine der drei Aussagen aufgestuft.**
 - [x] Zweisprachiges persönliches Prüfblatt mit Text-/JSON-Export, validiertem Import und optionalem Browserspeicher
 - [x] Öffentlicher Projektstatus mit Bestandszahlen aus den Daten und einheitlichem Versionsprofil
 - [x] [Konkreter Entwurf für den Methodenvergleich](evaluation-v1.md); **noch kein Versuch und keine Vorregistrierung**
