@@ -65,7 +65,58 @@ const messages = {
   </div>
 </section>
 
+<section class="section consensus" id="teilzusagen" aria-labelledby="teilzusagen-title">
+  <div class="narrow">
+    <p class="section-kicker">{t("Von Teilzusagen zum gemeinsamen Plan", "From separate commitments to a joint plan")}</p>
+    <h2 id="teilzusagen-title">{t("Was haben wir zusammen zugesagt?", "What have we agreed to do together?")}</h2>
+    <p>{t("Schreibt die Zusagen als einen Plan auf. Haltet getrennt fest, ob er durchführbar ist und wer genau dieser Fassung zugestimmt hat. Ihr könnt beide Fragen offenlassen.", "Write the commitments as a single plan. Record separately whether it can be carried out and who has agreed to this exact version. Either question can stay open.")}</p>
+    <details class="rent">
+      <summary>{t("Gedankenbeispiel · Wann endet das Dorfkonzert?", "Thought experiment · When does the village concert end?")}</summary>
+      <p>{t("Dirigentin und Solist wollen das ganze Stück spielen. Es dauert 30 Minuten. Solist und Veranstalterin vereinbaren ein Ende bis 22 Uhr. Veranstalterin und Dirigentin setzen den Beginn auf 21:45 Uhr. Das Stück endet dann um 22:15 Uhr. Selbst wenn alle drei Ja sagen, lässt sich dieser Zeitplan nicht einhalten.", "The conductor and soloist agree to play the whole 30-minute piece. The soloist and organiser agree to finish by 22:00. The organiser and conductor agree to start at 21:45. That puts the finish at 22:15. Even if all three say yes, they cannot keep this schedule.")}</p>
+      <p>{t("Mit Beginn um 21:30 Uhr geht die Rechnung auf. Wer trägt diesen früheren Beginn mit? Erst wenn alle drei den geänderten Plan ausdrücklich bestätigen, haben sie einen gemeinsamen, zeitlich machbaren Plan.", "A 21:30 start would fit. Who agrees to start earlier? Once all three explicitly confirm the revised plan, they share a schedule that fits the time available.")}</p>
+    </details>
+    <fieldset data-joint-plan>
+      <legend>{t("Gesprächsnotiz zu dieser Fassung", "Conversation notes on this version")}</legend>
+      <label>{t("Welche Zusagen gehören dazu, für wen und unter welchen Bedingungen?", "Which commitments does it include, for whom and under what conditions?")}<textarea rows="2" autocomplete="off" data-plan-wording></textarea></label>
+      <label>{t("Lassen sich unter diesen Bedingungen alle Zusagen einhalten? Zeigt wie, nennt den Widerspruch oder haltet fest, was noch fehlt.", "Can every commitment be kept under those conditions? Show how, identify the conflict or say what is still unknown.")}<textarea rows="2" autocomplete="off" data-note={t("Durchführbarkeit", "Feasibility")}></textarea></label>
+      <label>{t("Wer hat diesem ganzen Plan ausdrücklich zugestimmt? Wer widerspricht, enthält sich oder hat noch keine Antwort gegeben?", "Who explicitly agreed to the whole plan? Who disagrees, abstains or has yet to respond?")}<textarea rows="2" autocomplete="off" data-note={t("Antworten zum ganzen Plan", "Responses to the whole plan")}></textarea></label>
+      <p class="note">{t("Ändert sich der Plan oder eine Bedingung, prüft die neue Fassung und holt die Antworten dazu erneut ein. Eure Notizen bleiben auf dieser Seite.", "If the plan or a condition changes, check the new version and ask each person again. Your notes stay on this page.")}</p>
+      <p role="status" data-plan-status data-revised={t("Eure bisherigen Notizen stehen bei der früheren Fassung. Die Fragen sind für diese Fassung wieder offen.", "Your earlier notes are saved with the previous version. Both questions are open for this version.")}></p>
+      <details hidden data-previous-plan>
+        <summary>{t("Letzte ersetzte Fassung mit Notizen", "Last replaced version with notes")}</summary>
+        <p class="previous-notes"></p>
+      </details>
+      <noscript><p>{t("Notiert eine neue Fassung auf einem eigenen Blatt, damit frühere Antworten zugeordnet bleiben.", "Start a fresh sheet for a revised plan so the earlier responses stay with their version.")}</p></noscript>
+    </fieldset>
+  </div>
+</section>
+
 <script>
+  for (const sheet of document.querySelectorAll<HTMLElement>("[data-joint-plan]")) {
+    const plan = sheet.querySelector<HTMLTextAreaElement>("[data-plan-wording]")!;
+    const notes = Array.from(sheet.querySelectorAll<HTMLTextAreaElement>("[data-note]"));
+    const earlier = sheet.querySelector<HTMLDetailsElement>("[data-previous-plan]")!;
+    const status = sheet.querySelector<HTMLElement>("[data-plan-status]")!;
+    let previous = plan.value.trim();
+
+    function updatePlan() {
+      const current = plan.value.trim();
+      if (previous !== current && notes.some(note => note.value.trim())) {
+        const responses = notes.filter(note => note.value.trim()).map(note => note.dataset.note + " · " + note.value.trim());
+        earlier.querySelector("p")!.textContent = [previous, ...responses].join("\n");
+        earlier.hidden = false;
+        for (const note of notes) note.value = "";
+        status.textContent = status.dataset.revised!;
+      }
+      previous = current;
+      for (const note of notes) note.disabled = !current;
+    }
+
+    plan.addEventListener("input", updatePlan);
+    for (const note of notes) note.addEventListener("input", () => { status.textContent = ""; });
+    updatePlan();
+  }
+
   for (const exercise of document.querySelectorAll<HTMLElement>("[data-consensus]")) {
     const statement = exercise.querySelector<HTMLTextAreaElement>("[data-statement]")!;
     const responses = Array.from(exercise.querySelectorAll<HTMLSelectElement>("[data-response]"));
@@ -123,5 +174,6 @@ const messages = {
   select:disabled { opacity: .65; }
   .outcome { margin: 1.25rem 0 0; padding-left: .75rem; border-left: 2px solid var(--gold); }
   .note { font-size: .95rem; }
+  .previous-notes { white-space: pre-line; overflow-wrap: anywhere; }
   @media (max-width: 640px) { .pair { grid-template-columns: 1fr; } }
 </style>

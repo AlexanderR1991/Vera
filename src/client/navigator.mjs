@@ -1,4 +1,4 @@
-import {connections, assessConnection, buildNavigatorNote, caseWording} from "../lib/navigator.mjs";
+import {connections, assessConnection, conditionalConclusion, needsAllocationExamples, buildNavigatorNote, caseWording} from "../lib/navigator.mjs";
 import {topics} from "../lib/tree.mjs";
 import {discover} from "../lib/discovery.mjs";
 
@@ -92,6 +92,30 @@ if (root) {
       });
       row.append(label, select);
       conditions.append(row);
+    }
+
+    if (connection.amounts) {
+      const examples = conditions.querySelector('[name="mean_only"]').closest(".navigator-condition");
+      examples.hidden = true;
+      conditions.append(element("p", t("Gib beide Zahlen in derselben Einheit ein. Verwende bei Bedarf ein Dezimalkomma oder einen Dezimalpunkt, ohne Tausendertrennzeichen. Bis zu 32 Zeichen je Zahl. Ohne genaue Zahlen bleibt die Rechnung offen.", "Enter both numbers in the same unit. You can use a decimal point or comma, without thousands separators. Use up to 32 characters per number. Without exact figures the calculation remains open.")));
+      for (const field of connection.amounts) {
+        const row = element("div", undefined, "navigator-condition");
+        const input = element("input");
+        input.id = "navigator-amount-" + field.id;
+        input.inputMode = "decimal";
+        const label = element("label", text(field.label));
+        label.htmlFor = input.id;
+        input.addEventListener("input", () => {
+          answers[field.id] = input.value.trim();
+          examples.hidden = !needsAllocationExamples(answers);
+          examples.querySelector("select").value = "unknown";
+          answers.mean_only = "unknown";
+          assessment.hidden = true;
+        });
+        row.append(label, input);
+        conditions.append(row);
+      }
+      conditions.append(examples);
     }
 
     const evidence = find("[data-nav-evidence-content]");
@@ -239,16 +263,22 @@ if (root) {
     find("[data-nav-assessment-label]").textContent = t("ERGEBNIS DEINER ANGABEN", "RESULT BASED ON YOUR ANSWERS");
     if (result.status === "conditional") {
       title.textContent = t("Unter deinen Angaben anwendbar", "Applicable under your stated conditions");
-      body.textContent = text(connection.conclusion);
+      body.textContent = conditionalConclusion(connection, answers, lang);
       next.textContent = t("Möglicher nächster Schritt: ", "Possible next step: ") + text(connection.nextStep);
     } else if (result.status === "not_applicable") {
       title.textContent = t("Diese Verbindung passt so nicht", "This connection does not fit as stated");
       body.textContent = t("Mindestens eine notwendige Voraussetzung ist nach deinen Angaben nicht erfüllt. Die Schlussfolgerung dieser Karte lässt sich deshalb nicht auf deinen Fall übertragen. Das widerlegt nicht den allgemeinen Gedanken.", "At least one required condition is not met according to your answers. This card’s conclusion therefore cannot be transferred to your case. This does not refute the general idea.");
+      if (result.failed.includes("mean_only")) {
+        body.textContent = t("Mindestens eine vorgeschlagene Verteilung scheidet aus. Ob alle die Schwelle erreichen, ist so noch nicht entschieden. Prüfe die zusätzlichen Grenzen oder suche zwei andere zulässige Verteilungen mit verschiedenen Antworten.", "At least one proposed allocation is ruled out. Whether everyone meets the minimum has yet to be settled. Check the additional constraints or find two other permitted allocations with opposite answers.");
+      }
       conditionIds = result.failed;
       next.textContent = t("Nächster Schritt: Prüfe eine andere Verbindung oder untersuche deine Frage im Prüfblatt weiter.", "Next step: examine another connection or continue exploring your question in the worksheet.");
     } else if (result.status === "needs_context") {
       title.textContent = t("Hier fehlt noch eine Antwort", "Some context is still missing");
       body.textContent = t("Die Verbindung bleibt ein Vorschlag. Kläre zunächst diese Voraussetzungen, bevor du eine Schlussfolgerung daraus übernimmst:", "The connection remains a suggestion. Clarify these conditions before adopting a conclusion from it:");
+      if (connection.amounts?.some(field => result.missing.includes(field.id))) {
+        body.textContent = t("Noch nicht entschieden. Für diese Rechnung brauchen wir die bestätigten Voraussetzungen und zwei nichtnegative Dezimalzahlen mit höchstens 32 Zeichen. Eine fehlende Angabe lässt offen, welche Verteilungen möglich sind.", "Not yet decided. This calculation requires confirmed premises and two nonnegative decimal numbers of at most 32 characters each. Missing information leaves the possible allocations unexamined.");
+      }
       conditionIds = result.missing;
       next.textContent = t("Nächster Schritt: Halte fest, wie du diese Information herausfinden könntest. Du darfst die Frage offenlassen.", "Next step: record how you might find this information. You may leave the question open.");
     } else {
@@ -257,7 +287,7 @@ if (root) {
       next.textContent = "";
     }
     for (const id of conditionIds) {
-      const condition = connection.conditions.find(item => item.id === id);
+      const condition = [...connection.conditions, ...(connection.amounts ?? [])].find(item => item.id === id);
       if (condition) list.append(element("li", text(condition.label)));
     }
     list.hidden = !list.childElementCount;

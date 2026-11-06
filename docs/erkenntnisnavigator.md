@@ -62,7 +62,18 @@ Aus „Wenn Erklärung P zutrifft, folgt Beobachtung Q“ und „Q wurde beobach
 <a id="distribution"></a>
 ### Durchschnitt und Verteilung
 
-Die Werte 0 und 10 haben denselben arithmetischen Mittelwert wie 5 und 5: jeweils 5. Bei einer angenommenen Mindestmenge von 4 liegt im ersten Beispiel ein Wert darunter, im zweiten keiner. Der Mittelwert von mindestens zwei Werten legt die Einzelwerte daher nicht eindeutig fest. Wer Folgen für einzelne Betroffene beurteilen will, braucht weitere Angaben zur Verteilung. Vorausgesetzt sind vergleichbare Größen und die tatsächlich verwendete Mittelwertdefinition. Aus dem Gegenbeispiel folgt weder, dass jede ungleiche Verteilung ungerecht ist, noch welche Verteilung Menschen wählen sollten; diese Wertfragen benötigen eigene Gründe.
+Die [frühere Karte v1](https://github.com/AlexanderR1991/Wirklich/blob/8b46f7af121768d35ed0a27a99bf20fa806dbf00/src/lib/navigator.mjs#L61-L76) konnte nach drei Bestätigungen ausgeben, eine Aussage über alle Einzelnen könne wahr sein, obwohl bereits der Durchschnitt sie ausschloss.
+
+Karte v2 prüft die Frage „Erreicht jede Menge die vorgegebene Schwelle?“ mit zwei Zahlen in derselben Einheit. Sie gilt für zwei oder mehr nichtnegative Mengen mit exaktem ungewichteten Mittelwert. Liegt er unter der Schwelle, schließt die Rechnung die Behauptung unabhängig von weiteren Verteilungsgrenzen aus. Ein gerundeter Mittelwert braucht eine eigene Prüfung. Eine faire Schwelle festzulegen ist eine Wertfrage.
+
+| Durchschnitt je Kiste | Gemeinsame Mindestmenge | Was folgt unter diesen Angaben? |
+| --- | --- | --- |
+| 3 | 4 | Ausgeschlossen. Zusammen sind sechs Portionen vorhanden. Zweimal vier erfordert acht. |
+| 5 | 4 | Beide Antworten sind möglich. Fünf und fünf erreichen beide die Schwelle. Bei zwei und acht verfehlt die erste Kiste sie. |
+| 4 | 4 | Beide Antworten bleiben möglich. Vier und vier erfüllen die Bedingung. Null und acht erfüllen sie nicht. |
+| 3 | 0 | Beide erreichen null, weil negative Mengen im Modell ausgeschlossen sind. |
+
+Der Rechner vergleicht die eingegebenen Dezimalzahlen exakt. Für seine Gegenbeispiele setzt er zunächst alle Werte auf den Mittelwert. In der zweiten Verteilung werden zwei dieser Werte durch null und den doppelten Mittelwert ersetzt. Alle übrigen bleiben gleich. Begrenzte Behältergrößen oder unteilbare Einheiten können eines der Beispiele ausschließen. Dann muss man die Frage mit diesen Bedingungen gesondert prüfen. Fehlt eine Zahl oder ist eine nötige Voraussetzung ungeklärt, bleibt der Fall ungeprüft. Erst zwei zulässige Verteilungen mit unterschiedlichen Antworten belegen, dass die Angaben beide Antworten zulassen.
 
 <a id="help"></a>
 ### Hilfe und Selbstbestimmung
@@ -121,6 +132,8 @@ The first bilingual pilot uses four editorial draft cards: capacity, observation
 The public `/knowledge/connections.json` export contains the editorial draft collection (`schema_version: 1`), not personal entries. The help card's `sourceClaim` points to G-005 v2 as provenance; it does not confer a new review status on either record.
 
 Each prerequisite can be answered yes, no or unknown. Unknown conditions require more context; a failed condition blocks that transfer; all conditions confirmed by the user allow only a conditional conclusion. The software has not verified those confirmations. Neither a successful match nor publication upgrades a card or the existing claim register to independent review.
+
+Version 2 of the averages card checks two or more nonnegative amounts in the same unit. A mean of three gives six in total and rules out four in each. For a mean of five, five and five and two and eight give opposite answers about the same minimum of four. If both allocations are permitted, they establish that the given facts allow either outcome. With more than two amounts, keep every other amount at the mean. Additional distribution limits may invalidate the examples but cannot undo the exclusion when the mean is below the minimum. At a minimum of zero, nonnegativity establishes the claim. Missing exact figures leave the calculation unresolved. A rounded mean or additional constraints require a separate check. The local note records the figures and the conclusion for that version.
 
 A failed prerequisite on the help card does not justify withholding necessary care. It only blocks that particular transfer and leaves the need for appropriate support and clarification open.
 

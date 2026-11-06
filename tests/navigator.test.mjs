@@ -3,7 +3,10 @@ import assert from "node:assert/strict";
 import {connections, findConnections, assessConnection, buildNavigatorNote} from "../src/lib/navigator.mjs";
 import {topics} from "../src/lib/tree.mjs";
 
-const allYes = connection => Object.fromEntries(connection.conditions.map(item => [item.id, "yes"]));
+const allYes = connection => ({
+  ...Object.fromEntries(connection.conditions.map(item => [item.id, "yes"])),
+  ...(connection.id === "distribution" ? {mean: "5", minimum: "4"} : {})
+});
 
 test("keyword suggestions remain limited candidates, including contradictory prose", () => {
   for (const query of ["", "  ", null, 42, [], "Die Galaxie enthält dunkle Materie."]) assert.deepEqual(findConnections(query), []);
@@ -36,6 +39,39 @@ test("unknown time estimates, alternative explanations and preferences prompt cl
     assert.deepEqual(assessConnection(id, unknown), {status: "needs_context", missing: [premise], failed: []});
     delete unknown[premise];
     assert.equal(assessConnection(id, unknown).status, "needs_context");
+  }
+});
+
+test("the same threshold may be ruled out, follow, or allow two allocations with the same mean", () => {
+  const card = connections.find(item => item.id === "distribution");
+  const note = (mean, minimum, lang = "de") => buildNavigatorNote({connectionId: card.id, lang, answers: {...allYes(card), mean, minimum}});
+  assert.equal(card.version, 2);
+  assert.match(note("3", "4"), /Ausgeschlossen\. Wäre jede Menge mindestens 4, läge auch ihr Durchschnitt bei mindestens 4\. Er beträgt aber nur 3\./);
+  assert.match(note("5", "4"), /Erhalten alle 5, erreichen alle die Schwelle 4\. Ändere zwei Mengen auf 0 und 10\. Alle übrigen behalten 5/);
+  assert.match(note("4", "4"), /Erhalten alle 4, erreichen alle die Schwelle 4\. Ändere zwei Mengen auf 0 und 8/);
+  assert.match(note("3", "0", "en"), /The claim follows\. Every amount meets the minimum of zero/);
+  assert.match(note("0", "0"), /Die Aussage folgt/);
+  assert.match(note("0", "0,5"), /Ausgeschlossen\. Wäre jede Menge mindestens 0,5, läge auch ihr Durchschnitt bei mindestens 0,5\. Er beträgt aber nur 0\./);
+  assert.match(note("0.10000000000000001", "0.10000000000000002", "en"), /Ruled out\. If every amount were at least 0\.10000000000000002,.*The mean is only 0\.10000000000000001/);
+  const english = note("5.5", "4.5", "en");
+  assert.match(english, /Give everyone 5\.5 and everyone meets the minimum of 4\.5\. Change two amounts to 0 and 11/);
+  assert.match(english, /Exact mean — 5\.5/);
+  assert.match(english, /distribution, v2/);
+});
+
+test("missing figures, unsupported quantities and unresolved model assumptions cannot establish two possible outcomes", () => {
+  const card = connections.find(item => item.id === "distribution");
+  for (const bad of ["", "-1", "3…", "1.2.3", "1e2", "  ", "3".repeat(33), Infinity, null, undefined]) {
+    const answers = {...allYes(card), mean: bad};
+    assert.deepEqual(assessConnection(card.id, answers), {status: "needs_context", missing: ["mean"], failed: []});
+    assert.doesNotMatch(buildNavigatorNote({connectionId: card.id, answers}), /Unter deinen Angaben sind beide Antworten möglich|Ausgeschlossen\. Wäre jede Menge/);
+  }
+  for (const flag of ["unknown", "no"]) {
+    const answers = {...allYes(card), mean_only: flag};
+    assert.notEqual(assessConnection(card.id, answers).status, "conditional");
+    assert.equal(assessConnection(card.id, {...answers, mean: "3"}).status, "conditional");
+    assert.equal(assessConnection(card.id, {...answers, minimum: "0"}).status, "conditional");
+    assert.doesNotMatch(buildNavigatorNote({connectionId: card.id, answers, lang: "en"}), /Both answers are possible under your stated conditions/);
   }
 });
 
