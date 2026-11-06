@@ -2,7 +2,10 @@
   "de": {
     "headline": "Was ist",
     "headlineAccent": "wirklich?",
-    "lead": "Hier prüfen Menschen gemeinsam, was sie für wahr halten und warum. Bring eine Frage mit, die dich beschäftigt. Was wissen wir schon? Welche Erklärung passt dazu? Was könnte uns umstimmen?",
+    "lead": "Du stehst im Supermarkt. An der linken Kasse warten zwei Leute, rechts vier. Wo stellst du dich an?",
+    "play": "Eine Runde spielen",
+    "playNote": "Allein oder zu zweit, ohne Anmeldung.",
+    "bringQuestion": "Meine eigene Frage mitbringen",
     "worksheet": "Meine Frage im Prüfblatt untersuchen",
     "publicQuestion": "Öffentlich auf GitHub fragen",
     "privacy": "Das Prüfblatt bleibt auf deinem Gerät. Für eine öffentliche Frage brauchst du ein GitHub-Konto.",
@@ -56,7 +59,10 @@
   "en": {
     "headline": "What is",
     "headlineAccent": "real?",
-    "lead": "This is a place to examine what we believe and why. Bring a question that matters to you. What do we already know? What might explain it? What would make us change our minds?",
+    "lead": "You're at the supermarket. Two people are waiting at the checkout on the left, four on the right. Which line do you join?",
+    "play": "Play a round",
+    "playNote": "Play on your own or with someone else. No sign-up needed.",
+    "bringQuestion": "Bring a question of my own",
     "worksheet": "Work through my question",
     "publicQuestion": "Ask publicly on GitHub",
     "privacy": "Your worksheet stays on your device. You’ll need a GitHub account to ask a public question.",

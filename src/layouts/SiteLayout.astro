@@ -8,7 +8,8 @@ const footerGroups = [
   { title: t.explore, routes: ["baum-des-wissens", "bibliothek", "pruefstand", "forschungsstrom"] },
   { title: t.project, routes: ["mission", "projektstatus", "mitwirken"] }
 ];
-const title=root?"Choose your language / Sprache wählen":t.titles[slug];
+const description = Astro.props.description ?? t.description;
+const title = Astro.props.pageTitle ?? (root ? "Choose your language / Sprache wählen" : t.titles[slug]);
 const siteRoot="https://alexanderr1991.github.io"+base;
 const canonical=root?siteRoot:absoluteFor(lang,slug);
 ---
@@ -19,10 +20,10 @@ const canonical=root?siteRoot:absoluteFor(lang,slug);
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="theme-color" content="#0b0d0f" />
 <meta name="color-scheme" content="dark" />
-<meta name="description" content={t.description} />
+<meta name="description" content={description} />
 <meta property="og:type" content="website" />
 <meta property="og:title" content={title+" · "+t.name} />
-<meta property="og:description" content={t.description} />
+<meta property="og:description" content={description} />
 <meta property="og:url" content={canonical} />
 <meta name="application-name" content={t.name} />
 <meta property="og:locale" content={lang==="de"?"de_DE":"en_GB"} />

@@ -16,10 +16,9 @@ const t = copy[lang];
         <h1 id="home-heading">{t.headline} <em>{t.headlineAccent}</em></h1>
         <p class="home-lead">{t.lead}</p>
         <div class="button-row">
-          <a class="button button--gold" href={pathFor(lang, "werkstatt")}>{t.worksheet}</a>
-          <a class="home-link" href={project.repository + "/issues/new?template=frage.yml"}>{t.publicQuestion} <span aria-hidden="true">↗</span></a>
+          <a class="button button--gold" href={pathFor(lang, "spiel")}>{t.play}</a>
         </div>
-        <p class="home-note">{t.privacy}</p>
+        <p class="home-note">{t.playNote}</p>
       </div>
       <article class="home-example" aria-labelledby="home-example-title">
         <div class="example-heading"><p>{t.exampleLabel}</p><span>{t.exampleId}</span></div>
@@ -40,6 +39,14 @@ const t = copy[lang];
         <a class="home-link" href={pathFor(lang, "baum-des-wissens")}>{t.treeLink} <span aria-hidden="true">→</span></a>
       </div>
       <div class="home-groups">
+        <details>
+          <summary>{t.bringQuestion}</summary>
+          <p>{t.privacy}</p>
+          <ul>
+            <li><a href={pathFor(lang, "werkstatt")}>{t.worksheet}</a></li>
+            <li><a href={project.repository + "/issues/new?template=frage.yml"}>{t.publicQuestion} <span aria-hidden="true">↗</span></a></li>
+          </ul>
+        </details>
         {t.groups.map(group => (
           <details>
             <summary>{group.title}</summary>
@@ -124,7 +131,7 @@ const t = copy[lang];
   .home-status > span { color: var(--gold); font-size: .8rem; font-weight: 600; }
   .home-status p { flex: 1 1 20rem; margin: 0; font-size: .9rem; }
   @media (max-width: 780px) {
-    .home-pair { grid-template-columns: 1fr; gap: 2.2rem; }
+    .home-pair { grid-template-columns: minmax(0, 1fr); gap: 2.2rem; }
     .home-explore .home-pair { gap: 1.5rem; }
   }
 </style>

@@ -1,0 +1,135 @@
+---
+import Layout from "../../../layouts/SiteLayout.astro";
+import { absoluteFor, base, locales, pathFor } from "../../../lib/paths.mjs";
+import { cards, game } from "../../../lib/play-cards.mjs";
+
+export function getStaticPaths() {
+  return locales.flatMap(lang => cards.map((card, index) => ({
+    params: { lang, karte: card.slug.split("/")[1] },
+    props: { index }
+  })));
+}
+
+const { lang } = Astro.params;
+const { index } = Astro.props;
+const { slug } = cards[index];
+const card = cards[index][lang];
+const t = game[lang];
+const next = cards[(index + 1) % cards.length];
+const url = absoluteFor(lang, slug);
+---
+<Layout lang={lang} slug={slug} pageTitle={card.question} description={card.scene}>
+  <div class="play-table">
+    <article class="play-card" aria-labelledby="question">
+      <header class="card-top">
+        <span class="deck-name">
+          <svg aria-hidden="true" viewBox="0 0 38 24" width="38" height="24" fill="none" stroke="currentColor" stroke-width="1.65">
+            <circle cx="12" cy="12" r="9"/><circle cx="24" cy="12" r="9"/>
+          </svg>
+          {t.name}
+        </span>
+        <span>{t.card} {index + 1}/{cards.length}</span>
+      </header>
+      <p class="scene">{card.scene}</p>
+      <h1 id="question">{card.question}</h1>
+      <fieldset>
+        <legend>{t.first}</legend>
+        <div class="picks">
+          {card.choices.map(choice => <label><input type="radio" name="first" autocomplete="off" />{choice}</label>)}
+        </div>
+      </fieldset>
+      <details class="clue">
+        <summary><span class="closed-label">{t.reveal}</span><span class="open-label">{t.close}</span></summary>
+        <div class="back">
+          <p class="new-clue">{card.clue}</p>
+          <h2>{t.again}</h2>
+          <p class="reflection">{card.reflection}</p>
+          <fieldset>
+            <legend>{t.second}</legend>
+            <div class="picks">
+              {t.reactions.map(reaction => <label><input type="radio" name="second" autocomplete="off" />{reaction}</label>)}
+            </div>
+          </fieldset>
+          <div class="next-steps">
+            <a class="next" href={pathFor(lang, next.slug)}>{index === cards.length - 1 ? t.restart : t.next} <span aria-hidden="true">→</span></a>
+            <a href={pathFor(lang, "werkstatt")}>{t.workshop}</a>
+          </div>
+        </div>
+      </details>
+    </article>
+    <aside class="pass-on" aria-label={t.share}>
+      <p>{t.together}</p>
+      <div class="share-tools">
+        <button type="button" id="share-card" hidden data-question={card.scene + " " + card.question} data-copied={t.copied}>{t.share} <span aria-hidden="true">↗</span></button>
+        <details id="manual-link">
+          <summary>{t.link}</summary>
+          <p>{t.manual}<br /><a href={url}>{url}</a></p>
+        </details>
+        {index === 0 && <a class="print-card" href={base + "spielkarten/kasse-" + lang + ".pdf"}>{t.print}</a>}
+      </div>
+      <p id="share-status" role="status"></p>
+    </aside>
+  </div>
+</Layout>
+
+<script>
+  const button = document.querySelector<HTMLButtonElement>("#share-card")!;
+  const manual = document.querySelector<HTMLDetailsElement>("#manual-link")!;
+  const link = manual.querySelector("a")!;
+  const status = document.querySelector("#share-status")!;
+  if (navigator.share || navigator.clipboard?.writeText) button.hidden = false;
+  button.addEventListener("click", async () => {
+    const text = button.dataset.question!;
+    try {
+      if (navigator.share) {
+        await navigator.share({ text, url: link.href });
+      } else {
+        await navigator.clipboard.writeText(text + "\n" + link.href);
+        status.textContent = button.dataset.copied!;
+      }
+    } catch (error) {
+      if (error instanceof Error && error.name === "AbortError") return;
+      manual.open = true;
+      link.focus();
+    }
+  });
+</script>
+
+<style>
+  .play-table { background: radial-gradient(ellipse at 50% 15%, #263d34, #101917 78%); padding: clamp(1rem, 4vw, 3rem) 1rem; }
+  .play-card, .pass-on { max-width: 44rem; margin-inline: auto; }
+  .play-card { color-scheme: light; color: #212c26; background: #f3ecdc; border-radius: .65rem; padding: clamp(1.15rem, 5vw, 3rem); box-shadow: .35rem .4rem 0 #9f8b67; }
+  .card-top, .deck-name, .picks, .next-steps, .share-tools { display: flex; align-items: center; flex-wrap: wrap; gap: .65rem; }
+  .card-top { justify-content: space-between; padding-bottom: .85rem; border-bottom: 1px solid #aaac9b; color: #465248; font-size: .85rem; }
+  .deck-name { font-weight: 700; gap: .5rem; }
+  .scene { margin: clamp(1.2rem, 3vw, 2.1rem) 0 .5rem; line-height: 1.5; color: #404c43; font-size: clamp(1.05rem, 2vw, 1.26rem); }
+  .play-card h1 { margin: 0 0 1.35rem; font-size: clamp(2.15rem, 5vw, 3.65rem); line-height: 1.04; letter-spacing: -.035em; }
+  fieldset { min-width: 0; padding: 0; border: 0; margin: 0; }
+  legend { padding: 0; margin-bottom: .45rem; color: #465248; font-weight: 600; font-size: .92rem; }
+  .picks label { display: inline-flex; gap: .45rem; align-items: center; min-height: 44px; padding: .35rem .8rem; border: 1px solid #858c7e; border-radius: .35rem; cursor: pointer; }
+  .picks label:has(:checked) { background: #d9e3d4; border-color: #316144; }
+  input { margin: 0; accent-color: #255038; }
+  .play-card :focus-visible { outline: 3px solid #285b41; outline-offset: 3px; }
+  .clue { margin-top: 1.35rem; border-top: 1px dashed #999c88; padding-top: 1.15rem; }
+  summary { cursor: pointer; }
+  .clue > summary, .next { display: list-item; width: fit-content; padding: .65rem 1.1rem; border-radius: .35rem; background: #254735; color: white; font-weight: 650; line-height: 1.5; }
+  .clue > summary:hover, .next:hover { background: #335b45; color: white; }
+  .clue > summary::marker { font-size: .78em; }
+  .open-label, .clue[open] .closed-label { display: none; }
+  .clue[open] .open-label { display: inline; }
+  .new-clue { color: #283e30; background: #e0e6d6; border-left: .2rem solid #557358; padding: .85rem 1rem; margin: 1.1rem 0; font-size: 1.15rem; line-height: 1.5; }
+  .back h2 { margin: 1.25rem 0 .2rem; font-size: 1.6rem; line-height: 1.25; }
+  .reflection { color: #3a443c; line-height: 1.55; margin-bottom: .9rem; }
+  .next-steps { margin-top: 1.25rem; gap: .5rem 1.1rem; }
+  .next { display: inline-block; }
+  .next-steps a:not(.next), .pass-on a { text-decoration: underline; text-underline-offset: .18em; }
+  .next-steps a:not(.next):hover { color: #285b41; }
+  .pass-on { padding: 1.45rem .3rem 0; }
+  .pass-on p { margin: 0 0 .45rem; color: #cad2c4; }
+  .share-tools { align-items: baseline; column-gap: 1.35rem; }
+  .share-tools button, .share-tools summary { min-height: 44px; padding: .45rem 0; border: 0; background: none; color: #ead5ae; font-size: 1rem; text-decoration: underline; text-underline-offset: .2em; }
+  .print-card { display: inline-flex; align-items: center; min-height: 44px; color: #ead5ae; }
+  .share-tools details { min-width: 0; }
+  .share-tools a { overflow-wrap: anywhere; }
+  #share-status:not(:empty) { margin-top: .45rem; }
+</style>

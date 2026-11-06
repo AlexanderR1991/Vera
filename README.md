@@ -8,6 +8,7 @@
 
 | Einstieg | Deutsch | English |
 | --- | --- | --- |
+| Eine Minute spielen · Play a one-minute round | [Auf den zweiten Blick](https://alexanderr1991.github.io/Wirklich/de/spiel/) | [A second look](https://alexanderr1991.github.io/Wirklich/en/spiel/) |
 | Die Werkstatt kennenlernen · Visit the workshop | [Startseite](https://alexanderr1991.github.io/Wirklich/de/) | [Home](https://alexanderr1991.github.io/Wirklich/en/) |
 | Eine echte Korrektur lesen · Follow a real revision | [Wann ist Hilfe gut?](https://alexanderr1991.github.io/Wirklich/de/methode/#g-005) | [What makes help good?](https://alexanderr1991.github.io/Wirklich/en/methode/#g-005) |
 | Eine Frage für sich prüfen · Work privately | [Prüfblatt öffnen](https://alexanderr1991.github.io/Wirklich/de/werkstatt/) | [Open a worksheet](https://alexanderr1991.github.io/Wirklich/en/werkstatt/) |
