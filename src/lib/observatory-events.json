@@ -1,0 +1,51 @@
+[
+  {
+    "at": "2026-11-04T14:52:23Z",
+    "kind": "merge",
+    "number": 2,
+    "de": "Die Website erhielt acht deutschsprachige Seiten mit englischen Übersetzungsentwürfen und einem Sprachwechsel.",
+    "en": "The website gained eight German pages with draft English translations and a language switcher."
+  },
+  {
+    "at": "2026-11-05T15:41:32Z",
+    "kind": "merge",
+    "number": 14,
+    "de": "Für Literaturhinweise aus Crossref entstand ein Forschungsstrom, der die Funde als ungeprüft kennzeichnet.",
+    "en": "The project added a research feed that labels literature leads from Crossref as unreviewed."
+  },
+  {
+    "at": "2026-11-05T20:10:51Z",
+    "kind": "merge",
+    "number": 21,
+    "de": "Das Aussagenregister begann mit drei ungeprüften Beispielen und hielt zu jeder Aussage Gründe und Einwände fest.",
+    "en": "The claim register began with three unreviewed examples and recorded reasons and objections for each claim."
+  },
+  {
+    "at": "2026-11-05T21:08:02Z",
+    "kind": "merge",
+    "number": 31,
+    "de": "Nach einer Selbstprüfung stellte These 05 klar, dass Menschen auch dann Unterstützung verdienen, wenn sie dauerhaft darauf angewiesen sind.",
+    "en": "After a self-review, thesis 05 clarified that people deserve support even when they will always need it."
+  },
+  {
+    "at": "2026-11-05T21:55:17Z",
+    "kind": "merge",
+    "number": 32,
+    "de": "Das Projekt erhielt den Namen WIRKLICH und mit Version 1.0 ein persönliches Prüfblatt und eine öffentliche Statusseite.",
+    "en": "The project took the name WIRKLICH and added a personal inquiry worksheet and a public status page in version 1.0."
+  },
+  {
+    "at": "2026-11-06T07:20:16Z",
+    "kind": "issue",
+    "number": 40,
+    "de": "Ein reproduzierbarer Test zeigte, dass eine ins Gegenteil verkehrte Beispielaussage mit dem alten Prüfvermerk weiterhin als geprüft zählte.",
+    "en": "A reproducible test showed that an example claim still counted as reviewed after its meaning was reversed because it retained the old review."
+  },
+  {
+    "at": "2026-11-06T08:16:15Z",
+    "kind": "merge",
+    "number": 43,
+    "de": "Prüfvermerke wurden an die Version und den digitalen Fingerabdruck der geprüften Aussage gebunden, damit ein veränderter Inhalt neu geprüft werden muss.",
+    "en": "Review records were tied to the version and digital fingerprint of the claim so that changed content requires a new review."
+  }
+]
