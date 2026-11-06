@@ -247,3 +247,23 @@ for(const lang of ["de","en"]){
 }
 if(errors.length){console.error(errors.join("\n"));process.exit(1);}
 console.log("Verified bilingual navigator, readable draft cards, contextual entry points and version-bound source links.");
+
+
+// Legal routes and paused fundraising must be visible in both published languages.
+for(const lang of ["de","en"]){
+  const footer = await readFile(join(out,lang,"index.html"),"utf8");
+  for(const route of ["impressum","datenschutz"]){
+    const link="/Wirklich/"+lang+"/"+route+"/";
+    if(!footer.includes(link)||!sitemap.includes(link))errors.push("Missing legal route "+link);
+    try { const html=await readFile(join(out,lang,route,"index.html"),"utf8");
+      if(!html.includes("<h1")||!html.includes('rel="canonical"'))errors.push("Invalid legal page "+link);
+    } catch { errors.push("Missing legal page "+link); }
+  }
+  const contribute = await readFile(join(out,lang,"mitwirken","index.html"),"utf8");
+  const support = contribute.split('id="unterstuetzen"')[1]?.split("</section>")[0] || "";
+  if(!support)errors.push("Missing support disclosure for "+lang);
+  if(support.includes("paypal.com/")||support.includes("radke.a91@gmail.com"))errors.push("Payment request should stay paused for "+lang);
+  if(!support.includes(lang==="de"?"Unterstützung derzeit pausiert":"Support currently paused"))errors.push("Missing pause notice for "+lang);
+}
+if(errors.length){console.error(errors.join("\\n"));process.exit(1);}
+console.log("Verified bilingual legal pages, footer discovery and paused public payment instructions.");
