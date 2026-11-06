@@ -10,13 +10,16 @@ permissions:
   pages: write
   id-token: write
 concurrency:
-  group: astro-pages
+  # PR validation should not wait for a potentially slow Pages deployment on main.
+  group: astro-pages-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || 'main' }}
   cancel-in-progress: false
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # The observatory reconstructs snapshots from Git history.
       - uses: actions/setup-node@v4
         with:
           node-version: '22'

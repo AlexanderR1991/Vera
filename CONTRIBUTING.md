@@ -44,6 +44,8 @@ On GitHub, open the relevant file, click the pencil icon, edit your fork, and op
 
 **Sprachfassungen / Languages:** Der Auftakt liegt in `MissionHome.astro` und `src/lib/mission-copy.json`, Mission und Register in den gleichnamigen Komponenten. Aussagen werden in `public/knowledge/claims.json` gepflegt ([Datenvertrag](docs/aussagenregister.md)). Ältere Unterseiten stammen aus den Root-HTML-Dateien und `src/i18n/*.en.json`; neue Kapitel aus `src/components/` und ihren Kopierdaten. Alle neuen Einträge benötigen DE/EN. / See the same paths for bilingual editing. For complex edits, start with an issue.
 
+**Projektchronik / Project timeline.** Für einen Meilenstein ergänze in `src/lib/observatory-events.json` eine kurze Beschreibung in beiden Sprachen, die Issue- oder PR-Nummer und den belegten UTC-Zeitpunkt der Meldung oder Übernahme. Ordne ihn zeitlich ein. Die Tagesstände entstehen beim Build aus der vollständigen Git-Historie. / To add a milestone, record both descriptions, the issue or PR number and the verified UTC opening or merge time in chronological order. The build derives daily snapshots from a full Git checkout.
+
 ## 3. So prüfen wir Beiträge / How contributions are evaluated
 
 - **Empirische Aussage / Empirical claim:** Reputable, verifiable sources, relevant caveats, and contrary findings.

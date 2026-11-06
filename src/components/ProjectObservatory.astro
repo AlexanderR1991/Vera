@@ -1,0 +1,115 @@
+---
+import Layout from "../layouts/SiteLayout.astro";
+import {base, pathFor} from "../lib/paths.mjs";
+import {observatoryReport} from "../lib/observatory-report.mjs";
+import "../styles/mission.css";
+
+const {lang = "de"} = Astro.props;
+const t = (de, en) => lang === "de" ? de : en;
+const {days, events, head, metrics, repository} = observatoryReport();
+const locale = t("de-DE", "en-GB");
+const date = new Intl.DateTimeFormat(locale, {dateStyle: "long", timeZone: "UTC"});
+const shortDate = new Intl.DateTimeFormat(locale, {dateStyle: "medium", timeZone: "UTC"});
+const time = new Intl.DateTimeFormat(locale, {timeStyle: "short", timeZone: "UTC"});
+const groups = Map.groupBy(events, event => event.at.slice(0, 10));
+const description = t("Wie verändert sich WIRKLICH durch Kritik? Eine Chronik mit Originalbelegen und Tagesständen aus dem Projektarchiv.", "How does criticism change the workshop? Explore documented milestones and daily snapshots of the project archive.");
+---
+<Layout lang={lang} slug="projektobservatorium" description={description}>
+  <article class="container mission-document">
+    <header>
+      <p class="section-kicker">{t("Projektobservatorium", "Project observatory")}</p>
+      <h1>{t("Wie verändert sich WIRKLICH?", "How is the workshop changing?")}</h1>
+      <p class="mission-lead">{t("Woran erkennen wir, dass ein Einwand etwas bewirkt? Hier kannst du vom ersten Hinweis bis zur geänderten Fassung mitlesen und die Entwicklung der Werkstatt selbst untersuchen.", "How can we tell whether an objection made a difference? Follow the record from a first report to a revised version, and investigate how the workshop develops.")}</p>
+      <nav class="mission-toc" aria-label={t("Auf dieser Seite", "On this page")}>
+        <a href="#chronik">{t("Chronik", "Timeline")}</a>
+        <a href="#daten">{t("Daten im Zeitverlauf", "Daily records")}</a>
+        <a href="#untersuchen">{t("Selbst untersuchen", "Investigate a case")}</a>
+      </nav>
+    </header>
+
+    <section id="chronik">
+      <h2>{t("Was wann geschah", "What happened when")}</h2>
+      <p>{t("Die Redaktion wählt Ereignisse aus, an denen sich eine Entscheidung oder Korrektur nachvollziehen lässt. Jede Quelle zeigt, wann eine Meldung einging oder eine Änderung in den Hauptzweig übernommen wurde. Alle Zeiten sind in UTC angegeben.", "The editors select events that help trace a decision or correction. Each source records when an issue was opened or a change was merged into the main branch. All times are in UTC.")}</p>
+      {Array.from(groups, ([day, items]) => (
+        <div class="chronicle-day">
+          <h3><time datetime={day}>{date.format(new Date(day))}</time></h3>
+          <ol class="chronicle-events">
+            {items.map(event => (
+              <li>
+                <div class="chronicle-stamp"><time datetime={event.at}>{time.format(new Date(event.at))} UTC</time><span> · {event.kind === "issue" ? t("Meldung", "Issue opened") : t("Übernahme", "Merge")}</span></div>
+                <p>{event[lang]} <a href={event.source}>{event.kind === "issue" ? "Issue" : "PR"} #{event.number}</a></p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      ))}
+    </section>
+
+    <section id="daten">
+      <h2>{t("Die Werkstatt im Zeitverlauf", "The workshop over time")}</h2>
+      <p>{t("Jede Zeile zeigt den letzten gespeicherten Projektstand an einem UTC-Tag mit Änderungen. Für den jüngsten Tag reichen die Daten bis zur verlinkten Fassung. Beim nächsten Website-Build werden die Werte aus dem Archiv neu berechnet.", "Each row shows the last recorded project revision on a UTC day with changes. The latest day covers the linked revision. Each website build recalculates the series from the archive.")}</p>
+      <div class="mission-table-wrap" role="region" aria-label={t("Tagesstände, horizontal scrollbar", "Daily records, scroll horizontally")} tabindex="0">
+        <table class="mission-table">
+          <caption>{t("Tagesstände in zeitlicher Reihenfolge", "Daily records in chronological order")}</caption>
+          <thead><tr><th scope="col">{t("Tag und Quelle", "Day and source")}</th>{Object.values(metrics).map(metric => <th scope="col">{metric[lang]}</th>)}</tr></thead>
+          <tbody>{days.map((day, index) => (
+            <tr>
+              <th scope="row">
+                <a href={repository + "/tree/" + day.revision}><time datetime={day.date}>{shortDate.format(new Date(day.date))}</time></a>
+                <small><a href={index === 0 ? repository + "/commits/" + day.revision + "/" : repository + "/compare/" + days[index - 1].revision + "..." + day.revision}>{t("Änderungen", "Changes")}</a></small>
+              </th>
+              {Object.keys(metrics).map(key => <td>{day[key] ?? t("k. A.", "n/a")}</td>)}
+            </tr>
+          ))}</tbody>
+        </table>
+      </div>
+      <p class="mission-note">{t("„k. A.“ bedeutet, dass die Datenquelle oder eine Voraussetzung für die Messung fehlte. Eine Null bedeutet, dass sich am verlinkten Stand kein passender Eintrag fand.", "“n/a” means the source or a requirement for the measurement was missing. Zero means the linked revision contained no matching entries.")}</p>
+      <details class="counting"><summary>{t("Wie werden die fünf Spalten gezählt?", "How are the five columns counted?")}</summary>
+        <ul>
+          <li>{t("Projektstände zählen die gespeicherten Änderungen entlang der Hauptlinie. Eine zusammengeführte Nebenlinie zählt beim Zusammenführen einmal.", "Revisions count recorded changes along the first-parent history. A merged branch is counted once when it joins that history.")}</li>
+          <li>{t("Jede Kennung im Aussagenregister zählt einmal. Zur Teilmenge mit gültigem menschlichem Prüfvermerk gehört sie, wenn der Prüfstatus, die dokumentierte Prüfung, die Version und der Inhaltsfingerabdruck nach den heutigen Regeln zusammenpassen.", "Each claim ID counts once. It also counts as reviewed if its status, documented human review, version and content fingerprint match under today’s rules.")}</li>
+          <li>{t("Die letzten beiden Spalten zählen die am jeweiligen Tag gespeicherten Literaturhinweise und KI-Kritikentwürfe. Einträge können später entfallen. Eine leere Liste allein sagt nichts darüber aus, ob ein automatischer Lauf stattgefunden hat.", "The final two columns count the literature leads and AI critique drafts present in each snapshot. Entries can later disappear. An empty list alone cannot establish whether an automated run took place.")}</li>
+        </ul>
+      </details>
+      <div class="button-row">
+        <a class="button button--gold" href={base + "research/observatory.json"} download="wirklich-observatory.json">{t("Daten als JSON herunterladen", "Download data as JSON")} ↓</a>
+        <a class="button button--ghost" href={repository + "/commits/" + head + "/"}>{t("Änderungen auf GitHub ansehen", "Browse changes on GitHub")} ↗</a>
+      </div>
+    </section>
+
+    <section id="untersuchen">
+      <h2>{t("Was lässt sich damit untersuchen?", "What can you investigate?")}</h2>
+      <div class="mission-grid">
+        <article><h3>{t("Wann verändert Kritik eine Regel?", "When does criticism change a rule?")}</h3>
+          <p>{t("Am 6. November 2026 lagen zwischen dem Fehlerbericht zum Prüfvermerk und der Übernahme der Korrektur knapp 56 Minuten. Lies im Einzelfall nach, wie der Test den Fehler sichtbar machte und an welcher Stelle die neue Regel greift.", "On 6 November 2026, just under 56 minutes passed between the report about a faulty review record and the merge of the fix. Trace how the test exposed the error and where the new rule takes effect.")}</p>
+          <a href={repository + "/issues/40"}>Issue #40</a> · <a href={repository + "/pull/43"}>PR #43</a>
+        </article>
+        <article><h3>{t("Wann kommt eine Korrektur im Register an?", "When does a correction reach the register?")}</h3>
+          <p>{t("Am 5. November 2026 änderte sich der Grundtext zur dauerhaften Unterstützung. Am 6. November hielt das Aussagenregister diese Präzisierung in Version 2 von G-005 fest. Wortlaut und Begründung lassen sich in beiden Fassungen vergleichen.", "The foundational text on lasting support changed on 5 November 2026. On 6 November the claim register recorded that clarification in version 2 of G-005. Compare the wording and reasons across the records.")}</p>
+          <a href={repository + "/pull/31"}>PR #31</a> · <a href={pathFor(lang, "aussagen", "G-005")}>{t("Registereintrag G-005", "Claim G-005")}</a>
+        </article>
+      </div>
+      <p class="scope">{t("Ob Menschen mit der Werkstatt besser urteilen, ist eine eigene Forschungsfrage. Dafür gibt es einen Entwurf für einen Methodenvergleich. Das Observatorium wertet ausschließlich öffentliche Projektdaten aus.", "Whether the workshop helps people judge better is a separate research question. A draft comparison protocol sets out how to study it. The observatory uses only public project records.")} <a href={repository + "/blob/" + head + "/docs/evaluation-v1.md"}>{t("Zum Vergleichsprotokoll", "Read the comparison protocol")} ↗</a></p>
+    </section>
+  </article>
+</Layout>
+<style>
+  .chronicle-day {display:grid;grid-template-columns:minmax(12rem,.32fr) 1fr;gap:1rem 2rem;margin-top:2rem}
+  .chronicle-day h3 {font-size:1.35rem}
+  .chronicle-events {list-style:none;margin:0;padding:0 0 0 1.5rem;border-left:1px solid var(--line);max-width:50rem}
+  .chronicle-events li {position:relative;padding-bottom:1.3rem}
+  .chronicle-events li:last-child {padding-bottom:0}
+  .chronicle-events li::before {content:"";position:absolute;left:calc(-1.5rem - 4px);top:.45rem;width:7px;height:7px;border-radius:50%;background:var(--gold)}
+  .chronicle-stamp {font-size:.8rem;color:var(--gold);font-variant-numeric:tabular-nums}
+  .chronicle-events p {margin:.25rem 0 0}
+  .mission-table caption {text-align:left;color:var(--text-soft)}
+  .mission-table td {font-variant-numeric:tabular-nums}
+  .mission-table th[scope=row] {white-space:nowrap}
+  .mission-table th small {display:block;font-weight:400;margin-top:.2rem}
+  .mission-table a,.mission-grid a {text-decoration:underline;text-underline-offset:3px}
+  .counting {color:var(--text-soft);max-width:55rem;margin:1.25rem 0 2rem}
+  .counting summary {color:var(--gold);cursor:pointer}
+  .counting li {margin:.5rem 0}
+  .scope {margin-top:1.75rem}
+  @media(max-width:760px){.chronicle-day{grid-template-columns:1fr}.chronicle-day h3{margin:0}}
+</style>

@@ -6,7 +6,7 @@ const {lang="de",slug="index",root=false}=Astro.props;
 const t=ui[lang];
 const footerGroups = [
   { title: t.explore, routes: ["erkenntnisnavigator", "baum-des-wissens", "bibliothek", "pruefstand", "forschungsstrom"] },
-  { title: t.project, routes: ["mission", "projektstatus", "mitwirken"] }
+  { title: t.project, routes: ["mission", "projektstatus", "projektobservatorium", "mitwirken"] }
 ];
 const description = Astro.props.description ?? t.description;
 const title = Astro.props.pageTitle ?? (root ? "Choose your language / Sprache wählen" : t.titles[slug]);
@@ -78,5 +78,5 @@ const canonical=root?siteRoot:absoluteFor(lang,slug);
 .brand{min-width:200px}.brand__name{font-size:22px;letter-spacing:.12em}.brand__name small{font-size:8px;letter-spacing:.14em;max-width:210px;line-height:1.5}.edition-line a:hover{color:var(--gold-bright)}
 @media(max-width:1130px){.site-nav{gap:12px}.site-nav a{font-size:10px;letter-spacing:.07em}.brand{min-width:184px}}
 @media(max-width:660px){.brand{min-width:0}.brand__name{font-size:20px}.brand__name small{font-size:7px;max-width:175px}.brand img{width:30px;height:30px}.site-header__inner{gap:10px}}
-@media(max-width:420px){.brand__name small{display:none}.site-header__inner{min-height:74px}}
+@media(max-width:420px){.footer__links{column-gap:1.5rem}.brand__name small{display:none}.site-header__inner{min-height:74px}}
 </style>
