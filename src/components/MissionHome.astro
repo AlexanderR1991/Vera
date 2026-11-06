@@ -43,7 +43,7 @@ const t = copy[lang];
         <p class="section-kicker">{t.exploreLabel}</p>
         <h2 id="explore-title">{t.exploreTitle}</h2>
         <p><strong>{t.motto}</strong></p>
-        <p>{t.consensusLimit}</p>
+        <p>{t.consensusLimit} <a class="home-link" href={pathFor(lang, "schnittmengen", "sprachprobe")}>{lang === "de" ? "Die Sprachprobe zu zweit ausprobieren" : "Try the conversation exercise with someone"} →</a></p>
         <p>{t.exploreText}</p>
         <a class="home-link" href={pathFor(lang, "baum-des-wissens")}>{t.treeLink} <span aria-hidden="true">→</span></a>
       </div>

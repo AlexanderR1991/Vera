@@ -42,6 +42,10 @@ const reflectionFields = [
       </form>
       <p class="navigator-note" id="navigator-local-note">{t("Dieser Pilot sucht lokal nach Stichwörtern in vier Entwürfen. Er nutzt keine KI und versteht deinen Fall nicht selbstständig. Deine Eingaben werden durch dieses Werkzeug weder gesendet noch gespeichert. Einen Text exportierst du nur auf eigenen Wunsch.", "This pilot searches four drafts locally using keywords. It does not use AI or understand your situation on its own. This tool neither sends nor saves your entries. You choose whether to export a text file.")}</p>
       <details class="navigator-examples"><summary>{t("Mit einem erfundenen Beispiel ausprobieren", "Try a fictional example")}</summary><p>{t("Ein Beispiel ersetzt deine Frage und setzt die Bedingungsprüfung zurück. Eigene Reflexionsnotizen bleiben erhalten.", "An example replaces your question and resets the condition check. Your reflection notes are kept.")}</p><div class="navigator-example-list">{connections.map(connection => <button type="button" disabled data-nav-js data-nav-example={connection.id}>{text(connection.question)}</button>)}</div></details>
+      <p id="fairness" class="navigator-alternative">
+        {t("Ihr wollt die Miete fair teilen. Heißt das für euch, dass beide denselben Betrag zahlen oder denselben Anteil ihres Einkommens?", "You want to share the rent fairly. Does that mean each of you pays the same amount or the same share of your income?")}
+        <a href={pathFor(lang,"schnittmengen","sprachprobe")}>{t("Am Beispiel zu zweit prüfen", "Try the example together")} →</a>
+      </p>
     </section>
 
     <p class="navigator-status" role="status" aria-live="polite" aria-atomic="true" data-nav-status></p>
