@@ -63,12 +63,16 @@ const canonical=root?siteRoot:absoluteFor(lang,slug);
     {group.title === t.project && <a href={project.repository}>{t.source} ↗</a>}
   </div>)}
 </div>
-</div><div class="container footer__bottom"><span>{t.copyright}</span><span>{t.disclosure}</span><a href={project.repository+"/blob/main/LICENSING.md"} target="_blank" rel="noopener noreferrer">{lang==="de"?"Lizenzdetails & Ausnahmen ↗":"License details & exceptions ↗"}</a></div></footer>
+</div><div class="container footer__bottom"><span>{t.copyright}</span><span>{t.disclosure}</span><a class="footer__donate" href={pathFor(lang,"mitwirken","unterstuetzen")}>{lang==="de"?"Spenden":"Donate"} <span aria-hidden="true">🤍</span></a><a href={project.repository+"/blob/main/LICENSING.md"} target="_blank" rel="noopener noreferrer">{lang==="de"?"Lizenzdetails & Ausnahmen ↗":"License details & exceptions ↗"}</a></div></footer>
 </body></html>
 
 <style is:global>
 :focus-visible{outline:2px solid var(--gold-bright);outline-offset:3px}
 .footer__bottom{color:#a1a49a}
+.footer__donate{display:inline-flex;align-items:center;justify-content:center;gap:.45em;min-height:38px;padding:8px 13px;border:1px solid rgba(255,255,255,.24);border-radius:999px;color:#f2f2ef;font-size:11px;line-height:1.2;letter-spacing:.04em;text-decoration:none;white-space:nowrap;transition:border-color .2s ease,background-color .2s ease}
+.footer__donate span{font-size:14px;line-height:1}
+.footer__donate:hover{border-color:rgba(255,255,255,.6);background:rgba(255,255,255,.06)}
+@media(prefers-reduced-motion:reduce){.footer__donate{transition:none}}
 @media(max-width:930px){.site-header__inner .language-switch a{display:inline-flex;align-items:center;min-height:44px}.site-nav a{padding-block:8px}}
 
 .brand{min-width:200px}.brand__name{font-size:22px;letter-spacing:.12em}.brand__name small{font-size:8px;letter-spacing:.14em;max-width:210px;line-height:1.5}.edition-line a:hover{color:var(--gold-bright)}
