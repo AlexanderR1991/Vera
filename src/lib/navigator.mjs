@@ -98,8 +98,8 @@ export const connections = [
     ],
     conclusion: b("Wenn du diese Werte und Voraussetzungen bestätigst, ist ein an den geklärten Wünschen orientiertes Angebot ein begründeter Vorschlag. Nötige dauerhafte Unterstützung bleibt wertvoll. Ob die konkrete Hilfe nützt, ist weiterhin zu prüfen.", "If you confirm these values and premises, an offer guided by the clarified preferences is a reasoned proposal. Necessary lasting support remains valuable. Whether the particular help is useful still needs examination."),
     nextStep: b("Halte fest, welche Hilfe gewünscht ist, welche Grenzen gelten und wie eine Änderung des Wunsches berücksichtigt wird. Bei offenen Voraussetzungen kläre diese zuerst.", "Record what help is wanted, which boundaries apply and how changed preferences will be respected. Clarify any open premises first."),
-    sourceClaim: {id: "G-005", version: 2},
-    sources: [{label: b("G-005 v2 · normativer Leitgedanke, fachliche Prüfung offen", "G-005 v2 · guiding value, expert review pending"), url: repo + "public/knowledge/claims.json", role: "provenance"}, derivationSource("help")],
+    sourceClaim: {id: "G-005", version: 3},
+    sources: [{label: b("G-005 v3 · normativer Leitgedanke, fachliche Prüfung offen", "G-005 v3 · guiding value, expert review pending"), url: repo + "public/knowledge/claims.json", role: "provenance"}, derivationSource("help")],
     ...topicFields("help"),
     keywords: {de: ["helfe", "helfen", "hilft", "Hilfe", "Fürsorge", "unterstütze", "unterstützen", "Unterstützung", "selbstständig", "Selbstständigkeit", "selbstbestimmt", "Selbstbestimmung", "alles abnehmen", "Pflege"], en: ["help", "helps", "helping", "care", "caregiving", "support", "independent", "independence", "autonomy", "take over", "assistance"]}
   }

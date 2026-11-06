@@ -104,7 +104,7 @@ test("cards preserve claim types, draft status and existing topic references", (
   }
   const help = connections.find(connection => connection.id === "help");
   assert.equal(help.type, "normative");
-  assert.deepEqual(help.sourceClaim, {id: "G-005", version: 2});
+  assert.deepEqual(help.sourceClaim, {id: "G-005", version: 3});
   assert.match(help.scope.en, /does not mean necessary care should be withheld/);
   assert.match(help.principle.de, /nicht von erreichbarer Selbstständigkeit/);
   assert.match(help.rationale.en, /not a universal instruction or empirical proof/);

@@ -33,7 +33,7 @@ Von einem Ast aus lassen sich die zugeordneten Karten und über jede Karte die a
 
 Themen und Karten lassen sich mit `#thema-<id>` und `#verbindung-<id>` verlinken. Die freie Eingabe bleibt im Browser. Bei der eigentlichen Prüfung werden Voraussetzungen einzeln mit **ja**, **nein** oder **unklar** angegeben.
 
-Der öffentliche Datenexport `/knowledge/connections.json` führt die redaktionellen Karten als eigenen Entwurfsbestand (`schema_version: 1`). Er enthält keine persönlichen Fragen oder Reflexionszettel. Die Hilfe-Karte verweist mit `sourceClaim` auf G-005 v2; dieser Herkunftsbezug verleiht weder ihr noch G-005 einen neuen Reviewstatus.
+Der öffentliche Datenexport `/knowledge/connections.json` führt die redaktionellen Karten als eigenen Entwurfsbestand (`schema_version: 1`). Er enthält keine persönlichen Fragen oder Reflexionszettel. Die Hilfe-Karte verweist mit `sourceClaim` auf G-005 v3; dieser Herkunftsbezug verleiht weder ihr noch G-005 einen neuen Reviewstatus.
 
 | Ergebnis | Bedeutung |
 | --- | --- |
@@ -78,7 +78,7 @@ Der Rechner vergleicht die eingegebenen Dezimalzahlen exakt. Für seine Gegenbei
 <a id="help"></a>
 ### Hilfe und Selbstbestimmung
 
-Die Hilfe-Karte greift den normativen Leitgedanken [G-005 v2](../public/knowledge/claims.json) auf: Bedürfnisse und Handlungsmöglichkeiten der betroffenen Person ernst nehmen und ihre Perspektive einbeziehen. Dauerhafte Fürsorge bleibt wertvoll; erreichbare Selbstständigkeit ist keine Bedingung für Würde oder Unterstützung. Aus diesem Wert folgt kein empirischer Wirksamkeitsbeleg für eine konkrete Hilfe. Ob sie gewünscht ist, welche Folgen sie hat und ob Schutzpflichten oder andere Zielkonflikte berührt sind, muss im konkreten Fall geklärt werden. Die Karte legt niemandem Motive oder Zustimmung in den Mund. Eine verneinte Voraussetzung blockiert diese Anwendung; sie begründet weder ein Verbot noch den Entzug notwendiger Fürsorge.
+Die Hilfe-Karte greift den normativen Leitgedanken [G-005 v3](../public/knowledge/claims.json) auf: Bedürfnisse und Handlungsmöglichkeiten der betroffenen Person ernst nehmen und ihre Perspektive einbeziehen. Dauerhafte Fürsorge bleibt wertvoll; erreichbare Selbstständigkeit ist keine Bedingung für Würde oder Unterstützung. Aus diesem Wert folgt kein empirischer Wirksamkeitsbeleg für eine konkrete Hilfe. Ob sie gewünscht ist, welche Folgen sie hat und ob Schutzpflichten oder andere Zielkonflikte berührt sind, muss im konkreten Fall geklärt werden. Die Karte legt niemandem Motive oder Zustimmung in den Mund. Eine verneinte Voraussetzung blockiert diese Anwendung; sie begründet weder ein Verbot noch den Entzug notwendiger Fürsorge.
 
 ## Vertrag für spätere Verbindungen im Wissensnetz
 
@@ -129,7 +129,7 @@ The knowledge navigator connects an everyday question with a possible insight, t
 
 The first bilingual pilot uses four editorial draft cards: capacity, observation and interpretation, averages and distribution, and help and self-determination. The first three address formal relationships; the fourth is a normative principle that explicitly includes lasting care. A term or question can lead to a topic, a matching card, or both. Local rules can also suggest a card when two distinct clues appear together. Readers see the matching text and check the premises themselves. From a topic they can follow a shared card to another topic and read the specific reason for each link. For example, averages allow different individual values in mathematics, while the choice of a fair distribution remains an ethical question. Sharing an atlas field alone creates no link. If the framing is disputed, a reader can explore an alternative wording separately and keep both questions in the local note. A card opened from search results identifies the wording whose hits it came from. A card opened directly has no assigned wording. Different search hits can reveal the effect of wording. Readers decide whether the questions address the same issue. The public data includes these bilingual editorial reasons in `topicReasons`.
 
-The public `/knowledge/connections.json` export contains the editorial draft collection (`schema_version: 1`), not personal entries. The help card's `sourceClaim` points to G-005 v2 as provenance; it does not confer a new review status on either record.
+The public `/knowledge/connections.json` export contains the editorial draft collection (`schema_version: 1`), not personal entries. The help card's `sourceClaim` points to G-005 v3 as provenance; it does not confer a new review status on either record.
 
 Each prerequisite can be answered yes, no or unknown. Unknown conditions require more context; a failed condition blocks that transfer; all conditions confirmed by the user allow only a conditional conclusion. The software has not verified those confirmations. Neither a successful match nor publication upgrades a card or the existing claim register to independent review.
 
