@@ -53,7 +53,7 @@ In [Discussions](https://github.com/AlexanderR1991/Wirklich/discussions) können
 
 ## Erster Beitrag / Welcome discussion
 
-Die zweisprachige Begrüßung liegt als [veröffentlichungsfertiger Entwurf](community/welcome-discussion.md) vor. Die Veröffentlichung als GitHub Discussion muss durch ein Konto mit entsprechendem Zugriff in der GitHub-Oberfläche erfolgen.
+Die zweisprachige Begrüßung ist in [Discussion #7](https://github.com/AlexanderR1991/Wirklich/discussions/7) veröffentlicht. Die [Textfassung](community/welcome-discussion.md) liegt im Repository.
 
 ## Zugang und vertrauliche Beschwerden / Access and private reports
 
