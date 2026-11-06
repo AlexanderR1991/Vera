@@ -24,7 +24,7 @@ Die eigenen Überzeugungen dürfen gelebt und verteidigt werden. Sie geben uns k
 
 ## These 05: Hilf so, dass der andere seine eigene Kraft findet.
 
-Hilfe ist dann besonders wertvoll, wenn sie Handlungsspielräume erweitert. Sie darf großzügig sein, ohne das Gegenüber zum Projekt der eigenen Bedeutung zu machen. Fürsorge und Grenzen widersprechen sich nicht.
+Hilfe ist dann besonders wertvoll, wenn sie Handlungsspielräume erweitert. Sie darf großzügig sein, ohne das Gegenüber zum Projekt der eigenen Bedeutung zu machen. Fürsorge und Grenzen widersprechen sich nicht. Auch dauerhafte Unterstützung ist wertvoll. Würde und Fürsorge dürfen nicht von erreichbarer Selbstständigkeit abhängen.
 
 ## These 06: Erkenne Abweichung früh. Korrigiere ehrlich. Wiederhole.
 
@@ -32,7 +32,7 @@ Wir werden widersprüchlich handeln. Entscheidend ist nicht das Versprechen der 
 
 ## These 07: +1 und −1 bezeichnen Richtungen, nicht Menschen.
 
-Die Symbole benennen eine Frage: Wirkt eine Entscheidung tendenziell wahrhaftiger, freier und fürsorglicher oder fördert sie Täuschung, Unterdrückung und Schaden? Dies ist eine philosophische Heuristik – keine wissenschaftliche Skala.
+Die Symbole benennen eine Frage: Wirkt eine Entscheidung tendenziell wahrhaftiger, freier und fürsorglicher oder fördert sie Täuschung, Unterdrückung und Schaden? Dies ist eine philosophische Heuristik – keine wissenschaftliche Skala. Frage dabei: verglichen womit, für wen und über welchen Zeitraum? Freiheit, Fürsorge und andere Folgen können in unterschiedliche Richtungen weisen. Solche Zielkonflikte bleiben getrennt sichtbar; „gemischt“ oder „unklar“ ist eine zulässige Antwort.
 
 ## These 08: Erfahrung zählt. Aber sie reicht nicht immer als Beweis.
 
@@ -40,7 +40,7 @@ Was wir fühlen, kann unser Leben tief verändern. Doch die Intensität eines Er
 
 ## These 09: Die Methode soll das Werk überleben.
 
-Wenn eines Tages bessere Begriffe, bessere Daten oder bessere Menschen dieses Werk korrigieren, wäre das kein Verlust. Es wäre die Erfüllung seines Zwecks. Kein Satz ist heilig – auch die vorliegenden nicht.
+Wenn eines Tages bessere Begriffe, bessere Daten oder andere Menschen dieses Werk korrigieren, wäre das kein Verlust. Es wäre die Erfüllung seines Zwecks. Kein Satz ist heilig – auch die vorliegenden nicht.
 
 ## Korrekturregel
 

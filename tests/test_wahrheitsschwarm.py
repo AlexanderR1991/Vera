@@ -1,14 +1,61 @@
 """Offline contract checks for the provenance-first research feed."""
+import datetime as dt
 import json
+import io
 from pathlib import Path
 import tempfile
 import unittest
+import urllib.error
+import urllib.parse
+import xml.etree.ElementTree as ET
 from unittest.mock import patch
 
 from scripts import wahrheitsschwarm as w
 
+ARXIV_FEED = '''<feed xmlns="http://www.w3.org/2005/Atom" xmlns:arxiv="http://arxiv.org/schemas/atom">
+<entry><id>http://arxiv.org/abs/2611.01234v2</id><title>Computational creativity and interpretation</title>
+<published>2026-11-01T12:00:00Z</published><author><name>A Researcher</name></author>
+<arxiv:doi>10.1234/ABC</arxiv:doi><summary>This abstract must not become a claimed finding.</summary></entry>
+</feed>'''
+
 
 class ResearchContractTest(unittest.TestCase):
+    def setUp(self):
+        self.addCleanup(patch.stopall)
+        patch.object(w, "NOW", dt.datetime(2026, 11, 5, tzinfo=dt.timezone.utc)).start()
+
+    def test_stored_key_without_opt_in_only_discovers(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            target = Path(tmp) / "stream.json"
+            row = {"id": "10.1234/test", "title": "A fictional candidate for testing",
+                   "date": "2026-11-01", "agent_notes": {}}
+            with patch.object(w, "OUT", target), \
+                 patch.object(w, "API_KEY", "offline-test-key"), \
+                 patch.object(w, "AI_ENABLED", False), \
+                 patch.object(w.time, "sleep"), \
+                 patch.object(w, "discover", return_value=[row]), \
+                 patch.object(w, "discover_arxiv", return_value=[]), \
+                 patch.object(w.urllib.request, "urlopen") as request:
+                w.main()
+                with self.assertRaises(RuntimeError):
+                    w.call_agent("skeptic", row)
+                request.assert_not_called()
+            data = json.loads(target.read_text())
+            self.assertFalse(data["agents_enabled"])
+            self.assertEqual(data["items"], [row])
+
+    def test_each_request_caps_generated_tokens(self):
+        answer = {"question": "What was measured?", "limitation": "Metadata only"}
+        response = {"choices": [{"message": {"content": json.dumps(answer)}}]}
+        with patch.object(w, "API_KEY", "offline-test-key"), \
+             patch.object(w, "AI_ENABLED", True), \
+             patch.object(w.urllib.request, "urlopen") as request:
+            request.return_value.__enter__.return_value = io.StringIO(json.dumps(response))
+            self.assertEqual(w.call_agent("methodologist", {}), answer)
+            body = json.loads(request.call_args.args[0].data)
+            self.assertEqual(body["max_completion_tokens"], 800)
+            self.assertEqual(request.call_count, 1)
+
     def test_clean_removes_html(self):
         self.assertEqual(w.clean("Study <b>of</b> &amp; reality"), "Study of & reality")
 
@@ -23,9 +70,13 @@ class ResearchContractTest(unittest.TestCase):
              "container-title":["Journal of Inquiry"],
              "published":{"date-parts":[[2026,11,1]]}},
             {"DOI":"not-a-doi", "title":["A fake invalid metadata record"]},
+            {"DOI":"10.1234/FUTURE", "title":["Future candidate record"], "published":{"date-parts":[[2027,1,1]]}},
+            {"DOI":"10.1234/UNKNOWN", "title":["Title Pending 1451"], "published":{"date-parts":[[2026,11,1]]}},
         ]}}
-        with patch.object(w, "get_json", return_value=payload):
+        with patch.object(w, "get_json", return_value=payload) as fetch:
             results = w.discover("liebe", "attachment")
+        params = urllib.parse.parse_qs(urllib.parse.urlsplit(fetch.call_args.args[0]).query)
+        self.assertIn("until-pub-date:2026-11-05", params["filter"][0])
         self.assertEqual(len(results), 1)
         row = results[0]
         self.assertEqual(row["url"], "https://doi.org/10.1234/abc")
@@ -40,6 +91,88 @@ class ResearchContractTest(unittest.TestCase):
             target.write_text(json.dumps({"items":[{"id":"10.1000/test"}]}), encoding="utf-8")
             with patch.object(w, "OUT", target):
                 self.assertEqual(w.load_old()["items"][0]["id"], "10.1000/test")
+
+    def test_arxiv_preserves_exact_version_and_unreviewed_provenance(self):
+        rows = w.parse_arxiv(ARXIV_FEED, "kunst")
+        self.assertEqual(len(rows), 1)
+        row = rows[0]
+        self.assertEqual(row["id"], "arxiv:2611.01234v2")
+        self.assertEqual(row["url"], "https://arxiv.org/abs/2611.01234v2")
+        self.assertEqual(row["related_doi"], "10.1234/abc")
+        self.assertEqual(row["peer_review"], "not_verified")
+        self.assertEqual(row["status"], "unreviewed")
+        self.assertEqual(row["source_examined"], "metadata_only")
+        self.assertNotIn("findings", row)
+        self.assertNotIn("summary", row)
+        future = ARXIV_FEED.replace("2026-11-01T", "2034-05-30T")
+        self.assertEqual(w.parse_arxiv(future, "kunst"), [])
+        legacy = ARXIV_FEED.replace("2611.01234v2", "cs/9901001v1")
+        self.assertEqual(w.parse_arxiv(legacy, "ki")[0]["id"], "arxiv:cs/9901001v1")
+
+    def test_arxiv_rejects_unsafe_or_unversioned_links(self):
+        for unsafe in ["https://arxiv.org.evil.test/abs/2611.01234v2",
+                       "https://user@arxiv.org/abs/2611.01234v2",
+                       "https://arxiv.org/abs/2611.01234",
+                       "https://arxiv.org/abs/2611.01234v2?redirect=bad",
+                       "javascript:alert(1)"]:
+            with self.subTest(unsafe=unsafe):
+                feed = ARXIV_FEED.replace("http://arxiv.org/abs/2611.01234v2", unsafe)
+                self.assertEqual(w.parse_arxiv(feed, "kunst"), [])
+
+    def test_arxiv_error_feed_and_malformed_xml_fail(self):
+        with self.assertRaises(ValueError):
+            w.parse_arxiv(ARXIV_FEED.replace("/abs/2611.01234v2", "/api/errors#bad_query"), "kunst")
+        with self.assertRaises(ValueError):
+            w.parse_arxiv("<html>Not a feed</html>", "kunst")
+        with self.assertRaises(ET.ParseError):
+            w.parse_arxiv("<feed>", "kunst")
+
+    def test_arxiv_request_is_bounded_and_uses_date_filter(self):
+        with patch.object(w.urllib.request, "urlopen") as urlopen:
+            urlopen.return_value.__enter__.return_value.read.return_value = ARXIV_FEED.encode()
+            rows = w.discover_arxiv("kunst", 'all:"computational creativity"')
+            req = urlopen.call_args.args[0]
+            params = urllib.parse.parse_qs(urllib.parse.urlsplit(req.full_url).query)
+            self.assertEqual(params["max_results"], ["5"])
+            self.assertIn("submittedDate:[", params["search_query"][0])
+            self.assertEqual(len(rows), 1)
+
+    def test_partial_source_failure_preserves_old_records_and_notes(self):
+        for failed_source in ["Crossref", "arXiv"]:
+            with self.subTest(failed_source=failed_source), tempfile.TemporaryDirectory() as tmp:
+                target = Path(tmp) / "stream.json"
+                old = {"id":"10.1000/test", "date":"2026-10-30", "agent_notes":{"skeptic":{"test":"Keep me"}}}
+                target.write_text(json.dumps({"items":[old, {"id":"bad", "title":"Title Pending 1451", "date":"2034-05-30"}]}), encoding="utf-8")
+                with patch.object(w, "OUT", target), patch.object(w, "API_KEY", ""), \
+                     patch.object(w.time, "sleep") as sleep, \
+                     patch.object(w, "discover") as crossref, patch.object(w, "discover_arxiv") as arxiv:
+                    if failed_source == "Crossref":
+                        crossref.side_effect = urllib.error.URLError("unavailable")
+                        arxiv.side_effect = lambda topic, query: w.parse_arxiv(ARXIV_FEED, topic)
+                    else:
+                        crossref.return_value = [old]
+                        arxiv.side_effect = ET.ParseError("malformed")
+                    w.main()
+                    result = json.loads(target.read_text())
+                    self.assertIn(old, result["items"])
+                    self.assertNotIn("bad", [row["id"] for row in result["items"]])
+                    self.assertEqual(result["source_queries"][failed_source], 0)
+                    self.assertTrue(result["errors"])
+                    self.assertEqual(sum(c.args == (3.1,) for c in sleep.call_args_list), len(w.ARXIV_QUERIES))
+                    ids = [p["id"] for p in result["items"]]
+                    self.assertEqual(len(ids), len(set(ids)))
+
+    def test_total_source_failure_keeps_file_unchanged(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            target = Path(tmp) / "stream.json"
+            original = '{"items":[{"id":"10.1000/retained"}]}\n'
+            target.write_text(original, encoding="utf-8")
+            with patch.object(w, "OUT", target), patch.object(w.time, "sleep"), \
+                 patch.object(w, "discover", side_effect=urllib.error.URLError("offline")), \
+                 patch.object(w, "discover_arxiv", side_effect=ET.ParseError("malformed")):
+                with self.assertRaises(SystemExit):
+                    w.main()
+            self.assertEqual(target.read_text(), original)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,127 @@
+---
+const { lang = "de" } = Astro.props;
+const t = (de: string, en: string) => lang === "en" ? en : de;
+const people = ["A", "B"];
+const messages = {
+  empty: t("Schreibt einen Satz auf, wenn ihr ihn gemeinsam prüfen möchtet.", "Write down a statement if you want to consider it together."),
+  pending: t("Mindestens eine Antwort steht noch aus.", "At least one person has yet to respond."),
+  revised: t("Die Fassung oder ihr Kontext hat sich geändert. Lest sie noch einmal und wählt neu.", "The wording or its context has changed. Read it again before choosing a new response."),
+  shared: t("A und B stimmen diesem Wortlaut zu.", "A and B agree to this wording."),
+  object: t("Mindestens eine Person widerspricht diesem Wortlaut.", "At least one person objects to this wording."),
+  pass: t("Mindestens eine Person enthält sich.", "At least one person has chosen to abstain.")
+};
+---
+<section class="section consensus" id="sprachprobe" aria-labelledby="sprachprobe-title" data-consensus>
+  <div class="narrow">
+    <p class="section-kicker">{t("Gespräch zu zweit", "A conversation for two")}</p>
+    <h2 id="sprachprobe-title">{t("An welchem Beispiel würden wir merken, ob wir dasselbe meinen?", "What example would show whether we mean the same thing?")}</h2>
+    <p>{t("Wählt ein Wort, über das ihr euch scheinbar einig seid. Nehmt euch ein Gerät und gebt es für jede Antwort an die jeweilige Person weiter. Ihr dürft Felder offenlassen. Eure Eingaben bleiben auf dieser Seite.", "Choose a word you seem to agree on. Share one device and pass it to each person for their answer. You can leave any field open. Your entries stay on this page.")}</p>
+    <details class="rent">
+      <summary>{t("Beispiel lesen · Was heißt eine faire Miete?", "Read an example · What makes a rent split fair?")}</summary>
+      <p>{t("Zwei Menschen nutzen dieselbe Wohnung zu gleichen Teilen. Die Miete beträgt 900 €. A verdient doppelt so viel wie B. Für A heißt fair, beide zahlen je 450 €. Für B heißt fair, beide geben denselben Anteil ihres Einkommens ab. Dann zahlt A 600 € und B 300 €.", "Two people share a flat equally. The rent is €900. A earns twice as much as B. For A, fair means each pays €450. For B, fair means each pays the same share of their income, so A pays €600 and B pays €300.")}</p>
+      <p>{t("Ein Satz, dem beide zustimmen könnten, lautet „Wenn wir gleich viel verdienen und die Wohnung gleich nutzen, zahlt jede Person die Hälfte.“ Offen bleibt, ob bei ungleichem Einkommen eine Person mehr zahlen sollte.", "A statement both might endorse is “If we earn the same amount and use the flat equally, we each pay half.” Whether one person should pay more when their incomes differ remains open.")}</p>
+    </details>
+    <fieldset>
+      <legend>1. {t("Habe ich dich richtig verstanden?", "Have I understood you?")}</legend>
+      <p>{t("Gebt den Gedanken der anderen Person in eigenen Worten wieder. Fragt nach und korrigiert die Formulierung, bis die Person sich darin wiedererkennt.", "Restate the other person’s view in your own words. Ask them what to change until they recognise their view.")}</p>
+      <div class="pair">
+        {people.map((person, i) => <label>{person} · {t("So verstehe ich", "My understanding of")} {people[1-i]}
+          <textarea rows="2" autocomplete="off" data-context></textarea>
+        </label>)}
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>2. {t("Was heißt das in einem konkreten Fall?", "What does that mean in a particular case?")}</legend>
+      <label>{t("Unser Beispiel", "Our example")}<textarea rows="2" autocomplete="off" data-context></textarea></label>
+      <div class="pair">
+        {people.map(person => <label>{person} · {t("So würde ich entscheiden", "What I would choose")}<textarea rows="2" autocomplete="off" data-context></textarea></label>)}
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>3. {t("Welchen genauen Satz tragen wir beide?", "What exact statement can we both endorse?")}</legend>
+      <label>{t("Unser Vorschlag im Wortlaut", "The wording we propose")}<textarea rows="2" autocomplete="off" data-context data-statement></textarea></label>
+      <p>{t("Jede Person wählt selbst. Ändert ihr den Satz, das Beispiel oder die Antworten aus Schritt 1 oder 2, antworten beide neu.", "Each person chooses for themselves. If you change the wording, the example or your answers in step 1 or 2, both of you choose again.")}</p>
+      <div class="pair">
+        {people.map(person => <label>{person} · {t("Meine Antwort", "My response")}
+          <select disabled autocomplete="off" data-response>
+            <option value="pending">{t("Noch offen", "No answer yet")}</option>
+            <option value="agree">{t("Ich stimme diesem Satz zu", "I agree to this statement")}</option>
+            <option value="object">{t("Ich widerspreche", "I disagree")}</option>
+            <option value="pass">{t("Ich enthalte mich", "I abstain")}</option>
+          </select>
+        </label>)}
+      </div>
+      <p class="outcome" role="status" data-outcome data-state="pending" data-messages={JSON.stringify(messages)}>{messages.empty}</p>
+      <noscript><p>{t("Ohne JavaScript könnt ihr die Fragen gemeinsam lesen und euch die Antworten laut geben.", "Without JavaScript, you can read the questions together and give your answers aloud.")}</p></noscript>
+    </fieldset>
+    <fieldset>
+      <legend>4. {t("Wo gehen unsere Gründe auseinander?", "Where do our reasons differ?")}</legend>
+      <p>{t("Was bleibt für dich offen, selbst wenn du einen Teil mitträgst? Ein Gegenbeispiel oder eine Frage ist ein eigener Gesprächsbeitrag.", "What remains open for you, even if you agree on part of it? You can leave a counterexample or a question for the next conversation.")}</p>
+      <div class="pair">
+        {people.map(person => <label>{person} · {t("Mein offener Punkt", "My open question or objection")}<textarea rows="2" autocomplete="off"></textarea></label>)}
+      </div>
+    </fieldset>
+    <p class="note">{t("Eine KI kann einen Satz oder einen Grenzfall vorschlagen. Für sich sprechen A und B selbst. Enthält der Satz eine Behauptung über die Welt, braucht sie auch bei Einigkeit überprüfbare Belege.", "AI can suggest wording or a case that tests its limits. A and B each speak for themselves. If the statement makes a factual claim, it still needs evidence that others can check.")}</p>
+  </div>
+</section>
+
+<script>
+  for (const exercise of document.querySelectorAll<HTMLElement>("[data-consensus]")) {
+    const statement = exercise.querySelector<HTMLTextAreaElement>("[data-statement]")!;
+    const responses = Array.from(exercise.querySelectorAll<HTMLSelectElement>("[data-response]"));
+    const outcome = exercise.querySelector<HTMLElement>("[data-outcome]")!;
+    const messages: Record<string, string> = JSON.parse(outcome.dataset.messages!);
+    let revised = false;
+
+    function update() {
+      const hasStatement = Boolean(statement.value.trim());
+      const values = responses.map(response => response.value);
+      let state = "pending";
+      if (hasStatement && values.every(value => value === "agree")) state = "shared";
+      else if (values.includes("object")) state = "object";
+      else if (values.includes("pass")) state = "pass";
+
+      for (const response of responses) response.disabled = !hasStatement;
+      const message = !hasStatement ? messages.empty : revised ? messages.revised : messages[state];
+      if (outcome.textContent !== message) outcome.textContent = message;
+      outcome.dataset.state = state;
+    }
+
+    for (const field of exercise.querySelectorAll("[data-context]")) {
+      field.addEventListener("input", () => {
+        if (responses.some(response => response.value !== "pending")) revised = true;
+        for (const response of responses) response.value = "pending";
+        update();
+      });
+    }
+    for (const response of responses) {
+      response.addEventListener("change", () => {
+        revised = false;
+        update();
+      });
+    }
+    update();
+  }
+</script>
+
+<style>
+  .consensus { scroll-margin-top: 6rem; }
+  h2 { margin: .65rem 0 1rem; font: 400 clamp(2rem, 4vw, 3.3rem)/1.15 var(--serif); text-wrap: balance; }
+  p { margin: .6rem 0 1rem; line-height: 1.7; }
+  .rent { margin: 1.5rem 0 2rem; padding: 1rem 1.25rem; border-left: 2px solid var(--gold); background: #ffffff08; }
+  .rent p:last-child { margin-bottom: 0; }
+  summary { cursor: pointer; color: var(--gold-bright); }
+  fieldset { min-width: 0; margin: 1.7rem 0; padding: 1rem clamp(.8rem, 3vw, 1.5rem) 1.25rem; border: 1px solid var(--line); }
+  legend { padding: 0 .4rem; max-width: 100%; font: 400 clamp(1.2rem, 3vw, 1.6rem)/1.35 var(--serif); }
+  fieldset > p:first-of-type { margin-top: 0; }
+  .pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+  label { min-width: 0; display: grid; align-content: start; gap: .4rem; font: 600 .95rem/1.5 var(--sans); }
+  fieldset > label { margin-bottom: 1rem; }
+  textarea, select { width: 100%; min-width: 0; min-height: 2.8rem; box-sizing: border-box; border: 1px solid #807867; border-radius: .2rem; padding: .65rem; font: 400 1rem/1.45 var(--sans); color: #f1ede4; background: #13191a; }
+  textarea { resize: vertical; }
+  textarea:focus-visible, select:focus-visible, summary:focus-visible { outline: 2px solid var(--gold-bright); outline-offset: 3px; }
+  select:disabled { opacity: .65; }
+  .outcome { margin: 1.25rem 0 0; padding-left: .75rem; border-left: 2px solid var(--gold); }
+  .note { font-size: .95rem; }
+  @media (max-width: 640px) { .pair { grid-template-columns: 1fr; } }
+</style>

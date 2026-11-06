@@ -2,6 +2,7 @@
 import Layout from "../layouts/SiteLayout.astro";
 import {pathFor} from "../lib/paths.mjs";
 import copy from "../lib/common-ground-copy.json";
+import ConsensusExercise from "./ConsensusExercise.astro";
 const {lang="de"}=Astro.props;
 const t=copy[lang];
 ---
@@ -10,11 +11,15 @@ const t=copy[lang];
 <p class="section-kicker">{t.tag}</p>
 <h1>{t.title}<br/><em>{t.subtitle}</em></h1>
 <p class="common-lead">{t.lead}</p><p class="common-note">{t.status}</p>
-<a class="button button--gold" href="#fragen">{lang==="de"?"Mit den Fragen beginnen ↓":"Start with the questions ↓"}</a>
+<div class="button-row">
+<a class="button button--gold" href="#sprachprobe">{lang==="de"?"Sprachprobe zu zweit":"Try the conversation exercise"} ↓</a>
+<a class="button button--ghost" href="#fragen">{lang==="de"?"Die sechs Gesprächsfragen":"Six questions for starting a conversation"} ↓</a>
+</div>
 </div></section>
 <section class="section section--paper common-section"><div class="narrow">
 <h2>{t.introTitle}</h2><p>{t.intro}</p><p>{t.introNote}</p>
 </div></section>
+<ConsensusExercise lang={lang} />
 <section class="section common-section" id="fragen"><div class="container">
 <h2>{t.stepsTitle}</h2>
 <ol class="common-grid common-steps">{t.steps.map(([title,body],i)=><li>
@@ -38,6 +43,7 @@ const t=copy[lang];
 <section class="section section--paper common-section" id="pruefung"><div class="narrow">
 <h2>{t.evaluationTitle}</h2><p>{t.evaluation}</p><p>{t.counter}</p>
 <h3>{t.sourcesTitle}</h3>
+<p>{lang==="de"?"Habermas fragt, ob alle Betroffenen einer Regel in einem freien Austausch von Gründen zustimmen könnten. Die Sprachprobe greift diesen Gedanken auf. Die beiden Personen können dabei nur für sich selbst sprechen.":"Habermas asks whether everyone affected by a rule could agree to it in a free exchange of reasons. The exercise draws on that idea. The two participants can each speak only for themselves."} <a href="https://www.marxists.org/reference/archive/habermas/1998/communicative-ethics.htm">Jürgen Habermas ↗</a></p>
 <ul class="common-sources">
 <li><a href="https://peacemaker.un.org/en/documents/united-nations-guidance-effective-mediation">United Nations (2012): Guidance for Effective Mediation ↗</a><p>{t.un}</p></li>
 <li><a href="https://doi.org/10.1017/bpp.2018.25">Paluck, Green &amp; Green (2019): The contact hypothesis re-evaluated ↗</a><p>{t.contact}</p></li>
@@ -45,11 +51,13 @@ const t=copy[lang];
 </div></section>
 <section class="section common-section common-final"><div class="narrow">
 <h2>{t.inviteTitle}</h2><blockquote>{t.invite}</blockquote>
+<p><a class="subtle-link" href={pathFor(lang,"baum-des-wissens","ast-konflikte")}>{lang==="de"?"Zum Ast „Konflikte & Schnittmengen“":"Explore the conflicts and common ground branch"} →</a> · <a class="subtle-link" href={pathFor(lang,"erkenntnisnavigator","fairness")}>{lang==="de"?"Den Mietfall im Erkenntnisnavigator ansehen":"Find the rent example in the navigator"} →</a></p>
 <div class="button-row"><a class="button button--gold" href={pathFor(lang,"mitwirken")}>{t.methodLink}</a><a class="button button--ghost" href={pathFor(lang,"bruecken-zwischen-den-religionen")}>{t.theologyLink}</a></div>
 </div></section>
 </Layout>
 <style>
 .common-hero{padding:100px 0;background:radial-gradient(ellipse at 50% 0%,#a17d4430,transparent 65%),#0c1214;text-align:center;border-bottom:1px solid var(--line)}
+.common-hero .button-row{justify-content:center}
 .common-hero h1{font:400 clamp(42px,6.5vw,85px)/1.12 var(--serif);letter-spacing:-.04em;text-wrap:balance;margin:25px 0}
 .common-hero h1 em{color:var(--gold-bright);font-weight:400}
 .common-lead{font:clamp(22px,2.6vw,29px)/1.6 var(--serif);color:#e0d3be}

@@ -24,6 +24,7 @@ jobs:
           python-version: '3.12'
       - name: Run limited adversarial review on public thesis excerpts
         env:
+          WIRKLICH_AI_ENABLED: ${{ vars.WIRKLICH_AI_ENABLED }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           ATTACK_MODEL: gpt-4.1-mini
         run: python scripts/angriffsschwarm.py

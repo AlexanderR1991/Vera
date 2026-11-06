@@ -18,7 +18,7 @@ Zum Einstieg eine Frage an dich:
 
 **Welche Überzeugung sollten wir deiner Meinung nach unbedingt hinterfragen – vielleicht sogar eine unserer eigenen?**
 
-[Die Website erkunden](https://alexanderr1991.github.io/grundtext-des-wirklichen/) · [Beitragsleitfaden](https://github.com/AlexanderR1991/grundtext-des-wirklichen/blob/main/CONTRIBUTING.md) · [Konkreten Einwand einreichen](https://github.com/AlexanderR1991/grundtext-des-wirklichen/issues/new/choose)
+[Die Website erkunden](https://alexanderr1991.github.io/Wirklich/) · [Beitragsleitfaden](https://github.com/AlexanderR1991/Wirklich/blob/main/CONTRIBUTING.md) · [Konkreten Einwand einreichen](https://github.com/AlexanderR1991/Wirklich/issues/new/choose)
 
 ---
 
@@ -42,6 +42,6 @@ To begin, here is a question for you:
 
 **What belief do you think we should be willing to question—even if it is one of our own?**
 
-[Explore the website](https://alexanderr1991.github.io/grundtext-des-wirklichen/en/) · [How to contribute](https://github.com/AlexanderR1991/grundtext-des-wirklichen/blob/main/CONTRIBUTING.md) · [Submit a specific issue](https://github.com/AlexanderR1991/grundtext-des-wirklichen/issues/new/choose)
+[Explore the website](https://alexanderr1991.github.io/Wirklich/en/) · [How to contribute](https://github.com/AlexanderR1991/Wirklich/blob/main/CONTRIBUTING.md) · [Submit a specific issue](https://github.com/AlexanderR1991/Wirklich/issues/new/choose)
 
 *The German texts are the current original edition; English remains a translation draft. Our licensing and editorial processes are still being finalized.*

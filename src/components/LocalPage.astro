@@ -1,97 +1,54 @@
 ---
 import Layout from "../layouts/SiteLayout.astro";
-import HorizonTeaser from "./HorizonTeaser.astro";
-import LoveTeaser from "./LoveTeaser.astro";
-import PolicyTeaser from "./PolicyTeaser.astro";
-import TheologyTeaser from "./TheologyTeaser.astro";
-import MilitaryTeaser from "./MilitaryTeaser.astro";
-import NutritionTeaser from "./NutritionTeaser.astro";
-import InquiryTeaser from "./InquiryTeaser.astro";
-import CommonGroundTeaser from "./CommonGroundTeaser.astro";
-import {getPage} from "../lib/pages.mjs";
-const {lang,slug}=Astro.props;
-const content=getPage(lang,slug);
+import MethodCase from "./MethodCase.astro";
+import { getPage } from "../lib/pages.mjs";
+import { pathFor } from "../lib/paths.mjs";
+import { topics } from "../lib/tree.mjs";
+import { ui } from "../lib/ui.mjs";
 
-// Shared editorial placements apply to both languages.
-// They avoid duplicating a different teaser in every translated HTML file.
-const anchors={
-  common:{
-    index:['<section class="oath section"', "first"],
-    atlas:['<section class="section"><div class="narrow text-center">', "last"],
-    bibliothek:['<section class="section section--paper">', "last"],
-    mitwirken:['<section class="section section--paper community-start"', "first"]
-  },
-  inquiry:{
-    index:['<section class="oath section" aria-labelledby="oath-title">',"first"],
-    methode:['<section class="section section--paper">',"last"],
-    mitwirken:['<section class="section section--paper community-start" aria-labelledby="community-heading">',"first"]
-  },
-  horizon:{
-    index:['<section class="section section--paper" id="felder">',"first"],
-    atlas:['<section class="section"><div class="narrow text-center">',"last"],
-    bibliothek:['<section class="section section--paper">',"last"],
-    methode:['<section class="section section--paper">',"last"]
-  },
-  love:{
-    index:['<section class="closing">',"last"],
-    atlas:['<section class="section"><div class="narrow text-center">',"last"],
-    bibliothek:['<section class="section"><div class="container"><div class="section-heading">',"first"],
-    pruefstand:['<section class="section"><div class="narrow text-center">',"last"]
-  },
-  politics:{
-    index:['<section class="closing">',"last"],
-    atlas:['<section class="section"><div class="narrow text-center">',"last"],
-    bibliothek:['<section class="section section--paper">',"last"],
-    pruefstand:['<section class="section"><div class="narrow text-center">',"last"]
-  },
-  theology:{
-    index:['<section class="closing">', "last"],
-    atlas:['<section class="section"><div class="narrow text-center">', "last"],
-    bibliothek:['<section class="section section--paper">', "last"],
-    pruefstand:['<section class="section"><div class="narrow text-center">', "last"]
-  },
-  nutrition:{
-    index:['<section class="closing">',"last"],
-    atlas:['<section class="section"><div class="narrow text-center">',"last"],
-    bibliothek:['<section class="section section--paper">',"last"],
-    pruefstand:['<section class="section"><div class="narrow text-center">',"last"]
-  },
-  military:{
-    index:['<section class="closing">',"last"],
-    atlas:['<section class="section"><div class="narrow text-center">',"last"],
-    bibliothek:['<section class="section section--paper">',"last"],
-    pruefstand:['<section class="section"><div class="narrow text-center">',"last"]
-  }
-};
-const insertions=[];
-const priority={inquiry:-1,common:0,horizon:1,love:2,politics:3,theology:4,military:5,nutrition:6};
-for(const kind of ["inquiry","common","horizon","love","politics","theology","military","nutrition"]){
- const config=anchors[kind][slug];
- if(!config)continue;
- const [marker,position]=config;
- const at=position==="last"?content.lastIndexOf(marker):content.indexOf(marker);
- if(at<0)throw Error("Missing editorial placement for "+kind+" on "+slug);
- insertions.push({kind,at});
-}
-insertions.sort((a,b)=>a.at-b.at||priority[a.kind]-priority[b.kind]);
-const segments=[];let position=0;
-for(const insertion of insertions){
- segments.push({kind:"html",body:content.slice(position,insertion.at)});
- segments.push({kind:insertion.kind});
- position=insertion.at;
-}
-segments.push({kind:"html",body:content.slice(position)});
+const { lang, slug } = Astro.props;
+const de = lang === "de";
+const chapters = topics.filter(topic => topic.state === "draft" && topic.slug !== "lesestueck-wahrheit");
+const content = getPage(lang, slug);
+const marker = slug === "methode" ? "<!--worked-case-->" : "<!--chapter-shelf-->";
+const [before, after] = content.split(marker);
+if (["methode", "bibliothek"].includes(slug) && after === undefined) throw Error("Missing content marker on " + slug);
+const followUp = {
+  atlas: ["erkenntnisnavigator", "baum-des-wissens", "bibliothek", "schnittmengen"],
+  bibliothek: ["baum-des-wissens", "forschungsstrom"],
+  methode: ["erkenntnisnavigator", "werkstatt", "aussagen", "fragen-und-ki-prompt"],
+  pruefstand: ["aussagen", "angriffsschwarm"],
+  mitwirken: ["fragen-und-ki-prompt", "schnittmengen", "projektstatus"]
+}[slug] ?? [];
 ---
 <Layout lang={lang} slug={slug}>
-{segments.map(part=>
- part.kind==="html"?<Fragment set:html={part.body}/>:
- part.kind==="inquiry"?<InquiryTeaser lang={lang}/>:
- part.kind==="common"?<CommonGroundTeaser lang={lang}/>:
- part.kind==="horizon"?<HorizonTeaser lang={lang} from={slug}/>:
- part.kind==="love"?<LoveTeaser lang={lang} from={slug}/>:
- part.kind==="politics"?<PolicyTeaser lang={lang} from={slug}/>:
- part.kind==="theology"?<TheologyTeaser lang={lang} from={slug}/>:
- part.kind==="military"?<MilitaryTeaser lang={lang}/>:
- <NutritionTeaser lang={lang}/>
-)}
+  <Fragment set:html={before} />
+  {slug === "methode" && <MethodCase lang={lang} />}
+  {slug === "bibliothek" &&
+    <section id="kapitel" class="container chapter-shelf" aria-labelledby="chapter-title">
+      <p class="section-kicker">{de ? "IM LESESAL" : "READING ROOM"}</p>
+      <h2 id="chapter-title">{de ? "Welcher Frage möchtest du nachgehen?" : "Which question would you like to explore?"}</h2>
+      <p>{de ? "Diese Kapitel sind Arbeitsentwürfe. Jedes beginnt mit einer anderen Frage." : "These chapters are working drafts. Each starts with a different question."}</p>
+      <ul>{chapters.map(topic =>
+        <li id={"kapitel-" + topic.id}><a href={pathFor(lang, topic.slug, topic.anchor)}>{topic.name[lang]}</a><p>{topic.question[lang]}</p></li>
+      )}</ul>
+    </section>}
+  {after && <Fragment set:html={after} />}
+  {followUp.length > 0 &&
+    <nav class="container next-links" aria-label={de ? "Weiterführende Seiten" : "Related pages"}>
+      <strong>{de ? "Von hier aus weiter" : "Where to go next"}</strong>
+      {followUp.map(route => <a href={pathFor(lang, route)}>{ui[lang].titles[route]} →</a>)}
+    </nav>}
 </Layout>
+
+<style>
+  .chapter-shelf { padding-block: clamp(3rem, 7vw, 6rem); }
+  .chapter-shelf h2 { font-size: clamp(2.25rem, 5vw, 3.5rem); margin: 1rem 0; }
+  .chapter-shelf ul { list-style: none; padding: 0; margin: 2rem 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); gap: 1.5rem 2.5rem; }
+  .chapter-shelf li { border-top: 1px solid var(--line); padding-top: 1rem; scroll-margin-top: 7rem; }
+  .chapter-shelf li p { margin: .5rem 0 0; }
+  .chapter-shelf a { font: 1.4rem/1.4 var(--serif); }
+  .next-links { display: flex; align-items: baseline; flex-wrap: wrap; gap: .8rem 1.6rem; padding-block: 2.2rem; border-top: 1px solid var(--line); }
+  .next-links strong { font-size: .9rem; }
+  .next-links a, .chapter-shelf a { color: var(--gold-bright); text-decoration: underline; text-underline-offset: .22em; }
+</style>

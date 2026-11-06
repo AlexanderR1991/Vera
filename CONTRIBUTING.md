@@ -12,12 +12,13 @@ We welcome questions, objections, sources and improvements. **You do not need pr
 
 | Deutsch | English | Einstieg / Entry |
 |---|---|---|
-| Einen Härtetest einreichen | Challenge a claim | [Angriffsschwarm / Adversarial challenge](https://github.com/AlexanderR1991/grundtext-des-wirklichen/issues/new?template=angriff.yml) |
-| Eine Frage stellen | Ask a question | [Frage / Question](https://github.com/AlexanderR1991/grundtext-des-wirklichen/issues/new?template=frage.yml) |
-| Eine Idee vorschlagen | Propose an idea | [Idee / Idea](https://github.com/AlexanderR1991/grundtext-des-wirklichen/issues/new?template=idee.yml) |
-| Einen Beleg untersuchen | Examine evidence | [Quellenprüfung / Evidence](https://github.com/AlexanderR1991/grundtext-des-wirklichen/issues/new?template=quellenpruefung.yml) |
-| Eine These kritisieren | Challenge a thesis | [Kritik / Critique](https://github.com/AlexanderR1991/grundtext-des-wirklichen/issues/new?template=kritik.yml) |
-| Eine Übersetzung prüfen | Review translation | [Übersetzung / Translation](https://github.com/AlexanderR1991/grundtext-des-wirklichen/issues/new?template=uebersetzung.yml) |
+| Kunst und Gegenlesarten einbringen | Share art and alternative readings | [Kunst / Art](https://github.com/AlexanderR1991/Wirklich/issues/new?template=kunst.yml) |
+| Einen Härtetest einreichen | Challenge a claim | [Angriffsschwarm / Adversarial challenge](https://github.com/AlexanderR1991/Wirklich/issues/new?template=angriff.yml) |
+| Eine Frage stellen | Ask a question | [Frage / Question](https://github.com/AlexanderR1991/Wirklich/issues/new?template=frage.yml) |
+| Eine Idee vorschlagen | Propose an idea | [Idee / Idea](https://github.com/AlexanderR1991/Wirklich/issues/new?template=idee.yml) |
+| Einen Beleg untersuchen | Examine evidence | [Quellenprüfung / Evidence](https://github.com/AlexanderR1991/Wirklich/issues/new?template=quellenpruefung.yml) |
+| Eine These kritisieren | Challenge a thesis | [Kritik / Critique](https://github.com/AlexanderR1991/Wirklich/issues/new?template=kritik.yml) |
+| Eine Übersetzung prüfen | Review translation | [Übersetzung / Translation](https://github.com/AlexanderR1991/Wirklich/issues/new?template=uebersetzung.yml) |
 
 Schreibe in **Deutsch oder Englisch**. / Write in **German or English**.
 
@@ -41,7 +42,7 @@ Auf GitHub benötigst du ein kostenloses Konto.
 
 On GitHub, open the relevant file, click the pencil icon, edit your fork, and open a pull request. Explain *why* the change is better. Do not assume a proposal will automatically be accepted.
 
-**Sprachfassungen / Languages:** Die derzeitigen deutschen Quelltexte liegen in den acht ursprünglichen HTML-Dateien; englische Übersetzungen in `src/i18n/*.en.json`. Für komplizierte Änderungen lieber zuerst ein Issue erstellen. / For complex multilingual edits, start with an issue.
+**Sprachfassungen / Languages:** Der Auftakt liegt in `MissionHome.astro` und `src/lib/mission-copy.json`, Mission und Register in den gleichnamigen Komponenten. Aussagen werden in `public/knowledge/claims.json` gepflegt ([Datenvertrag](docs/aussagenregister.md)). Ältere Unterseiten stammen aus den Root-HTML-Dateien und `src/i18n/*.en.json`; neue Kapitel aus `src/components/` und ihren Kopierdaten. Alle neuen Einträge benötigen DE/EN. / See the same paths for bilingual editing. For complex edits, start with an issue.
 
 ## 3. So prüfen wir Beiträge / How contributions are evaluated
 

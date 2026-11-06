@@ -30,9 +30,11 @@ jobs:
           python -m json.tool public/research/stream.json > /dev/null
           python -m json.tool public/research/angriffe.json > /dev/null
       - name: Install dependencies
-        run: npm install --no-audit --no-fund
+        run: npm ci --no-audit --no-fund
       - name: Build and validate
-        run: npm run build
+        run: |
+          npm run build
+          python scripts/validate_site.py
       - uses: actions/configure-pages@v5
         if: github.event_name != 'pull_request'
       - uses: actions/upload-pages-artifact@v4

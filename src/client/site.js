@@ -7,7 +7,7 @@ if(toggle&&nav){
  const close=()=>{toggle.setAttribute("aria-expanded","false");nav.classList.remove("is-open");};
  toggle.addEventListener("click",()=>{const open=toggle.getAttribute("aria-expanded")!=="true";toggle.setAttribute("aria-expanded",String(open));nav.classList.toggle("is-open",open);});
  nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",close));
- document.addEventListener("keydown",e=>{if(e.key==="Escape")close();});
+ document.addEventListener("keydown",e=>{if(e.key==="Escape" && toggle.getAttribute("aria-expanded")==="true"){close();toggle.focus();}});
 }
 const modes=[...document.querySelectorAll("[data-reading-mode]")];
 if(modes.length){
@@ -41,6 +41,7 @@ if(form)form.addEventListener("submit",e=>{
  const body=en?
  "## Contribution\n"+kind+"\n\n## Relevant passage\n"+(place||"General")+"\n\n## Question or objection\n"+thought+"\n\n## Sources and suggested revision\n[Optional]\n":
  "## Art des Beitrags\n"+kind+"\n\n## Betroffene Stelle\n"+(place||"Allgemein")+"\n\n## Gedanke / Einwand\n"+thought+"\n\n## Quellen und mögliche Korrektur\n[Optional ergänzen]\n";
- location.assign("https://github.com/AlexanderR1991/grundtext-des-wirklichen/issues/new?title="+encodeURIComponent(title)+"&body="+encodeURIComponent(body));
+ location.assign("https://github.com/AlexanderR1991/Wirklich/issues/new?title="+encodeURIComponent(title)+"&body="+encodeURIComponent(body));
 });
+if(form)form.hidden=false;
 })();

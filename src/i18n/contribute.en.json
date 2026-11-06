@@ -16,7 +16,6 @@
   "DEIN GEDANKE ALS ENTWURF": "DRAFT YOUR CONTRIBUTION",
   "Beginne mit": "Begin with",
   "einem Einwand.": "an objection.",
-  "Dieses Formular sendet selbst keine Daten. Es erstellt einen vorbereiteten GitHub-Issue-Link. Du kannst die Angaben dort noch einmal prüfen und selbst entscheiden, ob du sie einreichst. Dafür benötigst du ein GitHub-Konto.": "This form does not submit anything by itself. It prepares a GitHub issue link. You can review everything there and decide whether to publish it. A GitHub account is required.",
   "Bitte keine vertraulichen oder personenbezogenen Informationen Dritter eingeben.": "Please do not enter confidential information or personal details about others.",
   "BETROFFENE STELLE": "AFFECTED PASSAGE",
   "ART DES BEITRAGS": "TYPE OF CONTRIBUTION",
@@ -49,7 +48,7 @@
   "04 / SPRACHEN": "04 / LANGUAGES",
   "Übersetzung verbessern": "Improve a translation",
   "Bedeutungen prüfen und Formulierungen schärfen ↗": "Check meaning and improve wording ↗",
-  "Jeder Vorschlag ist zunächst eine Einladung zur Prüfung, nicht automatisch eine Änderung am Buch.": "Every contribution begins as an invitation to examine an idea—not an automatic change to the book.",
+  "Wenn du eine Änderung vorschlägst, benenne die Stelle und erkläre, warum du sie anders formulieren würdest.": "When you suggest a change, point to the passage and explain why you would word it differently.",
   "FREIWILLIGE UNTERSTÜTZUNG": "VOLUNTARY SUPPORT",
   "Das Projekt": "Support",
   "unterstützen.": "the project.",
@@ -57,5 +56,8 @@
   "PayPal:": "PayPal:",
   "radke.a91@gmail.com": "radke.a91@gmail.com",
   "Gib diese E-Mail-Adresse bei PayPal als Empfänger an. Betrag und Unterstützung sind frei wählbar.": "Enter this email address as the recipient in PayPal. Whether and how much you contribute is up to you.",
-  "PayPal öffnen ↗": "Open PayPal ↗"
+  "PayPal öffnen ↗": "Open PayPal ↗",
+  "Beim Öffnen des Entwurfs erhält GitHub deine Eingaben. Dort kannst du sie prüfen und mit deinem GitHub-Konto veröffentlichen.": "Opening the draft sends your entries to GitHub. You can review them there and publish using your GitHub account.",
+  "Ohne JavaScript kannst du deinen Beitrag direkt auf GitHub vorbereiten.": "Without JavaScript you can prepare your contribution directly on GitHub.",
+  "Beitragsvorlage auswählen ↗": "Choose a contribution form ↗"
 }

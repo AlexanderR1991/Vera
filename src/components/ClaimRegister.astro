@@ -1,0 +1,71 @@
+---
+import Layout from "../layouts/SiteLayout.astro";
+import {absoluteFor,pathFor,base} from "../lib/paths.mjs";
+import project from "../../public/project.json" with {type: "json"};
+import register from "../../public/knowledge/claims.json";
+import "../styles/mission.css";
+const {lang="de"}=Astro.props;
+const en=lang==="en";
+const t=(de,english)=>en?english:de;
+const types={normative:t("Normatives Urteil","Normative judgment"),metaphor:t("Metapher","Metaphor"),empirical:t("Empirische Aussage","Empirical claim"),formal:t("Formale Aussage","Formal claim"),interpretive:t("Interpretation","Interpretation")};
+const statuses={unreviewed:t("Ungeprüfter Entwurf","Unreviewed draft"),in_review:t("In Prüfung","Under review"),reviewed:t("Prüfung dokumentiert","Review documented"),disputed:t("Umstritten","Disputed"),withdrawn:t("Zurückgezogen","Withdrawn")};
+const sourceRoles={provenance:t("Herkunftsbeleg, keine fachliche Bestätigung","Provenance, not expert confirmation"),evidence:t("Als Beleg angeführte Quelle; Qualität gesondert prüfen","Source offered as evidence; quality requires separate review"),counterevidence:t("Als Gegenbeleg angeführte Quelle","Source offered as counterevidence")};
+const support={value_commitment:t("Wertentscheidung","Value commitment"),conceptual_model:t("Denkmodell","Conceptual model"),open_hypothesis:t("Offene Hypothese","Open hypothesis"),source_supported:t("Quellengestützt","Source-supported"),formal_proof:t("Formaler Beweis im angegebenen System","Formal proof within the stated system")};
+---
+<Layout lang={lang} slug="aussagen">
+ <article class="container mission-document">
+  <header><p class="section-kicker">{t("AUSSAGENREGISTER · PROTOTYP","CLAIM REGISTER · PROTOTYPE")}</p><h1>{t("Zeig mir die Gründe.","Show me the reasons.")}</h1><p class="mission-lead">{t("Drei erste Aussagen mit Herkunft, Grenzen und Einwänden. Dieses Register zeigt, wie überprüfbare Einträge aussehen können. Es ist noch kein fachlich geprüfter Wissensbestand.","Three initial claims with provenance, limits and objections. This register demonstrates inspectable entries. It is not yet an expert-reviewed body of knowledge.")}</p><p>{t("Aussageart, Begründungslage und Bearbeitungsstatus sind getrennte Angaben. „Ungeprüft“ bedeutet weder wahr noch falsch. Die KI-unterstützte Strukturierung und die englische Übersetzung wurden nicht unabhängig begutachtet.","Claim type, support and review status are separate descriptions. ‘Unreviewed’ means neither true nor false. AI-assisted structuring and the English translation have not received independent review.")}</p>
+  <div class="button-row"><a class="button button--ghost" href={base+"knowledge/claims.json"} download="grundtext-claims.json">{t("Datensatz herunterladen · JSON ↓","Download dataset · JSON ↓")}</a><a class="subtle-link" href={pathFor(lang,"mission")+"#erkenntnis"}>{t("Die Unterscheidungen verstehen ↗","Understand these distinctions ↗")}</a></div></header>
+  <p><a href={pathFor(lang,"erkenntnisnavigator")}>{t("Eine Verbindung zu deiner Frage prüfen","Examine a connection to your question")} →</a> {t("Die vier Navigator-Karten sind gesonderte Entwürfe. Ihre Anwendung verändert keinen Prüfstatus im Register.","The four navigator cards are separate drafts. Using them does not change any review status in the register.")}</p>
+  <div class="claim-tools" data-claim-tools hidden>
+   <label>{t("Aussagen durchsuchen","Search claims")}<input type="search" data-claim-search placeholder={t("Begriff oder Kennung, z. B. KI-001","Term or identifier, e.g. KI-001")}/></label>
+   <label>{t("Aussageart","Claim type")}<select data-claim-type><option value="all">{t("Alle Arten","All types")}</option>{Object.entries(types).filter(([key])=>register.claims.some(c=>c.type===key)).map(([key,label])=><option value={key}>{label}</option>)}</select></label>
+   <p role="status" aria-live="polite" data-claim-count>{register.claims.length} {t("Einträge","entries")}</p>
+  </div>
+  <p data-claim-empty hidden>{t("Kein Eintrag passt zu dieser Suche. Ändere den Suchbegriff oder die Aussageart.","No entry matches this search. Change the search term or claim type.")}</p>
+  {register.claims.map(c=><section id={c.id} class="claim-card" data-claim-card data-kind={c.type}>
+   <div class="claim-meta"><a href={"#"+c.id}>{c.id} · v{c.version}</a><span>{types[c.type]}</span><span>{support[c.epistemic_status]}</span><span>{statuses[c.review_status]}</span></div>
+   <h2 class="claim-statement">{c.statement[lang]}</h2>
+   <dl>
+    <dt>{t("Geltungsbereich","Scope")}</dt><dd>{c.scope[lang]}</dd>
+    <dt>{t("Begründung","Reasoning")}</dt><dd>{c.rationale[lang]}</dd>
+    {c.epistemic_status==="formal_proof"&&c.proof&&<><dt>{t("Voraussetzungen und Ableitung","Premises and derivation")}</dt><dd>{c.proof[lang]}</dd></>}
+    <dt>{t("Beleglage","Evidence")}</dt><dd>{c.evidence_note[lang]}</dd>
+    <dt>{t("Starke Einwände","Strong objections")}</dt><dd><ul>{c.counterarguments.map(x=><li>{x[lang]}</li>)}</ul></dd>
+    <dt>{t("Was uns umstimmt","What would change our view")}</dt><dd>{c.revision_condition[lang]}</dd>
+    <dt>{t("Unsicherheit","Uncertainty")}</dt><dd>{c.uncertainty[lang]}</dd>
+    <dt>{t("Herkunft","Provenance")}</dt><dd><ul>{c.sources.map(s=><li><a href={s.url} target="_blank" rel="noopener noreferrer">{s.label[lang]} ↗</a> · {sourceRoles[s.role]}</li>)}</ul></dd>
+   </dl>
+   <details><summary>{t("Prüfung, KI-Herkunft und Versionsgeschichte","Review, AI provenance and version history")}</summary>
+    <p>{c.human_review?t("Dokumentierte Prüfung: ","Documented review: ")+c.human_review.reviewer:t("Menschliche Fachprüfung: ausstehend. Keine prüfende Person eingetragen.","Human expert review: pending. No reviewer recorded.")}</p>
+    {c.human_review&&<><p>{c.human_review.date} · {c.human_review.method[lang]}</p><p>{c.human_review.decision[lang]}</p><p>{t("Diese Prüfung bezieht sich auf Version ","This review refers to version ")}{c.human_review.claim_version}{t(" dieses Eintrags, in beiden Sprachen. Eine geänderte Fassung braucht eine neue Prüfung."," of this entry, in both languages. Changed content requires a new review.")}</p><p>{t("Fingerabdruck des geprüften Inhalts (SHA-256): ","Fingerprint of reviewed content (SHA-256): ")}<code style="overflow-wrap:anywhere">{c.human_review.content_sha256}</code></p></>}
+    <p>{c.ai_assistance.task[lang]}</p>
+    <p>{t("Modellversion: ","Model version: ")}{c.ai_assistance.model||t("nicht erfasst","not recorded")}</p>
+    <ul>{c.history.map(h=><li>v{h.version} · {h.date} · {h.change[lang]}</li>)}</ul>
+   </details>
+   <a class="button button--ghost" href={project.repository + "/issues/new?" + new URLSearchParams({
+    template: "angriff.yml",
+    title: `[${c.id} v${c.version}] ${t("Begründeter Einwand", "Reasoned objection")}`,
+    source: `${absoluteFor(lang, "aussagen")}#${c.id} · ${c.id} v${c.version} · ${c.statement[lang]}`
+   })}>{t("Diesen Eintrag kritisieren ↗","Challenge this entry ↗")}</a>
+  </section>)}
+ </article>
+</Layout>
+<script>
+ const controls=document.querySelector<HTMLElement>("[data-claim-tools]");
+ const search=document.querySelector<HTMLInputElement>("[data-claim-search]");
+ const filter=document.querySelector<HTMLSelectElement>("[data-claim-type]");
+ const cards=[...document.querySelectorAll<HTMLElement>("[data-claim-card]")];
+ const result=document.querySelector<HTMLElement>("[data-claim-count]");
+ const empty=document.querySelector<HTMLElement>("[data-claim-empty]");
+ const en=document.documentElement.lang==="en";
+ const normalize=(s:string)=>s.toLocaleLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
+ const update=()=>{
+  let count=0;const query=normalize(search?.value.trim()||"");
+  for(const card of cards){const show=(!filter||filter.value==="all"||filter.value===card.dataset.kind)&&normalize(card.textContent||"").includes(query);card.hidden=!show;if(show)count++;}
+  if(result)result.textContent=en?`${count} ${count===1?"entry":"entries"}`:`${count} ${count===1?"Eintrag":"Einträge"}`;
+  if(empty)empty.hidden=count!==0;
+ };
+ const revealHash=()=>{const id=location.hash.slice(1);if(cards.some(c=>c.id===id)){if(search)search.value="";if(filter)filter.value="all";update();document.getElementById(id)?.scrollIntoView();}};
+ if(controls&&search&&filter){controls.hidden=false;search.addEventListener("input",update);filter.addEventListener("change",update);window.addEventListener("hashchange",revealHash);update();revealHash();}
+</script>

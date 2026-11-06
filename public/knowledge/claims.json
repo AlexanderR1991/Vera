@@ -1,0 +1,239 @@
+{
+  "schema_version": 1,
+  "title": {
+    "de": "Aussagenregister · Demonstrationsbestand",
+    "en": "Claim register · demonstration corpus"
+  },
+  "updated_at": "2026-11-06",
+  "claims": [
+    {
+      "id": "G-005",
+      "type": "normative",
+      "epistemic_status": "value_commitment",
+      "statement": {
+        "de": "Hilf so, dass der andere seine eigene Kraft findet.",
+        "en": "Help in a way that enables the other person to find their own strength."
+      },
+      "scope": {
+        "de": "Normativer Leitgedanke für Hilfe und Fürsorge. Er schließt dauerhafte Unterstützung ein. Würde und Fürsorge dürfen nicht von erreichbarer Selbstständigkeit abhängen.",
+        "en": "A guiding value for help and care, including lasting support. Dignity and care must not depend on attainable independence."
+      },
+      "rationale": {
+        "de": "Hilfe soll die Bedürfnisse und Handlungsmöglichkeiten des Gegenübers ernst nehmen. Welche Hilfe tatsächlich nützt, ist davon getrennt zu prüfen.",
+        "en": "Help should take the other person’s needs and agency seriously. Whether a particular form of help works requires separate examination."
+      },
+      "counterarguments": [
+        {
+          "de": "Schwere Erkrankung, akute Not und dauerhafter Unterstützungsbedarf können Hilfe verlangen, ohne dass Selbstständigkeit erreichbar ist.",
+          "en": "Severe illness, emergencies and lasting support needs may require help even when independence is not attainable."
+        },
+        {
+          "de": "Eine Forderung nach Selbstständigkeit kann notwendige Fürsorge entziehen oder Hilfe an Leistung knüpfen.",
+          "en": "A demand for independence may withhold necessary care or make help conditional on performance."
+        }
+      ],
+      "revision_condition": {
+        "de": "Erneut präzisieren, wenn eine konkrete Anwendung trotz des Zusatzes dazu führt, dass gewünschte Hilfe entzogen oder aufgezwungen wird. Dabei die Perspektive der betroffenen Person und den strittigen Wortlaut festhalten.",
+        "en": "Revisit the wording if a concrete application of the revised principle leads someone to withhold wanted help or impose unwanted help. Record the affected person’s perspective and the wording at issue."
+      },
+      "evidence_note": {
+        "de": "Der Grundtext und seine Änderung belegen, wie das Projekt seinen Wert begründet und präzisiert hat. Welche Hilfe im Einzelfall gewünscht ist und wirkt, bleibt gesondert zu klären.",
+        "en": "The original text and its revision document how the project explained and clarified its value. What help a particular person wants and what works for them require separate inquiry."
+      },
+      "sources": [
+        {
+          "url": "https://github.com/AlexanderR1991/Wirklich/blob/2c6a54c6e04eb7a4bf6c15c41f6b723c385dbd22/docs/grundtext.md",
+          "role": "provenance",
+          "label": {
+            "de": "Grundtext · These 05 · fixierter Ausgangsstand",
+            "en": "Foundational text · Thesis 05 · pinned source revision"
+          }
+        },
+        {
+          "url": "https://github.com/AlexanderR1991/Wirklich/blob/09541398d7e4b189067c58139e933c55fe41484a/docs/grundtext.md#L25-L27",
+          "role": "provenance",
+          "label": {
+            "de": "Grundtext · These 05 nach der Präzisierung in PR #31",
+            "en": "Foundational text · Thesis 05 as clarified in PR #31"
+          }
+        }
+      ],
+      "uncertainty": {
+        "de": "Zielkonflikte zwischen Schutz, Selbstbestimmung und Unterstützungsbedarf bleiben offen.",
+        "en": "Tradeoffs between protection, self-determination and support needs remain open."
+      },
+      "version": 2,
+      "updated_at": "2026-11-06",
+      "review_status": "unreviewed",
+      "human_review": null,
+      "ai_assistance": {
+        "used": true,
+        "model": null,
+        "task": {
+          "de": "Strukturierung, kritische Einordnung und Übersetzungsentwurf; genaue Modellversion nicht erfasst.",
+          "en": "Structuring, critical framing and translation draft; exact model version not recorded."
+        }
+      },
+      "history": [
+        {
+          "version": 1,
+          "date": "2026-11-05",
+          "change": {
+            "de": "Erster strukturierter Entwurf. Keine fachliche Freigabe.",
+            "en": "First structured draft. No expert approval."
+          }
+        },
+        {
+          "version": 2,
+          "date": "2026-11-06",
+          "change": {
+            "de": "Das Register führt jetzt die in PR #31 veröffentlichte Präzisierung zur dauerhaften Unterstützung mit ihrer Quelle. Die nächste Revisionsbedingung bezieht sich auf diese Fassung.",
+            "en": "The register now reflects the clarification on lasting support published in PR #31, links to that revision and gives a condition for revisiting the amended wording."
+          }
+        }
+      ]
+    },
+    {
+      "id": "H-001",
+      "type": "metaphor",
+      "epistemic_status": "conceptual_model",
+      "statement": {
+        "de": "Der Erkenntnishorizont beschreibt die Grenze dessen, was wir mit unseren gegenwärtigen Methoden erkennen können.",
+        "en": "The horizon of inquiry represents the limits of what we can understand using our present methods."
+      },
+      "scope": {
+        "de": "Philosophisches Bild für methodische Grenzen; keine messbare geometrische Grenze und kein Beleg für Behauptungen jenseits davon.",
+        "en": "A philosophical image for methodological limits; not a measurable geometric boundary or evidence for claims beyond it."
+      },
+      "rationale": {
+        "de": "Das Bild lädt zu neuen Fragen ein und erinnert an Grenzen unserer Verfahren. Unbekannt bedeutet weder wahr noch grundsätzlich erreichbar.",
+        "en": "The image invites new questions and reminds us of methodological limits. Unknown means neither true nor necessarily accessible."
+      },
+      "counterarguments": [
+        {
+          "de": "Eine geschlossene Kreislinie kann einen einheitlichen Wissensrand suggerieren, obwohl Grenzen je nach Frage verschieden sind.",
+          "en": "A closed circle may suggest a single boundary of knowledge even though limits differ across questions."
+        },
+        {
+          "de": "Der Raum außerhalb des Horizonts kann fälschlich als Vorrat zukünftiger Wahrheiten gelesen werden.",
+          "en": "The area beyond the horizon may be mistaken for a store of future truths."
+        }
+      ],
+      "revision_condition": {
+        "de": "Bild ändern oder verwerfen, wenn Leser daraus die Wahrheit ungeprüfter Behauptungen oder eine zwangsläufige Ausweitung ableiten.",
+        "en": "Change or abandon the image if readers infer that unverified claims are true or that expansion is inevitable."
+      },
+      "evidence_note": {
+        "de": "Konzeptuelle Herkunft; die Metapher selbst ist kein empirischer Befund.",
+        "en": "Conceptual provenance; the metaphor itself is not an empirical finding."
+      },
+      "sources": [
+        {
+          "url": "https://github.com/AlexanderR1991/Wirklich/blob/2c6a54c6e04eb7a4bf6c15c41f6b723c385dbd22/docs/architektur.md",
+          "role": "provenance",
+          "label": {
+            "de": "Architektur · Erkenntnishorizont · fixierter Ausgangsstand",
+            "en": "Architecture · Horizon of inquiry · pinned source revision"
+          }
+        }
+      ],
+      "uncertainty": {
+        "de": "Der Erklärungsnutzen für Leser wurde nicht systematisch untersucht.",
+        "en": "Its explanatory usefulness for readers has not been systematically examined."
+      },
+      "version": 1,
+      "updated_at": "2026-11-05",
+      "review_status": "unreviewed",
+      "human_review": null,
+      "ai_assistance": {
+        "used": true,
+        "model": null,
+        "task": {
+          "de": "Strukturierung, kritische Einordnung und Übersetzungsentwurf; genaue Modellversion nicht erfasst.",
+          "en": "Structuring, critical framing and translation draft; exact model version not recorded."
+        }
+      },
+      "history": [
+        {
+          "version": 1,
+          "date": "2026-11-05",
+          "change": {
+            "de": "Erster strukturierter Entwurf. Keine fachliche Freigabe.",
+            "en": "First structured draft. No expert approval."
+          }
+        }
+      ]
+    },
+    {
+      "id": "KI-001",
+      "type": "empirical",
+      "epistemic_status": "open_hypothesis",
+      "statement": {
+        "de": "Strukturierte KI-Gegenkritik könnte in einem begrenzten Aussagenkorpus die menschliche Fehlererkennung gegenüber einer Prüfung ohne diese Unterstützung verbessern.",
+        "en": "Structured AI countercritique might improve human error detection in a bounded corpus compared with review without this support."
+      },
+      "scope": {
+        "de": "Neu formulierter Prüfvorschlag für unser Verfahren; keine Aussage über bereits gemessene Leistungsfähigkeit oder alle KI-Systeme.",
+        "en": "A newly formulated test proposal for our process; no claim about measured performance or all AI systems."
+      },
+      "rationale": {
+        "de": "Zusätzliche Gegenmodelle könnten übersehene Fehler sichtbar machen. Ob der Nutzen den Aufwand und neue Fehlalarme überwiegt, ist offen.",
+        "en": "Additional countermodels might expose overlooked errors. Whether benefits outweigh effort and new false alarms remains open."
+      },
+      "counterarguments": [
+        {
+          "de": "Modelle können gemeinsame Fehler wiederholen, überzeugende Scheinbelege erzeugen und menschliche Prüfer verankern.",
+          "en": "Models may repeat shared errors, generate persuasive false support and anchor human reviewers."
+        },
+        {
+          "de": "Mehr Kritik kann die Bearbeitungszeit erhöhen, ohne die Genauigkeit zu verbessern.",
+          "en": "More criticism can increase review time without improving accuracy."
+        }
+      ],
+      "revision_condition": {
+        "de": "Vor einem Versuch Aufgaben, Vergleichsgruppen, unabhängige Bewertungsregeln, Fehlalarme, Zeit und Kosten festlegen. Die Hypothese einschränken oder verwerfen, wenn kein belastbarer Vorteil entsteht oder Schäden überwiegen. Kein Versuch und keine Vorregistrierung liegen vor.",
+        "en": "Before a trial, define tasks, comparison groups, independent scoring, false alarms, time and costs. Narrow or reject the hypothesis if no robust benefit appears or harms outweigh it. No trial or preregistration exists."
+      },
+      "evidence_note": {
+        "de": "Keine Ergebnisdaten vorhanden. Das bestehende Angriffsprotokoll ist der Anlass der Hypothese, kein Wirksamkeitsbeleg.",
+        "en": "No outcome data available. The existing adversarial protocol motivates this hypothesis; it is not evidence of effectiveness."
+      },
+      "sources": [
+        {
+          "url": "https://github.com/AlexanderR1991/Wirklich/blob/2c6a54c6e04eb7a4bf6c15c41f6b723c385dbd22/docs/angriffsschwarm.md",
+          "role": "provenance",
+          "label": {
+            "de": "Angriffsprotokoll · Ausgangspunkt des Prüfvorschlags",
+            "en": "Adversarial protocol · starting point for the test proposal"
+          }
+        }
+      ],
+      "uncertainty": {
+        "de": "Effektgröße, Übertragbarkeit, Abhängigkeit vom Modell und mögliche Verzerrungen sind unbekannt.",
+        "en": "Effect size, generalizability, model dependence and possible biases are unknown."
+      },
+      "version": 1,
+      "updated_at": "2026-11-05",
+      "review_status": "unreviewed",
+      "human_review": null,
+      "ai_assistance": {
+        "used": true,
+        "model": null,
+        "task": {
+          "de": "Strukturierung, kritische Einordnung und Übersetzungsentwurf; genaue Modellversion nicht erfasst.",
+          "en": "Structuring, critical framing and translation draft; exact model version not recorded."
+        }
+      },
+      "history": [
+        {
+          "version": 1,
+          "date": "2026-11-05",
+          "change": {
+            "de": "Erster strukturierter Entwurf. Keine fachliche Freigabe.",
+            "en": "First structured draft. No expert approval."
+          }
+        }
+      ]
+    }
+  ]
+}

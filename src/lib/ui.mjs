@@ -1,27 +1,36 @@
+import project from "../../public/project.json" with {type: "json"};
 export const ui = {
   "de": {
-    "subtitle": "Ein offenes Erkenntnisprojekt",
+    "name": project.name,
+    "subtitle": project.subtitle.de,
     "menu": "Menü",
     "nav": [
-      "Auftakt",
+      "Start",
       "Atlas",
       "Bibliothek",
-      "Prüfstand",
+      "Aussagen",
       "Methode",
-      "Mitwirken"
+      "Mitwirken",
+      "Werkstatt",
+      "Navigator"
     ],
-    "archive": "ARCHIV / ARBEITSFASSUNG 0.6",
     "motto": "ERKENNTNIS IST KEIN ENDZUSTAND",
     "footerTitle": "Die Wirklichkeit steht über diesem Werk.",
-    "footerDescription": "Ein philosophischer Entwurf, der korrigierbar bleiben soll.",
+    "footerDescription": "Die offene Erkenntniswerkstatt. Fragen stellen, Wissen prüfen und verantwortlich handeln. Unser Fundament: der Grundtext des Wirklichen.",
     "explore": "ERKUNDEN",
     "project": "PROJEKT",
     "source": "Quelltext",
-    "status": "Originalfassung · Arbeitsstand 0.6",
+    "status": "Originalfassung · Werkzeugfassung " + project.version,
     "copyright": "© 2026 AlexanderR1991 & Mitwirkende · Texte CC BY-SA 4.0 · Code MIT",
     "disclosure": "MIT KI-UNTERSTÜTZUNG ERSTELLT · OFFEN FÜR KRITIK",
     "titles": {
-      "index": "Auftakt",
+      "erkenntnisnavigator": "Erkenntnisnavigator",
+      "werkstatt": "Dein Prüfblatt",
+      "projektstatus": "Version und Projektstatus",
+      "mission": "Unsere Mission",
+      "baum-des-wissens": "Der fliegende Baum",
+      "aussagen": "Aussagenregister",
+      "index": "Start",
       "atlas": "Wissensatlas",
       "bibliothek": "Bibliothek",
       "lesestueck-wahrheit": "Warum Wahrheit? · Lesestück 01",
@@ -30,33 +39,37 @@ export const ui = {
       "methode": "Unsere Methode",
       "mitwirken": "Mitwirken",
       "fragen-und-ki-prompt": "Stellt uns Fragen! · KI-Prompt",
+      "kunst-und-erkenntnis": "Kunst und Erkenntnis",
       "forschungsstrom": "Forschungsstrom",
       "angriffsschwarm": "Angriffsschwarm",
       "schnittmengen": "Schnittmengen finden",
       "erkenntnishorizont": "Der Horizont des Erkennbaren",
+      "esoterik-und-mathematik": "Esoterik & Mathematik · Werkzeuge",
       "warum-liebe-wirkt": "Warum Liebe wirkt",
       "politik-die-dem-menschen-dient": "Politik, die dem Menschen dient",
       "bruecken-zwischen-den-religionen": "Brücken zwischen den Religionen",
       "militaer-und-verantwortung": "Militär und Verantwortung",
       "ernaehrung-und-verantwortung": "Ernährung und Verantwortung"
     },
-    "description": "Ein offenes, korrigierbares Erkenntnisprojekt über Wahrheit, Wirklichkeit und menschliches Handeln."
+    "description": "WIRKLICH ist die offene Erkenntniswerkstatt: Fragen klären, Belege und Gegenargumente prüfen und verantwortlich handeln. Mit exportierbaren Prüfblättern und offenem Projektstatus."
   },
   "en": {
-    "subtitle": "An open project of inquiry",
+    "name": project.english_name,
+    "subtitle": project.subtitle.en,
     "menu": "Menu",
     "nav": [
-      "Introduction",
+      "Home",
       "Atlas",
       "Library",
-      "Examination",
+      "Claims",
       "Method",
-      "Contribute"
+      "Contribute",
+      "Workshop",
+      "Navigator"
     ],
-    "archive": "ARCHIVE / WORKING DRAFT 0.6",
     "motto": "KNOWLEDGE IS NEVER COMPLETE",
     "footerTitle": "Reality stands above this work.",
-    "footerDescription": "A philosophical proposal designed to remain open to correction.",
+    "footerDescription": "The open inquiry workshop. Ask questions, examine knowledge and act responsibly. Our foundation: Grundtext des Wirklichen.",
     "explore": "EXPLORE",
     "project": "PROJECT",
     "source": "Source code",
@@ -64,7 +77,13 @@ export const ui = {
     "copyright": "© 2026 AlexanderR1991 & contributors · Text CC BY-SA 4.0 · Code MIT",
     "disclosure": "CREATED WITH AI ASSISTANCE · OPEN TO CRITICISM",
     "titles": {
-      "index": "Introduction",
+      "erkenntnisnavigator": "Knowledge Navigator",
+      "werkstatt": "Your Inquiry Worksheet",
+      "projektstatus": "Version and Project Status",
+      "mission": "Our Mission",
+      "baum-des-wissens": "The Flying Tree",
+      "aussagen": "Claim Register",
+      "index": "Home",
       "atlas": "Atlas of Knowledge",
       "bibliothek": "Library",
       "lesestueck-wahrheit": "Why Truth? · Essay 01",
@@ -73,17 +92,19 @@ export const ui = {
       "methode": "Our Method",
       "mitwirken": "Contribute",
       "fragen-und-ki-prompt": "Ask us questions! · AI prompt",
+      "kunst-und-erkenntnis": "Art and Inquiry",
       "forschungsstrom": "Research Stream",
       "angriffsschwarm": "Adversarial Swarm",
       "schnittmengen": "Finding Common Ground",
       "erkenntnishorizont": "The Horizon of the Knowable",
+      "esoterik-und-mathematik": "Esotericism & Mathematics · Tools",
       "warum-liebe-wirkt": "Why Love Works",
       "politik-die-dem-menschen-dient": "Politics That Serves People",
       "bruecken-zwischen-den-religionen": "Bridges Between Religions",
       "militaer-und-verantwortung": "Military Power and Responsibility",
       "ernaehrung-und-verantwortung": "Nutrition and Responsibility"
     },
-    "description": "An open and revisable inquiry into truth, reality, human dignity, and responsible action."
+    "description": project.english_name + " Bring a question to the open inquiry workshop. Examine the evidence, test objections and record what would change your mind."
   }
 };
-export const navigation = [["index",0],["atlas",1],["bibliothek",2],["pruefstand",3],["methode",4],["mitwirken",5]];
+export const navigation = [["erkenntnisnavigator",7],["werkstatt",6],["atlas",1],["aussagen",3],["methode",4],["mitwirken",5]];

@@ -1,5 +1,40 @@
 # Versionsgeschichte
 
+## 2026-11-06 · Emporirren · Änderungsvorschlag
+- Aufbauend auf den Spielkarten aus #42: vier erfundene Alltagskarten, ein nicht entscheidender Hinweis, freiwillige Begründung und eigene Anschlussfrage.
+- Startseite erklärt Vermuten, Prüfen und Weiterdenken; Einigkeit ist freiwillig und kein Wahrheitsbeweis.
+- Prüfblatt beginnt mit drei Fragen; Vertiefung ist freiwillig, eine Aussageart wird nicht vorausgesetzt. Bestehende Detailnotizen bleiben lesbar.
+- Prüfvermerke und öffentliche Prüfzahlen sind an konkrete Inhaltsfassungen gebunden; historische KI-Kritik verlinkt ihre Quellversion.
+- Bezahlte Modellaufrufe benötigen gesonderte Aktivierung und haben Ausgabetokengrenzen. Das ist keine Geldobergrenze.
+- These 07 ergänzt Vergleichspunkt, Betroffene, Zeitraum und getrennte Zielkonflikte; keine Zahlenbewertung von Menschen oder pauschale Gesamtwertung.
+- KI-gestützte Selbstprüfung, Pilot und unabhängiger Methodentest bleiben getrennt. Keine Wirksamkeit oder Fachfreigabe behauptet.
+
+## 1.0.0 · 2026-11-05 – WIRKLICH · Die offene Erkenntniswerkstatt
+- Neuer öffentlicher Projektname WIRKLICH; Grundtext des Wirklichen bleibt der Titel des philosophischen Fundaments. Bisherige Webadressen, Aussagekennungen, Signet, Attribution und Lizenzen bleiben erhalten.
+- Benutzbares zweisprachiges Prüfblatt für fünf Aussagearten: Frage, vorläufige Aussage, Geltungsbereich, Belege oder Gründe, Einwand, Revisionsbedingungen und nächster Schritt.
+- Lokale Text-/JSON-Exporte, validierter JSON-Import und bewusst ausgelöste Browserspeicherung; keine Übermittlung der Eingaben, keine KI-Bewertung und keine automatische Veröffentlichung.
+- Öffentliche zweisprachige Statusseite mit aus Register und Themenkarte abgeleiteten Bestandszahlen und dokumentierten Automatik-Datenständen.
+- Drei priorisierte Folgeaufgaben mit Kriterien: geprüfter Aussagenbestand, Vergleich der Methode und tragfähige Verantwortung. Evaluationsentwurf und offener Finanzierungsstand dokumentiert.
+- Projektprofil, globale Websiteversion und Paketversion auf 1.0.0 vereinheitlicht; automatische Versions-, Export- und Statusprüfungen ergänzt.
+- 1.0 bezeichnet eine zusammenhängende Werkzeugfassung. Die bisherigen drei Registereinträge bleiben ungeprüft; kein Fachreview oder Wirksamkeitsnachweis wird aus der Versionsnummer abgeleitet.
+
+## 2026-11-05 · Fliegender Baum und Selbstprüfung · redaktioneller Entwurf
+- Gesamtansicht in DE/EN mit sechs Arbeitsebenen, 22 mehrfach zugeordneten Themen, sichtbaren Lücken und verlinkten Änderungsvorschlägen.
+- Drei öffentliche Issues B-01–B-03 mit zwölf Selbstkritikfragen, konkreten Ausgangsstellen, Einwänden und Revisionsbedingungen veröffentlicht.
+- These 05 um die bereits im Register benannte Grenze dauerhafter Unterstützung ergänzt; in These 09 „bessere Menschen“ zu „andere Menschen“ präzisiert und die Sprachfassungen angeglichen.
+- Gesamtprüfung und vorläufigen Einspruchsweg dokumentiert. Kein neuer Wirksamkeitsnachweis und keine unabhängige Begutachtung behauptet.
+- Redaktionelle Änderungen werden gemeinsam als Pull Request zur menschlichen Entscheidung vorgelegt.
+
+## 0.9 · 2026-11-05 – Gemeinsame Mission
+- Startseite als konzentrierten Einstieg in ein offenes Erkenntnissystem neu gestaltet; bestehende Kapitel bleiben erreichbar.
+- Raumschiff als Organisationsbild: Kompass, Karte, Instrumente, Prüfstand, Antrieb und Logbuch.
+- Wissensraum, Forschungsraum und Entscheidungsraum konzeptionell getrennt.
+- Aussageart, Begründungslage und Prüfstatus statt einer einzigen Wahrheitsleiter.
+- Drei ungeprüfte, zweisprachige Registereinträge mit Kennungen, Gegenargumenten, Revisionsbedingungen, Herkunft und JSON-Export.
+- Faire Vergütung, Erholung, transparente Finanzierung und menschliche Verantwortlichkeit in der Mission verankert.
+- Roadmap auf einen kleinen geprüften Bestand, Vergleich der Methode und institutionelle Tragfähigkeit ausgerichtet.
+- Register-Prüfungen und Build-Kontrollen erweitert; keine neuen automatischen redaktionellen Schreibrechte.
+
 ## 0.6.0 – 2026-11-05
 - „Politik, die dem Menschen dient / Politics That Serves People“ als überparteilichen Forschungsentwurf zweisprachig ergänzt.
 - Sechs normative Ausgangspunkte, fünf offene empirische Hypothesen und mehrere legitime politische Zielkonflikte ausformuliert.

@@ -1,0 +1,155 @@
+---
+import Layout from "../layouts/SiteLayout.astro";
+import copy from "../lib/mission-copy.json";
+import {pathFor} from "../lib/paths.mjs";
+import {ui} from "../lib/ui.mjs";
+import project from "../../public/project.json" with {type: "json"};
+
+const {lang = "de"} = Astro.props;
+const t = copy[lang];
+---
+<Layout lang={lang} slug="index">
+  <section class="home-opening" aria-labelledby="home-heading">
+    <div class="container home-pair">
+      <div class="home-intro">
+        <p class="section-kicker">{ui[lang].name} · {ui[lang].subtitle}</p>
+        <h1 id="home-heading">{t.headline} <em>{t.headlineAccent}</em></h1>
+        <p class="home-invitation">{t.invitation}</p>
+        <p class="home-lead">{t.lead}</p>
+        <div class="button-row">
+          <a class="button button--gold" href={pathFor(lang, "spiel")}>{t.play}</a>
+          <a class="home-link" href={pathFor(lang, "erkenntnisnavigator")}>{t.ownQuestion}</a>
+        </div>
+        <p class="home-note">{t.playNote}</p>
+      </div>
+      <article class="home-example" aria-labelledby="home-example-title">
+        <div class="example-heading"><p>{t.exampleLabel}</p><span>{t.exampleId}</span></div>
+        <h2 id="home-example-title">{t.exampleTitle}</h2>
+        <p class="example-body">{t.exampleText}</p>
+        <a class="home-link" href={pathFor(lang, "methode") + "#g-005"}>{t.exampleLink} <span aria-hidden="true">→</span></a>
+      </article>
+    </div>
+  </section>
+
+  <section class="home-practice container" aria-labelledby="practice-title">
+    <h2 id="practice-title">{t.practiceTitle}</h2>
+    <ol>{t.practiceSteps.map(([title, text]) => <li><strong>{title}</strong><p>{text}</p></li>)}</ol>
+    <p class="home-practice-note">{t.practiceNote}</p>
+  </section>
+
+  <section class="home-explore" aria-labelledby="explore-title">
+    <div class="container home-pair">
+      <div>
+        <p class="section-kicker">{t.exploreLabel}</p>
+        <h2 id="explore-title">{t.exploreTitle}</h2>
+        <p><strong>{t.motto}</strong></p>
+        <p>{t.consensusLimit} <a class="home-link" href={pathFor(lang, "schnittmengen", "sprachprobe")}>{lang === "de" ? "Die Sprachprobe zu zweit ausprobieren" : "Try the conversation exercise with someone"} →</a></p>
+        <p>{t.exploreText}</p>
+        <a class="home-link" href={pathFor(lang, "baum-des-wissens")}>{t.treeLink} <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="home-groups">
+        <details>
+          <summary>{t.bringQuestion}</summary>
+          <p>{t.privacy}</p>
+          <ul>
+            <li><a href={pathFor(lang, "erkenntnisnavigator")}>{lang === "de" ? "Passende Ansätze finden und Voraussetzungen prüfen" : "Find possible approaches and check their conditions"}</a></li>
+            <li><a href={pathFor(lang, "werkstatt")}>{t.worksheet}</a></li>
+            <li><a href={project.repository + "/issues/new?template=frage.yml"}>{t.publicQuestion} <span aria-hidden="true">↗</span></a></li>
+          </ul>
+        </details>
+        {t.groups.map(group => (
+          <details>
+            <summary>{group.title}</summary>
+            <p>{group.text}</p>
+            <ul>{group.links.map(([label, slug]) => <li><a href={pathFor(lang, slug)}>{label}</a></li>)}</ul>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <aside class="home-status container">
+    <span>{ui[lang].name} {project.version}</span>
+    <p>{t.status}</p>
+    <a class="home-link" href={pathFor(lang, "projektstatus")}>{t.statusLink} <span aria-hidden="true">→</span></a>
+  </aside>
+</Layout>
+
+<style>
+  .home-opening {
+    padding-block: clamp(2.8rem, 6vw, 6rem);
+    background: radial-gradient(ellipse at 80% 25%, #28372f60, transparent 55%), var(--ink);
+    border-bottom: 1px solid var(--line);
+  }
+  .home-pair {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    align-items: center;
+    gap: clamp(2.5rem, 7vw, 7rem);
+  }
+  .home-intro h1 {
+    margin: .18em 0 .3em;
+    font-size: clamp(3.5rem, 6.7vw, 6.8rem);
+    letter-spacing: -.05em;
+    line-height: 1.05;
+  }
+  .home-intro h1 em { color: var(--gold-bright); font-weight: 400; }
+  .home-lead { max-width: 40rem; font-size: clamp(1.08rem, 1.6vw, 1.32rem); line-height: 1.65; }
+  .home-invitation { color: var(--gold-bright); max-width: 35rem; }
+  .home-practice { padding-block: 2rem; border-bottom: 1px solid var(--line); }
+  .home-practice h2 { font-size: clamp(1.7rem, 3vw, 2.5rem); }
+  .home-practice ol { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.3rem 2.5rem; padding-left: 1.5rem; }
+  .home-practice li::marker { color: var(--gold-bright); }
+  .home-practice li p { margin: .3rem 0 0; }
+  .home-practice-note { max-width: 54rem; font-size: .95rem; }
+  .home-intro .button-row { margin-top: 1.7rem; gap: 1rem 1.4rem; }
+  .home-note { max-width: 35rem; font-size: .85rem; margin: .9rem 0 0; }
+  .home-link, .home-groups a { text-decoration: underline; text-underline-offset: .23em; }
+  .home-link { color: var(--gold-bright); font-size: .95rem; }
+  .home-example {
+    padding: clamp(1.4rem, 3vw, 2.9rem);
+    border-top: .32rem solid #ae8d56;
+    background: #e8dfcb;
+    color: #232827;
+  }
+  .example-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-bottom: .9rem;
+    border-bottom: 1px solid #9b947e;
+    color: #4c493c;
+    font: 600 .72rem/1.5 var(--sans);
+    letter-spacing: .13em;
+    text-transform: uppercase;
+  }
+  .example-heading p { color: inherit; margin: 0; }
+  .home-example h2, .home-explore h2 {
+    margin: .62em 0 .44em;
+    font-size: clamp(2rem, 3.1vw, 3.2rem);
+    line-height: 1.11;
+    letter-spacing: -.035em;
+  }
+  .example-body { color: #3e4239; line-height: 1.65; margin-bottom: 1.25rem; }
+  .home-example .home-link { color: #342d1d; font-weight: 600; }
+  .home-example .home-link:focus-visible { outline-color: #493515; }
+  .home-explore { padding-block: clamp(2.8rem, 5vw, 5rem); }
+  .home-explore .home-pair { align-items: start; }
+  .home-explore .home-pair > div > p:not(.section-kicker) { max-width: 35rem; }
+  .home-groups { border-top: 1px solid var(--line); }
+  .home-groups details { border-bottom: 1px solid var(--line); }
+  .home-groups summary { padding-block: 1.1rem; color: var(--text); cursor: pointer; font-size: 1.08rem; }
+  .home-groups summary::marker { color: var(--gold); }
+  .home-groups summary:focus-visible { outline: 2px solid var(--gold-bright); outline-offset: 3px; }
+  .home-groups ul { list-style: none; padding: 0; margin: 0 0 1.3rem; }
+  .home-groups a { display: inline-block; color: var(--gold-bright); padding: .25rem 0; }
+  .home-status { display: flex; flex-wrap: wrap; align-items: baseline; gap: .5rem 1.3rem; padding-block: 1.2rem; border-top: 1px solid var(--line); }
+  .home-status > span { color: var(--gold); font-size: .8rem; font-weight: 600; }
+  .home-status p { flex: 1 1 20rem; margin: 0; font-size: .9rem; }
+  @media (max-width: 780px) {
+    .home-practice ol { grid-template-columns: minmax(0, 1fr); }
+    .home-pair { grid-template-columns: minmax(0, 1fr); gap: 2.2rem; }
+    .home-explore .home-pair { gap: 1.5rem; }
+  }
+</style>

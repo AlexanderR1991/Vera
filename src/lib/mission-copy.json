@@ -1,0 +1,238 @@
+{
+  "de": {
+    "headline": "Was ist",
+    "headlineAccent": "wirklich?",
+    "lead": "Du stehst im Supermarkt. An der linken Kasse warten zwei Leute, rechts vier. Wo stellst du dich an?",
+    "play": "Eine Runde spielen",
+    "playNote": "Ohne Anmeldung. Ohne Zeitdruck. Du kannst auch laut mitdenken.",
+    "bringQuestion": "Meine eigene Frage mitbringen",
+    "worksheet": "Meine Frage im Prüfblatt untersuchen",
+    "publicQuestion": "Öffentlich auf GitHub fragen",
+    "privacy": "Das Prüfblatt bleibt auf deinem Gerät. Für eine öffentliche Frage brauchst du ein GitHub-Konto.",
+    "exampleLabel": "Aus der Werkstatt",
+    "exampleId": "These 05",
+    "exampleTitle": "Muss gute Hilfe zur Selbstständigkeit führen?",
+    "exampleText": "„Hilf so, dass der andere seine eigene Kraft findet.“ Wer auf Dauer Hilfe braucht, könnte darin die Erwartung hören, irgendwann allein zurechtzukommen. Im Grundtext steht heute ausdrücklich, welchen Wert dauerhafte Unterstützung hat.",
+    "exampleLink": "Die Änderung nachvollziehen",
+    "exploreLabel": "Weiterdenken",
+    "exploreTitle": "Woran möchtest du arbeiten?",
+    "motto": "Mit Philosophie die Menschheit zum Konsens führen.",
+    "exploreText": "Eine Maschine spart uns eine Stunde Arbeit. Wem gehört diese Stunde? Frag jemanden, der anders darüber denkt. Worauf könnt ihr euch einigen?",
+    "treeLink": "Im Themenbaum stöbern",
+    "status": "Die unabhängige Fachprüfung der Beispiele und die Erprobung der Methode stehen aus.",
+    "statusLink": "Projektstand ansehen",
+    "groups": [
+      {
+        "title": "Eine Frage aus dem Leben verfolgen",
+        "text": "Lies einen Werkstatttext und prüfe, ob seine Gründe auch in deiner Situation tragen.",
+        "links": [
+          [
+            "Liebe und Fürsorge",
+            "warum-liebe-wirkt"
+          ],
+          [
+            "Politik und Zusammenleben",
+            "politik-die-dem-menschen-dient"
+          ],
+          [
+            "Ernährung",
+            "ernaehrung-und-verantwortung"
+          ],
+          [
+            "Frieden und Schutz",
+            "militaer-und-verantwortung"
+          ],
+          [
+            "Religion und Sinn",
+            "bruecken-zwischen-den-religionen"
+          ],
+          [
+            "Kunst und Erkenntnis",
+            "kunst-und-erkenntnis"
+          ],
+          [
+            "Grenzen des Erkennbaren",
+            "erkenntnishorizont"
+          ]
+        ]
+      },
+      {
+        "title": "Aus vorhandenem Wissen eine neue Idee entwickeln",
+        "text": "Welche Vermutung ergibt sich aus dem, was du schon weißt? Im Forschungsstrom findest du ungeprüfte Quellenhinweise. In der Werkstatt kannst du an einem Modell ausprobieren, was deine Vermutung vorhersagt.",
+        "links": [
+          [
+            "Quellenhinweise erkunden",
+            "forschungsstrom"
+          ],
+          [
+            "Esoterik und Mathematik ausprobieren",
+            "esoterik-und-mathematik"
+          ],
+          [
+            "Mit dem KI-Prompt weiterfragen",
+            "fragen-und-ki-prompt"
+          ]
+        ]
+      },
+      {
+        "title": "Dem Projekt widersprechen",
+        "text": "Auch unsere eigenen Regeln stehen zur Prüfung. Bei jedem Registereintrag kannst du nachlesen, was wir behaupten, welche Einwände vorliegen und was uns umstimmen würde.",
+        "links": [
+          [
+            "Aussagenregister öffnen",
+            "aussagen"
+          ],
+          [
+            "Gegenargumente prüfen",
+            "angriffsschwarm"
+          ],
+          [
+            "Unsere Mission lesen",
+            "mission"
+          ],
+          [
+            "Eine Korrektur vorschlagen",
+            "mitwirken"
+          ]
+        ]
+      }
+    ],
+    "invitation": "Gemeinsam klüger werden. Irrtum für Irrtum.",
+    "ownQuestion": "Mit meiner eigenen Frage starten",
+    "practiceTitle": "Du musst nicht schon Bescheid wissen.",
+    "practiceSteps": [
+      [
+        "Vermuten",
+        "Was denkst du gerade? Auch „weiß ich noch nicht“ passt."
+      ],
+      [
+        "Prüfen",
+        "Was spricht dafür? Was könnte dagegen sprechen?"
+      ],
+      [
+        "Weiterdenken",
+        "Bleibst du dabei, änderst du etwas oder lässt du es offen? Warum?"
+      ]
+    ],
+    "practiceNote": "Hier gibt es keine Punkte für die „richtige“ Meinung. Ein guter Grund kann dich umstimmen – oder deine Antwort stützen. Du bestimmst, wie tief du einsteigst.",
+    "consensusLimit": "Gemeinsamkeiten suchen, Unterschiede ehrlich stehen lassen. Niemand muss zustimmen, und Einigkeit allein beweist nichts."
+  },
+  "en": {
+    "headline": "What is",
+    "headlineAccent": "real?",
+    "lead": "You're at the supermarket. Two people are waiting at the checkout on the left, four on the right. Which line do you join?",
+    "play": "Play a round",
+    "playNote": "No sign-up. No time limit. You can think out loud, too.",
+    "bringQuestion": "Bring a question of my own",
+    "worksheet": "Work through my question",
+    "publicQuestion": "Ask publicly on GitHub",
+    "privacy": "Your worksheet stays on your device. You’ll need a GitHub account to ask a public question.",
+    "exampleLabel": "From the workshop",
+    "exampleId": "Thesis 05",
+    "exampleTitle": "Does good care have to lead to independence?",
+    "exampleText": "One of our principles asks us to help people find their own strength. Where does that leave someone who will always need support? That objection changed the wording of our foundational text.",
+    "exampleLink": "See what changed and why",
+    "exploreLabel": "Explore",
+    "exploreTitle": "What would you like to work on?",
+    "motto": "To guide humanity toward consensus through philosophy.",
+    "exploreText": "A machine saves us an hour of work. Whose hour is it? Ask someone who sees it differently. What can you agree on?",
+    "treeLink": "Browse the topic tree",
+    "status": "The examples still await independent expert review. The method’s effectiveness also remains an open question.",
+    "statusLink": "View project status",
+    "groups": [
+      {
+        "title": "Explore a question from everyday life",
+        "text": "Read a workshop essay and consider whether its reasoning holds up in your own circumstances.",
+        "links": [
+          [
+            "Love and care",
+            "warum-liebe-wirkt"
+          ],
+          [
+            "Politics and society",
+            "politik-die-dem-menschen-dient"
+          ],
+          [
+            "Food and responsibility",
+            "ernaehrung-und-verantwortung"
+          ],
+          [
+            "Peace and protection",
+            "militaer-und-verantwortung"
+          ],
+          [
+            "Religion and meaning",
+            "bruecken-zwischen-den-religionen"
+          ],
+          [
+            "Art and inquiry",
+            "kunst-und-erkenntnis"
+          ],
+          [
+            "Limits of knowledge",
+            "erkenntnishorizont"
+          ]
+        ]
+      },
+      {
+        "title": "Develop an idea from what you already know",
+        "text": "What might follow from what you know so far? The research stream offers leads that still need checking. In the workshop you can use a model to explore what your idea would predict.",
+        "links": [
+          [
+            "Browse research leads",
+            "forschungsstrom"
+          ],
+          [
+            "Try the esotericism and mathematics workshop",
+            "esoterik-und-mathematik"
+          ],
+          [
+            "Take the inquiry prompt to an AI",
+            "fragen-und-ki-prompt"
+          ]
+        ]
+      },
+      {
+        "title": "Challenge the project",
+        "text": "Our own rules are open to challenge. Each entry in the register records our reasoning, objections and what would change our minds.",
+        "links": [
+          [
+            "Open the claim register",
+            "aussagen"
+          ],
+          [
+            "Examine objections",
+            "angriffsschwarm"
+          ],
+          [
+            "Read our mission",
+            "mission"
+          ],
+          [
+            "Suggest a correction",
+            "mitwirken"
+          ]
+        ]
+      }
+    ],
+    "invitation": "Learn together. One correction at a time.",
+    "ownQuestion": "Start with my own question",
+    "practiceTitle": "You do not need to know the answer.",
+    "practiceSteps": [
+      [
+        "Guess",
+        "What do you think? “I do not know yet” is welcome."
+      ],
+      [
+        "Check",
+        "What supports your idea? What might count against it?"
+      ],
+      [
+        "Think again",
+        "Keep your answer, change it or leave it open. What is your reason?"
+      ]
+    ],
+    "practiceNote": "There are no points for the “right” opinion. A good reason may change your mind or support your answer. You choose how far to explore.",
+    "consensusLimit": "Look for common ground and record differences honestly. No one has to agree, and agreement alone proves nothing."
+  }
+}

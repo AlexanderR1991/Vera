@@ -1,152 +1,57 @@
-# Grundtext des Wirklichen · Foundations of Reality
+# WIRKLICH / REALLY?
 
-> **Die Menschheit hat über Jahrtausende versucht, Bücher zu schreiben, die für immer recht haben.**
->
-> **Was wäre, wenn wir eines schreiben, das für immer lernen darf?**
+**Die offene Erkenntniswerkstatt · The open inquiry workshop**
 
-*For thousands of years, humanity has tried to write books that would be right forever. What if we wrote one that could keep learning forever?*
+**Mit Philosophie die Menschheit zum Konsens führen.** Hier kann jeder eine Frage stellen. Wenn unsere Antworten auseinandergehen, suchen wir nach einem Punkt, den wir aus eigenen Gründen mittragen. Was strittig bleibt, halten wir fest. Unsere philosophische Grundlage ist der [Grundtext des Wirklichen](docs/grundtext.md).[^ursprung]
 
-**Ein offenes, korrigierbares Erkenntnisprojekt. / An open, revisable project of inquiry.**
+**To guide humanity toward consensus through philosophy.** Anyone can bring a question. When our answers differ, we look for a point we can each agree on for our own reasons. We record where we still disagree.
 
-[Website & Sprachauswahl](https://alexanderr1991.github.io/grundtext-des-wirklichen/) · [Deutsch](https://alexanderr1991.github.io/grundtext-des-wirklichen/de/) · [English draft](https://alexanderr1991.github.io/grundtext-des-wirklichen/en/)
+| Einstieg | Deutsch | English |
+| --- | --- | --- |
+| Eine Minute spielen · Play a one-minute round | [Auf den zweiten Blick](https://alexanderr1991.github.io/Wirklich/de/spiel/) | [A second look](https://alexanderr1991.github.io/Wirklich/en/spiel/) |
+| Die Werkstatt kennenlernen · Visit the workshop | [Startseite](https://alexanderr1991.github.io/Wirklich/de/) | [Home](https://alexanderr1991.github.io/Wirklich/en/) |
+| Eine echte Korrektur lesen · Follow a real revision | [Wann ist Hilfe gut?](https://alexanderr1991.github.io/Wirklich/de/methode/#g-005) | [What makes help good?](https://alexanderr1991.github.io/Wirklich/en/methode/#g-005) |
+| Eine Frage für sich prüfen · Work privately | [Prüfblatt öffnen](https://alexanderr1991.github.io/Wirklich/de/werkstatt/) | [Open a worksheet](https://alexanderr1991.github.io/Wirklich/en/werkstatt/) |
+| Eine passende Verbindung finden · Find a relevant connection | [Erkenntnisnavigator](https://alexanderr1991.github.io/Wirklich/de/erkenntnisnavigator/) | [Knowledge navigator](https://alexanderr1991.github.io/Wirklich/en/erkenntnisnavigator/) |
+| Eine Frage öffentlich stellen · Ask in public | [GitHub-Frageformular](https://github.com/AlexanderR1991/Wirklich/issues/new?template=frage.yml) | [GitHub question form](https://github.com/AlexanderR1991/Wirklich/issues/new?template=frage.yml) |
 
-## Stellt uns Fragen! / Ask us questions!
+## Gemeinsam klüger werden · Learn together
 
-**Die einfachen. Die unbequemen. Die, die unser Regelwerk verändern könnten.** Ihr braucht weder Vorwissen noch Zustimmung. Wir wollen erklären, begründen und korrigieren – und offen sagen, was wir nicht wissen.
+**Irrtum für Irrtum:** vermuten, prüfen und begründet weiterdenken. Vier erfundene Alltagskarten und drei freiwillige Einstiegsfragen im Prüfblatt bilden den Anfang. Wer genauer prüfen möchte, öffnet weitere Fragen. Begründetes Beibehalten und Offenlassen sind ebenso möglich wie eine Korrektur. [Konzept, Selbstangriff und offene Grenzen](docs/emporirren.md) · [Erster Nutzungspilot](docs/spielpilot.md)
 
-Unser **öffentlicher Erkenntnisprompt 1.0** nimmt die Methode mit in ein KI-Gespräch: Aussagearten trennen, Belege prüfen, das stärkste Gegenargument suchen und Revision ermöglichen. Er prüft auch sich selbst. Seine Wirksamkeit ist noch nicht systematisch untersucht; er garantiert keine richtigen Antworten.
+Four fictional everyday cards and three optional worksheet prompts offer a simple start. Depth is optional. Keeping a well-supported answer and leaving a question open are valid outcomes. Accessibility across needs and independent learning transfer still need real-world testing.
 
-**Bring the simple questions, the difficult ones, and those that might change our framework.** The public inquiry prompt asks an AI to examine evidence, objections and its own assumptions. It remains open to correction and has not been systematically evaluated.
+## Woran wir arbeiten · What we do
 
-- [Fragen & KI-Prompt · Deutsch](https://alexanderr1991.github.io/grundtext-des-wirklichen/de/fragen-und-ki-prompt/)
-- [Questions & AI prompt · English](https://alexanderr1991.github.io/grundtext-des-wirklichen/en/fragen-und-ki-prompt/)
-- [Prompt DE](public/prompts/erkenntnisprompt-v1.de.txt) · [Prompt EN](public/prompts/erkenntnisprompt-v1.en.txt) · [Konzept / Concept](docs/erkenntnisprompt.md)
+Bei einer Tatsachenfrage suchen wir Belege und Gegenbelege. Bei einer Wertfrage legen wir den Maßstab offen und hören auf die Menschen, die mit den Folgen leben. Aus vorhandenen Erkenntnissen kann eine neue Vermutung entstehen. Wir formulieren, woran sie scheitern könnte. Ein begründeter Dissens kann das Ergebnis sein. [Methode](docs/methode.md) · [Mission](docs/mission.md)
 
-## Austausch / Discussions
+The topic map connects questions across disciplines. Each claim record gives its scope, reasons, strongest objection, review status and revision history. Research feeds collect leads. People decide which revisions enter the public record. [Explore topics](https://alexanderr1991.github.io/Wirklich/en/baum-des-wissens/) · [Inspect the register](https://alexanderr1991.github.io/Wirklich/en/aussagen/)
 
-[Im offenen Forum diskutieren / Join our discussions](https://github.com/AlexanderR1991/grundtext-des-wirklichen/discussions) · [Begrüßung als Vorlage / Welcome draft](docs/community/welcome-discussion.md)
+## Stand und offene Prüfung · Status and open work
 
-**Discussions** ist der Ort für offene Fragen und Gespräche. **Issues** sind für konkrete Aufgaben und überprüfbare Einwände; **Pull Requests** schlagen tatsächliche Änderungen an Text oder Code vor.
+Der **Erkenntnisnavigator** ergänzt den Baum um vier redaktionelle Entwurfskarten. Eine lokale Stichwortsuche schlägt Ansätze vor; ihre Voraussetzungen müssen einzeln bestätigt, verneint oder offengelassen werden. Freiwillige Reflexion und Textausgabe bleiben im Browser, bis jemand selbst eine Datei exportiert. Keine laufende KI, kein menschlicher Gesamtwert und keine automatische Übernahme ins Aussagenregister. [Architektur und Evaluationsplan](docs/erkenntnisnavigator.md)
 
-## Mitmachen / Contribute
+The **knowledge navigator** offers four editorial draft connections, explicit applicability checks and an optional private reflection note. It uses bounded local keyword search, not live AI. Its usefulness compared with ordinary search has not yet been evaluated.
 
-**Du musst nicht programmieren können. / You do not need programming skills.**
+Version **1.0.0** stellt das lokale Prüfblatt mit Import und Export bereit. Die öffentlichen Zahlen zum Aussagenbestand und zu dokumentierten Reviews werden aus dem Register berechnet. Ob das Prüfblatt Menschen zu besser begründeten Urteilen verhilft, ist eine offene Forschungsfrage. [Projektstatus](https://alexanderr1991.github.io/Wirklich/de/projektstatus/) · [Vergleichsprotokoll](docs/evaluation-v1.md)
 
-- [Eine Frage stellen / Ask a question](https://github.com/AlexanderR1991/grundtext-des-wirklichen/issues/new?template=frage.yml)
-- [Idee einreichen / Propose an idea](https://github.com/AlexanderR1991/grundtext-des-wirklichen/issues/new?template=idee.yml)
-- [Quelle prüfen / Examine a source](https://github.com/AlexanderR1991/grundtext-des-wirklichen/issues/new?template=quellenpruefung.yml)
-- [Übersetzung verbessern / Improve a translation](https://github.com/AlexanderR1991/grundtext-des-wirklichen/issues/new?template=uebersetzung.yml)
-- [Kritik an einer These / Challenge a thesis](https://github.com/AlexanderR1991/grundtext-des-wirklichen/issues/new?template=kritik.yml)
-- [Bereits offene Themen / Open issues](https://github.com/AlexanderR1991/grundtext-des-wirklichen/issues)
+The [status page](https://alexanderr1991.github.io/Wirklich/en/projektstatus/) shows what has been reviewed. The next goals are ten claims examined by qualified human reviewers, a comparison with ordinary source checking and an independent route for appeals. [Roadmap](docs/roadmap.md) · [Governance](docs/community-governance.md) · [Funding](docs/finanzierung.md)
 
-Wenn du die Website oder einen Text direkt verbessern möchtest, erstelle einen **Pull Request**. Wie das ohne Vorkenntnisse geht, steht in [CONTRIBUTING.md](CONTRIBUTING.md). / To edit the website or its texts, open a pull request; see the bilingual [contribution guide](CONTRIBUTING.md).
+## Mitwirken · Contribute
 
-## Horizont des Erkennbaren / Horizon of the Knowable
+Eine Frage braucht nur einen verständlichen Satz. Für einen Einwand helfen die genaue Stelle, dein Grund und eine mögliche Korrektur. Redaktionelle Änderungen werden in einem öffentlichen Pull Request begründet und von einem verantwortlichen Menschen freigegeben. [Beitragsleitfaden / Contribution guide](CONTRIBUTING.md) · [Kritik einreichen / Challenge a claim](https://github.com/AlexanderR1991/Wirklich/issues/new?template=angriff.yml) · [Erkenntnisprompt / Inquiry prompt](docs/erkenntnisprompt.md)
 
-Ein neues zweisprachiges Kapitel untersucht den Erkenntnishorizont als **philosophisches Modell**. M steht für den Menschen, a/b für frühere und gegenwärtige Möglichkeiten der Erkenntnis, x₁–x₃ für unbekannte oder ungeprüfte Kandidaten und x₄ für einen denkbaren künftigen Zugang. **Unbekannt bedeutet nicht wahr.** Die Darstellung untersucht auch, wie Philosophie, Mathematik, Wissenschaft und KI bei der Suche helfen können, ohne Beweise zu ersetzen.
+## Lokal entwickeln · Local development
 
-Das ursprüngliche Foto einer Handskizze bleibt privat; die Website verwendet eine eigenständige zugängliche SVG-Illustration.
-
-[Deutsch: Der Horizont des Erkennbaren](https://alexanderr1991.github.io/grundtext-des-wirklichen/de/erkenntnishorizont/) · [English: The Horizon of the Knowable](https://alexanderr1991.github.io/grundtext-des-wirklichen/en/erkenntnishorizont/)
-
-## Warum Liebe wirkt / Why Love Works
-
-**Ein neuer Forschungsbereich (Version 0.5)** untersucht Liebe als biologisches, psychologisches und ethisches Phänomen. Er trennt romantische Anziehung, Bindung und Fürsorge; behandelt bestehende wissenschaftliche Befunde, vier **nicht vorregistrierte** Hypothesen (L-A bis L-D) und Gegenmodelle zu Abhängigkeit, Selbstaufgabe, Kontrolle und Gewalt.
-
-**Wir behaupten nicht, Liebe universell bewiesen zu haben.** Wir untersuchen stattdessen, unter welchen Bedingungen fürsorgliche Beziehungen Gesundheit, Autonomie und Kooperation fördern könnten – und wann nicht. Korrelation ist kein Kausalnachweis; eine philosophische Definition ist kein naturwissenschaftliches Gesetz.
-
-- [Deutsch: Warum Liebe wirkt](https://alexanderr1991.github.io/grundtext-des-wirklichen/de/warum-liebe-wirkt/)
-- [English: Why Love Works (translation draft)](https://alexanderr1991.github.io/grundtext-des-wirklichen/en/warum-liebe-wirkt/)
-- [Offenes Forschungsprogramm mit Quellen](docs/forschungsprogramm-liebe.md)
-
-## Politik, die dem Menschen dient / Politics That Serves People
-
-**Liber Civitatis (Version 0.6)** behandelt Politik als Frage nach legitimer und begrenzter Macht. Die deutsche und englische Fassung verbinden Menschenwürde, Freiheitsrechte, demokratische Legitimation, Rechtsstaat, soziale Handlungsmöglichkeiten und Korrigierbarkeit mit ernsthaften Zielkonflikten.
-
-**Kein Parteiprogramm und keine wissenschaftlich bewiesene Staatslehre.** Wir vergleichen alternative politische Ziele und Instrumente, stellen überprüfbare Hypothesen P-A bis P-E auf und benennen die Grenzen unserer Quellen. Ein eigener Abschnitt untersucht, wie KI Arbeit, Macht und Chancen verändern könnte, ohne Gewissheit über ihre Zukunft zu behaupten.
-
-- [Deutsch: Politik, die dem Menschen dient](https://alexanderr1991.github.io/grundtext-des-wirklichen/de/politik-die-dem-menschen-dient/)
-- [English: Politics That Serves People (translation draft)](https://alexanderr1991.github.io/grundtext-des-wirklichen/en/politik-die-dem-menschen-dient/)
-- [Offene Forschungsagenda und Quellen](docs/forschungsprogramm-politik.md)
-
-## Brücken zwischen den Religionen / Bridges Between Religions
-
-**WIR BAUEN BRÜCKEN ZWISCHEN DEN RELIGIONEN.**
-
-Nicht, damit alle dasselbe glauben. Sondern damit wir einander verstehen, ohne die Wahrheitssuche aufzugeben.
-
-Ein zweisprachiges theologisches Kapitel eröffnet einen respektvollen, aber kritischen Dialog mit religiösen und nichtreligiösen Weltanschauungen. Unterschiede werden nicht geleugnet, Gewissensfreiheit und Widerspruch gehören dazu. Es wird **keine religiöse Einheitswahrheit** behauptet.
-
-- [Deutsch: Brücken zwischen den Religionen](https://alexanderr1991.github.io/grundtext-des-wirklichen/de/bruecken-zwischen-den-religionen/)
-- [English: Bridges Between Religions](https://alexanderr1991.github.io/grundtext-des-wirklichen/en/bruecken-zwischen-den-religionen/)
-- [Dialogprinzipien und Forschungsfragen](docs/theologischer-dialog.md)
-
-## Militär, Frieden und Verantwortung / Military Power, Peace and Responsibility
-
-**Liber Custodiae (Version 0.7)** untersucht organisierte Gewalt, Selbstverteidigung, das humanitäre Völkerrecht, zivile Kontrolle und Frieden als schwierige Fragen menschlicher Verantwortung. Es trennt das *Recht zur Gewaltanwendung* (jus ad bellum) strikt von den *Regeln im bewaffneten Konflikt* (jus in bello), zeigt konkurrierende ethische Perspektiven und vier ungeprüfte Forschungsfragen M-A bis M-D.
-
-**Keine Glorifizierung militärischer Macht, keine Einsatzanleitung und kein Anspruch auf eine mathematisch bewiesene Kriegs- oder Friedensethik.** Menschenwürde, rechtliche Schutzgrenzen und überprüfbare Rechenschaft haben Vorrang vor jeder philosophischen Gesamtpunktzahl.
-
-- [Deutsch: Militär und Verantwortung](https://alexanderr1991.github.io/grundtext-des-wirklichen/de/militaer-und-verantwortung/)
-- [English: Military Power and Responsibility (translation draft)](https://alexanderr1991.github.io/grundtext-des-wirklichen/en/militaer-und-verantwortung/)
-- [Offenes Forschungsprogramm mit Quellen](docs/forschungsprogramm-militaer.md)
-
-## Ernährung, Leben und Verantwortung / Nutrition and Responsibility
-
-**Liber Alimenti (Version 0.8)** verbindet Zellbiologie und Stoffwechsel mit evidenzbasierter Ernährung, Lebensmittelzugang, persönlicher Freiheit, Tierwohl und ökologischen Folgen. Eine einfache Warum-Frage führt zur wissenschaftlichen Prüfung: Was benötigt der Körper? Welche Aussagen sind wirklich belegt? Wie behandeln wir Zielkonflikte, ohne Menschen für ihre Ernährung zu verurteilen?
-
-**Keine Ernährungsreligion und kein universell bewiesener Speiseplan.** Das deutsch-englische Kapitel stützt sich auf WHO-Leitlinien (2026), DGE-Empfehlungen und die DGE-Neubewertung veganer Ernährung (2024) sowie WHO/FAO-Prinzipien für nachhaltige Ernährung (2019). Vier offene Forschungsfragen E-A bis E-D sind ausdrücklich nicht vorregistriert oder bestätigt.
-
-- [Deutsch: Ernährung und Verantwortung](https://alexanderr1991.github.io/grundtext-des-wirklichen/de/ernaehrung-und-verantwortung/)
-- [English: Nutrition and Responsibility (translation draft)](https://alexanderr1991.github.io/grundtext-des-wirklichen/en/ernaehrung-und-verantwortung/)
-- [Offenes Forschungsprogramm, Evidenzstand und Quellen](docs/forschungsprogramm-ernaehrung.md)
-
-## Angriffsschwarm / Adversarial Swarm
-
-**Greift unsere Thesen an.** Der Angriffsschwarm stellt öffentliche Behauptungen täglich einem KI-gestützten Gegenargument, einer fairen Verteidigung und einer kritischen Einordnung gegenüber. Alle Ergebnisse sind **ungeprüfte KI-Entwürfe**, keine unabhängigen Fachgutachten; der tägliche Workflow benötigt einen konfigurierten API-Schlüssel.
-
-**Challenge our claims.** The daily adversarial review invites the strongest counterexamples, a steelmanned defense and transparent revision suggestions. Generated critiques are never treated as proven refutations. External agents and human critics are invited to submit grounded challenges, while editorial changes remain subject to human review.
-
-- [Deutsch: Angriffsschwarm](https://alexanderr1991.github.io/grundtext-des-wirklichen/de/angriffsschwarm/)
-- [English: Adversarial Swarm](https://alexanderr1991.github.io/grundtext-des-wirklichen/en/angriffsschwarm/)
-- [Einladung an Bots / Agent invitation](AGENTS.md)
-- [Prüfprotokoll / Review protocol](docs/angriffsschwarm.md)
-
-## Unser Anspruch / Our standard
-
-**Kritik ist willkommen, Zustimmung nicht erforderlich.** Die neun Leitsätze sind vorläufige, hauptsächlich philosophisch-normative Aussagen und keine wissenschaftlich bestätigte Gesamttheorie. Behauptungen über Tatsachen benötigen Quellen; Metaphern dürfen keine empirischen Belege ersetzen.
-
-**Disagreement is welcome; agreement is not required.** The English edition is a *machine-assisted translation draft* awaiting independent review.
-
-## Technische Struktur / Technical structure
-
-Die Website wird mit **Astro** als statische Seiten für **GitHub Pages** gebaut. Acht deutsche Originalseiten und acht englische Übersetzungsentwürfe nutzen dasselbe Layout, Sprachwechsel und Metadaten. Alte HTML-Adressen leiten auf die deutschen Seiten um. Die Original-HTML-Dateien und englischen Wörterbücher sind aktuell die redaktionelle Quelle; Markdown/MDX ist erst später geplant.
-
-**Lokal bauen / Build locally** (Node.js 22+):
+Node.js 22.12+ und Python 3.12 wie in CI. Nach der Installation startet `npm run dev` die lokale Vorschau. Der Produktionsbuild prüft die Inhalte und die erzeugten Seiten.
 
 ```sh
-npm install
-npm run dev
+npm ci
 npm run build
+python -m unittest discover -s tests -p 'test_*.py'
+npm run dev
 ```
 
-GitHub Actions prüft Änderungen in Pull Requests und veröffentlicht nur nach erfolgreicher Übernahme in `main`.
+Eigene Texte und Übersetzungen stehen unter CC BY-SA 4.0, eigener Code unter MIT. Hinweise zu fremden Werken und zum Signet stehen in den Lizenzdetails. [Licensing](LICENSING.md) · [Credits](AUTHORS.md)
 
-## Editorial und Rechtliches / Editorial and licensing
-
-- [Öffentliche Thesen / Public theses](docs/grundtext.md)
-- [Methode / Method](docs/methode.md)
-- [Internationalisierung / Internationalization](docs/internationalisierung.md)
-- [Beitragsleitfaden / Contribution guide](CONTRIBUTING.md)
-- [Diskussionskodex / Code of conduct](CODE_OF_CONDUCT.md)
-- [Roadmap](docs/roadmap.md)
-- [Verbindliche Lizenzzuordnung / License scope](LICENSING.md)
-- [Textlizenz / Content license – CC BY-SA 4.0](LICENSE-CONTENT.md)
-- [Softwarelizenz / Code license – MIT](LICENSE)
-- [Urhebernennung / Contributors](AUTHORS.md)
-
-**Unsere Originaltexte und Übersetzungen: CC BY-SA 4.0.** **Unsere Website-Software: MIT.** Die genaue Zuordnung – besonders bei HTML-Dateien mit Text und Code – erklärt [LICENSING.md](LICENSING.md). Signet/Markenkennzeichen und fremdes Material sind nicht pauschal freigegeben. Bitte nur Inhalte einreichen, für die du die entsprechenden Rechte besitzt.
-
-**Original written content and translations: CC BY-SA 4.0.** **Original website code: MIT.** Read [LICENSING.md](LICENSING.md) for mixed files and exclusions. Project branding and third-party works are not automatically included. Private manuscripts and personal data remain outside the project.
-
-*Entstanden auf menschliche Initiative mit KI-Unterstützung; fachliche Prüfung und redaktionelle Entscheidungen bleiben menschliche Aufgaben.*
+[^ursprung]: Die Projektidee entstand aus der Arbeit an *Die Richtung*. The German text edition is available here with its original credits. [Offene Textfassung 2.0](docs/archiv/die-richtung-2.0-lesefassung.txt) · [Rechte und Ausnahmen](LICENSING.md#die-richtung--open-book-text-edition)

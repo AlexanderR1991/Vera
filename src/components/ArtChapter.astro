@@ -1,0 +1,165 @@
+---
+import Layout from "../layouts/SiteLayout.astro";
+import {pathFor} from "../lib/paths.mjs";
+const {lang="de"}=Astro.props;
+const en=lang==="en";
+const t={
+de:{
+  kicker:"LIBER ARTIS · KUNST UND ERKENNTNIS",
+  title:"Kunst darf uns", accent:"widersprechen.",
+  lead:"Bilder, Musik, Literatur, Film, Tanz, Spiele und Performance gehören in dieses Projekt. Auch dort, wo sie unsere Begriffe sprengen, unsere Haltung irritieren oder sich einer eindeutigen Erklärung entziehen.",
+  motto:"Ein Werk muss unserem Regelwerk nicht gefallen, um uns etwas zu zeigen.",
+  status:"Offener philosophischer Entwurf · keine nachgewiesene Kunsttheorie",
+  why:"Warum gehört Kunst hierher?",
+  whyText:"Weil wir auch fragen wollen: Was übersehen wir? Wie fühlt sich eine Welt aus einer anderen Perspektive an? Was lässt sich zeigen, bevor wir es gut erklären können? Kunst darf solche Fragen stellen, ohne eine nützliche Antwort liefern zu müssen. Sie darf spielen, verstören, schön sein und zweckfrei bleiben.",
+  invitation:"Bringt uns das Werk, das unsere Lieblingsidee unbequem macht.",
+  invitationText:"Ein Gedicht über Fürsorge, die zur Kontrolle wird. Eine Fotografie, die unsere Vorstellung von Fortschritt stört. Ein Musikstück, über dessen Bedeutung wir uneinig bleiben. Kunst bekommt hier Raum für eigene Fragen und für Kritik an diesem Projekt.",
+  distinction:"Was genau liegt vor uns?",
+  columns:["Zugang","Frage","Was daraus folgt"],
+  rows:[
+    ["Werk und Kontext","Was sehen oder hören wir? Wer hat es wann geschaffen?","Werkbeschreibung, Herkunft und Kontext nachvollziehbar machen. Beschreibung und Deutung auseinanderhalten."],
+    ["Erleben und Deuten","Was löst es bei mir aus? Welche andere Lesart passt ebenfalls?","Eine Erfahrung ernst nehmen, ohne sie allen Menschen zuzuschreiben. Mehrere begründete Deutungen können bestehen bleiben."],
+    ["Überprüfbare Behauptung","Behaupten wir etwa, Kunst verringere Feindseligkeit?","Dann braucht diese Aussage Daten, Vergleichsbedingungen und Gegenbelege. Ein bewegendes Werk allein belegt ihre allgemeine Gültigkeit nicht."],
+    ["Werturteil","Was finden wir schön, gerecht oder schützenswert?","Maßstäbe offenlegen und diskutieren. Zustimmung, Schönheit und Reichweite entscheiden keine Sachfrage."]
+  ],
+  experiment:"Ein Anfang: Der leere Stuhl",
+  experimentNote:"Kurzer literarischer Entwurf dieses Projekts, mit KI-Unterstützung. Fiktive Szene; keine Beobachtung oder Studie.",
+  poem:["Wir stellten einen Stuhl für die Wahrheit auf.","Dann stritten wir, wer darauf sitzen darf.","Ein Kind trug ihn vor die Tür.","Dort wartete jemand, den wir nicht eingeladen hatten."],
+  questions:["Wer könnte die nicht eingeladene Person sein?","Steht der Stuhl für Autorität, Gastfreundschaft oder etwas anderes?","Verführt uns die schöne Geschichte dazu, ihren Gedanken vorschnell für wahr zu halten?"],
+  experimentEnd:"Diese Lesarten sind Angebote. Du darfst das Bild ablehnen, verändern oder eine andere Geschichte dagegenstellen.",
+  network:"Das ganze Netz darf Fragen stellen.",
+  networkText:"Ein Paper, eine Museumsquelle, ein Essay, ein Film oder ein öffentlicher Erfahrungsbericht kann einen Ausgangspunkt liefern. Wir prüfen seine konkrete Bedeutung für eine Aussage. Herkunft, Version und Kontext bleiben sichtbar; zehn Kopien derselben Quelle sind keine zehn unabhängigen Belege.",
+  channels:[
+    ["Forschung","arXiv und Crossref liefern Literaturhinweise. arXiv selbst führt kein Peer Review durch; eine mögliche Zeitschriftenbegutachtung ist gesondert zu prüfen.","https://info.arxiv.org/about/index.html","arXiv: Aufgabe und Grenzen"],
+    ["Kulturelles Gedächtnis","Europeana erschließt kulturelle Quellen. Die Rechte am einzelnen Bild, Film oder Musikstück sind getrennt von seinen Metadaten zu betrachten.","https://www.europeana.eu/en/rights/terms-of-use","Europeana: Quellen und Nutzungsbedingungen"],
+    ["Offene Einreichung","Auch Quellen außerhalb dieser Dienste sind willkommen: Originalfundstelle, genaue Stelle, eigene Frage und stärkste Gegenlesart mitbringen.","https://github.com/AlexanderR1991/Wirklich/issues/new?template=quellenpruefung.yml","Eine Quelle zur Prüfung einreichen"]
+  ],
+  coverage:"Der automatische Forschungsstrom durchsucht begrenzte Suchfelder in Crossref und arXiv. Er liest bisher nur Metadaten. Weitere Netzquellen und Kunstwerke kommen über Einreichungen hinzu. Das ist keine vollständige Erfassung des Internets und keine unabhängige Begutachtung unseres Regelwerks.",
+  research:"Drei Fragen an uns selbst.",
+  researchNote:"Offene Prüfvorschläge, nicht vorregistriert oder untersucht. Eine fehlende oder gegenteilige Wirkung muss unsere Erwartung korrigieren dürfen.",
+  hypotheses:[
+    ["K-01 · Perspektive","Hilft die Beschäftigung mit einem Werk, eine fremde Position genauer wiederzugeben?","Vergleich mit demselben Thema als Sachtext; vorab definierte Genauigkeitskriterien, verblindete Bewertung. Gegenmodell: Das Werk verstärkt vor allem vorhandene Überzeugungen."],
+    ["K-02 · Verführung","Macht schöne Gestaltung eine schwach begründete Aussage glaubwürdiger?","Inhalt und Gestaltung getrennt variieren; Glaubwürdigkeit und tatsächliche Beleglage getrennt erfassen. Gegenmodell: Vorwissen oder Sympathie erklärt den Unterschied."],
+    ["K-03 · Urheberschaft","Wie verändert eine menschliche oder KI-bezogene Zuschreibung unser Urteil über dasselbe Werk?","Identische Werke unter unterschiedlichen Zuschreibungen vergleichen; Erwartungen und Bewertungskriterien offenlegen. Gegenmodell: Das Ergebnis hängt stärker von Stil und Vorerfahrung ab."]
+  ],
+  contribute:"Zeigt uns, was wir noch nicht sehen.",
+  contributeText:"Verlinke ein Werk oder beschreibe einen eigenen Entwurf. Nenne Urheberschaft, Fundstelle und deine Lesart; weitere Lesarten sind ausdrücklich willkommen. Ein Werk muss keine Hypothese beweisen. Für die Aufnahme von Abbildungen oder Aufnahmen klären wir die Rechte gesondert. Ein Link überträgt keine Rechte am Werk.",
+  publicNote:"Einreichungen auf GitHub sind öffentlich und benötigen ein Konto. Eine Einreichung wird nicht automatisch übernommen.",
+  artAction:"Kunst & Gegenlesart einreichen ↗", streamAction:"Zum Forschungsstrom →", proofAction:"Eine These herausfordern →"
+},
+en:{
+  kicker:"LIBER ARTIS · ART AND INQUIRY",
+  title:"Art may", accent:"challenge us.",
+  lead:"Images, music, literature, film, dance, games and performance belong in this project. Including where they disrupt our concepts, unsettle our position or resist a single explanation.",
+  motto:"A work does not have to please our framework to show us something.",
+  status:"Open philosophical proposal · not an established theory of art",
+  why:"Why does art belong here?",
+  whyText:"Because we also want to ask: What are we overlooking? What might the world feel like from another perspective? What can be shown before we can explain it well? Art may ask these questions without supplying a useful answer. It may play, disturb, be beautiful and have no assigned purpose.",
+  invitation:"Bring us the work that makes our favourite idea uncomfortable.",
+  invitationText:"A poem about care becoming control. A photograph that unsettles our idea of progress. A piece of music whose meaning we continue to dispute. Art has room here for its own questions and for criticism of this project.",
+  distinction:"What exactly are we considering?",
+  columns:["Approach","Question","What follows"],
+  rows:[
+    ["Work and context","What do we see or hear? Who made it, and when?","Make description, provenance and context traceable. Distinguish description from interpretation."],
+    ["Experience and interpretation","What does it evoke in me? What other reading also fits?","Take an experience seriously without attributing it to everyone. Several well-supported interpretations may coexist."],
+    ["Testable claim","Are we claiming, for example, that art reduces hostility?","That claim requires data, comparison conditions and counterevidence. A moving work alone does not establish its general validity."],
+    ["Value judgement","What do we consider beautiful, just or worth protecting?","State and discuss the standards. Agreement, beauty and popularity do not settle a factual question."]
+  ],
+  experiment:"A beginning: The empty chair",
+  experimentNote:"A short literary draft created for this project with AI assistance. A fictional scene, not an observation or study.",
+  poem:["We set out a chair for truth.","Then we argued about who might sit on it.","A child carried it outside.","Someone we had not invited was waiting there."],
+  questions:["Who might the uninvited person be?","Does the chair stand for authority, hospitality or something else?","Does an appealing story tempt us to accept its idea too readily?"],
+  experimentEnd:"These readings are invitations. You may reject the image, change it or set another story against it.",
+  network:"The whole web is welcome to question us.",
+  networkText:"A paper, a museum record, an essay, a film or a public account of experience can be a starting point. We examine its specific relevance to a claim. Provenance, version and context remain visible; ten copies of one source are not ten independent pieces of evidence.",
+  channels:[
+    ["Research","arXiv and Crossref supply literature leads. arXiv itself does not conduct peer review; any journal review must be checked separately.","https://info.arxiv.org/about/index.html","arXiv: role and limitations"],
+    ["Cultural memory","Europeana provides access to cultural sources. Rights to an individual image, film or recording must be considered separately from its metadata.","https://www.europeana.eu/en/rights/terms-of-use","Europeana: sources and terms of use"],
+    ["Open submissions","Sources outside these services are welcome too: bring the original location, exact passage, your question and the strongest alternative reading.","https://github.com/AlexanderR1991/Wirklich/issues/new?template=quellenpruefung.yml","Submit a source for examination"]
+  ],
+  coverage:"Automated discovery searches limited topic queries in Crossref and arXiv. It currently reads metadata only. Other web sources and artworks enter through submissions. This is not comprehensive internet coverage or independent review of our framework.",
+  research:"Three questions for ourselves.",
+  researchNote:"Open proposals, neither preregistered nor investigated. An absent or opposite effect must be allowed to change our expectations.",
+  hypotheses:[
+    ["K-01 · Perspective","Does engaging with a work help people describe an unfamiliar position more accurately?","Compare the same topic presented as factual prose; define accuracy criteria beforehand and use blinded assessment. Alternative: the work mainly strengthens prior beliefs."],
+    ["K-02 · Persuasion","Does beautiful presentation make a poorly supported claim more credible?","Vary content and presentation separately; measure perceived credibility and evidential support separately. Alternative: prior knowledge or sympathy explains the difference."],
+    ["K-03 · Authorship","How does attributing the same work to a person or AI change our judgement?","Compare identical works under different attributions; state expectations and assessment criteria. Alternative: style and previous experience matter more."]
+  ],
+  contribute:"Show us what we have yet to see.",
+  contributeText:"Link a work or describe your own draft. Give its creator, source and your reading; alternative readings are explicitly welcome. A work does not have to prove a hypothesis. Rights to reproduce images or recordings are checked separately before inclusion. A link transfers no rights to the work.",
+  publicNote:"GitHub submissions are public and require an account. Submission does not mean automatic inclusion.",
+  artAction:"Submit art & an alternative reading ↗", streamAction:"Explore the research stream →", proofAction:"Challenge a claim →"
+}
+}[lang];
+---
+<Layout lang={lang} slug="kunst-und-erkenntnis">
+  <section class="section art-hero">
+    <div class="container">
+      <p class="section-kicker">{t.kicker}</p>
+      <h1>{t.title}<br/><em>{t.accent}</em></h1>
+      <p class="art-lead">{t.lead}</p>
+      <p class="art-status">{t.status}</p>
+      <nav class="art-jumps" aria-label={en?"Chapter sections":"Kapitelabschnitte"}>
+        <a href="#werk">{en?"A work":"Ein Werk"}</a><a href="#netz">{en?"Sources":"Quellen"}</a><a href="#forschung">{en?"Questions":"Forschungsfragen"}</a><a href="#mitmachen">{en?"Contribute":"Mitmachen"}</a>
+      </nav>
+    </div>
+  </section>
+  <section class="section section--paper">
+    <div class="narrow">
+      <h2>{t.why}</h2><p>{t.whyText}</p>
+      <blockquote class="art-motto">{t.motto}</blockquote>
+      <h3>{t.invitation}</h3><p>{t.invitationText}</p>
+    </div>
+  </section>
+  <section class="section art-work" id="werk">
+    <div class="container art-work__grid">
+      <div><p class="section-kicker">EXPERIMENTUM / 01</p><h2>{t.experiment}</h2><p class="art-caption">{t.experimentNote}</p></div>
+      <div><blockquote class="art-poem">{t.poem.map(line=><p>{line}</p>)}</blockquote><ul>{t.questions.map(q=><li>{q}</li>)}</ul><p>{t.experimentEnd}</p></div>
+    </div>
+  </section>
+  <section class="section section--paper">
+    <div class="container"><h2>{t.distinction}</h2>
+      <div class="art-table-scroll" role="region" aria-label={t.distinction} tabindex="0"><table><thead><tr>{t.columns.map(c=><th scope="col">{c}</th>)}</tr></thead><tbody>{t.rows.map(row=><tr><th scope="row">{row[0]}</th><td>{row[1]}</td><td>{row[2]}</td></tr>)}</tbody></table></div>
+    </div>
+  </section>
+  <section class="section" id="netz">
+    <div class="container"><h2>{t.network}</h2><p class="art-intro">{t.networkText}</p>
+      <div class="art-cards">{t.channels.map(([title,body,url,label])=><article><h3>{title}</h3><p>{body}</p><a href={url}>{label} ↗</a></article>)}</div>
+      <p class="art-boundary">{t.coverage}</p>
+    </div>
+  </section>
+  <section class="section section--paper" id="forschung">
+    <div class="container"><h2>{t.research}</h2><p class="art-intro">{t.researchNote}</p>
+      <div class="art-cards">{t.hypotheses.map(([id,question,test],i)=><article id={"k-0"+(i+1)}><p class="section-kicker">{id}</p><h3>{question}</h3><p>{test}</p></article>)}</div>
+    </div>
+  </section>
+  <section class="section" id="mitmachen">
+    <div class="narrow"><h2>{t.contribute}</h2><p>{t.contributeText}</p>
+      <div class="art-actions"><a class="button" href="https://github.com/AlexanderR1991/Wirklich/issues/new?template=kunst.yml">{t.artAction}</a><a class="button button--ghost" href={pathFor(lang,"forschungsstrom")}>{t.streamAction}</a><a class="subtle-link" href={pathFor(lang,"angriffsschwarm")}>{t.proofAction}</a></div>
+      <p class="art-caption">{t.publicNote}</p>
+    </div>
+  </section>
+</Layout>
+<style>
+.art-hero{background:radial-gradient(ellipse at 80% 10%,#694f633b,transparent 65%),#11171b;padding-block:6rem 4rem}
+.art-hero h1{font:clamp(3.1rem,8vw,7rem)/1.04 var(--serif);letter-spacing:-.045em;margin:1.5rem 0}
+.art-hero h1 em{color:var(--gold-bright);font-weight:400}
+.art-lead{max-width:53rem;font:clamp(1.2rem,2.1vw,1.6rem)/1.65 var(--serif)}
+.art-status,.art-caption{font-size:.85rem;line-height:1.7;opacity:.82}
+.art-jumps,.art-actions{display:flex;gap:1rem 1.5rem;flex-wrap:wrap;align-items:center;margin-top:2rem}
+.art-jumps a{border-bottom:1px solid currentColor;padding-block:.4rem}
+.art-motto{font:clamp(1.5rem,3vw,2.3rem)/1.45 var(--serif);border-left:3px solid #93723f;margin:2rem 0;padding:1rem 0 1rem 1.5rem}
+.art-work{background:#152024}
+.art-work__grid{display:grid;grid-template-columns:1fr 1.3fr;gap:4rem}
+.art-poem{margin:0 0 2rem;font:clamp(1.3rem,2.5vw,1.9rem)/1.6 var(--serif);color:#eee0c6}
+.art-poem p{margin:0 0 .6rem}.art-work li{margin-block:.6rem}
+.art-table-scroll{overflow-x:auto;margin-top:2rem}
+table{width:100%;border-collapse:collapse;text-align:left;font-size:.96rem}
+th,td{border-bottom:1px solid #8c7e664d;vertical-align:top;padding:1.1rem;line-height:1.6}thead th{font-size:.8rem;text-transform:uppercase;letter-spacing:.06em}tbody th{width:22%}
+.art-intro{max-width:58rem}.art-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.4rem;margin-top:2.5rem}
+.art-cards article{border-top:1px solid #9b865b80;padding-top:1.5rem}.art-cards h3{font-size:1.45rem;line-height:1.35}.art-cards a{overflow-wrap:anywhere}
+.art-boundary{border-left:2px solid var(--gold);padding-left:1.5rem;margin-top:2.5rem;max-width:59rem;font-size:.95rem}
+.art-actions .button{white-space:normal;text-align:center}.art-actions+.art-caption{margin-top:1.5rem}
+[id]{scroll-margin-top:6rem}
+@media(max-width:800px){.art-work__grid,.art-cards{grid-template-columns:1fr;gap:2rem}.art-hero{padding-block:3.5rem}.art-table-scroll table{min-width:590px}}
+</style>

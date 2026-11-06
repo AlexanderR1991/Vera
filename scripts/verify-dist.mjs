@@ -1,6 +1,7 @@
-import {access,readFile} from "node:fs/promises";
+import {access,readFile,readdir} from "node:fs/promises";
 import {join} from "node:path";
-const out=join(process.cwd(),"dist"),slugs=["index","atlas","bibliothek","lesestueck-wahrheit","manifest","pruefstand","methode","mitwirken","erkenntnishorizont","warum-liebe-wirkt","politik-die-dem-menschen-dient","bruecken-zwischen-den-religionen","militaer-und-verantwortung","ernaehrung-und-verantwortung","angriffsschwarm"],errors=[];
+import {fields,topics,topicStates,selfReviews} from "../src/lib/tree.mjs";
+const out=join(process.cwd(),"dist"),slugs=["index","kunst-und-erkenntnis","mission","baum-des-wissens","aussagen","fragen-und-ki-prompt","forschungsstrom","atlas","bibliothek","lesestueck-wahrheit","manifest","pruefstand","methode","mitwirken","erkenntnishorizont","warum-liebe-wirkt","politik-die-dem-menschen-dient","bruecken-zwischen-den-religionen","militaer-und-verantwortung","ernaehrung-und-verantwortung","angriffsschwarm"],errors=[];
 for(const lang of ["de","en"]){
  for(const slug of slugs){
   const file=join(out,lang,...(slug==="index"?[]:[slug]),"index.html");
@@ -8,7 +9,7 @@ for(const lang of ["de","en"]){
   if(!html.includes('<html lang="'+lang+'"'))errors.push("Wrong language in "+file);
   if(!html.includes('hreflang="de"')||!html.includes('hreflang="en"'))errors.push("Missing alternate languages in "+file);
   if(!html.includes('rel="canonical"'))errors.push("Missing canonical "+file);
-  if(!html.includes('/grundtext-des-wirklichen/de/')||!html.includes('/grundtext-des-wirklichen/en/'))errors.push("Wrong locale URLs "+file);
+  if(!html.includes('/Wirklich/de/')||!html.includes('/Wirklich/en/'))errors.push("Wrong locale URLs "+file);
   if(!html.includes("assets/style.css"))errors.push("Missing CSS reference "+file);
  }
 }
@@ -21,7 +22,7 @@ try{
  if(!en.includes("Reality is under no obligation")||!de.includes("Die Wirklichkeit ist nicht verpflichtet"))errors.push("Critical thesis mismatch");
 }catch{errors.push("Missing thesis pages");}
 if(errors.length){console.error(errors.join("\n"));process.exit(1);}
-console.log("Verified 30 localized pages, canonical/hreflang, legacy redirect assets and key translations.");
+
 
 for(const lang of ["de","en"]){
  const chapter=await readFile(join(out,lang,"erkenntnishorizont","index.html"),"utf8");
@@ -35,10 +36,6 @@ for(const lang of ["de","en"]){
  for(const token of ["love-figure","love-hypothesis-grid","love-counter__grid","10.1371/journal.pmed.1000316","10.1177/1088868314544222"]){
    if(!chapter.includes(token))errors.push("Love chapter "+lang+" lacks "+token);
  }
- const portal=await readFile(join(out,lang,"index.html"),"utf8");
- const library=await readFile(join(out,lang,"bibliothek","index.html"),"utf8");
- if(!portal.includes("/"+lang+"/warum-liebe-wirkt/"))errors.push("Missing home teaser for "+lang);
- if(!library.includes("/"+lang+"/warum-liebe-wirkt/"))errors.push("Missing library teaser for "+lang);
 }
 if(errors.length){console.error(errors.join("\n"));process.exit(1);}
 
@@ -51,13 +48,6 @@ for(const lang of ["de","en"]){
     "civitas-counter__grid","oecd.org/en/topics/ai-principles.html","gesetze-im-internet.de"]){
    if(!chapter.includes(token))errors.push("Civic chapter "+lang+" lacks "+token);
  }
- for(const [slug,required] of [["index","civitas-teaser"],["bibliothek","civitas-teaser"],
-    ["atlas","civitas-teaser"],["pruefstand","civitas-teaser"]]){
-   const location=join(out,lang,...(slug==="index"?[]:[slug]),"index.html");
-   const html=await readFile(location,"utf8");
-   if(!html.includes("/"+lang+"/politik-die-dem-menschen-dient/")||!html.includes(required))
-     errors.push("Missing political chapter discovery from "+lang+"/"+slug);
- }
 }
 if(errors.length){console.error(errors.join("\n"));process.exit(1);}
 
@@ -68,11 +58,6 @@ for(const lang of ["de","en"]){
  }
  if(!chapter.includes(lang==="de"?"WIR BAUEN BRÜCKEN":"WE BUILD BRIDGES"))
   errors.push("Theology manifesto missing for "+lang);
- for(const slug of ["index","atlas","bibliothek","pruefstand"]){
-  const html=await readFile(join(out,lang,...(slug==="index"?[]:[slug]),"index.html"),"utf8");
-  if(!html.includes("theology-teaser")||!html.includes("/"+lang+"/bruecken-zwischen-den-religionen/"))
-    errors.push("Theology teaser missing from "+lang+"/"+slug);
- }
 }
 if(errors.length){console.error(errors.join("\n"));process.exit(1);}
 
@@ -81,10 +66,6 @@ for(const lang of ["de","en"]){
  const chapter=await readFile(join(out,lang,"militaer-und-verantwortung","index.html"),"utf8");
  for(const token of ["mil-hero","mil-principles","mil-exam","mil-sources","m-a","m-d","un.org/en/about-us/un-charter/full-text","icrc.org"]){
   if(!chapter.includes(token))errors.push("Military chapter "+lang+" lacks "+token);
- }
- for(const slug of ["index","atlas","bibliothek","pruefstand"]){
-  const html=await readFile(join(out,lang,...(slug==="index"?[]:[slug]),"index.html"),"utf8");
-  if(!html.includes("military-teaser")||!html.includes("/"+lang+"/militaer-und-verantwortung/"))errors.push("Missing military discovery "+lang+"/"+slug);
  }
 }
 if(errors.length){console.error(errors.join("\\n"));process.exit(1);}
@@ -105,10 +86,164 @@ for(const lang of ["de","en"]){
  for(const token of ["nut-hero","nut-grid","nut-exam","nut-sources","e-a","e-d","who.int/news-room/fact-sheets/detail/healthy-diet","dge.de/"]){
   if(!chapter.includes(token))errors.push("Nutrition chapter "+lang+" lacks "+token);
  }
- for(const slug of ["index","atlas","bibliothek","pruefstand"]){
-  const html=await readFile(join(out,lang,...(slug==="index"?[]:[slug]),"index.html"),"utf8");
-  if(!html.includes("nutrition-teaser")||!html.includes("/"+lang+"/ernaehrung-und-verantwortung/"))
-   errors.push("Nutrition discovery missing from "+lang+"/"+slug);
+}
+if(errors.length){console.error(errors.join("\n"));process.exit(1);}
+
+// Mission routes and the register must remain discoverable in both languages.
+const registry=JSON.parse(await readFile("public/knowledge/claims.json","utf8"));
+const exported=JSON.parse(await readFile(join(out,"knowledge/claims.json"),"utf8"));
+if(JSON.stringify(registry)!==JSON.stringify(exported))errors.push("Register export differs from the rendered source");
+const sitemap=await readFile(join(out,"sitemap.xml"),"utf8");
+for(const lang of ["de","en"]){
+ const home=await readFile(join(out,lang,"index.html"),"utf8");
+ const mission=await readFile(join(out,lang,"mission/index.html"),"utf8");
+ const homeMain=home.match(/<main\b[^>]*>([\s\S]*?)<\/main>/)?.[1] || "";
+ for(const link of ["/"+lang+"/methode/#g-005","/"+lang+"/werkstatt/","/issues/new?template=frage.yml"]){
+  if(!homeMain.includes(link))errors.push("Missing homepage entry point "+lang+" "+link);
+ }
+ const register=await readFile(join(out,lang,"aussagen/index.html"),"utf8");
+ for(const slug of ["werkstatt","aussagen","baum-des-wissens"]){
+  const route="/Wirklich/"+lang+"/"+slug+"/";
+  if(!home.includes(route)||!sitemap.includes(route))errors.push("Undiscoverable route "+route);
+ }
+ for(const c of registry.claims){
+  if(!register.includes('id="'+c.id+'"')||!register.includes(c.statement[lang]))errors.push("Missing rendered claim "+lang+"/"+c.id);
+ }
+ for(const id of ["forschung","bauplan","erkenntnis","entscheidungen","ki","versorgung","stand"]){
+  if(!mission.includes('id="'+id+'"'))errors.push("Missing mission anchor "+lang+"/"+id);
+ }
+ for(const [page,html] of [["home",home],["mission",mission],["register",register]]){
+  const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
+  if(new Set(ids).size!==ids.length)errors.push("Duplicate anchor on "+lang+"/"+page);
+  if(!html.includes('<h1'))errors.push("Missing main heading on "+lang+"/"+page);
  }
 }
 if(errors.length){console.error(errors.join("\n"));process.exit(1);}
+// The tree must preserve multiple memberships and distinguish live drafts,
+// linked proposals and undeveloped fields in the initial server-rendered HTML.
+const fieldIDs=new Set(fields.map(f=>f.id)),topicIDs=new Set();
+for(const topic of topics){
+ if(topicIDs.has(topic.id))errors.push("Duplicate tree topic "+topic.id);
+ topicIDs.add(topic.id);
+ if(!topic.fields.length||!topic.fields.every(id=>fieldIDs.has(id)))errors.push("Unknown tree field on "+topic.id);
+ if(!Object.hasOwn(topicStates,topic.state))errors.push("Unknown tree state on "+topic.id);
+ if(topic.state==="draft"&&(!topic.slug||topic.url))errors.push("Draft topic needs a local chapter: "+topic.id);
+ if(topic.state==="proposed"&&(!/^https:\/\/github\.com\/AlexanderR1991\/Wirklich\/pull\/\d+$/.test(topic.url)||topic.slug))errors.push("Proposal needs its actual PR: "+topic.id);
+ if(topic.state==="open"&&(topic.slug||topic.url))errors.push("Undeveloped topic must not imply a chapter: "+topic.id);
+ for(const lang of ["de","en"]){
+  if(!topic.name[lang]?.trim()||!topic.question[lang]?.trim())errors.push("Missing topic translation "+topic.id+"/"+lang);
+ }
+}
+for(const lang of ["de","en"]){
+ const tree=await readFile(join(out,lang,"baum-des-wissens/index.html"),"utf8");
+ for(const topic of topics){
+  const row=tree.match(new RegExp('<tr[^>]*id="ast-'+topic.id+'"[^>]*>'))?.[0];
+  if(!row||/\shidden(?:[\s=>])/.test(row)||!row.includes('data-state="'+topic.state+'"'))errors.push("Topic unavailable without JS "+topic.id+"/"+lang);
+  if(topic.state==="draft"){
+   try{await access(join(out,lang,topic.slug,"index.html"));}catch{errors.push("Tree draft destination missing "+topic.slug);}
+  }
+  if(topic.state==="proposed"&&!tree.includes(topic.url))errors.push("Missing PR destination "+topic.id);
+ }
+ for(const review of selfReviews){if(!tree.includes(review.url))errors.push("Missing public self-review "+review.id);}
+ const ids=[...tree.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
+ if(new Set(ids).size!==ids.length)errors.push("Duplicate tree anchor "+lang);
+ if(!sitemap.includes('/'+lang+'/baum-des-wissens/'))errors.push("Tree absent from sitemap "+lang);
+ for(const slug of ["manifest","pruefstand"]){
+  const html=await readFile(join(out,lang,slug,"index.html"),"utf8");
+  if(!html.includes(lang==="de"?"Auch dauerhafte Unterstützung ist wertvoll.":"Lasting support is valuable too."))errors.push("Care clarification missing "+lang+"/"+slug);
+  if(lang==="de"&&html.includes("bessere Menschen"))errors.push("Old human-ranking wording remains "+slug);
+ }
+}
+if(errors.length){console.error(errors.join("\n"));process.exit(1);}
+console.log(`Verified ${slugs.length*2} localized pages, mission navigation, register export, tree memberships, proposal status, no-JS content and thesis consistency.`);
+
+// Workshop: both interactive routes, usable static content and discovery paths.
+for (const lang of ["de", "en"]) {
+ const route = `/Wirklich/${lang}/esoterik-und-mathematik/`;
+ const html = await readFile(join(out, lang, "esoterik-und-mathematik/index.html"), "utf8");
+ for (const token of ['data-symbol-lab', 'data-worksheet', 'data-statistics', '<noscript>', 'data-binary-word', 'data-download="json"', 'data-download="txt"', 'rel="canonical"', 'hreflang="de"', 'hreflang="en"']) {
+  if (!html.includes(token)) errors.push(`Workshop ${lang} lacks ${token}`);
+ }
+ if ((html.match(/data-state="\d+"/g) || []).length !== 64) errors.push(`Workshop ${lang} must show 64 patterns`);
+ if ((html.match(/data-line="\d+"/g) || []).length !== 6) errors.push(`Workshop ${lang} must have six line controls`);
+ if (!html.includes(`<html lang="${lang}"`) || html.includes('<title>undefined')) errors.push(`Workshop ${lang} metadata invalid`);
+ const sitemap = await readFile(join(out, 'sitemap.xml'), 'utf8');
+ if (!sitemap.includes(route)) errors.push(`Workshop ${lang} missing from sitemap`);
+}
+if(errors.length){console.error(errors.join("\n"));process.exit(1);}
+console.log('Verified symbol/mathematics workshop: bilingual routes, 64 states, six controls, exports and discovery.');
+
+// Release identity and the new routes must agree with the published source data.
+const project=JSON.parse(await readFile("public/project.json","utf8"));
+const {summarizeProject}=await import("../src/lib/project-status.mjs");
+const discovery=JSON.parse(await readFile("public/research/stream.json","utf8"));
+const criticism=JSON.parse(await readFile("public/research/angriffe.json","utf8"));
+const stats=summarizeProject(registry,topics,discovery,criticism);
+for(const lang of ["de","en"]){
+ const name=lang==="de"?project.name:project.english_name;
+ const home=await readFile(join(out,lang,"index.html"),"utf8");
+ const heading=home.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/)?.[1];
+ if(heading?.replace(/<[^>]+>/g," ").replace(/\s+/g," ").trim()!==(lang==="de"?"Was ist wirklich?":"What is real?"))errors.push("Missing guiding question on "+lang+" homepage");
+ for(const entry of await readdir(join(out,lang),{withFileTypes:true})){
+  const file=entry.isDirectory()?join(out,lang,entry.name,"index.html"):join(out,lang,entry.name);
+  if(!entry.isDirectory()&&!entry.name.endsWith(".html"))continue;
+  const html=await readFile(file,"utf8");
+  const headerName=html.match(/class="brand__name"[^>]*>\s*([^<]*)/)?.[1].trim();
+  if(!html.includes(`data-project-version="${project.version}"`)||!html.includes(` · ${name}</title>`)||headerName!==name)errors.push("Release identity mismatch "+file);
+  if(html.includes("<title>undefined"))errors.push("Undefined page title "+file);
+ }
+ for(const slug of ["werkstatt","projektstatus"]){
+  const file=join(out,lang,slug,"index.html"),html=await readFile(file,"utf8");
+  if(!html.includes(`<html lang="${lang}"`)||!html.includes('rel="canonical"')||!html.includes('hreflang="en"')||!html.includes('hreflang="de"'))errors.push("Missing release page metadata "+file);
+  if(!sitemap.includes('/'+lang+'/'+slug+'/'))errors.push("Release page missing from sitemap "+file);
+  const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
+  if(new Set(ids).size!==ids.length)errors.push("Duplicate release page anchor "+file);
+ }
+ const worksheet=await readFile(join(out,lang,"werkstatt/index.html"),"utf8");
+ for(const token of ['data-inquiry-workbench','data-export-json','data-export-text','data-import','data-local-save','<noscript>']){
+  if(!worksheet.includes(token))errors.push("Missing workbench capability "+lang+"/"+token);
+ }
+ for(const field of ["question","claim","scope","support","objection","revision","action"]){
+  if(!worksheet.includes(`name="${field}"`)||!worksheet.includes(`for="inquiry-${field}"`))errors.push("Missing accessible workbench field "+lang+"/"+field);
+ }
+ const status=await readFile(join(out,lang,"projektstatus/index.html"),"utf8");
+ for(const key of ["claims","reviewed","drafts","open"]){
+  if(!status.includes(`data-stat="${key}">${stats[key]}</dd>`))errors.push("Incorrect derived status count "+lang+"/"+key);
+ }
+}
+if(errors.length){console.error(errors.join("\n"));process.exit(1);}
+console.log(`Verified WIRKLICH ${project.version}: shared identity, accessible worksheet exports/import, bilingual release routes and data-derived status counts.`);
+
+// Navigator: public draft data, static reading cards and versioned provenance.
+const {connections}=await import("../src/lib/navigator.mjs");
+const connectionExport=JSON.parse(await readFile(join(out,"knowledge/connections.json"),"utf8"));
+if(connectionExport.schema_version!==1||connectionExport.status!=="editorial_drafts"||
+   JSON.stringify(connectionExport.connections)!==JSON.stringify(connections))errors.push("Navigator export must match its editorial drafts");
+for(const connection of connections){
+ if(connection.reviewStatus!=="draft")errors.push("Navigator draft was promoted without review: "+connection.id);
+ if(!connection.topics.every(id=>topicIDs.has(id)))errors.push("Unknown navigator topic: "+connection.id);
+ if(connection.sourceClaim){
+  const source=registry.claims.find(claim=>claim.id===connection.sourceClaim.id);
+  if(!source||source.version!==connection.sourceClaim.version)errors.push("Navigator source changed; reassess connection: "+connection.id);
+ }
+}
+for(const lang of ["de","en"]){
+ const route=`/Wirklich/${lang}/erkenntnisnavigator/`;
+ const html=await readFile(join(out,lang,"erkenntnisnavigator/index.html"),"utf8");
+ if(!sitemap.includes(route)||!html.includes(`rel="canonical" href="https://alexanderr1991.github.io${route}"`))errors.push("Navigator metadata missing: "+lang);
+ for(const token of ["data-navigator","data-nav-question","data-nav-conditions","data-nav-export","data-nav-reset","<noscript>"]){
+  if(!html.includes(token))errors.push("Navigator capability missing: "+lang+"/"+token);
+ }
+ for(const connection of connections){
+  if(!html.includes(`id="verbindung-${connection.id}"`)||!html.includes(connection.title[lang]))errors.push("Navigator card unavailable without JS: "+lang+"/"+connection.id);
+ }
+ const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(match=>match[1]);
+ if(new Set(ids).size!==ids.length)errors.push("Duplicate navigator anchor: "+lang);
+ for(const slug of ["index","baum-des-wissens","aussagen","methode","werkstatt","projektstatus"]){
+  const page=await readFile(join(out,lang,...(slug==="index"?[]:[slug]),"index.html"),"utf8");
+  const main=page.match(/<main\b[^>]*>([\s\S]*?)<\/main>/)?.[1]||"";
+  if(!main.includes(route))errors.push("Missing contextual navigator link: "+lang+"/"+slug);
+ }
+}
+if(errors.length){console.error(errors.join("\n"));process.exit(1);}
+console.log("Verified bilingual navigator, readable draft cards, contextual entry points and version-bound source links.");

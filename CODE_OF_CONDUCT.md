@@ -19,4 +19,3 @@ Gleiche Würde bedeutet nicht gleiche Schuld. Niemand schuldet Kontakt, Vergebun
 We aim to make voluntary, concrete agreements possible even between people who deeply reject each other. Common ground requires explicit confirmation by every participant; proposals, silence and AI output cannot supply consent. Equal dignity does not imply equal blame. No one owes contact, forgiveness or an equal concession. Protection takes priority where coercion, threats or ongoing abuse are present. Agreements must not sacrifice third parties' dignity or rights. Unresolved disagreement and withdrawal are valid outcomes.
 
 Das [Verfahren zur Suche nach Schnittmengen](docs/schnittmengen.md) ist ein überprüfbarer Entwurf, kein bereits belegtes Konfliktlösungsangebot. / The [common-ground process](docs/schnittmengen.md) is a proposal to be tested, not an established conflict-resolution service.
-

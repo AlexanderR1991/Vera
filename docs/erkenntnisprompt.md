@@ -6,11 +6,11 @@ Die Einladung gilt einfachen Verständnisfragen ebenso wie begründeten Einwänd
 
 ## Nutzen und weiterentwickeln
 
-- [Deutsche Seite mit Kopierfunktion](https://alexanderr1991.github.io/grundtext-des-wirklichen/de/fragen-und-ki-prompt/)
-- [English page with copy button](https://alexanderr1991.github.io/grundtext-des-wirklichen/en/fragen-und-ki-prompt/)
+- [Deutsche Seite mit Kopierfunktion](https://alexanderr1991.github.io/Wirklich/de/fragen-und-ki-prompt/)
+- [English page with copy button](https://alexanderr1991.github.io/Wirklich/en/fragen-und-ki-prompt/)
 - [Vollständiger deutscher Prompt](../public/prompts/erkenntnisprompt-v1.de.txt)
 - [Full English prompt (translation draft)](../public/prompts/erkenntnisprompt-v1.en.txt)
-- [Öffentliche Frage stellen / Ask publicly](https://github.com/AlexanderR1991/grundtext-des-wirklichen/issues/new?template=frage.yml)
+- [Öffentliche Frage stellen / Ask publicly](https://github.com/AlexanderR1991/Wirklich/issues/new?template=frage.yml)
 
 Die TXT-Dateien sind die redaktionelle Quelle. Die Website übernimmt sie unverändert für Anzeige, Kopieren und Download. Den Text in ein KI-Gespräch einfügen und den Platzhalter am Ende ersetzen. Die Texte fallen unter die bestehende CC BY-SA 4.0-Zuordnung in [LICENSING.md](../LICENSING.md); die Funktionslogik unter MIT.
 

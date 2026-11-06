@@ -1,0 +1,80 @@
+---
+import Layout from "../layouts/SiteLayout.astro";
+import project from "../../public/project.json" with {type: "json"};
+import {pathFor} from "../lib/paths.mjs";
+import "../styles/workbench.css";
+const {lang="de"} = Astro.props;
+const en = lang === "en";
+const t = (de, english) => en ? english : de;
+const field = (key, de, english, hintDe, hintEn) => ({key, label:t(de,english), hint:t(hintDe,hintEn)});
+const simpleFields = [
+  field("question","1 · Was denke oder frage ich?","1 · What do I think or wonder?","Ein Satz reicht. Du kannst auch mit „Ich weiß es noch nicht“ anfangen.","One sentence is enough. You can also start with “I do not know yet”."),
+  field("objection","2 · Was könnte dagegen sprechen?","2 · What might challenge that?","Vielleicht gibt es eine andere Erklärung. Oder dir fehlt noch etwas, um zu entscheiden.","There may be another explanation. Or you may need more information before deciding."),
+  field("action","3 · Was prüfe ich als Nächstes?","3 · What will I check next?","Zum Beispiel nachfragen, nachsehen oder vorerst offenlassen. Niemand muss etwas ausprobieren, das schaden könnte.","For example, ask, look something up, or leave it open for now. No one needs to try something that could cause harm.")
+];
+const deeperFields = [
+  field("claim","Welche Antwort vermute ich?","What answer do I suspect?","Du kannst eine Frage haben, ohne schon eine Antwort zu vermuten.","You can have a question without having an answer in mind yet."),
+  field("scope","Was genau meine ich?","What exactly do I mean?","Für wen, wann und unter welchen Bedingungen könnte die Aussage gelten?","Who, when and under what conditions might the claim apply to?"),
+  field("support","Was spricht dafür?","What supports it?","Nenne einen Grund oder eine Quelle und die genaue Stelle. Was zeigt sie wirklich?","Give a reason or a source and the exact passage. What does it actually show?"),
+  field("revision","Was würde meine Antwort ändern?","What would change my answer?","Welche neue Information oder welcher Grund wäre dafür stark genug?","What new information or reason would be strong enough?")
+];
+const types = [
+  ["unclassified",t("Noch nicht eingeordnet", "Not classified yet"),t("Das darf offenbleiben. Wenn du genauer prüfen möchtest, wähle später, welche Art von Antwort du suchst.","You can leave this open. If you want to examine it more closely, choose what kind of answer you are looking for later.")],
+  ["empirical",t("Eine Beobachtung (empirisch)", "An observation (empirical)"),t("Beobachtungen und belastbare Quellen prüfen; Messung, Stichprobe, Unsicherheit und andere Erklärungen nennen.","Examine observations and credible sources; specify measurement, sample, uncertainty and alternative explanations.")],
+  ["formal",t("Eine Schlussfolgerung aus Regeln (formal)", "A conclusion from rules (formal)"),t("Definitionen und Axiome offenlegen. Jeder Beweisschritt muss aus den Voraussetzungen folgen; Beispiele allein sind kein allgemeiner Beweis.","State definitions and axioms. Every proof step must follow from the premises; examples alone are not a general proof.")],
+  ["normative",t("Was wir tun sollten (Werturteil)", "What we should do (value judgment)"),t("Werte und Betroffenenperspektiven offenlegen. Gründe und Zielkonflikte prüfen; eine gemessene Wirkung beweist kein moralisches Sollen.","Disclose values and affected perspectives. Examine reasons and tradeoffs; a measured effect does not establish what ought to be done.")],
+  ["interpretive",t("Eine Deutung oder Erfahrung", "An interpretation or experience"),t("Erleben, Deutung und Erklärung unterscheiden. Kontext und andere Lesarten angeben; niemandem Motive oder Zustimmung zuschreiben.","Distinguish experience, interpretation and explanation. Give context and alternative readings; do not attribute motives or consent to others.")],
+  ["metaphor",t("Ein Bild oder Vergleich (Metapher)", "An image or comparison (metaphor)"),t("Erklären, was das Bild verständlich macht und wo es endet. Ähnlichkeit oder Schönheit sind kein Nachweis eines Naturgesetzes.","Explain what the image helps clarify and where it ends. Resemblance or beauty does not establish a natural law.")]
+];
+const example = en ? {
+  type:"unclassified",question:"Fictional example: The bus was late twice. Does it always arrive late?",claim:"",scope:"",support:"",objection:"Two journeys do not tell me what happens on all the others. Perhaps there was a road closure.",revision:"",action:"Check current service information and look for records of other journeys. Until then, leave “always” open."
+} : {
+  type:"unclassified",question:"Erfundenes Beispiel: Der Bus war zweimal zu spät. Kommt er immer zu spät?",claim:"",scope:"",support:"",objection:"Zwei Fahrten sagen mir nicht, wie es bei allen anderen war. Vielleicht gab es eine Baustelle.",revision:"",action:"Aktuelle Verkehrsmeldungen ansehen und nach Aufzeichnungen zu anderen Fahrten suchen. Bis dahin lasse ich „immer“ offen."
+};
+---
+<Layout lang={lang} slug="werkstatt">
+<article class="container workbench" data-inquiry-workbench data-lang={lang}>
+  <header class="workbench-heading">
+    <p class="section-kicker">{t(project.name, project.english_name)} {project.version} · {t("DEIN PRÜFBLATT", "YOUR INQUIRY WORKSHEET")}</p>
+    <h1>{t("Drei Fragen. Dein nächster Schritt.", "Three questions. Your next step.")}</h1>
+    <p class="workbench-lead">{t("Schreib, was dich beschäftigt. Suche einen möglichen Einwand. Wähle einen kleinen nächsten Schritt. Du darfst Felder offenlassen – und später genauer werden.","Write what is on your mind. Look for a possible objection. Choose one small next step. You can leave fields open and add detail later.")}</p>
+    <p class="workbench-data-note">{t("Deine Eingaben werden von diesem Werkzeug nicht gesendet. Speichern im Browser, Laden und Dateiexport startest du selbst. Das Werkzeug ordnet deine Texte; es erzeugt keine KI-Antwort und vergibt kein Wahrheitssiegel.","This tool does not send your entries. You choose when to save in your browser, load or export a file. It organizes your text; it does not generate AI answers or certify truth.")}</p>
+    <nav class="workbench-links" aria-label={t("Zur Orientierung","Explore the project")}><a href={pathFor(lang,"erkenntnisnavigator")}>{t("Passende Ansätze finden","Find possible approaches")} ↗</a><a href={pathFor(lang,"methode")}>{t("Methode verstehen","Understand the method")} ↗</a><a href={pathFor(lang,"fragen-und-ki-prompt")}>{t("Mit KI weiterarbeiten","Continue with AI")} ↗</a><a href={pathFor(lang,"projektstatus")}>{t("Stand von 1.0","Status of 1.0")} ↗</a></nav>
+  </header>
+  <noscript><p class="workbench-data-note">{t("Die Fragen und Hinweise kannst du auch ohne JavaScript lesen und in ein eigenes Dokument übernehmen. Vorschau, Dateiexport und Browserspeicher benötigen JavaScript.","You can read the questions and guidance without JavaScript and copy them into your own document. Preview, file export and browser storage require JavaScript.")}</p></noscript>
+  <div class="workbench-grid">
+    <form aria-label={t("Prüfblatt ausfüllen","Complete the worksheet")}>
+      <fieldset class="workbench-simple"><legend>{t("Hier anfangen · alle Felder freiwillig", "Start here · every field is optional")}</legend>
+        {simpleFields.map(item=><div class="workbench-field"><label for={"inquiry-"+item.key}>{item.label}</label><p id={"hint-"+item.key}>{item.hint}</p><textarea id={"inquiry-"+item.key} name={item.key} rows={3} maxlength="12000" aria-describedby={"hint-"+item.key}></textarea></div>)}
+      </fieldset>
+      <details class="workbench-deeper" data-inquiry-deeper>
+        <summary>{t("Genauer prüfen · weitere Fragen öffnen", "Look more closely · open more questions")}</summary>
+        <p class="workbench-help">{t("Diese Fragen helfen, wenn du deinen Gedanken genauer prüfen möchtest. Deine ersten drei Antworten bleiben erhalten.", "These questions help when you want to examine your idea more closely. Your first three answers stay in place.")}</p>
+        <label class="workbench-label" for="inquiry-type">{t("Welche Art von Antwort suche ich?", "What kind of answer am I looking for?")}</label>
+        <select id="inquiry-type" name="type">{types.map(([value,label])=><option value={value}>{label}</option>)}</select>
+        <p class="workbench-help" data-inquiry-types aria-live="polite">{types[0][2]}</p>
+        {deeperFields.map(item=><div class="workbench-field"><label for={"inquiry-"+item.key}>{item.label}</label><p id={"hint-"+item.key}>{item.hint}</p><textarea id={"inquiry-"+item.key} name={item.key} rows={3} maxlength="12000" aria-describedby={"hint-"+item.key}></textarea></div>)}
+      </details>
+      <button class="button button--gold" type="submit" disabled data-js-control>{t("Prüfblatt aktualisieren", "Update worksheet")}</button>
+    </form>
+    <aside class="workbench-aside" aria-labelledby="workbench-output-title">
+      <div class="workbench-output">
+        <p class="section-kicker">{t("DEIN ENTWURF", "YOUR DRAFT")}</p><h2 id="workbench-output-title">{t("Weitergeben, weiterdenken.","Share it, keep thinking.")}</h2>
+        <p data-inquiry-completion aria-live="polite">{t("Offene Felder sind erlaubt.","Open fields are allowed.")}</p>
+        <details><summary>{t("Textvorschau öffnen", "Open text preview")}</summary><pre data-inquiry-preview></pre></details>
+        <div class="workbench-actions"><button type="button" disabled data-js-control data-export-text>{t("Text exportieren (.txt)", "Export text (.txt)")}</button><button type="button" disabled data-js-control data-export-json>{t("Prüfblatt exportieren (.json)", "Export worksheet (.json)")}</button></div>
+        <label class="workbench-import" for="inquiry-import">{t("Prüfblatt aus JSON öffnen", "Open worksheet from JSON")}<input id="inquiry-import" type="file" accept=".json,application/json" disabled data-js-control data-import /></label>
+        <p class="workbench-help">{t("Ein Import ersetzt die aktuellen Felder. Exportiere einen wichtigen Entwurf vorher.","Import replaces the current fields. Export an important draft first.")}</p>
+        <div class="workbench-actions"><button type="button" disabled data-js-control data-local-save>{t("In diesem Browser speichern", "Save in this browser")}</button><button type="button" disabled data-js-control data-local-load>{t("Gespeicherten Entwurf laden", "Load saved draft")}</button><button type="button" disabled data-js-control data-local-clear>{t("Lokal löschen & Felder leeren", "Delete local draft & clear fields")}</button></div>
+        <p class="workbench-help">{t("Browserspeicher ist gerätegebunden und kann gelöscht werden. Ein gespeicherter Entwurf ist kein Backup; für dauerhafte Weiterarbeit exportieren.","Browser storage stays on this device and may be cleared. A saved draft is not a backup; export it for lasting use.")}</p>
+        <p class="workbench-status" data-inquiry-status role="status" aria-live="polite"></p>
+      </div>
+      <details class="workbench-guide"><summary>{t("Was bedeuten die Aussagearten?", "What do the claim types mean?")}</summary>{types.map(([value,label,hint])=><div data-type-guide={value}><h3>{label}</h3><p>{hint}</p></div>)}</details>
+      <div class="workbench-example"><h3>{t("Ein Beispiel zum Ausprobieren", "An example to try")}</h3><p>{t("Ein erfundenes Busbeispiel zeigt die drei Schritte. Das Laden ersetzt deine aktuellen Felder. Exportiere einen wichtigen Entwurf vorher.","A fictional bus example shows the three steps. Loading it replaces your current fields. Export an important draft first.")}</p><button type="button" disabled data-js-control data-load-example>{t("Erfundenes Beispiel laden", "Load fictional example")}</button></div>
+    </aside>
+  </div>
+  <section class="workbench-next"><h2>{t("Und wenn du widersprechen möchtest?", "What if you disagree?")}</h2><p>{t("Dein Export gehört zunächst dir. Für eine öffentliche Frage, Quelle oder Kritik wählst du anschließend bewusst einen Beitragsweg. Die Redaktion prüft Einreichungen; ein vollständiges Prüfblatt wird nicht automatisch zu einem geprüften Registereintrag.","Your export is yours to begin with. If you want to submit a public question, source or objection, choose a contribution route as a separate step. Editors review submissions; a completed worksheet does not automatically become a reviewed claim record.")}</p><a class="button button--ghost" href={pathFor(lang,"mitwirken")}>{t("Beitragswege ansehen", "View contribution routes")} ↗</a></section>
+  <script type="application/json" data-inquiry-example set:html={JSON.stringify(example).replaceAll("<","\\u003c")}></script>
+</article>
+<script>import "../client/inquiry.mjs";</script>
+</Layout>

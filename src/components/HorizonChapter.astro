@@ -5,7 +5,7 @@ import copy from "../lib/horizon-copy.json";
 import {pathFor} from "../lib/paths.mjs";
 const {lang="de"}=Astro.props;
 const t=copy[lang];
-const discussion="https://github.com/AlexanderR1991/grundtext-des-wirklichen/discussions";
+const discussion="https://github.com/AlexanderR1991/Wirklich/discussions";
 ---
 <Layout lang={lang} slug="erkenntnishorizont">
 <section class="horizon-hero">
@@ -41,7 +41,7 @@ const discussion="https://github.com/AlexanderR1991/grundtext-des-wirklichen/dis
 </div></section>
 <section class="section section--paper"><div class="container horizon-collaboration">
 <div><p class="section-kicker">PHILOSOPHIA · MATHEMATICA · INTELLIGENTIA ARTIFICIALIS</p><h2>{t.aiTitle}</h2><p>{t.aiBody}</p><blockquote>{t.aiWarning}</blockquote></div>
-<div><p class="section-kicker">{lang==="de"?"UNSER AUFTRAG":"OUR TASK"}</p><h2>{t.roleTitle}</h2><p>{t.roleBody}</p><div class="button-row"><a class="button button--gold" href={discussion} target="_blank" rel="noopener noreferrer">{t.forum}</a><a class="button button--ghost" href={pathFor(lang,"methode")}>{t.methods}</a></div></div>
+<div><p class="section-kicker">{lang==="de"?"UNSER AUFTRAG":"OUR TASK"}</p><h2>{t.roleTitle}</h2><p>{t.roleBody}</p><p>{lang==="de"?"In der Werkstatt übersetzen wir Symbole in Modelle, erkunden die 64 binären Linienmuster des I Ging und prüfen präzise Vorhersagen gegen ein Zufallsmodell.":"In the workshop, we translate symbols into models, explore the 64 binary line patterns of the I Ching and examine precise predictions against a chance model."}</p><div class="button-row"><a class="button button--gold" href={pathFor(lang,"esoterik-und-mathematik")}>{lang==="de"?"Zur Werkstatt ↗":"Open the workshop ↗"}</a><a class="button button--ghost" href={discussion} target="_blank" rel="noopener noreferrer">{t.forum}</a><a class="button button--ghost" href={pathFor(lang,"methode")}>{t.methods}</a></div></div>
 </div></section>
 <section class="section horizon-sources"><div class="narrow"><p class="section-kicker">{t.sources}</p><p>{t.sourceIntro}</p>
 <ul>{t.refs.map(([name,url,description])=><li><a href={url} target="_blank" rel="noopener noreferrer">{name} ↗</a><small>{description}</small></li>)}</ul>

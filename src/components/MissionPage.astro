@@ -1,0 +1,57 @@
+---
+import Layout from "../layouts/SiteLayout.astro";
+import copy from "../lib/mission-copy.json";
+import {pathFor} from "../lib/paths.mjs";
+import project from "../../public/project.json" with {type: "json"};
+import "../styles/mission.css";
+const {lang="de"}=Astro.props;
+const en=lang==="en";
+const t=(de,english)=>en?english:de;
+const sections = [
+ ["menschen", t("Menschen", "People")], ["philosophie", t("Philosophie", "Philosophy")],
+ ["forschung", t("Forschung", "Research")], ["erkenntnis", t("Aussagearten", "Kinds of claim")],
+ ["entscheidungen", t("Entscheidungen", "Decisions")], ["stand", t("Verantwortung", "Accountability")]
+];
+---
+<Layout lang={lang} slug="mission">
+<article class="container mission-document">
+ <header><p class="section-kicker">{t(project.name,project.english_name)} · {t("UNSERE MISSION","OUR MISSION")}</p>
+ <h1>{t("Was können wir gemeinsam herausfinden?", "What can we find out together?")}</h1>
+ <p class="mission-lead">{t("Am Anfang steht eine Frage, die für jemanden etwas bedeutet. Wir bringen Erfahrungen, Fachwissen und Einwände zusammen. Unsere Aufgabe ist, eine Antwort so zu begründen, dass ein anderer Mensch sie prüfen und ändern kann.", "We start with a question that matters to someone. We bring experience, expertise and objections together. Our job is to give reasons for an answer that another person can examine and revise.")}</p>
+ <nav class="mission-toc" aria-label={t("Auf dieser Seite","On this page")}>{sections.map(([id,label])=><a href={"#"+id}>{label}</a>)}</nav></header>
+ <section id="menschen"><h2>{t("Wir sind Menschen.", "We are people.")}</h2>
+ <p>{t("Zwei Menschen können dieselbe Situation erleben und Verschiedenes daran wichtig finden. Wer betroffen ist, kann uns sagen, was in unserer Beschreibung fehlt. Wer widerspricht, soll zeigen können, an welcher Stelle sich unsere Antwort ändern müsste. Manchmal verstehen wir danach genauer, worüber wir uns weiterhin uneinig sind.", "Two people can live through the same situation and find different things important about it. Someone affected can tell us what our account leaves out. Someone who disagrees can point to the part of our answer that needs to change. Sometimes what we gain is a clearer understanding of where we still disagree.")}</p>
+ <a class="subtle-link" href={pathFor(lang,"methode")+"#g-005"}>{t("Wie ein Einwand unsere fünfte These verändert hat", "How an objection changed our fifth thesis")} →</a></section>
+ <section id="philosophie"><h2>{t("Wir sind Philosophie.","We are philosophy.")}</h2>
+ <p><strong>{copy[lang].motto}</strong></p>
+ <p>{t("Angenommen, eine Maschine verkürzt einen Arbeitsschritt von zwei Stunden auf eine. Für einen Kollegen heißt Fortschritt, dass er einen weiteren Auftrag schafft. Für eine Kollegin heißt es, dass sie pünktlich nach Hause kommt. Was meinen die beiden, wenn sie dasselbe Wort benutzen?", "Suppose a machine cuts a two-hour task to one hour. To one worker, progress means being able to finish another order. To a colleague, it means getting home on time. What does each of them mean by the same word?")}</p>
+ <p>{t("Vielleicht finden beide, dass die Beschäftigten mitentscheiden sollten, wie sie die gewonnene Stunde nutzen. Dann teilen sie einen Grundsatz, auch wenn sie sich über den nächsten Auftrag weiter streiten. Wie viel Zeit die Maschine im Alltag tatsächlich spart, können sie gemeinsam nachmessen.", "They might agree that the people who operate the machine should have a say in how to use the hour they save. They would then share a principle, even if they still disagree about taking on the next order. They can measure together how much time the machine actually saves on the job.")}</p>
+ <a class="subtle-link" href={pathFor(lang,"schnittmengen","sprachprobe")}>{t("An welchem Beispiel merken wir, ob wir dasselbe meinen?", "What example would show whether we mean the same thing?")} →</a>
+ </section>
+ <section id="forschung"><h2>{t("Wir sind Forschung!", "We are research!")}</h2>
+ <p>{t("Aus vorhandenem Wissen kann eine neue Frage entstehen. Im Beispiel mit der Maschine könnte man vermuten, dass Beschäftigte die gewonnene Zeit nur dann selbst nutzen können, wenn sie ihre Aufträge mitplanen. Welche Beobachtung würde diese Erklärung stützen? Was würden wir sehen, wenn allein die Auftragslage entscheidend wäre?", "Existing knowledge can lead to a new question. In the example above, we might suspect that workers can use the time they save only when they help schedule their tasks. What observation would support that explanation? What would we see if the volume of incoming work were all that mattered?")}</p>
+ <p>{t("Das ist eine Hypothese. Zur Untersuchung gehören ein Vergleich, ein Kriterium, das vor der Auswertung feststeht, und ein Platz für Ergebnisse, die uns überraschen. Für unsere eigene Methode gibt es bereits einen Vergleichsentwurf.", "That is a hypothesis. To investigate it we need a comparison, a criterion agreed in advance and room for surprising results. We have drafted such a comparison for our own method.")}</p>
+ <a class="subtle-link" href={project.repository+"/blob/main/docs/evaluation-v1.md"}>{t("Den geplanten Methodenvergleich prüfen", "Examine the proposed comparison")} ↗</a></section>
+ <section id="erkenntnis"><h2>{t("Was würde hier als guter Grund gelten?", "What would count as a good reason here?")}</h2>
+ <p>{t("Eine Tatsachenbehauptung braucht passende Beobachtungen. Ein formaler Schluss braucht klare Voraussetzungen und gültige Schritte. Bei einem Werturteil fragen wir, welchen Maßstab jemand wählt und wer mit den Folgen lebt. Bei einer Deutung vergleichen wir Lesarten. Bei einer Metapher prüfen wir, was das Bild sichtbar macht und wo es versagt.", "A factual claim calls for relevant observations. A formal conclusion needs explicit premises and valid steps. For a value judgment, we ask whose standard applies and who lives with the consequences. We compare interpretations with other plausible readings. With a metaphor, we ask what it reveals and where the comparison breaks down.")}</p>
+ <a class="subtle-link" href={pathFor(lang,"methode")}>{t("Die Methode im Detail", "Explore the method")} →</a></section>
+ <section id="entscheidungen"><h2>{t("Wer entscheidet, was hier steht?", "Who decides what appears here?")}</h2>
+ <p>{t("Menschen verantworten die Veröffentlichung. Wer eine Aussage ändern möchte, benennt die Stelle und legt den Einwand offen. Die Redaktion kann sie mit Gründen beibehalten, eingrenzen, korrigieren oder zurückziehen. Die frühere Fassung bleibt nachvollziehbar. Für eine offene Frage darf das Urteil offenbleiben.", "People take responsibility for publication. To change a claim, identify the passage and give your objection. The editors can give reasons for keeping, narrowing, revising or withdrawing it. Readers can trace the earlier version. An open question can remain open.")}</p>
+ <p id="vertrauen">{t("Wenn du eine Aussage aus der Werkstatt zitierst, verlinke den Eintrag. Dort kannst du die Begründung, ihren Geltungsbereich und den Stand der Prüfung nachlesen.", "When you cite a claim from the workshop, link to its record. There you can read the reasoning, see where it applies and check its review status.")}</p>
+ <a class="subtle-link" href={pathFor(lang,"aussagen")}>{t("Aussagen und Änderungsgeschichte", "Claims and revision history")} →</a></section>
+ <section id="stand"><h2>{t("Wie lässt sich die Werkstatt selbst prüfen?", "How can the workshop itself be tested?")}</h2>
+ <p>{t("Hilft unser Prüfblatt Menschen, Fehler zu finden, die sie bei einer gewöhnlichen Quellenprüfung übersehen? Wenn der Vergleich keinen Vorteil zeigt, müssen wir das Werkzeug ändern oder vereinfachen. Ob es hilft, ist offen.", "Does the worksheet help people catch errors they would miss in an ordinary source check? If the comparison finds no advantage, we should change or simplify the tool. Its benefit remains an open question.")}</p>
+ <dl class="mission-accountability">
+ <div id="ki"><dt>{t("KI und redaktionelle Verantwortung", "AI and editorial responsibility")}</dt><dd>{t("KI kann Quellen vorschlagen und Einwände entwerfen. Eine Person muss den Beleg prüfen und für die redaktionelle Entscheidung einstehen. Diese Verantwortung liegt derzeit beim Repository-Eigentümer.", "AI can suggest sources and draft objections. A person must examine the evidence and take responsibility for editorial decisions. At present, that responsibility rests with the repository owner.")}</dd></div>
+ <div id="versorgung"><dt>{t("Geld und Unabhängigkeit", "Funding and independence")}</dt><dd>{t("Unterstützung kann Arbeitszeit finanzieren. Der Prüfstatus hält fest, welche Prüfung stattgefunden hat. Wie gut die Aussage begründet ist, lässt sich an den Belegen und Argumenten beurteilen. Eine unabhängige Einspruchsstelle und ein öffentliches laufendes Budget sind noch aufzubauen.", "Contributions can pay for time to do the work. The review status records what examination took place. Readers can judge the claim by its evidence and arguments. An independent appeals process and a published operating budget are still to be established.")} <a href={pathFor(lang,"mitwirken")+"#unterstuetzen"}>{t("Finanzierung", "Funding")} →</a></dd></div>
+ <div id="bauplan"><dt>{t("Wo sich die Arbeit verfolgen lässt", "Where to follow the work")}</dt><dd><a href={pathFor(lang,"projektstatus")}>{t("Stand der Prüfung", "Review status")}</a> · <a href={pathFor(lang,"baum-des-wissens")}>{t("Themen und offene Fragen", "Topics and open questions")}</a> · <a href={project.repository+"/blob/main/docs/mission.md"}>{t("Ausführlicher Bauplan", "Full blueprint")} ↗</a></dd></div>
+ </dl></section>
+</article></Layout>
+
+<style>
+ .mission-accountability { display: grid; gap: 1.2rem; max-width: 52rem; }
+ .mission-accountability dt { font-weight: bold; margin-bottom: .3rem; }
+ .mission-accountability dd { margin: 0; color: var(--text-soft); }
+ .mission-accountability a { text-decoration: underline; text-underline-offset: .2em; color: var(--gold-bright); }
+ [id] { scroll-margin-top: 7rem; }
+</style>
