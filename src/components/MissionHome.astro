@@ -37,7 +37,7 @@ const t = copy[lang];
   <section class="home-practice container" aria-labelledby="practice-title">
     <h2 id="practice-title">{t.practiceTitle}</h2>
     <ol>{t.practiceSteps.map(([title, text]) => <li><strong>{title}</strong><p>{text}</p></li>)}</ol>
-    <p class="home-practice-note">{t.practiceNote}</p>
+    <p class="home-practice-note">{t.practiceNote} <a class="home-link" href={pathFor(lang, "methode", "erkenntnismotor")}>{lang === "de" ? "Den Weg einer Frage im Schaubild verfolgen" : "Follow a question through the diagram"} →</a></p>
   </section>
 
   <section class="home-explore" aria-labelledby="explore-title">
