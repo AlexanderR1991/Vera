@@ -18,7 +18,7 @@ const t = copy[lang];
         <p class="home-lead">{t.lead}</p>
         <div class="button-row">
           <a class="button button--gold" href={pathFor(lang, "spiel")}>{t.play}</a>
-          <a class="home-link" href={pathFor(lang, "werkstatt")}>{t.ownQuestion}</a>
+          <a class="home-link" href={pathFor(lang, "erkenntnisnavigator")}>{t.ownQuestion}</a>
         </div>
         <p class="home-note">{t.playNote}</p>
       </div>
@@ -52,6 +52,7 @@ const t = copy[lang];
           <summary>{t.bringQuestion}</summary>
           <p>{t.privacy}</p>
           <ul>
+            <li><a href={pathFor(lang, "erkenntnisnavigator")}>{lang === "de" ? "Passende Ansätze finden und Voraussetzungen prüfen" : "Find possible approaches and check their conditions"}</a></li>
             <li><a href={pathFor(lang, "werkstatt")}>{t.worksheet}</a></li>
             <li><a href={project.repository + "/issues/new?template=frage.yml"}>{t.publicQuestion} <span aria-hidden="true">↗</span></a></li>
           </ul>

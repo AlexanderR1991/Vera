@@ -1,6 +1,6 @@
 # Architektur und Gestaltungsprinzipien
 
-**Fortgeschrieben bis Gesamtentwurf 0.9 · 5. November 2026**
+**Fortgeschrieben bis zum Erkenntnisnavigator · 6. November 2026**
 
 ## Leitgedanke
 Die Schönheit darf zum Denken einladen; sie darf es nicht ersetzen. Gestaltung und Argumentation haben unterschiedliche Aufgaben.
@@ -67,3 +67,13 @@ Das ergänzende Organisationsbild verbindet eine Themenordnung mit sechs Arbeits
 `KnowledgeTree.astro` rendert die gemeinsamen DE/EN-Daten aus `src/lib/tree.mjs`. Die 22 Themen haben Mehrfachzuordnungen und sichtbare Ausarbeitungsstände. Kerninhalte sind ohne JavaScript lesbar; Filter verbessern den Zugang. Vorschläge aus offenen PRs werden als solche verlinkt. Ein erklärtes Gedankenbeispiel zeigt Verbindungstypen; ein automatisch geprüfter Wissensgraph wird damit nicht behauptet.
 
 [Die Gesamtprüfung](gesamtpruefung-baum.md) dokumentiert den Ausgangsstand, Grenzen, öffentliche Selbstkritik B-01–B-03 und erste Präzisierungen von These 05 und These 09. Die unabhängige Prüfung der Methode und ein tragfähiger Einspruchsweg bleiben offene Arbeit.
+
+## Erkenntnisnavigator · 6. November 2026
+
+Der [Erkenntnisnavigator](erkenntnisnavigator.md) ergänzt den Baum um einen direkten Weg von Alltagsfragen zu möglichen Zusammenhängen. Fall, Muster, Fachwissen und Prinzip sind Abstraktionsstufen; sie ersetzen weder die sechs Arbeitsebenen noch die getrennte Erfassung von Aussageart, Begründung und Prüfstatus. Allgemeiner bedeutet nicht wahrer. Auch eine Verbindung zwischen Erkenntnis und Fall braucht eine eigene Begründung.
+
+Der erste DE/EN-Pilot verwendet vier redaktionelle Entwurfskarten und eine begrenzte lokale Stichwortsuche. Nutzer prüfen Voraussetzungen mit ja, nein oder unklar. Unbekannte Bedingungen bleiben offen; verneinte Bedingungen verwerfen die Verbindung. Ein freiwilliger Reflexionszettel mit TXT-Export unterstützt die spätere Korrektur. Eingaben werden nicht gesendet oder automatisch gespeichert; es entstehen keine Menschenpunktzahlen. Die vorhandenen Registerzustände bleiben unverändert.
+
+Eine KI-Suche quer durch alle Äste sowie ein allgemeiner Wissensgraph mit versionierten, typisierten Verbindungen und Abhängigkeitsprüfung bleiben weitere Ausbauschritte. Der Pilot löst keine Modell-API-Aufrufe aus. Sein Nutzen gegenüber gewöhnlicher Suche muss noch gemessen werden.
+
+**English:** The knowledge navigator adds a direct route from everyday questions to possible insights. Abstraction does not rank truth. Four editorial draft cards use local keyword matching and explicit yes/no/unknown applicability checks; a private, optional reflection note can be exported as TXT. There is no AI service, automatic storage, submission or person score. Cross-topic AI retrieval and a versioned knowledge graph remain future work; comparative usefulness is unmeasured.

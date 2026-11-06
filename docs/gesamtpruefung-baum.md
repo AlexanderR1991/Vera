@@ -47,6 +47,12 @@ Die sechs Arbeitsebenen sind:
 
 Diese Ebenen ergänzen die fünf bisherigen **Zugänge der Website** aus der Architektur. Website-Navigation und Arbeitsverfahren beschreiben unterschiedliche Dinge.
 
+### Querverbindungen durch den Erkenntnisnavigator
+
+Der [Erkenntnisnavigator](erkenntnisnavigator.md) ergänzt am 6. November 2026 einen direkten Zugang quer durch Themen und Arbeitsebenen. Fall, Muster, Fachwissen und Prinzip kennzeichnen den Grad der Abstraktion, keine Wahrheitsrangfolge. Jede Anwendung muss ihre eigenen Voraussetzungen und Grenzen sichtbar machen. Auch ein konkreter Fall kann nach Prüfung eine allgemeinere Aussage korrigieren.
+
+Der erste Pilot besteht aus vier redaktionellen Entwurfskarten mit lokaler Stichwortsuche und Bedingungen zum Bestätigen, Verneinen oder Offenlassen. Eine bedingt passende Verbindung ist kein Fachreview. KI-Mustererkennung über das gesamte Netz, automatische Abhängigkeitsprüfung und ein gemessener Nutzen sind damit noch nicht umgesetzt. Der dokumentierte Vergleichsplan verlangt insbesondere Fallpaare, die sich nur in einer entscheidenden Voraussetzung unterscheiden.
+
 ## Befunde über das Ganze
 
 | Bereich | Befund im Ausgangsstand | Konsequenz dieser Arbeit |
@@ -115,3 +121,5 @@ Wiederkehrende Fehlzuordnung kann die Baumstruktur zur Revision zwingen. Verlust
 The flying tree complements the spacecraft metaphor. Downward branches gather human voices, philosophy, disciplinary knowledge, art and objections; six stages of work connect them without ranking people or merging distinct kinds of justification. The topic map contains 22 overlapping branches and marks working drafts, proposals and gaps.
 
 The review led to two edits published on 5 November 2026. Thesis 05 explicitly recognizes the value of lasting support. In Thesis 09 the German wording changed from “better people” to “other people.” Public issues B-01–B-03 examine representation, editorial responsibility and the usefulness of AI-generated criticism. Independent review and a comparison of the method with ordinary source checking are still pending.
+
+On 6 November, the [knowledge navigator](erkenntnisnavigator.md) adds four editorial draft connections with local keyword matching and explicit applicability checks. Case, pattern, disciplinary knowledge and principle describe abstraction, not certainty. Cross-tree AI retrieval and automated dependency review remain future work. Proposed case pairs change one decisive prerequisite to test whether a connection is appropriately withheld; comparative usefulness has not yet been measured.
