@@ -23,7 +23,7 @@ Die Reihenfolge folgt überprüfbaren Voraussetzungen. Die Kapitel bleiben erhal
 
 ## Etappe 1 · Ein kleiner, vollständig geprüfter Bestand
 
-Die [Gesamtprüfung des fliegenden Baums](gesamtpruefung-baum.md) verknüpft die Themen, sichtbaren Lücken und öffentlichen Selbstprüfungen [B-01](https://github.com/AlexanderR1991/grundtext-des-wirklichen/issues/28), [B-02](https://github.com/AlexanderR1991/grundtext-des-wirklichen/issues/29) und [B-03](https://github.com/AlexanderR1991/grundtext-des-wirklichen/issues/30). Ein erweiterter Themenplan erfüllt die folgenden Freigabekriterien noch nicht.
+Die [Gesamtprüfung des fliegenden Baums](gesamtpruefung-baum.md) verknüpft die Themen, sichtbaren Lücken und öffentlichen Selbstprüfungen [B-01](https://github.com/AlexanderR1991/Wirklich/issues/28), [B-02](https://github.com/AlexanderR1991/Wirklich/issues/29) und [B-03](https://github.com/AlexanderR1991/Wirklich/issues/30). Ein erweiterter Themenplan erfüllt die folgenden Freigabekriterien noch nicht.
 
 **Freigabekriterium:** Zehn klar begrenzte Aussagen mit dokumentierter menschlicher Prüfung, belegter Herkunft, Gegenargumenten, Geltungsbereich und verständlicher Erklärung.
 

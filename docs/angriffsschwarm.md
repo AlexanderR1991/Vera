@@ -30,7 +30,7 @@ Typical rate: 1 case/day × 3 API requests. The API may incur usage charges inde
 
 ## Invite outside scrutiny
 
-The repository root `AGENTS.md` explicitly invites other agent ecosystems and human reviewers to attack specific claims. This **does not automatically summon outside bots**; interested agents must visit, index or be directed to this repository. Use the [structured issue form](https://github.com/AlexanderR1991/grundtext-des-wirklichen/issues/new?template=angriff.yml). Good objections include source links, a steelman, a genuine counterexample, competing explanations and a test. Never ask others to attack GitHub infrastructure, people or credentials.
+The repository root `AGENTS.md` explicitly invites other agent ecosystems and human reviewers to attack specific claims. This **does not automatically summon outside bots**; interested agents must visit, index or be directed to this repository. Use the [structured issue form](https://github.com/AlexanderR1991/Wirklich/issues/new?template=angriff.yml). Good objections include source links, a steelman, a genuine counterexample, competing explanations and a test. Never ask others to attack GitHub infrastructure, people or credentials.
 
 ## Records and evidential statuses
 

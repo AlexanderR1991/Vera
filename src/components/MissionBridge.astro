@@ -1,9 +1,0 @@
----
-import {pathFor} from "../lib/paths.mjs";
-const {lang="de"}=Astro.props;
----
-<aside class="mission-bridge container" aria-label={lang==="de"?"Neue gemeinsame Struktur":"New shared structure"}>
- <p>{lang==="de"?"Die nächste Etappe: Aussagen einzeln prüfen und Entscheidungen nachvollziehbar machen.":"The next stage: inspect individual claims and make decisions traceable."}</p>
- <div><a href={pathFor(lang,"aussagen")}>{lang==="de"?"Aussagenregister ↗":"Claim register ↗"}</a><a href={pathFor(lang,"mission")}>{lang==="de"?"Unsere Mission ↗":"Our mission ↗"}</a></div>
-</aside>
-<style>.mission-bridge{margin-block:28px;padding:18px 22px;border:1px solid var(--line);font-size:13px}.mission-bridge p{margin:0 0 8px}.mission-bridge div{display:flex;flex-wrap:wrap;gap:20px;color:var(--gold)}.mission-bridge a{text-decoration:underline;text-underline-offset:4px}</style>

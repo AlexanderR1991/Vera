@@ -12,13 +12,13 @@ We welcome questions, objections, sources and improvements. **You do not need pr
 
 | Deutsch | English | Einstieg / Entry |
 |---|---|---|
-| Kunst und Gegenlesarten einbringen | Share art and alternative readings | [Kunst / Art](https://github.com/AlexanderR1991/grundtext-des-wirklichen/issues/new?template=kunst.yml) |
-| Einen Härtetest einreichen | Challenge a claim | [Angriffsschwarm / Adversarial challenge](https://github.com/AlexanderR1991/grundtext-des-wirklichen/issues/new?template=angriff.yml) |
-| Eine Frage stellen | Ask a question | [Frage / Question](https://github.com/AlexanderR1991/grundtext-des-wirklichen/issues/new?template=frage.yml) |
-| Eine Idee vorschlagen | Propose an idea | [Idee / Idea](https://github.com/AlexanderR1991/grundtext-des-wirklichen/issues/new?template=idee.yml) |
-| Einen Beleg untersuchen | Examine evidence | [Quellenprüfung / Evidence](https://github.com/AlexanderR1991/grundtext-des-wirklichen/issues/new?template=quellenpruefung.yml) |
-| Eine These kritisieren | Challenge a thesis | [Kritik / Critique](https://github.com/AlexanderR1991/grundtext-des-wirklichen/issues/new?template=kritik.yml) |
-| Eine Übersetzung prüfen | Review translation | [Übersetzung / Translation](https://github.com/AlexanderR1991/grundtext-des-wirklichen/issues/new?template=uebersetzung.yml) |
+| Kunst und Gegenlesarten einbringen | Share art and alternative readings | [Kunst / Art](https://github.com/AlexanderR1991/Wirklich/issues/new?template=kunst.yml) |
+| Einen Härtetest einreichen | Challenge a claim | [Angriffsschwarm / Adversarial challenge](https://github.com/AlexanderR1991/Wirklich/issues/new?template=angriff.yml) |
+| Eine Frage stellen | Ask a question | [Frage / Question](https://github.com/AlexanderR1991/Wirklich/issues/new?template=frage.yml) |
+| Eine Idee vorschlagen | Propose an idea | [Idee / Idea](https://github.com/AlexanderR1991/Wirklich/issues/new?template=idee.yml) |
+| Einen Beleg untersuchen | Examine evidence | [Quellenprüfung / Evidence](https://github.com/AlexanderR1991/Wirklich/issues/new?template=quellenpruefung.yml) |
+| Eine These kritisieren | Challenge a thesis | [Kritik / Critique](https://github.com/AlexanderR1991/Wirklich/issues/new?template=kritik.yml) |
+| Eine Übersetzung prüfen | Review translation | [Übersetzung / Translation](https://github.com/AlexanderR1991/Wirklich/issues/new?template=uebersetzung.yml) |
 
 Schreibe in **Deutsch oder Englisch**. / Write in **German or English**.
 

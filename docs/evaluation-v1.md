@@ -2,7 +2,7 @@
 
 **Protokollentwurf 1 · 5. November 2026 · Kein Versuch, keine Vorregistrierung und keine Ergebnisdaten**
 
-Unsere Arbeitsfrage lautet: Hilft das strukturierte Prüfblatt Menschen bei begrenzten Aufgaben — und welchen zusätzlichen Nutzen oder Schaden bringt KI-Gegenkritik? Die Existenz einer Website beantwortet diese Frage nicht. Das Protokoll konkretisiert auch die öffentliche Selbstprüfung [B-03](https://github.com/AlexanderR1991/grundtext-des-wirklichen/issues/30).
+Unsere Arbeitsfrage lautet: Hilft das strukturierte Prüfblatt Menschen bei begrenzten Aufgaben — und welchen zusätzlichen Nutzen oder Schaden bringt KI-Gegenkritik? Die Existenz einer Website beantwortet diese Frage nicht. Das Protokoll konkretisiert auch die öffentliche Selbstprüfung [B-03](https://github.com/AlexanderR1991/Wirklich/issues/30).
 
 ## Zuerst Machbarkeit, dann Wirksamkeit
 

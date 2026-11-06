@@ -20,7 +20,7 @@ test("provenance alone cannot support an empirical result",()=>{
 });
 test("stable identifiers, translations and revision records cannot silently disappear",()=>{
  const data=structuredClone(original);data.claims[1].id=data.claims[0].id;
- delete data.claims[2].revision_condition.en;data.claims[0].version=2;
+ delete data.claims[2].revision_condition.en;data.claims[0].version++;
  const errors=validateRegister(data);
  assert.ok(errors.some(x=>x.includes("duplicate identifier")));
  assert.ok(errors.some(x=>x.includes("missing bilingual revision_condition")));

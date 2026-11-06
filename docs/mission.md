@@ -8,15 +8,7 @@ Die [erste Werkzeugfassung](release-1.0.md) macht diese Mission mit einem persö
 
 Der Grundtext soll Menschen befähigen, unter Unsicherheit besser zu verstehen, begründeter zu entscheiden und ehrlicher zu korrigieren. Er verbindet eine Bibliothek verständlicher Erklärungen mit der nachvollziehbaren Arbeit an einzelnen Aussagen. Die gemeinsame Methode ist der Kern; die Kapitel sind ihre Anwendungsfelder.
 
-Die zweisprachige öffentliche Darstellung liegt unter `/de/mission/` und `/en/mission/`. Dieser Entwurf führt die bisherigen Themen und die in [PR #18](https://github.com/AlexanderR1991/grundtext-des-wirklichen/pull/18) vorgeschlagene Vision eines offenen Wissenssystems zusammen. Er behauptet keine bereits erreichte Leistungsfähigkeit.
-
-## Ursprung: Aus „Die Richtung“ wurde eine offene Erkenntniswerkstatt
-
-Die Idee zu **WIRKLICH** entstand aus der Arbeit an dem Buch **„Die Richtung“**. Ausgangspunkt war die Frage, wie Menschen Wahrheit, Orientierung und verantwortliches Handeln finden können. Aus der Beschäftigung damit erwuchs der Wunsch, nicht nur ein Buch zu schreiben, sondern einen öffentlichen, überprüfbaren und korrigierbaren Raum für solche Fragen zu schaffen.
-
-**Drei Ebenen bleiben unterscheidbar:** „Die Richtung“ ist der ideelle Ursprung; der öffentlich dokumentierte **„Grundtext des Wirklichen“** ist das philosophische Fundament; **WIRKLICH** ist die gemeinsame Forschungs- und Erkenntniswerkstatt. Ihre Arbeit darf auch die Annahmen ihres Ursprungs widerlegen. Die Herkunft einer Idee belegt nicht ihre Richtigkeit.
-
-**„Die Richtung“ ist jetzt als offene deutsche Text-Lesefassung im Repository veröffentlicht**: [Online lesen](https://alexanderr1991.github.io/Wirklich/de/die-richtung/) · [vollständigen Text herunterladen](../public/books/die-richtung-2.0-lesefassung.txt). Die Lesefassung enthält die extrahierten Texte der 196-seitigen Ausgabe, nicht aber die reproduzierten Kunstwerke und Modellgrafiken. Für originale redaktionelle Texte gilt CC BY-SA 4.0, soweit die notwendigen Rechte vorliegen; fremde Werke behalten ihre separaten Rechte. Die gestaltete Original-PDF ist derzeit nicht hier bereitgestellt. Mitarbeit, Kritik und fachliche Prüfung dürfen niemals die Zustimmung zu diesem Buch voraussetzen.
+Die zweisprachige öffentliche Darstellung liegt unter `/de/mission/` und `/en/mission/`. Dieser Entwurf führt die bisherigen Themen und die in [PR #18](https://github.com/AlexanderR1991/Wirklich/pull/18) vorgeschlagene Vision eines offenen Wissenssystems zusammen. Er behauptet keine bereits erreichte Leistungsfähigkeit.
 
 ## Unser Maßstab: Eine Adresse ist kein Beweis
 
@@ -146,9 +138,6 @@ Danach die Methode selbst vergleichen: vorab definierte Aufgaben und Bewertungsr
 
 Erst nach gezeigtem Nutzen folgen mehr Themen und mehr Autonomie. Der langfristige Anspruch einer nächsten Generation freien Wissens — vielleicht einmal Ergänzung oder Alternative zu Wikipedia — wird durch Qualität verdient. Eine Zugehörigkeit oder offizielle Nachfolge wird nicht behauptet.
 
-## English note on origins
-
-WIRKLICH grew out of work on the book **“Die Richtung”**. The manuscript is the intellectual origin, the publicly documented **“Grundtext des Wirklichen”** is the philosophical foundation, and **WIRKLICH** is the open inquiry workshop. A project's origin is not evidence for its claims; contributions and corrections may also challenge the originating ideas. The manuscript itself is not published or licensed through this repository.
 
 ## English summary
 

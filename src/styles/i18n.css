@@ -302,3 +302,22 @@
 .civitas-section-title{font-size:clamp(38px,9vw,57px)}
 .civitas-thesis{padding:19px}
 }
+
+@media (max-width: 660px) {
+  .community-start .section-heading,
+  .contribute-grid,
+  .link-tiles,
+  .atlas-cards,
+  .civitas-tradeoffs {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .community-start h2, .atlas-card, .civitas-tradeoffs h3 {
+    hyphens: auto;
+    overflow-wrap: anywhere;
+  }
+}
+@media (max-width: 420px) {
+  .site-header__inner .brand { gap: 8px; min-width: 0; }
+  .site-header__inner .language-switch { padding-left: 0; }
+  .site-header__inner .menu-toggle { padding-inline: 8px; }
+}

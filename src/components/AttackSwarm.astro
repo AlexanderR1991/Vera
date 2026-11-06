@@ -2,7 +2,7 @@
 import Layout from "../layouts/SiteLayout.astro";
 const {lang="de"}=Astro.props;
 const de=lang==="de";
-const repo="https://github.com/AlexanderR1991/grundtext-des-wirklichen";
+const repo="https://github.com/AlexanderR1991/Wirklich";
 ---
 <Layout lang={lang} slug="angriffsschwarm">
   <section class="section attack-hero">
@@ -44,7 +44,7 @@ const repo="https://github.com/AlexanderR1991/grundtext-des-wirklichen";
       const status=document.getElementById("attack-status");
       const meta=document.getElementById("attack-meta");
       const cards=document.getElementById("attack-cards");
-      const endpoint="https://raw.githubusercontent.com/AlexanderR1991/grundtext-des-wirklichen/main/public/research/angriffe.json";
+      const endpoint="https://raw.githubusercontent.com/AlexanderR1991/Wirklich/main/public/research/angriffe.json";
       const text=(tag,value,css)=>{
         const e=document.createElement(tag);
         e.textContent=String(value??"");
@@ -104,7 +104,7 @@ const repo="https://github.com/AlexanderR1991/grundtext-des-wirklichen";
           const src=String(item.source||"");
           const link=document.createElement("a");
           if(/^docs\/[\w./-]+\.md$/.test(src) && !src.includes("..")){
-            link.href="https://github.com/AlexanderR1991/grundtext-des-wirklichen/blob/main/"+src;
+            link.href="https://github.com/AlexanderR1991/Wirklich/blob/main/"+src;
             link.target="_blank"; link.rel="noopener noreferrer";
             link.textContent=de?"Quelle der These ↗":"Claim source ↗";
             article.append(link);

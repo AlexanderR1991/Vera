@@ -4,7 +4,7 @@
     "de": "Aussagenregister · Demonstrationsbestand",
     "en": "Claim register · demonstration corpus"
   },
-  "updated_at": "2026-11-05",
+  "updated_at": "2026-11-06",
   "claims": [
     {
       "id": "G-005",
@@ -15,8 +15,8 @@
         "en": "Help in a way that enables the other person to find their own strength."
       },
       "scope": {
-        "de": "Normativer Leitgedanke für Hilfe und Fürsorge. Kein Versprechen, dass Autonomie in jeder Situation kurzfristig zunimmt.",
-        "en": "A normative principle for help and care. No promise that autonomy increases in the short term in every situation."
+        "de": "Normativer Leitgedanke für Hilfe und Fürsorge. Er schließt dauerhafte Unterstützung ein. Würde und Fürsorge dürfen nicht von erreichbarer Selbstständigkeit abhängen.",
+        "en": "A guiding value for help and care, including lasting support. Dignity and care must not depend on attainable independence."
       },
       "rationale": {
         "de": "Hilfe soll die Bedürfnisse und Handlungsmöglichkeiten des Gegenübers ernst nehmen. Welche Hilfe tatsächlich nützt, ist davon getrennt zu prüfen.",
@@ -33,20 +33,28 @@
         }
       ],
       "revision_condition": {
-        "de": "Präzisieren, wenn der Satz Menschen mit dauerhaftem Unterstützungsbedarf ausschließt. Würde und gewünschte Unterstützung dürfen nicht von erreichbarer Selbstständigkeit abhängen.",
-        "en": "Clarify if the principle excludes people with lasting support needs. Dignity and wanted support must not depend on achievable independence."
+        "de": "Erneut präzisieren, wenn eine konkrete Anwendung trotz des Zusatzes dazu führt, dass gewünschte Hilfe entzogen oder aufgezwungen wird. Dabei die Perspektive der betroffenen Person und den strittigen Wortlaut festhalten.",
+        "en": "Revisit the wording if a concrete application of the revised principle leads someone to withhold wanted help or impose unwanted help. Record the affected person’s perspective and the wording at issue."
       },
       "evidence_note": {
-        "de": "Wertentscheidung mit Begründung; der verlinkte Ursprung belegt die Herkunft, nicht die empirische Wirkung.",
-        "en": "A reasoned value commitment; the linked source establishes provenance, not empirical effects."
+        "de": "Der Grundtext und seine Änderung belegen, wie das Projekt seinen Wert begründet und präzisiert hat. Welche Hilfe im Einzelfall gewünscht ist und wirkt, bleibt gesondert zu klären.",
+        "en": "The original text and its revision document how the project explained and clarified its value. What help a particular person wants and what works for them require separate inquiry."
       },
       "sources": [
         {
-          "url": "https://github.com/AlexanderR1991/grundtext-des-wirklichen/blob/2c6a54c6e04eb7a4bf6c15c41f6b723c385dbd22/docs/grundtext.md",
+          "url": "https://github.com/AlexanderR1991/Wirklich/blob/2c6a54c6e04eb7a4bf6c15c41f6b723c385dbd22/docs/grundtext.md",
           "role": "provenance",
           "label": {
             "de": "Grundtext · These 05 · fixierter Ausgangsstand",
             "en": "Foundational text · Thesis 05 · pinned source revision"
+          }
+        },
+        {
+          "url": "https://github.com/AlexanderR1991/Wirklich/blob/09541398d7e4b189067c58139e933c55fe41484a/docs/grundtext.md#L25-L27",
+          "role": "provenance",
+          "label": {
+            "de": "Grundtext · These 05 nach der Präzisierung in PR #31",
+            "en": "Foundational text · Thesis 05 as clarified in PR #31"
           }
         }
       ],
@@ -54,8 +62,8 @@
         "de": "Zielkonflikte zwischen Schutz, Selbstbestimmung und Unterstützungsbedarf bleiben offen.",
         "en": "Tradeoffs between protection, self-determination and support needs remain open."
       },
-      "version": 1,
-      "updated_at": "2026-11-05",
+      "version": 2,
+      "updated_at": "2026-11-06",
       "review_status": "unreviewed",
       "human_review": null,
       "ai_assistance": {
@@ -73,6 +81,14 @@
           "change": {
             "de": "Erster strukturierter Entwurf. Keine fachliche Freigabe.",
             "en": "First structured draft. No expert approval."
+          }
+        },
+        {
+          "version": 2,
+          "date": "2026-11-06",
+          "change": {
+            "de": "Das Register führt jetzt die in PR #31 veröffentlichte Präzisierung zur dauerhaften Unterstützung mit ihrer Quelle. Die nächste Revisionsbedingung bezieht sich auf diese Fassung.",
+            "en": "The register now reflects the clarification on lasting support published in PR #31, links to that revision and gives a condition for revisiting the amended wording."
           }
         }
       ]
@@ -113,7 +129,7 @@
       },
       "sources": [
         {
-          "url": "https://github.com/AlexanderR1991/grundtext-des-wirklichen/blob/2c6a54c6e04eb7a4bf6c15c41f6b723c385dbd22/docs/architektur.md",
+          "url": "https://github.com/AlexanderR1991/Wirklich/blob/2c6a54c6e04eb7a4bf6c15c41f6b723c385dbd22/docs/architektur.md",
           "role": "provenance",
           "label": {
             "de": "Architektur · Erkenntnishorizont · fixierter Ausgangsstand",
@@ -184,7 +200,7 @@
       },
       "sources": [
         {
-          "url": "https://github.com/AlexanderR1991/grundtext-des-wirklichen/blob/2c6a54c6e04eb7a4bf6c15c41f6b723c385dbd22/docs/angriffsschwarm.md",
+          "url": "https://github.com/AlexanderR1991/Wirklich/blob/2c6a54c6e04eb7a4bf6c15c41f6b723c385dbd22/docs/angriffsschwarm.md",
           "role": "provenance",
           "label": {
             "de": "Angriffsprotokoll · Ausgangspunkt des Prüfvorschlags",

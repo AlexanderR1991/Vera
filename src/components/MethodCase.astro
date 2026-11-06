@@ -1,0 +1,44 @@
+---
+import project from "../../public/project.json";
+import { pathFor } from "../lib/paths.mjs";
+
+const { lang } = Astro.props;
+const de = lang === "de";
+const revision = "09541398d7e4b189067c58139e933c55fe41484a";
+---
+<section id="g-005" class="section case-study" aria-labelledby="g-005-title">
+  <div class="container method-timeline">
+    <div>
+      <p class="section-kicker">{de ? "EINE DOKUMENTIERTE KORREKTUR · G-005" : "A DOCUMENTED REVISION · G-005"}</p>
+      <h2 id="g-005-title">{de ? "Muss gute Hilfe selbstständig machen?" : "Does good help have to lead to independence?"}</h2>
+      <p>{de ? "Unsere fünfte These lautet „Hilf so, dass der andere seine eigene Kraft findet.“ Was heißt das für jemanden, der jeden Tag Unterstützung braucht?" : "Our fifth thesis says, “Help in a way that enables the other person to find their own strength.” What does that mean for someone who needs support every day?"}</p>
+    </div>
+    <ol>
+      <li><b aria-hidden="true">01</b><div>
+        <h3>{de ? "Den Wert benennen" : "Name the value"}</h3>
+        <p>{de ? "Hilfe soll Menschen mehr Spielraum geben, über ihr Leben zu bestimmen. Der ursprüngliche Absatz ließ offen, ob Unterstützung auch dann wertvoll ist, wenn jemand eine Tätigkeit dauerhaft nur mit Hilfe ausüben kann." : "Help should give people more say over their own lives. The original passage left a question open. Is support still valuable when someone will always need help with a task?"}</p>
+      </div></li>
+      <li><b aria-hidden="true">02</b><div>
+        <h3>{de ? "Den Einwand an einem Fall prüfen" : "Try the objection on a case"}</h3>
+        <p>{de ? "Stell dir eine Person vor, die dauerhaft jemanden braucht, der ihr Briefe vorliest. Sie entscheidet selbst, wie sie antwortet. Würden wir gute Hilfe daran messen, ob das Vorlesen eines Tages aufhört, übersähen wir genau diese Freiheit." : "Imagine someone who will always need another person to read their letters aloud. They decide how to reply. If we judged the help by whether the reading eventually stopped, we would overlook that freedom."}</p>
+      </div></li>
+      <li><b aria-hidden="true">03</b><div>
+        <h3>{de ? "Die Änderung nachlesen" : "Check the actual edit"}</h3>
+        <p>{de ? "Am 5. November 2026 ergänzte das Projekt die Erläuterung der These um zwei Sätze." : "On 5 November 2026 the project added two sentences to the explanation of the thesis. In English they read as follows."}</p>
+        <blockquote>{de ? "Auch dauerhafte Unterstützung ist wertvoll. Würde und Fürsorge dürfen nicht von erreichbarer Selbstständigkeit abhängen." : "Lasting support is valuable too. Dignity and care must not depend on attainable independence."}</blockquote>
+        <p><a class="subtle-link" href={project.repository + "/blob/" + revision + "/docs/grundtext.md#L25-L27"}>{de ? "Geänderte Textstelle" : "Revised passage in German"}</a> · <a class="subtle-link" href={project.repository + "/pull/31/files"}>{de ? "Änderungsvergleich" : "Compare versions"}</a></p>
+      </div></li>
+      <li><b aria-hidden="true">04</b><div>
+        <h3>{de ? "Die nächste Frage offenhalten" : "Leave the next question open"}</h3>
+        <p>{de ? "Damit ist geklärt, welchen Wert wir vertreten. Ob die Person das Vorlesen wünscht und ob es ihr hilft, erfahren wir erst von ihr." : "The revision makes our value explicit. We still need to ask the person whether they want this help and how well it works for them."}</p>
+        <p><a class="subtle-link" href={pathFor(lang, "aussagen") + "#G-005"}>{de ? "Eintrag lesen oder einen Einwand einreichen" : "Read the claim or raise an objection"} ↗</a></p>
+      </div></li>
+    </ol>
+  </div>
+</section>
+<style>
+  .case-study { scroll-margin-top: 5rem }
+  .case-study h3 { font-size: 1.35rem; margin: 0 0 .3rem }
+  .case-study li p { font-size: 1rem; line-height: 1.55 }
+  .case-study blockquote { border-left: 2px solid var(--gold); margin: .8rem 0; padding-left: 1rem }
+</style>
