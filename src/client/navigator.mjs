@@ -1,5 +1,6 @@
-import {connections, findConnections, assessConnection, buildNavigatorNote} from "../lib/navigator.mjs";
+import {connections, assessConnection, buildNavigatorNote} from "../lib/navigator.mjs";
 import {topics} from "../lib/tree.mjs";
+import {discover} from "../lib/discovery.mjs";
 
 const root = document.querySelector("[data-navigator]");
 
@@ -11,6 +12,8 @@ if (root) {
   const question = find("[data-nav-question]");
   const status = find("[data-nav-status]");
   const results = find("[data-nav-results]");
+  const topicPanels = root.querySelectorAll(".navigator-topic");
+  const topicList = find("[data-nav-topic-list]");
   const resultList = find("[data-nav-result-list]");
   const panel = find("[data-nav-connection]");
   const assessment = find("[data-nav-assessment]");
@@ -32,15 +35,17 @@ if (root) {
     panel.hidden = true;
     assessment.hidden = true;
     find("[data-nav-conditions]").replaceChildren();
-    for (const button of resultList.querySelectorAll("button")) button.setAttribute("aria-pressed", "false");
+    panel.removeAttribute("id");
   }
 
   function invalidateQuestion() {
-    const hadResult = connectionId !== null || !results.hidden;
+    const hadResult = connectionId !== null || !results.hidden || location.hash.startsWith("#thema-");
+    clearDiscoveryHash();
     clearConnection();
     results.hidden = true;
     resultList.replaceChildren();
-    if (hadResult) announce(t("Frage geändert. Frühere Vorschläge und Voraussetzungen wurden zurückgesetzt. Suche erneut; deine Reflexionsnotizen bleiben erhalten.", "Question changed. Previous suggestions and conditions were reset. Search again; your reflection notes are kept."));
+    topicList.replaceChildren();
+    if (hadResult) announce(t("Frage geändert. Suche erneut, um die passenden Themen und Muster zu sehen.", "Question changed. Search again to see matching topics and patterns."));
   }
 
   function definitionList(items) {
@@ -52,6 +57,7 @@ if (root) {
   function selectConnection(connection) {
     clearConnection();
     connectionId = connection.id;
+    panel.id = "verbindung-" + connection.id;
     answers = Object.fromEntries(connection.conditions.map(condition => [condition.id, "unknown"]));
     find("[data-nav-meta]").textContent = `${connection.id} · v${connection.version} · ${t("ENTWURF", "DRAFT")} · ${connection.type === "normative" ? t("WERTGRUNDSATZ", "VALUE PRINCIPLE") : t("FORMALER ZUSAMMENHANG", "FORMAL RELATION")}`;
     find("[data-nav-title]").textContent = text(connection.title);
@@ -99,13 +105,13 @@ if (root) {
       sourceList.append(item);
     }
     evidence.append(sourceList);
-    const topicLinks = element("p", t("Verbindungen im Baum: ", "Connections in the tree: "), "navigator-topic-links");
+    const topicLinks = find("[data-nav-connected-topics]");
+    topicLinks.textContent = t("Verbundene Themen erkunden · ", "Explore connected topics · ");
     for (const id of connection.topics) {
       const link = element("a", topics.find(topic => topic.id === id)?.name[lang] ?? id);
-      link.href = root.dataset.treeUrl + "#ast-" + id;
+      link.href = "#thema-" + id;
       topicLinks.append(link);
     }
-    evidence.append(topicLinks);
     if (connection.sourceClaim) {
       const claim = element("p");
       const link = element("a", t("Bezugsfassung im Aussagenregister: ", "Related claim in the register: ") + `${connection.sourceClaim.id} v${connection.sourceClaim.version}`);
@@ -116,47 +122,82 @@ if (root) {
     evidence.append(element("p", t("Arbeitsentwurf: Eine unabhängige Fachprüfung steht aus. Deine Bedingungsprüfung ändert diesen Prüfstatus nicht.", "Working draft: independent expert review is pending. Your condition check does not change this review status."), "navigator-note"));
     find("[data-nav-evidence]").open = false;
     panel.hidden = false;
-    for (const button of resultList.querySelectorAll("button")) button.setAttribute("aria-pressed", String(button.dataset.connectionId === connection.id));
     announce(t("Verbindung ausgewählt. Prüfe jetzt ihre Voraussetzungen. Frühere Antworten wurden zurückgesetzt.", "Connection selected. Now check its conditions. Previous answers were reset."));
     find("[data-nav-title]").focus();
   }
 
+  function clearDiscoveryHash() {
+    for (const section of topicPanels) section.hidden = true;
+    if (/^#(thema|verbindung)-/.test(location.hash)) {
+      history.replaceState(history.state, "", location.pathname + location.search);
+    }
+  }
+
+  function openFragment() {
+    const hash = location.hash;
+    for (const section of topicPanels) section.hidden = "#" + section.id !== hash;
+    const connection = connections.find(item => "#verbindung-" + item.id === hash);
+    if (connection) {
+      selectConnection(connection);
+      return;
+    }
+    clearConnection();
+    const topic = topics.find(item => "#thema-" + item.id === hash);
+    if (topic) {
+      document.getElementById("topic-title-" + topic.id).focus();
+      announce(t("Thema geöffnet. Frühere Antworten zur Bedingungsprüfung wurden zurückgesetzt.", "Topic opened. Previous condition answers have been reset."));
+    } else if (!hash && !results.hidden) {
+      find("#navigator-results-title").focus();
+    }
+  }
+
+  // With JS, the reading-card fragment opens the interactive check instead.
+  for (const card of root.querySelectorAll(".navigator-reading-card[id]")) card.removeAttribute("id");
+  window.addEventListener("hashchange", openFragment);
+
+  function resultItem(href, title, description, terms, cues) {
+    const item = element("li", undefined, "navigator-result");
+    const link = element("a", title);
+    link.href = href;
+    item.append(link, element("p", description));
+    if (terms.length) item.append(element("small", t("Gefundene Wörter · ", "Matched words · ") + terms.join(", ")));
+    if (cues?.length) {
+      item.append(element("small", t("Zwei Hinweise aus deiner Frage · ", "Two clues from your question · ") + cues.map(cue => t("„", "“") + cue + t("“", "”")).join(" + ")));
+    }
+    return item;
+  }
+
   function showResults(all = false) {
+    clearDiscoveryHash();
     clearConnection();
     const query = question.value.trim();
-    const matches = all ? connections : findConnections(query, lang);
+    const hits = all ? {topics: [], patterns: connections.map(connection => ({connection, terms: []}))} : discover(query, lang);
     results.hidden = false;
-    resultList.replaceChildren();
-    const noMatch = matches.length === 0;
+    topicList.replaceChildren(...hits.topics.map(({topic, terms}) =>
+      resultItem("#thema-" + topic.id, text(topic.name), text(topic.question), terms)));
+    resultList.replaceChildren(...hits.patterns.map(({connection, terms, cues}) =>
+      resultItem("#verbindung-" + connection.id, text(connection.title), text(connection.pattern), terms, cues)));
+    find("[data-nav-topic-hits]").hidden = !hits.topics.length;
+    find("[data-nav-pattern-hits]").hidden = !hits.patterns.length;
+    const noMatch = !hits.topics.length && !hits.patterns.length;
     find("[data-nav-no-match]").hidden = !noMatch;
-    const note = all
-      ? t("Vier Arbeitsentwürfe zur eigenen Auswahl. Wähle einen Gedanken aus, dessen Voraussetzungen du untersuchen möchtest.", "Four working drafts to choose from. Select an idea whose conditions you would like to examine.")
-      : noMatch
-        ? (query ? t("In diesem kleinen Bestand wurde kein passender Stichworttreffer gefunden. Das bedeutet nicht, dass es keine hilfreiche Erkenntnis gibt.", "No matching keyword was found in this small collection. This does not mean that no helpful knowledge exists.") : t("Schreib eine Frage oder wähle ein erfundenes Beispiel. Du kannst auch alle vier Verbindungen durchsehen.", "Write a question or choose a fictional example. You can also browse all four connections."))
-        : t("Diese Vorschläge beruhen nur auf Stichwörtern. Ähnliche Wörter zeigen noch nicht, dass ein Gedanke auf deinen Fall anwendbar ist.", "These suggestions are based only on keywords. Similar words do not establish that an idea applies to your situation.");
+    const note = all ? t("Wähle eine Musterkarte, um ihre Voraussetzungen zu prüfen.", "Choose a pattern card to check its conditions.")
+      : noMatch ? (query ? t("Zu diesen Wörtern gibt es im bisherigen Bestand keinen Treffer.", "These words have no match in the current collection.") : t("Gib eine Frage oder einen Begriff ein.", "Enter a question or a term."))
+      : t("Öffne ein Thema, um Verbindungen zu erkunden. Bei einer Musterkarte prüfst du selbst, ob sie auf deinen Fall passt.", "Open a topic to explore its connections. On a pattern card, you can check whether it fits your case.");
     find("[data-nav-results-note]").textContent = note;
-    for (const connection of matches) {
-      const button = element("button", undefined, "navigator-result");
-      button.type = "button";
-      button.dataset.connectionId = connection.id;
-      button.setAttribute("aria-pressed", "false");
-      button.append(element("span", t("VERBINDUNG ANSEHEN", "EXPLORE CONNECTION"), "navigator-result-eyebrow"), element("strong", text(connection.title)), element("span", text(connection.pattern)));
-      button.addEventListener("click", () => selectConnection(connection));
-      resultList.append(button);
-    }
-    announce(noMatch ? note : t(`${matches.length} ${matches.length === 1 ? "mögliche Verbindung" : "mögliche Verbindungen"}. Wähle einen Vorschlag aus.`, `${matches.length} possible ${matches.length === 1 ? "connection" : "connections"}. Choose a suggestion.`));
+    announce(noMatch ? note : t(`Gefundene Themen: ${hits.topics.length}. Musterkarten: ${hits.patterns.length}.`, `Topics found: ${hits.topics.length}. Pattern cards: ${hits.patterns.length}.`));
     find("#navigator-results-title").focus();
   }
 
+  root.classList.add("navigator-ready");
+  openFragment();
   root.querySelectorAll("[data-nav-js]").forEach(control => { control.disabled = false; });
   question.addEventListener("input", invalidateQuestion);
   find("[data-nav-search]").addEventListener("submit", event => { event.preventDefault(); showResults(); });
   find("[data-nav-all]").addEventListener("click", () => showResults(true));
   root.querySelectorAll("[data-nav-example]").forEach(button => {
     button.addEventListener("click", () => {
-      const connection = connections.find(item => item.id === button.dataset.navExample);
-      if (!connection) return;
-      question.value = text(connection.question);
+      question.value = button.textContent.trim();
       invalidateQuestion();
       showResults();
     });
@@ -220,6 +261,8 @@ if (root) {
 
   find("[data-nav-reset]").addEventListener("click", () => {
     question.value = "";
+    clearDiscoveryHash();
+    topicList.replaceChildren();
     root.querySelectorAll("[data-nav-reflection-field]").forEach(field => { field.value = ""; });
     clearConnection();
     results.hidden = true;

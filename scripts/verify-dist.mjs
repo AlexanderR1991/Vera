@@ -222,6 +222,11 @@ if(connectionExport.schema_version!==1||connectionExport.status!=="editorial_dra
 for(const connection of connections){
  if(connection.reviewStatus!=="draft")errors.push("Navigator draft was promoted without review: "+connection.id);
  if(!connection.topics.every(id=>topicIDs.has(id)))errors.push("Unknown navigator topic: "+connection.id);
+ for(const id of connection.topics){
+  for(const lang of ["de","en"]){
+   if(!connection.topicReasons[id]?.[lang]?.trim())errors.push("Missing reason for "+connection.id+"/"+id+"/"+lang);
+  }
+ }
  if(connection.sourceClaim){
   const source=registry.claims.find(claim=>claim.id===connection.sourceClaim.id);
   if(!source||source.version!==connection.sourceClaim.version)errors.push("Navigator source changed; reassess connection: "+connection.id);
@@ -236,6 +241,12 @@ for(const lang of ["de","en"]){
  }
  for(const connection of connections){
   if(!html.includes(`id="verbindung-${connection.id}"`)||!html.includes(connection.title[lang]))errors.push("Navigator card unavailable without JS: "+lang+"/"+connection.id);
+  for(const id of connection.topics){
+   if(!html.includes(`href="#thema-${id}"`))errors.push("Missing topic path "+lang+"/"+connection.id+"/"+id);
+  }
+ }
+ for(const topic of topics){
+  if(!html.includes(`id="thema-${topic.id}"`))errors.push("Missing navigator topic target "+lang+"/"+topic.id);
  }
  const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(match=>match[1]);
  if(new Set(ids).size!==ids.length)errors.push("Duplicate navigator anchor: "+lang);
@@ -247,3 +258,23 @@ for(const lang of ["de","en"]){
 }
 if(errors.length){console.error(errors.join("\n"));process.exit(1);}
 console.log("Verified bilingual navigator, readable draft cards, contextual entry points and version-bound source links.");
+
+
+// Legal routes and paused fundraising must be visible in both published languages.
+for(const lang of ["de","en"]){
+  const footer = await readFile(join(out,lang,"index.html"),"utf8");
+  for(const route of ["impressum","datenschutz"]){
+    const link="/Wirklich/"+lang+"/"+route+"/";
+    if(!footer.includes(link)||!sitemap.includes(link))errors.push("Missing legal route "+link);
+    try { const html=await readFile(join(out,lang,route,"index.html"),"utf8");
+      if(!html.includes("<h1")||!html.includes('rel="canonical"'))errors.push("Invalid legal page "+link);
+    } catch { errors.push("Missing legal page "+link); }
+  }
+  const contribute = await readFile(join(out,lang,"mitwirken","index.html"),"utf8");
+  const support = contribute.split('id="unterstuetzen"')[1]?.split("</section>")[0] || "";
+  if(!support)errors.push("Missing support disclosure for "+lang);
+  if(support.includes("paypal.com/")||support.includes("radke.a91@gmail.com"))errors.push("Payment request should stay paused for "+lang);
+  if(!support.includes(lang==="de"?"Unterstützung derzeit pausiert":"Support currently paused"))errors.push("Missing pause notice for "+lang);
+}
+if(errors.length){console.error(errors.join("\\n"));process.exit(1);}
+console.log("Verified bilingual legal pages, footer discovery and paused public payment instructions.");

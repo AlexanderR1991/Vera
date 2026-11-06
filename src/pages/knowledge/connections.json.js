@@ -6,7 +6,7 @@ export function GET() {
   return new Response(JSON.stringify({
     schema_version: 1,
     status: "editorial_drafts",
-    matching: "local_keywords",
+    matching: "local_terms_and_cue_pairs",
     connections
   }, null, 2), {headers: {"Content-Type": "application/json; charset=utf-8"}});
 }
