@@ -32,7 +32,7 @@ const reflectionFields = [
     <header class="navigator-heading">
       <p class="section-kicker">{t("ERKENNTNISNAVIGATOR · ERSTER PILOT", "KNOWLEDGE NAVIGATOR · FIRST PILOT")}</p>
       <h1>{t("Deine Frage. ", "Your question. ")}<em>{t("Eine Verbindung.", "A connection.")}</em></h1>
-      <p class="navigator-lead">{t("Welche anderen Themen berührt deine Frage? Folge einem Begriff und entdecke, wo sich dieselbe Frage noch einmal stellt.", "What other topics does your question touch? Follow a term and see where the same question comes up again.")}</p>
+      <p class="navigator-lead">{t("Welche anderen Themen berührt deine Frage? Folge einem Begriff und entdecke, welche verwandten Fragen in einem anderen Zusammenhang entstehen.", "What other topics does your question touch? Follow a term and see which related questions arise in a different setting.")}</p>
       <ol class="navigator-steps" aria-label={t("So funktioniert es", "How it works")}>
         <li><span>01</span>{t("Frage oder Begriff eingeben", "Enter a question or term")}</li>
         <li><span>02</span>{t("Themen und Muster erkunden", "Explore topics and patterns")}</li>
@@ -48,11 +48,18 @@ const reflectionFields = [
         <div class="navigator-search-actions"><button class="button button--gold" type="submit" disabled data-nav-js>{t("Erkunden", "Explore")} <span aria-hidden="true">→</span></button><button type="button" class="navigator-text-button" disabled data-nav-js data-nav-all>{t("Alle Muster ansehen", "Browse all patterns")}</button></div>
       </form>
       <p class="navigator-note" id="navigator-local-note">{t("Die Suche vergleicht deine Wörter mit Themen und Musterkarten. Deine Frage bleibt in diesem Browserfenster.", "The search matches your words to topics and pattern cards. Your question stays in this browser window.")}</p>
+      <details>
+        <summary>{t("Ist schon die Frage strittig?", "Is the question itself disputed?")}</summary>
+        <p id="navigator-framing-hint">{t("„Wer bekommt zu viel?“ lenkt den Blick auf Einzelne. „Wie verteilen wir den Vorrat?“ fragt nach der gemeinsamen Regel. Welche andere Lesart siehst du? Wenn du sie jemandem zuschreibst, frage nach, ob sie die Sicht dieser Person trifft.", "“Who is taking too much?” draws attention to individuals. “How should we share the supplies?” asks about the rule everyone uses. What other reading can you see? Before attributing it to someone, check whether it captures their view.")}</p>
+        <label for="navigator-alternative-question">{t("Eine andere Formulierung", "Another way to ask")}</label>
+        <textarea id="navigator-alternative-question" rows="2" maxlength="6000" aria-describedby="navigator-framing-hint" data-nav-alternative-question></textarea>
+        <div class="navigator-search-actions"><button type="button" disabled data-nav-js data-nav-search-alternative>{t("Diese Formulierung erkunden", "Explore this wording")}</button></div>
+      </details>
       <details class="navigator-topic-index">
         <summary>{t("Ein Thema direkt auswählen", "Choose a topic to explore")}</summary>
         <ul>{topics.map(topic => <li><a href={"#thema-" + topic.id}>{text(topic.name)}</a></li>)}</ul>
       </details>
-      <details class="navigator-examples"><summary>{t("Mit einem erfundenen Beispiel ausprobieren", "Try a fictional example")}</summary><p>{t("Ein Beispiel ersetzt deine Frage und setzt die Bedingungsprüfung zurück. Eigene Reflexionsnotizen bleiben erhalten.", "An example replaces your question and resets the condition check. Your reflection notes are kept.")}</p><div class="navigator-example-list">{patternExamples.map(example => <button type="button" disabled data-nav-js data-nav-example>{example}</button>)}</div></details>
+      <details class="navigator-examples"><summary>{t("Mit einem erfundenen Beispiel ausprobieren", "Try a fictional example")}</summary><p>{t("Ein Beispiel ersetzt beide Frageformulierungen und setzt die Bedingungsprüfung zurück. Eigene Reflexionsnotizen bleiben erhalten.", "An example replaces both question formulations and resets the condition check. Your reflection notes are kept.")}</p><div class="navigator-example-list">{patternExamples.map(example => <button type="button" disabled data-nav-js data-nav-example>{example}</button>)}</div></details>
       <p id="fairness" class="navigator-alternative">
         {t("Ihr wollt die Miete fair teilen. Heißt das für euch, dass beide denselben Betrag zahlen oder denselben Anteil ihres Einkommens?", "You want to share the rent fairly. Does that mean each of you pays the same amount or the same share of your income?")}
         <a href={pathFor(lang,"schnittmengen","sprachprobe")}>{t("Am Beispiel zu zweit prüfen", "Try the example together")} →</a>
@@ -87,7 +94,7 @@ const reflectionFields = [
             <h3>{text(connection.title)}</h3>
             <p>{text(connection.pattern)}</p>
             <p><strong>{t("In diesem Thema", "In this topic")} · </strong>{topicLens(connection.id, topic.id, lang)}</p>
-            <h4>{t("Dieselbe Frage in anderen Themen", "The same question in other topics")}</h4>
+            <h4>{t("Verwandte Fragen in anderen Themen", "Related questions in other topics")}</h4>
             <ul>{connection.topics.filter(id => id !== topic.id).map(id => <li>
               <a href={"#thema-" + id}>{text(topicById.get(id).name)}</a> · {topicLens(connection.id, id, lang)}
             </li>)}</ul>
@@ -101,6 +108,7 @@ const reflectionFields = [
       <header><p class="section-kicker" data-nav-meta></p><h2 id="navigator-connection-title" tabindex="-1" data-nav-title></h2><p class="navigator-connection-intro">{t("Allgemeiner bedeutet nicht automatisch wahrer. Auch die Verbindung zu deinem Fall braucht Gründe.", "More general does not automatically mean more certain. Applying an idea to your case needs reasons too.")}</p></header>
       <div class="navigator-bridge" data-nav-bridge></div>
       <p class="navigator-topic-links" data-nav-connected-topics></p>
+      <p class="navigator-note" data-nav-case-wording></p>
       <form class="navigator-condition-form" data-nav-condition-form>
         <fieldset><legend>{t("Trifft das auf deinen Fall zu?", "Does this apply to your situation?")}</legend><p>{t("Wähle für jede Voraussetzung eine Antwort. „Unklar“ ist eine hilfreiche Antwort, kein Fehler. Die Angaben werden nicht unabhängig überprüft.", "Choose an answer for each condition. “Unsure” is useful, not a mistake. Your answers are not independently verified.")}</p><div data-nav-conditions></div></fieldset>
         <button class="button button--gold" type="submit">{t("Verbindung prüfen", "Check this connection")}</button>

@@ -154,6 +154,13 @@ const reflectionLabels = {
   revision: b("Was ich korrigieren möchte", "What I want to revise")
 };
 
+export function caseWording(framing, original, alternative, lang) {
+  const en = lang === "en";
+  if (framing === "original" && textValue(original)) return (en ? "Original question" : "Ausgangsfrage") + " · " + textValue(original);
+  if (framing === "alternative" && textValue(alternative)) return (en ? "Alternative wording" : "Andere Formulierung") + " · " + textValue(alternative);
+  return en ? "No wording assigned to this card." : "Dieser Karte ist keine Frageformulierung zugeordnet.";
+}
+
 export function buildNavigatorNote(input = {}) {
   const data = isRecord(input) ? input : {};
   const lang = language(data.lang);
@@ -170,10 +177,11 @@ export function buildNavigatorNote(input = {}) {
   const answerLabels = {yes: t("Ja, von mir angegeben", "Yes, stated by me"), no: t("Nein, von mir angegeben", "No, stated by me"), unknown: t("Unbekannt / offen", "Unknown / unresolved")};
   const lines = [t("WIRKLICH · Erkenntnisnavigator", "REALLY? · Knowledge navigator"), "",
     t("Persönlicher Entwurf. Die Antworten sind eigene Angaben, keine unabhängig geprüften Tatsachen.", "Personal draft. Answers are self-reported, not independently verified facts."), "",
-    t("Meine Frage", "My question") + ":", textValue(data.question) || t("Offen", "Open"), "",
-    t("Stand der Verbindung", "Connection status") + ": " + statuses[assessment.status]];
+    t("Meine Frage", "My question") + ":", textValue(data.question) || t("Offen", "Open"), ""];
+  if (textValue(data.alternativeQuestion)) lines.push(t("Andere Formulierung", "Alternative wording") + ":", textValue(data.alternativeQuestion), "");
+  lines.push(t("Stand der Verbindung", "Connection status") + ": " + statuses[assessment.status]);
   if (connection) {
-    lines.push("", `${connection.title[lang]} (${connection.id}, v${connection.version})`,
+    lines.push(t("Fallbezug", "Case wording") + ": " + caseWording(data.framing, data.question, data.alternativeQuestion, lang), "", `${connection.title[lang]} (${connection.id}, v${connection.version})`,
       t("Aussageart", "Claim type") + ": " + (connection.type === "formal" ? t("Formal", "Formal") : t("Normativ", "Normative")),
       t("Redaktioneller Arbeitsentwurf · keine unabhängige Fachprüfung", "Editorial working draft · no independent expert review"), "",
       t("Voraussetzungen", "Premises") + ":");

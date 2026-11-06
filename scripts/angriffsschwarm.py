@@ -101,7 +101,13 @@ def api_call(role: str, payload: dict) -> dict[str, str]:
         ),
         "assessor": (
             "Neither advocate nor reflexive compromiser. Identify unresolved "
-            "questions and required independent verification. Return JSON "
+            "questions and required independent verification. In reason, name "
+            "the exact inference challenged and whether the attack respects its "
+            "definitions and scope. In next_check, propose a human check that "
+            "could sustain OR reject the objection. For values or interpretations "
+            "identify the disputed premise, affected perspective or competing "
+            "reading. Shared wording or model agreement alone carries no weight. "
+            "Return JSON "
             "keys: disposition, reason, unresolved, next_check. Disposition "
             "must be one of: plausible_challenge, insufficient_challenge, "
             "needs_evidence, conceptual_disagreement. No 'proven true' label."

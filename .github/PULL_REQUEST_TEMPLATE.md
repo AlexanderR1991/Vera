@@ -12,6 +12,12 @@ Explain in a few sentences what this pull request improves.
 Bitte nenne Quellen für empirische Behauptungen und Argumente für philosophische Positionen.  
 Provide sources for factual claims and reasons for philosophical positions.
 
+### Nur bei Regeländerungen / For rule changes only
+
+Verlinke die geltende Regel mit Commit und Abschnitt. Nenne den neuen Wortlaut, einen Fall mit anderer Entscheidung und wessen Befugnisse sich ändern. Vor der Entscheidung ergänzt der Maintainer die Frist für Einwände, danach Gründe, mögliche Befangenheit und den stärksten offenen Einwand. [Verfahren / Procedure](../docs/community-governance.md)
+
+Link the current rule at a specific commit and section. Give the proposed wording, a case that would be decided differently and whose authority changes. The maintainer sets a deadline for objections in advance and then records the reasons, conflicts of interest and strongest outstanding objection.
+
 ## Prüfliste / Checklist
 
 - [ ] Ich habe den [Beitragsleitfaden / Contribution guide](../CONTRIBUTING.md) gelesen.

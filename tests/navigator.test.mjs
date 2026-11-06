@@ -88,6 +88,21 @@ test("export records self-reported premises, source versions and private reflect
   for (const value of ["Zeit für die Familie", "12 Stunden", "Vielleicht zu viel", "Sorge", "Entlastung", "Umfang klären", "Weniger Aufgaben", "Noch offen", "Morgen prüfen"]) assert.ok(note.includes(value));
 });
 
+test("an alternative framing is exported alongside the original question even without a card", () => {
+  for (const [lang, label] of [["de", "Andere Formulierung"], ["en", "Alternative wording"]]) {
+    const input = {lang, question: "Original wording", alternativeQuestion: "Whose assumptions are missing?"};
+    const note = buildNavigatorNote(input);
+    assert.ok(note.includes(input.question));
+    assert.ok(note.includes(label + ":\n" + input.alternativeQuestion));
+    assert.ok(!buildNavigatorNote({...input, alternativeQuestion: " "}).includes(label));
+    const withCard = {...input, connectionId: "capacity"};
+    const caseLabel = lang === "en" ? "Case wording: " : "Fallbezug: ";
+    assert.ok(buildNavigatorNote({...withCard, framing: "alternative"}).includes(caseLabel + label + " · " + input.alternativeQuestion));
+    assert.ok(buildNavigatorNote({...withCard, framing: "original"}).includes(caseLabel + (lang === "en" ? "Original question" : "Ausgangsfrage") + " · " + input.question));
+    assert.match(buildNavigatorNote(withCard), /keine Frageformulierung zugeordnet|No wording assigned/);
+  }
+});
+
 test("failed or incomplete transfers never export a derived action recommendation", () => {
   const connection = connections[0];
   for (const answers of [{}, {...allYes(connection), no_overlap: "no"}, {...allYes(connection), no_overlap: true}]) {
