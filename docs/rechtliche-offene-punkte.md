@@ -2,14 +2,14 @@
 
 **Stand: 6. November 2026 · technische und redaktionelle Vorsichtsmaßnahmen, keine abgeschlossene Rechtsprüfung.**
 
-Die Website enthält nun ein deutlich als **unvollständig** gekennzeichnetes [Impressum](https://alexanderr1991.github.io/Wirklich/de/impressum/) und [Datenschutzhinweise](https://alexanderr1991.github.io/Wirklich/de/datenschutz/), jeweils mit englischer Fassung. Die **öffentliche Bitte um PayPal-Zahlungen ist pausiert**. Der Footer-Link „Spenden 🤍“ bleibt bestehen und führt zur transparenten Information, nicht zur Zahlung.
+Die Website enthält nun ein deutlich als **unvollständig** gekennzeichnetes [Impressum](https://alexanderr1991.github.io/Wirklich/de/impressum/) und [Datenschutzhinweise](https://alexanderr1991.github.io/Wirklich/de/datenschutz/), jeweils mit englischer Fassung. Der Footer-Link „Spenden 🤍“ führt zum [Unterstützungsbereich](https://alexanderr1991.github.io/Wirklich/de/mitwirken/#unterstuetzen). Dort veröffentlicht Alexander Radke seine PayPal-Adresse für freiwillige Beiträge zum Projekt.
 
 ## Was zwingend vor voller rechtlicher Freigabe offen ist
 
 - [ ] **Ladungsfähige Anschrift.** Der Betreiber lässt sie vorerst offen. Das Impressum bleibt deshalb unvollständig. Vor einer Ergänzung ist zu klären, unter welcher Anschrift eine förmliche Zustellung möglich ist. Eine konkrete Anschrift darf erst mit ausdrücklicher Freigabe ins öffentliche Repository aufgenommen werden.
 - [ ] **Weitere Kontaktmöglichkeit.** Falls § 5 DDG anwendbar ist, prüfen, ob zusätzlich zur veröffentlichten E-Mail-Adresse ein weiterer unmittelbarer Kommunikationsweg erforderlich ist.
 - [ ] **Redaktionelle Verantwortlichkeit.** Prüfen, ob § 18 Abs. 2 MStV auf das Angebot anwendbar ist. In diesem Fall ist auch für den redaktionell Verantwortlichen die Anschrift zu ergänzen.
-- [ ] **PayPal-Kontoart und erlaubte Nutzung schriftlich mit PayPal klären** (Privat-/Geschäftskonto, Fundraiser-Produkt, Limits, Rückbuchungen). Vorher keine neue Zahlungsaufforderung freischalten.
+- [ ] **PayPal-Kontoart und erlaubte Nutzung schriftlich mit PayPal klären** (Privat-/Geschäftskonto, Fundraiser-Produkt, Limits, Rückbuchungen).
 - [ ] **Steuerrechtlich prüfen:** Schenkung vs. Einkommen aus nachhaltiger Tätigkeit, mögliche Gewerbe-/Freiberuflichkeit, Meldungen und Steuern. Projektzahlungen von privaten Zahlungen getrennt dokumentieren; keine steuerlichen Spendenquittungen behaupten.
 - [ ] **Datenschutztext gegen wirklichen Betrieb prüfen:** Hosting, GitHub-Abrufe, Browser-Speicherung, GitHub-Issues, genutzter Mailanbieter und tatsächliche Löschfristen; externe juristische Prüfung bei Änderungen.
 - [ ] **Urheber-/Markenrechte** an sämtlichen öffentlichen Bildern, Texten, Zitaten, Medien und fremden Inhalten prüfen. Keine pauschalen Haftungsausschlüsse als vermeintliche Absicherung einfügen.
@@ -19,7 +19,7 @@ Die Website enthält nun ein deutlich als **unvollständig** gekennzeichnetes [I
 
 1. Impressum und Datenschutz an allen Seiten im Footer sichtbar; über die Sitemap auffindbar.
 2. Impressum und Datenschutzhinweise nennen Alexander Radke als Betreiber und Verantwortlichen für die Datenverarbeitung. Für Rechts- und Datenschutzanfragen ist die bereits veröffentlichte Kontakt-E-Mail angegeben.
-3. Zahlungen sind auf der Website ausgesetzt; kein Checkout und keine direkte PayPal-Zahlungsaufforderung.
+3. Wer das Projekt finanziell unterstützen möchte, gibt die Zahlung selbst bei PayPal in Auftrag.
 4. Kein Status als eingetragener oder gemeinnütziger Träger, keine steuerlich abzugsfähigen Spenden und keine Zuwendungsbestätigung behauptet.
 5. Die Datenschutzhinweise beschreiben ausdrücklich die IP-Protokollierung durch GitHub Pages, öffentliche GitHub-Issues, den Abruf der Forschungsdaten von `raw.githubusercontent.com` und den nutzerseitigen `localStorage`-Speicherknopf.
 
@@ -36,4 +36,4 @@ Die Website enthält nun ein deutlich als **unvollständig** gekennzeichnetes [I
 
 ## English summary
 
-The bilingual legal and privacy notices name Alexander Radke as the operator and data controller and give his existing public contact email for legal and privacy enquiries. The operator has deferred publication of an address for service, so the legal notice remains incomplete. Public payment requests remain paused pending completion of the legal notice and clarification of payment account eligibility and tax treatment.
+The bilingual legal and privacy notices name Alexander Radke as the operator and data controller and give his existing public contact email for legal and privacy enquiries. The operator has deferred publication of an address for service, so the legal notice remains incomplete. The [contribution page](https://alexanderr1991.github.io/Wirklich/en/mitwirken/#unterstuetzen) lists Alexander Radke’s PayPal address for voluntary contributions to the project. Supporters enter the payment directly on PayPal. Account eligibility and tax treatment remain open.
