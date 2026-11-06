@@ -2,14 +2,14 @@
 
 **Stand 6. November 2026 · Regeln und offene Aufgaben**
 
-Forschung braucht Lebenszeit, Erholung und tragfähige Arbeit. **Die öffentliche Zahlungsaufforderung ist derzeit pausiert**: Bevor erneut um Zahlungen gebeten wird, sind Anbieterkennzeichnung, PayPal-Kontoart und die steuerliche Einordnung zu klären. Die Inhalte bleiben unter ihren angegebenen Lizenzen frei zugänglich. Förderung kauft keine Aussage, Fachfreigabe, Moderationsentscheidung oder bevorzugte Behandlung eines Einwands.
+Forschung braucht Lebenszeit, Erholung und tragfähige Arbeit. Wer WIRKLICH unterstützen möchte, kann Alexander Radke freiwillig einen Betrag per PayPal senden. Welche Kontoart für diese Nutzung geeignet ist und wie die Beiträge steuerlich einzuordnen sind, ist noch offen. Die Inhalte bleiben unter ihren angegebenen Lizenzen frei zugänglich. Förderung kauft keine Aussage, Fachfreigabe, Moderationsentscheidung oder bevorzugte Behandlung eines Einwands.
 
 ## Was aktuell bekannt ist
 
 | Punkt | Öffentlicher Stand |
 | --- | --- |
 | Redaktionelle Verantwortung | Repository-Eigentümer AlexanderR1991 |
-| Unterstützungsweg | Information auf der Mitwirkenseite vorhanden; öffentliche Zahlungsaufforderung seit 06.11.2026 pausiert |
+| Unterstützungsweg | Die [Mitwirkenseite](https://alexanderr1991.github.io/Wirklich/de/mitwirken/#unterstuetzen) nennt die PayPal-Adresse von Alexander Radke |
 | Einnahmensumme und tatsächlich verfügbare Mittel | Hier nicht erfasst; keine Nullsumme unterstellen |
 | Laufendes Budget und tatsächliche Ausgaben | Noch nicht veröffentlicht |
 | Rechts-/Organisationsform und Vergütungsrahmen | Langfristiges Ziel ist eine eigenständige Trägerorganisation. Rechtsform und Vergütungsregeln sind offen. Keine Gemeinnützigkeit oder steuerliche Absetzbarkeit behauptet; keine Zuwendungsbestätigungen |
@@ -27,4 +27,4 @@ Diese Regeln sind ein organisatorischer Ausgangspunkt und keine Rechts- oder Ste
 
 ## English
 
-The contribution page remains available, but the public request for payments is temporarily paused until operator identification, the appropriate PayPal account type and tax treatment are clarified. It does not buy editorial outcomes. The repository owner currently holds editorial responsibility. Income, available funds, expenses and a running budget are not recorded here; unknown is not zero. The long-term aim is to establish an independent organization to run the project. Its legal form and independent financial oversight remain open. Future reports should distinguish actual funds and transactions from commitments, respect contributor privacy, disclose conflicts and describe compensation honestly.
+The [contribution page](https://alexanderr1991.github.io/Wirklich/en/mitwirken/#unterstuetzen) lists Alexander Radke’s PayPal address for voluntary support. The appropriate account type and tax treatment remain open. Supporters receive no charitable donation receipt or influence over editorial decisions. The repository owner currently holds editorial responsibility. Income, available funds, expenses and a running budget are not recorded here; unknown is not zero. The long-term aim is to establish an independent organization to run the project. Its legal form and independent financial oversight remain open. Future reports should distinguish actual funds and transactions from commitments, respect contributor privacy, disclose conflicts and describe compensation honestly.

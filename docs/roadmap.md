@@ -10,7 +10,7 @@ Die Reihenfolge folgt überprüfbaren Voraussetzungen. Die Kapitel bleiben erhal
 
 - [x] Zweisprachige statische Website mit Atlas, Bibliothek, neun Leitsätzen und Beitragswegen
 - [x] Kapitel zu Erkenntnishorizont, Liebe, Politik, Religion, Militär und Ernährung
-- [x] Die Mitwirkenseite erklärt die [Zahlungspause](finanzierung.md). Die öffentliche Bitte um Unterstützung ist seit dem 6. November 2026 ausgesetzt.
+- [x] Die [Mitwirkenseite](https://alexanderr1991.github.io/Wirklich/de/mitwirken/#unterstuetzen) nennt Alexander Radkes PayPal-Adresse für freiwillige Beiträge zum Projekt.
 - [x] Offene Lizenzen für Projekttexte und Software mit dokumentierten Ausnahmen
 - [x] Recherche- und Angriffsschwarm als begrenzte Prototypen; Ergebnisse bleiben ungeprüft
 - [x] Gemeinsame Mission und konzentrierte Startseite statt einer wachsenden Reihe einzelner Ankündigungen
@@ -67,7 +67,7 @@ Keine Vorregistrierung oder Wirksamkeit ist bislang nachgewiesen. Ohne tragfähi
 - [ ] Fachprüfung, Redaktion und Moderation als unterschiedliche Aufgaben besetzen
 - [ ] Einsprüche und Interessenkonflikte dokumentierbar bearbeiten
 - [ ] Finanzierung, Ausgaben und faire Vergütung transparent festlegen
-- [ ] Organisationsform, laufendes Budget und Vergütungsregeln für eine mögliche Wiederaufnahme der Unterstützung klären
+- [ ] Organisationsform, laufendes Budget und Vergütungsregeln klären
 - [ ] Ausstieg, Export und Weiterverwendung praktisch ermöglichen
 - [ ] Die von Beginn an geprüfte Zugänglichkeit fortlaufend mit betroffenen Nutzerinnen und Nutzern verbessern
 
@@ -88,6 +88,6 @@ Systematische Recherche, unabhängiges Fachreview, belastbare Gegenpositionen un
 
 ## English
 
-The next milestone is a small corpus of ten fully examined claims, not more unchecked volume. Independent evaluation of the method comes next, alongside accountable governance and sustainable funding. Broader coverage and more autonomy require demonstrated benefit. The three current records illustrate the structure and do not count as expert-approved knowledge.
+The next milestone is a small corpus of ten fully examined claims, not more unchecked volume. Independent evaluation of the method comes next, alongside accountable governance and sustainable funding. The [contribution page](https://alexanderr1991.github.io/Wirklich/en/mitwirken/#unterstuetzen) lists Alexander Radke’s PayPal address for voluntary support. Broader coverage and more autonomy require demonstrated benefit. The three current records illustrate the structure and do not count as expert-approved knowledge.
 
 Accessibility testing, voluntary small play sessions and real complaints responsibility start immediately, alongside the first corpus. Do not defer them to a later growth stage. Independent learning transfer remains untested.
