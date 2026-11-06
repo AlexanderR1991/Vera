@@ -46,6 +46,23 @@ class Page(HTMLParser):
             self.alternates[props.get("hreflang")] = props.get("href")
 
 
+def check_rule_pack(lang, errors):
+    pack = (DIST / "prompts" / f"wirklich-regeln.{lang}.txt").read_text()
+    prompt = (ROOT / "public" / "prompts" / f"erkenntnisprompt-v1.{lang}.txt").read_text()
+    guide = (DIST / lang / "fragen-und-ki-prompt" / "index.html").read_text()
+    worksheet = (DIST / lang / "werkstatt" / "index.html").read_text()
+    preview = re.search(r'<textarea\b[^>]*\bid="inquiry-prompt"[^>]*>(.*?)</textarea>', guide, re.S)
+    embedded = re.search(r'<script\b[^>]*\bdata-inquiry-rules\b[^>]*>(.*?)</script>', worksheet, re.S)
+    if not preview or unescape(preview[1]) != pack:
+        errors.append(f"{lang}: manual copy and rule pack download differ")
+    if not embedded or json.loads(embedded[1]) != pack:
+        errors.append(f"{lang}: worksheet export uses different rules")
+    label = "These" if lang == "de" else "Thesis"
+    numbers = re.findall(rf"^{label} (\d+):", pack, re.M)
+    if numbers != [f"{n:02}" for n in range(1, 10)] or not pack.endswith(prompt):
+        errors.append(f"{lang}: expected the nine theses and the complete inquiry prompt")
+
+
 def check():
     pages = {}
     errors = []
@@ -109,6 +126,7 @@ def check():
                     neighbors[file].add(target)
 
     for lang in ("de", "en"):
+        check_rule_pack(lang, errors)
         home = DIST / lang / "index.html"
         pending, seen = [home], set()
         while pending:

@@ -10,8 +10,8 @@ const methodSource = () => ({
   label: b("Projektmethode · Herkunft des Prüfverfahrens, kein Wirksamkeitsbeleg", "Project method · origin of the review procedure, not evidence of effectiveness"),
   url: repo + "docs/methode.md", role: "provenance"
 });
-const derivationSource = anchor => ({
-  label: b("Eigene Ableitung v1 · redaktioneller Arbeitsentwurf", "Our derivation v1 · editorial working draft"),
+const derivationSource = (anchor, version = 1) => ({
+  label: b(`Eigene Ableitung v${version} · redaktioneller Arbeitsentwurf`, `Our derivation v${version} · editorial working draft`),
   url: `https://github.com/AlexanderR1991/Wirklich/blob/main/docs/erkenntnisnavigator.md#${anchor}`,
   role: "derivation"
 });
@@ -58,23 +58,27 @@ export const connections = [
     keywords: {de: ["Antwort", "antworten", "antwortet", "Ablehnung", "ablehnt", "Deutung", "Beobachtung", "beobachtet", "Interpretation", "Beweis", "beweist", "Gewissheit", "Ursache", "Ursachen", "Motiv"], en: ["reply", "replies", "respond", "responds", "rejection", "reject", "rejects", "interpret", "interpretation", "observation", "observed", "proof", "certainty", "cause", "causes", "motive"]}
   },
   {
-    id: "distribution", version: 1, type: "formal", reviewStatus: "draft",
+    id: "distribution", version: 2, type: "formal", reviewStatus: "draft",
     title: b("Was verbirgt der Durchschnitt?", "What does the average hide?"),
-    question: b("Erfundenes Beispiel: Im Durchschnitt haben wir genug. Haben deshalb alle genug?", "Fictional example: On average, we have enough. Does everyone therefore have enough?"),
-    pattern: b("Eine Aussage über den Durchschnitt wird auf jeden einzelnen Wert übertragen.", "A statement about an average is transferred to every individual value."),
-    principle: b("Ein arithmetischer Mittelwert legt die Einzelwerte nicht eindeutig fest.", "An arithmetic mean does not uniquely determine individual values."),
-    scope: b("Gilt für den arithmetischen Mittelwert von mindestens zwei Zahlen. Aus der Kennzahl allein folgen weder individuelle Versorgung noch Gerechtigkeit.", "Applies to the arithmetic mean of at least two numbers. The statistic alone establishes neither individual provision nor fairness."),
-    rationale: b("Eigenes rechnerisches Gegenbeispiel: Die Werte 0 und 10 haben denselben Mittelwert 5 wie die Werte 5 und 5. Bei einer angenommenen Mindestmenge von 4 liegt im ersten Beispiel ein Wert darunter, im zweiten keiner. Der gleiche Durchschnitt entscheidet diese Frage also nicht.", "Our numerical counterexample: Values 0 and 10 have the same mean, 5, as values 5 and 5. With an assumed minimum of 4, one value falls below it in the first example and none in the second. The same average therefore does not settle this question."),
-    counterargument: b("Zusätzliche Angaben, etwa alle Einzelwerte oder eine nachgewiesene Untergrenze, können die Frage beantworten. Außerdem ist zu klären, ob tatsächlich ein arithmetischer Mittelwert gemeint ist.", "Additional information, such as every individual value or an established lower bound, may answer the question. It also matters whether the statistic is actually an arithmetic mean."),
-    revision: b("Zuordnung ändern, wenn die Aussage nur den Mittelwert betrifft oder relevante Einzelwerte und Grenzen bereits vorliegen.", "Change the match if the claim concerns only the mean or relevant individual values and bounds are already available."),
+    question: b("Zwei Kisten enthalten im Durchschnitt drei Portionen. Können beide jeweils mindestens vier enthalten?", "Two crates hold three portions each on average. Could both hold at least four?"),
+    pattern: b("Von einem Mittelwert soll auf eine Mindestmenge für alle geschlossen werden.", "An average is being used to infer a minimum for everyone."),
+    principle: b("Wenn jede Menge eine Schwelle erreicht, muss auch ihr Durchschnitt diese Schwelle erreichen.", "If each amount meets a threshold, their average must meet it too."),
+    scope: b("Der Rechner prüft mindestens zwei nichtnegative Mengen in derselben Einheit. Er verwendet ihren exakten arithmetischen Mittelwert und eine gemeinsame Mindestmenge. Die Wahl einer gerechten Schwelle bleibt eine Wertfrage.", "The calculator checks two or more nonnegative amounts in the same unit. It uses their exact arithmetic mean and a common minimum. Choosing a fair threshold remains a value judgment."),
+    rationale: b("Bei durchschnittlich drei Portionen sind sechs vorhanden. Zweimal vier erfordert acht. Bei durchschnittlich fünf passen sowohl fünf und fünf als auch zwei und acht zu den Angaben. Nur im ersten dieser beiden Fälle haben beide Kisten mindestens vier.", "A mean of three portions gives six in total. Four in each crate would take eight. With a mean of five, both five and five and two and eight fit the figures. Only the first of these two allocations gives each crate at least four."),
+    counterargument: b("Ein gerundeter Mittelwert kann auf der anderen Seite der Schwelle liegen als der genaue Wert. Feste Behältergrößen oder unteilbare Einheiten können eine Beispielverteilung ausschließen.", "A rounded mean may fall on the opposite side of the threshold from the exact value. Container limits or indivisible units can rule out an example allocation."),
+    revision: b("Prüfe die Rechnung erneut, wenn Mittelwert, Schwelle oder zulässige Verteilungen sich ändern.", "Check again if the mean, threshold or permitted allocations change."),
     conditions: [
-      {id: "arithmetic_mean", label: b("Die Angabe ist ein arithmetischer Mittelwert von mindestens zwei Werten.", "The figure is an arithmetic mean of at least two values.")},
-      {id: "individual_claim", label: b("Ich möchte daraus eine Aussage über alle einzelnen Personen oder Werte ableiten.", "I want to infer a claim about every individual person or value from it.")},
-      {id: "mean_only", label: b("Für diesen Schluss liegt bisher nur der Mittelwert vor; die nötigen Einzelwerte oder Grenzen fehlen.", "So far, only the mean supports that inference; the necessary individual values or bounds are missing.")}
+      {id: "arithmetic_mean", label: b("Ich kenne den exakten, ungewichteten Durchschnitt von mindestens zwei nichtnegativen Mengen in derselben Einheit.", "I know the exact, unweighted mean of at least two nonnegative amounts in the same unit.")},
+      {id: "individual_claim", label: b("Ich prüfe, ob jede einzelne Menge die gleiche Mindestmenge erreicht.", "I am checking whether every amount meets the same minimum.")},
+      {id: "mean_only", label: b("Für den Nachweis beider Möglichkeiten: Sind zwei Verteilungen in meinem Fall zulässig? Erstens erhalten alle den Durchschnitt. Zweitens erhält eine Stelle null und eine andere das Doppelte des Durchschnitts. Alle übrigen behalten den Durchschnitt.", "To establish that either answer is possible, are both allocations allowed in my case? First, everyone receives the mean. Second, one receives zero and another twice the mean. All others keep the mean.")}
     ],
-    conclusion: b("Unter diesen Voraussetzungen reicht der Mittelwert für die Aussage über alle Einzelnen nicht aus. Die Aussage kann wahr sein, ist so aber nicht belegt.", "Under these premises, the mean is insufficient to support a claim about everyone. The claim may be true, but this does not establish it."),
-    nextStep: b("Kläre, welche Einzelwerte oder Verteilungsangaben benötigt werden. Erfasse dabei nur Informationen, die für die Frage erforderlich sind.", "Clarify which individual values or distribution information are needed. Collect only information necessary for the question."),
-    sources: [derivationSource("distribution"), methodSource()], ...topicFields("distribution"),
+    amounts: [
+      {id: "mean", label: b("Exakter Durchschnitt", "Exact mean")},
+      {id: "minimum", label: b("Mindestmenge für jeden einzelnen Wert", "Minimum for every individual value")}
+    ],
+    conclusion: b("Liegt der Durchschnitt unter der Mindestmenge, ist die Behauptung ausgeschlossen. Erreicht der Durchschnitt eine positive Schwelle, prüfe zwei Verteilungen mit gleichem Mittelwert und unterschiedlichen Antworten. Erst wenn beide zulässig sind, ist belegt, dass beide Antworten möglich sind. Bei einer Mindestmenge von null genügt schon die Nichtnegativität.", "If the mean is below the minimum, the claim is ruled out. When the mean meets a positive minimum, look for two allocations with that same mean and opposite answers. If both are permitted, either outcome is possible. A minimum of zero follows directly from nonnegativity."),
+    nextStep: b("Welche Verteilungen sind in deinem Fall tatsächlich erlaubt? Halte zusätzliche Grenzen und die noch offene Frage fest.", "Which allocations does your actual case allow? Record any further constraints and the question that remains open."),
+    sources: [derivationSource("distribution", 2), methodSource()], ...topicFields("distribution"),
     keywords: {de: ["Durchschnitt", "durchschnittlich", "Mittelwert", "Mittelwerte", "Verteilung", "ungleich", "Ungleichheit", "gerecht", "Gerechtigkeit", "alle genug"], en: ["average", "averages", "mean", "the mean", "arithmetic mean", "mean value", "mean income", "distribution", "inequality", "fairness", "everyone enough"]}
   },
   {
@@ -94,8 +98,8 @@ export const connections = [
     ],
     conclusion: b("Wenn du diese Werte und Voraussetzungen bestätigst, ist ein an den geklärten Wünschen orientiertes Angebot ein begründeter Vorschlag. Nötige dauerhafte Unterstützung bleibt wertvoll. Ob die konkrete Hilfe nützt, ist weiterhin zu prüfen.", "If you confirm these values and premises, an offer guided by the clarified preferences is a reasoned proposal. Necessary lasting support remains valuable. Whether the particular help is useful still needs examination."),
     nextStep: b("Halte fest, welche Hilfe gewünscht ist, welche Grenzen gelten und wie eine Änderung des Wunsches berücksichtigt wird. Bei offenen Voraussetzungen kläre diese zuerst.", "Record what help is wanted, which boundaries apply and how changed preferences will be respected. Clarify any open premises first."),
-    sourceClaim: {id: "G-005", version: 2},
-    sources: [{label: b("G-005 v2 · normativer Leitgedanke, fachliche Prüfung offen", "G-005 v2 · guiding value, expert review pending"), url: repo + "public/knowledge/claims.json", role: "provenance"}, derivationSource("help")],
+    sourceClaim: {id: "G-005", version: 3},
+    sources: [{label: b("G-005 v3 · normativer Leitgedanke, fachliche Prüfung offen", "G-005 v3 · guiding value, expert review pending"), url: repo + "public/knowledge/claims.json", role: "provenance"}, derivationSource("help")],
     ...topicFields("help"),
     keywords: {de: ["helfe", "helfen", "hilft", "Hilfe", "Fürsorge", "unterstütze", "unterstützen", "Unterstützung", "selbstständig", "Selbstständigkeit", "selbstbestimmt", "Selbstbestimmung", "alles abnehmen", "Pflege"], en: ["help", "helps", "helping", "care", "caregiving", "support", "independent", "independence", "autonomy", "take over", "assistance"]}
   }
@@ -127,6 +131,44 @@ export function findConnections(query, lang = "de") {
   return connectionTermMatches(queryMatcher(query, locale), locale).slice(0, 3).map(hit => hit.connection);
 }
 
+// Compare entered decimals exactly, including thresholds closer than a floating-point step.
+const validAmount = value => typeof value === "string" && value.length <= 32 && /^\d+(?:[.,]\d+)?$/.test(value);
+
+function minimumFigures(answers) {
+  const parts = [answers.mean, answers.minimum].map(value => value.replace(",", ".").split("."));
+  const places = Math.max(...parts.map(([, fraction = ""]) => fraction.length));
+  const [mean, minimum] = parts.map(([whole, fraction = ""]) => BigInt(whole + fraction.padEnd(places, "0")));
+
+  return {mean, minimum, places};
+}
+
+export function needsAllocationExamples(answers) {
+  if (!["mean", "minimum"].every(id => Object.hasOwn(answers, id) && validAmount(answers[id]))) return false;
+  const {mean, minimum} = minimumFigures(answers);
+  return minimum > 0n && mean >= minimum;
+}
+
+function minimumConclusion(answers, lang) {
+  const {mean, minimum, places} = minimumFigures(answers);
+  function format(amount) {
+    if (places === 0) return String(amount);
+    const digits = String(amount).padStart(places + 1, "0");
+    const fraction = digits.slice(-places).replace(/0+$/, "");
+    const separator = lang === "en" ? "." : ",";
+    return digits.slice(0, -places) + (fraction ? separator + fraction : "");
+  }
+
+  if (minimum === 0n) return lang === "en"
+    ? "The claim follows. Every amount meets the minimum of zero because the model only allows nonnegative amounts."
+    : "Die Aussage folgt. Jede Menge erreicht die Schwelle null, weil das Modell nur nichtnegative Mengen zulässt.";
+  if (mean < minimum) return lang === "en"
+    ? `Ruled out. If every amount were at least ${format(minimum)}, the mean would also be at least ${format(minimum)}. The mean is only ${format(mean)}.`
+    : `Ausgeschlossen. Wäre jede Menge mindestens ${format(minimum)}, läge auch ihr Durchschnitt bei mindestens ${format(minimum)}. Er beträgt aber nur ${format(mean)}.`;
+  return lang === "en"
+    ? `Both answers are possible under your stated conditions. Give everyone ${format(mean)} and everyone meets the minimum of ${format(minimum)}. Change two amounts to 0 and ${format(2n * mean)}, leaving the rest at ${format(mean)}. Now one falls below the minimum, with the same mean.`
+    : `Unter deinen Angaben sind beide Antworten möglich. Erhalten alle ${format(mean)}, erreichen alle die Schwelle ${format(minimum)}. Ändere zwei Mengen auf 0 und ${format(2n * mean)}. Alle übrigen behalten ${format(mean)}. Jetzt liegt eine Menge unter der Schwelle, bei gleichem Durchschnitt.`;
+}
+
 /** No inference from prose, unknown values, inherited fields or other answers. */
 export function assessConnection(connectionId, answers = {}) {
   const connection = connections.find(item => item.id === connectionId);
@@ -134,12 +176,20 @@ export function assessConnection(connectionId, answers = {}) {
   const missing = [];
   const failed = [];
   for (const condition of connection.conditions) {
+    if (condition.id === "mean_only" && !needsAllocationExamples(answers)) continue;
     const answer = Object.hasOwn(answers, condition.id) ? answers[condition.id] : "unknown";
     if (!["yes", "no", "unknown"].includes(answer)) return {status: "invalid", missing: [], failed: []};
     if (answer === "no") failed.push(condition.id);
     if (answer === "unknown") missing.push(condition.id);
   }
+  for (const field of connection.amounts ?? []) {
+    if (!Object.hasOwn(answers, field.id) || !validAmount(answers[field.id])) missing.push(field.id);
+  }
   return {status: failed.length ? "not_applicable" : missing.length ? "needs_context" : "conditional", missing, failed};
+}
+
+export function conditionalConclusion(connection, answers, lang) {
+  return connection.id === "distribution" ? minimumConclusion(answers, lang) : connection.conclusion[lang];
 }
 
 const reflectionLabels = {
@@ -153,6 +203,13 @@ const reflectionLabels = {
   observed: b("Was ich später beobachte", "What I observe later"),
   revision: b("Was ich korrigieren möchte", "What I want to revise")
 };
+
+export function caseWording(framing, original, alternative, lang) {
+  const en = lang === "en";
+  if (framing === "original" && textValue(original)) return (en ? "Original question" : "Ausgangsfrage") + " · " + textValue(original);
+  if (framing === "alternative" && textValue(alternative)) return (en ? "Alternative wording" : "Andere Formulierung") + " · " + textValue(alternative);
+  return en ? "No wording assigned to this card." : "Dieser Karte ist keine Frageformulierung zugeordnet.";
+}
 
 export function buildNavigatorNote(input = {}) {
   const data = isRecord(input) ? input : {};
@@ -170,18 +227,24 @@ export function buildNavigatorNote(input = {}) {
   const answerLabels = {yes: t("Ja, von mir angegeben", "Yes, stated by me"), no: t("Nein, von mir angegeben", "No, stated by me"), unknown: t("Unbekannt / offen", "Unknown / unresolved")};
   const lines = [t("WIRKLICH · Erkenntnisnavigator", "REALLY? · Knowledge navigator"), "",
     t("Persönlicher Entwurf. Die Antworten sind eigene Angaben, keine unabhängig geprüften Tatsachen.", "Personal draft. Answers are self-reported, not independently verified facts."), "",
-    t("Meine Frage", "My question") + ":", textValue(data.question) || t("Offen", "Open"), "",
-    t("Stand der Verbindung", "Connection status") + ": " + statuses[assessment.status]];
+    t("Meine Frage", "My question") + ":", textValue(data.question) || t("Offen", "Open"), ""];
+  if (textValue(data.alternativeQuestion)) lines.push(t("Andere Formulierung", "Alternative wording") + ":", textValue(data.alternativeQuestion), "");
+  lines.push(t("Stand der Verbindung", "Connection status") + ": " + statuses[assessment.status]);
   if (connection) {
-    lines.push("", `${connection.title[lang]} (${connection.id}, v${connection.version})`,
+    lines.push(t("Fallbezug", "Case wording") + ": " + caseWording(data.framing, data.question, data.alternativeQuestion, lang), "", `${connection.title[lang]} (${connection.id}, v${connection.version})`,
       t("Aussageart", "Claim type") + ": " + (connection.type === "formal" ? t("Formal", "Formal") : t("Normativ", "Normative")),
       t("Redaktioneller Arbeitsentwurf · keine unabhängige Fachprüfung", "Editorial working draft · no independent expert review"), "",
       t("Voraussetzungen", "Premises") + ":");
     for (const condition of connection.conditions) {
+      if (condition.id === "mean_only" && isRecord(answers) && !needsAllocationExamples(answers)) continue;
       const raw = isRecord(answers) && Object.hasOwn(answers, condition.id) ? answers[condition.id] : "unknown";
       lines.push(`- ${condition.label[lang]} — ${answerLabels[raw] ?? t("Ungültige Angabe", "Invalid answer")}`);
     }
-    if (assessment.status === "conditional") lines.push("", connection.conclusion[lang], "", t("Möglicher nächster Schritt", "Possible next step") + ": " + connection.nextStep[lang]);
+    for (const field of connection.amounts ?? []) {
+      const raw = isRecord(answers) && Object.hasOwn(answers, field.id) ? answers[field.id] : "";
+      lines.push(`- ${field.label[lang]} — ${textValue(raw) || t("Offen", "Open")}`);
+    }
+    if (assessment.status === "conditional") lines.push("", conditionalConclusion(connection, answers, lang), "", t("Möglicher nächster Schritt", "Possible next step") + ": " + connection.nextStep[lang]);
     else lines.push("", t("Aus dieser Verbindung wird derzeit keine Handlungsempfehlung abgeleitet.", "No action recommendation is currently derived from this connection."));
     lines.push("", t("Geltungsbereich", "Scope") + ": " + connection.scope[lang], "",
       t("Begründung", "Rationale") + ": " + connection.rationale[lang], "",

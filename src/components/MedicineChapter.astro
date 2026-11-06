@@ -1,0 +1,121 @@
+---
+import Layout from "../layouts/SiteLayout.astro";
+import {pathFor} from "../lib/paths.mjs";
+import register from "../../public/knowledge/claims.json";
+import project from "../../public/project.json";
+import "../styles/mission.css";
+
+const {lang = "de"} = Astro.props;
+const t = (de, en) => lang === "de" ? de : en;
+const title = t("Woran erkennen wir, dass eine Behandlung hilft?", "How do we know a treatment helps?");
+const lead = t(
+  "Ein Medikament unterdrückt auffällige Herzschläge. Den Unterschied kann man im EKG sehen. Würdest du erwarten, dass dadurch weniger Menschen sterben oder einen Herzstillstand erleiden?",
+  "A medicine suppresses unusual heartbeats. You can see the change on an ECG. Would you expect fewer people to die or have a cardiac arrest?"
+);
+const claim = register.claims.find(entry => entry.id === "MED-001");
+if (!claim) throw new Error("Medicine chapter requires MED-001");
+const challengeRule = project.repository + "/issues/new?" + new URLSearchParams({
+  template: "angriff.yml",
+  title: t("[Medizin] Einwand zur Schlussregel", "[Medicine] Challenge to the rule of inference"),
+  source: new URL(lang + "/medizin/#regel", project.website).href
+});
+const evidenceForm = project.repository + "/issues/new?" + new URLSearchParams({
+  template: "quellenpruefung.yml",
+  title: t("[Medizin] ", "[Medicine] ")
+});
+---
+<Layout lang={lang} slug="medizin" pageTitle={t("Medizin prüfen", "Examining medical claims")} description={title}>
+  <article class="container mission-document">
+    <header>
+      <p class="section-kicker">{t("Medizin · Offene Werkstatt", "Medicine · Open workshop")}</p>
+      <h1>{title}</h1>
+      <p class="mission-lead">{lead}</p>
+      <nav class="mission-toc" aria-label={t("Auf dieser Seite", "On this page")}>
+        <a href="#cast">{t("Am Beispiel versuchen", "Try the example")}</a>
+        <a href="#pruefen">{t("Eine Aussage prüfen", "Examine a claim")}</a>
+        <a href="#mitmachen">{t("Eine Quelle einbringen", "Contribute a source")}</a>
+      </nav>
+    </header>
+
+    <section id="cast">
+      <p class="section-kicker">CAST · 1989 · {claim.id}</p>
+      <h2>{t("Was das EKG offenließ", "What the ECG left unanswered")}</h2>
+      <p>{t(
+        "Nach einem Herzinfarkt hatten manche Menschen zusätzliche Schläge aus den Herzkammern. Sie spürten davon wenig oder gar nichts. Häufige Extraschläge gingen mit einem höheren Risiko für plötzlichen Tod einher. Daher lag die Vermutung nahe, dass ein Mittel gegen die Extraschläge Leben retten könnte.",
+        "After a heart attack, some people had extra beats starting in the lower chambers of the heart. They barely felt them, if at all. Frequent extra beats were associated with a higher risk of sudden death. It seemed plausible that suppressing them with a medicine might save lives."
+      )}</p>
+      <p>{t(
+        "In der CAST-Studie erhielten Menschen, deren Extraschläge sich im Vorversuch unterdrücken ließen, per Zufall das jeweilige Medikament oder ein Placebo. Stell dir vor, du erfährst als Nächstes, wie viele Menschen in jeder Gruppe starben oder einen Herzstillstand überlebten. Welche Gruppe schneidet deiner Erwartung nach besser ab? Was würde dich umstimmen?",
+        "In the CAST trial, people whose extra beats could be suppressed in an initial test were randomly assigned to continue the medicine or take a placebo. Imagine you are about to learn how many people in each group died or survived a cardiac arrest. Which group would you expect to fare better? What would change your mind?"
+      )}</p>
+      <details class="mission-callout">
+        <summary>{t("Was geschah in der Studie?", "What happened in the trial?")}</summary>
+        <p>{claim.statement[lang]}</p>
+        <p>{t(
+          "Das Studienteam beendete die Behandlungsarme mit diesen beiden Wirkstoffen vorzeitig. Trotz der Wirkung auf das EKG trat das schwerwiegende Ereignis in dieser Gruppe häufiger unter dem Medikament auf.",
+          "The trial team stopped the arms testing these two medicines early. Despite the effect on the ECG, the serious outcome occurred more often on the medicines in this group."
+        )}</p>
+        <p>{t("Tabelle 2 zählt Todesfälle und überlebte Herzstillstände zusammen. Wer nur die Zusammenfassung liest, kann diese Zahlen leicht für reine Todesfallzahlen halten.", "Table 2 counts deaths and resuscitated cardiac arrests together. Reading the abstract alone, it is easy to mistake these figures for deaths alone.")} <a href="https://www.biostat.wisc.edu/~chappell/641/papers/paper15.pdf#page=4">{t("CAST 1989, Tabelle 2 auf Seite 409", "CAST 1989, Table 2 on page 409")} ↗</a></p>
+      </details>
+      <p><a href={pathFor(lang, "aussagen", claim.id)}>{t("MED-001 im Register lesen oder begründet angreifen", "Read or challenge MED-001 in the register")} →</a></p>
+    </section>
+
+    <section id="regel">
+      <h2>{t("Welche Schlussregel fällt hier durch?", "Which rule fails this test?")}</h2>
+      <p>{t(
+        "„Wer ein Warnzeichen beseitigt, beseitigt die Gefahr.“ Mit dieser Regel hätte WIRKLICH die falsche Vorhersage durchgewinkt. Bei jeder Nutzenbehauptung fragen wir deshalb, was sich für Betroffene ändern soll. Sollen Schmerzen nachlassen, soll Treppensteigen wieder möglich werden oder sollen Menschen länger leben?",
+        "“Removing a warning sign removes the danger.” That rule would have led WIRKLICH to accept the wrong prediction. For every claim of benefit, we therefore ask what should change for the people affected. Should pain ease, should climbing stairs become possible again, or should people live longer?"
+      )}</p>
+      <p>{t(
+        "Wurde nur ein Ersatzwert gemessen, bleibt der behauptete Nutzen offen, bis direkte Daten vorliegen oder gezeigt wurde, dass Änderungen dieses Werts bei vergleichbaren Menschen und Behandlungen den Nutzen zuverlässig vorhersagen. Hier kann man auch unsere Regel angreifen. Ein für einen bestimmten Einsatz gut bestätigter Ersatzwert ist ein begründeter Einwand gegen seinen pauschalen Ausschluss.",
+        "If a study measured only a substitute outcome, the claimed benefit remains open until direct evidence is available or changes in that measure have been shown to predict the benefit reliably in comparable people and treatments. Our rule is open to challenge too. A measure validated for a particular use is a reason to question any blanket rejection of substitute outcomes."
+      )} <a href="https://www.iqwig.de/methoden/allgemeine-methoden_v8-0.pdf">{t("IQWiG, Allgemeine Methoden 8.0, Abschnitt 3.1.2", "IQWiG, General Methods 8.0, section 3.1.2 (German PDF)")} ↗</a></p>
+      <p><a href={challengeRule}>{t("Einen Einwand gegen diese Regel einreichen", "Submit an objection to this rule")} ↗</a></p>
+    </section>
+
+    <section id="pruefen">
+      <h2>{t("Bring einen Satz aus der Medizin mit", "Bring one medical claim")}</h2>
+      <ol class="mission-steps">
+        <li><strong>{t("Was wird behauptet?", "What is the claim?")}</strong> {t(
+          "Zitiere die öffentliche Quelle und nenne die untersuchte Gruppe. Geht es um eine Behandlung, einen Test, eine Prognose oder die Frage, was für Betroffene zählt?",
+          "Quote the public source and name the group studied. Is the question about a treatment, a test, a prognosis, or what matters to the people affected?"
+        )}</li>
+        <li><strong>{t("Welcher Vergleich kann die Frage beantworten?", "Which comparison could answer it?")}</strong> {t(
+          "Bei einer Behandlung interessieren Nutzen und Schaden gegenüber einer Alternative. Bei einem Test fragen wir, womit das Ergebnis verglichen wurde und wie oft er Gesunde für krank oder Kranke für gesund erklärte. Betroffene können sagen, welche Folgen dabei übersehen wurden.",
+          "For a treatment, compare benefits and harms with an alternative. For a test, ask what its results were checked against and how often it wrongly identified or missed the condition. People affected can point out consequences the study overlooked."
+        )}</li>
+        <li><strong>{t("Wie groß und wie sicher ist der Unterschied?", "How large and how certain is the difference?")}</strong> {t(
+          "Suche Zahlen für beide Gruppen, den Zeitraum und die Unsicherheit. Könnten etwa unterschiedlich kranke Gruppen das Ergebnis erklären? Bei seltenen oder späten Schäden kann eine kurze Studie die Frage offenlassen. Längere Beobachtungen können dann Hinweise liefern.",
+          "Look for numbers in both groups, the time span and the uncertainty. Could a difference in how ill the groups were explain the result? A short trial may leave rare or delayed harms unresolved. Longer follow-up studies may offer evidence."
+        )} <a href="https://www.cochrane.org/authors/handbooks-and-manuals/handbook/current/chapter-19">{t("Cochrane-Handbuch, Kapitel 19", "Cochrane Handbook, chapter 19")} ↗</a></li>
+        <li><strong>{t("Was würde dein Urteil ändern?", "What would change your conclusion?")}</strong> {t(
+          "Nenne den stärksten Einwand und sag, was er trifft. Ist eine Zahl falsch, berichtigen wir sie. Gilt die Aussage nur für eine bestimmte Gruppe, grenzen wir sie ein. Würde unser Verfahren wieder denselben Fehlschluss zulassen, gehört die Regel selbst zur Prüfung.",
+          "Give the strongest objection and say what it challenges. If a number is wrong, correct it. If the evidence applies only to a particular group, narrow the claim. If our procedure would allow the same faulty inference again, put the rule itself up for review."
+        )}</li>
+      </ol>
+    </section>
+
+    <section id="mitmachen">
+      <h2>{t("Was haben wir übersehen?", "What have we missed?")}</h2>
+      <p>{t(
+        "Ob du mit einer Erkrankung lebst, in der Pflege arbeitest, behandelst, forschst oder gerade zum ersten Mal eine Studie liest: Welcher öffentliche Beleg oder welcher fehlende Blickwinkel würde unsere Antwort verändern? Für den Anfang genügen der genaue Satz und ein Link. GitHub-Beiträge sind öffentlich. Lass persönliche Krankengeschichten, Befunde und Namen von Behandelten aus deinem Beitrag heraus.",
+        "Whether you live with a condition, work in care, practise medicine, do research or are reading your first study, what public evidence or missing perspective would change our answer? Start with the exact claim and a link. GitHub submissions are public. Leave personal medical histories, records and patient names out of your submission."
+      )}</p>
+      <p>{t(
+        "Der Fall ist ein KI-unterstützter redaktioneller Entwurf. Eine unabhängige medizinische Fachprüfung steht aus. Individuelle Behandlungsentscheidungen gehören ins Gespräch mit dem eigenen Behandlungsteam.",
+        "This case is an AI-assisted editorial draft. Independent medical review is pending. Discuss personal treatment decisions with your own care team."
+      )}</p>
+      <div class="button-row">
+        <a class="button button--gold" href={evidenceForm}>{t("Medizinische Quelle zur Prüfung einreichen", "Submit a medical source for review")} ↗</a>
+        <a class="button button--ghost" href={pathFor(lang, "baum-des-wissens", "ast-medizin")}>{t("Medizin im Wissensbaum", "Medicine in the knowledge tree")} →</a>
+      </div>
+    </section>
+  </article>
+</Layout>
+
+<style>
+  details { max-width: 76ch; }
+  summary { cursor: pointer; color: var(--gold-bright); font-weight: 600; padding: .45rem 0; }
+  details p { margin: 1rem 0; }
+  details a, .mission-steps a { text-decoration: underline; text-underline-offset: .2em; }
+</style>

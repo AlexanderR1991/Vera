@@ -1,0 +1,135 @@
+---
+import Layout from "../layouts/SiteLayout.astro";
+import { absoluteFor, pathFor } from "../lib/paths.mjs";
+import project from "../../public/project.json";
+
+const { lang = "de" } = Astro.props;
+const de = lang === "de";
+const slug = "gegenprobe-01";
+const repo = project.repository;
+// Keep round 01 reproducible even after the claim changes.
+const revision = "1769699537a44ef2ce34ab724c570df72b82e4cd";
+const passage = repo + "/blob/" + revision + "/docs/grundtext.md#L25-L27";
+const register = repo + "/blob/" + revision + "/public/knowledge/claims.json#L10-L38";
+const title = de ? "Wann darf ich für dich entscheiden?" : "When may I decide for you?";
+const description = de
+  ? "Jemand bittet dich, eine Entscheidung zu übernehmen. Hilfst du damit? Prüfe These 05 mit deiner eigenen KI und bring uns den Fall, an dem sie scheitert."
+  : "Someone asks you to make a decision for them. Would that help? Test Thesis 05 with your own AI and bring us a case where it breaks down.";
+const claim = de ? "Hilf so, dass der andere seine eigene Kraft findet." : "Help in a way that enables the other person to find their own strength.";
+const scope = de
+  ? "Auch dauerhafte Unterstützung ist wertvoll. Würde und Fürsorge dürfen nicht von erreichbarer Selbstständigkeit abhängen."
+  : "Lasting support is valuable too. Dignity and care must not depend on attainable independence.";
+const scenario = de
+  ? "Jemand bittet mich, eine Entscheidung abzunehmen, die er oder sie selbst treffen könnte. Wann respektiere ich mit einem Ja die Freiheit dieser Person? Wann übergehe ich sie?"
+  : "Someone asks me to make a decision they could make themselves. When would saying yes respect their freedom? When would it override their wishes?";
+const prompt = [
+  de ? `Prüfe die ethische Leitidee G-005 (Fassung 2) von WIRKLICH. „${claim}“ Zum Grundtext gehört auch dieser Zusatz. „${scope}“`
+     : `Examine the ethical principle G-005 (version 2) from WIRKLICH. “${claim}” Read it with this qualification. ${scope}`,
+  de ? "Wir würden den Wortlaut überdenken, wenn er trotz dieses Zusatzes dazu führt, dass jemand gewünschte Hilfe verweigert oder unerwünschte Hilfe aufzwingt."
+     : "We would reconsider the wording if, even with that qualification, it led someone to withhold wanted help or impose unwanted help.",
+  scenario,
+  de ? "Erkläre zuerst die stärkste faire Lesart der Regel. Erfinde zwei möglichst ähnliche Fälle, in denen jeweils eine andere Antwort richtig wäre. Was will die betroffene Person in jedem Fall? Benenne den entscheidenden Unterschied. Erfasst der Wortlaut ihn schon?"
+     : "First give the strongest fair reading of the principle. Construct two closely matched cases that call for different answers. What does the person want in each case? Identify the decisive difference. Does the existing wording already capture it?",
+  de ? "Falls eine Lücke bleibt, zitiere die strittige Stelle und schlage die kleinste Änderung vor, die in beiden Fällen hilft. Was würde deinen Einwand entkräften? Wenn die Regel standhält oder die Frage offenbleibt, begründe das. Kennzeichne erfundene Fälle als Gedankenexperimente."
+     : "If a gap remains, quote the wording at issue and propose the smallest change that helps in both cases. What would defeat your objection? If the principle holds up or the question remains open, explain why. Mark invented cases as thought experiments.",
+  (de ? "Grundtext" : "Foundational text") + " · " + passage + "\nG-005 · " + register,
+].join("\n\n");
+const entry = new URLSearchParams({
+  template: "angriff.yml",
+  title: "[WG01] " + (de ? "These 05 – " : "Thesis 05 – "),
+  source: "WG01 · G-005 v2 · " + passage + " · " + register,
+});
+const submissions = repo + "/issues?" + new URLSearchParams({ q: "is:issue in:title,body WG01" });
+---
+<Layout lang={lang} slug={slug} description={description}>
+  <article class="challenge narrow">
+    <header>
+      <p class="section-kicker">{de ? "Offene Gegenprobe 01 · These 05" : "Open challenge 01 · Thesis 05"}</p>
+      <h1>{title}</h1>
+      <p class="scenario">{scenario}</p>
+      <blockquote>
+        <p>{de ? `„${claim}“` : `“${claim}”`}</p>
+        <footer>WIRKLICH · G-005 · <a href={de ? passage : register}>{de ? "Wortlaut dieser Runde" : "Wording for this round"}</a></footer>
+      </blockquote>
+      <p>{scope}</p>
+    </header>
+
+    <section aria-labelledby="try-title">
+      <h2 id="try-title">{de ? "Prüfe den Fall mit deiner KI" : "Try the case with your AI"}</h2>
+      <p>{de ? "Kopiere den Auftrag in einen neuen Chat. Für eine zweite Sicht schick einer anderen Person nur den Link zu dieser Runde. Vergleicht eure Antworten erst, wenn ihr beide fertig seid."
+             : "Paste the prompt into a fresh chat. For a second reading, send someone just the link to this round. Compare your answers after you have both finished."}</p>
+      <div class="button-row">
+        <button type="button" class="button button--gold" data-copy="prompt" hidden>{de ? "Prüfauftrag kopieren" : "Copy challenge prompt"}</button>
+        <a href={absoluteFor(lang, slug)} data-share-link>{de ? "Link zu dieser Runde" : "Link to this round"}</a>
+        <button type="button" class="button button--ghost" data-copy="link" hidden>{de ? "Link zum Teilen kopieren" : "Copy link to share"}</button>
+      </div>
+      <p role="status" id="copy-status"></p>
+      <details id="full-prompt">
+        <summary>{de ? "Vollständigen Prüfauftrag lesen oder manuell kopieren" : "Read the full prompt or copy it manually"}</summary>
+        <label for="challenge-prompt">{de ? "Text für deinen Chat" : "Text for your chat"}</label>
+        <textarea id="challenge-prompt" readonly spellcheck="false" rows="12">{prompt}</textarea>
+      </details>
+    </section>
+
+    <section aria-labelledby="result-title">
+      <h2 id="result-title">{de ? "Welcher Unterschied zählt?" : "Which difference matters?"}</h2>
+      <p>{de ? "Beschreibe in eigenen Worten, was die Person in den beiden Fällen will und welcher Satz zum falschen Urteil führen könnte. Gib bei einem KI-Beitrag Modell und Datum an. Zum öffentlichen Einreichen brauchst du ein GitHub-Konto. Nutze Beispiele ohne private Angaben."
+             : "In your own words, describe what the person wants in each case and which sentence might lead to the wrong decision. If you used AI, include the model and date. You need a GitHub account to submit publicly. Leave personal details out of your examples."}</p>
+      <div class="button-row">
+        <a class="button button--gold" href={repo + "/issues/new?" + entry}>{de ? "Gegenfall einreichen ↗" : "Submit a counterexample ↗"}</a>
+        <a href={submissions}>{de ? "Einwände und Entscheidungen dieser Runde ↗" : "Objections and decisions for this round ↗"}</a>
+      </div>
+      <p>{de ? "Im jeweiligen Beitrag hält die prüfende Person fest, ob der Einwand berechtigt, unbegründet oder offen ist und warum. Bei einer Änderung gehört der Link zur neuen Fassung dazu."
+             : "The reviewer records in the submission whether the objection is upheld, rejected or still open, and explains why. If the wording changes, the review links to the revision."}</p>
+      <a href={pathFor(lang, "methode", "g-005")}>{de ? "Wie sich diese These schon einmal geändert hat" : "How this principle has changed before"} →</a>
+    </section>
+  </article>
+</Layout>
+
+<script>
+  const field = document.querySelector<HTMLTextAreaElement>("#challenge-prompt")!;
+  const share = document.querySelector<HTMLAnchorElement>("[data-share-link]")!;
+  const status = document.querySelector<HTMLElement>("#copy-status")!;
+  const de = document.documentElement.lang === "de";
+  for (const button of document.querySelectorAll<HTMLButtonElement>(".challenge [data-copy]")) {
+    const isPrompt = button.dataset.copy === "prompt";
+    button.hidden = false;
+    if (!isPrompt) share.hidden = true;
+    button.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(isPrompt ? field.value : share.href);
+        status.textContent = isPrompt
+          ? (de ? "Prüfauftrag kopiert. Füge ihn in einen neuen Chat ein." : "Prompt copied. Paste it into a fresh chat.")
+          : (de ? "Link zur Runde kopiert." : "Link to the round copied.");
+      } catch {
+        if (isPrompt) {
+          document.querySelector<HTMLDetailsElement>("#full-prompt")!.open = true;
+          field.focus();
+          field.select();
+          status.textContent = de ? "Der Prüfauftrag ist markiert. Kopiere den Text mit deinem Gerät." : "The prompt is selected. Use your device’s copy command.";
+        } else {
+          share.hidden = false;
+          share.focus();
+          status.textContent = de ? "Kopiere die Linkadresse über das Menü deines Geräts." : "Use your device’s menu to copy the link address.";
+        }
+      }
+    });
+  }
+</script>
+
+<style>
+  .challenge { padding-block: clamp(2rem, 6vw, 4.5rem); }
+  .challenge h1 { font-size: clamp(2.6rem, 6vw, 4.8rem); line-height: 1.05; margin: .3em 0; }
+  .challenge .scenario { font-size: 1.18rem; max-width: 58ch; }
+  .challenge blockquote { margin: 1.5rem 0 .8rem; border-inline-start: 3px solid var(--gold); padding-inline-start: 1.2rem; }
+  .challenge blockquote p { font: 1.5rem/1.4 var(--serif); margin-bottom: .35rem; color: var(--text); }
+  .challenge blockquote footer, .challenge label, #copy-status { font-size: .9rem; }
+  .challenge section { border-top: 1px solid var(--line); margin-top: 2rem; padding-top: 1.5rem; }
+  .challenge h2 { font-size: clamp(1.65rem, 4vw, 2.4rem); line-height: 1.2; margin-bottom: .55rem; }
+  .challenge a:not(.button) { text-decoration: underline; text-underline-offset: .2em; color: var(--gold-bright); }
+  .challenge .button-row { margin: 1rem 0; }
+  #copy-status:empty { margin: 0; }
+  .challenge summary { cursor: pointer; color: var(--gold-bright); }
+  .challenge label { display: block; margin: .8rem 0 .35rem; }
+  .challenge textarea { display: block; width: 100%; padding: .8rem; resize: vertical; background: var(--ink2); color: var(--text); border: 1px solid var(--line); }
+</style>

@@ -62,7 +62,7 @@
         "de": "Zielkonflikte zwischen Schutz, Selbstbestimmung und Unterstützungsbedarf bleiben offen.",
         "en": "Tradeoffs between protection, self-determination and support needs remain open."
       },
-      "version": 2,
+      "version": 3,
       "updated_at": "2026-11-06",
       "review_status": "unreviewed",
       "human_review": null,
@@ -90,8 +90,34 @@
             "de": "Das Register führt jetzt die in PR #31 veröffentlichte Präzisierung zur dauerhaften Unterstützung mit ihrer Quelle. Die nächste Revisionsbedingung bezieht sich auf diese Fassung.",
             "en": "The register now reflects the clarification on lasting support published in PR #31, links to that revision and gives a condition for revisiting the amended wording."
           }
+        },
+        {
+          "version": 3,
+          "date": "2026-11-06",
+          "change": {
+            "de": "Erkenntnisreife R0, Abstraktionsstufe und separaten Konsensstatus ergänzt; Aussage und fachliche Beleglage unverändert. Keine Aufwertung.",
+            "en": "Added R0 maturity, abstraction level and separate consensus status; wording and substantive evidence unchanged. No promotion."
+          }
         }
-      ]
+      ],
+      "abstraction_level": "principle",
+      "maturity": {
+        "level": 0,
+        "rationale": {
+          "de": "Normativer Leitgedanke mit offenem Einwand und redaktioneller Korrektur; noch keine unabhängige Fachprüfung.",
+          "en": "Normative principle with a documented objection and editorial correction; no independent expert review yet."
+        },
+        "independent_checks": [],
+        "adversarial_resolution": null
+      },
+      "consensus": {
+        "status": "not_assessed",
+        "note": {
+          "de": "Keine dokumentierte Konsenserhebung. Wiederholte KI-Antworten und Likes sind keine unabhängigen Stimmen.",
+          "en": "No documented consensus assessment. Repeated AI responses and likes do not constitute independent positions."
+        },
+        "records": []
+      }
     },
     {
       "id": "H-001",
@@ -141,8 +167,8 @@
         "de": "Der Erklärungsnutzen für Leser wurde nicht systematisch untersucht.",
         "en": "Its explanatory usefulness for readers has not been systematically examined."
       },
-      "version": 1,
-      "updated_at": "2026-11-05",
+      "version": 2,
+      "updated_at": "2026-11-06",
       "review_status": "unreviewed",
       "human_review": null,
       "ai_assistance": {
@@ -161,8 +187,34 @@
             "de": "Erster strukturierter Entwurf. Keine fachliche Freigabe.",
             "en": "First structured draft. No expert approval."
           }
+        },
+        {
+          "version": 2,
+          "date": "2026-11-06",
+          "change": {
+            "de": "Erkenntnisreife R0, Abstraktionsstufe und separaten Konsensstatus ergänzt; Aussage und fachliche Beleglage unverändert. Keine Aufwertung.",
+            "en": "Added R0 maturity, abstraction level and separate consensus status; wording and substantive evidence unchanged. No promotion."
+          }
         }
-      ]
+      ],
+      "abstraction_level": "pattern",
+      "maturity": {
+        "level": 0,
+        "rationale": {
+          "de": "Das Bild hat erklärte Grenzen, ist aber kein empirisch geprüfter Sachverhalt und wurde nicht fachlich begutachtet.",
+          "en": "The metaphor has stated limits, but it is not an empirically verified proposition and has not been expert-reviewed."
+        },
+        "independent_checks": [],
+        "adversarial_resolution": null
+      },
+      "consensus": {
+        "status": "not_assessed",
+        "note": {
+          "de": "Keine dokumentierte Konsenserhebung. Wiederholte KI-Antworten und Likes sind keine unabhängigen Stimmen.",
+          "en": "No documented consensus assessment. Repeated AI responses and likes do not constitute independent positions."
+        },
+        "records": []
+      }
     },
     {
       "id": "KI-001",
@@ -212,8 +264,8 @@
         "de": "Effektgröße, Übertragbarkeit, Abhängigkeit vom Modell und mögliche Verzerrungen sind unbekannt.",
         "en": "Effect size, generalizability, model dependence and possible biases are unknown."
       },
-      "version": 1,
-      "updated_at": "2026-11-05",
+      "version": 2,
+      "updated_at": "2026-11-06",
       "review_status": "unreviewed",
       "human_review": null,
       "ai_assistance": {
@@ -232,8 +284,143 @@
             "de": "Erster strukturierter Entwurf. Keine fachliche Freigabe.",
             "en": "First structured draft. No expert approval."
           }
+        },
+        {
+          "version": 2,
+          "date": "2026-11-06",
+          "change": {
+            "de": "Erkenntnisreife R0, Abstraktionsstufe und separaten Konsensstatus ergänzt; Aussage und fachliche Beleglage unverändert. Keine Aufwertung.",
+            "en": "Added R0 maturity, abstraction level and separate consensus status; wording and substantive evidence unchanged. No promotion."
+          }
         }
-      ]
+      ],
+      "abstraction_level": "disciplinary",
+      "maturity": {
+        "level": 0,
+        "rationale": {
+          "de": "Die Hypothese ist prüfbar formuliert, doch noch ohne vorregistrierten Versuch und menschlichen Review.",
+          "en": "The hypothesis is phrased so it can be tested, but has no preregistered trial or human review yet."
+        },
+        "independent_checks": [],
+        "adversarial_resolution": null
+      },
+      "consensus": {
+        "status": "not_assessed",
+        "note": {
+          "de": "Keine dokumentierte Konsenserhebung. Wiederholte KI-Antworten und Likes sind keine unabhängigen Stimmen.",
+          "en": "No documented consensus assessment. Repeated AI responses and likes do not constitute independent positions."
+        },
+        "records": []
+      }
+    },
+    {
+      "id": "MED-001",
+      "type": "empirical",
+      "epistemic_status": "source_supported",
+      "statement": {
+        "de": "Der CAST-Zwischenbericht von 1989 verglich Encainid oder Flecainid mit Placebo bei Menschen nach einem Herzinfarkt. Über durchschnittlich zehn Monate erfasste die Studie, wer starb oder einen Herzstillstand überlebte. Eines dieser beiden Ereignisse traf in der Medikamentengruppe 56 von 730 Menschen (7,7 %), in der Placebogruppe 22 von 725 (3,0 %).",
+        "en": "The 1989 CAST interim report compared encainide or flecainide with placebo in people who had survived a heart attack. Over an average of ten months, 56 of 730 people in the drug group (7.7%) died or had a nonfatal cardiac arrest, compared with 22 of 725 in the placebo group (3.0%)."
+      },
+      "scope": {
+        "de": "Die Teilnehmenden hatten häufige zusätzliche Schläge aus den Herzkammern, die kaum oder keine Beschwerden verursachten. Die Studie loste die Behandlung erst zu, nachdem sich diese Schläge mit einem Studienmedikament unterdrücken ließen. Die Zahlen betreffen die beiden genannten Wirkstoffe und ihre Placebogruppen.",
+        "en": "Participants had frequent extra beats originating in the lower chambers of the heart, with few or no symptoms. Treatment was assigned at random after a study drug had been shown to suppress these beats. The figures cover the two named drugs and their matched placebo groups."
+      },
+      "rationale": {
+        "de": "Im Langzeit-EKG ließen sich weniger Extraschläge zählen. Um die Folgen für die Menschen zu erfassen, verglich die Studie auch, wie viele in jeder der ausgelosten Gruppen starben oder einen Herzstillstand überlebten.",
+        "en": "Ambulatory ECG recordings could show fewer extra beats. To measure how people fared, the trial also compared how many in each randomly assigned group died or had a nonfatal cardiac arrest."
+      },
+      "counterarguments": [
+        {
+          "de": "Die Studie nahm gezielt Menschen auf, deren Extraschläge auf die Medikamente ansprachen. Wie häufig Tod oder überlebter Herzstillstand bei einer anderen Rhythmusstörung oder unter einem anderen Wirkstoff auftreten, erfordert eine eigene Untersuchung.",
+          "en": "The trial selected people whose extra beats responded to the drugs. The risk of death or nonfatal cardiac arrest with another rhythm disorder or another drug requires a separate study."
+        }
+      ],
+      "revision_condition": {
+        "de": "Die Zahlen korrigieren, wenn eine Berichtigung des Zwischenberichts oder ein Abgleich mit Tabelle 2 zeigt, dass wir Ereignisse, Gruppengrößen oder Beobachtungsdauer falsch wiedergeben. Zahlen einer späteren Auswertung mit ihrem eigenen Datenstand ausweisen.",
+        "en": "Correct the figures if an erratum to the interim report or a check against Table 2 shows that we misstated events, group sizes or follow-up. Identify any later analysis by its own data cut."
+      },
+      "evidence_note": {
+        "de": "Das Abstract spricht verkürzt von Gesamtsterblichkeit. Tabelle 2 auf Seite 409 zählt Todesfälle und überlebte Herzstillstände gemeinsam. Die FDA-Unterlagen nennen denselben kombinierten Endpunkt für diese Zahlen.",
+        "en": "The abstract uses the shorthand “total mortality”. Table 2 on page 409 counts deaths and nonfatal cardiac arrests together. The FDA record gives the same combined outcome for these figures."
+      },
+      "sources": [
+        {
+          "url": "https://www.biostat.wisc.edu/~chappell/641/papers/paper15.pdf#page=4",
+          "role": "evidence",
+          "label": {
+            "de": "CAST Investigators, 1989 · Volltext, S. 409, Tabelle 2 (PDF)",
+            "en": "CAST Investigators, 1989 · full text, p. 409, Table 2 (PDF)"
+          }
+        },
+        {
+          "url": "https://www.accessdata.fda.gov/drugsatfda_docs/nda/99/18972s015s017_appltrs.pdf#page=4",
+          "role": "evidence",
+          "label": {
+            "de": "FDA · Warnhinweis mit kombiniertem CAST-Endpunkt und Gruppenzahlen (PDF, S. 4)",
+            "en": "FDA · boxed warning with the combined CAST outcome and group counts (PDF, p. 4)"
+          }
+        },
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/2473403/",
+          "role": "provenance",
+          "label": {
+            "de": "CAST Investigators, 1989 · Abstract mit verkürzter Endpunktbezeichnung",
+            "en": "CAST Investigators, 1989 · abstract with abbreviated outcome wording"
+          }
+        },
+        {
+          "url": "https://biolincc.nhlbi.nih.gov/studies/cast/",
+          "role": "evidence",
+          "label": {
+            "de": "NHLBI · Studienarchiv mit Einschlusskriterien, Zuteilung und Abbruchgründen",
+            "en": "NHLBI · trial archive with eligibility, allocation and reasons for stopping"
+          }
+        }
+      ],
+      "uncertainty": {
+        "de": "Die Studie beendete diese beiden Behandlungsarme vorzeitig. Die genaue Größe des Effekts über längere Zeit bleibt aus dieser Auswertung offen.",
+        "en": "The trial stopped both treatment arms early. This analysis leaves the size of the effect over a longer period uncertain."
+      },
+      "version": 1,
+      "updated_at": "2026-11-06",
+      "review_status": "unreviewed",
+      "human_review": null,
+      "ai_assistance": {
+        "used": true,
+        "model": "GPT-6 Astra Pro",
+        "task": {
+          "de": "Quellenabgleich, Abgrenzung der Aussage und zweisprachiger Entwurf.",
+          "en": "Source checks, definition of scope and bilingual draft."
+        }
+      },
+      "history": [
+        {
+          "version": 1,
+          "date": "2026-11-06",
+          "change": {
+            "de": "Zwischenbericht von 1989 erfasst. Die menschliche Fachprüfung steht aus.",
+            "en": "Recorded the 1989 interim report. Human expert review is pending."
+          }
+        }
+      ],
+      "abstraction_level": "case",
+      "maturity": {
+        "level": 0,
+        "rationale": {
+          "de": "Quellengebundene Beschreibung eines historischen Studienergebnisses. Die vollständige Quellenprüfung und unabhängige fachliche Begutachtung stehen aus.",
+          "en": "A source-linked account of a historical trial result. Full source verification and independent expert review are still pending."
+        },
+        "independent_checks": [],
+        "adversarial_resolution": null
+      },
+      "consensus": {
+        "status": "not_assessed",
+        "note": {
+          "de": "Ein wissenschaftlicher Konsens wurde für diesen Eintrag nicht eigenständig erhoben.",
+          "en": "No scientific consensus assessment has been independently conducted for this claim."
+        },
+        "records": []
+      }
     }
   ]
 }

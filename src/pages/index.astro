@@ -7,9 +7,11 @@ import project from "../../public/project.json" with {type: "json"};
   <section class="locale-landing" aria-labelledby="welcome-title">
     <div class="narrow">
       <p class="section-kicker">{project.subtitle.de} · <span lang="en">{project.subtitle.en}</span></p>
-      <h1 id="welcome-title">{project.name} <span aria-hidden="true">/</span> <em lang="en">{project.english_name}</em></h1>
-      <p>Welche Frage beschäftigt dich? Untersuche sie selbst oder bring sie in die Werkstatt.</p>
-      <p lang="en">What’s on your mind? Work through a question on your own or bring it to the workshop.</p>
+      <h1 id="welcome-title">Was ist <em>wirklich?</em><span lang="en">What is real?</span></h1>
+      <p class="locale-landing__invitation">Gemeinsam klüger werden. Irrtum für Irrtum.<span lang="en">Learn together. One correction at a time.</span></p>
+      <p class="locale-landing__motto">Mit Philosophie Menschen zu einem Konsens bringen.<span lang="en">Bringing people closer to consensus through philosophy.</span></p>
+      <p>Wähle deine Sprache, um die Idee kennenzulernen und Fragen zu erkunden.</p>
+      <p lang="en">Choose your language to explore the idea and bring your questions.</p>
       <nav class="locale-landing__links" aria-label="Sprache wählen / Choose a language">
         <a href={pathFor("de")} lang="de" hreflang="de">Deutsch <span>Zur Werkstatt · Originalfassung →</span></a>
         <a href={pathFor("en")} lang="en" hreflang="en">English <span>Enter the workshop · Translation draft →</span></a>
@@ -19,7 +21,11 @@ import project from "../../public/project.json" with {type: "json"};
 </Layout>
 
 <style>
-  .locale-landing h1 { font-size: clamp(2.65rem, 7vw, 5.5rem); }
-  .locale-landing h1 span { color: var(--gold); font-size: .65em; }
+  .locale-landing h1 { font-size: clamp(3rem, 7vw, 5.5rem); line-height: 1.12; }
+  .locale-landing h1 em { color: var(--gold-bright); font-weight: 400; }
+  .locale-landing h1 span { display: block; margin-top: .6rem; color: var(--gold); font: clamp(1.45rem, 3vw, 2.2rem)/1.3 var(--serif); letter-spacing: -.02em; }
+  .locale-landing__invitation { margin: 0 0 1.7rem; color: var(--gold-bright); font: clamp(1.25rem, 2.5vw, 1.7rem)/1.4 var(--serif); }
+  .locale-landing__motto { color: var(--text); font: clamp(1.5rem, 3vw, 2rem)/1.35 var(--serif); }
+  .locale-landing__invitation span, .locale-landing__motto span { display: block; margin-top: .25rem; color: var(--text-soft); font-size: .7em; }
   .locale-landing__links { margin-bottom: 0; }
 </style>

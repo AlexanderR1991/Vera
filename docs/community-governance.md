@@ -29,6 +29,32 @@ Anyone can suggest ideas through issues or changes through pull requests. **Subm
 5. **Entscheidung / Decision:** Merge, überarbeiten, oder begründet zurückstellen.
 6. **Dokumentation / Record:** Wichtige Änderungen in der Versionsgeschichte erfassen.
 
+## Wer darf die Regeln ändern? / Who can change the rules?
+
+Für WIRKLICH gilt eine Gründungsentscheidung. Veröffentlichte Aussagen und das Verfahren selbst müssen öffentlich begründet angefochten und korrigiert werden können. Für redaktionelle Entscheidungen trägt ein benannter Mensch Verantwortung. Die Aufnahme einer Aussage in einen Prüfstatus braucht Gründe, die sich an dieser Aussage überprüfen lassen. Auch diese Setzung darf kritisiert werden. Wer etwa künftig Mehrheiten über den Wahrheitsstatus entscheiden lassen will, schlägt damit eine Neugründung oder ausdrücklich anders begründete Hauptversion vor. Der Bruch und die letzte Fassung unter den bisherigen Regeln bleiben in der [Versionsgeschichte](versionsgeschichte.md) erkennbar.
+
+1. **Vorschlag.** Jede Person kann einen öffentlichen Regeländerungs-PR eröffnen. Er verlinkt die bisherige Regel mit Commit und Abschnitt, zeigt den neuen Wortlaut und einen Fall, in dem sich die Entscheidung ändern würde. Auch wer dadurch Entscheidungsmacht gewinnt oder verliert, gehört in die Begründung.
+2. **Prüfung.** Es gelten die zu diesem Zeitpunkt auf `main` veröffentlichten Regeln, auch bei Änderungen dieses Abschnitts. Ändert sich eine einschlägige Regel während der Beratung, vermerkt der Maintainer den neuen Ausgangsstand und prüft den Vorschlag daran erneut. Ein Entwurf kann seine eigene Annahme nicht rechtfertigen.
+3. **Entscheidung.** Derzeit entscheidet der Repository-Eigentümer. Er nennt im PR vorab einen Termin für Einwände und dokumentiert nach Ablauf die Entscheidung mit Gründen, dem stärksten verbleibenden Einwand und erkennbarer Befangenheit. Die neue Regel gilt ab ihrem Merge. Eine Neubewertung früherer Fälle braucht einen eigenen sichtbaren Vermerk. Für Einsprüche gilt das unten beschriebene Verfahren.
+
+WIRKLICH starts from an explicit choice. Its published claims and procedures remain open to public challenge and correction, and a named human takes responsibility for editorial decisions. Assigning a review status requires reasons that can be checked against the claim. Abandoning that commitment requires a declared refounding or a distinctly identified major version. The record preserves the previous rules and the break.
+
+Anyone may propose a rule change in a public PR. Link the previous rule at a specific commit, give the new wording, and identify a case that would be decided differently and whose authority changes. The rules already published on `main` govern the review, including changes to this section. If a relevant rule changes during review, the maintainer records the new baseline and reviews again. The repository owner currently decides, announces a deadline for objections in advance and records the reasons, strongest remaining objection and any conflict of interest after that deadline. The new rule takes effect at merge. Reopening earlier cases requires a visible record. The appeal process below also applies.
+
+## Wenn Einwände gehäuft eingehen / When objections arrive in volume
+
+Gleichlautende Einreichungen werden auf einen Vorgang verwiesen. Neue Gegenbelege, abweichende Gründe und der ursprüngliche Kontext bleiben dort einzeln auffindbar. Likes, Reaktionen, Kontenzahl und wiederholte KI-Ausgaben zählen weder als unabhängige Belege noch als Stimmen über den Prüfstatus. Dieselbe Regel gilt, ob hundert Personen denselben Punkt vorbringen oder ein einzelner Mensch ihn entdeckt.
+
+Bei begrenzter Zeit priorisiert der Maintainer mögliche Schäden, folgenreiche Fehler und konkret prüfbare Einwände. Eine Zurückstellung erhält im Issue einen kurzen Grund und eine Bedingung für die Wiederaufnahme, etwa einen benannten Gegenfall oder freie Prüfkapazität. Schweigen zählt weder als Zustimmung noch als Widerlegung. Auch gegen das Zusammenlegen oder Zurückstellen ist der unten beschriebene Einspruch möglich.
+
+Group duplicate submissions under one issue and preserve distinct evidence, reasons and original context there. Reactions, account counts and repeated AI output carry no evidential weight and do not set review status. When capacity is limited, the maintainer prioritizes potential harm, consequential errors and objections that can be checked. Record why an item was deferred and what would reopen it. Silence implies neither agreement nor refutation. Grouping and deferral can both be appealed below.
+
+## Reifegrade und fachliche Zustimmung / Maturity and review
+
+Eine Reifestufe R0–R4 ist **kein Wahrheitsurteil durch Mehrheitsbeschluss**. Wer eine Änderung vorschlägt, legt die genaue Version, passende Prüfungen, Gegenbelege, unabhängige Fachprüfung soweit erforderlich, verbleibende Einwände und Interessenkonflikte offen. Die redaktionelle Entscheidung liegt beim verantwortlichen Maintainer und ersetzt keine unabhängige Fachbegutachtung. Ein nachgewiesener Fehler kann unabhängig von Popularität zu Korrektur, Einschränkung oder Rückstufung führen. Ein einzelner unbelegter Widerspruch allein ist kein Nachweis. Jede Änderung braucht Versionsgeschichte, begründeten PR und bei geändertem Inhalt einen erneuerten echten Review. KI-Schwärme dürfen keinen Reviewstatus oder Reifegrad selbst vergeben. [Aufstiegsregeln](erkenntnisreife.md).
+
+A maturity level is **not a majority vote on truth**. Proposals must identify the exact version, relevant checks, counterevidence, independent expertise when required, outstanding objections and conflicts. Editorial acceptance is not independent peer review. Substantive error can justify correction or demotion regardless of popularity; bare dissent does not itself disprove a claim. Maintain version history and a genuinely renewed review of changed content. AI systems may not assign or raise maturity or review status.
+
 ## Verantwortung / Responsibilities
 
 Ein persönliches Prüfblatt aus der Werkstatt ist ein ungeprüfter Entwurf. Export, Speicherung und Import verleihen weder eine öffentliche Kennung noch eine fachliche Freigabe. Für eine Aufnahme ins Aussagenregister gelten dieselben Quellen-, Rechte-, Revisions- und menschlichen Prüfpflichten wie für andere Beiträge. Ein methodisch vollständiges Blatt darf trotzdem falsch, unklar oder nicht auflösbar sein.

@@ -3,6 +3,7 @@ import Layout from "../layouts/SiteLayout.astro";
 import {absoluteFor,pathFor,base} from "../lib/paths.mjs";
 import project from "../../public/project.json" with {type: "json"};
 import register from "../../public/knowledge/claims.json";
+import {maturityLabels,abstractionLabels,consensusLabels} from "../lib/maturity.mjs";
 import "../styles/mission.css";
 const {lang="de"}=Astro.props;
 const en=lang==="en";
@@ -14,9 +15,15 @@ const support={value_commitment:t("Wertentscheidung","Value commitment"),concept
 ---
 <Layout lang={lang} slug="aussagen">
  <article class="container mission-document">
-  <header><p class="section-kicker">{t("AUSSAGENREGISTER · PROTOTYP","CLAIM REGISTER · PROTOTYPE")}</p><h1>{t("Zeig mir die Gründe.","Show me the reasons.")}</h1><p class="mission-lead">{t("Drei erste Aussagen mit Herkunft, Grenzen und Einwänden. Dieses Register zeigt, wie überprüfbare Einträge aussehen können. Es ist noch kein fachlich geprüfter Wissensbestand.","Three initial claims with provenance, limits and objections. This register demonstrates inspectable entries. It is not yet an expert-reviewed body of knowledge.")}</p><p>{t("Aussageart, Begründungslage und Bearbeitungsstatus sind getrennte Angaben. „Ungeprüft“ bedeutet weder wahr noch falsch. Die KI-unterstützte Strukturierung und die englische Übersetzung wurden nicht unabhängig begutachtet.","Claim type, support and review status are separate descriptions. ‘Unreviewed’ means neither true nor false. AI-assisted structuring and the English translation have not received independent review.")}</p>
+  <header><p class="section-kicker">{t("AUSSAGENREGISTER · PROTOTYP","CLAIM REGISTER · PROTOTYPE")}</p><h1>{t("Zeig mir die Gründe.","Show me the reasons.")}</h1><p class="mission-lead">{t("Woher kommt eine Aussage? Wie weit trägt sie? Hier findest du Quellen, Einwände und den Prüfstatus jedes Eintrags.","Where does a claim come from? How far does it reach? Explore the sources, objections and review status of each entry.")}</p><p>{t("Aussageart, Begründungslage und Bearbeitungsstatus sind getrennte Angaben. „Ungeprüft“ bedeutet weder wahr noch falsch. Die KI-unterstützte Strukturierung und die englische Übersetzung wurden nicht unabhängig begutachtet.","Claim type, support and review status are separate descriptions. ‘Unreviewed’ means neither true nor false. AI-assisted structuring and the English translation have not received independent review.")}</p>
   <div class="button-row"><a class="button button--ghost" href={base+"knowledge/claims.json"} download="grundtext-claims.json">{t("Datensatz herunterladen · JSON ↓","Download dataset · JSON ↓")}</a><a class="subtle-link" href={pathFor(lang,"mission")+"#erkenntnis"}>{t("Die Unterscheidungen verstehen ↗","Understand these distinctions ↗")}</a></div></header>
   <p><a href={pathFor(lang,"erkenntnisnavigator")}>{t("Eine Verbindung zu deiner Frage prüfen","Examine a connection to your question")} →</a> {t("Die vier Navigator-Karten sind gesonderte Entwürfe. Ihre Anwendung verändert keinen Prüfstatus im Register.","The four navigator cards are separate drafts. Using them does not change any review status in the register.")}</p>
+  <section class="maturity-guide" aria-labelledby="maturity-heading">
+   <h2 id="maturity-heading">{t("Wann darf eine Erkenntnis aufsteigen?", "When may a claim advance?")}</h2>
+   <p>{t("Erkenntnisreife, Abstraktion und dokumentierte Übereinstimmung sind drei verschiedene Angaben. Eine allgemeine Aussage ist nicht automatisch wahrer. Keine Mehrheit und kein KI-Schwarm kann eine Prüfung ersetzen.", "Maturity, abstraction and documented agreement are three different dimensions. A more general statement is not automatically truer. Neither majorities nor AI swarms replace review.")}</p>
+   <ol class="maturity-scale">{maturityLabels[lang].map((label,i)=><li><strong>R{i}</strong><span>{label}</span></li>)}</ol>
+   <p>{t("Aufstiege benötigen dokumentierte fachgerechte Prüfung; R3 und R4 zusätzlich unabhängige Gegenprüfungen. Gegenbelege können zu Rückstufung oder Korrektur führen. Alle vier Beispiele stehen weiterhin auf R0.", "Advancement requires a documented, claim-appropriate review; R3 and R4 also need independent checks. Counterevidence can lead to demotion or correction. All four examples remain at R0.")} <a href={project.repository+"/blob/main/docs/erkenntnisreife.md"}>{t("Die Regeln lesen", "Read the rules")}</a>.</p>
+  </section>
   <div class="claim-tools" data-claim-tools hidden>
    <label>{t("Aussagen durchsuchen","Search claims")}<input type="search" data-claim-search placeholder={t("Begriff oder Kennung, z. B. KI-001","Term or identifier, e.g. KI-001")}/></label>
    <label>{t("Aussageart","Claim type")}<select data-claim-type><option value="all">{t("Alle Arten","All types")}</option>{Object.entries(types).filter(([key])=>register.claims.some(c=>c.type===key)).map(([key,label])=><option value={key}>{label}</option>)}</select></label>
@@ -24,9 +31,12 @@ const support={value_commitment:t("Wertentscheidung","Value commitment"),concept
   </div>
   <p data-claim-empty hidden>{t("Kein Eintrag passt zu dieser Suche. Ändere den Suchbegriff oder die Aussageart.","No entry matches this search. Change the search term or claim type.")}</p>
   {register.claims.map(c=><section id={c.id} class="claim-card" data-claim-card data-kind={c.type}>
-   <div class="claim-meta"><a href={"#"+c.id}>{c.id} · v{c.version}</a><span>{types[c.type]}</span><span>{support[c.epistemic_status]}</span><span>{statuses[c.review_status]}</span></div>
+   <div class="claim-meta"><a href={"#"+c.id}>{c.id} · v{c.version}</a><span>{types[c.type]}</span><span>{support[c.epistemic_status]}</span><span>{statuses[c.review_status]}</span><span>{`R${c.maturity.level} · ${maturityLabels[lang][c.maturity.level]}`}</span></div>
    <h2 class="claim-statement">{c.statement[lang]}</h2>
    <dl>
+    <dt>{t("Abstraktionsstufe","Abstraction")}</dt><dd>{abstractionLabels[lang][c.abstraction_level]} · {t("keine Wahrheitsstufe","not a truth grade")}</dd>
+    <dt>{t("Erkenntnisreife","Maturity")}</dt><dd>R{c.maturity.level} · {maturityLabels[lang][c.maturity.level]}. {c.maturity.rationale[lang]}</dd>
+    <dt>{t("Übereinstimmung und Dissens","Agreement and dissent")}</dt><dd>{consensusLabels[lang][c.consensus.status]}. {c.consensus.note[lang]}</dd>
     <dt>{t("Geltungsbereich","Scope")}</dt><dd>{c.scope[lang]}</dd>
     <dt>{t("Begründung","Reasoning")}</dt><dd>{c.rationale[lang]}</dd>
     {c.epistemic_status==="formal_proof"&&c.proof&&<><dt>{t("Voraussetzungen und Ableitung","Premises and derivation")}</dt><dd>{c.proof[lang]}</dd></>}
@@ -39,6 +49,9 @@ const support={value_commitment:t("Wertentscheidung","Value commitment"),concept
    <details><summary>{t("Prüfung, KI-Herkunft und Versionsgeschichte","Review, AI provenance and version history")}</summary>
     <p>{c.human_review?t("Dokumentierte Prüfung: ","Documented review: ")+c.human_review.reviewer:t("Menschliche Fachprüfung: ausstehend. Keine prüfende Person eingetragen.","Human expert review: pending. No reviewer recorded.")}</p>
     {c.human_review&&<><p>{c.human_review.date} · {c.human_review.method[lang]}</p><p>{c.human_review.decision[lang]}</p><p>{t("Diese Prüfung bezieht sich auf Version ","This review refers to version ")}{c.human_review.claim_version}{t(" dieses Eintrags, in beiden Sprachen. Eine geänderte Fassung braucht eine neue Prüfung."," of this entry, in both languages. Changed content requires a new review.")}</p><p>{t("Fingerabdruck des geprüften Inhalts (SHA-256): ","Fingerprint of reviewed content (SHA-256): ")}<code style="overflow-wrap:anywhere">{c.human_review.content_sha256}</code></p></>}
+    <p>{t("Unabhängige Gegenprüfungen mit Nachweisen: ","Traceable independent checks: ")}{c.maturity.independent_checks.length}. {t("Eine Angabe im Register beweist noch keine Unabhängigkeit.","A register entry alone does not authenticate independence.")}</p>
+    {c.maturity.adversarial_resolution&&<p>{c.maturity.adversarial_resolution[lang]}</p>}
+    {c.consensus.records.map(r=><p><a href={r.url} target="_blank" rel="noopener noreferrer">{r.context[lang]}</a> · {r.stance}</p>)}
     <p>{c.ai_assistance.task[lang]}</p>
     <p>{t("Modellversion: ","Model version: ")}{c.ai_assistance.model||t("nicht erfasst","not recorded")}</p>
     <ul>{c.history.map(h=><li>v{h.version} · {h.date} · {h.change[lang]}</li>)}</ul>
@@ -69,3 +82,14 @@ const support={value_commitment:t("Wertentscheidung","Value commitment"),concept
  const revealHash=()=>{const id=location.hash.slice(1);if(cards.some(c=>c.id===id)){if(search)search.value="";if(filter)filter.value="all";update();document.getElementById(id)?.scrollIntoView();}};
  if(controls&&search&&filter){controls.hidden=false;search.addEventListener("input",update);filter.addEventListener("change",update);window.addEventListener("hashchange",revealHash);update();revealHash();}
 </script>
+
+<style>
+  .maturity-guide { margin: 1.5rem 0 2rem; padding: 1.2rem 1.4rem; border: 1px solid var(--line); border-radius: .35rem; }
+  .maturity-guide h2 { margin-top: 0; }
+  .maturity-scale { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: .45rem; padding: 0; list-style: none; margin: 1rem 0; }
+  .maturity-scale li { min-width: 0; border-top: 2px solid var(--gold); padding: .65rem .4rem; background: var(--ink2); }
+  .maturity-scale strong { display: block; color: var(--gold-bright); margin-bottom: .15rem; }
+  .maturity-scale span { font-size: .85rem; overflow-wrap: anywhere; }
+  .maturity-guide a { color: var(--gold-bright); text-decoration: underline; }
+  @media (max-width: 40rem) { .maturity-scale { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+</style>

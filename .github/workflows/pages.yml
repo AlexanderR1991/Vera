@@ -10,7 +10,8 @@ permissions:
   pages: write
   id-token: write
 concurrency:
-  group: astro-pages
+  # PR validation should not wait for a potentially slow Pages deployment on main.
+  group: astro-pages-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || 'main' }}
   cancel-in-progress: false
 jobs:
   build:

@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/SiteLayout.astro";
+import {pathFor} from "../lib/paths.mjs";
 const {lang="de"}=Astro.props;
 const de=lang==="de";
 const repo="https://github.com/AlexanderR1991/Wirklich";
@@ -16,6 +17,7 @@ const repo="https://github.com/AlexanderR1991/Wirklich";
         ?"NICHT DAS WERK MUSS GEWINNEN. DIE WAHRHEIT MUSS GEWINNEN."
         :"THE WORK NEED NOT WIN. TRUTH MUST WIN."}</p>
       <div class="attack-links">
+        <a href={pathFor(lang,"gegenprobe-01")}>{de?"Gegenprobe 01 mit der eigenen KI starten →":"Try challenge 01 with your own AI →"}</a>
         <a href={repo+"/issues/new?template=angriff.yml"} target="_blank" rel="noopener noreferrer">{de?"These angreifen ↗":"Challenge a claim ↗"}</a>
         <a href={repo+"/blob/main/AGENTS.md"} target="_blank" rel="noopener noreferrer">{de?"Einladung an KI-Agenten ↗":"Invitation to AI agents ↗"}</a>
         <a href={repo+"/blob/main/docs/angriffsschwarm.md"} target="_blank" rel="noopener noreferrer">{de?"Prüfverfahren ↗":"Review protocol ↗"}</a>
@@ -27,8 +29,17 @@ const repo="https://github.com/AlexanderR1991/Wirklich";
       <p class="section-kicker">{de?"ÖFFENTLICHES FEHLERPROTOKOLL":"PUBLIC CHALLENGE LOG"}</p>
       <h2>{de?"Die Einwände":"The objections"}</h2>
       <p>{de
-        ?"Die folgenden Beiträge sind KI-generierte Prüfentwürfe, keine extern verifizierten Widerlegungen. Die drei Rollen verwenden dasselbe Modell; sie sind keine unabhängigen Gutachter. Jede vorgeschlagene Korrektur braucht nachprüfbare Quellen und menschliche Prüfung."
-        :"These are AI-generated review drafts, not externally verified refutations. All three roles use the same model and are not independent reviewers. Every proposed revision requires verifiable sources and human assessment."}</p>
+        ?"Alle drei KI-Rollen arbeiten mit demselben Modell. Ihre Entwürfe geben Menschen einen konkreten Einwand zur Prüfung."
+        :"All three AI roles use the same model. Their drafts give people a specific objection to examine."}</p>
+      <details>
+        <summary>{de?"Woran erkenne ich einen berechtigten Einwand?":"How can I tell whether an objection holds?"}</summary>
+        <p>{de
+          ?"Lies die angegriffene Stelle in ihrer ursprünglichen Fassung. Trifft der Einwand ihre Voraussetzungen? Prüfe einen behaupteten Fehler an der Quelle oder rechne den Schritt nach. Geht es um einen Wert oder eine Deutung, zeige, welche Perspektive fehlt oder wo zwei begründete Lesarten auseinandergehen."
+          :"Read the challenged passage in its original version. Does the objection address its assumptions? Check a disputed finding against its source or work through the inference. For a value or interpretation, identify a missing perspective or show where two reasoned readings diverge."}</p>
+        <p>{de
+          ?"Halte im Issue oder Pull Request den Einwand, die Textfassung, deine Gründe und die Folge fest. Das Ergebnis kann „berechtigt“, „unbegründet“ oder „offen“ lauten. Ein behaupteter Fehler, der sich bei der Prüfung als Fehllesung erweist, zählt als Fehlalarm."
+          :"In an issue or pull request, record the objection, text version, reasons and consequence. The outcome can be upheld, rejected or open. An alleged error that turns out to be a misreading counts as a false alarm."} <a href={repo+"/blob/main/docs/angriffsschwarm.md"}>{de?"Ein Beispiel durchgehen":"Work through an example"} ↗</a></p>
+      </details>
       <div id="attack-live" data-lang={lang} aria-live="polite">
         <p id="attack-status">{de?"Prüfarchiv wird geladen …":"Loading challenge archive …"}</p>
         <p id="attack-meta"></p>

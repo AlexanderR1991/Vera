@@ -1,6 +1,6 @@
 # P-02 · Prüft unsere Methode besser als eine brauchbare Alternative?
 
-**Protokollentwurf 1 · 5. November 2026 · Kein Versuch, keine Vorregistrierung und keine Ergebnisdaten**
+**Protokollentwurf 2 · 6. November 2026 · Kein Versuch, keine Vorregistrierung und keine Ergebnisdaten**
 
 Unsere Arbeitsfrage lautet: Hilft das strukturierte Prüfblatt Menschen bei begrenzten Aufgaben — und welchen zusätzlichen Nutzen oder Schaden bringt KI-Gegenkritik? Die Existenz einer Website beantwortet diese Frage nicht. Das Protokoll konkretisiert auch die öffentliche Selbstprüfung [B-03](https://github.com/AlexanderR1991/Wirklich/issues/30).
 
@@ -42,7 +42,19 @@ Auswertende Personen sollen die Bedingung möglichst nicht kennen. Entfernbare H
 | Sind Gründe und Korrekturen nachvollziehbar? | Vorab erklärte Beurteilungskriterien, Bewertungen und verbleibender Dissens | Die Qualität normativer Gründe ist keine empirisch bewiesene Moral. |
 | Was kostet die Arbeit? | Zeit, Abbrüche, wahrgenommene Belastung, gegebenenfalls tatsächliche API-Kosten | Ein Vorteil muss gegen Aufwand und Zugänglichkeit betrachtet werden. |
 
-Welche Messgröße primär ist, welche Unterschiede praktisch relevant wären und wie Unsicherheit, fehlende Daten und mehrere Vergleiche behandelt werden, wird vor der bestätigenden Untersuchung festgelegt. Hier werden weder eine Effektgröße noch eine erforderliche Stichprobe erfunden.
+## Entscheidungsregeln
+
+Für Aufgaben mit einer unabhängig geprüften Bezugslösung lautet die begrenzte Hypothese: Im gleichen Zeitbudget finden Menschen mit dem Prüfblatt (B) gegenüber der Quellenprüfung (A) einen praktisch bedeutsam größeren Anteil der vorhandenen Fehler, bei vertretbarer Fehlalarmquote. Für die zusätzliche KI-Kritik gilt dieselbe Frage im Vergleich C gegen B.
+
+Vor der ersten bestätigenden Aufgabe veröffentlichen wir die Mindestverbesserung, die noch einen Einsatz rechtfertigt, und den maximal vertretbaren Anstieg der Fehlalarmquote. Beide Grenzen sind mit Blick auf den Anwendungsfall zu begründen. Zeitbudget, Aufgaben, Stichprobenumfang, Umgang mit Abbrüchen und Unsicherheitsintervalle für beide Vergleiche werden vorab festgelegt. Solange diese Festlegungen fehlen, bleibt das Vorhaben im Entwurfsstadium.
+
+| Befund bei der untersuchten Fassung | Entscheidung |
+| --- | --- |
+| Die Untergrenze des Unsicherheitsintervalls für die Verbesserung erreicht oder übersteigt die Mindestverbesserung. Die Obergrenze für zusätzliche Fehlalarme liegt höchstens beim festgelegten Maximum. | Den Vorteil für diese Aufgaben berichten. Die Reichweite endet bei den untersuchten Personen und Bedingungen. |
+| Selbst die Obergrenze der Verbesserung unterschreitet die Mindestverbesserung, oder schon die Untergrenze des Fehlalarmanstiegs überschreitet die zulässige Grenze. | Den behaupteten praktischen Vorteil für diese Fassung und Aufgabe verwerfen. Bei B betrifft dies das Prüfblatt, bei C die Ergänzung durch KI. Den betroffenen Schritt vor einer Ausweitung vereinfachen, weglassen oder mit einer neuen Fassung erneut prüfen. |
+| Alle übrigen Fälle, einschließlich unzureichender Daten. | Ergebnis offen berichten. Ein zusätzlicher Versuch braucht vorab einen eigenen Plan. |
+
+Bei Wertfragen und Deutungen untersuchen wir gesondert, ob Gründe, betroffene Perspektiven und Dissens nachvollziehbar erhalten bleiben. Einigung ist dort kein Endpunkt der Untersuchung. Auch Reichweite hat einen eigenen Maßstab. Für freiwillige Pilotrunden die Rekrutierungswege, soweit ohne private Angaben möglich die Zahl der Eingeladenen, Teilnahmen und Abbrüche berichten. Wer nur freiwillig Teilnehmende untersucht, kann daraus keine Wirkung auf fernbleibende Konfliktparteien ableiten.
 
 ## Selbstständigkeit und Übertragung getrennt prüfen
 
@@ -57,10 +69,12 @@ Die Aufgaben enthalten entscheidende und nicht entscheidende Hinweise, begründe
 - Ein Modellwechsel ist eine Protokolländerung. Gemeinsame Modellfehler, Ankereffekte und erfundene Quellen werden als mögliche Fehler erfasst.
 - Keine heimliche Sammlung von Werkstatteingaben. Erhebung und Veröffentlichung benötigen vorher geklärte Einwilligung, Zweck, Umfang, Zugriff und Aufbewahrung.
 - Nullbefunde, Nachteile, Protokollabweichungen und uneindeutige Fälle werden genauso berichtet wie Vorteile. Für geteilte Daten gelten Rechte und Datenschutz; erforderlichenfalls aggregiert oder mit synthetischen Beispielen veröffentlichen.
-- Bleibt ein nützlicher Vorteil aus, überarbeiten oder vereinfachen wir das Verfahren. Ein negatives Ergebnis berechtigt nicht zur Ausweitung automatischer redaktioneller Entscheidungsmacht.
+- Der Bericht nennt die getestete Werkzeugfassung. Bei Änderungen bleiben deren Ergebnis und die damaligen Entscheidungskriterien nachlesbar.
 
 ## English
 
 This is an unrun, unregistered protocol draft. Compare ordinary source-based review, the structured worksheet, and the worksheet plus one fixed AI critique step. Separate the value of structure from the added effect of AI. Define tasks, assignment, independent assessment, endpoints, sample rationale and analysis before any confirmatory study. Report false alarms, uncertainty, time, costs, null findings and harms. Normative and interpretive cases do not receive invented empirical truth labels.
 
 Also assess independent transfer on unseen tasks without the worksheet or AI, including a later voluntary follow-up. Distinguish decisive from non-decisive clues and justified retention from revision. Enjoyment, agreement and sharing are not evidence of improved reasoning.
+
+For reference cases, set a minimum useful gain in error detection and a maximum acceptable increase in false alarms before confirmatory testing. Test B against A and C against B within the same time budget. If the uncertainty interval rules out a useful gain or shows excess false alarms, reject the benefit claim for that version and task. If the intervals cross decision boundaries, report the result as inconclusive. Report recruitment and attrition separately. Participation by volunteers cannot establish impact on absent parties.

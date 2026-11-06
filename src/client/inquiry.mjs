@@ -1,4 +1,4 @@
-import {createInquiry, parseInquiry, inquiryFields, inquiryMarkdown} from "../lib/inquiry.mjs";
+import {createInquiry, parseInquiry, inquiryFields, inquiryMarkdown, maxInquiryFileSize} from "../lib/inquiry.mjs";
 
 const root = document.querySelector("[data-inquiry-workbench]");
 if (root) {
@@ -22,15 +22,15 @@ if (root) {
     form.elements.namedItem("type").value = note.type;
     inquiryFields.forEach(key => { form.elements.namedItem(key).value = note[key]; });
     // Reveal imported detail rather than silently hiding existing work.
-    root.querySelector("[data-inquiry-deeper]").open = note.type !== "unclassified" || ["claim", "scope", "support", "revision"].some(key => note[key]);
+    root.querySelector("[data-inquiry-deeper]").open = note.type !== "unclassified" || ["claim", "scope", "support", "positions", "revision"].some(key => note[key]);
     update();
   };
   const report = message => { status.textContent = message; };
-  const download = (contents, extension, mime) => {
+  const download = (contents, extension, mime, basename = "wirklich-pruefblatt") => {
     const url = URL.createObjectURL(new Blob([contents], {type: mime}));
     const link = document.createElement("a");
     link.href = url;
-    link.download = `wirklich-pruefblatt.${extension}`;
+    link.download = `${basename}.${extension}`;
     document.body.append(link);
     link.click();
     link.remove();
@@ -46,6 +46,15 @@ if (root) {
   root.querySelector("[data-export-text]").addEventListener("click", () => {
     download(inquiryMarkdown(update()), "txt", "text/plain;charset=utf-8");
     report(t("Text zum Weiterarbeiten exportiert.", "Text exported for further work."));
+  });
+  root.querySelector("[data-export-ai]").addEventListener("click", () => {
+    const rules = JSON.parse(root.querySelector("[data-inquiry-rules]").textContent);
+    const task = t(
+      "Prüfe mit diesen Regeln mein Prüfblatt am Ende der Datei. Meine Einträge sind vorläufig. Lass fehlende Angaben offen.",
+      "Use these rules to examine my worksheet at the end of the file. My notes are provisional. Leave missing information open."
+    );
+    download([task, rules.trimEnd(), inquiryMarkdown(update())].join("\n\n"), "txt", "text/plain;charset=utf-8", "wirklich-ki-" + lang);
+    report(t("Deine Datei ist bereit. Du entscheidest, was du in deinem KI-Chat teilst.", "Your file is ready. You decide what to share in your AI chat."));
   });
   root.querySelector("[data-local-save]").addEventListener("click", () => {
     try { localStorage.setItem(storeKey, JSON.stringify(update())); report(t("Entwurf in diesem Browser gespeichert. Du kannst ihn löschen oder als Datei exportieren.", "Draft saved in this browser. You can delete it or export a file.")); }
@@ -67,11 +76,11 @@ if (root) {
     const file = event.target.files?.[0];
     if (!file) return;
     try {
-      if (file.size > 256 * 1024) throw new Error("Too large");
+      if (file.size > maxInquiryFileSize) throw new Error("Too large");
       const note = parseInquiry(await file.text());
       write(note);
       report(t("Prüfblatt importiert. Eigene Prüfung und öffentliche Einreichung bleiben getrennte Schritte.", "Worksheet imported. Your review and public submission remain separate steps."));
-    } catch { report(t("Import nicht möglich: Verwende einen WIRKLICH-JSON-Export bis 256 KB. Dein bisheriger Entwurf bleibt erhalten.", "Use a worksheet exported as JSON, up to 256 KB. Your existing draft is preserved.")); }
+    } catch { report(t("Import nicht möglich: Verwende einen WIRKLICH-JSON-Export bis 1 MiB. Dein bisheriger Entwurf bleibt erhalten.", "Use a worksheet exported as JSON, up to 1 MiB. Your existing draft is preserved.")); }
     event.target.value = "";
   });
   root.querySelector("[data-load-example]").addEventListener("click", () => {

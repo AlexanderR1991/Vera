@@ -1,10 +1,12 @@
 import project from "../../public/project.json" with {type: "json"};
 
 // This module structures a user's notes. It neither evaluates truth nor calls AI.
-export const inquirySchema = 1;
+export const inquirySchema = 2;
+export const maxInquiryFileSize = 1024 * 1024;
 export const maxFieldLength = 12000;
 export const inquiryTypes = ["unclassified", "empirical", "formal", "normative", "interpretive", "metaphor"];
-export const inquiryFields = ["question", "claim", "scope", "support", "objection", "revision", "action"];
+export const inquiryFields = ["question", "claim", "scope", "support", "positions", "objection", "revision", "action"];
+const legacyFields = inquiryFields.filter(key => key !== "positions");
 const text = value => typeof value === "string" ? value.trim() : "";
 
 export function createInquiry(values = {}, lang = "de") {
@@ -21,14 +23,15 @@ export function createInquiry(values = {}, lang = "de") {
 }
 
 export function parseInquiry(raw) {
-  if (typeof raw !== "string" || raw.length > 256 * 1024) throw new Error("Invalid or oversized file");
+  if (typeof raw !== "string" || raw.length > maxInquiryFileSize) throw new Error("Invalid or oversized file");
   const data = JSON.parse(raw);
-  if (!data || Array.isArray(data) || data.schema_version !== inquirySchema || data.kind !== "inquiry_note") throw new Error("Unsupported inquiry format");
+  if (!data || Array.isArray(data) || ![1, inquirySchema].includes(data.schema_version) || data.kind !== "inquiry_note") throw new Error("Unsupported inquiry format");
   if (!["de", "en"].includes(data.lang)) throw new Error("Unsupported language");
   if (!inquiryTypes.includes(data.type)) throw new Error("Unknown claim type");
-  if (!inquiryFields.every(key => typeof data[key] === "string")) throw new Error("Missing inquiry fields");
+  const fields = data.schema_version === 1 ? legacyFields : inquiryFields;
+  if (!fields.every(key => typeof data[key] === "string")) throw new Error("Missing inquiry fields");
   // Whitelist fields; imported properties never become executable markup or code.
-  return createInquiry(data, data.lang);
+  return createInquiry({...data, positions: data.schema_version === 1 ? "" : data.positions}, data.lang);
 }
 
 export function missingInquiryFields(note) {
@@ -36,8 +39,8 @@ export function missingInquiryFields(note) {
 }
 
 const labels = {
-  de: {question:"Frage", claim:"Vorläufige Aussage", scope:"Begriffe, Geltungsbereich und Voraussetzungen", support:"Belege oder Gründe und deren Grenzen", objection:"Stärkster Einwand und andere Erklärung", revision:"Was würde meine Position ändern?", action:"Nächster Schritt, Betroffene und Abbruchbedingung"},
-  en: {question:"Question", claim:"Provisional claim", scope:"Terms, scope and premises", support:"Evidence or reasons and their limits", objection:"Strongest objection and alternative explanation", revision:"What would change my position?", action:"Next step, affected people and stopping condition"}
+  de: {question:"Frage", claim:"Vorläufige Aussage", scope:"Begriffe, Geltungsbereich und Voraussetzungen", support:"Belege oder Gründe und deren Grenzen", positions:"Zustimmung, Dissens und fehlende Perspektiven", objection:"Stärkster Einwand und andere Erklärung", revision:"Was würde meine Position ändern?", action:"Nächster Schritt, Betroffene und Abbruchbedingung"},
+  en: {question:"Question", claim:"Provisional claim", scope:"Terms, scope and premises", support:"Evidence or reasons and their limits", positions:"Agreement, disagreement and missing perspectives", objection:"Strongest objection and alternative explanation", revision:"What would change my position?", action:"Next step, affected people and stopping condition"}
 };
 const typeLabels = {
   de:["Noch nicht eingeordnet", "Empirische Aussage", "Formale Aussage", "Normatives Urteil", "Interpretation / Erfahrung", "Metapher"],

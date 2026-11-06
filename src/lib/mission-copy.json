@@ -2,7 +2,7 @@
   "de": {
     "headline": "Was ist",
     "headlineAccent": "wirklich?",
-    "lead": "Du stehst im Supermarkt. An der linken Kasse warten zwei Leute, rechts vier. Wo stellst du dich an?",
+    "lead": "Wir sehen die Welt unterschiedlich. WIRKLICH ist ein offener Ort, an dem wir Fragen stellen, Aussagen prüfen und Widerspruch ernst nehmen. Nicht um recht zu behalten. Sondern um gemeinsam bessere Antworten zu finden.",
     "play": "Eine Runde spielen",
     "playNote": "Ohne Anmeldung. Ohne Zeitdruck. Du kannst auch laut mitdenken.",
     "bringQuestion": "Meine eigene Frage mitbringen",
@@ -16,7 +16,7 @@
     "exampleLink": "Die Änderung nachvollziehen",
     "exploreLabel": "Weiterdenken",
     "exploreTitle": "Woran möchtest du arbeiten?",
-    "motto": "Mit Philosophie die Menschheit zum Konsens führen.",
+    "motto": "Mit Philosophie Menschen zu einem Konsens bringen.",
     "exploreText": "Eine Maschine spart uns eine Stunde Arbeit. Wem gehört diese Stunde? Frag jemanden, der anders darüber denkt. Worauf könnt ihr euch einigen?",
     "treeLink": "Im Themenbaum stöbern",
     "status": "Die unabhängige Fachprüfung der Beispiele und die Erprobung der Methode stehen aus.",
@@ -67,10 +67,6 @@
           [
             "Esoterik und Mathematik ausprobieren",
             "esoterik-und-mathematik"
-          ],
-          [
-            "Mit dem KI-Prompt weiterfragen",
-            "fragen-und-ki-prompt"
           ]
         ]
       },
@@ -115,12 +111,22 @@
       ]
     ],
     "practiceNote": "Hier gibt es keine Punkte für die „richtige“ Meinung. Ein guter Grund kann dich umstimmen – oder deine Antwort stützen. Du bestimmst, wie tief du einsteigst.",
-    "consensusLimit": "Gemeinsamkeiten suchen, Unterschiede ehrlich stehen lassen. Niemand muss zustimmen, und Einigkeit allein beweist nichts."
+    "consensusLimit": "Gemeinsamkeiten suchen, Unterschiede ehrlich stehen lassen. Niemand muss zustimmen, und Einigkeit allein beweist nichts.",
+    "gameScenario": "Du stehst im Supermarkt. An der linken Kasse warten zwei Leute, rechts vier. Wo stellst du dich an?",
+    "principle": "Konsens ist keine Pflicht zur Einigkeit und keine Abstimmung über Wahrheit. Wo Antworten offenbleiben, zeigen wir das ehrlich.",
+    "missionLink": "Unsere Idee verstehen",
+    "playLabel": "Philosophie ausprobieren",
+    "playTitle": "Eine Frage. Ein neuer Blick.",
+    "playIntro": "Das Denken beginnt nicht mit großen Worten. Manchmal reicht eine Entscheidung im Alltag.",
+    "doorwaysLabel": "Philosophie erleben und überprüfen",
+    "metaDescription": "Was ist wirklich? Gemeinsam klüger werden. Irrtum für Irrtum. WIRKLICH ist eine offene Erkenntniswerkstatt für Fragen, Kritik und begründete Gemeinsamkeiten.",
+    "aiNote": "Du nutzt schon einen KI-Chat? Gib ihm unsere Prüfregeln und frag ihn, was gegen deine erste Vermutung spricht.",
+    "aiLink": "Regeln für meinen KI-Chat öffnen"
   },
   "en": {
     "headline": "What is",
     "headlineAccent": "real?",
-    "lead": "You're at the supermarket. Two people are waiting at the checkout on the left, four on the right. Which line do you join?",
+    "lead": "We see the world differently. WIRKLICH is an open place to ask questions, test claims and take disagreement seriously. Not to win arguments, but to find better answers together.",
     "play": "Play a round",
     "playNote": "No sign-up. No time limit. You can think out loud, too.",
     "bringQuestion": "Bring a question of my own",
@@ -134,7 +140,7 @@
     "exampleLink": "See what changed and why",
     "exploreLabel": "Explore",
     "exploreTitle": "What would you like to work on?",
-    "motto": "To guide humanity toward consensus through philosophy.",
+    "motto": "Bringing people closer to consensus through philosophy.",
     "exploreText": "A machine saves us an hour of work. Whose hour is it? Ask someone who sees it differently. What can you agree on?",
     "treeLink": "Browse the topic tree",
     "status": "The examples still await independent expert review. The method’s effectiveness also remains an open question.",
@@ -185,10 +191,6 @@
           [
             "Try the esotericism and mathematics workshop",
             "esoterik-und-mathematik"
-          ],
-          [
-            "Take the inquiry prompt to an AI",
-            "fragen-und-ki-prompt"
           ]
         ]
       },
@@ -233,6 +235,16 @@
       ]
     ],
     "practiceNote": "There are no points for the “right” opinion. A good reason may change your mind or support your answer. You choose how far to explore.",
-    "consensusLimit": "Look for common ground and record differences honestly. No one has to agree, and agreement alone proves nothing."
+    "consensusLimit": "Look for common ground and record differences honestly. No one has to agree, and agreement alone proves nothing.",
+    "gameScenario": "You're at the supermarket. Two people are waiting at the checkout on the left, four on the right. Which line do you join?",
+    "principle": "Consensus is neither a duty to agree nor a vote on truth. When a question remains unresolved, we say so openly.",
+    "missionLink": "Explore the idea",
+    "playLabel": "Try philosophy",
+    "playTitle": "One question. A new perspective.",
+    "playIntro": "Thinking does not start with grand ideas. Sometimes, an everyday decision is enough.",
+    "doorwaysLabel": "Experience and examine philosophy",
+    "metaDescription": "What is real? Learn together, one correction at a time. WIRKLICH is an open inquiry workshop for questions, criticism and reasoned common ground.",
+    "aiNote": "Already use an AI chat? Give it the workshop rules and ask what might count against your first guess.",
+    "aiLink": "Get the rules for my AI chat"
   }
 }

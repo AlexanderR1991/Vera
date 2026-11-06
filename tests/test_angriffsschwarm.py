@@ -12,7 +12,9 @@ from scripts import angriffsschwarm as a
 class AdversarialContractTest(unittest.TestCase):
     def test_public_targets_and_scope(self):
         cases = a.cases()
-        self.assertEqual(len(cases), 15)
+        self.assertEqual(len(cases), 16)
+        medical_rule = next(c for c in cases if c["id"] == "medizin-messwert")
+        self.assertIn("MED-001", medical_rule["excerpt"])
         self.assertEqual(len({c["id"] for c in cases}), len(cases))
         for case in cases:
             self.assertTrue(case["excerpt"].startswith("## "))

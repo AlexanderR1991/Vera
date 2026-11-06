@@ -15,8 +15,9 @@ Die Reihenfolge folgt überprüfbaren Voraussetzungen. Die Kapitel bleiben erhal
 - [x] Recherche- und Angriffsschwarm als begrenzte Prototypen; Ergebnisse bleiben ungeprüft
 - [x] Gemeinsame Mission und konzentrierte Startseite statt einer wachsenden Reihe einzelner Ankündigungen
 - [x] Aussagenregister mit stabilen Kennungen, Herkunft, Einwänden, Revisionsbedingungen und JSON-Export
-- [x] Drei Demonstrationseinträge; **keiner fachlich freigegeben**
+- [x] Vier Demonstrationseinträge (einschließlich MED-001); **keiner fachlich freigegeben**
 - [x] Automatische Strukturprüfung des Registers; **keine automatische Wahrheitsprüfung**
+- [x] Reversible Erkenntnisreife R0–R4 als gesonderte Registerangabe, Abstraktion und Konsens unabhängig; Struktur-Sperren, DE/EN-Anzeige, synthetische Tests. **Keine der vier Aussagen aufgestuft.**
 - [x] Zweisprachiges persönliches Prüfblatt mit Text-/JSON-Export, validiertem Import und optionalem Browserspeicher
 - [x] Öffentlicher Projektstatus mit Bestandszahlen aus den Daten und einheitlichem Versionsprofil
 - [x] [Konkreter Entwurf für den Methodenvergleich](evaluation-v1.md); **noch kein Versuch und keine Vorregistrierung**
@@ -88,6 +89,6 @@ Systematische Recherche, unabhängiges Fachreview, belastbare Gegenpositionen un
 
 ## English
 
-The next milestone is a small corpus of ten fully examined claims, not more unchecked volume. Independent evaluation of the method comes next, alongside accountable governance and sustainable funding. The [contribution page](https://alexanderr1991.github.io/Wirklich/en/mitwirken/#unterstuetzen) lists Alexander Radke’s PayPal address for voluntary support. Broader coverage and more autonomy require demonstrated benefit. The three current records illustrate the structure and do not count as expert-approved knowledge.
+The next milestone is a small corpus of ten fully examined claims, not more unchecked volume. Independent evaluation of the method comes next, alongside accountable governance and sustainable funding. The [contribution page](https://alexanderr1991.github.io/Wirklich/en/mitwirken/#unterstuetzen) lists Alexander Radke’s PayPal address for voluntary support. Broader coverage and more autonomy require demonstrated benefit. The register shows the review status of each record; no entry in the current pilot has independent expert approval.
 
 Accessibility testing, voluntary small play sessions and real complaints responsibility start immediately, alongside the first corpus. Do not defer them to a later growth stage. Independent learning transfer remains untested.

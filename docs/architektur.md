@@ -58,7 +58,7 @@ Der zweisprachige Bereich trennt *jus ad bellum*, *jus in bello* und zusätzlich
 
 Die Startseiten werden jetzt aus `MissionHome.astro` und `src/lib/mission-copy.json` gebaut. `MissionPage.astro` erläutert die gemeinsame Architektur; `ClaimRegister.astro` rendert `public/knowledge/claims.json` in beiden Sprachen. Die alten Root-HTML-Dateien bleiben Quelle der bisherigen Unterseiten; die Root-`index.html` ist nur noch der historische, vom Locale-Skript weiterhin eingelesene Auftakt.
 
-Das Register wird vor dem Build strukturell geprüft. Seine drei Einträge sind ungeprüfte Demonstrationen. Es fügt keine KI-Schreibrechte hinzu. Vollständige Trennung der drei Erkenntnisräume, Fachreview und institutionelle Governance sind noch nicht umgesetzt. Siehe [Mission](mission.md), [Datenvertrag](aussagenregister.md) und [Roadmap](roadmap.md).
+Das Register wird vor dem Build strukturell geprüft. Der menschliche Prüfstatus ist an jedem Eintrag sichtbar. Es fügt keine KI-Schreibrechte hinzu. Vollständige Trennung der drei Erkenntnisräume, Fachreview und institutionelle Governance sind noch nicht umgesetzt. Siehe [Mission](mission.md), [Datenvertrag](aussagenregister.md) und [Roadmap](roadmap.md).
 
 ## Der fliegende Baum · Gesamtprüfung vom 5. November 2026
 
@@ -67,6 +67,10 @@ Das ergänzende Organisationsbild verbindet eine Themenordnung mit sechs Arbeits
 `KnowledgeTree.astro` rendert die gemeinsamen DE/EN-Daten aus `src/lib/tree.mjs`. Die 22 Themen haben Mehrfachzuordnungen und sichtbare Ausarbeitungsstände. Kerninhalte sind ohne JavaScript lesbar; Filter verbessern den Zugang. Vorschläge aus offenen PRs werden als solche verlinkt. Ein erklärtes Gedankenbeispiel zeigt Verbindungstypen; ein automatisch geprüfter Wissensgraph wird damit nicht behauptet.
 
 [Die Gesamtprüfung](gesamtpruefung-baum.md) dokumentiert den Ausgangsstand, Grenzen, öffentliche Selbstkritik B-01–B-03 und erste Präzisierungen von These 05 und These 09. Die unabhängige Prüfung der Methode und ein tragfähiger Einspruchsweg bleiben offene Arbeit.
+
+## Erkenntnisreife · 6. November 2026
+
+Das öffentliche Aussagenregister führt jetzt zur vorhandenen Aussageart, Begründung und Reviewtätigkeit zusätzlich eine Abstraktionsstufe, die reversible Erkenntnisreife R0–R4 sowie einen eigenständigen Konsensstatus. Der Validator prüft Pflichtfelder und sperrt unter anderem R1 ohne aktuellen menschlichen Review, R3 ohne dokumentierte unabhängige Gegenprüfung und R4 ohne zwei unterschiedliche Gegenprüfungen plus Einwandbehandlung. **Keines dieser Felder ist ein Wahrheitszertifikat.** Alle drei Demoaussagen bleiben R0 und Konsens „nicht erhoben“. Die Regeln stehen in [Erkenntnisreife](erkenntnisreife.md); eine automatische Weitergabe von Statusänderungen durch einen allgemeinen Wissensgraphen existiert noch nicht.
 
 ## Erkenntnisnavigator · 6. November 2026
 
