@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-06T06:47:30+00:00",
+  "updated_at": "2026-11-06T19:25:35+00:00",
   "status": "automatic_discovery_not_fact_checked",
   "analysis": "metadata_only",
   "source": "Crossref + arXiv",
@@ -9,7 +9,7 @@
     "arXiv": 3
   },
   "source_queries_succeeded": 10,
-  "new_items": 21,
+  "new_items": 1,
   "agents_enabled": false,
   "errors": [],
   "items": [
@@ -832,6 +832,21 @@
       ],
       "venue": "Philosophy of Science",
       "url": "https://doi.org/10.1017/psa.2026.10280",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "10.1007/s11153-026-10038-0",
+      "topic": "wirklichkeit",
+      "title": "Purified proper function: Sufi epistemology and the possibility of Islamic Reformed Epistemology",
+      "date": "2026-09-28",
+      "authors": [
+        "Enis Doko"
+      ],
+      "venue": "International Journal for Philosophy of Religion",
+      "url": "https://doi.org/10.1007/s11153-026-10038-0",
       "source": "Crossref bibliographic metadata",
       "status": "unreviewed",
       "source_examined": "metadata_only",
