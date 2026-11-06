@@ -222,6 +222,11 @@ if(connectionExport.schema_version!==1||connectionExport.status!=="editorial_dra
 for(const connection of connections){
  if(connection.reviewStatus!=="draft")errors.push("Navigator draft was promoted without review: "+connection.id);
  if(!connection.topics.every(id=>topicIDs.has(id)))errors.push("Unknown navigator topic: "+connection.id);
+ for(const id of connection.topics){
+  for(const lang of ["de","en"]){
+   if(!connection.topicReasons[id]?.[lang]?.trim())errors.push("Missing reason for "+connection.id+"/"+id+"/"+lang);
+  }
+ }
  if(connection.sourceClaim){
   const source=registry.claims.find(claim=>claim.id===connection.sourceClaim.id);
   if(!source||source.version!==connection.sourceClaim.version)errors.push("Navigator source changed; reassess connection: "+connection.id);
@@ -236,6 +241,12 @@ for(const lang of ["de","en"]){
  }
  for(const connection of connections){
   if(!html.includes(`id="verbindung-${connection.id}"`)||!html.includes(connection.title[lang]))errors.push("Navigator card unavailable without JS: "+lang+"/"+connection.id);
+  for(const id of connection.topics){
+   if(!html.includes(`href="#thema-${id}"`))errors.push("Missing topic path "+lang+"/"+connection.id+"/"+id);
+  }
+ }
+ for(const topic of topics){
+  if(!html.includes(`id="thema-${topic.id}"`))errors.push("Missing navigator topic target "+lang+"/"+topic.id);
  }
  const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(match=>match[1]);
  if(new Set(ids).size!==ids.length)errors.push("Duplicate navigator anchor: "+lang);
