@@ -81,7 +81,7 @@ Versorgung und Besatzung ermöglichen diese Arbeit: faire Vergütung und Erholun
 
 **Entscheidungsraum:** Werte, Betroffene, Alternativen, Folgen und Verantwortlichkeit. Ein belegter Effekt bestimmt nicht von selbst, welches Ziel wir wählen sollen. Bei fehlender Evidenz darf eine Frage offenbleiben. Unvereinbare Werte werden nicht durch einen Gesamtwert verdeckt.
 
-Der Übergang zwischen den Räumen braucht eine dokumentierte Begründung. Im aktuellen Prototyp sind die Wege sichtbar und drei Aussagen strukturiert; eine durchgängige technische Trennung des gesamten Bestands ist noch nicht umgesetzt.
+Der Übergang zwischen den Räumen braucht eine dokumentierte Begründung. Der Prototyp zeigt die Wege und strukturiert einzelne Aussagen. Die durchgängige technische Trennung des gesamten Bestands steht aus.
 
 ## 3. Die entscheidende Korrektur: keine einzige Wahrheitsleiter
 
@@ -132,7 +132,7 @@ Wer die Arbeit freiwillig unterstützen möchte, findet die PayPal-Adresse von A
 
 ## 8. Der nächste glaubwürdige Schritt
 
-**Zehn eng begrenzte Aussagen vollständig bearbeiten.** Quellen oder Prämissen tatsächlich prüfen, Gegenargumente dokumentieren, menschliche Entscheidungen zuordnen und beide Lesetiefen verständlich machen. Die drei Demonstrationseinträge zählen noch nicht als geprüfter Pilotbestand.
+**Zehn eng begrenzte Aussagen vollständig bearbeiten.** Quellen oder Prämissen tatsächlich prüfen, Gegenargumente dokumentieren, menschliche Entscheidungen zuordnen und beide Lesetiefen verständlich machen. Zum geprüften Pilotbestand zählen nur Einträge mit dokumentierter menschlicher Prüfung.
 
 Danach die Methode selbst vergleichen: vorab definierte Aufgaben und Bewertungsregeln, ein Vergleich ohne strukturierte KI-Gegenkritik, unabhängige Bewertung und Erfassung von Fehlern, Fehlalarmen, Verständnis, Zeit und Kosten. Das ist ein Studienentwurf, kein bereits durchgeführter Versuch und keine Vorregistrierung.
 
@@ -153,6 +153,6 @@ Knowledge, open inquiry and decision-making are distinct spaces. Claim type, evi
 
 AI contributes research leads and critique. It does not certify truth or authorize editorial decisions. The rules themselves need evaluation. Fair pay and rest are legitimate project needs; transparent funding must remain separate from editorial judgment. Anyone who wants to support the work can find Alexander Radke’s PayPal address on the [contribution page](https://alexanderr1991.github.io/Wirklich/en/mitwirken/#unterstuetzen). Organizational arrangements and shared governance remain open.
 
-Three unreviewed demonstration records now illustrate the approach. The next goal is ten fully examined, narrowly scoped claims, followed by an independent comparison of the method against alternatives, including error detection, false alarms, understanding, time and costs. Wider scope follows demonstrated benefit. The [English mission page](https://alexanderr1991.github.io/Wirklich/en/mission/) introduces the workshop and its approach.
+The register shows the evidence and review status of each claim. The next goal is ten fully examined, narrowly scoped claims, followed by an independent comparison of the method against alternatives, including error detection, false alarms, understanding, time and costs. Wider scope follows demonstrated benefit. The [English mission page](https://alexanderr1991.github.io/Wirklich/en/mission/) introduces the workshop and its approach.
 
 **Die Wirklichkeit steht über diesem Werk. Auch über seinem Bauplan.**

@@ -29,6 +29,7 @@ PROGRAM_SECTIONS = (
     ("religion", "docs/theologischer-dialog.md", "Prinzipien"),
     ("religion-fragen", "docs/theologischer-dialog.md", "Schwierige Fragen"),
     ("methode", "docs/methode.md", "Verfahren"),
+    ("medizin-messwert", "docs/methode.md", "Vom Messwert zum behaupteten Nutzen"),
 )
 
 ROLE_FIELDS = {

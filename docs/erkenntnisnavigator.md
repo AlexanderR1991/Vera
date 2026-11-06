@@ -41,7 +41,7 @@ Der öffentliche Datenexport `/knowledge/connections.json` führt die redaktione
 | Nicht anwendbar | Mindestens eine notwendige Voraussetzung wurde verneint. Diese Verbindung wird verworfen. |
 | Bedingt passend | Alle Voraussetzungen wurden vom Nutzer bestätigt. Die Folgerung gilt nur unter diesen Angaben; die Software hat deren Wahrheit nicht überprüft. |
 
-Der Status „Entwurf“ bleibt auch bei einer bedingt passenden Anwendung bestehen. Es entsteht kein unabhängiges Fachreview und kein Wahrheitssiegel. Die drei bisherigen Registereinträge erhalten dadurch keinen anderen Status. Ein nicht passender Treffer widerlegt nicht automatisch die zugrunde liegende allgemeine Aussage.
+Der Status „Entwurf“ bleibt auch bei einer bedingt passenden Anwendung bestehen. Es entsteht kein unabhängiges Fachreview und kein Wahrheitssiegel. Der Prüfstatus der Registereinträge bleibt von dieser Zuordnung unabhängig. Ein nicht passender Treffer widerlegt nicht automatisch die zugrunde liegende allgemeine Aussage.
 
 Der freiwillige Reflexionszettel hält Ziel, Beobachtung, Deutung, Gefühl, Wunsch oder Angst, nächsten Schritt, erwartete und beobachtete Folgen sowie einen Änderungsgrund auseinander. Er bewertet Entscheidungen im Verhältnis zu selbst benannten Zielen; er vergibt keine Gesamtpunktzahl für einen Menschen. Eingaben werden vom Navigator nicht gesendet oder automatisch gespeichert. Ein TXT-Export wird ausdrücklich gestartet; die Datei bleibt in der Verantwortung der Person, die sie herunterlädt. Eine öffentliche Einreichung wäre ein eigener, bewusster Schritt.
 
