@@ -1,11 +1,12 @@
 ---
 import Layout from "../layouts/SiteLayout.astro";
 import {pathFor,base} from "../lib/paths.mjs";
-import promptDe from "../../public/prompts/erkenntnisprompt-v1.de.txt?raw";
-import promptEn from "../../public/prompts/erkenntnisprompt-v1.en.txt?raw";
+import {rulePack, rulePackPath} from "../lib/rule-pack.mjs";
 const {lang="de"}=Astro.props;
 const en=lang==="en";
-const prompt=en?promptEn:promptDe;
+const pack=rulePack(lang);
+const packPath=base+rulePackPath(lang);
+const packUrl=new URL(packPath, Astro.site).href;
 const examples=en?[
   ["Start simply", "Why should I trust this framework?"],
   ["Challenge a claim", "Which finding would change your view about love?"],
@@ -24,10 +25,51 @@ const examples=en?[
       <p class="page-intro__lead">{en?"The questions that begin with ‘why’. The ones that make us pause. The ones that could change everything we have written.":"Die Fragen, die mit ‚Warum?‘ anfangen. Die, bei denen wir stocken. Die, nach denen wir alles noch einmal anders schreiben müssen."}</p>
       <p class="inquiry-lead">{en?"You do not need to believe us. You may ask us to explain, substantiate or correct our claims. This invitation includes the framework itself.":"Ihr müsst uns nicht glauben. Ihr dürft von uns verlangen, dass wir erklären, begründen und korrigieren. Diese Einladung gilt auch für das Regelwerk selbst."}</p>
       <div class="button-row">
-        <a class="button button--gold" href="https://github.com/AlexanderR1991/Wirklich/issues/new?template=frage.yml">{en?"Ask a question ↗":"Eine Frage stellen ↗"}</a>
-        <a class="button button--ghost" href="#prompt">{en?"Get the AI prompt ↓":"Zum KI-Prompt ↓"}</a>
+        <a class="button button--gold" href="#prompt">{en?"Use REALLY? with your AI ↓":"WIRKLICH mit der eigenen KI nutzen ↓"}</a>
+        <a class="button button--ghost" href="https://github.com/AlexanderR1991/Wirklich/issues/new?template=frage.yml">{en?"Ask the project a question ↗":"Dem Projekt eine Frage stellen ↗"}</a>
       </div>
-      <p class="small-note">{en?"Questions are submitted publicly on GitHub; an account is required. Do not include private information. This page is not a live AI chat.":"Fragen werden öffentlich über GitHub eingereicht; dafür ist ein Konto nötig. Bitte keine privaten Angaben veröffentlichen. Diese Seite ist kein Live-Chat mit einer KI."}</p>
+      <p class="small-note">{en?"You can use the framework in your own chat without a GitHub account. To ask the project directly, submit a public question on GitHub and leave out personal information.":"Für das Regelwerk im eigenen Chat braucht ihr kein GitHub-Konto. Wer dem Projekt direkt eine Frage stellt, veröffentlicht sie auf GitHub. Lasst dabei private Angaben weg."}</p>
+    </div>
+  </section>
+
+  <section class="section section--paper" id="prompt" aria-labelledby="prompt-title">
+    <div class="container">
+      <p class="section-kicker">{en?"IN YOUR OWN AI CHAT":"IM EIGENEN KI-CHAT"}</p>
+      <h2 id="prompt-title">{en?"Try REALLY? with your AI":"Probiere WIRKLICH mit deiner KI aus"}</h2>
+      <p class="inquiry-lead">{en?"Want to know why your AI thinks an answer is right? Give it our framework and ask it to show its evidence, find the strongest objection and say what would change its mind.":"Du möchtest wissen, warum deine KI eine Antwort für richtig hält? Gib ihr unser Regelwerk. Damit bittest du sie, ihre Belege zu zeigen, den stärksten Einwand zu suchen und zu sagen, was ihr Urteil ändern würde."}</p>
+      <ol class="inquiry-steps">
+        <li>{en?"Copy the framework below. It includes the project's theses, method and inquiry prompt.":"Kopiere das Regelwerk unten. Es enthält die Thesen des Projekts, die Prüfmethode und den Arbeitsauftrag für die KI."}</li>
+        <li>{en?"Open a conversation in the AI chat you already use and paste the text. If your chat accepts files, you can attach the text file instead.":"Öffne einen Chat in der KI, die du schon nutzt, und füge den Text ein. Unterstützt dein Chat Dateianhänge, kannst du stattdessen die Textdatei anhängen."}</li>
+        <li>{en?"Add your question and send it. If you attach the file, write “Use the rules in this file to examine my question” above your question.":"Ergänze deine Frage und sende beides ab. Bei einem Dateianhang schreib dazu „Prüfe meine Frage nach den Regeln in der Datei.“"}</li>
+      </ol>
+      <div class="button-row inquiry-tools">
+        <button class="button button--gold" type="button" data-copy-inquiry hidden>{en?"Copy the framework":"Regelwerk kopieren"}</button>
+        <a class="button button--ghost" href={packPath} download>{en?"Download text file (.txt) ↓":"Textdatei herunterladen (.txt) ↓"}</a>
+      </div>
+      <p class="inquiry-status" data-copy-status role="status"></p>
+      <details class="inquiry-detail">
+        <summary>{en?"Read the full text or copy it manually":"Vollständigen Text lesen oder von Hand kopieren"}</summary>
+        <label class="section-kicker" for="inquiry-prompt">{en?"FRAMEWORK FOR YOUR CHAT":"REGELWERK FÜR DEINEN CHAT"}</label>
+        <textarea id="inquiry-prompt" class="inquiry-prompt" readonly rows="12" spellcheck="false">{pack}</textarea>
+      </details>
+      <aside class="inquiry-example" aria-labelledby="bus-question">
+        <p class="section-kicker">{en?"A QUESTION TO TRY":"EINE FRAGE ZUM AUSPROBIEREN"}</p>
+        <h3 id="bus-question">{en?"“My bus was late three times this week. Should I always leave earlier?”":"„Mein Bus kam diese Woche dreimal zu spät. Sollte ich immer früher losgehen?“"}</h3>
+        <p>{en?"Does the answer distinguish three late buses from a pattern you can rely on? Does it ask whether there is an earlier connection? You can check its suggestion against the timetable and your next few trips.":"Unterscheidet die Antwort drei Verspätungen von einem Muster, auf das du dich verlassen kannst? Fragt sie, ob es überhaupt eine frühere Verbindung gibt? Am Fahrplan und bei deinen nächsten Fahrten kannst du ihren Vorschlag prüfen."}</p>
+      </aside>
+      <details class="inquiry-detail">
+        <summary>{en?"Use a link or keep the framework for your next chat":"Einen Link nutzen oder das Regelwerk für spätere Chats behalten"}</summary>
+        <p>{en?"Can your AI open web links? Paste this request into your chat and add your question. Open the text file yourself to check the heading it gives you.":"Kann deine KI Weblinks öffnen? Kopiere diesen Auftrag in deinen Chat und ergänze deine Frage. Öffne die Textdatei selbst, um die genannte Überschrift zu prüfen."}</p>
+        <label class="section-kicker" for="link-request">{en?"REQUEST FOR AN AI WITH WEB ACCESS":"AUFTRAG FÜR EINE KI MIT WEBZUGRIFF"}</label>
+        <textarea id="link-request" class="link-request" readonly rows="5" spellcheck="false">{en
+          ? `Read the file at ${packUrl} and quote the heading of thesis 04 so I can check which text you used. If you cannot open the file, ask me to paste the text. Then examine this question using the framework: [my question]`
+          : `Lies die Datei unter ${packUrl} und nenne die Überschrift von These 04. So kann ich prüfen, welchen Text du verwendet hast. Wenn du die Datei nicht öffnen kannst, bitte mich um den Text. Prüfe dann diese Frage anhand des Regelwerks: [meine Frage]`}</textarea>
+        <p><a class="inquiry-text-link pack-url" href={packPath}>{packUrl}</a></p>
+        <p>{en?"The link serves the latest published file. A copy in a chat stays at the version you pasted. If your AI supports project files, you can save the download there for future chats in that project. Replace it with a fresh download when you want the current rules.":"Der Link führt zur aktuell veröffentlichten Datei. Eine Kopie im Chat behält ihren Stand. Unterstützt deine KI Projektdateien, kannst du die Textdatei dort für weitere Chats im selben Projekt ablegen. Lade sie erneut herunter und ersetze die alte Datei, wenn du die aktuelle Fassung nutzen möchtest."}</p>
+      </details>
+      <p class="small-note">{en?"REALLY? receives no questions or answers from your chat. You decide what to send to your AI provider and whether to share an excerpt publicly with the project. Check important claims against their sources. The method’s effectiveness is still an open question.":"WIRKLICH erhält aus deinem Chat keine Fragen oder Antworten. Du entscheidest, was du deinem KI-Anbieter schickst und ob du dem Projekt einen Ausschnitt öffentlich zeigst. Prüfe wichtige Aussagen anhand ihrer Quellen. Wie gut die Methode wirkt, ist eine offene Frage."}</p>
+      <p class="small-note"><a class="inquiry-text-link" href={base+"prompts/erkenntnisprompt-v1."+lang+".txt"} download>{en?"Download the inquiry prompt on its own (v1.0, TXT)":"Nur den Erkenntnisprompt herunterladen (v1.0, TXT)"}</a> · <a class="inquiry-text-link" href={pathFor(en?"de":"en","fragen-und-ki-prompt")+"#prompt"} lang={en?"de":"en"}>{en?"Deutsche Fassung":"English version"}</a></p>
+      <p class="small-note">{en?"AlexanderR1991 & contributors · CC BY-SA 4.0.":"AlexanderR1991 & Mitwirkende · CC BY-SA 4.0."} <a class="inquiry-text-link" href="https://github.com/AlexanderR1991/Wirklich/blob/main/LICENSING.md">{en?"License details ↗":"Lizenzdetails ↗"}</a></p>
     </div>
   </section>
 
@@ -40,29 +82,6 @@ const examples=en?[
       </div>
       <p class="inquiry-lead">{en?"Our standard for an answer: explain the claim, show its grounds, take the strongest objection seriously and say what remains open. If we lack expertise or evidence, we say so. A submitted question is not yet a reviewed answer; no response time is promised.":"Unser Maßstab für eine Antwort: die Aussage erklären, ihre Gründe zeigen, den stärksten Einwand ernst nehmen und sagen, was offenbleibt. Fehlen uns Fachkenntnis oder Belege, benennen wir das. Eine eingereichte Frage ist noch keine geprüfte Antwort; eine feste Antwortzeit versprechen wir nicht."}</p>
       <a class="subtle-link" href={pathFor(lang,"angriffsschwarm")}>{en?"Submit a structured challenge →":"Einen begründeten Einwand einreichen →"}</a>
-    </div>
-  </section>
-
-  <section class="section section--paper" id="prompt" aria-labelledby="prompt-title">
-    <div class="container">
-      <p class="section-kicker">{en?"THE PUBLIC INQUIRY PROMPT · DRAFT 1.0":"DER ÖFFENTLICHE ERKENNTNISPROMPT · FASSUNG 1.0"}</p>
-      <h2 id="prompt-title">{en?"Take the method with you.":"Nehmt die Methode mit."}</h2>
-      <p class="inquiry-lead">{en?"Copy the prompt into an AI conversation and add your question at the end. It asks for evidence, objections and correction – and invites the AI to challenge this very prompt. Its effectiveness has not yet been systematically evaluated.":"Kopiert den Prompt in ein KI-Gespräch und ergänzt am Ende eure Frage. Er fordert Belege, Gegenargumente und Korrektur – und lädt die KI ein, diesen Prompt selbst zu hinterfragen. Seine Wirksamkeit wurde bisher nicht systematisch untersucht."}</p>
-      <ol class="inquiry-steps">
-        <li>{en?"Copy the full text or download it.":"Den vollständigen Text kopieren oder herunterladen."}</li>
-        <li>{en?"Replace the final placeholder with your question and any relevant context.":"Den Platzhalter am Ende durch eure Frage und nötigen Kontext ersetzen."}</li>
-        <li>{en?"Submit it to your AI, then check the answer and its sources.":"An eure KI senden und anschließend die Antwort und ihre Quellen prüfen."}</li>
-      </ol>
-      <div class="button-row inquiry-tools">
-        <button class="button button--gold" type="button" data-copy-inquiry hidden>{en?"Copy full prompt":"Vollständigen Prompt kopieren"}</button>
-        <a class="button button--ghost" href={base+"prompts/erkenntnisprompt-v1."+lang+".txt"} download>{en?"Download TXT ↓":"Als TXT herunterladen ↓"}</a>
-        <a class="subtle-link" href={pathFor(en?"de":"en","fragen-und-ki-prompt")+"#prompt"} lang={en?"de":"en"}>{en?"Deutsche Fassung →":"English version →"}</a>
-      </div>
-      <p class="inquiry-status" data-copy-status role="status" aria-live="polite"></p>
-      <label class="section-kicker" for="inquiry-prompt">{en?"FULL TEXT · SELECT AND COPY MANUALLY IF NEEDED":"VOLLSTÄNDIGER TEXT · BEI BEDARF MARKIEREN UND MANUELL KOPIEREN"}</label>
-      <textarea id="inquiry-prompt" class="inquiry-prompt" readonly rows="22" spellcheck="false" aria-describedby="prompt-limit">{prompt}</textarea>
-      <p id="prompt-limit" class="small-note">{en?"A prompt can guide a conversation; it cannot guarantee correctness, create missing tools or replace independent review. The text remains available without JavaScript.":"Ein Prompt kann ein Gespräch anleiten; er garantiert keine Richtigkeit, schafft keine fehlenden Werkzeuge und ersetzt keine unabhängige Prüfung. Der Text bleibt auch ohne JavaScript verfügbar."}</p>
-      <p class="small-note">{en?"Text: AlexanderR1991 & contributors · CC BY-SA 4.0. When sharing or adapting, credit the source, mark changes and follow the license.":"Text: AlexanderR1991 & Mitwirkende · CC BY-SA 4.0. Beim Teilen oder Bearbeiten Quelle nennen, Änderungen kenntlich machen und die Lizenz beachten."} <a class="inquiry-text-link" href="https://github.com/AlexanderR1991/Wirklich/blob/main/LICENSING.md">{en?"License scope ↗":"Lizenzdetails ↗"}</a></p>
     </div>
   </section>
 
@@ -91,10 +110,13 @@ const examples=en?[
       try{
         if(!navigator.clipboard?.writeText)throw new Error("Clipboard unavailable");
         await navigator.clipboard.writeText(field.value);
-        status.textContent=en?"Full prompt copied. Add your question at the end.":"Vollständiger Prompt kopiert. Ergänze am Ende deine Frage.";
+        status.textContent=en?"Framework copied. Paste it into your AI chat and add your question.":"Regelwerk kopiert. Füge es in deinen KI-Chat ein und ergänze deine Frage.";
       }catch{
-        field.focus();field.select();
-        status.textContent=en?"Automatic copying is unavailable. The full text is selected; use your device’s Copy command or download the TXT file.":"Automatisches Kopieren ist nicht verfügbar. Der vollständige Text ist markiert; nutze die Kopierfunktion deines Geräts oder lade die TXT-Datei herunter.";
+        const preview=field.closest("details");
+        if(preview) preview.open=true;
+        field.focus();
+        field.select();
+        status.textContent=en?"Automatic copying is unavailable. The full text is selected. Use your device’s Copy command or download the TXT file.":"Automatisches Kopieren ist nicht verfügbar. Der vollständige Text ist markiert. Nutze die Kopierfunktion deines Geräts oder lade die TXT-Datei herunter.";
       }
     });
   }
@@ -108,9 +130,17 @@ const examples=en?[
   .inquiry-examples h3{font-size:27px;line-height:1.4}
   .inquiry-steps{padding-left:22px;color:var(--text-soft);max-width:850px;margin:28px 0}
   .inquiry-steps li{margin:8px 0}
-  .inquiry-tools .subtle-link{margin:0}
+  .inquiry-tools [hidden]{display:none}
+  .inquiry-detail,.inquiry-example{max-width:850px;margin:16px 0}
+  .inquiry-detail summary{cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+  .inquiry-detail p,.inquiry-detail label{display:block;margin:16px 0}
+  .inquiry-example{margin:32px 0;padding:8px 0 8px 20px;border-left:2px solid var(--gold)}
+  .inquiry-example h3{font-size:clamp(21px,4vw,28px);line-height:1.4;margin:8px 0}
+  .pack-url{overflow-wrap:anywhere}
   .inquiry-status{min-height:1.8em;margin:12px 0;font-size:14px;color:var(--gold-bright)}
-  .inquiry-prompt{display:block;width:100%;resize:vertical;min-height:300px;margin:12px 0 20px;padding:28px;border:1px solid #776b58;background:#0b1012;color:var(--text);font:15px/1.8 var(--sans);overflow-wrap:anywhere;border-radius:0}
+  .link-request{min-height:9em}
+  .inquiry-prompt{min-height:300px}
+  .inquiry-prompt,.link-request{display:block;width:100%;resize:vertical;margin:12px 0 20px;padding:28px;border:1px solid #776b58;background:#0b1012;color:var(--text);font:15px/1.8 var(--sans);overflow-wrap:anywhere;border-radius:0}
   .inquiry-text-link{text-decoration:underline;text-underline-offset:3px}
-  @media(max-width:760px){.inquiry-examples{grid-template-columns:1fr;gap:16px}.inquiry-prompt{padding:18px;font-size:16px}.inquiry-tools{align-items:stretch}.inquiry-tools .button{width:100%}}
+  @media(max-width:760px){.inquiry-examples{grid-template-columns:1fr;gap:16px}.inquiry-prompt,.link-request{padding:18px;font-size:16px}.inquiry-tools{align-items:stretch}.inquiry-tools .button{width:100%}}
 </style>

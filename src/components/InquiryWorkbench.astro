@@ -2,6 +2,7 @@
 import Layout from "../layouts/SiteLayout.astro";
 import project from "../../public/project.json" with {type: "json"};
 import {pathFor} from "../lib/paths.mjs";
+import {rulePack} from "../lib/rule-pack.mjs";
 import "../styles/workbench.css";
 const {lang="de"} = Astro.props;
 const en = lang === "en";
@@ -63,6 +64,11 @@ const example = en ? {
         <p data-inquiry-completion aria-live="polite">{t("Offene Felder sind erlaubt.","Open fields are allowed.")}</p>
         <details><summary>{t("Textvorschau öffnen", "Open text preview")}</summary><pre data-inquiry-preview></pre></details>
         <div class="workbench-actions"><button type="button" disabled data-js-control data-export-text>{t("Text exportieren (.txt)", "Export text (.txt)")}</button><button type="button" disabled data-js-control data-export-json>{t("Prüfblatt exportieren (.json)", "Export worksheet (.json)")}</button></div>
+        <details>
+          <summary>{t("Mit meiner KI weiterarbeiten", "Continue in my AI chat")}</summary>
+          <p class="workbench-help">{t("Diese Textdatei enthält dein Prüfblatt und die Regeln von WIRKLICH. Lies sie vor dem Teilen durch. Hänge sie dann in deinem KI-Chat an oder füge ihren Inhalt ein.", "This text file contains your worksheet and the REALLY? rules. Read it before sharing. Then attach it in your AI chat or paste its contents.")}</p>
+          <div class="workbench-actions"><button type="button" disabled data-js-control data-export-ai>{t("Prüfblatt mit Regeln herunterladen (.txt)", "Download worksheet with rules (.txt)")}</button></div>
+        </details>
         <label class="workbench-import" for="inquiry-import">{t("Prüfblatt aus JSON öffnen", "Open worksheet from JSON")}<input id="inquiry-import" type="file" accept=".json,application/json" disabled data-js-control data-import /></label>
         <p class="workbench-help">{t("Ein Import ersetzt die aktuellen Felder. Exportiere einen wichtigen Entwurf vorher.","Import replaces the current fields. Export an important draft first.")}</p>
         <div class="workbench-actions"><button type="button" disabled data-js-control data-local-save>{t("In diesem Browser speichern", "Save in this browser")}</button><button type="button" disabled data-js-control data-local-load>{t("Gespeicherten Entwurf laden", "Load saved draft")}</button><button type="button" disabled data-js-control data-local-clear>{t("Lokal löschen & Felder leeren", "Delete local draft & clear fields")}</button></div>
@@ -75,6 +81,7 @@ const example = en ? {
   </div>
   <section class="workbench-next"><h2>{t("Und wenn du widersprechen möchtest?", "What if you disagree?")}</h2><p>{t("Dein Export gehört zunächst dir. Für eine öffentliche Frage, Quelle oder Kritik wählst du anschließend bewusst einen Beitragsweg. Die Redaktion prüft Einreichungen; ein vollständiges Prüfblatt wird nicht automatisch zu einem geprüften Registereintrag.","Your export is yours to begin with. If you want to submit a public question, source or objection, choose a contribution route as a separate step. Editors review submissions; a completed worksheet does not automatically become a reviewed claim record.")}</p><a class="button button--ghost" href={pathFor(lang,"mitwirken")}>{t("Beitragswege ansehen", "View contribution routes")} ↗</a></section>
   <script type="application/json" data-inquiry-example set:html={JSON.stringify(example).replaceAll("<","\\u003c")}></script>
+  <script type="application/json" data-inquiry-rules set:html={JSON.stringify(rulePack(lang)).replaceAll("<","\\u003c")}></script>
 </article>
 <script>import "../client/inquiry.mjs";</script>
 </Layout>

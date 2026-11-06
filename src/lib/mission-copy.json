@@ -67,10 +67,6 @@
           [
             "Esoterik und Mathematik ausprobieren",
             "esoterik-und-mathematik"
-          ],
-          [
-            "Mit dem KI-Prompt weiterfragen",
-            "fragen-und-ki-prompt"
           ]
         ]
       },
@@ -115,6 +111,8 @@
       ]
     ],
     "practiceNote": "Hier gibt es keine Punkte für die „richtige“ Meinung. Ein guter Grund kann dich umstimmen – oder deine Antwort stützen. Du bestimmst, wie tief du einsteigst.",
+    "aiNote": "Du nutzt schon einen KI-Chat? Gib ihm unsere Prüfregeln und frag ihn, was gegen deine erste Vermutung spricht.",
+    "aiLink": "Regeln für meinen KI-Chat öffnen",
     "consensusLimit": "Gemeinsamkeiten suchen, Unterschiede ehrlich stehen lassen. Niemand muss zustimmen, und Einigkeit allein beweist nichts."
   },
   "en": {
@@ -185,10 +183,6 @@
           [
             "Try the esotericism and mathematics workshop",
             "esoterik-und-mathematik"
-          ],
-          [
-            "Take the inquiry prompt to an AI",
-            "fragen-und-ki-prompt"
           ]
         ]
       },
@@ -233,6 +227,8 @@
       ]
     ],
     "practiceNote": "There are no points for the “right” opinion. A good reason may change your mind or support your answer. You choose how far to explore.",
+    "aiNote": "Already use an AI chat? Give it the workshop rules and ask what might count against your first guess.",
+    "aiLink": "Get the rules for my AI chat",
     "consensusLimit": "Look for common ground and record differences honestly. No one has to agree, and agreement alone proves nothing."
   }
 }

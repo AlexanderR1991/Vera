@@ -35,6 +35,7 @@ const t = copy[lang];
     <h2 id="practice-title">{t.practiceTitle}</h2>
     <ol>{t.practiceSteps.map(([title, text]) => <li><strong>{title}</strong><p>{text}</p></li>)}</ol>
     <p class="home-practice-note">{t.practiceNote}</p>
+    <p class="home-practice-note">{t.aiNote} <a class="home-link" href={pathFor(lang, "fragen-und-ki-prompt", "prompt")}>{t.aiLink} <span aria-hidden="true">→</span></a></p>
   </section>
 
   <section class="home-explore" aria-labelledby="explore-title">
