@@ -2,9 +2,9 @@
 
 ## Stand und Grenzen / Status and limits
 
-`public/knowledge/claims.json` ist die redaktionelle Datenquelle für `/de/aussagen/` und `/en/aussagen/` und wird unverändert als JSON ausgeliefert. Drei Einträge demonstrieren das Format. Alle sind ungeprüft. Quellen mit `role: provenance` belegen die Herkunft; sie gelten nicht als fachliche Bestätigung.
+`public/knowledge/claims.json` ist die redaktionelle Datenquelle für `/de/aussagen/` und `/en/aussagen/` und wird unverändert als JSON ausgeliefert. MED-001 verknüpft den historischen CAST-Zwischenbericht mit dem berichteten Ergebnis. Die fachliche Prüfung dieses Eintrags steht aus. Quellen mit `role: provenance` belegen die Herkunft.
 
-The JSON file is the single editorial source for both register pages and the download. All three entries are unreviewed demonstrations. Provenance references are not evidence of effectiveness. The register does not provide scientific validation or permanent per-version URLs yet; Git commits preserve dataset snapshots.
+The JSON file is the single editorial source for both register pages and the download. MED-001 links the reported outcome to the historical CAST interim report. Expert review of this entry is pending. Provenance references are not evidence of effectiveness. The register does not provide scientific validation or permanent per-version URLs yet; Git commits preserve dataset snapshots.
 
 ## Datenvertrag / Data contract
 

@@ -58,7 +58,7 @@ Der zweisprachige Bereich trennt *jus ad bellum*, *jus in bello* und zusätzlich
 
 Die Startseiten werden jetzt aus `MissionHome.astro` und `src/lib/mission-copy.json` gebaut. `MissionPage.astro` erläutert die gemeinsame Architektur; `ClaimRegister.astro` rendert `public/knowledge/claims.json` in beiden Sprachen. Die alten Root-HTML-Dateien bleiben Quelle der bisherigen Unterseiten; die Root-`index.html` ist nur noch der historische, vom Locale-Skript weiterhin eingelesene Auftakt.
 
-Das Register wird vor dem Build strukturell geprüft. Seine drei Einträge sind ungeprüfte Demonstrationen. Es fügt keine KI-Schreibrechte hinzu. Vollständige Trennung der drei Erkenntnisräume, Fachreview und institutionelle Governance sind noch nicht umgesetzt. Siehe [Mission](mission.md), [Datenvertrag](aussagenregister.md) und [Roadmap](roadmap.md).
+Das Register wird vor dem Build strukturell geprüft. Der menschliche Prüfstatus ist an jedem Eintrag sichtbar. Es fügt keine KI-Schreibrechte hinzu. Vollständige Trennung der drei Erkenntnisräume, Fachreview und institutionelle Governance sind noch nicht umgesetzt. Siehe [Mission](mission.md), [Datenvertrag](aussagenregister.md) und [Roadmap](roadmap.md).
 
 ## Der fliegende Baum · Gesamtprüfung vom 5. November 2026
 

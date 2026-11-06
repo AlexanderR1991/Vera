@@ -20,7 +20,7 @@ Types of statements remain distinct: an empirical assertion needs evidence; a lo
 
 ## What the prototype actually does
 
-`.github/workflows/angriffsschwarm.yml` runs once per day (schedule may be delayed) and on manual dispatch after it is merged. `scripts/angriffsschwarm.py` selects *one* public passage per run from an allowlist: the nine numbered propositions in `docs/grundtext.md` and relevant sections from the research programs for love, politics, military ethics and interreligious dialogue. The schedule cycles deterministically through available passages.
+`.github/workflows/angriffsschwarm.yml` runs once per day (schedule may be delayed) and on manual dispatch after it is merged. `scripts/angriffsschwarm.py` selects *one* public passage per run from an allowlist: the nine numbered propositions in `docs/grundtext.md` and selected sections on love, politics, military ethics, interreligious dialogue and the project method. One method case examines the inference from a measured change to patient benefit (MED-001). The schedule cycles deterministically through available passages.
 
 Only when both the GitHub Actions `OPENAI_API_KEY` repository secret and the repository variable `WIRKLICH_AI_ENABLED=true` are configured, the script requests three distinct role passes (adversary, defender, assessor) via the OpenAI API. These are **different prompts to the same configured model**, **not** independent agents, diverse labs, subject-matter experts or peer reviewers. The models receive publicly committed source excerpts only, not entire studies or live internet research. Their source claims and tests must still be checked.
 

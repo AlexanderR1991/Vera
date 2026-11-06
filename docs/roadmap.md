@@ -88,6 +88,6 @@ Systematische Recherche, unabhängiges Fachreview, belastbare Gegenpositionen un
 
 ## English
 
-The next milestone is a small corpus of ten fully examined claims, not more unchecked volume. Independent evaluation of the method comes next, alongside accountable governance and sustainable funding. Broader coverage and more autonomy require demonstrated benefit. The three current records illustrate the structure and do not count as expert-approved knowledge.
+The next milestone is a small corpus of ten fully examined claims, not more unchecked volume. Independent evaluation of the method comes next, alongside accountable governance and sustainable funding. Broader coverage and more autonomy require demonstrated benefit. The register shows the review status of each record.
 
 Accessibility testing, voluntary small play sessions and real complaints responsibility start immediately, alongside the first corpus. Do not defer them to a later growth stage. Independent learning transfer remains untested.

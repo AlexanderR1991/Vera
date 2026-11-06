@@ -20,6 +20,10 @@ Wir entscheiden, welche Fassung wir mit welchen Gründen veröffentlichen. Eine 
 
 **Aussageart, Begründungslage und Prüfstatus** beantworten verschiedene Fragen. Eine Hypothese ist vorläufig. Ein abgeschlossener Review beschreibt eine Tätigkeit und ihren Umfang. Wie belastbar der geprüfte Satz ist, hängt von den Gründen ab. Öffentlich sichtbar wird diese Trennung im [Aussagenregister](aussagenregister.md).
 
+## Vom Messwert zum behaupteten Nutzen
+
+Schreibe auf, was gemessen wurde und welches Ergebnis der Satz verspricht. Fallen beide auseinander, braucht die Verbindung einen Beleg für diesen Einsatz. Im Medizinfall MED-001 ließen sich nach einem Herzinfarkt Extraschläge unterdrücken. Für den untersuchten Nutzen zählte der Vergleich, wie viele Menschen starben oder einen Herzstillstand überlebten. Dieselbe Frage kann man etwa an einen Bildungstest stellen. Was zeigt, dass ein höherer Punktwert auch eine dauerhaft bessere Fähigkeit vorhersagt? Eine Gegenprobe kann die Aussage oder die benutzte Schlussregel zu Fall bringen. [Medizinwerkstatt und CAST-Fall](https://alexanderr1991.github.io/Wirklich/de/medizin/#cast)
+
 ## Eine wirkliche Korrektur
 
 These 05 empfiehlt, so zu helfen, dass der andere seine eigene Kraft findet. Im Register stand bereits der Einwand, dass dies Menschen mit dauerhaftem Unterstützungsbedarf ausschließen könnte. Am 5. November 2026 hat das Projekt im Grundtext klargestellt, dass dauerhafte Unterstützung wertvoll ist und Fürsorge von erreichbarer Selbstständigkeit unabhängig bleibt. Die Registerfassung G-005 v2 verknüpft die frühere und die ergänzte Fassung. Eine fachliche Prüfung ist weiter offen. [Änderungsvergleich](https://github.com/AlexanderR1991/Wirklich/pull/31/files) · [Fall Schritt für Schritt](https://alexanderr1991.github.io/Wirklich/de/methode/#g-005)
@@ -35,6 +39,8 @@ Die vier Karten des ersten Piloten sind redaktionelle Entwürfe. Auswahl und Bed
 ## English
 
 Record the exact claim, its scope and the version being examined. Separate assumptions about the world from value judgments. Choose a test suited to the claim. Compare evidence for empirical claims, check premises and derivations for formal ones, examine values and affected perspectives for normative ones, compare readings for interpretations and identify the limits of metaphors.
+
+**From a measurement to a claimed benefit.** Write down what was measured and what outcome the claim promises. If these differ, look for evidence connecting them in this setting. In medical case MED-001, treatment suppressed extra heartbeats after a heart attack. To assess benefit, the trial compared how many people died or survived a cardiac arrest in each group. The same question can be asked of an education test. What shows that a higher score predicts a lasting improvement in ability? Counterevidence can overturn the claim or the rule used to draw it. [Medicine workshop and CAST case](https://alexanderr1991.github.io/Wirklich/en/medizin/#cast)
 
 Give the strongest fair objection and say what would change your mind. If existing findings suggest a new hypothesis, state a prediction that could distinguish it from another explanation. Retain, narrow, correct or withdraw the original claim, or name the question that remains open. A published correction should connect the old wording, the reason for the change, the new wording and the editorial decision.
 
