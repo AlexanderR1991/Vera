@@ -17,6 +17,10 @@
 
 ## Gemeinsam klüger werden · Learn together
 
+**Wenn Open Source bei Blender funktioniert, warum nicht auch in der Philosophie?** Bei Blender kann jemand einen Fehler zeigen, den andere übersehen haben, und eine Änderung vorschlagen. Bei WIRKLICH kann ein einziger Einwand einen Grundsatz verändern. Einer unserer Sätze empfahl, Menschen so zu helfen, dass sie ihre eigene Kraft finden. Was ist mit jemandem, der ein Leben lang Hilfe braucht? Heute steht ausdrücklich im Text, dass Fürsorge auch dann wertvoll ist. Lies beide Fassungen und prüfe selbst, ob die neue dem Einwand gerecht wird. [Mitwirken bei Blender](https://www.blender.org/get-involved/) · [Die Änderung im Wortlaut](https://github.com/AlexanderR1991/Wirklich/pull/31/files)
+
+**If open source works for Blender, why not for philosophy?** In Blender, someone can point out a bug others missed and propose a fix. At WIRKLICH, a single objection can change a principle. We wrote that we should help people find their own strength. What about someone who will need support all their life? The text now explicitly affirms the value of care in that case too. Read both versions and judge for yourself whether the revision answers the objection. [Contribute to Blender](https://www.blender.org/get-involved/) · [Follow the revision in English](https://alexanderr1991.github.io/Wirklich/en/methode/#g-005)
+
 **Irrtum für Irrtum:** vermuten, prüfen und begründet weiterdenken. Vier erfundene Alltagskarten und drei freiwillige Einstiegsfragen im Prüfblatt bilden den Anfang. Wer genauer prüfen möchte, öffnet weitere Fragen. Begründetes Beibehalten und Offenlassen sind ebenso möglich wie eine Korrektur. [Konzept, Selbstangriff und offene Grenzen](docs/emporirren.md) · [Erster Nutzungspilot](docs/spielpilot.md)
 
 Four fictional everyday cards and three optional worksheet prompts offer a simple start. Depth is optional. Keeping a well-supported answer and leaving a question open are valid outcomes. Accessibility across needs and independent learning transfer still need real-world testing.
