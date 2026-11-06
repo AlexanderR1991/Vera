@@ -14,9 +14,9 @@ const marker = slug === "methode" ? "<!--worked-case-->" : "<!--chapter-shelf-->
 const [before, after] = content.split(marker);
 if (["methode", "bibliothek"].includes(slug) && after === undefined) throw Error("Missing content marker on " + slug);
 const followUp = {
-  atlas: ["baum-des-wissens", "bibliothek"],
+  atlas: ["erkenntnisnavigator", "baum-des-wissens", "bibliothek"],
   bibliothek: ["baum-des-wissens", "forschungsstrom"],
-  methode: ["werkstatt", "aussagen", "fragen-und-ki-prompt"],
+  methode: ["erkenntnisnavigator", "werkstatt", "aussagen", "fragen-und-ki-prompt"],
   pruefstand: ["aussagen", "angriffsschwarm"],
   mitwirken: ["fragen-und-ki-prompt", "projektstatus"]
 }[slug] ?? [];

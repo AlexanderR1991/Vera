@@ -213,3 +213,37 @@ for(const lang of ["de","en"]){
 }
 if(errors.length){console.error(errors.join("\n"));process.exit(1);}
 console.log(`Verified WIRKLICH ${project.version}: shared identity, accessible worksheet exports/import, bilingual release routes and data-derived status counts.`);
+
+// Navigator: public draft data, static reading cards and versioned provenance.
+const {connections}=await import("../src/lib/navigator.mjs");
+const connectionExport=JSON.parse(await readFile(join(out,"knowledge/connections.json"),"utf8"));
+if(connectionExport.schema_version!==1||connectionExport.status!=="editorial_drafts"||
+   JSON.stringify(connectionExport.connections)!==JSON.stringify(connections))errors.push("Navigator export must match its editorial drafts");
+for(const connection of connections){
+ if(connection.reviewStatus!=="draft")errors.push("Navigator draft was promoted without review: "+connection.id);
+ if(!connection.topics.every(id=>topicIDs.has(id)))errors.push("Unknown navigator topic: "+connection.id);
+ if(connection.sourceClaim){
+  const source=registry.claims.find(claim=>claim.id===connection.sourceClaim.id);
+  if(!source||source.version!==connection.sourceClaim.version)errors.push("Navigator source changed; reassess connection: "+connection.id);
+ }
+}
+for(const lang of ["de","en"]){
+ const route=`/Wirklich/${lang}/erkenntnisnavigator/`;
+ const html=await readFile(join(out,lang,"erkenntnisnavigator/index.html"),"utf8");
+ if(!sitemap.includes(route)||!html.includes(`rel="canonical" href="https://alexanderr1991.github.io${route}"`))errors.push("Navigator metadata missing: "+lang);
+ for(const token of ["data-navigator","data-nav-question","data-nav-conditions","data-nav-export","data-nav-reset","<noscript>"]){
+  if(!html.includes(token))errors.push("Navigator capability missing: "+lang+"/"+token);
+ }
+ for(const connection of connections){
+  if(!html.includes(`id="verbindung-${connection.id}"`)||!html.includes(connection.title[lang]))errors.push("Navigator card unavailable without JS: "+lang+"/"+connection.id);
+ }
+ const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(match=>match[1]);
+ if(new Set(ids).size!==ids.length)errors.push("Duplicate navigator anchor: "+lang);
+ for(const slug of ["index","baum-des-wissens","aussagen","methode","werkstatt","projektstatus"]){
+  const page=await readFile(join(out,lang,...(slug==="index"?[]:[slug]),"index.html"),"utf8");
+  const main=page.match(/<main\b[^>]*>([\s\S]*?)<\/main>/)?.[1]||"";
+  if(!main.includes(route))errors.push("Missing contextual navigator link: "+lang+"/"+slug);
+ }
+}
+if(errors.length){console.error(errors.join("\n"));process.exit(1);}
+console.log("Verified bilingual navigator, readable draft cards, contextual entry points and version-bound source links.");

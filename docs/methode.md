@@ -26,6 +26,12 @@ These 05 empfiehlt, so zu helfen, dass der andere seine eigene Kraft findet. Im 
 
 Ob dieses Verfahren bessere Entscheidungen ermöglicht als gewöhnliche Quellenprüfung, bleibt eine offene empirische Frage. Der Vergleich ist als [Evaluationsentwurf](evaluation-v1.md) dokumentiert. Einwände und Änderungsvorschläge folgen dem [Redaktionsverfahren](community-governance.md). Der [Erkenntnisprompt](erkenntnisprompt.md) überträgt die Fragen auf die Arbeit mit KI.
 
+## Eine Erkenntnis auf einen neuen Fall anwenden
+
+Der [Erkenntnisnavigator](erkenntnisnavigator.md) ergänzt die Prüfung um die Frage: **Gilt diese Erkenntnis unter den Bedingungen dieses Falls?** Die Qualität einer Quelle beantwortet das nicht allein. Die Verbindung braucht benannte Voraussetzungen, eine Begründung, den entscheidenden möglichen Unterschied und eine Revisionsbedingung. Unbekannte Voraussetzungen verlangen eine Rückfrage; eine verletzte Voraussetzung verwirft diese Anwendung. Bestätigt der Nutzer alle Bedingungen, bleibt die Schlussfolgerung an die Richtigkeit dieser Angaben gebunden.
+
+Die vier Karten des ersten Piloten sind redaktionelle Entwürfe. Auswahl und Bedingungsprüfung sind keine unabhängige Fachprüfung und ändern keine Registerzustände. Rückmeldungen zu beobachteten Folgen können eine Korrektur anregen; sie beweisen für sich genommen weder Kausalität noch allgemeine Wirksamkeit.
+
 ## English
 
 Record the exact claim, its scope and the version being examined. Separate assumptions about the world from value judgments. Choose a test suited to the claim. Compare evidence for empirical claims, check premises and derivations for formal ones, examine values and affected perspectives for normative ones, compare readings for interpretations and identify the limits of metaphors.
@@ -33,3 +39,5 @@ Record the exact claim, its scope and the version being examined. Separate assum
 Give the strongest fair objection and say what would change your mind. If existing findings suggest a new hypothesis, state a prediction that could distinguish it from another explanation. Retain, narrow, correct or withdraw the original claim, or name the question that remains open. A published correction should connect the old wording, the reason for the change, the new wording and the editorial decision.
 
 Thesis 05 shows what this looks like. The register had already raised an objection about people who need lasting support. The project then amended the foundational text to make clear that care and dignity must not depend on attainable independence. G-005 v2 records the change. The example shows an editorial revision. Independent expert review and the comparative evaluation of the method are still pending. [Worked example](https://alexanderr1991.github.io/Wirklich/en/methode/#g-005) · [Evaluation design](evaluation-v1.md) · [Editorial process and appeals](community-governance.md)
+
+Applying an insight to a new case requires its own justification. The [knowledge navigator](erkenntnisnavigator.md) asks whether the necessary conditions apply, which differences could defeat the transfer and what would change the conclusion. Unknown conditions require clarification; a failed prerequisite blocks that application. User-confirmed conditions still produce only a conditional conclusion. The four draft cards do not constitute independent review or upgrade the claim register. Feedback may prompt correction; an observed outcome alone establishes neither causation nor general effectiveness.

@@ -19,7 +19,7 @@ const destination=topic=>topic.url||pathFor(lang,topic.slug||"atlas",topic.slug?
     <p>{t("Die ganze Menschheit ist unser offener Horizont. Noch bildet dieser Baum eine kleine, veränderbare Auswahl ab. Jeder neue Ast darf zeigen, was uns bisher fehlt.","All of humanity is our open horizon. This tree currently maps a small, revisable selection. Every new branch may show what we are still missing.")}</p>
    </div><FlyingTreeDiagram lang={lang}/></div>
    <nav class="tree-toc" aria-label={t("Auf dieser Seite","On this page")}>{[["ebenen",t("Die Ebenen","The stages")],["aeste",t("Themen erkunden","Explore topics")],["verbinden",t("Zusammenführen","Connect")],["selbstpruefung",t("Uns selbst angreifen","Challenge ourselves")],["arbeit",t("Jetzt arbeiten","Work now")]].map(([id,label])=><a href={"#"+id}>{label}</a>)}</nav>
-   <p class="tree-callout">{t("„Nach oben“ bedeutet mehr Zusammenhang und begründete Verantwortung. Menschen, Kulturen und Erkenntnisarten erhalten dadurch keinen höheren oder niedrigeren Rang. Gemeinsames Verstehen darf einen ungelösten Widerspruch enthalten.","‘Upward’ means more context and reasoned responsibility. It gives no higher or lower rank to people, cultures or kinds of inquiry. Shared understanding may contain an unresolved disagreement.")}</p>
+   <p class="tree-callout">{t("„Nach oben“ bedeutet mehr Zusammenhang und begründete Verantwortung. Allgemeiner bedeutet nicht automatisch wahrer. Menschen, Kulturen und Erkenntnisarten erhalten dadurch keinen höheren oder niedrigeren Rang. Gemeinsames Verstehen darf einen ungelösten Widerspruch enthalten.","‘Upward’ means more context and reasoned responsibility. More general does not automatically mean more certain. It gives no higher or lower rank to people, cultures or kinds of inquiry. Shared understanding may contain an unresolved disagreement.")}</p>
   </header>
 
   <section class="tree-section" id="ebenen">
@@ -28,6 +28,14 @@ const destination=topic=>topic.url||pathFor(lang,topic.slug||"atlas",topic.slug?
    <p>{t("Philosophie hängt an jedem Ast: Sie fragt nach Begriffen, Voraussetzungen, Bedeutung und Werten. Ein Thema darf mehrere Felder verbinden. Die Ebenen helfen beim Arbeiten; Rückfragen können jederzeit zu einem früheren Schritt führen.","Philosophy belongs on every branch: it asks about concepts, premises, meaning and values. A topic may connect several fields. The stages help organize work; questions may return us to an earlier step at any time.")}</p>
    <ol class="tree-levels">{levels.map(level=><li id={"ebene-"+level.id}><h3>{level.name[lang]}</h3><p>{level.text[lang]}</p></li>)}</ol>
    <p>{t("Ein mathematischer Beweis bleibt an seine Voraussetzungen gebunden. Eine ethische Entscheidung braucht begründete Werte. Eine Interpretation darf neben anderen Lesarten stehen. Die Begründungslage und der Prüfstatus bleiben jeweils gesondert sichtbar.","A mathematical proof remains tied to its premises. An ethical decision needs reasoned values. An interpretation may coexist with other readings. Support and review status remain visible as separate descriptions.")} <a href={pathFor(lang,"mission")+"#erkenntnis"}>{t("Die passenden Prüfwege ansehen ↗","Explore appropriate methods ↗")}</a></p>
+  </section>
+
+  <section class="tree-section" id="querverbindungen">
+   <p class="section-kicker">{t("VON DEINER FRAGE ZUM ZUSAMMENHANG","FROM YOUR QUESTION TO A CONNECTION")}</p>
+   <h2>{t("Du musst den richtigen Ast noch nicht kennen.","You do not need to know the right branch yet.")}</h2>
+   <p>{t("Der Erkenntnisnavigator verbindet eine Alltagsfrage mit einem möglichen Muster und einem allgemeineren Ansatz. Vor einer Anwendung prüfst du die Voraussetzungen einzeln. Eine neue Beobachtung kann auch den allgemeineren Ansatz infrage stellen.","The knowledge navigator connects an everyday question with a possible pattern and a more general approach. You check each condition before applying it. A new observation may also challenge the more general approach.")}</p>
+   <p>{t("Vier redaktionelle Entwurfskarten bilden den Anfang. Die lokale Stichwortsuche schlägt Verbindungen vor; sie erkennt weder Ursachen noch bestätigt sie Voraussetzungen. Eine KI, die über alle Äste hinweg nach Mustern sucht, bleibt ein gesondert zu prüfender Ausbau.","Four editorial draft cards provide a starting point. Local keyword search suggests connections; it neither identifies causes nor confirms conditions. AI that searches for patterns across all branches remains a separate extension to evaluate.")}</p>
+   <a class="button button--gold" href={pathFor(lang,"erkenntnisnavigator")}>{t("Eine Verbindung prüfen","Examine a connection")} →</a>
   </section>
 
   <section class="tree-section" id="aeste" data-tree-explorer>

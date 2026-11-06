@@ -11,7 +11,8 @@ export const ui = {
       "Aussagen",
       "Methode",
       "Mitwirken",
-      "Werkstatt"
+      "Werkstatt",
+      "Navigator"
     ],
     "motto": "ERKENNTNIS IST KEIN ENDZUSTAND",
     "footerTitle": "Die Wirklichkeit steht über diesem Werk.",
@@ -23,6 +24,7 @@ export const ui = {
     "copyright": "© 2026 AlexanderR1991 & Mitwirkende · Texte CC BY-SA 4.0 · Code MIT",
     "disclosure": "MIT KI-UNTERSTÜTZUNG ERSTELLT · OFFEN FÜR KRITIK",
     "titles": {
+      "erkenntnisnavigator": "Erkenntnisnavigator",
       "werkstatt": "Dein Prüfblatt",
       "projektstatus": "Version und Projektstatus",
       "mission": "Unsere Mission",
@@ -61,7 +63,8 @@ export const ui = {
       "Claims",
       "Method",
       "Contribute",
-      "Workshop"
+      "Workshop",
+      "Navigator"
     ],
     "motto": "KNOWLEDGE IS NEVER COMPLETE",
     "footerTitle": "Reality stands above this work.",
@@ -73,6 +76,7 @@ export const ui = {
     "copyright": "© 2026 AlexanderR1991 & contributors · Text CC BY-SA 4.0 · Code MIT",
     "disclosure": "CREATED WITH AI ASSISTANCE · OPEN TO CRITICISM",
     "titles": {
+      "erkenntnisnavigator": "Knowledge Navigator",
       "werkstatt": "Your Inquiry Worksheet",
       "projektstatus": "Version and Project Status",
       "mission": "Our Mission",
@@ -101,4 +105,4 @@ export const ui = {
     "description": project.english_name + " Bring a question to the open inquiry workshop. Examine the evidence, test objections and record what would change your mind."
   }
 };
-export const navigation = [["werkstatt",6],["atlas",1],["aussagen",3],["methode",4],["mitwirken",5]];
+export const navigation = [["erkenntnisnavigator",7],["werkstatt",6],["atlas",1],["aussagen",3],["methode",4],["mitwirken",5]];

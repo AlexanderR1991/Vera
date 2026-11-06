@@ -1,0 +1,96 @@
+---
+import Layout from "../layouts/SiteLayout.astro";
+import {connections} from "../lib/navigator.mjs";
+import {topics} from "../lib/tree.mjs";
+import {pathFor, base} from "../lib/paths.mjs";
+import "../styles/navigator.css";
+const {lang = "de"} = Astro.props;
+const en = lang === "en";
+const t = (de, english) => en ? english : de;
+const text = value => value[lang];
+const reflectionFields = [
+  ["goal", "Was ist mir wichtig?", "What matters to me?"],
+  ["observation", "Was habe ich beobachtet?", "What did I observe?"],
+  ["interpretation", "Wie deute ich das?", "How do I interpret it?"],
+  ["feeling", "Was fühle ich dabei?", "How do I feel about it?"],
+  ["wish", "Was wünsche oder fürchte ich?", "What do I wish for or fear?"],
+  ["action", "Was prüfe oder tue ich als Nächstes?", "What will I check or do next?"],
+  ["expected", "Was erwarte ich davon?", "What do I expect to happen?"],
+  ["observed", "Was ist tatsächlich geschehen?", "What actually happened?"],
+  ["revision", "Was würde ich deshalb ändern?", "What would I change as a result?"]
+];
+---
+<Layout lang={lang} slug="erkenntnisnavigator" pageTitle={t("Erkenntnisnavigator", "Knowledge navigator")} description={t("Verbinde eine Alltagsfrage mit einem begründeten Gedanken. Prüfe, ob seine Voraussetzungen in deinem Fall gelten.", "Connect an everyday question to a reasoned idea. Check whether its conditions apply to your situation.")}>
+  <article class="navigator container" data-navigator data-lang={lang} data-tree-url={pathFor(lang,"baum-des-wissens")} data-claims-url={pathFor(lang,"aussagen")}>
+    <header class="navigator-heading">
+      <p class="section-kicker">{t("ERKENNTNISNAVIGATOR · ERSTER PILOT", "KNOWLEDGE NAVIGATOR · FIRST PILOT")}</p>
+      <h1>{t("Deine Frage. ", "Your question. ")}<em>{t("Eine Verbindung.", "A connection.")}</em></h1>
+      <p class="navigator-lead">{t("Vielleicht hilft dir ein Gedanke, den du noch nicht kennst. Finde eine mögliche Verbindung – und prüfe, ob sie zu deiner Situation passt.", "An idea you have not encountered yet may help. Find a possible connection, then check whether it fits your situation.")}</p>
+      <ol class="navigator-steps" aria-label={t("So funktioniert es", "How it works")}>
+        <li><span>01</span>{t("Frage beschreiben", "Describe your question")}</li>
+        <li><span>02</span>{t("Voraussetzungen prüfen", "Check the conditions")}</li>
+        <li><span>03</span>{t("Nächsten Schritt wählen", "Choose your next step")}</li>
+      </ol>
+    </header>
+
+    <section class="navigator-start" aria-labelledby="navigator-question-label">
+      <form data-nav-search>
+        <label id="navigator-question-label" for="navigator-question">{t("Was beschäftigt dich?", "What is on your mind?")}</label>
+        <p id="navigator-question-hint">{t("Ein Satz reicht. Du brauchst keinen Fachbegriff.", "One sentence is enough. You do not need a technical term.")}</p>
+        <textarea id="navigator-question" rows="3" maxlength="6000" aria-describedby="navigator-question-hint navigator-local-note" placeholder={t("Zum Beispiel: Ich schaffe meine Aufgaben nicht.", "For example: I cannot finish my tasks.")} data-nav-question></textarea>
+        <div class="navigator-search-actions"><button class="button button--gold" type="submit" disabled data-nav-js>{t("Verbindungen suchen", "Find connections")} <span aria-hidden="true">→</span></button><button type="button" class="navigator-text-button" disabled data-nav-js data-nav-all>{t("Alle vier Verbindungen ansehen", "Browse all four connections")}</button></div>
+      </form>
+      <p class="navigator-note" id="navigator-local-note">{t("Dieser Pilot sucht lokal nach Stichwörtern in vier Entwürfen. Er nutzt keine KI und versteht deinen Fall nicht selbstständig. Deine Eingaben werden durch dieses Werkzeug weder gesendet noch gespeichert. Einen Text exportierst du nur auf eigenen Wunsch.", "This pilot searches four drafts locally using keywords. It does not use AI or understand your situation on its own. This tool neither sends nor saves your entries. You choose whether to export a text file.")}</p>
+      <details class="navigator-examples"><summary>{t("Mit einem erfundenen Beispiel ausprobieren", "Try a fictional example")}</summary><p>{t("Ein Beispiel ersetzt deine Frage und setzt die Bedingungsprüfung zurück. Eigene Reflexionsnotizen bleiben erhalten.", "An example replaces your question and resets the condition check. Your reflection notes are kept.")}</p><div class="navigator-example-list">{connections.map(connection => <button type="button" disabled data-nav-js data-nav-example={connection.id}>{text(connection.question)}</button>)}</div></details>
+    </section>
+
+    <p class="navigator-status" role="status" aria-live="polite" aria-atomic="true" data-nav-status></p>
+
+    <section class="navigator-results" hidden data-nav-results aria-labelledby="navigator-results-title">
+      <h2 id="navigator-results-title" tabindex="-1">{t("Was könnte passen?", "What might fit?")}</h2>
+      <p data-nav-results-note></p>
+      <div class="navigator-result-list" data-nav-result-list></div>
+      <p class="navigator-alternative" data-nav-no-match hidden>{t("Du kannst alle vier Verbindungen ansehen oder deine Frage im Prüfblatt selbst weiter untersuchen.", "You can browse all four connections or explore your question in the worksheet.")} <a href={pathFor(lang,"werkstatt")}>{t("Zum Prüfblatt", "Open the worksheet")} →</a></p>
+    </section>
+
+    <section class="navigator-connection" hidden data-nav-connection aria-labelledby="navigator-connection-title">
+      <header><p class="section-kicker" data-nav-meta></p><h2 id="navigator-connection-title" tabindex="-1" data-nav-title></h2><p class="navigator-connection-intro">{t("Allgemeiner bedeutet nicht automatisch wahrer. Auch die Verbindung zu deinem Fall braucht Gründe.", "More general does not automatically mean more certain. Applying an idea to your case needs reasons too.")}</p></header>
+      <div class="navigator-bridge" data-nav-bridge></div>
+      <form class="navigator-condition-form" data-nav-condition-form>
+        <fieldset><legend>{t("Trifft das auf deinen Fall zu?", "Does this apply to your situation?")}</legend><p>{t("Wähle für jede Voraussetzung eine Antwort. „Unklar“ ist eine hilfreiche Antwort, kein Fehler. Die Angaben werden nicht unabhängig überprüft.", "Choose an answer for each condition. “Unsure” is useful, not a mistake. Your answers are not independently verified.")}</p><div data-nav-conditions></div></fieldset>
+        <button class="button button--gold" type="submit">{t("Verbindung prüfen", "Check this connection")}</button>
+      </form>
+      <div class="navigator-assessment" hidden data-nav-assessment aria-labelledby="navigator-assessment-title">
+        <p class="section-kicker" data-nav-assessment-label></p><h3 id="navigator-assessment-title" tabindex="-1" data-nav-assessment-title></h3><p data-nav-assessment-text></p><ul data-nav-assessment-list></ul><p class="navigator-next-step" data-nav-next-step></p>
+      </div>
+      <details class="navigator-evidence" data-nav-evidence><summary>{t("Begründung, Quellen und Grenzen ansehen", "Read the reasoning, sources and limits")}</summary><div data-nav-evidence-content></div></details>
+    </section>
+
+    <section class="navigator-reflection" aria-labelledby="navigator-reflection-title">
+      <details data-nav-reflection>
+        <summary id="navigator-reflection-title">{t("Meinen nächsten Schritt festhalten · freiwillig", "Record my next step · optional")}</summary>
+        <p>{t("Vergleiche deine Entscheidung mit deinen eigenen Zielen und ihren Folgen. Dieses Blatt bewertet keinen Menschen. Neue Beobachtungen dürfen auch den allgemeinen Gedanken verändern.", "Compare your decision with your own goals and its consequences. This worksheet does not score a person. New observations may also challenge the general idea.")}</p>
+        <div class="navigator-reflection-fields">{reflectionFields.map(([key,de,english]) => <div><label for={"navigator-"+key}>{t(de,english)}</label><textarea id={"navigator-"+key} rows="2" maxlength="6000" data-nav-reflection-field={key}></textarea></div>)}</div>
+      </details>
+      <div class="navigator-export-actions"><button type="button" disabled data-nav-js data-nav-export>{t("Meine Notiz exportieren (.txt)", "Export my note (.txt)")}</button><button type="button" class="navigator-text-button" disabled data-nav-js data-nav-reset>{t("Alle Eingaben löschen", "Clear all entries")}</button></div>
+      <p class="navigator-note">{t("Beim Verlassen oder Neuladen der Seite gehen die Eingaben verloren. Der Export bleibt bei dir. Er wird nicht automatisch zu einem öffentlichen oder geprüften Beitrag.", "Entries are lost when you leave or reload this page. An export stays with you. It does not automatically become a public or reviewed contribution.")}</p>
+    </section>
+
+    <details class="navigator-catalogue">
+      <summary>{t("Die vier Verbindungen als Lesekarten", "Read the four connection cards")}</summary>
+      <p>{t("Alle Karten sind Arbeitsentwürfe. Eine abgeschlossene unabhängige Fachprüfung und ein Nutzennachweis für den Navigator liegen nicht vor.", "All cards are working drafts. Independent expert review and evidence that this navigator is useful are still pending.")}</p>
+      <noscript><p class="navigator-note">{t("Suche, Bedingungsprüfung und Export benötigen JavaScript. Die Karten, Voraussetzungen und Quellen kannst du hier ohne JavaScript lesen und selbst prüfen.", "Search, condition checks and export require JavaScript. You can read and examine the cards, conditions and sources here without JavaScript.")}</p></noscript>
+      {connections.map(connection => <article class="navigator-reading-card" id={"verbindung-"+connection.id}>
+        <p class="section-kicker">{connection.id} · v{connection.version} · {t("ENTWURF", "DRAFT")} · {connection.type === "normative" ? t("WERTGRUNDSATZ", "VALUE PRINCIPLE") : t("FORMALER ZUSAMMENHANG", "FORMAL RELATION")}</p>
+        <h3>{text(connection.title)}</h3><p>{text(connection.question)}</p>
+        <dl><dt>{t("Mögliches Muster", "Possible pattern")}</dt><dd>{text(connection.pattern)}</dd><dt>{t("Allgemeiner Gedanke", "General idea")}</dt><dd>{text(connection.principle)}</dd><dt>{t("Geltungsbereich", "Scope")}</dt><dd>{text(connection.scope)}</dd></dl>
+        <h4>{t("Nur unter diesen Voraussetzungen", "Only under these conditions")}</h4><ul>{connection.conditions.map(condition => <li>{text(condition.label)}</li>)}</ul>
+        <p><strong>{t("Wenn die Voraussetzungen nach deinen Angaben zutreffen: ", "If the conditions apply according to your answers: ")}</strong>{text(connection.conclusion)}</p>
+        <p><strong>{t("Möglicher nächster Schritt: ", "Possible next step: ")}</strong>{text(connection.nextStep)}</p>
+        <details><summary>{t("Begründung und Grenzen", "Reasoning and limits")}</summary><dl><dt>{t("Begründung", "Reasoning")}</dt><dd>{text(connection.rationale)}</dd><dt>{t("Was dagegen sprechen kann", "What may challenge it")}</dt><dd>{text(connection.counterargument)}</dd><dt>{t("Wann ändern?", "When to revise?")}</dt><dd>{text(connection.revision)}</dd></dl><ul class="navigator-sources">{connection.sources.map(source => <li><a href={source.url}>{text(source.label)}</a><span> · {source.role === "provenance" ? t("Herkunft", "Provenance") : t("Ableitung", "Derivation")}</span></li>)}</ul><p class="navigator-topic-links">{t("Verbindungen im Baum: ", "Connections in the tree: ")}{connection.topics.map(id => <a href={pathFor(lang,"baum-des-wissens","ast-"+id)}>{topics.find(topic => topic.id === id)?.name[lang] ?? id}</a>)}</p>{connection.id === "help" && <p><a href={pathFor(lang,"aussagen","G-005")}>{t("Bezugsfassung G-005 im Aussagenregister", "Related claim G-005 in the register")}</a></p>}</details>
+      </article>)}
+    </details>
+    <nav class="navigator-links" aria-label={t("Weiter erkunden", "Explore further")}><a href={pathFor(lang,"baum-des-wissens")}>{t("Baum des Wissens", "Tree of knowledge")} →</a><a href={pathFor(lang,"aussagen")}>{t("Aussagenregister", "Claim register")} →</a><a href={pathFor(lang,"methode")}>{t("Unsere Prüfmethode", "Our review method")} →</a><a href={base+"knowledge/connections.json"}>{t("Kartenbestand als JSON", "Card collection as JSON")} ↗</a></nav>
+  </article>
+  <script>import "../client/navigator.mjs";</script>
+</Layout>

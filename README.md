@@ -12,6 +12,7 @@
 | Die Werkstatt kennenlernen · Visit the workshop | [Startseite](https://alexanderr1991.github.io/Wirklich/de/) | [Home](https://alexanderr1991.github.io/Wirklich/en/) |
 | Eine echte Korrektur lesen · Follow a real revision | [Wann ist Hilfe gut?](https://alexanderr1991.github.io/Wirklich/de/methode/#g-005) | [What makes help good?](https://alexanderr1991.github.io/Wirklich/en/methode/#g-005) |
 | Eine Frage für sich prüfen · Work privately | [Prüfblatt öffnen](https://alexanderr1991.github.io/Wirklich/de/werkstatt/) | [Open a worksheet](https://alexanderr1991.github.io/Wirklich/en/werkstatt/) |
+| Eine passende Verbindung finden · Find a relevant connection | [Erkenntnisnavigator](https://alexanderr1991.github.io/Wirklich/de/erkenntnisnavigator/) | [Knowledge navigator](https://alexanderr1991.github.io/Wirklich/en/erkenntnisnavigator/) |
 | Eine Frage öffentlich stellen · Ask in public | [GitHub-Frageformular](https://github.com/AlexanderR1991/Wirklich/issues/new?template=frage.yml) | [GitHub question form](https://github.com/AlexanderR1991/Wirklich/issues/new?template=frage.yml) |
 
 ## Gemeinsam klüger werden · Learn together
@@ -27,6 +28,10 @@ Bei einer Tatsachenfrage suchen wir Belege und Gegenbelege. Bei einer Wertfrage 
 The topic map connects questions across disciplines. Each claim record gives its scope, reasons, strongest objection, review status and revision history. Research feeds collect leads. People decide which revisions enter the public record. [Explore topics](https://alexanderr1991.github.io/Wirklich/en/baum-des-wissens/) · [Inspect the register](https://alexanderr1991.github.io/Wirklich/en/aussagen/)
 
 ## Stand und offene Prüfung · Status and open work
+
+Der **Erkenntnisnavigator** ergänzt den Baum um vier redaktionelle Entwurfskarten. Eine lokale Stichwortsuche schlägt Ansätze vor; ihre Voraussetzungen müssen einzeln bestätigt, verneint oder offengelassen werden. Freiwillige Reflexion und Textausgabe bleiben im Browser, bis jemand selbst eine Datei exportiert. Keine laufende KI, kein menschlicher Gesamtwert und keine automatische Übernahme ins Aussagenregister. [Architektur und Evaluationsplan](docs/erkenntnisnavigator.md)
+
+The **knowledge navigator** offers four editorial draft connections, explicit applicability checks and an optional private reflection note. It uses bounded local keyword search, not live AI. Its usefulness compared with ordinary search has not yet been evaluated.
 
 Version **1.0.0** stellt das lokale Prüfblatt mit Import und Export bereit. Die öffentlichen Zahlen zum Aussagenbestand und zu dokumentierten Reviews werden aus dem Register berechnet. Ob das Prüfblatt Menschen zu besser begründeten Urteilen verhilft, ist eine offene Forschungsfrage. [Projektstatus](https://alexanderr1991.github.io/Wirklich/de/projektstatus/) · [Vergleichsprotokoll](docs/evaluation-v1.md)
 
