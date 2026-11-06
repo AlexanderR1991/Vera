@@ -20,7 +20,7 @@ Die folgenden Definitionen sind **experimentelle Formalisierungen** der Forschun
 
 Sei \(X\) eine Menge von Handlungsmöglichkeiten. Sei \(g:X\to\mathbb{R}^k\) ein Vektor von **vorher offengelegten und begründeten** Bewertungskriterien; größere Werte bedeuten jeweils *innerhalb dieses Modells* bessere Ausprägung. Die Koordinaten, Skalen, Messfehler und möglichen Rechteverletzungen müssen separat angegeben werden.
 
-Definiere **Pareto-Dominanz** durch
+Definiere die **schwache Pareto-Dominanz** durch
 
 \[
 x\succeq_P y\quad\Longleftrightarrow\quad g_i(x)\geq g_i(y)\text{ für alle }i.
@@ -30,7 +30,7 @@ In Worten: **x ist nach diesem Kriterium mindestens so gut wie y, wenn x in kein
 
 **Ein Gegenbeispiel gegen eine automatische vollständige Rangordnung:** Für \(k=2\) seien \(g(A)=(1,0)\) und \(g(B)=(0,1)\). Dann gilt weder \(A\succeq_P B\) noch \(B\succeq_P A\), denn jede Option ist in genau einer Dimension schlechter.
 
-**Ergebnis:** Aus diesen Prämissen ergibt sich nur eine **partielle**, keine vollständige Ordnung. Ein universeller binärer „+1/−1“-Entscheider folgt **nicht** schon daraus. Das ist ein elementares mathematisches Gegenbeispiel zur *stärkeren* Behauptung, alle Zielkonflikte ließen sich ohne zusätzliche Wertannahmen eindeutig ordnen. Es widerlegt **nicht** die tatsächliche, bewusst heuristische These 07.
+**Ergebnis.** Auf den Kriterienvektoren ist der komponentenweise Vergleich eine partielle Ordnung. Auf den Handlungen ist er im Allgemeinen eine **Präordnung**. Zwei verschiedene Handlungen mit identischen Kriterienwerten schneiden in beiden Vergleichsrichtungen gleich gut ab. Erst wenn wir solche Handlungen zusammenfassen, erhalten wir eine partielle Ordnung auf den so gebildeten Klassen. A und B bleiben im Beispiel unvergleichbar. Ein universeller binärer „+1/−1“-Entscheider folgt **nicht** schon daraus. Das ist ein elementares mathematisches Gegenbeispiel zur *stärkeren* Behauptung, alle Zielkonflikte ließen sich ohne zusätzliche Wertannahmen eindeutig ordnen. Es widerlegt **nicht** die tatsächliche, bewusst heuristische These 07.
 
 Wer dennoch eine vollständige Rangordnung vorschlägt, muss zusätzliche Annahmen offenlegen – etwa Gewichte, Prioritäten, Ausschlussregeln oder ein Verfahren für nicht vergleichbare Optionen – und deren Konsequenzen prüfen lassen.
 
@@ -62,7 +62,7 @@ revision_trigger: "what result should force narrowing, withdrawal, or correction
 
 **Für einen formalen Gegenbeweis:** Eine vollständig spezifizierte, prüfbare Gegeninstanz reicht, um eine universelle mathematische Behauptung zu widerlegen. **Für empirische Ergebnisse:** Datenqualität, Studiendesign, Alternativhypothesen und Reproduzierbarkeit prüfen. **Für ethische Konflikte:** Betroffene, Rechte und Wertannahmen offenlegen; kein Wahrheitsstempel durch Mehrheitsvotum oder KI.
 
-Eingang: [Adversarial Challenge Issue](https://github.com/AlexanderR1991/grundtext-des-wirklichen/issues/new?template=angriff.yml). Korrekturen gehen als nachvollziehbare Pull Requests ein. Einwände müssen nicht unserem Weltbild entsprechen. Eine Widerlegung wird dokumentiert, nicht verborgen.
+Eingang: [Adversarial Challenge Issue](https://github.com/AlexanderR1991/Wirklich/issues/new?template=angriff.yml). Korrekturen gehen als nachvollziehbare Pull Requests ein. Einwände müssen nicht unserem Weltbild entsprechen. Eine Widerlegung wird dokumentiert, nicht verborgen.
 
 ## 4. Was als Erfolg zählt / Success conditions
 
@@ -93,7 +93,7 @@ Das Projekt beginnt **nicht bei null**. Gerade Theoreme über unvereinbare Anfor
 
 ## English précis
 
-We invite mathematicians, logicians, philosophers, statisticians and critical researchers to **disprove or delimit specific claims** of the project. The +1/−1 metaphor is currently a heuristic, not a validated moral metric. Challenge M-01 demonstrates that multi-criterion Pareto dominance can be incomplete: vectors (1,0) and (0,1) are incomparable. A complete ranking needs additional, explicit assumptions. The useful research task is to **define and scrutinize those assumptions**, distinguish mathematical validity from empirical adequacy and ethics, and publish counterexamples and corrections. We have **no claimed affiliation, endorsement or peer review** from arXiv, Harvard or any other research institution.
+We invite mathematicians, logicians, philosophers, statisticians and critical researchers to **disprove or delimit specific claims** of the project. The +1/−1 metaphor is currently a heuristic, not a validated moral metric. Challenge M-01 demonstrates that multi-criterion Pareto dominance can be incomplete: vectors (1,0) and (0,1) are incomparable. Componentwise comparison is a partial order on score vectors. It induces a preorder on actions because distinct actions can have identical scores. A complete ranking needs additional, explicit assumptions. The useful research task is to **define and scrutinize those assumptions**, distinguish mathematical validity from empirical adequacy and ethics, and publish counterexamples and corrections. We have **no claimed affiliation, endorsement or peer review** from arXiv, Harvard or any other research institution.
 
 ---
 

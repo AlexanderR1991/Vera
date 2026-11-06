@@ -10,11 +10,9 @@ Der Grundtext soll Menschen befähigen, unter Unsicherheit besser zu verstehen, 
 
 Die zweisprachige öffentliche Darstellung liegt unter `/de/mission/` und `/en/mission/`. Dieser Entwurf führt die bisherigen Themen und die in [PR #18](https://github.com/AlexanderR1991/Wirklich/pull/18) vorgeschlagene Vision eines offenen Wissenssystems zusammen. Er behauptet keine bereits erreichte Leistungsfähigkeit.
 
-## Unser Maßstab: Eine Adresse ist kein Beweis
+## Was eine Aussage vertrauenswürdig macht
 
-> **Etwas ist nicht wahr, weil es auf wirklich.org steht. Es soll dort stehen, weil es der Prüfung standhält.**
-
-Die langfristige Hoffnung ist, dass Menschen eines Tages mit „Das steht auf wirklich.org“ auf eine nachvollziehbare Prüfung verweisen können. Die Adresse darf jedoch niemals selbst als Beleg gelten. *wirklich.org* ist hier eine angestrebte öffentliche Adresse, keine Behauptung einer bereits registrierten Domain, unabhängiger Begutachtung oder institutioneller Autorität.
+Wer eine Aussage aus der Werkstatt zitiert, soll auf ihre Begründung verweisen können. Deshalb hält jeder Eintrag im [Aussagenregister](aussagenregister.md) fest, wo die Aussage gilt, was gegen sie spricht und welche Prüfung sie bisher durchlaufen hat.
 
 Für künftig als redaktionell geprüft veröffentlichte Aussagen setzen wir fünf überprüfbare Anforderungen:
 
@@ -149,6 +147,6 @@ Knowledge, open inquiry and decision-making are distinct spaces. Claim type, evi
 
 AI contributes research leads and critique. It does not certify truth or authorize editorial decisions. The rules themselves need evaluation. Fair pay and rest are legitimate project needs; transparent funding must remain separate from editorial judgment. A voluntary support channel is available; organizational arrangements and shared governance remain work ahead.
 
-Three unreviewed demonstration records now illustrate the approach. The next goal is ten fully examined, narrowly scoped claims, followed by an independent comparison of the method against alternatives, including error detection, false alarms, understanding, time and costs. Wider scope follows demonstrated benefit. The English website provides the complete translation draft.
+Three unreviewed demonstration records now illustrate the approach. The next goal is ten fully examined, narrowly scoped claims, followed by an independent comparison of the method against alternatives, including error detection, false alarms, understanding, time and costs. Wider scope follows demonstrated benefit. The [English mission page](https://alexanderr1991.github.io/Wirklich/en/mission/) introduces the workshop and its approach.
 
 **Die Wirklichkeit steht über diesem Werk. Auch über seinem Bauplan.**
