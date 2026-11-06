@@ -1,28 +1,37 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-05T23:38:48+00:00",
+  "updated_at": "2026-11-06T06:47:30+00:00",
   "status": "automatic_discovery_not_fact_checked",
   "analysis": "metadata_only",
   "source": "Crossref + arXiv",
   "source_queries": {
-    "Crossref": 4,
+    "Crossref": 7,
     "arXiv": 3
   },
-  "source_queries_succeeded": 7,
-  "new_items": 33,
+  "source_queries_succeeded": 10,
+  "new_items": 21,
   "agents_enabled": false,
-  "errors": [
-    "Crossref/bewusstsein: HTTPError: HTTP Error 429: Too Many Requests",
-    "Crossref/liebe: HTTPError: HTTP Error 429: Too Many Requests",
-    "Crossref/kunst: HTTPError: HTTP Error 429: Too Many Requests"
-  ],
-  "snapshot_correction": {
-    "basis": "recorded_publication_date_and_placeholder_title",
-    "as_of": "2026-11-05",
-    "original_items": 33,
-    "excluded_items": 5
-  },
+  "errors": [],
   "items": [
+    {
+      "id": "arxiv:2611.07529v1",
+      "topic": "ki",
+      "title": "Adaptive Experimentation Can Hide Model Error:Detection Limits and Falsification Budget",
+      "date": "2026-11-05",
+      "authors": [
+        "Ramnarayan Choudhary"
+      ],
+      "venue": "arXiv",
+      "url": "https://arxiv.org/abs/2611.07529v1",
+      "source": "arXiv bibliographic metadata",
+      "source_type": "repository_manuscript",
+      "peer_review": "not_verified",
+      "version": "1",
+      "related_doi": "",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
     {
       "id": "10.16997/jdd.2205",
       "topic": "gesellschaft",
@@ -35,6 +44,22 @@
       ],
       "venue": "Journal of Deliberative Democracy",
       "url": "https://doi.org/10.16997/jdd.2205",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "10.3389/fnhum.2026.2006518",
+      "topic": "bewusstsein",
+      "title": "Editorial: Understanding consciousness: neural, cognitive, and philosophical perspectives",
+      "date": "2026-11-04",
+      "authors": [
+        "Vignayanandam Ravindernath Muddapu",
+        "Joachim Keppler"
+      ],
+      "venue": "Frontiers in Human Neuroscience",
+      "url": "https://doi.org/10.3389/fnhum.2026.2006518",
       "source": "Crossref bibliographic metadata",
       "status": "unreviewed",
       "source_examined": "metadata_only",
@@ -267,6 +292,23 @@
       "agent_notes": {}
     },
     {
+      "id": "10.58218/kasta.v6i4.4675",
+      "topic": "kunst",
+      "title": "Aesthetics of Male Wedding Attire in the Panggak Adat Ceremony of Kota Baru Village, Riau: A Nusantara Aesthetics Perspective",
+      "date": "2026-10-27",
+      "authors": [
+        "Musrin",
+        "Setyo Yanuartuti",
+        "Anik Juwariyah"
+      ],
+      "venue": "KASTA : Jurnal Ilmu Sosial, Agama, Budaya dan Terapan",
+      "url": "https://doi.org/10.58218/kasta.v6i4.4675",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
       "id": "10.1007/s44163-026-02577-2",
       "topic": "ki",
       "title": "AI-driven scientific discovery requires scientific maturity beyond model opacity",
@@ -292,6 +334,37 @@
       ],
       "venue": "PLOS Complex Systems",
       "url": "https://doi.org/10.1371/journal.pcsy.0000122",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "10.12688/f1000research.184528.2",
+      "topic": "liebe",
+      "title": "Adolescent Digital Engagement and Well-being Patterns Among Spanish Youth: A Data Note on Social Media Use, Mental Health Perceptions, and Digital Well-being (SMARS, 2024)",
+      "date": "2026-10-21",
+      "authors": [
+        "Mireia Montaña-Blasco",
+        "Mònika Jiménez-Morales"
+      ],
+      "venue": "F1000Research",
+      "url": "https://doi.org/10.12688/f1000research.184528.2",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "10.1093/jaac/kpag040",
+      "topic": "kunst",
+      "title": "Kant and Bad Art",
+      "date": "2026-10-16",
+      "authors": [
+        "João Lemos"
+      ],
+      "venue": "The Journal of Aesthetics and Art Criticism",
+      "url": "https://doi.org/10.1093/jaac/kpag040",
       "source": "Crossref bibliographic metadata",
       "status": "unreviewed",
       "source_examined": "metadata_only",
@@ -336,6 +409,54 @@
       "agent_notes": {}
     },
     {
+      "id": "10.26443/crae.v52i1.2509",
+      "topic": "kunst",
+      "title": "Ethical Dialogue in Art Education: Immanence, Aesthetics, and Appearances in the Middle Ground",
+      "date": "2026-10-14",
+      "authors": [
+        "Matthew Isherwood"
+      ],
+      "venue": "The Canadian Review of Art Education",
+      "url": "https://doi.org/10.26443/crae.v52i1.2509",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "10.1038/s41598-026-75939-6",
+      "topic": "ki",
+      "title": "Development of ethical evaluation indicators for educational artificial intelligence based on the “Life-Practice” pedagogy",
+      "date": "2026-10-14",
+      "authors": [
+        "Qianqian Chen",
+        "Hui Jing",
+        "Ruijun Zhao"
+      ],
+      "venue": "Scientific Reports",
+      "url": "https://doi.org/10.1038/s41598-026-75939-6",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "10.3389/fnins.2026.1642963",
+      "topic": "bewusstsein",
+      "title": "Synchrony in neural and visceral systems: a bioelectric basis of consciousness",
+      "date": "2026-10-12",
+      "authors": [
+        "Ravinder Jerath",
+        "Varsha Malani"
+      ],
+      "venue": "Frontiers in Neuroscience",
+      "url": "https://doi.org/10.3389/fnins.2026.1642963",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
       "id": "arxiv:2610.12845v1",
       "topic": "kunst",
       "title": "Towards Defining, Measuring, and Leveraging Creativity in AI Applications",
@@ -351,6 +472,39 @@
       "peer_review": "not_verified",
       "version": "1",
       "related_doi": "10.24963/ijcai.2026/412",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "10.1186/s40359-026-05673-1",
+      "topic": "liebe",
+      "title": "Social determinants of perinatal mental health and well-being: a social network analysis",
+      "date": "2026-10-09",
+      "authors": [
+        "Florencia Canessa",
+        "Martín Miranda",
+        "Susanne Schweizer"
+      ],
+      "venue": "BMC Psychology",
+      "url": "https://doi.org/10.1186/s40359-026-05673-1",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "10.16997/jdd.2051",
+      "topic": "gesellschaft",
+      "title": "Reforming Institutionalised Citizen Deliberation: An Update on the Permanent Citizens’ Dialogue in Eastbelgium",
+      "date": "2026-10-08",
+      "authors": [
+        "Christoph Niessen",
+        "Min Reuchamps"
+      ],
+      "venue": "Journal of Deliberative Democracy",
+      "url": "https://doi.org/10.16997/jdd.2051",
+      "source": "Crossref bibliographic metadata",
       "status": "unreviewed",
       "source_examined": "metadata_only",
       "agent_notes": {}
@@ -374,6 +528,21 @@
       "peer_review": "not_verified",
       "version": "1",
       "related_doi": "",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "10.3389/fpsyg.2026.1952709",
+      "topic": "bewusstsein",
+      "title": "New approaches to the neural correlates of consciousness and the unified perception of the mind. Experiments and treatments",
+      "date": "2026-10-06",
+      "authors": [
+        "Tiziano Cantalupi"
+      ],
+      "venue": "Frontiers in Psychology",
+      "url": "https://doi.org/10.3389/fpsyg.2026.1952709",
+      "source": "Crossref bibliographic metadata",
       "status": "unreviewed",
       "source_examined": "metadata_only",
       "agent_notes": {}
@@ -414,6 +583,21 @@
       "agent_notes": {}
     },
     {
+      "id": "10.1007/s11138-026-00753-2",
+      "topic": "wirklichkeit",
+      "title": "Moral tradition as a discovery procedure: Hayek and the social epistemology of moral realism",
+      "date": "2026-10-02",
+      "authors": [
+        "Valentino Pellegrino"
+      ],
+      "venue": "The Review of Austrian Economics",
+      "url": "https://doi.org/10.1007/s11138-026-00753-2",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
       "id": "arxiv:2610.01002v1",
       "topic": "bewusstsein",
       "title": "What Can Analogy Tell Us About Artificial Consciousness?",
@@ -434,6 +618,22 @@
       "agent_notes": {}
     },
     {
+      "id": "10.1016/j.neubiorev.2026.106871",
+      "topic": "bewusstsein",
+      "title": "Big-tent versus small-tent views of the brain mechanisms underlying consciousness",
+      "date": "2026-10-01",
+      "authors": [
+        "Nelson Cowan",
+        "Leonel A. Gomez"
+      ],
+      "venue": "Neuroscience & Biobehavioral Reviews",
+      "url": "https://doi.org/10.1016/j.neubiorev.2026.106871",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
       "id": "10.1016/j.engappai.2026.115827",
       "topic": "ki",
       "title": "Generative Artificial Intelligence and Diffusion models in Drug Discovery: A Critical Review",
@@ -444,6 +644,69 @@
       ],
       "venue": "Engineering Applications of Artificial Intelligence",
       "url": "https://doi.org/10.1016/j.engappai.2026.115827",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "10.59324/ejtas.2026.4(5).23",
+      "topic": "bewusstsein",
+      "title": "Neuroscience, Consciousness and Thought Field",
+      "date": "2026-09-30",
+      "authors": [
+        "Yi-Fang Chang"
+      ],
+      "venue": "European Journal of Theoretical and Applied Sciences",
+      "url": "https://doi.org/10.59324/ejtas.2026.4(5).23",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "10.5897/ijpc2026.0730",
+      "topic": "liebe",
+      "title": "Mother-daughter attachment and mental well-being: The interpersonal role of niceness in a Dyadic approach",
+      "date": "2026-09-30",
+      "authors": [
+        "Oral Tuncay"
+      ],
+      "venue": "International Journal of Psychology and Counselling",
+      "url": "https://doi.org/10.5897/ijpc2026.0730",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "10.20935/mhealthwellb8562",
+      "topic": "liebe",
+      "title": "Positive mental health and well-being in Kenya: a scoping review",
+      "date": "2026-09-30",
+      "authors": [
+        "Anne C. Mwendwa",
+        "Maria Mwakanyi",
+        "Arjun K. Dinesh",
+        "Manasi Kumar"
+      ],
+      "venue": "Academia Mental Health and Well-Being",
+      "url": "https://doi.org/10.20935/mhealthwellb8562",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "10.20935/mhealthwellb8498",
+      "topic": "liebe",
+      "title": "Well-being in Poland: internal resources, meaning, and psychosocial factors",
+      "date": "2026-09-30",
+      "authors": [
+        "Ewa Dobiała"
+      ],
+      "venue": "Academia Mental Health and Well-Being",
+      "url": "https://doi.org/10.20935/mhealthwellb8498",
       "source": "Crossref bibliographic metadata",
       "status": "unreviewed",
       "source_examined": "metadata_only",
@@ -509,6 +772,21 @@
       "agent_notes": {}
     },
     {
+      "id": "10.54097/z1pdjc09",
+      "topic": "kunst",
+      "title": "Cross-cultural Interpretation of Visual Symbols and Aesthetic Translation in K-pop MV from the Perspective of Multimodal AI",
+      "date": "2026-09-29",
+      "authors": [
+        "Chenyuan Zhang"
+      ],
+      "venue": "Academic Journal of Art and Design",
+      "url": "https://doi.org/10.54097/z1pdjc09",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
       "id": "10.52123/1994-2370-2026-1776",
       "topic": "gesellschaft",
       "title": "Social trust in state institutions as a factor of social governance effectiveness",
@@ -526,6 +804,24 @@
       "agent_notes": {}
     },
     {
+      "id": "10.1038/s41540-026-00825-w",
+      "topic": "leben",
+      "title": "Stochastic modeling of BMP heterodimer-receptor interactions shows emergence of low-pass filtering behavior",
+      "date": "2026-09-28",
+      "authors": [
+        "Nissa J. Larson",
+        "Aasakiran Madamanchi",
+        "Linlin Li",
+        "David M. Umulis"
+      ],
+      "venue": "npj Systems Biology and Applications",
+      "url": "https://doi.org/10.1038/s41540-026-00825-w",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
       "id": "10.1017/psa.2026.10280",
       "topic": "wirklichkeit",
       "title": "The Benchmarking Epistemology: Validity Theory for Evaluating Machine Learning Models",
@@ -536,6 +832,37 @@
       ],
       "venue": "Philosophy of Science",
       "url": "https://doi.org/10.1017/psa.2026.10280",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "10.16995/zygon.24448",
+      "topic": "wirklichkeit",
+      "title": "Ibn Sīnā’s Philosophy as Framework for Understanding Artificial Intelligence: Ontology, Epistemology, and Machine Cognition’s Boundaries",
+      "date": "2026-09-27",
+      "authors": [
+        "Hasan Shahab",
+        "Cipta Bakti Gama"
+      ],
+      "venue": "Zygon: Journal of Religion and Science",
+      "url": "https://doi.org/10.16995/zygon.24448",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "10.47571/sanatyorum.1823621",
+      "topic": "kunst",
+      "title": "From the Aesthetics of Nomadism to the Irony of Displacement: Dede Korkut and Ezel Akay",
+      "date": "2026-09-25",
+      "authors": [
+        "Meryem Gürbüz"
+      ],
+      "venue": "Art and Interpretation",
+      "url": "https://doi.org/10.47571/sanatyorum.1823621",
       "source": "Crossref bibliographic metadata",
       "status": "unreviewed",
       "source_examined": "metadata_only",
