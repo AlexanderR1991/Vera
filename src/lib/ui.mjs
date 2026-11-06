@@ -5,7 +5,7 @@ export const ui = {
     "subtitle": project.subtitle.de,
     "menu": "Menü",
     "nav": [
-      "Auftakt",
+      "Start",
       "Atlas",
       "Bibliothek",
       "Aussagen",
@@ -26,10 +26,9 @@ export const ui = {
       "werkstatt": "Dein Prüfblatt",
       "projektstatus": "Version und Projektstatus",
       "mission": "Unsere Mission",
-      "die-richtung": "Die Richtung · Offenes Buch",
       "baum-des-wissens": "Der fliegende Baum",
       "aussagen": "Aussagenregister",
-      "index": "Auftakt",
+      "index": "Start",
       "atlas": "Wissensatlas",
       "bibliothek": "Bibliothek",
       "lesestueck-wahrheit": "Warum Wahrheit? · Lesestück 01",
@@ -56,7 +55,7 @@ export const ui = {
     "subtitle": project.subtitle.en,
     "menu": "Menu",
     "nav": [
-      "Introduction",
+      "Home",
       "Atlas",
       "Library",
       "Claims",
@@ -77,10 +76,9 @@ export const ui = {
       "werkstatt": "Your Inquiry Worksheet",
       "projektstatus": "Version and Project Status",
       "mission": "Our Mission",
-      "die-richtung": "Die Richtung · Open Book",
       "baum-des-wissens": "The Flying Tree",
       "aussagen": "Claim Register",
-      "index": "Introduction",
+      "index": "Home",
       "atlas": "Atlas of Knowledge",
       "bibliothek": "Library",
       "lesestueck-wahrheit": "Why Truth? · Essay 01",
@@ -103,4 +101,4 @@ export const ui = {
     "description": project.english_name + " Bring a question to the open inquiry workshop. Examine the evidence, test objections and record what would change your mind."
   }
 };
-export const navigation = [["index",0],["werkstatt",6],["atlas",1],["bibliothek",2],["aussagen",3],["methode",4],["mitwirken",5]];
+export const navigation = [["werkstatt",6],["atlas",1],["aussagen",3],["methode",4],["mitwirken",5]];

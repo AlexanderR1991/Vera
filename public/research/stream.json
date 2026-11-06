@@ -16,85 +16,13 @@
     "Crossref/liebe: HTTPError: HTTP Error 429: Too Many Requests",
     "Crossref/kunst: HTTPError: HTTP Error 429: Too Many Requests"
   ],
+  "snapshot_correction": {
+    "basis": "recorded_publication_date_and_placeholder_title",
+    "as_of": "2026-11-05",
+    "original_items": 33,
+    "excluded_items": 5
+  },
   "items": [
-    {
-      "id": "10.16997/jdd.1451",
-      "topic": "gesellschaft",
-      "title": "Title Pending 1451",
-      "date": "2034-05-30",
-      "authors": [],
-      "venue": "Journal of Deliberative Democracy",
-      "url": "https://doi.org/10.16997/jdd.1451",
-      "source": "Crossref bibliographic metadata",
-      "status": "unreviewed",
-      "source_examined": "metadata_only",
-      "agent_notes": {}
-    },
-    {
-      "id": "10.61838/iki.547",
-      "topic": "wirklichkeit",
-      "title": "An Analysis of Twentieth-Century Epistemology: The Turn from Idealism to Realism",
-      "date": "2027-01-01",
-      "authors": [
-        "Mohammadmahdi Naderi"
-      ],
-      "venue": "Islamic Knowledge and Insight",
-      "url": "https://doi.org/10.61838/iki.547",
-      "source": "Crossref bibliographic metadata",
-      "status": "unreviewed",
-      "source_examined": "metadata_only",
-      "agent_notes": {}
-    },
-    {
-      "id": "10.1016/j.jtbi.2026.112599",
-      "topic": "leben",
-      "title": "Echoes before collapse: Deep learning detection of flickering in complex systems",
-      "date": "2027-01-01",
-      "authors": [
-        "Yazdan Babazadeh Maghsoodlo",
-        "Madhur Anand",
-        "Chris T. Bauch"
-      ],
-      "venue": "Journal of Theoretical Biology",
-      "url": "https://doi.org/10.1016/j.jtbi.2026.112599",
-      "source": "Crossref bibliographic metadata",
-      "status": "unreviewed",
-      "source_examined": "metadata_only",
-      "agent_notes": {}
-    },
-    {
-      "id": "10.1016/j.shpsa.2026.102228",
-      "topic": "wirklichkeit",
-      "title": "Can structural realism leave the comfort zone?",
-      "date": "2026-12-01",
-      "authors": [
-        "Michele Pizzochero",
-        "Andrea Oldofredi"
-      ],
-      "venue": "Studies in History and Philosophy of Science",
-      "url": "https://doi.org/10.1016/j.shpsa.2026.102228",
-      "source": "Crossref bibliographic metadata",
-      "status": "unreviewed",
-      "source_examined": "metadata_only",
-      "agent_notes": {}
-    },
-    {
-      "id": "10.1016/j.ailsci.2026.100187",
-      "topic": "ki",
-      "title": "Designing an LLM-based evaluation system for agentic AI in drug discovery through human alignment",
-      "date": "2026-12-01",
-      "authors": [
-        "Emma Granqvist",
-        "Rocío Mercado",
-        "Samuel Genheden"
-      ],
-      "venue": "Artificial Intelligence in the Life Sciences",
-      "url": "https://doi.org/10.1016/j.ailsci.2026.100187",
-      "source": "Crossref bibliographic metadata",
-      "status": "unreviewed",
-      "source_examined": "metadata_only",
-      "agent_notes": {}
-    },
     {
       "id": "10.16997/jdd.2205",
       "topic": "gesellschaft",

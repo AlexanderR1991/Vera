@@ -43,13 +43,13 @@ Respect and strong criticism can coexist. Maintainers can moderate harassment or
 
 Ein konkreter Einspruch kann als öffentliches Issue mit Link zur Entscheidung gestellt werden. Er enthält die betroffene Aussage, den stärksten Einwand, die verlangte Änderung und mögliche Interessenkonflikte. Die Antwort soll die entscheidende Person, Gründe und verbleibende offene Fragen nennen. Redaktionelle Annahme ersetzt keine Fachprüfung.
 
-Wenn ein Einwand eine eigene Entscheidung des Repository-Eigentümers betrifft, ist dessen Antwort **keine unabhängige Einspruchsprüfung**. Eine unabhängige Prüfperson wird erst benannt, wenn sie tatsächlich zugesagt hat. Solange eine solche Prüfung fehlt, bleibt dieser Mangel sichtbar; ausbleibende Antwort oder Zustimmung der KI gilt nicht als Bestätigung. Ein institutionell unabhängiges Verfahren ist weiterhin aufzubauen. Die konkrete Selbstprüfung läuft in [B-02](https://github.com/AlexanderR1991/grundtext-des-wirklichen/issues/29).
+Wenn ein Einwand eine eigene Entscheidung des Repository-Eigentümers betrifft, ist dessen Antwort **keine unabhängige Einspruchsprüfung**. Eine unabhängige Prüfperson wird erst benannt, wenn sie tatsächlich zugesagt hat. Solange eine solche Prüfung fehlt, bleibt dieser Mangel sichtbar; ausbleibende Antwort oder Zustimmung der KI gilt nicht als Bestätigung. Ein institutionell unabhängiges Verfahren ist weiterhin aufzubauen. Die konkrete Selbstprüfung läuft in [B-02](https://github.com/AlexanderR1991/Wirklich/issues/29).
 
 Appeals can be submitted as public issues identifying the decision, objection, requested change and conflicts of interest. The decision-maker should state reasons and unresolved questions. An owner's review of their own decision is not independent. No independent reviewer or appeals institution is claimed before one actually exists.
 
 ## Diskussionsräume / Discussion spaces
 
-In [Discussions](https://github.com/AlexanderR1991/grundtext-des-wirklichen/discussions) können offene Gespräche, Vorstellungsrunden und die Erkundung von Ideen stattfinden. **Issues** bleiben für überprüfbare, konkrete Aufgaben und Fehler; **Pull Requests** für tatsächliche Text- und Codeänderungen.
+In [Discussions](https://github.com/AlexanderR1991/Wirklich/discussions) können offene Gespräche, Vorstellungsrunden und die Erkundung von Ideen stattfinden. **Issues** bleiben für überprüfbare, konkrete Aufgaben und Fehler; **Pull Requests** für tatsächliche Text- und Codeänderungen.
 
 ## Erster Beitrag / Welcome discussion
 

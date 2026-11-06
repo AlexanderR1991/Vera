@@ -1,4 +1,5 @@
 """Offline contract checks for the provenance-first research feed."""
+import datetime as dt
 import json
 from pathlib import Path
 import tempfile
@@ -18,6 +19,10 @@ ARXIV_FEED = '''<feed xmlns="http://www.w3.org/2005/Atom" xmlns:arxiv="http://ar
 
 
 class ResearchContractTest(unittest.TestCase):
+    def setUp(self):
+        self.addCleanup(patch.stopall)
+        patch.object(w, "NOW", dt.datetime(2026, 11, 5, tzinfo=dt.timezone.utc)).start()
+
     def test_clean_removes_html(self):
         self.assertEqual(w.clean("Study <b>of</b> &amp; reality"), "Study of & reality")
 
@@ -32,9 +37,13 @@ class ResearchContractTest(unittest.TestCase):
              "container-title":["Journal of Inquiry"],
              "published":{"date-parts":[[2026,11,1]]}},
             {"DOI":"not-a-doi", "title":["A fake invalid metadata record"]},
+            {"DOI":"10.1234/FUTURE", "title":["Future candidate record"], "published":{"date-parts":[[2027,1,1]]}},
+            {"DOI":"10.1234/UNKNOWN", "title":["Title Pending 1451"], "published":{"date-parts":[[2026,11,1]]}},
         ]}}
-        with patch.object(w, "get_json", return_value=payload):
+        with patch.object(w, "get_json", return_value=payload) as fetch:
             results = w.discover("liebe", "attachment")
+        params = urllib.parse.parse_qs(urllib.parse.urlsplit(fetch.call_args.args[0]).query)
+        self.assertIn("until-pub-date:2026-11-05", params["filter"][0])
         self.assertEqual(len(results), 1)
         row = results[0]
         self.assertEqual(row["url"], "https://doi.org/10.1234/abc")
@@ -62,6 +71,8 @@ class ResearchContractTest(unittest.TestCase):
         self.assertEqual(row["source_examined"], "metadata_only")
         self.assertNotIn("findings", row)
         self.assertNotIn("summary", row)
+        future = ARXIV_FEED.replace("2026-11-01T", "2034-05-30T")
+        self.assertEqual(w.parse_arxiv(future, "kunst"), [])
         legacy = ARXIV_FEED.replace("2611.01234v2", "cs/9901001v1")
         self.assertEqual(w.parse_arxiv(legacy, "ki")[0]["id"], "arxiv:cs/9901001v1")
 
@@ -98,7 +109,7 @@ class ResearchContractTest(unittest.TestCase):
             with self.subTest(failed_source=failed_source), tempfile.TemporaryDirectory() as tmp:
                 target = Path(tmp) / "stream.json"
                 old = {"id":"10.1000/test", "date":"2026-10-30", "agent_notes":{"skeptic":{"test":"Keep me"}}}
-                target.write_text(json.dumps({"items":[old]}), encoding="utf-8")
+                target.write_text(json.dumps({"items":[old, {"id":"bad", "title":"Title Pending 1451", "date":"2034-05-30"}]}), encoding="utf-8")
                 with patch.object(w, "OUT", target), patch.object(w, "API_KEY", ""), \
                      patch.object(w.time, "sleep") as sleep, \
                      patch.object(w, "discover") as crossref, patch.object(w, "discover_arxiv") as arxiv:
@@ -111,6 +122,7 @@ class ResearchContractTest(unittest.TestCase):
                     w.main()
                     result = json.loads(target.read_text())
                     self.assertIn(old, result["items"])
+                    self.assertNotIn("bad", [row["id"] for row in result["items"]])
                     self.assertEqual(result["source_queries"][failed_source], 0)
                     self.assertTrue(result["errors"])
                     self.assertEqual(sum(c.args == (3.1,) for c in sleep.call_args_list), len(w.ARXIV_QUERIES))

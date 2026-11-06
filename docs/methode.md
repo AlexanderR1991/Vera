@@ -1,38 +1,35 @@
 # Methode zur Prüfung von Aussagen
 
-**Arbeitsfassung 0.9 · Ergänzung der ursprünglichen vier didaktischen Einstiege**
-
-Aussageart, Begründungslage und Bearbeitungsstatus werden getrennt beschrieben. Es gibt keine gemeinsame Leiter, auf der ein ethischer Grundsatz zu einem mathematischen Beweis aufsteigt.
-
-| Aussageart | Passende Prüfung |
-| --- | --- |
-| Empirisch, einschließlich historischer Tatsachenfragen | Quellen, Beobachtungen, Methoden, Gegenbefunde und Geltungsbereich |
-| Formal | Axiome, Definitionen und nachvollziehbare Ableitung innerhalb des Systems |
-| Normativ | Werte, Gründe, Konsistenz, Betroffenenperspektiven und Zielkonflikte |
-| Interpretativ | Kontext, Perspektive und alternative Deutungen |
-| Metaphorisch | Erklärungsnutzen und Grenzen des Bildes |
-
-Eine Hypothese benennt einen vorläufigen Stand. Praxis verbindet Werte mit Behauptungen über Wirkungen; beide brauchen eigene Begründungen. Die vier bisherigen Einstiegstexte Wissen, Hypothese, Metapher und Praxis bleiben didaktische Zugänge, keine vollständige Klassifikation.
+Wir entscheiden, welche Fassung wir mit welchen Gründen veröffentlichen. Eine Behauptung kann auch nach der Veröffentlichung falsch sein. Deshalb muss ein Leser erkennen können, worauf sie beruht und was zu ihrer Korrektur führen würde.
 
 ## Verfahren
 
-1. Aussage und Geltungsbereich genau wiedergeben.
-2. Aussageart, Begründungslage und Prüfstatus unterscheiden.
-3. Belege oder Prämissen, Gegenargumente und Alternativen prüfen.
-4. Unsicherheit, Interessenkonflikte und Grenzen offenlegen.
-5. Folgen und Betroffene berücksichtigen; Rechte und Werte nicht in einer Gesamtpunktzahl verstecken.
-6. Behalten, präzisieren, als offen markieren oder zurückziehen — mit nachvollziehbarem Grund und verantwortlicher Person.
+1. **Den Satz festhalten.** Frage, konkreten Wortlaut, Version und Geltungsbereich angeben. Enthält der Satz eine Annahme über die Welt und ein Werturteil, beide getrennt formulieren.
+2. **Die passende Prüfung wählen.** Festhalten, welche Gründe für diese Art von Aussage zählen und welche tatsächlich vorliegen.
+3. **Den stärksten Einwand suchen.** Die Aussage zunächst in ihrer stärksten vertretbaren Lesart prüfen. Gegenbeleg, alternative Deutung oder Zielkonflikt möglichst konkret benennen. Erfundenes als Gedankenbeispiel kennzeichnen.
+4. **Eine Revisionsbedingung nennen.** Welche Beobachtung, welcher Fehler in der Ableitung oder wessen bisher übersehene Perspektive könnte das Urteil ändern? Entsteht dabei eine neue Hypothese, ihre prüfbare Vorhersage festhalten.
+5. **Die Entscheidung begründen.** Beibehalten, eingrenzen, korrigieren, zurückziehen oder offenlassen. Bei einem offenen Fall die fehlende Information oder den verbleibenden Dissens benennen. Bei einer öffentlichen Änderung frühere Fassung, neuen Wortlaut, Grund und redaktionelle Entscheidung verknüpfen.
 
-Im [Aussagenregister](aussagenregister.md) wird dieses Verfahren an drei ungeprüften Einträgen sichtbar. Die [Mission](mission.md) verbindet es mit Entscheidungen und Projektverantwortung.
+| Aussageart | Passende Prüfung |
+| --- | --- |
+| Empirisch, auch historisch | Beobachtungen und Quellen prüfen, Methoden und Geltungsbereich angeben, Gegenbefunde suchen. |
+| Formal | Definitionen und Voraussetzungen angeben. Ableitung Schritt für Schritt prüfen oder unter denselben Voraussetzungen ein Gegenbeispiel konstruieren. |
+| Normativ | Werte begründen, Betroffenenperspektiven einbeziehen und Zielkonflikte offenlegen. |
+| Interpretativ | Deutung an Text, Erfahrung oder Kontext prüfen. Plausible Gegenlesarten vergleichen. |
+| Metaphorisch | Zeigen, was das Bild erklärt und wo die wörtliche Lesart in die Irre führt. |
+
+**Aussageart, Begründungslage und Prüfstatus** beantworten verschiedene Fragen. Eine Hypothese ist vorläufig. Ein abgeschlossener Review beschreibt eine Tätigkeit und ihren Umfang. Wie belastbar der geprüfte Satz ist, hängt von den Gründen ab. Öffentlich sichtbar wird diese Trennung im [Aussagenregister](aussagenregister.md).
+
+## Eine wirkliche Korrektur
+
+These 05 empfiehlt, so zu helfen, dass der andere seine eigene Kraft findet. Im Register stand bereits der Einwand, dass dies Menschen mit dauerhaftem Unterstützungsbedarf ausschließen könnte. Am 5. November 2026 hat das Projekt im Grundtext klargestellt, dass dauerhafte Unterstützung wertvoll ist und Fürsorge von erreichbarer Selbstständigkeit unabhängig bleibt. Die Registerfassung G-005 v2 verknüpft die frühere und die ergänzte Fassung. Eine fachliche Prüfung ist weiter offen. [Änderungsvergleich](https://github.com/AlexanderR1991/Wirklich/pull/31/files) · [Fall Schritt für Schritt](https://alexanderr1991.github.io/Wirklich/de/methode/#g-005)
+
+Ob dieses Verfahren bessere Entscheidungen ermöglicht als gewöhnliche Quellenprüfung, bleibt eine offene empirische Frage. Der Vergleich ist als [Evaluationsentwurf](evaluation-v1.md) dokumentiert. Einwände und Änderungsvorschläge folgen dem [Redaktionsverfahren](community-governance.md). Der [Erkenntnisprompt](erkenntnisprompt.md) überträgt die Fragen auf die Arbeit mit KI.
 
 ## English
 
-Separate claim type, support and review status. Empirical claims need evidence; formal claims need explicit premises and derivation; ethical judgments need reasons and affected perspectives; interpretations need context; metaphors need clear limits. Hypotheses describe a provisional state. Practical proposals combine empirical and normative questions.
+Record the exact claim, its scope and the version being examined. Separate assumptions about the world from value judgments. Choose a test suited to the claim. Compare evidence for empirical claims, check premises and derivations for formal ones, examine values and affected perspectives for normative ones, compare readings for interpretations and identify the limits of metaphors.
 
-The process and its usefulness also require examination. It is not an established independent peer-review system, and a review label does not certify truth.
+Give the strongest fair objection and say what would change your mind. If existing findings suggest a new hypothesis, state a prediction that could distinguish it from another explanation. Retain, narrow, correct or withdraw the original claim, or name the question that remains open. A published correction should connect the old wording, the reason for the change, the new wording and the editorial decision.
 
-## Stellt uns Fragen! / Ask us questions!
-
-Verständnisfragen und Einwände gegen die Methode selbst sind willkommen. Der [öffentliche Erkenntnisprompt](erkenntnisprompt.md) überträgt dieses Prüfverfahren in ein kopierbares KI-Gespräch. Er fordert auch die Prüfung seiner eigenen Regeln; eine Verbesserung der Antwortqualität ist damit noch nicht nachgewiesen.
-
-Questions and challenges to the method itself are welcome. The [public inquiry prompt](erkenntnisprompt.md) makes this procedure available for AI conversations and includes scrutiny of its own rules. Improved answer quality has not yet been demonstrated.
+Thesis 05 shows what this looks like. The register had already raised an objection about people who need lasting support. The project then amended the foundational text to make clear that care and dignity must not depend on attainable independence. G-005 v2 records the change. The example shows an editorial revision. Independent expert review and the comparative evaluation of the method are still pending. [Worked example](https://alexanderr1991.github.io/Wirklich/en/methode/#g-005) · [Evaluation design](evaluation-v1.md) · [Editorial process and appeals](community-governance.md)

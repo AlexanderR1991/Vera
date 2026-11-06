@@ -47,7 +47,7 @@ def clean(value, limit=380):
 
 def get_json(url):
     req = urllib.request.Request(url, headers={
-        "User-Agent": "Grundtext-Wahrheitsschwarm/1.0 (https://github.com/AlexanderR1991/grundtext-des-wirklichen)",
+        "User-Agent": "Grundtext-Wahrheitsschwarm/1.0 (https://github.com/AlexanderR1991/Wirklich)",
         "Accept": "application/json",
     })
     with urllib.request.urlopen(req, timeout=25) as response:
@@ -65,11 +65,19 @@ def pub_date(item):
                 pass
     return ""
 
+def eligible_metadata(date, title, cutoff):
+    """Only display already-dated records with no known placeholder title."""
+    try:
+        published = dt.date.fromisoformat(date)
+    except (TypeError, ValueError):
+        return False
+    return published <= cutoff and not re.fullmatch(r"title pending(?: [0-9]+)?", title, re.I)
+
 def discover(topic, query):
     since = (NOW - dt.timedelta(days=45)).date().isoformat()
     params = urllib.parse.urlencode({
         "query.bibliographic": query,
-        "filter": "type:journal-article,from-pub-date:" + since,
+        "filter": f"type:journal-article,from-pub-date:{since},until-pub-date:{NOW.date()}",
         "rows": 5,
         "select": "DOI,title,author,published,published-online,published-print,issued,container-title,type",
     })
@@ -80,13 +88,14 @@ def discover(topic, query):
         if not DOI.fullmatch(doi):
             continue
         title = clean((item.get("title") or [""])[0], 250)
-        if len(title) < 15:
+        date = pub_date(item)
+        if len(title) < 15 or not eligible_metadata(date, title, NOW.date()):
             continue
         authors = [clean(" ".join([p.get("given", ""), p.get("family", "")]), 100)
                    for p in item.get("author", [])[:5]]
         found.append({
             "id": doi, "topic": topic, "title": title,
-            "date": pub_date(item),
+            "date": date,
             "authors": [a for a in authors if a],
             "venue": clean((item.get("container-title") or [""])[0], 150),
             "url": "https://doi.org/" + urllib.parse.quote(doi, safe="/:._-()"),
@@ -112,11 +121,8 @@ def parse_arxiv(payload, topic):
                 or not ARXIV_ID.fullmatch(identifier)):
             continue
         title = clean(entry.findtext(ATOM + "title", ""), 250)
-        if len(title) < 15:
-            continue
-        try:
-            published = dt.date.fromisoformat(entry.findtext(ATOM + "published", "")[:10]).isoformat()
-        except ValueError:
+        published = entry.findtext(ATOM + "published", "")[:10]
+        if len(title) < 15 or not eligible_metadata(published, title, NOW.date()):
             continue
         authors = [clean(author.findtext(ATOM + "name", ""), 100)
                    for author in entry.findall(ATOM + "author")[:5]]
@@ -140,7 +146,7 @@ def discover_arxiv(topic, query):
         "start": 0, "max_results": 5, "sortBy": "submittedDate", "sortOrder": "descending",
     })
     req = urllib.request.Request("https://export.arxiv.org/api/query?" + params, headers={
-        "User-Agent": "Grundtext-Wahrheitsschwarm/1.1 (https://github.com/AlexanderR1991/grundtext-des-wirklichen)",
+        "User-Agent": "Grundtext-Wahrheitsschwarm/1.1 (https://github.com/AlexanderR1991/Wirklich)",
         "Accept": "application/atom+xml",
     })
     with urllib.request.urlopen(req, timeout=25) as response:
@@ -204,7 +210,8 @@ def load_old():
 def main():
     old = load_old()
     papers = {item["id"]: item for item in old["items"]
-              if isinstance(item, dict) and item.get("id")}
+              if isinstance(item, dict) and item.get("id")
+              and eligible_metadata(item.get("date"), item.get("title", ""), NOW.date())}
     fresh, errors, successful = [], [], 0
     source_success = {"Crossref": 0, "arXiv": 0}
     for topic, query in TOPICS.items():

@@ -4,19 +4,22 @@ import {pathFor} from "../lib/paths.mjs";
 import project from "../../public/project.json" with {type: "json"};
 ---
 <Layout lang="de" root={true}>
-<section class="locale-landing"><div class="narrow">
-<div class="locale-landing__symbol">◇</div>
-<p class="section-kicker">{project.name} / <span lang="en">{project.english_name}</span> · {project.version}</p>
-<p class="locale-landing__premise">Die Menschheit hat über Jahrtausende versucht, Bücher zu schreiben, die für immer recht haben.</p>
-<h1 class="locale-landing__question">Was wäre, wenn wir eines schreiben,<br/><em>das für immer lernen darf?</em></h1>
-<div class="locale-landing__translation" lang="en">
-<p>For thousands of years, humanity has tried to write books that would be right forever.</p>
-<p class="locale-landing__translation-question">What if we wrote one that could keep learning forever?</p>
-</div>
-<p class="locale-landing__invite">Fragen stellen. Wissen prüfen. Verantwortlich handeln.<br/>Ask questions. Examine knowledge. Act responsibly.</p>
-<div class="locale-landing__links">
-<a href={pathFor("de")}>Deutsch <span>{project.name} · Originalfassung ↗</span></a>
-<a href={pathFor("en")} lang="en">English <span>{project.english_name} · Translation draft ↗</span></a>
-</div><p class="small-note">Weitere Sprachen können später folgen. / More languages may follow.</p>
-</div></section>
+  <section class="locale-landing" aria-labelledby="welcome-title">
+    <div class="narrow">
+      <p class="section-kicker">{project.subtitle.de} · <span lang="en">{project.subtitle.en}</span></p>
+      <h1 id="welcome-title">{project.name} <span aria-hidden="true">/</span> <em lang="en">{project.english_name}</em></h1>
+      <p>Welche Frage beschäftigt dich? Untersuche sie selbst oder bring sie in die Werkstatt.</p>
+      <p lang="en">What’s on your mind? Work through a question on your own or bring it to the workshop.</p>
+      <nav class="locale-landing__links" aria-label="Sprache wählen / Choose a language">
+        <a href={pathFor("de")} lang="de" hreflang="de">Deutsch <span>Zur Werkstatt · Originalfassung →</span></a>
+        <a href={pathFor("en")} lang="en" hreflang="en">English <span>Enter the workshop · Translation draft →</span></a>
+      </nav>
+    </div>
+  </section>
 </Layout>
+
+<style>
+  .locale-landing h1 { font-size: clamp(2.65rem, 7vw, 5.5rem); }
+  .locale-landing h1 span { color: var(--gold); font-size: .65em; }
+  .locale-landing__links { margin-bottom: 0; }
+</style>

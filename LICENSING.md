@@ -35,7 +35,7 @@ control independent adaptations made under this license.
 
 ### Die Richtung · Open book text edition
 
-The explicitly released text-only edition `public/books/die-richtung-2.0-lesefassung.txt` contains an extraction from the author's 196-page book, including chapter prose, descriptions and art credits. The original prose is offered under **CC BY-SA 4.0** to the extent the author/contributors have rights to license it. The separately provided illustrated PDF is **not hosted in this repository**; neither artwork reproductions nor independently protected third-party content are relicensed by this notice. The extraction has not undergone line-by-line proofreading against the designed PDF. The book is a historical/intellectual origin, not a peer-reviewed scientific source.
+The explicitly released text-only edition `docs/archiv/die-richtung-2.0-lesefassung.txt` contains an extraction from the author's 196-page book, including chapter prose, descriptions and art credits. The original prose is offered under **CC BY-SA 4.0** to the extent the author/contributors have rights to license it. The separately provided illustrated PDF is **not hosted in this repository**; neither artwork reproductions nor independently protected third-party content are relicensed by this notice. The extraction has not undergone line-by-line proofreading against the designed PDF. The book is a historical/intellectual origin, not a peer-reviewed scientific source.
 
 ## B · Software / Quellcode
 
@@ -84,7 +84,7 @@ MIT must not be interpreted to relicense book prose.
 Suggested credit for substantial reuse of original text:
 
 > Based on "Grundtext des Wirklichen" (AlexanderR1991 and contributors),
-> https://github.com/AlexanderR1991/grundtext-des-wirklichen,
+> https://github.com/AlexanderR1991/Wirklich,
 > licensed under CC BY-SA 4.0. Changes: [describe].
 
 For software reuse, preserve the MIT copyright and license notice from

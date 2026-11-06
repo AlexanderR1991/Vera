@@ -59,7 +59,7 @@ if(form){
    if(gedanke.length<10)return;
    const title="["+art+"] "+(stelle||"Allgemeiner Beitrag");
    const body="## Art des Beitrags\n"+art+"\n\n## Betroffene Stelle\n"+(stelle||"Allgemein")+"\n\n## Gedanke / Einwand\n"+gedanke+"\n\n## Quellen und mögliche Korrektur\n[Optional ergänzen]\n";
-   const url="https://github.com/AlexanderR1991/grundtext-des-wirklichen/issues/new?title="+encodeURIComponent(title)+"&body="+encodeURIComponent(body);
+   const url="https://github.com/AlexanderR1991/Wirklich/issues/new?title="+encodeURIComponent(title)+"&body="+encodeURIComponent(body);
    window.location.assign(url);
  });
 }

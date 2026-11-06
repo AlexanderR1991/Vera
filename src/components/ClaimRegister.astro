@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/SiteLayout.astro";
-import {pathFor,base} from "../lib/paths.mjs";
+import {absoluteFor,pathFor,base} from "../lib/paths.mjs";
+import project from "../../public/project.json";
 import register from "../../public/knowledge/claims.json";
 import "../styles/mission.css";
 const {lang="de"}=Astro.props;
@@ -40,7 +41,11 @@ const support={value_commitment:t("Wertentscheidung","Value commitment"),concept
     <p>{t("Modellversion: ","Model version: ")}{c.ai_assistance.model||t("nicht erfasst","not recorded")}</p>
     <ul>{c.history.map(h=><li>v{h.version} · {h.date} · {h.change[lang]}</li>)}</ul>
    </details>
-   <a class="button button--ghost" href={"https://github.com/AlexanderR1991/grundtext-des-wirklichen/issues/new?template=angriff.yml&title="+encodeURIComponent("["+c.id+" v"+c.version+"] "+t("Begründeter Einwand","Reasoned objection"))}>{t("Diesen Eintrag kritisieren ↗","Challenge this entry ↗")}</a>
+   <a class="button button--ghost" href={project.repository + "/issues/new?" + new URLSearchParams({
+    template: "angriff.yml",
+    title: `[${c.id} v${c.version}] ${t("Begründeter Einwand", "Reasoned objection")}`,
+    source: `${absoluteFor(lang, "aussagen")}#${c.id} · ${c.id} v${c.version} · ${c.statement[lang]}`
+   })}>{t("Diesen Eintrag kritisieren ↗","Challenge this entry ↗")}</a>
   </section>)}
  </article>
 </Layout>

@@ -1,2 +1,0 @@
-Grundtext des Wirklichen - Website Release 0.2
-Wenn diese Datei unter https://alexanderr1991.github.io/grundtext-des-wirklichen/site-check.txt lesbar ist, liefert GitHub Pages Dateien aus diesem Repository aus.

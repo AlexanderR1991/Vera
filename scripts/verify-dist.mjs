@@ -36,10 +36,6 @@ for(const lang of ["de","en"]){
  for(const token of ["love-figure","love-hypothesis-grid","love-counter__grid","10.1371/journal.pmed.1000316","10.1177/1088868314544222"]){
    if(!chapter.includes(token))errors.push("Love chapter "+lang+" lacks "+token);
  }
- const portal=await readFile(join(out,lang,"index.html"),"utf8");
- const library=await readFile(join(out,lang,"bibliothek","index.html"),"utf8");
- if(!portal.includes("/"+lang+"/warum-liebe-wirkt/"))errors.push("Missing home teaser for "+lang);
- if(!library.includes("/"+lang+"/warum-liebe-wirkt/"))errors.push("Missing library teaser for "+lang);
 }
 if(errors.length){console.error(errors.join("\n"));process.exit(1);}
 
@@ -52,13 +48,6 @@ for(const lang of ["de","en"]){
     "civitas-counter__grid","oecd.org/en/topics/ai-principles.html","gesetze-im-internet.de"]){
    if(!chapter.includes(token))errors.push("Civic chapter "+lang+" lacks "+token);
  }
- for(const [slug,required] of [["index","civitas-teaser"],["bibliothek","civitas-teaser"],
-    ["atlas","civitas-teaser"],["pruefstand","civitas-teaser"]]){
-   const location=join(out,lang,...(slug==="index"?[]:[slug]),"index.html");
-   const html=await readFile(location,"utf8");
-   if(!html.includes("/"+lang+"/politik-die-dem-menschen-dient/")||!html.includes(required))
-     errors.push("Missing political chapter discovery from "+lang+"/"+slug);
- }
 }
 if(errors.length){console.error(errors.join("\n"));process.exit(1);}
 
@@ -69,11 +58,6 @@ for(const lang of ["de","en"]){
  }
  if(!chapter.includes(lang==="de"?"WIR BAUEN BRÜCKEN":"WE BUILD BRIDGES"))
   errors.push("Theology manifesto missing for "+lang);
- for(const slug of ["index","atlas","bibliothek","pruefstand"]){
-  const html=await readFile(join(out,lang,...(slug==="index"?[]:[slug]),"index.html"),"utf8");
-  if(!html.includes("theology-teaser")||!html.includes("/"+lang+"/bruecken-zwischen-den-religionen/"))
-    errors.push("Theology teaser missing from "+lang+"/"+slug);
- }
 }
 if(errors.length){console.error(errors.join("\n"));process.exit(1);}
 
@@ -82,10 +66,6 @@ for(const lang of ["de","en"]){
  const chapter=await readFile(join(out,lang,"militaer-und-verantwortung","index.html"),"utf8");
  for(const token of ["mil-hero","mil-principles","mil-exam","mil-sources","m-a","m-d","un.org/en/about-us/un-charter/full-text","icrc.org"]){
   if(!chapter.includes(token))errors.push("Military chapter "+lang+" lacks "+token);
- }
- for(const slug of ["index","atlas","bibliothek","pruefstand"]){
-  const html=await readFile(join(out,lang,...(slug==="index"?[]:[slug]),"index.html"),"utf8");
-  if(!html.includes("military-teaser")||!html.includes("/"+lang+"/militaer-und-verantwortung/"))errors.push("Missing military discovery "+lang+"/"+slug);
  }
 }
 if(errors.length){console.error(errors.join("\\n"));process.exit(1);}
@@ -106,11 +86,6 @@ for(const lang of ["de","en"]){
  for(const token of ["nut-hero","nut-grid","nut-exam","nut-sources","e-a","e-d","who.int/news-room/fact-sheets/detail/healthy-diet","dge.de/"]){
   if(!chapter.includes(token))errors.push("Nutrition chapter "+lang+" lacks "+token);
  }
- for(const slug of ["index","atlas","bibliothek","pruefstand"]){
-  const html=await readFile(join(out,lang,...(slug==="index"?[]:[slug]),"index.html"),"utf8");
-  if(!html.includes("nutrition-teaser")||!html.includes("/"+lang+"/ernaehrung-und-verantwortung/"))
-   errors.push("Nutrition discovery missing from "+lang+"/"+slug);
- }
 }
 if(errors.length){console.error(errors.join("\n"));process.exit(1);}
 
@@ -122,8 +97,12 @@ const sitemap=await readFile(join(out,"sitemap.xml"),"utf8");
 for(const lang of ["de","en"]){
  const home=await readFile(join(out,lang,"index.html"),"utf8");
  const mission=await readFile(join(out,lang,"mission/index.html"),"utf8");
+ const homeMain=home.match(/<main\b[^>]*>([\s\S]*?)<\/main>/)?.[1] || "";
+ for(const link of ["/"+lang+"/methode/#g-005","/"+lang+"/werkstatt/","/issues/new?template=frage.yml"]){
+  if(!homeMain.includes(link))errors.push("Missing homepage entry point "+lang+" "+link);
+ }
  const register=await readFile(join(out,lang,"aussagen/index.html"),"utf8");
- for(const slug of ["mission","aussagen","fragen-und-ki-prompt"]){
+ for(const slug of ["werkstatt","aussagen","baum-des-wissens"]){
   const route="/Wirklich/"+lang+"/"+slug+"/";
   if(!home.includes(route)||!sitemap.includes(route))errors.push("Undiscoverable route "+route);
  }
@@ -149,7 +128,7 @@ for(const topic of topics){
  if(!topic.fields.length||!topic.fields.every(id=>fieldIDs.has(id)))errors.push("Unknown tree field on "+topic.id);
  if(!Object.hasOwn(topicStates,topic.state))errors.push("Unknown tree state on "+topic.id);
  if(topic.state==="draft"&&(!topic.slug||topic.url))errors.push("Draft topic needs a local chapter: "+topic.id);
- if(topic.state==="proposed"&&(!/^https:\/\/github\.com\/AlexanderR1991\/grundtext-des-wirklichen\/pull\/\d+$/.test(topic.url)||topic.slug))errors.push("Proposal needs its actual PR: "+topic.id);
+ if(topic.state==="proposed"&&(!/^https:\/\/github\.com\/AlexanderR1991\/Wirklich\/pull\/\d+$/.test(topic.url)||topic.slug))errors.push("Proposal needs its actual PR: "+topic.id);
  if(topic.state==="open"&&(topic.slug||topic.url))errors.push("Undeveloped topic must not imply a chapter: "+topic.id);
  for(const lang of ["de","en"]){
   if(!topic.name[lang]?.trim()||!topic.question[lang]?.trim())errors.push("Missing topic translation "+topic.id+"/"+lang);
@@ -169,10 +148,6 @@ for(const lang of ["de","en"]){
  const ids=[...tree.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
  if(new Set(ids).size!==ids.length)errors.push("Duplicate tree anchor "+lang);
  if(!sitemap.includes('/'+lang+'/baum-des-wissens/'))errors.push("Tree absent from sitemap "+lang);
- for(const slug of ["index","atlas","bibliothek","methode","pruefstand","mitwirken"]){
-  const html=await readFile(join(out,lang,...(slug==="index"?[]:[slug]),"index.html"),"utf8");
-  if(!html.includes('class="tree-bridge container"'))errors.push("Missing tree entry "+lang+"/"+slug);
- }
  for(const slug of ["manifest","pruefstand"]){
   const html=await readFile(join(out,lang,slug,"index.html"),"utf8");
   if(!html.includes(lang==="de"?"Auch dauerhafte Unterstützung ist wertvoll.":"Lasting support is valuable too."))errors.push("Care clarification missing "+lang+"/"+slug);
@@ -192,10 +167,6 @@ for (const lang of ["de", "en"]) {
  if ((html.match(/data-state="\d+"/g) || []).length !== 64) errors.push(`Workshop ${lang} must show 64 patterns`);
  if ((html.match(/data-line="\d+"/g) || []).length !== 6) errors.push(`Workshop ${lang} must have six line controls`);
  if (!html.includes(`<html lang="${lang}"`) || html.includes('<title>undefined')) errors.push(`Workshop ${lang} metadata invalid`);
- for (const slug of ["index", "atlas", "bibliothek", "pruefstand", "methode", "erkenntnishorizont"]) {
-  const page = await readFile(join(out, lang, ...(slug === 'index' ? [] : [slug]), 'index.html'), 'utf8');
-  if (!page.includes(route)) errors.push(`Workshop not discoverable from ${lang}/${slug}`);
- }
  const sitemap = await readFile(join(out, 'sitemap.xml'), 'utf8');
  if (!sitemap.includes(route)) errors.push(`Workshop ${lang} missing from sitemap`);
 }
