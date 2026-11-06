@@ -1,0 +1,70 @@
+---
+import { pathFor } from "../lib/paths.mjs";
+
+const { lang } = Astro.props;
+const t = (de, en) => lang === "de" ? de : en;
+const steps = [
+  [t("Stimmen hören", "Hear from people"), t("Wer erlebt das Problem? Wessen Blick fehlt?", "Who experiences the problem? Whose perspective is missing?")],
+  [t("Die Frage klären", "Frame the question"), t("Welche Frage meinen wir? Würden Betroffene sie anders stellen?", "What are we asking? Would the people affected put it differently?")],
+  [t("Die Aussage fassen", "State the claim"), t("Was genau behaupten wir? Für welchen Fall soll das gelten?", "What exactly are we claiming? Where should it apply?")],
+  [t("Gründe prüfen", "Examine the reasons"), t("Was trägt die Aussage? Ein Beweis, eine Beobachtung, ein begründeter Wert? Was spricht dagegen?", "What supports the claim? A proof, an observation, a reason to uphold a value? What counts against it?")],
+  [t("Den Stand festhalten", "Record where we stand"), t("Was trägt unter welchen Bedingungen? Worauf einigen wir uns? Welcher Einwand bleibt offen?", "What holds, and under which conditions? Where do we agree? Which objection remains open?")],
+  [t("Anwenden und beobachten", "Act and observe"), t("Welchen Schritt wählen wir? Was erwarten wir, und was geschieht tatsächlich?", "What step do we choose? What do we expect, and what actually happens?")]
+];
+---
+<section class="section motor" id="erkenntnismotor" aria-labelledby="motor-title">
+  <div class="container">
+    <p class="section-kicker">{t("DIE WERKSTATT IM ÜBERBLICK", "THE WORKSHOP AT A GLANCE")}</p>
+    <h2 id="motor-title">{t("Der Weg einer Frage", "The path of a question")}</h2>
+    <figure>
+      <ol>{steps.map(([title, text], i) => <li>
+        <span class="number" aria-hidden="true">0{i + 1}</span><h3>{title}</h3><p>{text}</p>
+        {i === 0 && <span class="return-tip" aria-hidden="true">▸</span>}
+        {i < steps.length - 1 && <span class="arrow" aria-hidden="true">→</span>}
+      </li>)}</ol>
+      <figcaption><span aria-hidden="true">↺</span> {t("Zurück zur Frage. Ein neuer Einwand oder eine unerwartete Folge kann die nächste Prüfung auslösen.", "Back to the question. A new objection or an unexpected outcome can set the next review in motion.")}</figcaption>
+    </figure>
+    <details><summary>{t("Was übernehmen Werkzeuge und KI, was entscheiden Menschen?", "Where do tools and AI help, and who makes decisions?")}</summary>
+      <ul>
+        <li><a href={pathFor(lang, "erkenntnisnavigator")}>{t("Erkenntnisnavigator", "Knowledge navigator")}</a> · {t("Vier redaktionelle Musterkarten verbinden Fragen aus verschiedenen Themen. Du prüfst selbst, ob die Voraussetzungen im eigenen Fall gelten.", "Four editorial pattern cards connect questions across subjects. You check whether their conditions hold in your case.")}</li>
+        <li><a href={pathFor(lang, "werkstatt")}>{t("Persönliches Prüfblatt", "Personal worksheet")}</a> · {t("Dein Entwurf bleibt im Browser. Einen Beitrag zur öffentlichen Prüfung reichst du selbst auf GitHub ein.", "Your draft stays in your browser. To request public review, you submit a contribution on GitHub yourself.")}</li>
+        <li><a href={pathFor(lang, "forschungsstrom")}>{t("Forschungsstrom", "Research stream")}</a> · {t("Die Suche sammelt Quellenhinweise. Über Änderungen am veröffentlichten Text entscheidet der Maintainer und dokumentiert die Gründe.", "The search gathers leads to sources. The maintainer decides on changes to published text and records the reasons.")}</li>
+        <li><a href={pathFor(lang, "gegenprobe-01")}>{t("Gegenprobe 01 mit der eigenen KI", "Challenge 01 with your own AI")}</a> · {t("Lass einen Einwand zu G-005 entwerfen. Du prüfst ihn und kannst ihn öffentlich einreichen.", "Ask for an objection to G-005. You examine it and can submit it publicly.")}</li>
+      </ul>
+    </details>
+    <a class="subtle-link" href="#g-005">{t("Am Beispiel G-005 sehen, wie ein Einwand den Text verändert hat", "See how an objection changed the wording of G-005")} ↓</a>
+  </div>
+</section>
+<style>
+  .motor { border-bottom: 1px solid var(--line); }
+  figure { margin: 2rem 0 1.5rem; }
+  ol { --gap: 2.3rem; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap); padding: 0 0 0 1rem; list-style: none; }
+  li { position: relative; }
+  ol li { background: var(--ink2); border-top: 1px solid var(--gold); padding: 1rem 1.15rem; }
+  ol li:nth-child(4) { grid-area: 2 / 3; }
+  ol li:nth-child(5) { grid-area: 2 / 2; }
+  ol li:nth-child(6) { grid-area: 2 / 1; }
+  ol li:first-child::before, ol li:last-child::before { content: ""; position: absolute; right: 100%; width: 1rem; height: calc(50% + var(--gap) / 2 + 1px); border-left: 1px dashed var(--gold); }
+  ol li:first-child::before { top: 50%; border-top: 1px dashed var(--gold); }
+  ol li:last-child::before { bottom: 50%; border-bottom: 1px dashed var(--gold); }
+  .return-tip { position: absolute; right: 100%; top: 50%; transform: translateY(-50%); color: var(--gold-bright); line-height: 1; }
+  .number { color: var(--gold-bright); font-variant-numeric: tabular-nums; }
+  h3 { font-size: 1.4rem; line-height: 1.25; margin: .35rem 0; }
+  li p { line-height: 1.5; margin: 0; }
+  .arrow { position: absolute; display: grid; place-items: center; width: var(--gap); left: 100%; top: 50%; transform: translateY(-50%); color: var(--gold-bright); }
+  li:nth-child(3) .arrow { left: 50%; top: 100%; height: var(--gap); transform: translateX(-50%) rotate(90deg); }
+  li:nth-child(4) .arrow, li:nth-child(5) .arrow { left: auto; right: 100%; transform: translateY(-50%) rotate(180deg); }
+  figcaption { color: var(--gold-bright); }
+  figcaption span { font-size: 1.35em; }
+  details { margin: 1rem 0; }
+  summary { cursor: pointer; color: var(--text); width: fit-content; }
+  details ul { max-width: 72ch; padding-inline-start: 1.25rem; }
+  details li + li { margin-top: .65rem; }
+  details a { color: var(--gold-bright); text-decoration: underline; }
+  @media (max-width: 48rem) {
+    ol { --gap: 1.75rem; grid-template-columns: minmax(0, 1fr); }
+    ol li:nth-child(n) { grid-area: auto; }
+    ol li:not(:first-child):not(:last-child)::before { content: ""; position: absolute; left: -1rem; top: calc(var(--gap) / -2 - 1px); height: calc(100% + var(--gap) + 2px); border-left: 1px dashed var(--gold); }
+    ol li:nth-child(n) .arrow { left: 50%; right: auto; top: 100%; height: var(--gap); transform: translateX(-50%) rotate(90deg); }
+  }
+</style>
