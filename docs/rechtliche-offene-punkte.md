@@ -6,10 +6,9 @@ Die Website enthält nun ein deutlich als **unvollständig** gekennzeichnetes [I
 
 ## Was zwingend vor voller rechtlicher Freigabe offen ist
 
-- [ ] **Vollständiger bürgerlicher Vor- und Nachname** des verantwortlichen Diensteanbieters bestimmen und ins Impressum eintragen. `AlexanderR1991` ist nur ein GitHub-Benutzername.
-- [ ] **Ladungsfähige Anschrift** (Straße, Hausnummer, PLZ, Ort) im Impressum veröffentlichen. **Kein Postfach und keine erfundene Adresse.** Wer die private Wohnadresse schützen möchte, sollte vorab eine rechtlich geeignete alternative Geschäfts- oder c/o-Zustellanschrift mit verlässlicher Zustellmöglichkeit prüfen. **Niemals ungefragt private Anschriften in GitHub-Commits schreiben:** das Repository und seine Historie sind öffentlich.
-- [ ] **Erreichbarkeit** prüfen: Ist die bisher als PayPal-Adresse veröffentlichte E-Mail auch für rechtliche und datenschutzrechtliche Anfragen bestimmt? Gegebenenfalls gesonderte erreichbare Projekt-Kontaktadresse anlegen und im Impressum / Datenschutztext ersetzen. Für `§ 5 DDG` kann zusätzlich zur E-Mail ein weiterer unmittelbarer Kommunikationsweg notwendig sein; rechtlich prüfen.
-- [ ] **Redaktionelle Verantwortlichkeit nach § 18 Abs. 2 MStV** einzelfallbezogen klären; bei Anwendbarkeit vollständige gesetzliche Angaben aufnehmen.
+- [ ] **Ladungsfähige Anschrift.** Der Betreiber lässt sie vorerst offen. Das Impressum bleibt deshalb unvollständig. Vor einer Ergänzung ist zu klären, unter welcher Anschrift eine förmliche Zustellung möglich ist. Eine konkrete Anschrift darf erst mit ausdrücklicher Freigabe ins öffentliche Repository aufgenommen werden.
+- [ ] **Weitere Kontaktmöglichkeit.** Falls § 5 DDG anwendbar ist, prüfen, ob zusätzlich zur veröffentlichten E-Mail-Adresse ein weiterer unmittelbarer Kommunikationsweg erforderlich ist.
+- [ ] **Redaktionelle Verantwortlichkeit.** Prüfen, ob § 18 Abs. 2 MStV auf das Angebot anwendbar ist. In diesem Fall ist auch für den redaktionell Verantwortlichen die Anschrift zu ergänzen.
 - [ ] **PayPal-Kontoart und erlaubte Nutzung schriftlich mit PayPal klären** (Privat-/Geschäftskonto, Fundraiser-Produkt, Limits, Rückbuchungen). Vorher keine neue Zahlungsaufforderung freischalten.
 - [ ] **Steuerrechtlich prüfen:** Schenkung vs. Einkommen aus nachhaltiger Tätigkeit, mögliche Gewerbe-/Freiberuflichkeit, Meldungen und Steuern. Projektzahlungen von privaten Zahlungen getrennt dokumentieren; keine steuerlichen Spendenquittungen behaupten.
 - [ ] **Datenschutztext gegen wirklichen Betrieb prüfen:** Hosting, GitHub-Abrufe, Browser-Speicherung, GitHub-Issues, genutzter Mailanbieter und tatsächliche Löschfristen; externe juristische Prüfung bei Änderungen.
@@ -19,7 +18,7 @@ Die Website enthält nun ein deutlich als **unvollständig** gekennzeichnetes [I
 ## Was bereits umgesetzt ist
 
 1. Impressum und Datenschutz an allen Seiten im Footer sichtbar; über die Sitemap auffindbar.
-2. Private Anschrift und amtlicher Klarname wurden **nicht geraten oder veröffentlicht**.
+2. Impressum und Datenschutzhinweise nennen Alexander Radke als Betreiber und Verantwortlichen für die Datenverarbeitung. Für Rechts- und Datenschutzanfragen ist die bereits veröffentlichte Kontakt-E-Mail angegeben.
 3. Zahlungen sind auf der Website ausgesetzt; kein Checkout und keine direkte PayPal-Zahlungsaufforderung.
 4. Kein Status als eingetragener oder gemeinnütziger Träger, keine steuerlich abzugsfähigen Spenden und keine Zuwendungsbestätigung behauptet.
 5. Die Datenschutzhinweise beschreiben ausdrücklich die IP-Protokollierung durch GitHub Pages, öffentliche GitHub-Issues, den Abruf der Forschungsdaten von `raw.githubusercontent.com` und den nutzerseitigen `localStorage`-Speicherknopf.
@@ -37,4 +36,4 @@ Die Website enthält nun ein deutlich als **unvollständig** gekennzeichnetes [I
 
 ## English summary
 
-The public payment request is paused until the operator's full legal name, serviceable address, payment account eligibility, tax classification, and necessary legal notices are verified. The website now links to bilingual legal and privacy notices. Missing facts remain explicitly marked as missing; no personal address has been invented or published. An appropriately qualified legal/tax review is still needed before relaunching financial support.
+The bilingual legal and privacy notices name Alexander Radke as the operator and data controller and give his existing public contact email for legal and privacy enquiries. The operator has deferred publication of an address for service, so the legal notice remains incomplete. Public payment requests remain paused pending completion of the legal notice and clarification of payment account eligibility and tax treatment.
