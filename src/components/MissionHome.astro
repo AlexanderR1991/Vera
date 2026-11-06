@@ -26,7 +26,10 @@ const t = copy[lang];
         <div class="example-heading"><p>{t.exampleLabel}</p><span>{t.exampleId}</span></div>
         <h2 id="home-example-title">{t.exampleTitle}</h2>
         <p class="example-body">{t.exampleText}</p>
-        <a class="home-link" href={pathFor(lang, "methode") + "#g-005"}>{t.exampleLink} <span aria-hidden="true">→</span></a>
+        <div class="button-row">
+          <a class="home-link" href={pathFor(lang, "methode") + "#g-005"}>{t.exampleLink} <span aria-hidden="true">→</span></a>
+          <a class="home-link" href={pathFor(lang, "gegenprobe-01")}>{lang === "de" ? "Mit deiner KI ein Gegenbeispiel suchen" : "Look for a counterexample with your AI"} <span aria-hidden="true">→</span></a>
+        </div>
       </article>
     </div>
   </section>

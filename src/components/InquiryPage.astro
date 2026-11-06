@@ -39,7 +39,10 @@ const examples=en?[
         {examples.map(([label,question])=><article><p class="section-kicker">{label}</p><h3>{question}</h3></article>)}
       </div>
       <p class="inquiry-lead">{en?"Our standard for an answer: explain the claim, show its grounds, take the strongest objection seriously and say what remains open. If we lack expertise or evidence, we say so. A submitted question is not yet a reviewed answer; no response time is promised.":"Unser Maßstab für eine Antwort: die Aussage erklären, ihre Gründe zeigen, den stärksten Einwand ernst nehmen und sagen, was offenbleibt. Fehlen uns Fachkenntnis oder Belege, benennen wir das. Eine eingereichte Frage ist noch keine geprüfte Antwort; eine feste Antwortzeit versprechen wir nicht."}</p>
-      <a class="subtle-link" href={pathFor(lang,"angriffsschwarm")}>{en?"Submit a structured challenge →":"Einen begründeten Einwand einreichen →"}</a>
+      <div class="button-row">
+        <a class="subtle-link" href={pathFor(lang,"gegenprobe-01")}>{en?"Test our claim about helping someone →":"Unsere These zur Hilfe mit eurer KI prüfen →"}</a>
+        <a class="subtle-link" href={pathFor(lang,"angriffsschwarm")}>{en?"Submit a structured challenge →":"Einen begründeten Einwand einreichen →"}</a>
+      </div>
     </div>
   </section>
 
