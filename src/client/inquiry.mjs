@@ -1,4 +1,4 @@
-import {createInquiry, parseInquiry, inquiryFields, inquiryMarkdown} from "../lib/inquiry.mjs";
+import {createInquiry, parseInquiry, inquiryFields, inquiryMarkdown, maxInquiryFileSize} from "../lib/inquiry.mjs";
 
 const root = document.querySelector("[data-inquiry-workbench]");
 if (root) {
@@ -22,7 +22,7 @@ if (root) {
     form.elements.namedItem("type").value = note.type;
     inquiryFields.forEach(key => { form.elements.namedItem(key).value = note[key]; });
     // Reveal imported detail rather than silently hiding existing work.
-    root.querySelector("[data-inquiry-deeper]").open = note.type !== "unclassified" || ["claim", "scope", "support", "revision"].some(key => note[key]);
+    root.querySelector("[data-inquiry-deeper]").open = note.type !== "unclassified" || ["claim", "scope", "support", "positions", "revision"].some(key => note[key]);
     update();
   };
   const report = message => { status.textContent = message; };
@@ -76,11 +76,11 @@ if (root) {
     const file = event.target.files?.[0];
     if (!file) return;
     try {
-      if (file.size > 256 * 1024) throw new Error("Too large");
+      if (file.size > maxInquiryFileSize) throw new Error("Too large");
       const note = parseInquiry(await file.text());
       write(note);
       report(t("Prüfblatt importiert. Eigene Prüfung und öffentliche Einreichung bleiben getrennte Schritte.", "Worksheet imported. Your review and public submission remain separate steps."));
-    } catch { report(t("Import nicht möglich: Verwende einen WIRKLICH-JSON-Export bis 256 KB. Dein bisheriger Entwurf bleibt erhalten.", "Use a worksheet exported as JSON, up to 256 KB. Your existing draft is preserved.")); }
+    } catch { report(t("Import nicht möglich: Verwende einen WIRKLICH-JSON-Export bis 1 MiB. Dein bisheriger Entwurf bleibt erhalten.", "Use a worksheet exported as JSON, up to 1 MiB. Your existing draft is preserved.")); }
     event.target.value = "";
   });
   root.querySelector("[data-load-example]").addEventListener("click", () => {

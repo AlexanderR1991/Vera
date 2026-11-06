@@ -18,6 +18,10 @@
 
 ## Gemeinsam klüger werden · Learn together
 
+**Wenn Open Source bei Blender funktioniert, warum nicht auch in der Philosophie?** Bei Blender kann jemand einen Fehler zeigen, den andere übersehen haben, und eine Änderung vorschlagen. Bei WIRKLICH kann ein einziger Einwand einen Grundsatz verändern. Einer unserer Sätze empfahl, Menschen so zu helfen, dass sie ihre eigene Kraft finden. Was ist mit jemandem, der ein Leben lang Hilfe braucht? Heute steht ausdrücklich im Text, dass Fürsorge auch dann wertvoll ist. Lies beide Fassungen und prüfe selbst, ob die neue dem Einwand gerecht wird. [Mitwirken bei Blender](https://www.blender.org/get-involved/) · [Die Änderung im Wortlaut](https://github.com/AlexanderR1991/Wirklich/pull/31/files)
+
+**If open source works for Blender, why not for philosophy?** In Blender, someone can point out a bug others missed and propose a fix. At WIRKLICH, a single objection can change a principle. We wrote that we should help people find their own strength. What about someone who will need support all their life? The text now explicitly affirms the value of care in that case too. Read both versions and judge for yourself whether the revision answers the objection. [Contribute to Blender](https://www.blender.org/get-involved/) · [Follow the revision in English](https://alexanderr1991.github.io/Wirklich/en/methode/#g-005)
+
 **Irrtum für Irrtum:** vermuten, prüfen und begründet weiterdenken. Vier erfundene Alltagskarten und drei freiwillige Einstiegsfragen im Prüfblatt bilden den Anfang. Wer genauer prüfen möchte, öffnet weitere Fragen. Begründetes Beibehalten und Offenlassen sind ebenso möglich wie eine Korrektur. [Konzept, Selbstangriff und offene Grenzen](docs/emporirren.md) · [Erster Nutzungspilot](docs/spielpilot.md)
 
 Four fictional everyday cards and three optional worksheet prompts offer a simple start. Depth is optional. Keeping a well-supported answer and leaving a question open are valid outcomes. Accessibility across needs and independent learning transfer still need real-world testing.
@@ -27,6 +31,12 @@ Four fictional everyday cards and three optional worksheet prompts offer a simpl
 Bei einer Tatsachenfrage suchen wir Belege und Gegenbelege. Bei einer Wertfrage legen wir den Maßstab offen und hören auf die Menschen, die mit den Folgen leben. Aus vorhandenen Erkenntnissen kann eine neue Vermutung entstehen. Wir formulieren, woran sie scheitern könnte. Ein begründeter Dissens kann das Ergebnis sein. [Methode](docs/methode.md) · [Mission](docs/mission.md)
 
 The topic map connects questions across disciplines. Each claim record gives its scope, reasons, strongest objection, review status and revision history. Research feeds collect leads. People decide which revisions enter the public record. [Explore topics](https://alexanderr1991.github.io/Wirklich/en/baum-des-wissens/) · [Inspect the register](https://alexanderr1991.github.io/Wirklich/en/aussagen/)
+
+## Wie reift eine Erkenntnis? · How a claim matures
+
+Ein Vorschlag kann von **R0 (ungeprüft)** über dokumentierte menschliche und unabhängige Gegenprüfung bis **R4 (robust gegenkritisiert)** gelangen – und bei belastbarem Gegenbeleg zurückfallen. Aussageart, Abstraktion, Erkenntnisreife und Konsens werden **getrennt** erfasst; Mehrheiten und KI-Ausgaben verleihen kein Wahrheitssiegel. Die drei Demonstrationseinträge sind unverändert ungeprüft (R0). [Regeln für Aufstieg und Rückstufung](docs/erkenntnisreife.md) · [Aussagenregister](https://alexanderr1991.github.io/Wirklich/de/aussagen/)
+
+A claim may advance from **R0 (unreviewed)** to **R4 (robust under criticism)** through documented, type-appropriate human and independent checks, and may be demoted after substantive counterevidence. Abstraction, maturity and agreement remain separate. All three demo records remain R0. [Read the rules](docs/erkenntnisreife.md) · [Claim register](https://alexanderr1991.github.io/Wirklich/en/aussagen/)
 
 ## Stand und offene Prüfung · Status and open work
 

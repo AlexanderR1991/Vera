@@ -8,34 +8,47 @@ import project from "../../public/project.json" with {type: "json"};
 const {lang = "de"} = Astro.props;
 const t = copy[lang];
 ---
-<Layout lang={lang} slug="index">
+<Layout lang={lang} slug="index" description={t.metaDescription}>
   <section class="home-opening" aria-labelledby="home-heading">
-    <div class="container home-pair">
-      <div class="home-intro">
-        <p class="section-kicker">{ui[lang].name} · {ui[lang].subtitle}</p>
-        <h1 id="home-heading">{t.headline} <em>{t.headlineAccent}</em></h1>
-        <p class="home-invitation">{t.invitation}</p>
-        <p class="home-lead">{t.lead}</p>
-        <div class="button-row">
-          <a class="button button--gold" href={pathFor(lang, "spiel")}>{t.play}</a>
-          <a class="home-link" href={pathFor(lang, "erkenntnisnavigator")}>{t.ownQuestion}</a>
-        </div>
-        <p class="home-note">{t.playNote}</p>
+    <div class="container home-intro">
+      <p class="section-kicker">{ui[lang].name} · {ui[lang].subtitle}</p>
+      <h1 id="home-heading">{t.headline} <em>{t.headlineAccent}</em></h1>
+      <p class="home-invitation">{t.invitation}</p>
+      <p class="home-motto">{t.motto}</p>
+      <p class="home-lead">{t.lead}</p>
+      <p class="home-principle">{t.principle}</p>
+      <div class="button-row">
+        <a class="button button--gold" href={pathFor(lang, "mission")}>{t.missionLink}</a>
+        <a class="home-link" href={pathFor(lang, "erkenntnisnavigator")}>{t.ownQuestion}</a>
       </div>
-      <article class="home-example" aria-labelledby="home-example-title">
-        <div class="example-heading"><p>{t.exampleLabel}</p><span>{t.exampleId}</span></div>
-        <h2 id="home-example-title">{t.exampleTitle}</h2>
-        <p class="example-body">{t.exampleText}</p>
-        <a class="home-link" href={pathFor(lang, "methode") + "#g-005"}>{t.exampleLink} <span aria-hidden="true">→</span></a>
-      </article>
     </div>
   </section>
 
   <section class="home-practice container" aria-labelledby="practice-title">
     <h2 id="practice-title">{t.practiceTitle}</h2>
     <ol>{t.practiceSteps.map(([title, text]) => <li><strong>{title}</strong><p>{text}</p></li>)}</ol>
-    <p class="home-practice-note">{t.practiceNote}</p>
+    <p class="home-practice-note">{t.practiceNote} <a class="home-link" href={pathFor(lang, "methode", "erkenntnismotor")}>{lang === "de" ? "Den Weg einer Frage im Schaubild verfolgen" : "Follow a question through the diagram"} →</a></p>
     <p class="home-practice-note">{t.aiNote} <a class="home-link" href={pathFor(lang, "fragen-und-ki-prompt", "prompt")}>{t.aiLink} <span aria-hidden="true">→</span></a></p>
+  </section>
+
+  <section class="home-doorways container" aria-label={t.doorwaysLabel}>
+    <div class="home-play">
+      <p class="section-kicker">{t.playLabel}</p>
+      <h2>{t.playTitle}</h2>
+      <p>{t.playIntro}</p>
+      <p class="home-play-scene">{t.gameScenario}</p>
+      <a class="home-link" href={pathFor(lang, "spiel")}>{t.play} <span aria-hidden="true">→</span></a>
+      <p class="home-note">{t.playNote}</p>
+    </div>
+    <article class="home-example" aria-labelledby="home-example-title">
+      <div class="example-heading"><p>{t.exampleLabel}</p><span>{t.exampleId}</span></div>
+      <h2 id="home-example-title">{t.exampleTitle}</h2>
+      <p class="example-body">{t.exampleText}</p>
+      <div class="button-row">
+        <a class="home-link" href={pathFor(lang, "methode") + "#g-005"}>{t.exampleLink} <span aria-hidden="true">→</span></a>
+        <a class="home-link" href={pathFor(lang, "gegenprobe-01")}>{lang === "de" ? "Mit deiner KI ein Gegenbeispiel suchen" : "Look for a counterexample with your AI"} <span aria-hidden="true">→</span></a>
+      </div>
+    </article>
   </section>
 
   <section class="home-explore" aria-labelledby="explore-title">
@@ -43,7 +56,6 @@ const t = copy[lang];
       <div>
         <p class="section-kicker">{t.exploreLabel}</p>
         <h2 id="explore-title">{t.exploreTitle}</h2>
-        <p><strong>{t.motto}</strong></p>
         <p>{t.consensusLimit} <a class="home-link" href={pathFor(lang, "schnittmengen", "sprachprobe")}>{lang === "de" ? "Die Sprachprobe zu zweit ausprobieren" : "Try the conversation exercise with someone"} →</a></p>
         <p>{t.exploreText}</p>
         <a class="home-link" href={pathFor(lang, "baum-des-wissens")}>{t.treeLink} <span aria-hidden="true">→</span></a>
@@ -78,35 +90,85 @@ const t = copy[lang];
 
 <style>
   .home-opening {
-    padding-block: clamp(2.8rem, 6vw, 6rem);
-    background: radial-gradient(ellipse at 80% 25%, #28372f60, transparent 55%), var(--ink);
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding-block: clamp(4.5rem, 8vw, 8rem);
+    background: radial-gradient(ellipse at 82% 28%, #29413b48, transparent 60%), linear-gradient(115deg, #0b0e10 25%, #11191a 100%);
     border-bottom: 1px solid var(--line);
   }
-  .home-pair {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    align-items: center;
-    gap: clamp(2.5rem, 7vw, 7rem);
+  .home-opening::after {
+    content: "";
+    position: absolute;
+    right: -10%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: clamp(20rem, 46vw, 38rem);
+    aspect-ratio: 1;
+    border: 1px solid rgba(194, 166, 126, .17);
+    border-radius: 50%;
+    box-shadow: 0 0 0 5rem rgba(194, 166, 126, .018), 0 0 0 10rem rgba(194, 166, 126, .012);
+    pointer-events: none;
   }
+  .home-intro { position: relative; z-index: 1; }
   .home-intro h1 {
-    margin: .18em 0 .3em;
-    font-size: clamp(3.5rem, 6.7vw, 6.8rem);
+    max-width: 56rem;
+    margin: .22em 0 .26em;
+    font-size: clamp(3.6rem, 7.3vw, 7rem);
     letter-spacing: -.05em;
-    line-height: 1.05;
+    line-height: 1.04;
   }
   .home-intro h1 em { color: var(--gold-bright); font-weight: 400; }
-  .home-lead { max-width: 40rem; font-size: clamp(1.08rem, 1.6vw, 1.32rem); line-height: 1.65; }
-  .home-invitation { color: var(--gold-bright); max-width: 35rem; }
-  .home-practice { padding-block: 2rem; border-bottom: 1px solid var(--line); }
+  .home-invitation {
+    max-width: 46rem;
+    margin: 0 0 clamp(2rem, 4vw, 3.3rem);
+    color: var(--gold-bright);
+    font: clamp(1.3rem, 2.4vw, 1.9rem)/1.4 var(--serif);
+  }
+  .home-motto {
+    max-width: 53rem;
+    margin: 0 0 1.25rem;
+    color: var(--text);
+    font: clamp(1.85rem, 3.2vw, 3rem)/1.2 var(--serif);
+    letter-spacing: -.024em;
+  }
+  .home-lead { max-width: 43rem; font-size: clamp(1.06rem, 1.6vw, 1.25rem); line-height: 1.7; }
+  .home-principle { max-width: 43rem; font-size: .95rem; line-height: 1.7; }
+  .home-intro .button-row { margin-top: 2.1rem; gap: 1rem 1.5rem; }
+  .home-practice { padding-block: clamp(2.6rem, 4vw, 3.8rem); border-bottom: 1px solid var(--line); }
   .home-practice h2 { font-size: clamp(1.7rem, 3vw, 2.5rem); }
   .home-practice ol { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.3rem 2.5rem; padding-left: 1.5rem; }
   .home-practice li::marker { color: var(--gold-bright); }
   .home-practice li p { margin: .3rem 0 0; }
   .home-practice-note { max-width: 54rem; font-size: .95rem; }
-  .home-intro .button-row { margin-top: 1.7rem; gap: 1rem 1.4rem; }
+  .home-doorways {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+    gap: clamp(1.2rem, 3vw, 2.2rem);
+    padding-block: clamp(2.8rem, 5vw, 5rem);
+    border-bottom: 1px solid var(--line);
+  }
+  .home-play {
+    padding: clamp(1.4rem, 3vw, 2.9rem);
+    border-top: .32rem solid var(--gold);
+    background: #131b1c;
+  }
+  .home-play h2, .home-example h2, .home-explore h2 {
+    margin: .62em 0 .44em;
+    font-size: clamp(2rem, 3.1vw, 3.2rem);
+    line-height: 1.11;
+    letter-spacing: -.035em;
+  }
+  .home-play-scene {
+    max-width: 29rem;
+    margin: 1.55rem 0;
+    color: var(--text);
+    font: italic clamp(1.1rem, 1.7vw, 1.35rem)/1.55 var(--serif);
+  }
   .home-note { max-width: 35rem; font-size: .85rem; margin: .9rem 0 0; }
   .home-link, .home-groups a { text-decoration: underline; text-underline-offset: .23em; }
-  .home-link { color: var(--gold-bright); font-size: .95rem; }
+  .home-link { display: inline-flex; align-items: center; min-height: 36px; color: var(--gold-bright); font-size: .95rem; }
   .home-example {
     padding: clamp(1.4rem, 3vw, 2.9rem);
     border-top: .32rem solid #ae8d56;
@@ -126,17 +188,11 @@ const t = copy[lang];
     text-transform: uppercase;
   }
   .example-heading p { color: inherit; margin: 0; }
-  .home-example h2, .home-explore h2 {
-    margin: .62em 0 .44em;
-    font-size: clamp(2rem, 3.1vw, 3.2rem);
-    line-height: 1.11;
-    letter-spacing: -.035em;
-  }
   .example-body { color: #3e4239; line-height: 1.65; margin-bottom: 1.25rem; }
   .home-example .home-link { color: #342d1d; font-weight: 600; }
   .home-example .home-link:focus-visible { outline-color: #493515; }
   .home-explore { padding-block: clamp(2.8rem, 5vw, 5rem); }
-  .home-explore .home-pair { align-items: start; }
+  .home-pair { display: grid; grid-template-columns: 1.2fr 1fr; align-items: start; gap: clamp(2rem, 7vw, 7rem); }
   .home-explore .home-pair > div > p:not(.section-kicker) { max-width: 35rem; }
   .home-groups { border-top: 1px solid var(--line); }
   .home-groups details { border-bottom: 1px solid var(--line); }
@@ -149,8 +205,13 @@ const t = copy[lang];
   .home-status > span { color: var(--gold); font-size: .8rem; font-weight: 600; }
   .home-status p { flex: 1 1 20rem; margin: 0; font-size: .9rem; }
   @media (max-width: 780px) {
+    .home-opening { padding-block: 3.5rem 4.5rem; }
+    .home-opening::after { right: -19rem; opacity: .5; }
     .home-practice ol { grid-template-columns: minmax(0, 1fr); }
-    .home-pair { grid-template-columns: minmax(0, 1fr); gap: 2.2rem; }
-    .home-explore .home-pair { gap: 1.5rem; }
+    .home-doorways, .home-pair { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+  }
+  @media (max-width: 480px) {
+    .home-intro h1 { font-size: clamp(3.1rem, 12vw, 4rem); }
+    .home-motto { font-size: clamp(1.8rem, 7vw, 2.2rem); }
   }
 </style>

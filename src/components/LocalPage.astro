@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/SiteLayout.astro";
+import MethodDiagram from "./MethodDiagram.astro";
 import MethodCase from "./MethodCase.astro";
 import { getPage } from "../lib/pages.mjs";
 import { pathFor } from "../lib/paths.mjs";
@@ -23,7 +24,7 @@ const followUp = {
 ---
 <Layout lang={lang} slug={slug}>
   <Fragment set:html={before} />
-  {slug === "methode" && <MethodCase lang={lang} />}
+  {slug === "methode" && <><MethodDiagram lang={lang} /><MethodCase lang={lang} /></>}
   {slug === "bibliothek" &&
     <section id="kapitel" class="container chapter-shelf" aria-labelledby="chapter-title">
       <p class="section-kicker">{de ? "IM LESESAL" : "READING ROOM"}</p>

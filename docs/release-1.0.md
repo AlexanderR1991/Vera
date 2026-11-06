@@ -30,7 +30,7 @@ Der Ablauf ist absichtlich bescheiden: Ein Feld kann offen bleiben. Ein Gegenarg
 - `public/project.json` ist das öffentliche Projektprofil mit Name, Version, Datum und Reichweite der Fassung.
 - Paketversion und Projektprofil werden beim Build auf Übereinstimmung geprüft. Der sichtbare globale Versionsstand kommt aus dem Projektprofil.
 - Die zweisprachige Statusseite leitet Bestandszahlen aus Register und Themenkarte ab. Sie zeigt ausschließlich dokumentierte Datenstände der Automatik.
-- Import und Export des persönlichen Prüfblatts verwenden ein eigenes Schema `inquiry_note`, Version 1. Es ist kein Registereintrag, kein Review-Datensatz und kein öffentliches Publikationsformat.
+- Die Erstfassung des persönlichen Prüfblatts verwendete das Dateiformat `inquiry_note` in Version 1. Die Werkstatt exportiert inzwischen Version 2 mit einem eigenen Feld für Zustimmung, Dissens und fehlende Perspektiven. Blätter aus Version 1 lassen sich weiter öffnen. Das neue Feld bleibt bei ihnen leer.
 - Die statische Werkstatt sendet keine Eingaben. Der gespeicherte Browserentwurf wird weder automatisch angelegt noch automatisch geladen. Ein Dateiexport ist für dauerhafte Weiterarbeit vorgesehen.
 - Bestehende Seiten und Sprachwechsel bleiben verfügbar. Übersetzungen bleiben als unabhängig ungeprüfte Entwürfe gekennzeichnet.
 
@@ -44,4 +44,4 @@ Der Ablauf ist absichtlich bescheiden: Ein Feld kann offen bleiben. Ein Gegenarg
 
 ## English
 
-The English name of the open inquiry workshop is **REALLY?**. Version 1.0 is its first integrated tool release. The former project name remains the title of its philosophical foundation. A local worksheet supports five claim types, explicit objections, revision conditions, optional browser storage and portable text/JSON files. The project status derives its counts from published data. The three claim records remain unreviewed; method evaluation, independent appeals and sustainable funding remain work to be done.
+The English name of the open inquiry workshop is **REALLY?**. Version 1.0 is its first integrated tool release. The former project name remains the title of its philosophical foundation. A local worksheet supports five claim types, explicit objections, revision conditions, optional browser storage and portable text/JSON files. Current exports use worksheet format version 2 to record agreement and disagreement separately from evidence. The workshop accepts version 1 files and leaves the new field empty. The project status derives its counts from published data. The three claim records remain unreviewed; method evaluation, independent appeals and sustainable funding remain work to be done.

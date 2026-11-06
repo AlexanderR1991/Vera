@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import {createInquiry,parseInquiry,inquiryMarkdown,inquiryFields,missingInquiryFields,maxFieldLength} from "../src/lib/inquiry.mjs";
+import {createInquiry,parseInquiry,inquiryMarkdown,inquiryFields,missingInquiryFields,maxFieldLength,maxInquiryFileSize} from "../src/lib/inquiry.mjs";
 import {summarizeProject} from "../src/lib/project-status.mjs";
 import {claimReviewFingerprint} from "../src/lib/claims.mjs";
 
@@ -8,10 +8,10 @@ test("unfinished notes can be exported, reopened and completed without invented 
   const note = createInquiry({question:"  Was ist hier unbekannt?  ",type:"normative"});
   assert.equal(note.question,"Was ist hier unbekannt?");
   assert.equal(note.support,"");
-  assert.equal(missingInquiryFields(note).length,6);
+  assert.equal(missingInquiryFields(note).length,7);
   assert.deepEqual(parseInquiry(JSON.stringify(note)),note);
   const reopened = createInquiry({...parseInquiry(JSON.stringify(note)),objection:"Ein dauerhafter Zielkonflikt."});
-  assert.equal(missingInquiryFields(reopened).length,5);
+  assert.equal(missingInquiryFields(reopened).length,6);
   assert.match(inquiryMarkdown(reopened),/^# WIRKLICH · Prüfblatt\n/);
   assert.match(inquiryMarkdown(reopened),/Ungeprüfter eigener Entwurf/);
   assert.match(inquiryMarkdown(reopened),/Aussageart: Normatives Urteil/);
@@ -31,7 +31,7 @@ test("English notes keep Unicode, quotes and multiline contents through JSON and
 
 test("import rejects foreign schemas, unknown types, invalid language and malformed fields", () => {
   const valid = createInquiry({question:"A question"});
-  for (const data of [null,[],{}, {...valid,schema_version:2}, {...valid,kind:"claim_record"}, {...valid,type:"true"}, {...valid,lang:"fr"}, {...valid,lang:undefined}, {...valid,support:4}, {...valid,revision:undefined}]) {
+  for (const data of [null,[],{}, {...valid,schema_version:3}, {...valid,kind:"claim_record"}, {...valid,type:"true"}, {...valid,lang:"fr"}, {...valid,lang:undefined}, {...valid,support:4}, {...valid,revision:undefined}, {...valid,positions:undefined}]) {
     assert.throws(()=>parseInquiry(JSON.stringify(data)));
   }
   assert.throws(()=>parseInquiry("{oops"));
@@ -41,7 +41,7 @@ test("field and file limits fail before replacing an existing note", () => {
   const current = createInquiry({question:"Keep this note"});
   const tooLong = {...current,claim:"x".repeat(maxFieldLength+1)};
   assert.throws(()=>parseInquiry(JSON.stringify(tooLong)));
-  assert.throws(()=>parseInquiry(" ".repeat(256*1024+1)));
+  assert.throws(()=>parseInquiry(" ".repeat(maxInquiryFileSize+1)));
   assert.equal(current.question,"Keep this note");
   assert.equal(createInquiry({claim:"x".repeat(maxFieldLength)}).claim.length,maxFieldLength);
 });
@@ -88,15 +88,37 @@ test("three-step notes remain unclassified and round-trip without invented detai
   const note = createInquiry(values);
   assert.equal(note.type,"unclassified");
   assert.deepEqual(parseInquiry(JSON.stringify(note)),note);
-  for (const key of ["claim","scope","support","revision"]) assert.equal(note[key],"");
+  for (const key of ["claim","scope","support","positions","revision"]) assert.equal(note[key],"");
   assert.match(inquiryMarkdown(note),/Aussageart: Noch nicht eingeordnet/);
   assert.match(inquiryMarkdown(createInquiry(values,"en")),/Claim type: Not classified yet/);
 });
 
 test("previous version-one detailed exports retain their classification and every field", () => {
-  const values = Object.fromEntries(inquiryFields.map(key => [key,`Preserve ${key}`]));
+  const oldFields = ["question","claim","scope","support","objection","revision","action"];
+  const values = Object.fromEntries(oldFields.map(key => [key,`Preserve ${key}`]));
   for (const type of ["empirical","formal","normative","interpretive","metaphor"]) {
     const legacy = {schema_version:1,kind:"inquiry_note",lang:"de",type,...values};
-    assert.deepEqual(parseInquiry(JSON.stringify(legacy)),legacy);
+    assert.deepEqual(parseInquiry(JSON.stringify(legacy)),{...legacy,schema_version:2,positions:""});
   }
+});
+
+
+test("hearing agreement or dissent adds no evidence to a worksheet", () => {
+  const positions = "Residents agree on the cost but disagree on how to spend it.";
+  for (const lang of ["de", "en"]) {
+    const note = createInquiry({type:"normative",positions},lang);
+    const reopened = parseInquiry(JSON.stringify(note));
+    assert.equal(reopened.support,"");
+    assert.equal(reopened.positions,positions);
+    const heading = lang === "de" ? "Zustimmung, Dissens und fehlende Perspektiven" : "Agreement, disagreement and missing perspectives";
+    assert.ok(inquiryMarkdown(reopened).includes(`## ${heading}\n\n${positions}`));
+  }
+});
+
+test("a valid worksheet with full-length fields still fits the import limit", () => {
+  const values = Object.fromEntries(inquiryFields.map(key => [key,"\u0000".repeat(maxFieldLength)]));
+  const note = createInquiry(values);
+  const exported = JSON.stringify(note, null, 2);
+  assert.ok(Buffer.byteLength(exported) < maxInquiryFileSize);
+  assert.deepEqual(parseInquiry(exported),note);
 });
