@@ -19,7 +19,7 @@ Davon unabhängig beschreibt der Navigator Abstraktionsstufen:
 | Fachwissen | Eine begründete Aussage mit Geltungsbedingungen | Nicht parallel ausführbare Arbeit passt unter diesen Angaben nicht in die verfügbare Zeit. |
 | Prinzip | Eine allgemeinere, übertragbare Beziehung | Eine Planung muss ihre Ressourcenbedingungen erfüllen. |
 
-**Allgemeiner bedeutet nicht wahrer.** Aussageart, Begründungslage und Prüfstatus bleiben auf jeder Stufe getrennt. Ein Werturteil wird durch Abstraktion kein Naturgesetz. Eine gefundene Ähnlichkeit ist zunächst ein Vorschlag, keine bestätigte Anwendung. Eine Frage darf mehrere Äste berühren oder ohne passenden Treffer bleiben.
+**Allgemeiner bedeutet nicht wahrer.** Die zusätzliche [Erkenntnisreife R0–R4](erkenntnisreife.md) beschreibt nachvollziehbare Gegenprüfung und bleibt auf jeder Abstraktionsstufe rückstufbar; dokumentierte Zustimmung ist ein gesonderter Sachverhalt.  Aussageart, Begründungslage und Prüfstatus bleiben auf jeder Stufe getrennt. Ein Werturteil wird durch Abstraktion kein Naturgesetz. Eine gefundene Ähnlichkeit ist zunächst ein Vorschlag, keine bestätigte Anwendung. Eine Frage darf mehrere Äste berühren oder ohne passenden Treffer bleiben.
 
 ## Was der erste Pilot tatsächlich leistet
 

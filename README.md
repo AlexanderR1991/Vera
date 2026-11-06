@@ -31,6 +31,12 @@ Bei einer Tatsachenfrage suchen wir Belege und Gegenbelege. Bei einer Wertfrage 
 
 The topic map connects questions across disciplines. Each claim record gives its scope, reasons, strongest objection, review status and revision history. Research feeds collect leads. People decide which revisions enter the public record. [Explore topics](https://alexanderr1991.github.io/Wirklich/en/baum-des-wissens/) · [Inspect the register](https://alexanderr1991.github.io/Wirklich/en/aussagen/)
 
+## Wie reift eine Erkenntnis? · How a claim matures
+
+Ein Vorschlag kann von **R0 (ungeprüft)** über dokumentierte menschliche und unabhängige Gegenprüfung bis **R4 (robust gegenkritisiert)** gelangen – und bei belastbarem Gegenbeleg zurückfallen. Aussageart, Abstraktion, Erkenntnisreife und Konsens werden **getrennt** erfasst; Mehrheiten und KI-Ausgaben verleihen kein Wahrheitssiegel. Die drei Demonstrationseinträge sind unverändert ungeprüft (R0). [Regeln für Aufstieg und Rückstufung](docs/erkenntnisreife.md) · [Aussagenregister](https://alexanderr1991.github.io/Wirklich/de/aussagen/)
+
+A claim may advance from **R0 (unreviewed)** to **R4 (robust under criticism)** through documented, type-appropriate human and independent checks, and may be demoted after substantive counterevidence. Abstraction, maturity and agreement remain separate. All three demo records remain R0. [Read the rules](docs/erkenntnisreife.md) · [Claim register](https://alexanderr1991.github.io/Wirklich/en/aussagen/)
+
 ## Stand und offene Prüfung · Status and open work
 
 Der **Erkenntnisnavigator** ergänzt den Baum um vier redaktionelle Entwurfskarten. Fragen und Begriffe führen zu Themen und möglichen Mustern. Die Suche zeigt passende Wörter oder zwei gemeinsam erkannte Hinweise. Von jedem zugeordneten Ast führt ein begründeter Weg über die Karte zu den anderen Ästen. Die Voraussetzungen lassen sich einzeln prüfen. Freiwillige Reflexion und Textausgabe bleiben im Browser, bis jemand selbst eine Datei exportiert. Keine laufende KI, kein menschlicher Gesamtwert und keine automatische Übernahme ins Aussagenregister. [Architektur und Evaluationsplan](docs/erkenntnisnavigator.md)

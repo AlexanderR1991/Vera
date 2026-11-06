@@ -49,6 +49,12 @@ Bei begrenzter Zeit priorisiert der Maintainer mögliche Schäden, folgenreiche 
 
 Group duplicate submissions under one issue and preserve distinct evidence, reasons and original context there. Reactions, account counts and repeated AI output carry no evidential weight and do not set review status. When capacity is limited, the maintainer prioritizes potential harm, consequential errors and objections that can be checked. Record why an item was deferred and what would reopen it. Silence implies neither agreement nor refutation. Grouping and deferral can both be appealed below.
 
+## Reifegrade und fachliche Zustimmung / Maturity and review
+
+Eine Reifestufe R0–R4 ist **kein Wahrheitsurteil durch Mehrheitsbeschluss**. Wer eine Änderung vorschlägt, legt die genaue Version, passende Prüfungen, Gegenbelege, unabhängige Fachprüfung soweit erforderlich, verbleibende Einwände und Interessenkonflikte offen. Die redaktionelle Entscheidung liegt beim verantwortlichen Maintainer und ersetzt keine unabhängige Fachbegutachtung. Ein nachgewiesener Fehler kann unabhängig von Popularität zu Korrektur, Einschränkung oder Rückstufung führen. Ein einzelner unbelegter Widerspruch allein ist kein Nachweis. Jede Änderung braucht Versionsgeschichte, begründeten PR und bei geändertem Inhalt einen erneuerten echten Review. KI-Schwärme dürfen keinen Reviewstatus oder Reifegrad selbst vergeben. [Aufstiegsregeln](erkenntnisreife.md).
+
+A maturity level is **not a majority vote on truth**. Proposals must identify the exact version, relevant checks, counterevidence, independent expertise when required, outstanding objections and conflicts. Editorial acceptance is not independent peer review. Substantive error can justify correction or demotion regardless of popularity; bare dissent does not itself disprove a claim. Maintain version history and a genuinely renewed review of changed content. AI systems may not assign or raise maturity or review status.
+
 ## Verantwortung / Responsibilities
 
 Ein persönliches Prüfblatt aus der Werkstatt ist ein ungeprüfter Entwurf. Export, Speicherung und Import verleihen weder eine öffentliche Kennung noch eine fachliche Freigabe. Für eine Aufnahme ins Aussagenregister gelten dieselben Quellen-, Rechte-, Revisions- und menschlichen Prüfpflichten wie für andere Beiträge. Ein methodisch vollständiges Blatt darf trotzdem falsch, unklar oder nicht auflösbar sein.
