@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/SiteLayout.astro";
+import {connections} from "../lib/navigator.mjs";
 import FlyingTreeDiagram from "./FlyingTreeDiagram.astro";
 import {pathFor} from "../lib/paths.mjs";
 import {fields,topics,topicStates,levels,selfReviews,treeSnapshot} from "../lib/tree.mjs";
@@ -7,6 +8,7 @@ import "../styles/tree.css";
 const {lang="de"}=Astro.props;
 const t=(de,en)=>lang==="en"?en:de;
 const names=Object.fromEntries(fields.map(f=>[f.id,f.name[lang]]));
+const linkedTopics = new Set(connections.flatMap(card => card.topics));
 const destination=topic=>topic.url||pathFor(lang,topic.slug||"atlas",topic.slug?topic.anchor:topic.fields[0]);
 ---
 <Layout lang={lang} slug="baum-des-wissens">
@@ -34,8 +36,8 @@ const destination=topic=>topic.url||pathFor(lang,topic.slug||"atlas",topic.slug?
    <p class="section-kicker">{t("VON DEINER FRAGE ZUM ZUSAMMENHANG","FROM YOUR QUESTION TO A CONNECTION")}</p>
    <h2>{t("Du musst den richtigen Ast noch nicht kennen.","You do not need to know the right branch yet.")}</h2>
    <p>{t("Der Erkenntnisnavigator verbindet eine Alltagsfrage mit einem möglichen Muster und einem allgemeineren Ansatz. Vor einer Anwendung prüfst du die Voraussetzungen einzeln. Eine neue Beobachtung kann auch den allgemeineren Ansatz infrage stellen.","The knowledge navigator connects an everyday question with a possible pattern and a more general approach. You check each condition before applying it. A new observation may also challenge the more general approach.")}</p>
-   <p>{t("Vier redaktionelle Entwurfskarten bilden den Anfang. Die lokale Stichwortsuche schlägt Verbindungen vor; sie erkennt weder Ursachen noch bestätigt sie Voraussetzungen. Eine KI, die über alle Äste hinweg nach Mustern sucht, bleibt ein gesondert zu prüfender Ausbau.","Four editorial draft cards provide a starting point. Local keyword search suggests connections; it neither identifies causes nor confirms conditions. AI that searches for patterns across all branches remains a separate extension to evaluate.")}</p>
-   <a class="button button--gold" href={pathFor(lang,"erkenntnisnavigator")}>{t("Eine Verbindung prüfen","Examine a connection")} →</a>
+   <p>{t("Gib eine Frage oder einen Begriff ein. Der Navigator zeigt die Wörter, die ihn auf eine Spur gebracht haben. Über eine Musterkarte kannst du in einen anderen Ast wechseln und dort prüfen, was sich übertragen lässt. Auch ein Ast ohne passende Karte lässt sich erkunden.", "Enter a question or a term. The navigator shows which words led to a suggestion. Follow a pattern card to another branch and examine what carries over. You can also explore a branch that has no matching card yet.")}</p>
+   <a class="button button--gold" href={pathFor(lang,"erkenntnisnavigator")}>{t("Fragen und Begriffe erkunden","Explore questions and terms")} →</a>
   </section>
 
   <section class="tree-section" id="aeste" data-tree-explorer>
@@ -53,7 +55,7 @@ const destination=topic=>topic.url||pathFor(lang,topic.slug||"atlas",topic.slug?
    <div class="tree-table-scroll" role="region" tabindex="0" aria-label={t("Themen und Verbindungen; horizontal scrollbar","Topics and connections; horizontally scrollable")}>
     <table class="tree-table"><thead><tr><th scope="col">{t("Ast","Branch")}</th><th scope="col">{t("Verbundene Felder & Frage","Connected fields & question")}</th><th scope="col">{t("Stand & Einstieg","Status & entry")}</th></tr></thead><tbody>
      {topics.map(topic=><tr id={"ast-"+topic.id} data-tree-topic data-fields={topic.fields.join(" ")} data-state={topic.state} data-search={[topic.name[lang],topic.question[lang],...topic.fields.map(f=>names[f])].join(" ")}>
-      <th scope="row">{topic.name[lang]}</th><td><p>{topic.question[lang]}</p><div class="tree-membership">{topic.fields.map(field=><a href={pathFor(lang,"atlas")+"#"+field}>{names[field]}</a>)}</div></td>
+      <th scope="row">{topic.name[lang]}{linkedTopics.has(topic.id) && <a class="tree-pattern-link" href={pathFor(lang,"erkenntnisnavigator","thema-"+topic.id)}>{t("Verbindungen erkunden","Explore connections")} →</a>}</th><td><p>{topic.question[lang]}</p><div class="tree-membership">{topic.fields.map(field=><a href={pathFor(lang,"atlas")+"#"+field}>{names[field]}</a>)}</div></td>
       <td><span class="tree-state">{topicStates[topic.state][lang]}</span><a href={destination(topic)}>{topic.state==="draft"?t("Arbeitsentwurf lesen ↗","Read working draft ↗"):topic.state==="proposed"?t("Vorschlag prüfen ↗","Examine proposal ↗"):t("Im Atlas beginnen ↗","Start in the atlas ↗")}</a></td>
      </tr>)}
     </tbody></table>

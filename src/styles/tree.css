@@ -11,3 +11,5 @@
 .tree-work{padding-left:24px;max-width:900px}.tree-work li{padding:10px 0 10px 6px;color:var(--text-soft)}.tree-work strong{color:var(--text)}.tree-bridge{display:flex;justify-content:space-between;align-items:center;gap:24px;border:1px solid var(--line);padding:25px;margin-block:30px}.tree-bridge p{margin:0}.tree-bridge .section-kicker{font-size:10px;margin-bottom:9px}.tree-bridge .subtle-link{flex-shrink:0}
 @media(max-width:950px){.tree-hero{grid-template-columns:1fr;gap:20px}.flying-tree-figure{max-width:650px}.tree-case{grid-template-columns:1fr}.tree-table{min-width:650px}}
 @media(max-width:650px){.tree-page{padding-top:40px}.tree-levels{grid-template-columns:1fr}.tree-bridge{align-items:flex-start;flex-direction:column}.tree-table th,.tree-table td{padding:15px 10px}.tree-section{padding-block:35px}.tree-filters{padding:15px}.tree-filters label{min-width:100%}}
+
+.tree-pattern-link { display: block; width: fit-content; margin-top: .45rem; color: var(--gold-bright); font: .88rem/1.45 var(--sans); text-decoration: underline; text-underline-offset: .2em; }

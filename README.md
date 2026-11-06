@@ -29,9 +29,9 @@ The topic map connects questions across disciplines. Each claim record gives its
 
 ## Stand und offene Prüfung · Status and open work
 
-Der **Erkenntnisnavigator** ergänzt den Baum um vier redaktionelle Entwurfskarten. Eine lokale Stichwortsuche schlägt Ansätze vor; ihre Voraussetzungen müssen einzeln bestätigt, verneint oder offengelassen werden. Freiwillige Reflexion und Textausgabe bleiben im Browser, bis jemand selbst eine Datei exportiert. Keine laufende KI, kein menschlicher Gesamtwert und keine automatische Übernahme ins Aussagenregister. [Architektur und Evaluationsplan](docs/erkenntnisnavigator.md)
+Der **Erkenntnisnavigator** ergänzt den Baum um vier redaktionelle Entwurfskarten. Fragen und Begriffe führen zu Themen und möglichen Mustern. Die Suche zeigt passende Wörter oder zwei gemeinsam erkannte Hinweise. Von jedem zugeordneten Ast führt ein begründeter Weg über die Karte zu den anderen Ästen. Die Voraussetzungen lassen sich einzeln prüfen. Freiwillige Reflexion und Textausgabe bleiben im Browser, bis jemand selbst eine Datei exportiert. Keine laufende KI, kein menschlicher Gesamtwert und keine automatische Übernahme ins Aussagenregister. [Architektur und Evaluationsplan](docs/erkenntnisnavigator.md)
 
-The **knowledge navigator** offers four editorial draft connections, explicit applicability checks and an optional private reflection note. It uses bounded local keyword search, not live AI. Its usefulness compared with ordinary search has not yet been evaluated.
+The **knowledge navigator** offers four editorial draft connections, explicit applicability checks and an optional private reflection note. Questions and terms lead to topics and cards through local word matching and paired textual clues. Every topic-to-card link has a stated reason. Its usefulness compared with ordinary search has not yet been evaluated.
 
 Version **1.0.0** stellt das lokale Prüfblatt mit Import und Export bereit. Die öffentlichen Zahlen zum Aussagenbestand und zu dokumentierten Reviews werden aus dem Register berechnet. Ob das Prüfblatt Menschen zu besser begründeten Urteilen verhilft, ist eine offene Forschungsfrage. [Projektstatus](https://alexanderr1991.github.io/Wirklich/de/projektstatus/) · [Vergleichsprotokoll](docs/evaluation-v1.md)
 
