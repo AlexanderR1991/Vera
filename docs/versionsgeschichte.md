@@ -1,5 +1,10 @@
 # Versionsgeschichte
 
+## 2026-11-06 · Zwei Kisten und ein Dorfkonzert
+
+- Die [Durchschnittskarte](erkenntnisnavigator.md#distribution) prüft die Frage, ob beide Kisten eine Mindestmenge enthalten können. Sechs Portionen schließen zweimal vier aus. Zehn Portionen erlauben sowohl fünf und fünf als auch zwei und acht. Die [frühere Kartenfassung](https://github.com/AlexanderR1991/Wirklich/blob/8b46f7af121768d35ed0a27a99bf20fa806dbf00/src/lib/navigator.mjs#L61-L76) konnte beide Fälle offenlassen.
+- Die [Gesprächsübung](schnittmengen.md#mehrere-teilzusagen-zusammenführen) zeigt am Konzertplan, wie man Teilzusagen zusammenführt. Die Beteiligten halten getrennt fest, welche Zusagen gleichzeitig erfüllbar sind und wer dem genauen Gesamtplan zugestimmt hat.
+
 ## 2026-11-06 · Acht Einwände gegen das Verfahren · Änderungsvorschlag
 
 - [Prüfung der acht Einwände](methodenkritik.md) am Ausgangsstand, mit Erfahrungen aus Kialo, Argüman und DebateGraph.
