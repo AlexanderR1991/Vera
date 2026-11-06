@@ -67,10 +67,6 @@
           [
             "Esoterik und Mathematik ausprobieren",
             "esoterik-und-mathematik"
-          ],
-          [
-            "Mit dem KI-Prompt weiterfragen",
-            "fragen-und-ki-prompt"
           ]
         ]
       },
@@ -123,7 +119,9 @@
     "playTitle": "Eine Frage. Ein neuer Blick.",
     "playIntro": "Das Denken beginnt nicht mit großen Worten. Manchmal reicht eine Entscheidung im Alltag.",
     "doorwaysLabel": "Philosophie erleben und überprüfen",
-    "metaDescription": "Was ist wirklich? Gemeinsam klüger werden. Irrtum für Irrtum. WIRKLICH ist eine offene Erkenntniswerkstatt für Fragen, Kritik und begründete Gemeinsamkeiten."
+    "metaDescription": "Was ist wirklich? Gemeinsam klüger werden. Irrtum für Irrtum. WIRKLICH ist eine offene Erkenntniswerkstatt für Fragen, Kritik und begründete Gemeinsamkeiten.",
+    "aiNote": "Du nutzt schon einen KI-Chat? Gib ihm unsere Prüfregeln und frag ihn, was gegen deine erste Vermutung spricht.",
+    "aiLink": "Regeln für meinen KI-Chat öffnen"
   },
   "en": {
     "headline": "What is",
@@ -193,10 +191,6 @@
           [
             "Try the esotericism and mathematics workshop",
             "esoterik-und-mathematik"
-          ],
-          [
-            "Take the inquiry prompt to an AI",
-            "fragen-und-ki-prompt"
           ]
         ]
       },
@@ -249,6 +243,8 @@
     "playTitle": "One question. A new perspective.",
     "playIntro": "Thinking does not start with grand ideas. Sometimes, an everyday decision is enough.",
     "doorwaysLabel": "Experience and examine philosophy",
-    "metaDescription": "What is real? Learn together, one correction at a time. WIRKLICH is an open inquiry workshop for questions, criticism and reasoned common ground."
+    "metaDescription": "What is real? Learn together, one correction at a time. WIRKLICH is an open inquiry workshop for questions, criticism and reasoned common ground.",
+    "aiNote": "Already use an AI chat? Give it the workshop rules and ask what might count against your first guess.",
+    "aiLink": "Get the rules for my AI chat"
   }
 }
