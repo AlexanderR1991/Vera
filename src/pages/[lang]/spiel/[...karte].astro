@@ -30,6 +30,7 @@ const url = absoluteFor(lang, slug);
         </span>
         <span>{t.card} {index + 1}/{cards.length}</span>
       </header>
+      <p class="fiction">{t.fiction}</p>
       <p class="scene">{card.scene}</p>
       <h1 id="question">{card.question}</h1>
       <fieldset>
@@ -50,6 +51,21 @@ const url = absoluteFor(lang, slug);
               {t.reactions.map(reaction => <label><input type="radio" name="second" autocomplete="off" />{reaction}</label>)}
             </div>
           </fieldset>
+          <div class="reason-note">
+            <label for="reason">{t.reason}</label>
+            <p id="reason-hint">{t.reasonHint}</p>
+            <textarea id="reason" rows="3" maxlength="600" autocomplete="off" placeholder={t.reasonPlaceholder} aria-describedby="reason-hint note-privacy"></textarea>
+            <p id="note-privacy">{t.privacy}</p>
+          </div>
+          <p class="principle">{t.principle}</p>
+          <details class="further">
+            <summary>{t.further}</summary>
+            <p>{card.further}</p>
+          </details>
+          {index === cards.length - 1 && <details class="further transfer">
+            <summary>{t.transferTitle}</summary>
+            <p>{t.transfer}</p>
+          </details>}
           <div class="next-steps">
             <a class="next" href={pathFor(lang, next.slug)}>{index === cards.length - 1 ? t.restart : t.next} <span aria-hidden="true">→</span></a>
             <a href={pathFor(lang, "werkstatt")}>{t.workshop}</a>
@@ -102,7 +118,8 @@ const url = absoluteFor(lang, slug);
   .card-top, .deck-name, .picks, .next-steps, .share-tools { display: flex; align-items: center; flex-wrap: wrap; gap: .65rem; }
   .card-top { justify-content: space-between; padding-bottom: .85rem; border-bottom: 1px solid #aaac9b; color: #465248; font-size: .85rem; }
   .deck-name { font-weight: 700; gap: .5rem; }
-  .scene { margin: clamp(1.2rem, 3vw, 2.1rem) 0 .5rem; line-height: 1.5; color: #404c43; font-size: clamp(1.05rem, 2vw, 1.26rem); }
+  .fiction { margin: .85rem 0 0; color: #465248; font-size: .85rem; line-height: 1.45; }
+  .scene { margin: clamp(.9rem, 2vw, 1.3rem) 0 .5rem; line-height: 1.5; color: #404c43; font-size: clamp(1.05rem, 2vw, 1.26rem); }
   .play-card h1 { margin: 0 0 1.35rem; font-size: clamp(2.15rem, 5vw, 3.65rem); line-height: 1.04; letter-spacing: -.035em; }
   fieldset { min-width: 0; padding: 0; border: 0; margin: 0; }
   legend { padding: 0; margin-bottom: .45rem; color: #465248; font-weight: 600; font-size: .92rem; }
@@ -120,6 +137,16 @@ const url = absoluteFor(lang, slug);
   .new-clue { color: #283e30; background: #e0e6d6; border-left: .2rem solid #557358; padding: .85rem 1rem; margin: 1.1rem 0; font-size: 1.15rem; line-height: 1.5; }
   .back h2 { margin: 1.25rem 0 .2rem; font-size: 1.6rem; line-height: 1.25; }
   .reflection { color: #3a443c; line-height: 1.55; margin-bottom: .9rem; }
+  .reason-note { margin-top: 1.35rem; }
+  .reason-note > label { font-weight: 650; color: #354537; }
+  .reason-note p { color: #465248; line-height: 1.5; margin: .3rem 0 .5rem; font-size: .95rem; }
+  .reason-note textarea { display: block; box-sizing: border-box; width: 100%; max-width: 100%; min-height: 6rem; resize: vertical; border: 1px solid #858c7e; border-radius: .35rem; padding: .7rem; background: #fffaf0; color: #212c26; font: inherit; line-height: 1.5; }
+  .reason-note textarea::placeholder { color: #596254; opacity: 1; }
+  .reason-note #note-privacy { font-size: .8rem; }
+  .principle { color: #354537; font-size: .95rem; line-height: 1.5; }
+  .further { margin: .75rem 0; border-top: 1px solid #b2b6a5; }
+  .further summary { min-height: 44px; padding: .6rem 0; color: #254735; font-weight: 650; }
+  .further p { margin: 0 0 .8rem; color: #3a443c; line-height: 1.55; }
   .next-steps { margin-top: 1.25rem; gap: .5rem 1.1rem; }
   .next { display: inline-block; }
   .next-steps a:not(.next), .pass-on a { text-decoration: underline; text-underline-offset: .18em; }

@@ -1,5 +1,14 @@
 # Versionsgeschichte
 
+## 2026-11-06 · Emporirren · Änderungsvorschlag
+- Aufbauend auf den Spielkarten aus #42: vier erfundene Alltagskarten, ein nicht entscheidender Hinweis, freiwillige Begründung und eigene Anschlussfrage.
+- Startseite erklärt Vermuten, Prüfen und Weiterdenken; Einigkeit ist freiwillig und kein Wahrheitsbeweis.
+- Prüfblatt beginnt mit drei Fragen; Vertiefung ist freiwillig, eine Aussageart wird nicht vorausgesetzt. Bestehende Detailnotizen bleiben lesbar.
+- Prüfvermerke und öffentliche Prüfzahlen sind an konkrete Inhaltsfassungen gebunden; historische KI-Kritik verlinkt ihre Quellversion.
+- Bezahlte Modellaufrufe benötigen gesonderte Aktivierung und haben Ausgabetokengrenzen. Das ist keine Geldobergrenze.
+- These 07 ergänzt Vergleichspunkt, Betroffene, Zeitraum und getrennte Zielkonflikte; keine Zahlenbewertung von Menschen oder pauschale Gesamtwertung.
+- KI-gestützte Selbstprüfung, Pilot und unabhängiger Methodentest bleiben getrennt. Keine Wirksamkeit oder Fachfreigabe behauptet.
+
 ## 1.0.0 · 2026-11-05 – WIRKLICH · Die offene Erkenntniswerkstatt
 - Neuer öffentlicher Projektname WIRKLICH; Grundtext des Wirklichen bleibt der Titel des philosophischen Fundaments. Bisherige Webadressen, Aussagekennungen, Signet, Attribution und Lizenzen bleiben erhalten.
 - Benutzbares zweisprachiges Prüfblatt für fünf Aussagearten: Frage, vorläufige Aussage, Geltungsbereich, Belege oder Gründe, Einwand, Revisionsbedingungen und nächster Schritt.

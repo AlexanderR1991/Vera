@@ -14,6 +14,12 @@
 | Eine Frage für sich prüfen · Work privately | [Prüfblatt öffnen](https://alexanderr1991.github.io/Wirklich/de/werkstatt/) | [Open a worksheet](https://alexanderr1991.github.io/Wirklich/en/werkstatt/) |
 | Eine Frage öffentlich stellen · Ask in public | [GitHub-Frageformular](https://github.com/AlexanderR1991/Wirklich/issues/new?template=frage.yml) | [GitHub question form](https://github.com/AlexanderR1991/Wirklich/issues/new?template=frage.yml) |
 
+## Gemeinsam klüger werden · Learn together
+
+**Irrtum für Irrtum:** vermuten, prüfen und begründet weiterdenken. Vier erfundene Alltagskarten und drei freiwillige Einstiegsfragen im Prüfblatt bilden den Anfang. Wer genauer prüfen möchte, öffnet weitere Fragen. Begründetes Beibehalten und Offenlassen sind ebenso möglich wie eine Korrektur. [Konzept, Selbstangriff und offene Grenzen](docs/emporirren.md) · [Erster Nutzungspilot](docs/spielpilot.md)
+
+Four fictional everyday cards and three optional worksheet prompts offer a simple start. Depth is optional. Keeping a well-supported answer and leaving a question open are valid outcomes. Accessibility across needs and independent learning transfer still need real-world testing.
+
 ## Woran wir arbeiten · What we do
 
 Bei einer Tatsachenfrage suchen wir Belege und Gegenbelege. Bei einer Wertfrage legen wir den Maßstab offen und hören auf die Menschen, die mit den Folgen leben. Aus vorhandenen Erkenntnissen kann eine neue Vermutung entstehen. Wir formulieren, woran sie scheitern könnte. Ein begründeter Dissens kann das Ergebnis sein. [Methode](docs/methode.md) · [Mission](docs/mission.md)

@@ -1,6 +1,7 @@
 """Offline contract checks for the provenance-first research feed."""
 import datetime as dt
 import json
+import io
 from pathlib import Path
 import tempfile
 import unittest
@@ -22,6 +23,38 @@ class ResearchContractTest(unittest.TestCase):
     def setUp(self):
         self.addCleanup(patch.stopall)
         patch.object(w, "NOW", dt.datetime(2026, 11, 5, tzinfo=dt.timezone.utc)).start()
+
+    def test_stored_key_without_opt_in_only_discovers(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            target = Path(tmp) / "stream.json"
+            row = {"id": "10.1234/test", "title": "A fictional candidate for testing",
+                   "date": "2026-11-01", "agent_notes": {}}
+            with patch.object(w, "OUT", target), \
+                 patch.object(w, "API_KEY", "offline-test-key"), \
+                 patch.object(w, "AI_ENABLED", False), \
+                 patch.object(w.time, "sleep"), \
+                 patch.object(w, "discover", return_value=[row]), \
+                 patch.object(w, "discover_arxiv", return_value=[]), \
+                 patch.object(w.urllib.request, "urlopen") as request:
+                w.main()
+                with self.assertRaises(RuntimeError):
+                    w.call_agent("skeptic", row)
+                request.assert_not_called()
+            data = json.loads(target.read_text())
+            self.assertFalse(data["agents_enabled"])
+            self.assertEqual(data["items"], [row])
+
+    def test_each_request_caps_generated_tokens(self):
+        answer = {"question": "What was measured?", "limitation": "Metadata only"}
+        response = {"choices": [{"message": {"content": json.dumps(answer)}}]}
+        with patch.object(w, "API_KEY", "offline-test-key"), \
+             patch.object(w, "AI_ENABLED", True), \
+             patch.object(w.urllib.request, "urlopen") as request:
+            request.return_value.__enter__.return_value = io.StringIO(json.dumps(response))
+            self.assertEqual(w.call_agent("methodologist", {}), answer)
+            body = json.loads(request.call_args.args[0].data)
+            self.assertEqual(body["max_completion_tokens"], 800)
+            self.assertEqual(request.call_count, 1)
 
     def test_clean_removes_html(self):
         self.assertEqual(w.clean("Study <b>of</b> &amp; reality"), "Study of & reality")

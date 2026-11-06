@@ -1,5 +1,6 @@
 """Offline, network-free contract checks for the public adversarial review."""
 import json
+import io
 from pathlib import Path
 import tempfile
 import unittest
@@ -28,6 +29,33 @@ class AdversarialContractTest(unittest.TestCase):
                 self.assertEqual(a.main(), 0)
             self.assertEqual(output.read_text(encoding="utf-8"),
                              '{"items":[{"id":"keep"}]}')
+
+    def test_stored_key_without_opt_in_makes_no_requests(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            output = Path(tmp) / "angriffe.json"
+            original = '{"items":[{"id":"keep"}]}'
+            output.write_text(original, encoding="utf-8")
+            with patch.object(a, "API_KEY", "offline-test-key"), \
+                 patch.object(a, "AI_ENABLED", False), \
+                 patch.object(a, "OUTPUT", output), \
+                 patch.object(a.urllib.request, "urlopen") as request:
+                self.assertEqual(a.main(), 0)
+                with self.assertRaises(RuntimeError):
+                    a.api_call("adversary", {})
+                request.assert_not_called()
+            self.assertEqual(output.read_text(), original)
+
+    def test_each_request_caps_generated_tokens(self):
+        answer = {key: "Unverified question" for key in a.ROLE_FIELDS["adversary"]}
+        response = {"choices": [{"message": {"content": json.dumps(answer)}}]}
+        with patch.object(a, "API_KEY", "offline-test-key"), \
+             patch.object(a, "AI_ENABLED", True), \
+             patch.object(a.urllib.request, "urlopen") as request:
+            request.return_value.__enter__.return_value = io.StringIO(json.dumps(response))
+            a.api_call("adversary", {"claim": "Fictional test"})
+            body = json.loads(request.call_args.args[0].data)
+            self.assertEqual(body["max_completion_tokens"], 1800)
+            self.assertEqual(request.call_count, 1)
 
     def test_roles_produce_unverified_record_only(self):
         responses = {
@@ -59,6 +87,7 @@ class AdversarialContractTest(unittest.TestCase):
             output = Path(tmp) / "angriffe.json"
             output.write_text('{"items":[]}', encoding="utf-8")
             with patch.object(a, "API_KEY", "offline-test-key"), \
+                 patch.object(a, "AI_ENABLED", True), \
                  patch.object(a, "OUTPUT", output), \
                  patch.object(a, "api_call", side_effect=fake_call):
                 self.assertEqual(a.main(), 0)

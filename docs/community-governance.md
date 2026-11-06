@@ -54,3 +54,11 @@ In [Discussions](https://github.com/AlexanderR1991/Wirklich/discussions) können
 ## Erster Beitrag / Welcome discussion
 
 Die zweisprachige Begrüßung liegt als [veröffentlichungsfertiger Entwurf](community/welcome-discussion.md) vor. Die Veröffentlichung als GitHub Discussion muss durch ein Konto mit entsprechendem Zugriff in der GitHub-Oberfläche erfolgen.
+
+## Zugang und vertrauliche Beschwerden / Access and private reports
+
+Spielen und das persönliche Prüfblatt benötigen kein GitHub-Konto. Für öffentliche Beiträge ist GitHub derzeit weiterhin eine Hürde. In einer betreuten Pilotrunde kann eine Person ihre Frage mündlich oder auf Papier formulieren. Eine andere Person darf sie nur mit ausdrücklicher Zustimmung und nach Rückprüfung des Wortlauts öffentlich übertragen; Hilfe beim Einreichen verleiht kein Stimmrecht über den Inhalt. Ein allgemeiner betreuter Einreichungsdienst wird noch nicht angeboten.
+
+Öffentliche Issues sind für sachliche redaktionelle Einwände geeignet, nicht für vertrauliche Beschwerden mit privaten Angaben. Ein vertraulicher Meldeweg mit zugesagter zuständiger Person, angemessener Reaktion und Umgang mit Befangenheit ist noch nicht eingerichtet. Vor breiter Community-Einladung muss diese Lücke geschlossen werden. Bis dahin bleibt der Nutzungspilot begrenzt und persönlich betreut. Es wird keine private Meldestelle oder Reaktionsfrist behauptet, die niemand verlässlich übernimmt.
+
+Playing and private worksheets need no GitHub account; public contributions currently do. During a facilitated pilot, a helper may submit a participant's wording only with explicit consent and their check of the final text. Public issues are unsuitable for confidential reports. A private reporting route, an actual responder and a way to handle conflicts of interest must be established before broad community recruitment. These are open requirements, not existing services.

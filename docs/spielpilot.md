@@ -1,5 +1,7 @@
 # Auf den zweiten Blick
 
+Vier erfundene Karten führen durch Vermuten, Prüfen und Weiterdenken. Die vierte Karte enthält bewusst einen Hinweis, der die Frage nicht entscheidet. Grundlage und Grenzen: [Emporirren](emporirren.md).
+
 Die erste Einladung passt auf einen Zettel oder in eine Nachricht. Wer sie bekommt, kann schon vor dem Öffnen des Links mitspielen.
 
 > An der linken Kasse warten zwei Leute, rechts vier. Wo stellst du dich an?
@@ -8,7 +10,7 @@ Nach der Veröffentlichung führt der [deutsche Spiellink](https://alexanderr199
 
 ## Die erste Tischrunde
 
-1. Lade fünf Menschen, die WIRKLICH noch nicht kennen, einzeln zu einer Runde ein, etwa in einer Kaffeepause. Lies die Frage vor oder zeig die Karte. Wer möchte, kann alles mündlich mitspielen, während du die Karte bedienst.
+1. Lade zunächst fünf Menschen mit unterschiedlichen Lese-, Sprach- und Geräteerfahrungen, die WIRKLICH noch nicht kennen, einzeln zu einer freiwilligen Runde ein, etwa in einer Kaffeepause. Lies die Frage vor oder zeig die Karte. Wer möchte, kann alles mündlich mitspielen, während du die Karte bedienst.
 2. Lass die Person ihren ersten Tipp abgeben und den Hinweis aufdecken. Warte ab, was sie dann sagt. Wenn sie Hilfe braucht, frag, wo sie weiterkommen wollte. Mit ihrem Einverständnis kannst du dir den unklaren Schritt merken.
 3. Lass ihr die Wahl, aufzuhören, eine weitere Karte zu ziehen oder jemand anderem dieselbe Frage zu stellen. Eine freiwillige Rückmeldung passt ins Gespräch. „Gab es eine Stelle, an der du hängen geblieben bist?“ genügt.
 
@@ -19,3 +21,17 @@ Zähle ohne Namen, wie viele Personen den Hinweis selbst gefunden haben, wie vie
 Wer eine Frage weitergeben möchte, kann den Link zur gespielten Karte in einen persönlichen Chat kopieren. Die andere Person soll denselben ersten Blick haben. Deshalb bleiben Tipp und Hinweis aus der Einladung heraus.
 
 Dieser kleine Versuch zeigt, wo der Einstieg hakt und welche Fragen Menschen freiwillig mitnehmen. Ob die Methode zu besser begründeten Urteilen führt, ist Gegenstand des [eigenen Vergleichsprotokolls](evaluation-v1.md).
+
+## Zugang ist Teil der ersten Prüfung
+
+Benötigte Unterstützung ist eine Anforderung an das Werkzeug, kein Mangel der Person. Mündliches Mitspielen und Bedienung mit Hilfe sind gleichwertig. Schulabschlüsse ersetzen keine Beobachtung konkreter Bedürfnisse. Prüfe bereits jetzt kleine Bildschirme, Vergrößerung, Tastatur und Vorlesen; Screenreader-Nutzung mit den entsprechenden Menschen bleibt ein eigener offener Test. Fünf Personen repräsentieren weder alle Bildungsschichten noch alle Nutzungsbedürfnisse. Weitere kleine Runden mit anderen Bedürfnissen sind nötig.
+
+## Kann der Gedanke auch ohne uns weitergehen?
+
+Wer freiwillig weiterprobieren möchte, bekommt einen neuen erfundenen Fall **ohne Hinweis und ohne Musterantwort**: „Deine Pflanze lässt die Blätter hängen. Braucht sie Wasser?“ Frage nur: „Was würdest du zuerst wissen oder prüfen wollen?“ Wir geben keine Pflanzenpflegeanweisung; der Fall prüft, ob fehlende Information erkannt wird. Notiere getrennt, ob die Person eine eigene Frage stellt, eine andere mögliche Erklärung nennt und ihren nächsten Schritt begründet. „Ich weiß es nicht“ darf bleiben.
+
+Eine zweite freiwillige Runde an einem später vereinbarten Termin kann einen anderen Fall ohne Hilfen nutzen. Kein automatischer Kontakt ohne Zustimmung. Das ist zunächst eine Erkundung, keine Lernmessung mit bewiesener Gültigkeit. Spaß und Weitergeben werden getrennt von begründetem Urteilen betrachtet. Für einen belastbaren Vergleich gilt das [Evaluationsprotokoll](evaluation-v1.md).
+
+## Verantwortung vor breiter Einladung
+
+Der erste Pilot ist eine begrenzte, persönlich betreute Runde. Die Person kann jederzeit abbrechen und entscheidet, ob eine anonyme Rückmeldung festgehalten werden darf. Niemand muss persönliche Erlebnisse erzählen. Keine ungefragte Aufzeichnung, keine Veröffentlichung persönlicher Aussagen. Eine vertrauliche Beschwerdestelle und ein betreuter öffentlicher Beitragsweg ohne GitHub sind noch nicht eingerichtet; vor einer breiten Community-Einladung braucht es tatsächlich zugesagte Zuständigkeiten gemäß [Governance](community-governance.md).

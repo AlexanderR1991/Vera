@@ -1,4 +1,4 @@
-import {createInquiry, parseInquiry, inquiryFields, inquiryMarkdown, missingInquiryFields} from "../lib/inquiry.mjs";
+import {createInquiry, parseInquiry, inquiryFields, inquiryMarkdown} from "../lib/inquiry.mjs";
 
 const root = document.querySelector("[data-inquiry-workbench]");
 if (root) {
@@ -13,10 +13,7 @@ if (root) {
   const update = () => {
     const note = read();
     preview.textContent = inquiryMarkdown(note);
-    const missing = missingInquiryFields(note);
-    root.querySelector("[data-inquiry-completion]").textContent = missing.length
-      ? t(`${7 - missing.length} von 7 Feldern ausgefüllt. Offene Felder sind erlaubt.`, `${7 - missing.length} of 7 fields filled. Open fields are allowed.`)
-      : t("Alle 7 Felder ausgefüllt. Inhaltliche Prüfung bleibt offen.", "All 7 fields filled. Substantive review remains pending.");
+    root.querySelector("[data-inquiry-completion]").textContent = t("Du entscheidest, was offen bleibt. Deine Notizen sind noch kein geprüfter Befund.", "You decide what to leave open. Your notes are not a reviewed finding.");
     const guide = root.querySelector(`[data-type-guide="${note.type}"]`);
     root.querySelector("[data-inquiry-types]").textContent = guide.querySelector("p").textContent;
     return note;
@@ -24,6 +21,8 @@ if (root) {
   const write = note => {
     form.elements.namedItem("type").value = note.type;
     inquiryFields.forEach(key => { form.elements.namedItem(key).value = note[key]; });
+    // Reveal imported detail rather than silently hiding existing work.
+    root.querySelector("[data-inquiry-deeper]").open = note.type !== "unclassified" || ["claim", "scope", "support", "revision"].some(key => note[key]);
     update();
   };
   const report = message => { status.textContent = message; };
@@ -78,7 +77,7 @@ if (root) {
   root.querySelector("[data-load-example]").addEventListener("click", () => {
     const example = JSON.parse(root.querySelector("[data-inquiry-example]").textContent);
     write(createInquiry(example, lang));
-    report(t("Erfundenes Beispiel geladen. Es enthält keine Versuchsergebnisse.", "Fictional example loaded. It contains no trial results."));
+    report(t("Erfundenes Beispiel geladen. Es beschreibt keine tatsächlichen Busfahrten.", "Fictional example loaded. It does not describe actual bus journeys."));
   });
   // Persistence and importing require an explicit user action. No automatic restore.
   update();

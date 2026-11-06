@@ -5,7 +5,7 @@ import registry from "../../public/knowledge/claims.json";
 import discovery from "../../public/research/stream.json";
 import criticism from "../../public/research/angriffe.json";
 import {topics} from "../lib/tree.mjs";
-import {summarizeProject} from "../lib/inquiry.mjs";
+import {summarizeProject} from "../lib/project-status.mjs";
 import {pathFor, base} from "../lib/paths.mjs";
 import "../styles/mission.css";
 import "../styles/workbench.css";
@@ -14,6 +14,7 @@ const en=lang==="en", t=(de,english)=>en?english:de;
 const s=summarizeProject(registry,topics,discovery,criticism);
 const repo=project.repository;
 const next=[
+  ["P-00",t("Den Einstieg mit Menschen erproben","Try the entry with real people"),t("Kleine freiwillige Runden mit unterschiedlichen Lese- und Gerätebedürfnissen. Bedienung, eigene Gründe und neue Fälle ohne Hilfe getrennt beobachten. Vertrauliche Beschwerden vor breiter Community-Einladung ermöglichen.","Small voluntary sessions with different reading and device needs. Observe usability, participants’ reasons and new cases without help separately. Establish private reporting before broad community recruitment."),"/blob/main/docs/spielpilot.md"],
   ["P-01",t("Zehn begrenzte Aussagen prüfen","Examine ten bounded claims"),t("Quellen im Volltext, fachkundige menschliche Prüfung, Gegenbelege, Grenzen und begründete Revisionsentscheidungen dokumentieren. Eine Quote ersetzt keine Prüfung.","Document full-text source review, qualified human examination, counterevidence, limits and reasoned revisions. A quota cannot replace review."),"/blob/main/docs/roadmap.md"],
   ["P-02",t("Die Methode mit einer Alternative vergleichen","Compare the method with an alternative"),t("Aufgaben, Vergleichsbedingungen und Auswertung vorab festlegen. Fehler, Fehlalarme, Verständnis, Zeit und Kosten getrennt berichten. Ein negatives Ergebnis wird veröffentlicht.","Define tasks, comparison conditions and analysis beforehand. Report errors, false alarms, understanding, time and costs separately. Publish a negative result too."),"/blob/main/docs/evaluation-v1.md"],
   ["P-03",t("Verantwortung belastbar machen","Make accountability work"),t("Unabhängige Prüfung und Einspruch, Übersetzungsreview, zugängliche Nutzung und ein transparentes Budget mit real zugesagten Verantwortlichen aufbauen.","Establish independent review and appeals, translation review, accessible use and a transparent budget with people who have actually agreed to take responsibility."),"/blob/main/docs/community-governance.md"]

@@ -1,6 +1,6 @@
 # Roadmap · Von der Vision zum belastbaren Erkenntnissystem
 
-**Stand: WIRKLICH 1.0.0 · 5. November 2026**
+**Stand: WIRKLICH 1.0.0 · Überarbeitung vom 6. November 2026**
 
 Die erste zusammenhängende Werkzeugfassung ist in [Release 1.0](release-1.0.md) beschrieben. Das neue Prüfblatt und die öffentliche Statusseite machen den Arbeitsweg benutzbar. Die folgenden Freigabekriterien betreffen die Qualität des Bestands und die Prüfung der Methode; die Versionsnummer ersetzt sie nicht. P-01 entspricht dem geprüften Bestand, P-02 dem Methodenvergleich und P-03 der tragfähigen Verantwortung.
 
@@ -20,6 +20,17 @@ Die Reihenfolge folgt überprüfbaren Voraussetzungen. Die Kapitel bleiben erhal
 - [x] Zweisprachiges persönliches Prüfblatt mit Text-/JSON-Export, validiertem Import und optionalem Browserspeicher
 - [x] Öffentlicher Projektstatus mit Bestandszahlen aus den Daten und einheitlichem Versionsprofil
 - [x] [Konkreter Entwurf für den Methodenvergleich](evaluation-v1.md); **noch kein Versuch und keine Vorregistrierung**
+
+## Sofort und parallel · Verständlicher Einstieg und reale Verantwortung
+
+Das [Emporirren-Konzept](emporirren.md) verbindet Spielen, die eigene Frage und freiwillige Vertiefung. Bevor wir breite Reichweite als Erfolg verfolgen, prüfen wir den Einstieg in [kleinen betreuten Runden](spielpilot.md).
+
+- [ ] Unterschiedliche Lese-, Sprach- und Gerätebedürfnisse einbeziehen; mündliche und unterstützte Teilnahme gleichwertig ermöglichen
+- [ ] Kontraste, Tastatur, kleine Bildschirme, Vergrößerung und Screenreader prüfen; die technische Prüfung ersetzt keine Nutzungsprüfung
+- [ ] Neue Fälle ohne Lösungshinweis einsetzen; Spaß und selbstständiges Prüfen getrennt beobachten
+- [ ] Vertraulichen Meldeweg und reale Bearbeitungsverantwortung vor breiter Community-Einladung einrichten
+- [ ] Zugänglichen Beitragsweg ohne eigenes GitHub-Konto mit Einwilligung und Kapazitätsgrenze erproben
+- [ ] Unabhängige fachliche Mitwirkung und Vertretung parallel zum ersten Bestand gewinnen; KI-Rollen zählen nicht als unabhängige Personen
 
 ## Etappe 1 · Ein kleiner, vollständig geprüfter Bestand
 
@@ -58,7 +69,7 @@ Keine Vorregistrierung oder Wirksamkeit ist bislang nachgewiesen. Ohne tragfähi
 - [ ] Finanzierung, Ausgaben und faire Vergütung transparent festlegen
 - [ ] Organisationsform, laufendes Budget und Vergütungsregeln für die bestehende freiwillige Unterstützung klären
 - [ ] Ausstieg, Export und Weiterverwendung praktisch ermöglichen
-- [ ] Kontraste, Tastaturbedienung, mobile Nutzung und unterschiedliche Lesebedürfnisse prüfen
+- [ ] Die von Beginn an geprüfte Zugänglichkeit fortlaufend mit betroffenen Nutzerinnen und Nutzern verbessern
 
 ## Etappe 4 · Erst nach Bewährung verbreitern
 
@@ -77,4 +88,6 @@ Systematische Recherche, unabhängiges Fachreview, belastbare Gegenpositionen un
 
 ## English
 
-The next milestone is a small corpus of ten fully examined claims, not more unchecked volume. Independent evaluation of the method comes next, followed by accountable governance and sustainable funding. Broader coverage and more autonomy require demonstrated benefit. The three current records illustrate the structure and do not count as expert-approved knowledge.
+The next milestone is a small corpus of ten fully examined claims, not more unchecked volume. Independent evaluation of the method comes next, alongside accountable governance and sustainable funding. Broader coverage and more autonomy require demonstrated benefit. The three current records illustrate the structure and do not count as expert-approved knowledge.
+
+Accessibility testing, voluntary small play sessions and real complaints responsibility start immediately, alongside the first corpus. Do not defer them to a later growth stage. Independent learning transfer remains untested.

@@ -44,6 +44,12 @@ Auswertende Personen sollen die Bedingung möglichst nicht kennen. Entfernbare H
 
 Welche Messgröße primär ist, welche Unterschiede praktisch relevant wären und wie Unsicherheit, fehlende Daten und mehrere Vergleiche behandelt werden, wird vor der bestätigenden Untersuchung festgelegt. Hier werden weder eine Effektgröße noch eine erforderliche Stichprobe erfunden.
 
+## Selbstständigkeit und Übertragung getrennt prüfen
+
+Ein unmittelbar besseres Ergebnis mit dem Werkzeug ist kein Nachweis, dass Menschen später selbstständiger urteilen. Deshalb sieht die nächste Protokollfassung zusätzlich neue, zuvor ungesehene Aufgaben ohne Prüfblatt, Autorenhinweis oder KI vor; eine spätere freiwillige Wiederholung prüft die Beständigkeit. Aufgabenabstand, Zuteilung und Bewertung sind vor der Untersuchung festzulegen. Es ist noch kein Termin und keine Teilnahme vereinbart.
+
+Die Aufgaben enthalten entscheidende und nicht entscheidende Hinweise, begründetes Beibehalten sowie ehrliches Offenlassen. Bei Wertkonflikten wird kein Konsens als richtige Lösung verlangt. Übungsaufgaben bleiben von Prüfaufgaben getrennt. Lesesicherheit, Sprachverständnis und technische Unterstützung werden als Nutzungsbedingungen betrachtet, nicht aus Bildungsabschlüssen abgeleitet. Barrieren, Abbrüche und benötigte Hilfe werden neben möglichen Vorteilen berichtet. Persönliche Würde oder Intelligenz erhalten keine Punktzahl.
+
 ## Grenzen, Veröffentlichung und Abbruch
 
 - Teilnahme muss freiwillig sein. Persönliche Konflikte oder sensible Daten sind für den ersten Bedienpilot nicht erforderlich; mit synthetischen oder öffentlichen Fällen beginnen.
@@ -56,3 +62,5 @@ Welche Messgröße primär ist, welche Unterschiede praktisch relevant wären un
 ## English
 
 This is an unrun, unregistered protocol draft. Compare ordinary source-based review, the structured worksheet, and the worksheet plus one fixed AI critique step. Separate the value of structure from the added effect of AI. Define tasks, assignment, independent assessment, endpoints, sample rationale and analysis before any confirmatory study. Report false alarms, uncertainty, time, costs, null findings and harms. Normative and interpretive cases do not receive invented empirical truth labels.
+
+Also assess independent transfer on unseen tasks without the worksheet or AI, including a later voluntary follow-up. Distinguish decisive from non-decisive clues and justified retention from revision. Enjoyment, agreement and sharing are not evidence of improved reasoning.

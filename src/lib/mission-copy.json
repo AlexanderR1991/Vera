@@ -4,7 +4,7 @@
     "headlineAccent": "wirklich?",
     "lead": "Du stehst im Supermarkt. An der linken Kasse warten zwei Leute, rechts vier. Wo stellst du dich an?",
     "play": "Eine Runde spielen",
-    "playNote": "Allein oder zu zweit, ohne Anmeldung.",
+    "playNote": "Ohne Anmeldung. Ohne Zeitdruck. Du kannst auch laut mitdenken.",
     "bringQuestion": "Meine eigene Frage mitbringen",
     "worksheet": "Meine Frage im Prüfblatt untersuchen",
     "publicQuestion": "Öffentlich auf GitHub fragen",
@@ -26,42 +26,103 @@
         "title": "Eine Frage aus dem Leben verfolgen",
         "text": "Lies einen Werkstatttext und prüfe, ob seine Gründe auch in deiner Situation tragen.",
         "links": [
-          ["Liebe und Fürsorge", "warum-liebe-wirkt"],
-          ["Politik und Zusammenleben", "politik-die-dem-menschen-dient"],
-          ["Ernährung", "ernaehrung-und-verantwortung"],
-          ["Frieden und Schutz", "militaer-und-verantwortung"],
-          ["Religion und Sinn", "bruecken-zwischen-den-religionen"],
-          ["Kunst und Erkenntnis", "kunst-und-erkenntnis"],
-          ["Grenzen des Erkennbaren", "erkenntnishorizont"]
+          [
+            "Liebe und Fürsorge",
+            "warum-liebe-wirkt"
+          ],
+          [
+            "Politik und Zusammenleben",
+            "politik-die-dem-menschen-dient"
+          ],
+          [
+            "Ernährung",
+            "ernaehrung-und-verantwortung"
+          ],
+          [
+            "Frieden und Schutz",
+            "militaer-und-verantwortung"
+          ],
+          [
+            "Religion und Sinn",
+            "bruecken-zwischen-den-religionen"
+          ],
+          [
+            "Kunst und Erkenntnis",
+            "kunst-und-erkenntnis"
+          ],
+          [
+            "Grenzen des Erkennbaren",
+            "erkenntnishorizont"
+          ]
         ]
       },
       {
         "title": "Aus vorhandenem Wissen eine neue Idee entwickeln",
         "text": "Welche Vermutung ergibt sich aus dem, was du schon weißt? Im Forschungsstrom findest du ungeprüfte Quellenhinweise. In der Werkstatt kannst du an einem Modell ausprobieren, was deine Vermutung vorhersagt.",
         "links": [
-          ["Quellenhinweise erkunden", "forschungsstrom"],
-          ["Esoterik und Mathematik ausprobieren", "esoterik-und-mathematik"],
-          ["Mit dem KI-Prompt weiterfragen", "fragen-und-ki-prompt"]
+          [
+            "Quellenhinweise erkunden",
+            "forschungsstrom"
+          ],
+          [
+            "Esoterik und Mathematik ausprobieren",
+            "esoterik-und-mathematik"
+          ],
+          [
+            "Mit dem KI-Prompt weiterfragen",
+            "fragen-und-ki-prompt"
+          ]
         ]
       },
       {
         "title": "Dem Projekt widersprechen",
         "text": "Auch unsere eigenen Regeln stehen zur Prüfung. Bei jedem Registereintrag kannst du nachlesen, was wir behaupten, welche Einwände vorliegen und was uns umstimmen würde.",
         "links": [
-          ["Aussagenregister öffnen", "aussagen"],
-          ["Gegenargumente prüfen", "angriffsschwarm"],
-          ["Unsere Mission lesen", "mission"],
-          ["Eine Korrektur vorschlagen", "mitwirken"]
+          [
+            "Aussagenregister öffnen",
+            "aussagen"
+          ],
+          [
+            "Gegenargumente prüfen",
+            "angriffsschwarm"
+          ],
+          [
+            "Unsere Mission lesen",
+            "mission"
+          ],
+          [
+            "Eine Korrektur vorschlagen",
+            "mitwirken"
+          ]
         ]
       }
-    ]
+    ],
+    "invitation": "Gemeinsam klüger werden. Irrtum für Irrtum.",
+    "ownQuestion": "Mit meiner eigenen Frage starten",
+    "practiceTitle": "Du musst nicht schon Bescheid wissen.",
+    "practiceSteps": [
+      [
+        "Vermuten",
+        "Was denkst du gerade? Auch „weiß ich noch nicht“ passt."
+      ],
+      [
+        "Prüfen",
+        "Was spricht dafür? Was könnte dagegen sprechen?"
+      ],
+      [
+        "Weiterdenken",
+        "Bleibst du dabei, änderst du etwas oder lässt du es offen? Warum?"
+      ]
+    ],
+    "practiceNote": "Hier gibt es keine Punkte für die „richtige“ Meinung. Ein guter Grund kann dich umstimmen – oder deine Antwort stützen. Du bestimmst, wie tief du einsteigst.",
+    "consensusLimit": "Gemeinsamkeiten suchen, Unterschiede ehrlich stehen lassen. Niemand muss zustimmen, und Einigkeit allein beweist nichts."
   },
   "en": {
     "headline": "What is",
     "headlineAccent": "real?",
     "lead": "You're at the supermarket. Two people are waiting at the checkout on the left, four on the right. Which line do you join?",
     "play": "Play a round",
-    "playNote": "Play on your own or with someone else. No sign-up needed.",
+    "playNote": "No sign-up. No time limit. You can think out loud, too.",
     "bringQuestion": "Bring a question of my own",
     "worksheet": "Work through my question",
     "publicQuestion": "Ask publicly on GitHub",
@@ -83,34 +144,95 @@
         "title": "Explore a question from everyday life",
         "text": "Read a workshop essay and consider whether its reasoning holds up in your own circumstances.",
         "links": [
-          ["Love and care", "warum-liebe-wirkt"],
-          ["Politics and society", "politik-die-dem-menschen-dient"],
-          ["Food and responsibility", "ernaehrung-und-verantwortung"],
-          ["Peace and protection", "militaer-und-verantwortung"],
-          ["Religion and meaning", "bruecken-zwischen-den-religionen"],
-          ["Art and inquiry", "kunst-und-erkenntnis"],
-          ["Limits of knowledge", "erkenntnishorizont"]
+          [
+            "Love and care",
+            "warum-liebe-wirkt"
+          ],
+          [
+            "Politics and society",
+            "politik-die-dem-menschen-dient"
+          ],
+          [
+            "Food and responsibility",
+            "ernaehrung-und-verantwortung"
+          ],
+          [
+            "Peace and protection",
+            "militaer-und-verantwortung"
+          ],
+          [
+            "Religion and meaning",
+            "bruecken-zwischen-den-religionen"
+          ],
+          [
+            "Art and inquiry",
+            "kunst-und-erkenntnis"
+          ],
+          [
+            "Limits of knowledge",
+            "erkenntnishorizont"
+          ]
         ]
       },
       {
         "title": "Develop an idea from what you already know",
         "text": "What might follow from what you know so far? The research stream offers leads that still need checking. In the workshop you can use a model to explore what your idea would predict.",
         "links": [
-          ["Browse research leads", "forschungsstrom"],
-          ["Try the esotericism and mathematics workshop", "esoterik-und-mathematik"],
-          ["Take the inquiry prompt to an AI", "fragen-und-ki-prompt"]
+          [
+            "Browse research leads",
+            "forschungsstrom"
+          ],
+          [
+            "Try the esotericism and mathematics workshop",
+            "esoterik-und-mathematik"
+          ],
+          [
+            "Take the inquiry prompt to an AI",
+            "fragen-und-ki-prompt"
+          ]
         ]
       },
       {
         "title": "Challenge the project",
         "text": "Our own rules are open to challenge. Each entry in the register records our reasoning, objections and what would change our minds.",
         "links": [
-          ["Open the claim register", "aussagen"],
-          ["Examine objections", "angriffsschwarm"],
-          ["Read our mission", "mission"],
-          ["Suggest a correction", "mitwirken"]
+          [
+            "Open the claim register",
+            "aussagen"
+          ],
+          [
+            "Examine objections",
+            "angriffsschwarm"
+          ],
+          [
+            "Read our mission",
+            "mission"
+          ],
+          [
+            "Suggest a correction",
+            "mitwirken"
+          ]
         ]
       }
-    ]
+    ],
+    "invitation": "Learn together. One correction at a time.",
+    "ownQuestion": "Start with my own question",
+    "practiceTitle": "You do not need to know the answer.",
+    "practiceSteps": [
+      [
+        "Guess",
+        "What do you think? “I do not know yet” is welcome."
+      ],
+      [
+        "Check",
+        "What supports your idea? What might count against it?"
+      ],
+      [
+        "Think again",
+        "Keep your answer, change it or leave it open. What is your reason?"
+      ]
+    ],
+    "practiceNote": "There are no points for the “right” opinion. A good reason may change your mind or support your answer. You choose how far to explore.",
+    "consensusLimit": "Look for common ground and record differences honestly. No one has to agree, and agreement alone proves nothing."
   }
 }
