@@ -1,5 +1,16 @@
 # Versionsgeschichte
 
+## 2026-11-06 · Zwei Kisten und ein Dorfkonzert
+
+- Die [Durchschnittskarte](erkenntnisnavigator.md#distribution) prüft die Frage, ob beide Kisten eine Mindestmenge enthalten können. Sechs Portionen schließen zweimal vier aus. Zehn Portionen erlauben sowohl fünf und fünf als auch zwei und acht. Die [frühere Kartenfassung](https://github.com/AlexanderR1991/Wirklich/blob/8b46f7af121768d35ed0a27a99bf20fa806dbf00/src/lib/navigator.mjs#L61-L76) konnte beide Fälle offenlassen.
+- Die [Gesprächsübung](schnittmengen.md#mehrere-teilzusagen-zusammenführen) zeigt am Konzertplan, wie man Teilzusagen zusammenführt. Die Beteiligten halten getrennt fest, welche Zusagen gleichzeitig erfüllbar sind und wer dem genauen Gesamtplan zugestimmt hat.
+
+## 2026-11-06 · Acht Einwände gegen das Verfahren · Änderungsvorschlag
+
+- [Prüfung der acht Einwände](methodenkritik.md) am Ausgangsstand, mit Erfahrungen aus Kialo, Argüman und DebateGraph.
+- Prüfblatt und Navigator erhalten Hilfen für Mischfragen, Dissens und alternative Formulierungen. Die Regeln für menschliche Einwandprüfung, Regeländerungen und den Umgang mit Wiederholungen werden konkretisiert.
+- P-02 benennt die Befunde, bei denen ein praktischer Nützlichkeitsanspruch für die geprüfte Fassung fallengelassen wird. Der Methodenvergleich und die unabhängige Begutachtung stehen aus.
+
 ## 2026-11-06 · Emporirren · Änderungsvorschlag
 - Aufbauend auf den Spielkarten aus #42: vier erfundene Alltagskarten, ein nicht entscheidender Hinweis, freiwillige Begründung und eigene Anschlussfrage.
 - Startseite erklärt Vermuten, Prüfen und Weiterdenken; Einigkeit ist freiwillig und kein Wahrheitsbeweis.

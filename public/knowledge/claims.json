@@ -62,7 +62,7 @@
         "de": "Zielkonflikte zwischen Schutz, Selbstbestimmung und Unterstützungsbedarf bleiben offen.",
         "en": "Tradeoffs between protection, self-determination and support needs remain open."
       },
-      "version": 2,
+      "version": 3,
       "updated_at": "2026-11-06",
       "review_status": "unreviewed",
       "human_review": null,
@@ -90,8 +90,34 @@
             "de": "Das Register führt jetzt die in PR #31 veröffentlichte Präzisierung zur dauerhaften Unterstützung mit ihrer Quelle. Die nächste Revisionsbedingung bezieht sich auf diese Fassung.",
             "en": "The register now reflects the clarification on lasting support published in PR #31, links to that revision and gives a condition for revisiting the amended wording."
           }
+        },
+        {
+          "version": 3,
+          "date": "2026-11-06",
+          "change": {
+            "de": "Erkenntnisreife R0, Abstraktionsstufe und separaten Konsensstatus ergänzt; Aussage und fachliche Beleglage unverändert. Keine Aufwertung.",
+            "en": "Added R0 maturity, abstraction level and separate consensus status; wording and substantive evidence unchanged. No promotion."
+          }
         }
-      ]
+      ],
+      "abstraction_level": "principle",
+      "maturity": {
+        "level": 0,
+        "rationale": {
+          "de": "Normativer Leitgedanke mit offenem Einwand und redaktioneller Korrektur; noch keine unabhängige Fachprüfung.",
+          "en": "Normative principle with a documented objection and editorial correction; no independent expert review yet."
+        },
+        "independent_checks": [],
+        "adversarial_resolution": null
+      },
+      "consensus": {
+        "status": "not_assessed",
+        "note": {
+          "de": "Keine dokumentierte Konsenserhebung. Wiederholte KI-Antworten und Likes sind keine unabhängigen Stimmen.",
+          "en": "No documented consensus assessment. Repeated AI responses and likes do not constitute independent positions."
+        },
+        "records": []
+      }
     },
     {
       "id": "H-001",
@@ -141,8 +167,8 @@
         "de": "Der Erklärungsnutzen für Leser wurde nicht systematisch untersucht.",
         "en": "Its explanatory usefulness for readers has not been systematically examined."
       },
-      "version": 1,
-      "updated_at": "2026-11-05",
+      "version": 2,
+      "updated_at": "2026-11-06",
       "review_status": "unreviewed",
       "human_review": null,
       "ai_assistance": {
@@ -161,8 +187,34 @@
             "de": "Erster strukturierter Entwurf. Keine fachliche Freigabe.",
             "en": "First structured draft. No expert approval."
           }
+        },
+        {
+          "version": 2,
+          "date": "2026-11-06",
+          "change": {
+            "de": "Erkenntnisreife R0, Abstraktionsstufe und separaten Konsensstatus ergänzt; Aussage und fachliche Beleglage unverändert. Keine Aufwertung.",
+            "en": "Added R0 maturity, abstraction level and separate consensus status; wording and substantive evidence unchanged. No promotion."
+          }
         }
-      ]
+      ],
+      "abstraction_level": "pattern",
+      "maturity": {
+        "level": 0,
+        "rationale": {
+          "de": "Das Bild hat erklärte Grenzen, ist aber kein empirisch geprüfter Sachverhalt und wurde nicht fachlich begutachtet.",
+          "en": "The metaphor has stated limits, but it is not an empirically verified proposition and has not been expert-reviewed."
+        },
+        "independent_checks": [],
+        "adversarial_resolution": null
+      },
+      "consensus": {
+        "status": "not_assessed",
+        "note": {
+          "de": "Keine dokumentierte Konsenserhebung. Wiederholte KI-Antworten und Likes sind keine unabhängigen Stimmen.",
+          "en": "No documented consensus assessment. Repeated AI responses and likes do not constitute independent positions."
+        },
+        "records": []
+      }
     },
     {
       "id": "KI-001",
@@ -212,8 +264,8 @@
         "de": "Effektgröße, Übertragbarkeit, Abhängigkeit vom Modell und mögliche Verzerrungen sind unbekannt.",
         "en": "Effect size, generalizability, model dependence and possible biases are unknown."
       },
-      "version": 1,
-      "updated_at": "2026-11-05",
+      "version": 2,
+      "updated_at": "2026-11-06",
       "review_status": "unreviewed",
       "human_review": null,
       "ai_assistance": {
@@ -232,8 +284,34 @@
             "de": "Erster strukturierter Entwurf. Keine fachliche Freigabe.",
             "en": "First structured draft. No expert approval."
           }
+        },
+        {
+          "version": 2,
+          "date": "2026-11-06",
+          "change": {
+            "de": "Erkenntnisreife R0, Abstraktionsstufe und separaten Konsensstatus ergänzt; Aussage und fachliche Beleglage unverändert. Keine Aufwertung.",
+            "en": "Added R0 maturity, abstraction level and separate consensus status; wording and substantive evidence unchanged. No promotion."
+          }
         }
-      ]
+      ],
+      "abstraction_level": "disciplinary",
+      "maturity": {
+        "level": 0,
+        "rationale": {
+          "de": "Die Hypothese ist prüfbar formuliert, doch noch ohne vorregistrierten Versuch und menschlichen Review.",
+          "en": "The hypothesis is phrased so it can be tested, but has no preregistered trial or human review yet."
+        },
+        "independent_checks": [],
+        "adversarial_resolution": null
+      },
+      "consensus": {
+        "status": "not_assessed",
+        "note": {
+          "de": "Keine dokumentierte Konsenserhebung. Wiederholte KI-Antworten und Likes sind keine unabhängigen Stimmen.",
+          "en": "No documented consensus assessment. Repeated AI responses and likes do not constitute independent positions."
+        },
+        "records": []
+      }
     },
     {
       "id": "MED-001",
@@ -324,7 +402,25 @@
             "en": "Recorded the 1989 interim report. Human expert review is pending."
           }
         }
-      ]
+      ],
+      "abstraction_level": "case",
+      "maturity": {
+        "level": 0,
+        "rationale": {
+          "de": "Quellengebundene Beschreibung eines historischen Studienergebnisses. Die vollständige Quellenprüfung und unabhängige fachliche Begutachtung stehen aus.",
+          "en": "A source-linked account of a historical trial result. Full source verification and independent expert review are still pending."
+        },
+        "independent_checks": [],
+        "adversarial_resolution": null
+      },
+      "consensus": {
+        "status": "not_assessed",
+        "note": {
+          "de": "Ein wissenschaftlicher Konsens wurde für diesen Eintrag nicht eigenständig erhoben.",
+          "en": "No scientific consensus assessment has been independently conducted for this claim."
+        },
+        "records": []
+      }
     }
   ]
 }

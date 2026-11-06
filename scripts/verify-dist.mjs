@@ -260,7 +260,7 @@ if(errors.length){console.error(errors.join("\n"));process.exit(1);}
 console.log("Verified bilingual navigator, readable draft cards, contextual entry points and version-bound source links.");
 
 
-// Legal routes and paused fundraising must be visible in both published languages.
+// Verify legal routes and the voluntary support section in both languages.
 for(const lang of ["de","en"]){
   const footer = await readFile(join(out,lang,"index.html"),"utf8");
   for(const route of ["impressum","datenschutz"]){
@@ -272,9 +272,9 @@ for(const lang of ["de","en"]){
   }
   const contribute = await readFile(join(out,lang,"mitwirken","index.html"),"utf8");
   const support = contribute.split('id="unterstuetzen"')[1]?.split("</section>")[0] || "";
-  if(!support)errors.push("Missing support disclosure for "+lang);
-  if(support.includes("paypal.com/")||support.includes("radke.a91@gmail.com"))errors.push("Payment request should stay paused for "+lang);
-  if(!support.includes(lang==="de"?"Unterstützung derzeit pausiert":"Support currently paused"))errors.push("Missing pause notice for "+lang);
+  if(!footer.includes(`href="/Wirklich/${lang}/mitwirken/#unterstuetzen"`)) errors.push("Missing footer link to support for "+lang);
+  if(!support.includes(">radke.a91@gmail.com<") || !support.includes('href="https://www.paypal.com/"')) errors.push("Missing PayPal recipient or link for "+lang);
+  if(!support.includes(lang==="de" ? "keine Spendenquittung" : "no charitable donation receipt")) errors.push("Missing donation receipt disclosure for "+lang);
 }
-if(errors.length){console.error(errors.join("\\n"));process.exit(1);}
-console.log("Verified bilingual legal pages, footer discovery and paused public payment instructions.");
+if(errors.length){console.error(errors.join("\n"));process.exit(1);}
+console.log("Verified bilingual legal pages, support links, PayPal recipient and donation receipt disclosures.");

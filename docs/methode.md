@@ -18,6 +18,8 @@ Wir entscheiden, welche Fassung wir mit welchen Gründen veröffentlichen. Eine 
 | Interpretativ | Deutung an Text, Erfahrung oder Kontext prüfen. Plausible Gegenlesarten vergleichen. |
 | Metaphorisch | Zeigen, was das Bild erklärt und wo die wörtliche Lesart in die Irre führt. |
 
+Die [Erkenntnisreife R0–R4](erkenntnisreife.md) ist eine zusätzliche, rückstufbare Einschätzung der dokumentierten Prüfung – keine absolute Wahrheit und kein Abstimmungsresultat. Abstraktionsstufe und dokumentierter Konsens werden gesondert angezeigt. R1+ verlangen einen menschlichen Prüfvermerk zur aktuellen Fassung; ab R3 sind unabhängige Gegenprüfungen nötig. Die bestehenden Beispiele bleiben R0. Ein belastbarer Gegenbeleg kann auch R4 erschüttern.
+
 **Aussageart, Begründungslage und Prüfstatus** beantworten verschiedene Fragen. Eine Hypothese ist vorläufig. Ein abgeschlossener Review beschreibt eine Tätigkeit und ihren Umfang. Wie belastbar der geprüfte Satz ist, hängt von den Gründen ab. Öffentlich sichtbar wird diese Trennung im [Aussagenregister](aussagenregister.md).
 
 ## Vom Messwert zum behaupteten Nutzen

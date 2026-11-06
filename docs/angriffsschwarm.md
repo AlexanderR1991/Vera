@@ -18,13 +18,35 @@ The aim is to disprove, narrow or improve specific **claims**, not to defend a d
 
 Types of statements remain distinct: an empirical assertion needs evidence; a logical claim needs an argument; an ethical norm requires explicit values and conflicts; an interpretation must acknowledge alternatives; a metaphor is no literal proof.
 
+## Wann trägt ein Einwand? / When does an objection hold?
+
+Eine Person prüft zuerst den ursprünglichen Wortlaut und seine Voraussetzungen. Ein berechtigter Einwand zeigt einen Unterschied, der für diese Fassung eine Konsequenz hat.
+
+| Art | Was die prüfende Person zeigen muss |
+| --- | --- |
+| Empirisch oder formal | Den Befund an der Originalquelle prüfen oder die fehlerhafte Ableitung unter denselben Voraussetzungen nachrechnen. Bei einer behaupteten empirischen Regelmäßigkeit bleibt ein bloß denkbarer Fall eine offene Prüffrage. |
+| Normativ | Angeben, welcher Wert mit welcher Voraussetzung kollidiert oder welche betroffene Perspektive übergangen wurde. Eine veränderte Formulierung oder ein ausdrücklicher Dissens kann die passende Konsequenz sein. |
+| Deutung oder Analogie | Beide Aussagen im jeweiligen Kontext lesen. Festhalten, welche Beziehung gleich sein soll, welcher Unterschied die Übertragung kippen würde und ob er im vorliegenden Fall zutrifft. |
+
+**Gedankenbeispiel.** Ein Entwurf wendet gegen „Zwölf Stunden notwendiger, nacheinander ausführbarer Arbeit passen nicht in acht Stunden“ ein, zwei Aufgaben könnten parallel laufen. Als Widerlegung der Rechnung ist das ein Fehlalarm, weil er eine Voraussetzung austauscht. Zeigt der Dienstplan dagegen, dass im *konkreten Fall* zwei Aufgaben tatsächlich parallel laufen, kann derselbe Hinweis die Anwendung der Rechnung zu Recht beanstanden. Für die Beurteilung zählt, welche der beiden Aussagen der Entwurf angegriffen hat.
+
+Die prüfende Person verlinkt im Issue oder PR die Quellfassung, den konkreten Einwand und bei KI-Entwürfen den Zeitpunkt der Erzeugung. Sie nennt ihre Rolle, den geprüften Beleg oder Gedankenschritt und eines dieser Ergebnisse:
+
+- **Berechtigt.** Festhalten, was sich an Wortlaut, Geltungsbereich, Anwendung oder dokumentiertem Dissens ändern muss.
+- **Unbegründet.** Festhalten, weshalb der Einwand an dieser Aussage vorbeigeht. Für die spätere Auswertung als Fehlalarm zählt ein als Fehler behaupteter und nach Prüfung verworfener Befund.
+- **Offen.** Fehlende Information oder strittige Prämisse benennen. Ein offener Fall bleibt gesondert, auch wenn alle Modellrollen dasselbe Ergebnis bevorzugen.
+
+Eine redaktionelle Konsequenz braucht die begründete Entscheidung des Maintainers. Die menschliche Beurteilung bleibt anfechtbar. Für Aussagen über den Nutzen des Schwarms werden Treffer, Fehlalarme und offene Fälle nach Aussageart berichtet. Für übersehene Fehler braucht es zusätzlich unabhängig geprüfte Testfälle, auch solche, bei denen das Modell keinen Einwand gefunden hat. Der [Evaluationsentwurf](evaluation-v1.md) beschreibt den Vergleich.
+
+Human reviewers record the exact claim revision, objection, AI draft timestamp if applicable, reviewer role, reasons and outcome in an issue or PR. Check evidence or a derivation for factual or formal claims. For values, interpretations and analogies, locate the disputed premise or decisive contextual difference. Mark the objection as **upheld**, **rejected**, or **open** and explain its consequence for that claim or application. A rejected allegation of error is a false alarm. Keep unresolved cases separate. Estimating missed errors also requires independently checked cases which the model failed to flag.
+
 ## What the prototype actually does
 
 `.github/workflows/angriffsschwarm.yml` runs once per day (schedule may be delayed) and on manual dispatch after it is merged. `scripts/angriffsschwarm.py` selects *one* public passage per run from an allowlist: the nine numbered propositions in `docs/grundtext.md` and selected sections on love, politics, military ethics, interreligious dialogue and the project method. One method case examines the inference from a measured change to patient benefit (MED-001). The schedule cycles deterministically through available passages.
 
 Only when both the GitHub Actions `OPENAI_API_KEY` repository secret and the repository variable `WIRKLICH_AI_ENABLED=true` are configured, the script requests three distinct role passes (adversary, defender, assessor) via the OpenAI API. These are **different prompts to the same configured model**, **not** independent agents, diverse labs, subject-matter experts or peer reviewers. The models receive publicly committed source excerpts only, not entire studies or live internet research. Their source claims and tests must still be checked.
 
-Results are written **only** to `public/research/angriffe.json`; there is no automatic Issue creation, no changes to chapters/Theses, no automatic merges, no automatic validation of historical or scientific facts. The generated entries have `review_status: "unverified_ai_draft"`; `assessment.disposition` is only a suggested type of follow-up, never a truth score. The JSON keeps the most recent 40 case records. Source links use the stored commit when it is a valid SHA; records without an exact revision are visibly marked and link only to the current text. Without the key or explicit opt-in, the run is skipped and existing output is unchanged. A stored key alone never activates paid requests. Remove the variable or set it to `false` to disable them.
+Results are written **only** to `public/research/angriffe.json`; there is no automatic Issue creation, no changes to chapters/Theses, no automatic merges, no automatic validation of historical or scientific facts. The generated entries have `review_status: "unverified_ai_draft"`; `assessor.disposition` is only a suggested type of follow-up, never a truth score. The JSON keeps the most recent 40 case records. Source links use the stored commit when it is a valid SHA; records without an exact revision are visibly marked and link only to the current text. Without the key or explicit opt-in, the run is skipped and existing output is unchanged. A stored key alone never activates paid requests. Remove the variable or set it to `false` to disable them.
 
 Scheduled rate: at most 1 case/day × 3 API requests, with at most 1,800 generated tokens per request. There are no automatic API retries. The API may incur usage charges independent of ChatGPT subscriptions. Per-request limits are not a monthly money cap: input tokens, manual runs, model prices and other API use still matter. The API receives `max_completion_tokens` before generation ([API reference](https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create), checked 2026-11-06). The reference model is `gpt-4.1-mini`, and maintainers may change it after compatibility tests.
 

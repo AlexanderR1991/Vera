@@ -13,6 +13,9 @@ The JSON file is the single editorial source for both register pages and the dow
 | `id` | Stabile ASCII-Kennung und Fragmentadresse, zum Beispiel `KI-001`; nicht wiederverwenden |
 | `version`, `updated_at`, `history` | Fortlaufende Version, Datum und begründete Änderung je Version |
 | `type` | `empirical`, `formal`, `normative`, `interpretive`, `metaphor` |
+| `abstraction_level` | `case`, `pattern`, `disciplinary`, `principle`; Reichweite, keine Wahrheitsrangfolge |
+| `maturity` | Reifestufe R0–R4, zweisprachige Begründung, unabhängige Nachweise und ggf. Einwandbehandlung; **keine Wahrheitswahrscheinlichkeit** |
+| `consensus` | Übereinstimmung/Dissens gesondert: Status, Notiz und nachprüfbare Positionen, keine Abstimmung über Wahrheit |
 | `epistemic_status` | `open_hypothesis`, `source_supported`, `value_commitment`, `conceptual_model`, `formal_proof` |
 | `review_status` | `unreviewed`, `in_review`, `reviewed`, `disputed`, `withdrawn` |
 | `statement`, `scope`, `rationale` | Aussage, Geltungsbereich und Begründung, jeweils DE/EN |
@@ -21,6 +24,8 @@ The JSON file is the single editorial source for both register pages and the dow
 | `human_review` | `null` oder Person, Datum, Methode, begründete Entscheidung sowie `claim_version` und `content_sha256`; kein KI-Rollenname als Mensch |
 | `ai_assistance` | Ob KI half, ihre Aufgabe und erfasste Modellversion; `null` bedeutet nicht erfasst |
 | `proof` | Nur bei `formal_proof` erforderlich: explizite Voraussetzungen und Ableitung, DE/EN |
+
+Für den Aufstieg gelten die [Regeln der Erkenntnisreife](erkenntnisreife.md): R1–R4 verlangen einen zur aktuellen Fassung gebundenen menschlichen Review, R3 mindestens eine und R4 mindestens zwei unterschiedliche, nachvollziehbare unabhängige Gegenprüfungen. Für empirische und formale R2+ bestehen zusätzliche strukturelle Sperren. Ein bloßer Quelleneintrag kann fachliche Beurteilung nicht ersetzen. Statusänderungen bleiben versioniert und können zurückgenommen werden. Konsens ist davon unabhängig.
 
 `reviewed` bedeutet dokumentierte Bearbeitung, nicht endgültige Wahrheit oder automatisch unabhängige Fachprüfung. Ein Name im Datensatz ersetzt keine Authentizitätsprüfung. Der Validator prüft Pflichtfelder und semantische Mindestgrenzen, nicht die Qualität der Argumente oder Quellen.
 

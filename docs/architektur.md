@@ -68,6 +68,10 @@ Das ergänzende Organisationsbild verbindet eine Themenordnung mit sechs Arbeits
 
 [Die Gesamtprüfung](gesamtpruefung-baum.md) dokumentiert den Ausgangsstand, Grenzen, öffentliche Selbstkritik B-01–B-03 und erste Präzisierungen von These 05 und These 09. Die unabhängige Prüfung der Methode und ein tragfähiger Einspruchsweg bleiben offene Arbeit.
 
+## Erkenntnisreife · 6. November 2026
+
+Das öffentliche Aussagenregister führt jetzt zur vorhandenen Aussageart, Begründung und Reviewtätigkeit zusätzlich eine Abstraktionsstufe, die reversible Erkenntnisreife R0–R4 sowie einen eigenständigen Konsensstatus. Der Validator prüft Pflichtfelder und sperrt unter anderem R1 ohne aktuellen menschlichen Review, R3 ohne dokumentierte unabhängige Gegenprüfung und R4 ohne zwei unterschiedliche Gegenprüfungen plus Einwandbehandlung. **Keines dieser Felder ist ein Wahrheitszertifikat.** Alle drei Demoaussagen bleiben R0 und Konsens „nicht erhoben“. Die Regeln stehen in [Erkenntnisreife](erkenntnisreife.md); eine automatische Weitergabe von Statusänderungen durch einen allgemeinen Wissensgraphen existiert noch nicht.
+
 ## Erkenntnisnavigator · 6. November 2026
 
 Der [Erkenntnisnavigator](erkenntnisnavigator.md) ergänzt den Baum um einen direkten Weg von Alltagsfragen zu möglichen Zusammenhängen. Fall, Muster, Fachwissen und Prinzip sind Abstraktionsstufen; sie ersetzen weder die sechs Arbeitsebenen noch die getrennte Erfassung von Aussageart, Begründung und Prüfstatus. Allgemeiner bedeutet nicht wahrer. Auch eine Verbindung zwischen Erkenntnis und Fall braucht eine eigene Begründung.
