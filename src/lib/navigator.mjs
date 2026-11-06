@@ -1,3 +1,6 @@
+import {topicFields} from "./topic-links.mjs";
+import {contentWords, queryMatcher} from "./search-terms.mjs";
+
 // Small editorial pilot: keyword suggestions are not AI understanding or evidence.
 // A connection and its application remain drafts, even after all premises are checked.
 const b = (de, en) => ({de, en});
@@ -31,8 +34,8 @@ export const connections = [
     ],
     conclusion: b("Unter deinen bestätigten Voraussetzungen reicht eine andere Reihenfolge allein nicht aus. Aufgabenmenge, Aufwand, verfügbare Zeit oder Frist müssten sich ändern. Welche Änderung vertretbar ist, entscheidet diese Rechnung nicht.", "Under the premises you confirmed, changing the order alone is insufficient. Scope, effort, available time or deadline would need to change. The calculation does not decide which change is acceptable."),
     nextStep: b("Prüfe zuerst die Zeitangaben. Notiere dann eine veränderbare Bedingung und mit wem sie geklärt werden muss.", "Check the time estimates first. Then record a condition that could change and who needs to be involved."),
-    sources: [derivationSource("capacity"), methodSource()], topics: ["mathematik", "wirtschaft", "technik"],
-    keywords: {de: ["zeit", "aufgab", "schaffe", "disziplin", "kapazität", "frist", "überlast", "stunden", "aufwand", "zu viel zu tun"], en: ["time", "task", "discipline", "capacity", "deadline", "overload", "hours", "workload", "too much to do"]}
+    sources: [derivationSource("capacity"), methodSource()], ...topicFields("capacity"),
+    keywords: {de: ["Zeit", "Zeitdruck", "Aufgabe", "Aufgaben", "schaffe", "Disziplin", "Kapazität", "Frist", "überlastet", "Überlastung", "Stunde", "Stunden", "Aufwand", "zu viel zu tun"], en: ["time", "task", "tasks", "discipline", "capacity", "deadline", "deadlines", "overload", "overloaded", "hour", "hours", "workload", "too much to do"]}
   },
   {
     id: "interpretation", version: 1, type: "formal", reviewStatus: "draft",
@@ -51,8 +54,8 @@ export const connections = [
     ],
     conclusion: b("Unter diesen Voraussetzungen ist die Erklärung nicht eindeutig bewiesen. Sie kann trotzdem zutreffen. Halte Beobachtung, Deutung und verbleibende Unsicherheit getrennt fest.", "Under these premises, the explanation is not conclusively proven. It may still be true. Record the observation, interpretation and remaining uncertainty separately."),
     nextStep: b("Benenne eine Information, die zwischen den Erklärungen unterscheiden könnte. Du darfst die Frage auch offenlassen; die Karte verlangt keine Kontaktaufnahme.", "Identify information that could distinguish the explanations. You can also leave the question open; this card does not require contacting anyone."),
-    sources: [derivationSource("observation"), methodSource()], topics: ["philosophie", "mathematik", "psychologie"],
-    keywords: {de: ["antwort", "ablehn", "deutung", "beobacht", "interpret", "beweis", "gewiss", "ursache", "motiv"], en: ["reply", "replies", "reject", "interpret", "observation", "proof", "certain", "cause", "motive"]}
+    sources: [derivationSource("observation"), methodSource()], ...topicFields("interpretation"),
+    keywords: {de: ["Antwort", "antworten", "antwortet", "Ablehnung", "ablehnt", "Deutung", "Beobachtung", "beobachtet", "Interpretation", "Beweis", "beweist", "Gewissheit", "Ursache", "Ursachen", "Motiv"], en: ["reply", "replies", "respond", "responds", "rejection", "reject", "rejects", "interpret", "interpretation", "observation", "observed", "proof", "certainty", "cause", "causes", "motive"]}
   },
   {
     id: "distribution", version: 1, type: "formal", reviewStatus: "draft",
@@ -71,8 +74,8 @@ export const connections = [
     ],
     conclusion: b("Unter diesen Voraussetzungen reicht der Mittelwert für die Aussage über alle Einzelnen nicht aus. Die Aussage kann wahr sein, ist so aber nicht belegt.", "Under these premises, the mean is insufficient to support a claim about everyone. The claim may be true, but this does not establish it."),
     nextStep: b("Kläre, welche Einzelwerte oder Verteilungsangaben benötigt werden. Erfasse dabei nur Informationen, die für die Frage erforderlich sind.", "Clarify which individual values or distribution information are needed. Collect only information necessary for the question."),
-    sources: [derivationSource("distribution"), methodSource()], topics: ["mathematik", "wirtschaft", "ethik"],
-    keywords: {de: ["durchschnitt", "mittelwert", "verteilung", "ungleich", "gerecht", "alle genug"], en: ["average", "mean", "distribution", "inequal", "fairness", "everyone enough"]}
+    sources: [derivationSource("distribution"), methodSource()], ...topicFields("distribution"),
+    keywords: {de: ["Durchschnitt", "durchschnittlich", "Mittelwert", "Mittelwerte", "Verteilung", "ungleich", "Ungleichheit", "gerecht", "Gerechtigkeit", "alle genug"], en: ["average", "averages", "mean", "the mean", "arithmetic mean", "mean value", "mean income", "distribution", "inequality", "fairness", "everyone enough"]}
   },
   {
     id: "help", version: 1, type: "normative", reviewStatus: "draft",
@@ -93,8 +96,8 @@ export const connections = [
     nextStep: b("Halte fest, welche Hilfe gewünscht ist, welche Grenzen gelten und wie eine Änderung des Wunsches berücksichtigt wird. Bei offenen Voraussetzungen kläre diese zuerst.", "Record what help is wanted, which boundaries apply and how changed preferences will be respected. Clarify any open premises first."),
     sourceClaim: {id: "G-005", version: 2},
     sources: [{label: b("G-005 v2 · normativer Leitgedanke, fachliche Prüfung offen", "G-005 v2 · guiding value, expert review pending"), url: repo + "public/knowledge/claims.json", role: "provenance"}, derivationSource("help")],
-    topics: ["liebe", "gesundheit", "ethik"],
-    keywords: {de: ["helf", "hilfe", "fürsorge", "unterstütz", "selbstständig", "selbstbestimm", "abnehmen", "pflege"], en: ["help", "care", "support", "independen", "autonomy", "take over", "assistance"]}
+    ...topicFields("help"),
+    keywords: {de: ["helfe", "helfen", "hilft", "Hilfe", "Fürsorge", "unterstütze", "unterstützen", "Unterstützung", "selbstständig", "Selbstständigkeit", "selbstbestimmt", "Selbstbestimmung", "alles abnehmen", "Pflege"], en: ["help", "helps", "helping", "care", "caregiving", "support", "independent", "independence", "autonomy", "take over", "assistance"]}
   }
 ];
 
@@ -107,27 +110,21 @@ function freezeDeep(value) {
 }
 freezeDeep(connections);
 
-const normalize = value => value.toLocaleLowerCase("de").normalize("NFD").replace(/\p{M}/gu, "").replaceAll("ß", "ss");
 const isRecord = value => value !== null && typeof value === "object" && !Array.isArray(value);
 const language = lang => lang === "en" ? "en" : "de";
 const textValue = value => typeof value === "string" ? value.slice(0, 12000).trim() : "";
 
-/** Limited, transparent keyword lookup; a hit never establishes applicability. */
+/** Direct lexical matches only. Terms are words the reader actually entered. */
+export function connectionTermMatches(match, lang) {
+  return connections.map(connection => ({
+    connection,
+    terms: match([...connection.keywords[lang], ...contentWords(connection.title[lang], lang)])
+  })).filter(hit => hit.terms.length).sort((a, b) => b.terms.length - a.terms.length);
+}
+
 export function findConnections(query, lang = "de") {
-  if (typeof query !== "string" || !query.trim()) return [];
-  const input = normalize(query.slice(0, 12000));
-  const tokens = input.match(/[\p{L}\p{N}]+/gu) ?? [];
   const locale = language(lang);
-  return connections.map((connection, index) => ({
-    connection, index,
-    hits: connection.keywords[locale].filter(keyword => {
-      const normalized = normalize(keyword);
-      if (normalized.includes(" ")) return input.includes(normalized);
-      return tokens.some(token => normalized.length >= 4 ? token.startsWith(normalized) : token === normalized);
-    }).length
-  })).filter(match => match.hits > 0)
-    .sort((a, b) => b.hits - a.hits || a.index - b.index)
-    .slice(0, 3).map(match => match.connection);
+  return connectionTermMatches(queryMatcher(query, locale), locale).slice(0, 3).map(hit => hit.connection);
 }
 
 /** No inference from prose, unknown values, inherited fields or other answers. */

@@ -2,12 +2,19 @@
 import Layout from "../layouts/SiteLayout.astro";
 import {connections} from "../lib/navigator.mjs";
 import {topics} from "../lib/tree.mjs";
+import {patternsForTopic} from "../lib/discovery.mjs";
+import {topicLens} from "../lib/topic-links.mjs";
 import {pathFor, base} from "../lib/paths.mjs";
 import "../styles/navigator.css";
 const {lang = "de"} = Astro.props;
 const en = lang === "en";
 const t = (de, english) => en ? english : de;
 const text = value => value[lang];
+const topicById = new Map(topics.map(topic => [topic.id, topic]));
+const patternExamples = [
+  t("Zusammen reicht es. Bekommt deshalb jeder genug?", "Does everyone get enough if there is enough in total?"),
+  t("Sie schweigt. Heißt das, sie mag mich nicht?", "She went quiet. Does that mean she doesn't like me?")
+];
 const reflectionFields = [
   ["goal", "Was ist mir wichtig?", "What matters to me?"],
   ["observation", "Was habe ich beobachtet?", "What did I observe?"],
@@ -20,28 +27,36 @@ const reflectionFields = [
   ["revision", "Was würde ich deshalb ändern?", "What would I change as a result?"]
 ];
 ---
-<Layout lang={lang} slug="erkenntnisnavigator" pageTitle={t("Erkenntnisnavigator", "Knowledge navigator")} description={t("Verbinde eine Alltagsfrage mit einem begründeten Gedanken. Prüfe, ob seine Voraussetzungen in deinem Fall gelten.", "Connect an everyday question to a reasoned idea. Check whether its conditions apply to your situation.")}>
-  <article class="navigator container" data-navigator data-lang={lang} data-tree-url={pathFor(lang,"baum-des-wissens")} data-claims-url={pathFor(lang,"aussagen")}>
+<Layout lang={lang} slug="erkenntnisnavigator" pageTitle={t("Erkenntnisnavigator", "Knowledge navigator")} description={t("Erkunde Fragen und Begriffe im Themenbaum. Folge einem begründeten Querpfad und prüfe, wann ein Muster zu deinem Fall passt.", "Explore questions and terms in the topic tree. Follow a connection and check when its pattern fits your situation.")}>
+  <article class="navigator container" data-navigator data-lang={lang} data-claims-url={pathFor(lang,"aussagen")}>
     <header class="navigator-heading">
       <p class="section-kicker">{t("ERKENNTNISNAVIGATOR · ERSTER PILOT", "KNOWLEDGE NAVIGATOR · FIRST PILOT")}</p>
       <h1>{t("Deine Frage. ", "Your question. ")}<em>{t("Eine Verbindung.", "A connection.")}</em></h1>
-      <p class="navigator-lead">{t("Vielleicht hilft dir ein Gedanke, den du noch nicht kennst. Finde eine mögliche Verbindung – und prüfe, ob sie zu deiner Situation passt.", "An idea you have not encountered yet may help. Find a possible connection, then check whether it fits your situation.")}</p>
+      <p class="navigator-lead">{t("Welche anderen Themen berührt deine Frage? Folge einem Begriff und entdecke, wo sich dieselbe Frage noch einmal stellt.", "What other topics does your question touch? Follow a term and see where the same question comes up again.")}</p>
       <ol class="navigator-steps" aria-label={t("So funktioniert es", "How it works")}>
-        <li><span>01</span>{t("Frage beschreiben", "Describe your question")}</li>
-        <li><span>02</span>{t("Voraussetzungen prüfen", "Check the conditions")}</li>
-        <li><span>03</span>{t("Nächsten Schritt wählen", "Choose your next step")}</li>
+        <li><span>01</span>{t("Frage oder Begriff eingeben", "Enter a question or term")}</li>
+        <li><span>02</span>{t("Themen und Muster erkunden", "Explore topics and patterns")}</li>
+        <li><span>03</span>{t("Voraussetzungen prüfen", "Check the conditions")}</li>
       </ol>
     </header>
 
     <section class="navigator-start" aria-labelledby="navigator-question-label">
-      <form data-nav-search>
-        <label id="navigator-question-label" for="navigator-question">{t("Was beschäftigt dich?", "What is on your mind?")}</label>
-        <p id="navigator-question-hint">{t("Ein Satz reicht. Du brauchst keinen Fachbegriff.", "One sentence is enough. You do not need a technical term.")}</p>
-        <textarea id="navigator-question" rows="3" maxlength="6000" aria-describedby="navigator-question-hint navigator-local-note" placeholder={t("Zum Beispiel: Ich schaffe meine Aufgaben nicht.", "For example: I cannot finish my tasks.")} data-nav-question></textarea>
-        <div class="navigator-search-actions"><button class="button button--gold" type="submit" disabled data-nav-js>{t("Verbindungen suchen", "Find connections")} <span aria-hidden="true">→</span></button><button type="button" class="navigator-text-button" disabled data-nav-js data-nav-all>{t("Alle vier Verbindungen ansehen", "Browse all four connections")}</button></div>
+      <form role="search" aria-labelledby="navigator-question-label" data-nav-search>
+        <label id="navigator-question-label" for="navigator-question">{t("Welche Frage oder welchen Begriff möchtest du erkunden?", "What question or term would you like to explore?")}</label>
+        <p id="navigator-question-hint">{t("Ein Wort wie „Fürsorge“ reicht. Du kannst auch in deinen eigenen Worten fragen.", "One word, such as “care”, is enough. You can also ask in your own words.")}</p>
+        <textarea id="navigator-question" rows="3" maxlength="6000" aria-describedby="navigator-question-hint navigator-local-note" placeholder={t("Zusammen reicht es. Bekommt deshalb jeder genug?", "Does everyone get enough if there is enough in total?")} data-nav-question></textarea>
+        <div class="navigator-search-actions"><button class="button button--gold" type="submit" disabled data-nav-js>{t("Erkunden", "Explore")} <span aria-hidden="true">→</span></button><button type="button" class="navigator-text-button" disabled data-nav-js data-nav-all>{t("Alle Muster ansehen", "Browse all patterns")}</button></div>
       </form>
-      <p class="navigator-note" id="navigator-local-note">{t("Dieser Pilot sucht lokal nach Stichwörtern in vier Entwürfen. Er nutzt keine KI und versteht deinen Fall nicht selbstständig. Deine Eingaben werden durch dieses Werkzeug weder gesendet noch gespeichert. Einen Text exportierst du nur auf eigenen Wunsch.", "This pilot searches four drafts locally using keywords. It does not use AI or understand your situation on its own. This tool neither sends nor saves your entries. You choose whether to export a text file.")}</p>
-      <details class="navigator-examples"><summary>{t("Mit einem erfundenen Beispiel ausprobieren", "Try a fictional example")}</summary><p>{t("Ein Beispiel ersetzt deine Frage und setzt die Bedingungsprüfung zurück. Eigene Reflexionsnotizen bleiben erhalten.", "An example replaces your question and resets the condition check. Your reflection notes are kept.")}</p><div class="navigator-example-list">{connections.map(connection => <button type="button" disabled data-nav-js data-nav-example={connection.id}>{text(connection.question)}</button>)}</div></details>
+      <p class="navigator-note" id="navigator-local-note">{t("Die Suche vergleicht deine Wörter mit Themen und Musterkarten. Deine Frage bleibt in diesem Browserfenster.", "The search matches your words to topics and pattern cards. Your question stays in this browser window.")}</p>
+      <details class="navigator-topic-index">
+        <summary>{t("Ein Thema direkt auswählen", "Choose a topic to explore")}</summary>
+        <ul>{topics.map(topic => <li><a href={"#thema-" + topic.id}>{text(topic.name)}</a></li>)}</ul>
+      </details>
+      <details class="navigator-examples"><summary>{t("Mit einem erfundenen Beispiel ausprobieren", "Try a fictional example")}</summary><p>{t("Ein Beispiel ersetzt deine Frage und setzt die Bedingungsprüfung zurück. Eigene Reflexionsnotizen bleiben erhalten.", "An example replaces your question and resets the condition check. Your reflection notes are kept.")}</p><div class="navigator-example-list">{patternExamples.map(example => <button type="button" disabled data-nav-js data-nav-example>{example}</button>)}</div></details>
+      <p id="fairness" class="navigator-alternative">
+        {t("Ihr wollt die Miete fair teilen. Heißt das für euch, dass beide denselben Betrag zahlen oder denselben Anteil ihres Einkommens?", "You want to share the rent fairly. Does that mean each of you pays the same amount or the same share of your income?")}
+        <a href={pathFor(lang,"schnittmengen","sprachprobe")}>{t("Am Beispiel zu zweit prüfen", "Try the example together")} →</a>
+      </p>
     </section>
 
     <p class="navigator-status" role="status" aria-live="polite" aria-atomic="true" data-nav-status></p>
@@ -49,13 +64,43 @@ const reflectionFields = [
     <section class="navigator-results" hidden data-nav-results aria-labelledby="navigator-results-title">
       <h2 id="navigator-results-title" tabindex="-1">{t("Was könnte passen?", "What might fit?")}</h2>
       <p data-nav-results-note></p>
-      <div class="navigator-result-list" data-nav-result-list></div>
-      <p class="navigator-alternative" data-nav-no-match hidden>{t("Du kannst alle vier Verbindungen ansehen oder deine Frage im Prüfblatt selbst weiter untersuchen.", "You can browse all four connections or explore your question in the worksheet.")} <a href={pathFor(lang,"werkstatt")}>{t("Zum Prüfblatt", "Open the worksheet")} →</a></p>
+      <div hidden data-nav-topic-hits>
+        <h3>{t("Themen zu deinen Wörtern", "Topics matching your words")}</h3>
+        <ul class="navigator-result-list" data-nav-topic-list></ul>
+      </div>
+      <div hidden data-nav-pattern-hits>
+        <h3>{t("Mögliche Muster", "Possible patterns")}</h3>
+        <ul class="navigator-result-list" data-nav-result-list></ul>
+      </div>
+      <p class="navigator-alternative" data-nav-no-match hidden>{t("Probiere einen anderen Begriff oder untersuche deine Frage im Prüfblatt.", "Try another term or explore your question in the worksheet.")} <a href={pathFor(lang,"werkstatt")}>{t("Zum Prüfblatt", "Open the worksheet")} →</a></p>
     </section>
+
+    {topics.map(topic => {
+      const paths = patternsForTopic(topic.id);
+      return <section id={"thema-" + topic.id} class="navigator-topic" aria-labelledby={"topic-title-" + topic.id}>
+        <p class="section-kicker">{t("THEMA ERKUNDEN", "EXPLORE A TOPIC")}</p>
+        <h2 id={"topic-title-" + topic.id} tabindex="-1">{text(topic.name)}</h2>
+        <p>{text(topic.question)} <a href={pathFor(lang,"baum-des-wissens","ast-" + topic.id)}>{t("Im Themenbaum lesen", "Read in the topic tree")} →</a></p>
+        {paths.length ? <div class="navigator-paths">{paths.map(connection =>
+          <article class="navigator-path">
+            <p class="section-kicker">{t("REDAKTIONELLER QUERPFAD · ENTWURF", "EDITORIAL CONNECTION · DRAFT")}</p>
+            <h3>{text(connection.title)}</h3>
+            <p>{text(connection.pattern)}</p>
+            <p><strong>{t("In diesem Thema", "In this topic")} · </strong>{topicLens(connection.id, topic.id, lang)}</p>
+            <h4>{t("Dieselbe Frage in anderen Themen", "The same question in other topics")}</h4>
+            <ul>{connection.topics.filter(id => id !== topic.id).map(id => <li>
+              <a href={"#thema-" + id}>{text(topicById.get(id).name)}</a> · {topicLens(connection.id, id, lang)}
+            </li>)}</ul>
+            <details><summary>{t("Wie weit trägt der Vergleich?", "How far does the comparison hold?")}</summary><p>{text(connection.scope)}</p><p>{text(connection.counterargument)}</p></details>
+            <a href={"#verbindung-" + connection.id}>{t("Voraussetzungen für meinen Fall prüfen", "Check the conditions for my case")} →</a>
+          </article>)}</div> : <p class="navigator-alternative">{t("Für dieses Thema gibt es bisher keinen redaktionell beschriebenen Querpfad. Im Themenbaum findest du die Frage, mit der dieser Ast beginnt.", "There is no editorial connection for this topic yet. The topic tree gives you the question this branch starts with.")}</p>}
+      </section>;
+    })}
 
     <section class="navigator-connection" hidden data-nav-connection aria-labelledby="navigator-connection-title">
       <header><p class="section-kicker" data-nav-meta></p><h2 id="navigator-connection-title" tabindex="-1" data-nav-title></h2><p class="navigator-connection-intro">{t("Allgemeiner bedeutet nicht automatisch wahrer. Auch die Verbindung zu deinem Fall braucht Gründe.", "More general does not automatically mean more certain. Applying an idea to your case needs reasons too.")}</p></header>
       <div class="navigator-bridge" data-nav-bridge></div>
+      <p class="navigator-topic-links" data-nav-connected-topics></p>
       <form class="navigator-condition-form" data-nav-condition-form>
         <fieldset><legend>{t("Trifft das auf deinen Fall zu?", "Does this apply to your situation?")}</legend><p>{t("Wähle für jede Voraussetzung eine Antwort. „Unklar“ ist eine hilfreiche Antwort, kein Fehler. Die Angaben werden nicht unabhängig überprüft.", "Choose an answer for each condition. “Unsure” is useful, not a mistake. Your answers are not independently verified.")}</p><div data-nav-conditions></div></fieldset>
         <button class="button button--gold" type="submit">{t("Verbindung prüfen", "Check this connection")}</button>
@@ -77,7 +122,7 @@ const reflectionFields = [
     </section>
 
     <details class="navigator-catalogue">
-      <summary>{t("Die vier Verbindungen als Lesekarten", "Read the four connection cards")}</summary>
+      <summary>{t("Die Musterkarten zum Nachlesen", "Read the pattern cards")}</summary>
       <p>{t("Alle Karten sind Arbeitsentwürfe. Eine abgeschlossene unabhängige Fachprüfung und ein Nutzennachweis für den Navigator liegen nicht vor.", "All cards are working drafts. Independent expert review and evidence that this navigator is useful are still pending.")}</p>
       <noscript><p class="navigator-note">{t("Suche, Bedingungsprüfung und Export benötigen JavaScript. Die Karten, Voraussetzungen und Quellen kannst du hier ohne JavaScript lesen und selbst prüfen.", "Search, condition checks and export require JavaScript. You can read and examine the cards, conditions and sources here without JavaScript.")}</p></noscript>
       {connections.map(connection => <article class="navigator-reading-card" id={"verbindung-"+connection.id}>
