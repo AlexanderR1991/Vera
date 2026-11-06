@@ -86,15 +86,15 @@ const repo="https://github.com/AlexanderR1991/Wirklich";
           ?"Status: ungeprüfte KI-Einwände – keine bestätigten Widerlegungen"
           :"Status: unverified AI objections – no certified refutations";
         const when=data.updated_at?new Date(data.updated_at).toLocaleString(de?"de-DE":"en-GB"):
-          (de?"Noch kein Lauf":"Not run yet");
-        meta.textContent=(de?"Letzter Lauf: ":"Last run: ")+when+" · "+
+          (de?"nicht dokumentiert":"not recorded");
+        meta.textContent=(de?"Datenstand: ":"Archive updated: ")+when+" · "+
           data.items.length+(de?" Fälle":" cases")+
-          " · "+(data.agents_enabled?(de?"KI-Rollen aktiv":"AI roles active"):
-            (de?"KI-Rollen nicht aktiv":"AI roles inactive"));
+          " · "+(data.agents_enabled?(de?"Archiv enthält KI-Entwürfe":"Archive contains AI drafts"):
+            (de?"Keine KI-Ergebnisse ausgewiesen":"No AI results reported"));
         if(!data.items.length){
           cards.append(text("p",de
-            ?"Noch keine Angriffe vorhanden. Der Workflow wurde noch nicht mit KI ausgeführt."
-            :"No challenges yet. The AI workflow has not run."));
+            ?"Das öffentliche Archiv enthält derzeit keine Prüfentwürfe."
+            :"The public archive currently contains no review drafts."));
         }
         for(const item of data.items.slice(0,40)){
           const article=document.createElement("article");

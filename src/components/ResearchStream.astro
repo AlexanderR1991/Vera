@@ -79,14 +79,14 @@ const de=lang==="de";
           if (!Array.isArray(data.items)) throw Error("Invalid data");
           const when = data.updated_at
             ? new Date(data.updated_at).toLocaleString(de?"de-DE":"en-GB")
-            : (de?"Noch kein Lauf":"Not run yet");
+            : (de?"nicht dokumentiert":"not recorded");
           status.textContent = de
             ? "Status: automatisierte Quellensuche – nicht fachlich überprüft"
             : "Status: automated discovery – not scientifically reviewed";
           meta.textContent = (de?"Letzte Abfrage: ":"Last run: ") + when +
             " · " + data.items.length + (de?" Hinweise":" leads") +
-            " · " + (data.agents_enabled ? (de?"Kritische KI-Rollen aktiv":"Critical AI roles active")
-                                         : (de?"KI-Rollen noch nicht aktiv":"AI roles not active"));
+            " · " + (data.agents_enabled ? (de?"KI-Rollen für diesen Datenstand aktiviert":"AI roles enabled for this snapshot")
+                                         : (de?"KI-Rollen für diesen Datenstand deaktiviert":"AI roles disabled for this snapshot"));
           if (data.source_queries) {
             const sources = ["Crossref", "arXiv"].map(name => name + ": " + (data.source_queries[name] || 0));
             meta.append(txt("p", (de?"Erfolgreiche Quellenabfragen: ":"Successful source queries: ") + sources.join(" · ")));
@@ -99,7 +99,7 @@ const de=lang==="de";
           if (!data.items.length) {
             list.append(txt("p", data.updated_at
               ? (de?"Derzeit sind keine passenden Literaturhinweise gespeichert.":"No matching literature leads are currently stored.")
-              : (de?"Noch keine Daten. Der erste Workflow-Lauf steht aus.":"No data yet. The first workflow run is pending.")));
+              : (de?"Dieser Datenstand enthält weder Literaturhinweise noch einen Zeitpunkt für die letzte Abfrage.":"This snapshot contains no literature leads or timestamp for the last search.")));
           }
           for (const item of data.items.slice(0, 80)) {
             const card = document.createElement("article");

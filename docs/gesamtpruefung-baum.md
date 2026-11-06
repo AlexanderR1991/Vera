@@ -19,7 +19,7 @@ Die technische Prüfung umfasst den Produktionsbuild beider Sprachfassungen, die
 
 Ausgangspunkt ist Commit [`0314140`](https://github.com/AlexanderR1991/Wirklich/tree/0314140ebb18c733d8d81e4cb5f133be298e860e). Die Durchsicht betrachtet die Gesamtarchitektur, öffentliche Texte und Sprachfassungen, den strukturierten Registerbestand, Beitragswege, Governance sowie die Recherche- und Kritikprototypen. Sie prüft ihre Verbindungen und sichtbaren Grenzen. Die angeführten Fachstudien wurden dabei **nicht erneut vollständig fachlich begutachtet**. Technische Prüfungen belegen die Funktionsfähigkeit des Entwurfs, nicht die Wahrheit seiner Inhalte.
 
-Die offenen Vorschläge #18, #22, #25, #26 und #27 werden als Vorschläge berücksichtigt. Sie werden durch diese Gesamtprüfung weder automatisch übernommen noch als bereits veröffentlichte Kapitel ausgegeben. Der jeweilige Pull Request zeigt seinen aktuellen Stand.
+Zum damaligen Ausgangsstand waren die Vorschläge #18, #22, #25, #26 und #27 offen. Die heutige Themenkarte führt die übernommenen Entwürfe zu Mathematik, Kunst und Esoterik auf. Der [mathematische Prüfstand](mathematischer-pruefstand.md) enthält das Gegenbeispiel M-01.
 
 ## Das Bild
 
@@ -73,7 +73,7 @@ Die folgenden Threads wurden im Auftrag des Projektinhabers als **öffentliche I
 | Thread | Unangenehme Fragen | Noch offene Prüfung |
 | --- | --- | --- |
 | [B-01 · Wer fehlt im Baum?](https://github.com/AlexanderR1991/Wirklich/issues/28) | Wer fehlt? Darf eine Philosophie unseren Werten widersprechen? Darf Dissens bleiben? Wer darf die Ordnung ersetzen? | Begrenzte Leserfragen vorab auswählen; Auffindbarkeit, Fehlzuordnung und fairen Umgang mit Fremdpositionen untersuchen |
-| [B-02 · Wessen Werte und Entscheidungen?](https://github.com/AlexanderR1991/Wirklich/issues/29) | Ist dauerhafte Fürsorge gleich wertvoll? Warum unsere Werte? Wer prüft den Gründer? Wann wird Moderation zur Abwehr von Kritik? | Textkorrekturen redaktionell entscheiden; Interessenkonflikte und tatsächliche Einspruchsverantwortung dokumentieren |
+| [B-02 · Wessen Werte und Entscheidungen?](https://github.com/AlexanderR1991/Wirklich/issues/29) | Ist dauerhafte Fürsorge gleich wertvoll? Warum unsere Werte? Wer prüft den Gründer? Wann wird Moderation zur Abwehr von Kritik? | Interessenkonflikte dokumentieren und eine unabhängige Zuständigkeit für Einsprüche klären. Die Textkorrekturen an These 05 und 09 sind veröffentlicht. |
 | [B-03 · Hilft unser Verfahren?](https://github.com/AlexanderR1991/Wirklich/issues/30) | Besser als einfache Quellenprüfung? Wer findet gemeinsame KI-Fehler? Wann begrenzen wir KI? Zählen Korrekturen oder nur Texte? | Vorab beschriebenen Vergleich mit unabhängiger Bewertung durchführen |
 
 Jeder Thread enthält Ausgangsstellen mit fixierter Revision, eine wohlwollende Lesart, den stärksten Einwand, vorläufige Einordnung und Bedingungen, unter denen die Kritik selbst revidiert würde. B-03 greift eine **offene** Hypothese an und behauptet nicht, das Werk habe bereits eine bewiesene Wirksamkeit reklamiert.
@@ -86,9 +86,9 @@ Jeder Thread enthält Ausgangsstellen mit fixierter Revision, eine wohlwollende 
 
 Dies macht eine im Register G-005 bereits benannte Grenze auch im kurzen Grundtext sichtbar. Es ist eine normative Präzisierung, kein neu ermittelter empirischer Befund.
 
-**These 09:** „bessere Menschen“ wird durch „andere Menschen“ ersetzt. Die englische Fassung nennt bereits andere Menschen. Die Änderung reduziert eine unnötige Rangvorstellung und gleicht die Fassungen an.
+**These 09:** Die Redaktion ersetzte „bessere Menschen“ durch „andere Menschen“. Die englische Fassung nannte bereits „other people“.
 
-Grundtext, Manifest, Prüfstand und Übersetzungszuordnung werden gemeinsam geändert. Der historische Ausgangsstand bleibt über Git und die fixierten Links zugänglich. Redaktionelle Freigabe und unabhängige Fachprüfung bleiben verschiedene Vorgänge.
+Die Änderungen an Grundtext, Manifest, Prüfstand und Übersetzungszuordnung wurden am 5. November 2026 veröffentlicht. Der [Änderungsvergleich in PR #31](https://github.com/AlexanderR1991/Wirklich/pull/31/files) zeigt beide Textkorrekturen. Eine unabhängige Fachprüfung steht aus.
 
 ## Nächste Arbeit und mögliche Widerlegung
 
@@ -100,7 +100,7 @@ Grundtext, Manifest, Prüfstand und Übersetzungszuordnung werden gemeinsam geä
 
 Wiederkehrende Fehlzuordnung kann die Baumstruktur zur Revision zwingen. Verlust einer wesentlichen Fremdperspektive kann eine behauptete Synthese unhaltbar machen. Fehlender Nutzen oder überwiegende neue Fehler sprechen gegen eine Ausweitung der KI-Unterstützung. Ein kleiner Pilot liefert zunächst Grenzen für den nächsten Schritt; er beweist keine universelle Leistungsfähigkeit.
 
-**Es gibt bisher keinen durchgeführten Vergleich, keine Vorregistrierung und keine neue unabhängige Begutachtung.** Das konkrete Arbeitsergebnis dieser Runde sind eine prüfbare Gesamtansicht, öffentliche Selbstangriffe, Textkorrekturen als Änderungsvorschlag und nachvollziehbare nächste Aufgaben.
+**Es gibt bisher keinen durchgeführten Vergleich, keine Vorregistrierung und keine neue unabhängige Begutachtung.** Diese Runde lieferte eine Gesamtansicht, öffentliche Prüffragen, zwei veröffentlichte Textkorrekturen und Aufgaben für die nächste Prüfung.
 
 ## Umsetzung
 
@@ -114,4 +114,4 @@ Wiederkehrende Fehlzuordnung kann die Baumstruktur zur Revision zwingen. Verlust
 
 The flying tree complements the spacecraft metaphor. Downward branches gather human voices, philosophy, disciplinary knowledge, art and objections; six stages of work connect them without ranking people or merging distinct kinds of justification. The topic map contains 22 overlapping branches and marks working drafts, proposals and gaps.
 
-This review identifies two concrete editorial clarifications: include lasting support explicitly in Thesis 05 and replace the German phrase “better people” in Thesis 09 with “other people.” Public issues B-01–B-03 challenge representation, values/governance and the usefulness of AI countercritique. They are commissioned AI-assisted self-review, not independent peer review. Source studies were not all re-reviewed; no new effectiveness result or completed comparison is claimed.
+The review led to two edits published on 5 November 2026. Thesis 05 explicitly recognizes the value of lasting support. In Thesis 09 the German wording changed from “better people” to “other people.” Public issues B-01–B-03 examine representation, editorial responsibility and the usefulness of AI-generated criticism. Independent review and a comparison of the method with ordinary source checking are still pending.

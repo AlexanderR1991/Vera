@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 """Check the deployed Pages paths offline, including every generated fragment link."""
 from collections import defaultdict
+from html import unescape
 from html.parser import HTMLParser
 import json
 from pathlib import Path
+import re
 import sys
 from urllib.parse import unquote, urljoin, urlsplit
 from xml.etree import ElementTree
@@ -46,12 +48,27 @@ class Page(HTMLParser):
 
 def check():
     pages = {}
-    for file in sorted(DIST.rglob("*.html")):
-        page = Page()
-        page.feed(file.read_text(encoding="utf8"))
-        pages[file] = page
-
     errors = []
+    # The book is archived in the repository. The planned domain is not a site address.
+    book_path = re.compile(r"die[-_]richtung(?![a-z])", re.I)
+    book_title = re.compile(r"""[„“«"'‘>]\s*Die Richtung\s*[“”»"'’<]|\b(?:Buch|book) Die Richtung\b""")
+    for file in sorted(DIST.rglob("*")):
+        if not file.is_file():
+            continue
+        path = file.relative_to(DIST).as_posix()
+        if book_path.search(path):
+            errors.append(f"{path}: repository-only book included in Pages output")
+        if file.suffix not in {".html", ".xml", ".json", ".txt", ".js", ".css", ".svg"} and file.name != "CNAME":
+            continue
+        content = file.read_text(encoding="utf8")
+        decoded = unescape(content)
+        if "wirklich.org" in decoded.lower() or book_path.search(decoded) or book_title.search(decoded):
+            errors.append(f"{path}: unpublished address or repository-only book reference")
+        if file.suffix == ".html":
+            page = Page()
+            page.feed(content)
+            pages[file] = page
+
     links = 0
     neighbors = defaultdict(set)
     canonical_urls = set()

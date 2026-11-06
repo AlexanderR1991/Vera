@@ -30,7 +30,7 @@ const followUp = {
       <h2 id="chapter-title">{de ? "Welcher Frage möchtest du nachgehen?" : "Which question would you like to explore?"}</h2>
       <p>{de ? "Diese Kapitel sind Arbeitsentwürfe. Jedes beginnt mit einer anderen Frage." : "These chapters are working drafts. Each starts with a different question."}</p>
       <ul>{chapters.map(topic =>
-        <li id={"kapitel-" + topic.id}><a href={pathFor(lang, topic.slug)}>{topic.name[lang]}</a><p>{topic.question[lang]}</p></li>
+        <li id={"kapitel-" + topic.id}><a href={pathFor(lang, topic.slug, topic.anchor)}>{topic.name[lang]}</a><p>{topic.question[lang]}</p></li>
       )}</ul>
     </section>}
   {after && <Fragment set:html={after} />}
