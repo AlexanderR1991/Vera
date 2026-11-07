@@ -16,6 +16,24 @@ Open Source ist hier deshalb nicht nur eine Entwicklungsstrategie, sondern eine 
 4. **Weitergabefähigkeit:** Wo die Rechte reichen, sollen Menschen den veröffentlichten Kern lesen, nutzen, überprüfen, verbessern und unabhängig weiterführen können. Eine öffentliche Fork-Möglichkeit schützt auch vor Entscheidungen der ursprünglichen Leitung.
 5. **Teilhabe:** Betroffene und bislang wenig vertretene Perspektiven müssen Einwände einbringen können. Ein GitHub-Konto, technische Sprache und Übersetzungslücken sind reale Zugangshürden, die wir schrittweise abbauen müssen.
 
+## Open Source – nach vorn gerichtet
+
+> **Wir öffnen nicht nur den heutigen Stand. Wir öffnen die Möglichkeit, dass andere morgen weiterkommen als wir.**
+
+WIRKLICH soll kein abgeschlossenes Weltbild und keine alleinige Plattform für „richtige“ Antworten werden. **Zukunftsoffenheit** heißt: Neue Belege, neue Fragen, bisher ausgeschlossene Erfahrungen, andere Methoden und künftige KI-Systeme dürfen das Projekt verändern – auch dann, wenn dadurch unsere ursprünglichen Entwürfe widerlegt werden. Bewährtes bleibt nachvollziehbar; Neues wird nicht allein deshalb übernommen, weil es neu ist.
+
+Aus dieser Haltung folgen überprüfbare Entwicklungsziele:
+
+1. **Offene, versionierte Formate statt Plattformzwang:** Aussagen, Einwände, Quellen, Prüfstatus und Änderungen sollen in dokumentierten, maschinenlesbaren Formaten exportiert und – bei nachgewiesener Eignung – durch unabhängige Werkzeuge verarbeitet werden können.
+2. **Nachvollziehbare Schnittstellen statt Anbieterbindung:** Künftige APIs, Protokolle und KI-Anbindungen sollen dokumentiert, versioniert und nach Möglichkeit ohne exklusiven Modell- oder Plattformanbieter nutzbar sein. Menschliche Mitarbeit muss ohne KI möglich bleiben.
+3. **Erweiterbarkeit ohne Wahrheitsmonopol:** Unterschiedliche Disziplinen, Sprachen und unabhängige Implementierungen dürfen eigene Prüfroutinen hinzufügen. Dabei bleiben Aussagearten, Unsicherheit, Menschenrechte, Verantwortlichkeit und dokumentierter Dissens erkennbar.
+4. **Forkbarkeit und Anschlussfähigkeit:** Unabhängige Weiterentwicklung ist erlaubt, soweit Lizenzen und Rechte reichen. Wer abweicht, soll seine Änderungen kenntlich machen können; ein späterer Abgleich soll technisch möglich sein, ohne eine bestimmte inhaltliche Einigung zu erzwingen.
+5. **Fortschritt muss sich bewähren:** Neue Automatisierung oder ein Richtungsindex bekommt keine Autorität durch Größe, Geschwindigkeit oder den Namen „Open Source“. Vor einer breiten Nutzung müssen Fehler, Abhängigkeiten, mögliche Schäden und der Nutzen gegenüber einfacheren Verfahren geprüft werden.
+
+**Prüfbarer Zukunftsmeilenstein (noch nicht erreicht):** Eine externe Gruppe soll aus einer veröffentlichten, versionierten Protokollspezifikation und zugehörigen Testfällen eine kompatible Anwendung bauen sowie einen Beispieldatensatz exportieren und wieder einlesen können – ohne Zugang zu internen Diensten oder die Erlaubnis der ursprünglichen Redaktion. Technische Kompatibilität bedeutet ausdrücklich **nicht**, dass unterschiedliche Implementierungen dieselbe moralische Position vertreten müssen.
+
+Dies ist ein Entwicklungsziel, **kein bereits etablierter Standard**. Es gibt noch keine unabhängig geprüfte Protokollspezifikation, keine nachgewiesene plattformübergreifende Kompatibilität und keine externe Referenzimplementierung. Fortschritte und Rückschläge werden in der [Roadmap](roadmap.md) kenntlich gemacht.
+
 ## Was öffentlich sein soll – und was nicht
 
 Der **veröffentlichte normative und technische Kern** soll offen bleiben: Grundtexte, Verfahrensregeln, Quellcode, soweit eigenständig lizenzierbar, Kriterien für mögliche Bewertungen, Quellenrollen, Revisionsentscheidungen und dokumentierter Dissens. Das schließt die Begründung ein, *warum* ein Vorschlag übernommen, abgelehnt oder offengelassen wurde.
