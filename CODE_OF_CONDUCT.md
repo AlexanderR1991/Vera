@@ -19,3 +19,10 @@ Gleiche Würde bedeutet nicht gleiche Schuld. Niemand schuldet Kontakt, Vergebun
 We aim to make voluntary, concrete agreements possible even between people who deeply reject each other. Common ground requires explicit confirmation by every participant; proposals, silence and AI output cannot supply consent. Equal dignity does not imply equal blame. No one owes contact, forgiveness or an equal concession. Protection takes priority where coercion, threats or ongoing abuse are present. Agreements must not sacrifice third parties' dignity or rights. Unresolved disagreement and withdrawal are valid outcomes.
 
 Das [Verfahren zur Suche nach Schnittmengen](docs/schnittmengen.md) ist ein überprüfbarer Entwurf, kein bereits belegtes Konfliktlösungsangebot. / The [common-ground process](docs/schnittmengen.md) is a proposal to be tested, not an established conflict-resolution service.
+
+
+## Automatisierte Beteiligung / Automated participation
+
+Ungefragte Massenkommentare, wiederholte KI-Debatten zwischen eigenen Bots, vorgetäuschte menschliche Identitäten und inszenierte Zustimmung widersprechen diesem Projekt. Ausdrücklich erbetene, klar gekennzeichnete und begrenzte KI-Hilfe kann sinnvoll sein; sie besitzt kein eigenes Wahrheits- oder Stimmgewicht. Bei Moderationsentscheidungen zählen die Gründe und ein nachvollziehbarer Einspruch. [Fragenatlas und Schutzregeln](docs/fragenatlas.md).
+
+**English:** Unsolicited bot floods, impersonated human identities and manufactured consensus are not acceptable participation. AI help must be requested, labeled and bounded; substantive objections still deserve human examination.
