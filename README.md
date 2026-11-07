@@ -39,6 +39,12 @@ Start with the [English documentation guide](docs/en/README.md), the [English fo
 
 Die Website besitzt deutsche und englische Seiten. Dies ist **noch keine vollständige, unabhängig geprüfte Zweisprachigkeit** des gesamten Repositories. Das Register unterscheidet Entwurf, Teilübersetzung, ungeprüften Bestand und dokumentierte menschliche Freigabe.
 
+## WIRKLICH · ENTITÄT · ENT-00 (Forschungsprototyp)
+
+**Frage → Aussageart → Perspektiven → stärkster Einwand → Prüfung → Revisionsentwurf → menschliche Entscheidung → Änderungsgeschichte → neue Frage.** Die [Entität](docs/entitaet.md) ist unsere offene, anfechtbare Integrationsarchitektur für bestehende Atlas-, Forum-, KI- und Erkenntniswerkzeuge, **keine Behauptung künstlichen Lebens oder bereits vorhandener Autonomie**. Ein [bilingualer lokaler Prototyp](https://alexanderr1991.github.io/Wirklich/de/entitaet/) demonstriert versionierte Einwände. Das [offene JSON-Protokoll](public/protocol/entity-loop.v0.json) und ein [testbarer Codekern](src/lib/entity-core.mjs) halten KI-Entwürfe, echte menschliche Reviews, nicht erhobenen Konsens und fehlende Richtungswerte getrennt. Die überlappenden Forschungs-PRs bleiben bis zur ausdrücklichen Prüfung offen.
+
+**English:** [ENTITY / ENT-00](docs/entitaet.md#english--ent-00--wirklich--entity) is a contestable architecture and an in-browser draft-loop demonstration, not conscious AI, autonomous publishing or validated collective intelligence. No numeric truth score is produced.
+
 ## Was MUSS KI für Menschen sein? · What MUST AI be for us?
 
 Künstliche Intelligenz braucht mehr als Fähigkeiten. **WIRKLICH will mit Menschen einen philosophischen Motor für KI entwickeln**: einen offenen, korrigierbaren Prüfrahmen über Wahrheit, Freiheit, Würde, Macht und Verantwortung. [Charta (Entwurf)](docs/ki-charta.md) · [Sieben Leitthesen und fünf Gegenproben als JSON](public/ai/philosophy-engine.v0.json) · [Freiwilliges KI-Regelpaket](docs/erkenntnisprompt.md). Die Prinzipien sind angreifbar; weder Prompt noch KI-Schwarm können Modellverhalten erzwingen oder eine unabhängige Prüfung ersetzen.
