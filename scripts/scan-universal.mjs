@@ -8,7 +8,19 @@ const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),"..");
 const read=relative=>readFile(path.join(root,relative),"utf8");
 const isFile=e=>e.isFile();
 async function selectedSources(){
-  const docs=(await readdir(path.join(root,"docs"),{withFileTypes:true})).filter(e=>isFile(e)&&e.name.endsWith(".md")).map(e=>"docs/"+e.name);
+  // Recursively include public authorial docs, excluding archived book material
+  // and separate translation copies that must not count as independent sources.
+  async function walkDocs(relative){
+    const entries=await readdir(path.join(root,relative),{withFileTypes:true});
+    const result=[];
+    for(const e of entries){
+      if(e.isDirectory()&& !["archiv","en"].includes(e.name)){
+        result.push(...await walkDocs(relative+"/"+e.name));
+      } else if(isFile(e)&&e.name.endsWith(".md")) result.push(relative+"/"+e.name);
+    }
+    return result;
+  }
+  const docs=await walkDocs("docs");
   // Bilingual translations and the archived book are excluded to avoid double-counting evidence.
   const components=(await readdir(path.join(root,"src/components"),{withFileTypes:true})).filter(e=>isFile(e)&&e.name.endsWith(".astro")).map(e=>"src/components/"+e.name);
   const copies=(await readdir(path.join(root,"src/lib"),{withFileTypes:true})).filter(e=>isFile(e)&&/-copy\.json$/.test(e.name)).map(e=>"src/lib/"+e.name);
