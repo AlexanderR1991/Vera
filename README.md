@@ -126,6 +126,8 @@ node scripts/vera-task.mjs en docs/selbstkorrektur.md:61-65
 
 **Try a check.** Ask which line supports her answer and what else Vera would need to verify. If you find an error, record the Git revision, the exact passage and the expected correction. [Vera profile](docs/vera.md#english) · [Submit a critique](https://github.com/AlexanderR1991/Vera/issues/new?template=kritik.yml)
 
+**Veras Selbstmodell · Vera’s self-model.** Ein lokaler Prüfer trennt Build, Deployment und öffentlich ausgelieferte Revision. A local checker distinguishes build, deployment and the publicly served revision. [Beispiel und Modell](docs/vera-selbstmodell.md) · [Example and model](docs/vera-selbstmodell.md#english)
+
 ## Lokal entwickeln · Local development
 
 Node.js 22.12+ und Python 3.12 wie in CI. Nach der Installation startet `npm run dev` die lokale Vorschau. Der Produktionsbuild prüft die Inhalte und die erzeugten Seiten.
