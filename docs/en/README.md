@@ -12,6 +12,8 @@
 
 The central method is: frame the question, identify the kind of claim, find a strong objection, examine reasons appropriate to that claim, make an accountable decision, record revisions, and repeat. Neither popularity nor AI output counts as proof. Documented disagreement may remain.
 
+The project explicitly discusses [why it seeks to remain open source](openness.md): humanity is its intended interest, **not a constituency it claims to represent**. Open licensing needs accountable governance, not just public code. The German source is [OPEN-01](../offenheit.md).
+
 ## What is and is not bilingual
 
 The site currently exposes matching German and English paths for its main sections and interactive tools. The source data for claims, everyday questions and the AI framework has both languages. The repository's specialist documentation is **not yet completely translated**. Please consult the [translation inventory and human-review register](../../public/i18n/review-register.v1.json) rather than assuming equivalence or approval.
