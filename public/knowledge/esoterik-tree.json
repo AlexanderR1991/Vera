@@ -1856,7 +1856,7 @@
       },
       "topics": [
         "religion",
-        "gesellschaft",
+        "politik",
         "geschichte",
         "ethik"
       ],
@@ -2008,7 +2008,7 @@
       "topics": [
         "geschichte",
         "religion",
-        "gesellschaft",
+        "politik",
         "psychologie"
       ],
       "source_ids": [
@@ -2311,7 +2311,7 @@
       "topics": [
         "kunst",
         "technik",
-        "gesellschaft",
+        "politik",
         "geschichte"
       ],
       "source_ids": [
@@ -2448,7 +2448,7 @@
         "medizin",
         "philosophie",
         "technik",
-        "gesellschaft"
+        "politik"
       ],
       "source_ids": [
         "cos",
