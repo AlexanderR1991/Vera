@@ -1,7 +1,7 @@
 import {access,readFile,readdir} from "node:fs/promises";
 import {join} from "node:path";
 import {fields,topics,topicStates,selfReviews} from "../src/lib/tree.mjs";
-const out=join(process.cwd(),"dist"),slugs=["index","projektobservatorium","die-bruecke","grundfragen","kunst-und-erkenntnis","mission","regelkreis","ki-und-mensch","baum-des-wissens","esoterik-katalog","aussagen","forum","fragen-und-ki-prompt","forschungsstrom","atlas","bibliothek","lesestueck-wahrheit","manifest","pruefstand","methode","mitwirken","erkenntnishorizont","warum-liebe-wirkt","politik-die-dem-menschen-dient","bruecken-zwischen-den-religionen","militaer-und-verantwortung","medizin","ernaehrung-und-verantwortung","angriffsschwarm"],errors=[];
+const out=join(process.cwd(),"dist"),slugs=["index","projektobservatorium","die-bruecke","grundfragen","kunst-und-erkenntnis","mission","regelkreis","entitaet","ki-und-mensch","baum-des-wissens","esoterik-katalog","aussagen","forum","fragen-und-ki-prompt","forschungsstrom","atlas","bibliothek","lesestueck-wahrheit","manifest","pruefstand","methode","mitwirken","erkenntnishorizont","warum-liebe-wirkt","politik-die-dem-menschen-dient","bruecken-zwischen-den-religionen","militaer-und-verantwortung","medizin","ernaehrung-und-verantwortung","angriffsschwarm"],errors=[];
 for(const lang of ["de","en"]){
  for(const slug of slugs){
   const file=join(out,lang,...(slug==="index"?[]:[slug]),"index.html");
@@ -377,3 +377,14 @@ for(const lang of ["de","en"]){
 }
 if(errors.length){console.error(errors.join("\n"));process.exit(1);}
 console.log("Verified bilingual universal question atlas, public scan, citation trace and domain backlinks.");
+
+// ENT-00: the public route and bundled, unreviewed protocol must be present in both languages.
+for (const lang of ["de","en"]) {
+ const page=await readFile(join(out,lang,"entitaet","index.html"),"utf8");
+ for (const token of ["ENT-00","data-entity-form","data-entity-events","protocol/entity-loop.v0.json"]) {
+  if (!page.includes(token)) errors.push("Entity prototype "+lang+" lacks "+token);
+ }
+}
+const entityProtocol=JSON.parse(await readFile(join(out,"protocol/entity-loop.v0.json"),"utf8"));
+if(entityProtocol.status!=="experimental_proposal"||entityProtocol.runtime_enabled!==false||entityProtocol.direction_index.public_score_allowed!==false)errors.push("ENT-00 must remain an unreviewed and inactive proposal");
+if(errors.length){console.error(errors.join("\n"));process.exit(1);}
