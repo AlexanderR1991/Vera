@@ -243,7 +243,107 @@
     "tagFinding": "BEFUND UND KONTEXT",
     "tagLimit": "GRENZE DER AUSSAGE",
     "tagTest": "MÖGLICHE PRÜFUNG",
-    "tagAgainst": "GEGENMODELL"
+    "tagAgainst": "GEGENMODELL",
+    "perspectivesLabel": "POLITISCHE PERSPEKTIVEN · RECHTS, LINKS UND DAZWISCHEN",
+    "perspectivesTitle": "Beide Seiten sollen gehört werden. Keine ist unfehlbar.",
+    "perspectivesIntro": "Wir stellen starke Argumente einander gegenüber, statt Menschen auf Lager zu reduzieren. „Rechts“ umfasst unterschiedliche konservative, liberal-konservative, nationalkonservative und rechtspopulistische Denkweisen; „links“ umfasst ebenso verschiedene soziale, progressive und ökologische Ansätze. Es handelt sich um redaktionelle Kurzfassungen von Argumentationslinien, nicht um Aussagen aller Anhänger oder um einen wissenschaftlichen Wirksamkeitsnachweis.",
+    "perspectivesRightLabel": "Konservative / rechte Argumentationslinie",
+    "perspectivesOtherLabel": "Soziale / progressive Gegenperspektive",
+    "perspectivesTestLabel": "Prüf- und Streitfrage",
+    "perspectivesBoundary": "Argumente werden nicht durch ihre Herkunft wahr oder falsch. Empirische Behauptungen brauchen Belege; Wertkonflikte bleiben offen zu begründen. Menschenwürde, gleiche Rechte und geltendes Recht sind keine beliebigen Stellschrauben. Die dokumentierten Parteiprogramme beziehen sich auf 2024/2025 – sie bilden keine zeitlose oder vollständige Momentaufnahme der Politik im November 2026.",
+    "perspectivesSourcesLabel": "Quellen zur Einordnung · Programme sind Positionen, keine Wirkungsbelege",
+    "perspectivesSources": [
+      {
+        "label": "bpb · Konservatismus als politische Tradition",
+        "url": "https://www.bpb.de/kurz-knapp/lexika/politiklexikon/17742/konservatismus/"
+      },
+      {
+        "label": "CDU · Grundsatzprogramm 2024",
+        "url": "https://www.cdu.de/grundsatzprogramm/"
+      },
+      {
+        "label": "CDU/CSU · Wahlprogramm 2025",
+        "url": "https://www.cdu.de/wahlprogramm-von-cdu-und-csu/"
+      },
+      {
+        "label": "SPD · Wahlprogramm 2025",
+        "url": "https://www.spd.de/bundestagswahl/programm/"
+      },
+      {
+        "label": "Bündnis 90/Die Grünen · Wahlprogramm 2025",
+        "url": "https://www.gruene.de/artikel/zusammen-wachsen"
+      },
+      {
+        "label": "AfD · Wahlprogramm 2025 (Selbstdarstellung)",
+        "url": "https://www.afd.de/wahlprogramm25/"
+      },
+      {
+        "label": "bpb · Einordnung der AfD-Programmatik (2026)",
+        "url": "https://www.bpb.de/themen/parteien/parteien-in-deutschland/afd/273132/die-programmatik-der-afd/"
+      },
+      {
+        "label": "IPCC · Stand der Klimaforschung (AR6)",
+        "url": "https://www.ipcc.ch/report/ar6/syr/resources/spm-headline-statements/"
+      }
+    ],
+    "perspectives": [
+      {
+        "id": "migration",
+        "topic": "Migration und Integration",
+        "right": "Ein Staat muss Zuwanderung nachvollziehbar steuern, geltende Regeln durchsetzen und die Aufnahmefähigkeit von Kommunen, Wohnungsmarkt, Schulen und Verwaltung berücksichtigen. Verlässliche Verfahren können sowohl das Gemeinwesen als auch die Integration derjenigen schützen, die bleiben.",
+        "other": "Menschen auf der Flucht brauchen wirksamen Schutz und faire Einzelfallverfahren. Einwanderung kann gesellschaftliche und wirtschaftliche Chancen eröffnen; pauschale Zuschreibungen widersprechen individuellen Rechten. Integration braucht auch Zugang zu Sprache, Bildung und Arbeit.",
+        "test": "Welche konkreten Regeln sind rechtmäßig und praktikabel? Unterscheiden sich Wirkungen nach Art der Zuwanderung, Region und Zeitraum? Wie verändern sich Schutz, kommunale Kapazität, Integration und Arbeitsmarkt?"
+      },
+      {
+        "id": "security",
+        "topic": "Innere Sicherheit und Bürgerrechte",
+        "right": "Wer Gewalt ausübt oder Regeln verletzt, muss mit nachvollziehbaren Konsequenzen rechnen. Ein handlungsfähiger Rechtsstaat, gut ausgestattete Polizei und wirksame Strafverfolgung sind Voraussetzungen dafür, dass auch verletzliche Menschen ihre Freiheit sicher ausüben können.",
+        "other": "Sicherheit verlangt zusätzlich wirksame Prävention, soziale Unterstützung, unabhängige Kontrolle von Behörden und Datenschutz. Übermäßige Überwachung oder unverhältnismäßige Strafen können Vertrauen und Grundrechte beschädigen, ohne Schäden nachweisbar zu senken.",
+        "test": "Was reduzieren Maßnahmen nachweislich: Taten, Rückfälle und Opferzahlen? Welche Eingriffe sind notwendig und verhältnismäßig, und wie wird Missbrauch kontrolliert?"
+      },
+      {
+        "id": "economy",
+        "topic": "Leistung, Eigentum und sozialer Ausgleich",
+        "right": "Eigenverantwortung, geschütztes Eigentum, Wettbewerb und geringere bürokratische Hürden können Investitionen und Aufstieg fördern. Der Sozialstaat sollte helfen, aber auch Finanzierbarkeit, Eigeninitiative und Arbeitsanreize berücksichtigen.",
+        "other": "Gleiche Startchancen entstehen nicht allein durch formale Freiheit. Öffentliche Bildung, Infrastruktur, Arbeitnehmerrechte und soziale Absicherung können Abhängigkeit und Vererbung von Nachteilen mindern; Finanzierung braucht eine nachvollziehbare Verteilung der Lasten.",
+        "test": "Wie wirken Steuern, Transfers, Regulierung und öffentliche Investitionen auf Beschäftigung, Produktivität, Armut, Aufstiegschancen, Staatshaushalt und Verwaltungsaufwand?"
+      },
+      {
+        "id": "tradition",
+        "topic": "Heimat, Tradition und gesellschaftlicher Wandel",
+        "right": "Gewachsene Institutionen, gemeinsame Sprache, lokale Bindungen und Traditionen können Orientierung vermitteln. Nicht jede überlieferte Praxis ist falsch, nur weil sie alt ist; Veränderungen sollten ihre Folgen für Zusammenhalt und Verlässlichkeit bedenken.",
+        "other": "Traditionen können auch Einzelne ausgrenzen oder ihnen Rollen auferlegen. Gleiche Rechte und Selbstbestimmung verlangen, dass Menschen verschiedene Familienformen, Überzeugungen und Lebensweisen leben können, ohne kulturell vereinnahmt zu werden.",
+        "test": "Welche Traditionen stützen nachweislich Vertrauen und Zusammenhalt? Wo begrenzen sie persönliche Freiheit oder gleiche Chancen? Können Zugehörigkeit und Vielfalt gleichzeitig geschützt werden?"
+      },
+      {
+        "id": "europe",
+        "topic": "Nation, EU und demokratische Zuständigkeit",
+        "right": "Politische Macht sollte möglichst nah an den Bürgern kontrolliert werden. Nationale Parlamente, regionale Eigenheiten und klare Zuständigkeiten können Verantwortlichkeit sichern; internationale Institutionen müssen demokratisch begründet und überprüfbar bleiben.",
+        "other": "Grenzüberschreitende Probleme wie Handel, Sicherheit, Migration und Umwelt können gemeinsame europäische Regeln erfordern. Geteilte Zuständigkeiten können Handlungsspielräume erst eröffnen; nationale Alleingänge verursachen unter Umständen Kosten für Nachbarn.",
+        "test": "Auf welcher Ebene lassen sich konkrete Probleme wirksam, rechtmäßig und demokratisch kontrolliert lösen? Wer trägt Kosten, wer kann Einspruch einlegen?"
+      },
+      {
+        "id": "climate",
+        "topic": "Energie, Klimaschutz und Bezahlbarkeit",
+        "right": "Energie muss verlässlich und bezahlbar bleiben. Technologieoffene Lösungen, kalkulierbare Übergänge und ein Blick auf Folgen für Industrie und Haushalte sollen vermeiden, dass Klimapolitik wirtschaftliche oder soziale Schäden unnötig vergrößert.",
+        "other": "Spätes Handeln kann künftige ökologische, soziale und wirtschaftliche Schäden erhöhen. Verbindliche Emissionsminderung, erneuerbare Infrastruktur und ein sozial gerechter Ausgleich sollen Klimarisiken begrenzen.",
+        "test": "Vergleiche Emissionen, Versorgungssicherheit, Gesamtkosten und Lasten verschiedener Haushalte. Der menschengemachte Klimawandel ist durch den IPCC wissenschaftlich belegt; strittig sind politische Wege, Geschwindigkeit und Verteilung."
+      },
+      {
+        "id": "budget",
+        "topic": "Staatsausgaben, Schulden und Generationengerechtigkeit",
+        "right": "Haushaltsdisziplin und transparente Prioritäten schützen kommende Generationen vor unkontrollierbaren Verpflichtungen. Ausgaben benötigen einen klaren Zweck, überprüfbare Wirkung und solide Finanzierung.",
+        "other": "Unterlassene Investitionen in Schulen, Infrastruktur, Klima und öffentliche Dienste können künftige Generationen ebenfalls teuer zu stehen kommen. Kreditfinanzierung kann begründbar sein, wenn dadurch dauerhafte gesellschaftliche Werte entstehen.",
+        "test": "Welche Schulden- und Investitionspfade hinterlassen künftig reale Vermögenswerte, Belastungen, Risiken und Handlungsmöglichkeiten? Welche Annahmen über Zinsen und Wachstum gelten?"
+      },
+      {
+        "id": "speech",
+        "topic": "Meinungsfreiheit, Medien und Streitkultur",
+        "right": "Offener Dissens schützt vor dem Machtmonopol einer vermeintlich einzig zulässigen Sicht. Staatliche und gesellschaftliche Eingriffe in Rede sollten begründet, eng begrenzt und anfechtbar sein; auch unbequeme Meinungen müssen kritisiert werden dürfen.",
+        "other": "Freie Debatte braucht Teilhabe ohne Einschüchterung. Wer durch Drohungen, diskriminierende Angriffe oder gezielte Desinformation aus Gesprächen verdrängt wird, verliert faktisch Gehör. Moderation muss zugleich transparent und überprüfbar bleiben.",
+        "test": "Welche Formen von Rede, Gegenrede und Moderation fördern tatsächliche Beteiligung? Wo beginnen rechtswidrige Drohung oder gezielte Herabwürdigung; wie schützt man Widerspruch, ohne Menschen schutzlos zu lassen?"
+      }
+    ]
   },
   "en": {
     "eyebrow": "LIBER CIVITATIS · POLITICS AS AN OPEN QUESTION",
@@ -489,6 +589,106 @@
     "tagFinding": "FINDING AND CONTEXT",
     "tagLimit": "LIMIT OF THE CLAIM",
     "tagTest": "POSSIBLE TEST",
-    "tagAgainst": "COUNTERMODEL"
+    "tagAgainst": "COUNTERMODEL",
+    "perspectivesLabel": "POLITICAL PERSPECTIVES · RIGHT, LEFT AND BETWEEN",
+    "perspectivesTitle": "Both sides deserve a hearing. Neither is infallible.",
+    "perspectivesIntro": "We compare the strongest arguments rather than reducing people to camps. The political right includes different conservative, liberal-conservative, national-conservative and right-populist approaches; the left likewise contains social, progressive and ecological traditions. These are editorial summaries of lines of argument, not statements made by all supporters or scientific evidence that a policy works.",
+    "perspectivesRightLabel": "Conservative / right-leaning line of argument",
+    "perspectivesOtherLabel": "Social / progressive counterperspective",
+    "perspectivesTestLabel": "Question to examine",
+    "perspectivesBoundary": "Arguments are not true or false because of where they come from. Empirical claims require evidence; value conflicts need explicit reasoning. Human dignity, equal rights and applicable law are not arbitrary knobs to turn. The party platforms referenced date from 2024/2025 and do not provide a timeless or complete snapshot of politics in November 2026.",
+    "perspectivesSourcesLabel": "Sources for context · party programmes state positions, not policy outcomes",
+    "perspectivesSources": [
+      {
+        "label": "bpb · Conservatism as a political tradition",
+        "url": "https://www.bpb.de/kurz-knapp/lexika/politiklexikon/17742/konservatismus/"
+      },
+      {
+        "label": "CDU · 2024 principles",
+        "url": "https://www.cdu.de/grundsatzprogramm/"
+      },
+      {
+        "label": "CDU/CSU · 2025 election programme",
+        "url": "https://www.cdu.de/wahlprogramm-von-cdu-und-csu/"
+      },
+      {
+        "label": "SPD · 2025 election programme",
+        "url": "https://www.spd.de/bundestagswahl/programm/"
+      },
+      {
+        "label": "Alliance 90/The Greens · 2025 election programme",
+        "url": "https://www.gruene.de/artikel/zusammen-wachsen"
+      },
+      {
+        "label": "AfD · 2025 election programme (party source)",
+        "url": "https://www.afd.de/wahlprogramm25/"
+      },
+      {
+        "label": "bpb · Analysis of AfD positions (2026)",
+        "url": "https://www.bpb.de/themen/parteien/parteien-in-deutschland/afd/273132/die-programmatik-der-afd/"
+      },
+      {
+        "label": "IPCC · AR6 climate science findings",
+        "url": "https://www.ipcc.ch/report/ar6/syr/resources/spm-headline-statements/"
+      }
+    ],
+    "perspectives": [
+      {
+        "id": "migration",
+        "topic": "Migration and integration",
+        "right": "A state should govern immigration predictably, enforce lawful rules, and consider the capacity of municipalities, housing, schools and administration. Reliable procedures can protect both communities and the integration of people who stay.",
+        "other": "People fleeing harm need effective protection and fair individual procedures. Immigration may create social and economic opportunities; blanket judgments contradict individual rights. Integration also needs access to language, education and work.",
+        "test": "Which rules are lawful and workable? How do outcomes differ by type of migration, region and period? What happens to protection, local capacity, integration and employment?"
+      },
+      {
+        "id": "security",
+        "topic": "Public safety and civil liberties",
+        "right": "Violence and violations of the law require predictable consequences. Effective law enforcement, adequately resourced police and accountable justice help vulnerable people exercise their freedom safely.",
+        "other": "Safety also requires effective prevention, social support, independent oversight and privacy. Excessive surveillance or disproportionate punishment may damage trust and rights without demonstrably reducing harm.",
+        "test": "What measurably reduces offenses, reoffending and victimisation? Which interventions are necessary and proportionate, and how is abuse monitored?"
+      },
+      {
+        "id": "economy",
+        "topic": "Initiative, property and social protection",
+        "right": "Personal responsibility, secure property, competition and lower administrative barriers can encourage investment and mobility. Public support should consider affordability, initiative and incentives to work.",
+        "other": "Equal opportunity does not follow from formal liberty alone. Public education, infrastructure, labour rights and social insurance may reduce inherited disadvantage; their costs must be distributed transparently.",
+        "test": "How do taxes, transfers, regulation and public investment affect work, productivity, poverty, mobility, budgets and administrative effort?"
+      },
+      {
+        "id": "tradition",
+        "topic": "Tradition, belonging and social change",
+        "right": "Established institutions, shared language, local ties and traditions can offer continuity. A practice is not necessarily harmful because it is old; reforms should account for their effects on cohesion and reliability.",
+        "other": "Traditions may also exclude people or impose roles. Equal rights and autonomy mean people should be free to choose differing family forms, beliefs and ways of life without enforced conformity.",
+        "test": "Which traditions measurably build trust and cohesion? When do they restrict individual freedom or opportunity? Can belonging and diversity both be protected?"
+      },
+      {
+        "id": "europe",
+        "topic": "Nation, the EU and democratic accountability",
+        "right": "Political power should remain accountable as close to citizens as practical. National parliaments, regional differences and clear competences can make responsibility visible; international bodies require democratic scrutiny.",
+        "other": "Cross-border problems such as trade, security, migration and the environment may need shared European rules. Pooling authority may create options that states lack alone; unilateral decisions can impose costs on neighbours.",
+        "test": "Which level can address a problem effectively, lawfully and democratically? Who bears the cost, and who can contest decisions?"
+      },
+      {
+        "id": "climate",
+        "topic": "Energy, climate policy and affordability",
+        "right": "Energy must remain reliable and affordable. Technology-neutral choices, predictable transitions and attention to industrial and household costs aim to avoid unnecessary economic and social harm from policy design.",
+        "other": "Delay can raise future environmental, social and economic damage. Binding emissions reductions, renewable infrastructure and fair compensation aim to reduce climate risks.",
+        "test": "Compare emissions, reliability, total costs and distributional effects. Human-caused climate change is established by IPCC assessments; policy routes, pace and cost-sharing remain contested."
+      },
+      {
+        "id": "budget",
+        "topic": "Public spending, debt and future generations",
+        "right": "Fiscal discipline and transparent priorities can protect future generations from unsustainable obligations. Spending requires a defined purpose, measurable results and reliable financing.",
+        "other": "Forgone investment in schools, infrastructure, climate and public services can also impose costs on future generations. Borrowing may be justified when it creates lasting public value.",
+        "test": "Which borrowing and investment paths leave future generations with real assets, liabilities, risks and choices? Which assumptions about interest and growth matter?"
+      },
+      {
+        "id": "speech",
+        "topic": "Free speech, media and disagreement",
+        "right": "Open dissent is a safeguard against declaring one viewpoint beyond criticism. Public and private restrictions on speech should have clear grounds, narrow limits and means of appeal; uncomfortable views must remain open to challenge.",
+        "other": "Open debate also requires meaningful access without intimidation. Threats, discriminatory attacks and coordinated disinformation may drive people out of discussion. Moderation must itself be transparent and contestable.",
+        "test": "Which forms of speech, counterspeech and moderation allow wider participation? Where do unlawful threats or targeted degradation begin, and how can dissent survive without sacrificing others' safety?"
+      }
+    ]
   }
 }
