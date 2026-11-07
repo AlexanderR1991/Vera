@@ -5,10 +5,10 @@
 ## Read the ideas
 
 1. [Foundational theses — English draft](grundtext.md) (nine theses; full companion to [the German source](../grundtext.md)).
-2. [The correction loop — English website](https://alexanderr1991.github.io/Wirklich/en/regelkreis/) and [META-01 in both languages](../selbstkorrektur.md).
-3. [How claims are examined — English website](https://alexanderr1991.github.io/Wirklich/en/methode/) and [technical method notes, with English summary](../methode.md).
-4. [AI and people — English website](https://alexanderr1991.github.io/Wirklich/en/ki-und-mensch/) and [the AI charter (primarily German)](../ki-charta.md).
-5. [The forum — questions, answers and objections](https://alexanderr1991.github.io/Wirklich/en/forum/).
+2. [The correction loop — English website](https://alexanderr1991.github.io/Vera/en/regelkreis/) and [META-01 in both languages](../selbstkorrektur.md).
+3. [How claims are examined — English website](https://alexanderr1991.github.io/Vera/en/methode/) and [technical method notes, with English summary](../methode.md).
+4. [AI and people — English website](https://alexanderr1991.github.io/Vera/en/ki-und-mensch/) and [the AI charter (primarily German)](../ki-charta.md).
+5. [The forum — questions, answers and objections](https://alexanderr1991.github.io/Vera/en/forum/).
 
 The central method is: frame the question, identify the kind of claim, find a strong objection, examine reasons appropriate to that claim, make an accountable decision, record revisions, and repeat. Neither popularity nor AI output counts as proof. Documented disagreement may remain.
 
@@ -20,16 +20,16 @@ The [philosophical terminology glossary](../i18n-glossary.md) distinguishes *tru
 
 ## Challenge a translation or a claim
 
-You need not be a programmer. Use the [translation review issue](https://github.com/AlexanderR1991/Wirklich/issues/new?template=uebersetzung.yml) for nuance and language corrections or the [adversarial review issue](https://github.com/AlexanderR1991/Wirklich/issues/new?template=angriff.yml) for a philosophical objection. Give the German source at a specific commit, the English wording, the strongest alternative reading, and why your revision matters.
+You need not be a programmer. Use the [translation review issue](https://github.com/AlexanderR1991/Vera/issues/new?template=uebersetzung.yml) for nuance and language corrections or the [adversarial review issue](https://github.com/AlexanderR1991/Vera/issues/new?template=angriff.yml) for a philosophical objection. Give the German source at a specific commit, the English wording, the strongest alternative reading, and why your revision matters.
 
 A successful automated build guarantees **structural coverage**, not the truth or philosophical accuracy of a translation. English text may be called reviewed only after a named person documents the source revision, date, and public review decision. That review is not automatically independent. See the [internationalization policy and release checklist](../internationalisierung.md).
 
-Source repository: https://github.com/AlexanderR1991/Wirklich
+Source repository: https://github.com/AlexanderR1991/Vera
 
 ## M-02 · Mathematics Between Minds
 
-The provisional [M-02 research proposal](../mathematik-des-dazwischen.md) provides an English précis and a bilingual [toy demonstration](https://alexanderr1991.github.io/Wirklich/en/die-bruecke/). It separates directed accuracy of restatement from agreement, and distinguishes a formal illustration from an untested psychological hypothesis. This is **not** a validated scale, proved ethics system or independently reviewed publication.
+The provisional [M-02 research proposal](../mathematik-des-dazwischen.md) provides an English précis and a bilingual [toy demonstration](https://alexanderr1991.github.io/Vera/en/die-bruecke/). It separates directed accuracy of restatement from agreement, and distinguishes a formal illustration from an untested psychological hypothesis. This is **not** a validated scale, proved ethics system or independently reviewed publication.
 
 ## Universal questions · Cross-domain research loop
 
-The new [Fundamental Questions atlas](https://alexanderr1991.github.io/Wirklich/en/grundfragen/) contains 16 unreviewed editorial questions linking distinct project domains, along with sources, counterquestions and proposed return routes. The [method and limitations](../grundfragen-kreislauf.md) explain why the automated corpus check is **lexical, not semantic AI analysis**. The reviewed findings register is currently **empty**. Future bounded findings require traceable human review before they are displayed on mapped domain pages.
+The new [Fundamental Questions atlas](https://alexanderr1991.github.io/Vera/en/grundfragen/) contains 16 unreviewed editorial questions linking distinct project domains, along with sources, counterquestions and proposed return routes. The [method and limitations](../grundfragen-kreislauf.md) explain why the automated corpus check is **lexical, not semantic AI analysis**. The reviewed findings register is currently **empty**. Future bounded findings require traceable human review before they are displayed on mapped domain pages.

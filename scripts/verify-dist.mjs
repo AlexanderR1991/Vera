@@ -9,7 +9,7 @@ for(const lang of ["de","en"]){
   if(!html.includes('<html lang="'+lang+'"'))errors.push("Wrong language in "+file);
   if(!html.includes('hreflang="de"')||!html.includes('hreflang="en"'))errors.push("Missing alternate languages in "+file);
   if(!html.includes('rel="canonical"'))errors.push("Missing canonical "+file);
-  if(!html.includes('/Wirklich/de/')||!html.includes('/Wirklich/en/'))errors.push("Wrong locale URLs "+file);
+  if(!html.includes('/Vera/de/')||!html.includes('/Vera/en/'))errors.push("Wrong locale URLs "+file);
   if(!html.includes("assets/style.css"))errors.push("Missing CSS reference "+file);
  }
 }
@@ -105,10 +105,10 @@ for(const lang of ["de","en"]){
  }
  const register=await readFile(join(out,lang,"aussagen/index.html"),"utf8");
  const forumPage=await readFile(join(out,lang,"forum/index.html"),"utf8");
- if(!home.includes("/Wirklich/"+lang+"/forum/")||!sitemap.includes("/Wirklich/"+lang+"/forum/"))errors.push("Forum route not discoverable "+lang);
+ if(!home.includes("/Vera/"+lang+"/forum/")||!sitemap.includes("/Vera/"+lang+"/forum/"))errors.push("Forum route not discoverable "+lang);
  if(!forumPage.includes("/discussions"))errors.push("Forum missing discussions entry "+lang);
  for(const slug of ["werkstatt","aussagen","baum-des-wissens"]){
-  const route="/Wirklich/"+lang+"/"+slug+"/";
+  const route="/Vera/"+lang+"/"+slug+"/";
   if(!home.includes(route)||!sitemap.includes(route))errors.push("Undiscoverable route "+route);
  }
  for(const c of registry.claims){
@@ -135,7 +135,7 @@ for(const topic of topics){
  if(!topic.fields.length||!topic.fields.every(id=>fieldIDs.has(id)))errors.push("Unknown tree field on "+topic.id);
  if(!Object.hasOwn(topicStates,topic.state))errors.push("Unknown tree state on "+topic.id);
  if(topic.state==="draft"&&(!topic.slug||topic.url))errors.push("Draft topic needs a local chapter: "+topic.id);
- if(topic.state==="proposed"&&(!/^https:\/\/github\.com\/AlexanderR1991\/Wirklich\/pull\/\d+$/.test(topic.url)||topic.slug))errors.push("Proposal needs its actual PR: "+topic.id);
+ if(topic.state==="proposed"&&(!/^https:\/\/github\.com\/AlexanderR1991\/Vera\/pull\/\d+$/.test(topic.url)||topic.slug))errors.push("Proposal needs its actual PR: "+topic.id);
  if(topic.state==="open"&&(topic.slug||topic.url))errors.push("Undeveloped topic must not imply a chapter: "+topic.id);
  for(const lang of ["de","en"]){
   if(!topic.name[lang]?.trim()||!topic.question[lang]?.trim())errors.push("Missing topic translation "+topic.id+"/"+lang);
@@ -166,7 +166,7 @@ console.log(`Verified ${slugs.length*2} localized pages, mission navigation, reg
 
 // Workshop: both interactive routes, usable static content and discovery paths.
 for (const lang of ["de", "en"]) {
- const route = `/Wirklich/${lang}/esoterik-und-mathematik/`;
+ const route = `/Vera/${lang}/esoterik-und-mathematik/`;
  const html = await readFile(join(out, lang, "esoterik-und-mathematik/index.html"), "utf8");
  for (const token of ['data-symbol-lab', 'data-worksheet', 'data-statistics', '<noscript>', 'data-binary-word', 'data-download="json"', 'data-download="txt"', 'rel="canonical"', 'hreflang="de"', 'hreflang="en"']) {
   if (!html.includes(token)) errors.push(`Workshop ${lang} lacks ${token}`);
@@ -240,7 +240,7 @@ for(const connection of connections){
  }
 }
 for(const lang of ["de","en"]){
- const route=`/Wirklich/${lang}/erkenntnisnavigator/`;
+ const route=`/Vera/${lang}/erkenntnisnavigator/`;
  const html=await readFile(join(out,lang,"erkenntnisnavigator/index.html"),"utf8");
  if(!sitemap.includes(route)||!html.includes(`rel="canonical" href="https://alexanderr1991.github.io${route}"`))errors.push("Navigator metadata missing: "+lang);
  for(const token of ["data-navigator","data-nav-question","data-nav-conditions","data-nav-export","data-nav-reset","<noscript>"]){
@@ -271,7 +271,7 @@ console.log("Verified bilingual navigator, readable draft cards, contextual entr
 for(const lang of ["de","en"]){
   const footer = await readFile(join(out,lang,"index.html"),"utf8");
   for(const route of ["impressum","datenschutz"]){
-    const link="/Wirklich/"+lang+"/"+route+"/";
+    const link="/Vera/"+lang+"/"+route+"/";
     if(!footer.includes(link)||!sitemap.includes(link))errors.push("Missing legal route "+link);
     try { const html=await readFile(join(out,lang,route,"index.html"),"utf8");
       if(!html.includes("<h1")||!html.includes('rel="canonical"'))errors.push("Invalid legal page "+link);
@@ -279,7 +279,7 @@ for(const lang of ["de","en"]){
   }
   const contribute = await readFile(join(out,lang,"mitwirken","index.html"),"utf8");
   const support = contribute.split('id="unterstuetzen"')[1]?.split("</section>")[0] || "";
-  if(!footer.includes(`href="/Wirklich/${lang}/mitwirken/#unterstuetzen"`)) errors.push("Missing footer link to support for "+lang);
+  if(!footer.includes(`href="/Vera/${lang}/mitwirken/#unterstuetzen"`)) errors.push("Missing footer link to support for "+lang);
   if(!support.includes(">radke.a91@gmail.com<") || !support.includes('href="https://www.paypal.com/"')) errors.push("Missing PayPal recipient or link for "+lang);
   if(!support.includes(lang==="de" ? "keine Spendenquittung" : "no charitable donation receipt")) errors.push("Missing donation receipt disclosure for "+lang);
 }
@@ -336,7 +336,7 @@ for(const lang of ["de","en"]){
  const chapter=await readFile(join(out,lang,"esoterik-katalog/index.html"),"utf8");
  const treePage=await readFile(join(out,lang,"baum-des-wissens/index.html"),"utf8");
  const forumPage=await readFile(join(out,lang,"forum/index.html"),"utf8");
- const route="/Wirklich/"+lang+"/esoterik-katalog/";
+ const route="/Vera/"+lang+"/esoterik-katalog/";
  if(!sitemap.includes(route)||!treePage.includes(route)||!forumPage.includes(route))errors.push("Esotericism not discoverable in "+lang);
  for(const token of ["data-esoteric-catalog","data-esoteric-branch","data-esoteric-item","data-esoteric-query","esoterik-ast.yml"]){
   if(!chapter.includes(token))errors.push("Missing catalogue affordance "+lang+"/"+token);

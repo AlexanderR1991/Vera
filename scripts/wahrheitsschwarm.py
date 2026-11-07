@@ -50,7 +50,7 @@ def clean(value, limit=380):
 
 def get_json(url):
     req = urllib.request.Request(url, headers={
-        "User-Agent": "Grundtext-Wahrheitsschwarm/1.0 (https://github.com/AlexanderR1991/Wirklich)",
+        "User-Agent": "Grundtext-Wahrheitsschwarm/1.0 (https://github.com/AlexanderR1991/Vera)",
         "Accept": "application/json",
     })
     with urllib.request.urlopen(req, timeout=25) as response:
@@ -149,7 +149,7 @@ def discover_arxiv(topic, query):
         "start": 0, "max_results": 5, "sortBy": "submittedDate", "sortOrder": "descending",
     })
     req = urllib.request.Request("https://export.arxiv.org/api/query?" + params, headers={
-        "User-Agent": "Grundtext-Wahrheitsschwarm/1.1 (https://github.com/AlexanderR1991/Wirklich)",
+        "User-Agent": "Grundtext-Wahrheitsschwarm/1.1 (https://github.com/AlexanderR1991/Vera)",
         "Accept": "application/atom+xml",
     })
     with urllib.request.urlopen(req, timeout=25) as response:

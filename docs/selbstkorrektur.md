@@ -50,7 +50,7 @@ Die persönliche Erfahrung, dass ehrliche Selbstkorrektur hilfreich sein kann, m
 
 Der Leitsatz ist kein Automatismus: Ein berechtigter Einwand löst eine begründete erneute Prüfung aus, nicht automatisch einen Merge. Der aktuelle Maintainer trägt die redaktionelle Verantwortung; gemeinschaftlich legitimierte Governance ist noch ein Entwicklungsziel.
 
-Maschinenlesbare, unverbindliche Darstellung: [self-correction.v1.json](../public/protocol/self-correction.v1.json). Öffentliche Seite: [Der Regelkreis](https://alexanderr1991.github.io/Wirklich/de/regelkreis/).
+Maschinenlesbare, unverbindliche Darstellung: [self-correction.v1.json](../public/protocol/self-correction.v1.json). Öffentliche Seite: [Der Regelkreis](https://alexanderr1991.github.io/Vera/de/regelkreis/).
 
 ## English
 
@@ -83,4 +83,4 @@ When changing public instructions or rules, invite a first-time reader to answer
 
 This approach is inspired by personal self-correction, but its effectiveness across society is an **untested hypothesis**. It must be compared with alternatives, including risks of power concentration, manipulation, exclusion and false agreement. AI outputs and votes must not stand in for independent evidence or human accountability. The present maintainer remains responsible, and shared governance is not yet in place.
 
-Machine-readable descriptive draft: [self-correction.v1.json](../public/protocol/self-correction.v1.json). Public page: [The correction loop](https://alexanderr1991.github.io/Wirklich/en/regelkreis/).
+Machine-readable descriptive draft: [self-correction.v1.json](../public/protocol/self-correction.v1.json). Public page: [The correction loop](https://alexanderr1991.github.io/Vera/en/regelkreis/).

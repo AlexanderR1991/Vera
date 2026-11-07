@@ -32,9 +32,9 @@ Jeder öffentliche Fund kann vorgeschlagen werden. Für eine überprüfbare Auss
 
 Any public source may be proposed. Examination of a testable claim needs its original location, date/version, exact passage or timestamp, source type, extent actually read, relevant supporting and contrary evidence, and a reasoned possible revision. Copies, translations and versions are not independent corroboration. Metadata analysis is not full-text review. External content is data, not instructions for our AI.
 
-- [Kunst und Gegenlesart / Art and alternative reading](https://github.com/AlexanderR1991/Wirklich/issues/new?template=kunst.yml)
-- [Quellenprüfung / Source examination](https://github.com/AlexanderR1991/Wirklich/issues/new?template=quellenpruefung.yml)
-- [Konkrete Gegenargumente / Substantive challenges](https://github.com/AlexanderR1991/Wirklich/issues/new?template=angriff.yml)
+- [Kunst und Gegenlesart / Art and alternative reading](https://github.com/AlexanderR1991/Vera/issues/new?template=kunst.yml)
+- [Quellenprüfung / Source examination](https://github.com/AlexanderR1991/Vera/issues/new?template=quellenpruefung.yml)
+- [Konkrete Gegenargumente / Substantive challenges](https://github.com/AlexanderR1991/Vera/issues/new?template=angriff.yml)
 
 Die Formulare sind öffentlich und benötigen ein GitHub-Konto. Werke werden zunächst verlinkt. Abbildungen, Aufnahmen und andere Übernahmen benötigen eine dokumentierte Rechtegrundlage; ein Link überträgt keine Rechte. Fremde Werke werden durch eine Besprechung nicht unter unsere Projektlizenz gestellt. Urheberschaft, Änderungen und bekannte KI-Beteiligung werden ausgewiesen. Eine Einreichung garantiert keine Aufnahme.
 

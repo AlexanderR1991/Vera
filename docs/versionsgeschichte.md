@@ -3,7 +3,7 @@
 ## 2026-11-07 · Vera
 
 - Die Werkstatt trägt in beiden Sprachen den Namen **Vera**. WIRKLICH und REALLY? sind frühere Namen. Der Grundtext des Wirklichen ist das philosophische Fundament.
-- Website- und Repository-Adresse dienen weiterhin als Zugang zu veröffentlichten Inhalten und bisherigen Verweisen.
+- Das Repository heißt [AlexanderR1991/Vera](https://github.com/AlexanderR1991/Vera). Der alte Repository-Link leitet dorthin weiter. Die Website wechselt auf [alexanderr1991.github.io/Vera/](https://alexanderr1991.github.io/Vera/).
 
 ## 2026-11-07 · Menschen vor Skalierung · Grundtext-Ergänzung
 

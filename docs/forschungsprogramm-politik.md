@@ -99,6 +99,6 @@ Für KI-gestützte Produktivitäts- und Aufgabenveränderungen werden **konkurri
 
 ## Beteiligung
 
-[GitHub Discussions](https://github.com/AlexanderR1991/Wirklich/discussions) für Debatten über Begriffe, Werte und Gegenargumente. [Issues zur Quellenprüfung](https://github.com/AlexanderR1991/Wirklich/issues/new?template=quellenpruefung.yml) für präzise Einwände und empirische Gegenbelege.
+[GitHub Discussions](https://github.com/AlexanderR1991/Vera/discussions) für Debatten über Begriffe, Werte und Gegenargumente. [Issues zur Quellenprüfung](https://github.com/AlexanderR1991/Vera/issues/new?template=quellenpruefung.yml) für präzise Einwände und empirische Gegenbelege.
 
 **Lizenz:** Originäre Redaktionstexte CC BY-SA 4.0 gemäß [LICENSING.md](../LICENSING.md). Die verlinkten Rechtstexte, Studien und OECD-Publikationen werden nicht umgewidmet oder in die Projektlizenz aufgenommen.

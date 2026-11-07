@@ -59,4 +59,4 @@ This text may and should be changed in response to good reasons. Its development
 
 > We are not building a system to be right. We are building a system that must learn from its mistakes.
 
-See the [bilingual self-correction rule](../selbstkorrektur.md) and the [English website explanation](https://alexanderr1991.github.io/Wirklich/en/regelkreis/). META-01 supplements the procedure; it is **not** a tenth, unchallengeable thesis about truth.
+See the [bilingual self-correction rule](../selbstkorrektur.md) and the [English website explanation](https://alexanderr1991.github.io/Vera/en/regelkreis/). META-01 supplements the procedure; it is **not** a tenth, unchallengeable thesis about truth.

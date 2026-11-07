@@ -10,7 +10,7 @@ Die Reihenfolge folgt überprüfbaren Voraussetzungen. Die Kapitel bleiben erhal
 
 - [x] Zweisprachige statische Website mit Atlas, Bibliothek, neun Leitsätzen und Beitragswegen
 - [x] Kapitel zu Erkenntnishorizont, Liebe, Politik, Religion, Militär und Ernährung
-- [x] Die [Mitwirkenseite](https://alexanderr1991.github.io/Wirklich/de/mitwirken/#unterstuetzen) nennt Alexander Radkes PayPal-Adresse für freiwillige Beiträge zum Projekt.
+- [x] Die [Mitwirkenseite](https://alexanderr1991.github.io/Vera/de/mitwirken/#unterstuetzen) nennt Alexander Radkes PayPal-Adresse für freiwillige Beiträge zum Projekt.
 - [x] Offene Lizenzen für Projekttexte und Software mit dokumentierten Ausnahmen
 - [x] Recherche- und Angriffsschwarm als begrenzte Prototypen; Ergebnisse bleiben ungeprüft
 - [x] Gemeinsame Mission und konzentrierte Startseite statt einer wachsenden Reihe einzelner Ankündigungen
@@ -62,7 +62,7 @@ Das [Emporirren-Konzept](emporirren.md) verbindet Spielen, die eigene Frage und 
 
 ## Etappe 1 · Ein kleiner, vollständig geprüfter Bestand
 
-Die [Gesamtprüfung des fliegenden Baums](gesamtpruefung-baum.md) verknüpft die Themen, sichtbaren Lücken und öffentlichen Selbstprüfungen [B-01](https://github.com/AlexanderR1991/Wirklich/issues/28), [B-02](https://github.com/AlexanderR1991/Wirklich/issues/29) und [B-03](https://github.com/AlexanderR1991/Wirklich/issues/30). Ein erweiterter Themenplan erfüllt die folgenden Freigabekriterien noch nicht.
+Die [Gesamtprüfung des fliegenden Baums](gesamtpruefung-baum.md) verknüpft die Themen, sichtbaren Lücken und öffentlichen Selbstprüfungen [B-01](https://github.com/AlexanderR1991/Vera/issues/28), [B-02](https://github.com/AlexanderR1991/Vera/issues/29) und [B-03](https://github.com/AlexanderR1991/Vera/issues/30). Ein erweiterter Themenplan erfüllt die folgenden Freigabekriterien noch nicht.
 
 **Freigabekriterium:** Zehn klar begrenzte Aussagen mit dokumentierter menschlicher Prüfung, belegter Herkunft, Gegenargumenten, Geltungsbereich und verständlicher Erklärung.
 
@@ -135,6 +135,6 @@ Systematische Recherche, unabhängiges Fachreview, belastbare Gegenpositionen un
 
 ## English
 
-The next milestone is a small corpus of ten fully examined claims, not more unchecked volume. Independent evaluation of the method comes next, alongside accountable governance and sustainable funding. The [contribution page](https://alexanderr1991.github.io/Wirklich/en/mitwirken/#unterstuetzen) lists Alexander Radke’s PayPal address for voluntary support. Broader coverage and more autonomy require demonstrated benefit. The register shows the review status of each record; no entry in the current pilot has independent expert approval.
+The next milestone is a small corpus of ten fully examined claims, not more unchecked volume. Independent evaluation of the method comes next, alongside accountable governance and sustainable funding. The [contribution page](https://alexanderr1991.github.io/Vera/en/mitwirken/#unterstuetzen) lists Alexander Radke’s PayPal address for voluntary support. Broader coverage and more autonomy require demonstrated benefit. The register shows the review status of each record; no entry in the current pilot has independent expert approval.
 
 Accessibility testing, voluntary small play sessions and real complaints responsibility start immediately, alongside the first corpus. Do not defer them to a later growth stage. Independent learning transfer remains untested.

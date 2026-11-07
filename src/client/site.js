@@ -41,7 +41,7 @@ if(form)form.addEventListener("submit",e=>{
  const body=en?
  "## Contribution\n"+kind+"\n\n## Relevant passage\n"+(place||"General")+"\n\n## Question or objection\n"+thought+"\n\n## Sources and suggested revision\n[Optional]\n":
  "## Art des Beitrags\n"+kind+"\n\n## Betroffene Stelle\n"+(place||"Allgemein")+"\n\n## Gedanke / Einwand\n"+thought+"\n\n## Quellen und mögliche Korrektur\n[Optional ergänzen]\n";
- location.assign("https://github.com/AlexanderR1991/Wirklich/issues/new?title="+encodeURIComponent(title)+"&body="+encodeURIComponent(body));
+ location.assign("https://github.com/AlexanderR1991/Vera/issues/new?title="+encodeURIComponent(title)+"&body="+encodeURIComponent(body));
 });
 if(form)form.hidden=false;
 // The homepage filter only searches its own visible tiles; it is not a site-wide knowledge search.

@@ -6,7 +6,7 @@ Die erste Einladung passt auf einen Zettel oder in eine Nachricht. Wer sie bekom
 
 > An der linken Kasse warten zwei Leute, rechts vier. Wo stellst du dich an?
 
-Nach der Veröffentlichung führt der [deutsche Spiellink](https://alexanderr1991.github.io/Wirklich/de/spiel/) direkt an die Kasse. Die [englische Runde](https://alexanderr1991.github.io/Wirklich/en/spiel/) beginnt mit derselben Frage. Schon jetzt lässt sich die [deutsche Faltkarte](../public/spielkarten/kasse-de.pdf) oder die [englische Faltkarte](../public/spielkarten/kasse-en.pdf) auf einen Tisch legen. Ein einseitig bedrucktes A4-Blatt ergibt zwei Karten. Der QR-Code führt zur bestehenden Startseite der jeweiligen Sprache.
+Nach der Veröffentlichung führt der [deutsche Spiellink](https://alexanderr1991.github.io/Vera/de/spiel/) direkt an die Kasse. Die [englische Runde](https://alexanderr1991.github.io/Vera/en/spiel/) beginnt mit derselben Frage. Schon jetzt lässt sich die [deutsche Faltkarte](../public/spielkarten/kasse-de.pdf) oder die [englische Faltkarte](../public/spielkarten/kasse-en.pdf) auf einen Tisch legen. Ein einseitig bedrucktes A4-Blatt ergibt zwei Karten. Der QR-Code führt zur bestehenden Startseite der jeweiligen Sprache.
 
 ## Die erste Tischrunde
 

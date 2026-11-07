@@ -6,18 +6,18 @@ Die Einladung gilt einfachen Verständnisfragen ebenso wie begründeten Einwänd
 
 ## Nutzen und weiterentwickeln
 
-- [Deutsche Seite mit Kopierfunktion](https://alexanderr1991.github.io/Wirklich/de/fragen-und-ki-prompt/)
-- [English page with copy button](https://alexanderr1991.github.io/Wirklich/en/fragen-und-ki-prompt/)
+- [Deutsche Seite mit Kopierfunktion](https://alexanderr1991.github.io/Vera/de/fragen-und-ki-prompt/)
+- [English page with copy button](https://alexanderr1991.github.io/Vera/en/fragen-und-ki-prompt/)
 - [Vollständiger deutscher Prompt](../public/prompts/erkenntnisprompt-v1.de.txt)
 - [Full English prompt (translation draft)](../public/prompts/erkenntnisprompt-v1.en.txt)
-- [Öffentliche Frage stellen / Ask publicly](https://github.com/AlexanderR1991/Wirklich/issues/new?template=frage.yml)
+- [Öffentliche Frage stellen / Ask publicly](https://github.com/AlexanderR1991/Vera/issues/new?template=frage.yml)
 
 Kopiere das Regelpaket in einen KI-Chat und ergänze deine Frage. Es enthält die neun Thesen aus dem Grundtext, die Selbstkorrektur-Leitregel, die Prüfmethode und den vollständigen Erkenntnisprompt in der gewählten Sprache. Der Download enthält denselben Text wie die Kopieransicht. Auf dem Prüfblatt kannst du zusätzlich deine eigenen Einträge zusammen mit den Regeln als Textdatei mitnehmen. Du entscheidest, welche Angaben du mit deinem KI-Anbieter teilst.
 
-Wer eine lokale KI oder ein eigenes Werkzeug einrichtet, kann die veröffentlichte Datei als UTF-8-Text laden und als Kontext für eine Frage übergeben. Für den Download ist kein Schlüssel erforderlich. Gespeicherte Projektdateien behalten ihren Stand, bis du sie ersetzt. Die Quellenlinks in den auf GitHub gebauten Dateien nennen den zugehörigen Commit. [Regelpaket Deutsch](https://alexanderr1991.github.io/Wirklich/prompts/wirklich-regeln.de.txt) · [Rule pack in English](https://alexanderr1991.github.io/Wirklich/prompts/wirklich-regeln.en.txt)
+Wer eine lokale KI oder ein eigenes Werkzeug einrichtet, kann die veröffentlichte Datei als UTF-8-Text laden und als Kontext für eine Frage übergeben. Für den Download ist kein Schlüssel erforderlich. Gespeicherte Projektdateien behalten ihren Stand, bis du sie ersetzt. Die Quellenlinks in den auf GitHub gebauten Dateien nennen den zugehörigen Commit. [Regelpaket Deutsch](https://alexanderr1991.github.io/Vera/prompts/wirklich-regeln.de.txt) · [Rule pack in English](https://alexanderr1991.github.io/Vera/prompts/wirklich-regeln.en.txt)
 
 ```sh
-curl --fail --location https://alexanderr1991.github.io/Wirklich/prompts/wirklich-regeln.de.txt -o wirklich-regeln.de.txt
+curl --fail --location https://alexanderr1991.github.io/Vera/prompts/wirklich-regeln.de.txt -o wirklich-regeln.de.txt
 ```
 
 Die einzelnen Promptdateien bleiben die redaktionelle Quelle für den Arbeitsauftrag. Grundtext, Methode und Prompt werden beim Bau der Website zusammengeführt. Für die Projekttexte gilt CC BY-SA 4.0, für die Funktionslogik MIT. [Lizenzdetails](../LICENSING.md)

@@ -20,7 +20,7 @@
       "claim_ids": [
         "G-005"
       ],
-      "source_url": "https://github.com/AlexanderR1991/Wirklich/blob/main/docs/erkenntnisnavigator.md"
+      "source_url": "https://github.com/AlexanderR1991/Vera/blob/main/docs/erkenntnisnavigator.md"
     },
     {
       "id": "Q-002",
@@ -39,7 +39,7 @@
       "claim_ids": [
         "H-001"
       ],
-      "source_url": "https://github.com/AlexanderR1991/Wirklich/blob/main/docs/methode.md"
+      "source_url": "https://github.com/AlexanderR1991/Vera/blob/main/docs/methode.md"
     },
     {
       "id": "Q-003",
@@ -58,7 +58,7 @@
       "claim_ids": [
         "KI-001"
       ],
-      "source_url": "https://github.com/AlexanderR1991/Wirklich/blob/main/docs/evaluation-v1.md"
+      "source_url": "https://github.com/AlexanderR1991/Vera/blob/main/docs/evaluation-v1.md"
     },
     {
       "id": "Q-004",
@@ -77,7 +77,7 @@
       "claim_ids": [
         "MED-001"
       ],
-      "source_url": "https://github.com/AlexanderR1991/Wirklich/blob/main/docs/methode.md"
+      "source_url": "https://github.com/AlexanderR1991/Vera/blob/main/docs/methode.md"
     },
     {
       "id": "Q-005",
@@ -97,7 +97,7 @@
         "G-005",
         "KI-001"
       ],
-      "source_url": "https://github.com/AlexanderR1991/Wirklich/blob/main/docs/mission.md"
+      "source_url": "https://github.com/AlexanderR1991/Vera/blob/main/docs/mission.md"
     },
     {
       "id": "Q-006",
@@ -118,7 +118,7 @@
         "KI-001",
         "MED-001"
       ],
-      "source_url": "https://github.com/AlexanderR1991/Wirklich/blob/main/docs/erkenntnisreife.md"
+      "source_url": "https://github.com/AlexanderR1991/Vera/blob/main/docs/erkenntnisreife.md"
     }
   ],
   "relations": [

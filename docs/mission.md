@@ -18,7 +18,7 @@ Die verbindliche Unterscheidung von **Vision, Prototypen und überprüfbar vorha
 
 Der Grundtext soll Menschen befähigen, unter Unsicherheit besser zu verstehen, begründeter zu entscheiden und ehrlicher zu korrigieren. Er verbindet eine Bibliothek verständlicher Erklärungen mit der nachvollziehbaren Arbeit an einzelnen Aussagen. Die gemeinsame Methode ist der Kern; die Kapitel sind ihre Anwendungsfelder.
 
-Die zweisprachige öffentliche Darstellung liegt unter `/de/mission/` und `/en/mission/`. Dieser Entwurf führt die bisherigen Themen und die in [PR #18](https://github.com/AlexanderR1991/Wirklich/pull/18) vorgeschlagene Vision eines offenen Wissenssystems zusammen. Er behauptet keine bereits erreichte Leistungsfähigkeit.
+Die zweisprachige öffentliche Darstellung liegt unter `/de/mission/` und `/en/mission/`. Dieser Entwurf führt die bisherigen Themen und die in [PR #18](https://github.com/AlexanderR1991/Vera/pull/18) vorgeschlagene Vision eines offenen Wissenssystems zusammen. Er behauptet keine bereits erreichte Leistungsfähigkeit.
 
 ## Was eine Aussage vertrauenswürdig macht
 
@@ -146,7 +146,7 @@ Die [öffentliche KI-Charta](ki-charta.md) formuliert sieben anfechtbare normati
 
 Menschen dürfen von sinnvoller Arbeit leben. Faire Vergütung, Erholung und tragfähige Arbeitszeiten gehören zur Mission. Der frei zugängliche Kern soll erhalten bleiben. Geldquellen, Interessen, Ausgaben und Vergütungsregeln sollen nachvollziehbar sein; Geld darf keinen Belegstatus und keine redaktionelle Vorzugsbehandlung kaufen.
 
-Wer die Arbeit freiwillig unterstützen möchte, findet die PayPal-Adresse von Alexander Radke auf der [Mitwirkenseite](https://alexanderr1991.github.io/Wirklich/de/mitwirken/#unterstuetzen). Rechtsform, laufendes Budget, Vergütungsregeln und institutionelle Zuständigkeiten sind weiter auszugestalten.
+Wer die Arbeit freiwillig unterstützen möchte, findet die PayPal-Adresse von Alexander Radke auf der [Mitwirkenseite](https://alexanderr1991.github.io/Vera/de/mitwirken/#unterstuetzen). Rechtsform, laufendes Budget, Vergütungsregeln und institutionelle Zuständigkeiten sind weiter auszugestalten.
 
 ## 8. Der nächste glaubwürdige Schritt
 
@@ -174,8 +174,8 @@ People who disagree may still find a principle they can each endorse. Where thei
 
 Knowledge, open inquiry and decision-making are distinct spaces. Claim type, evidential or argumentative support, and review status are recorded separately; formal proof, empirical evidence and ethical justification do not form a single ladder of truth. Existing chapters become fields of the same mission without being reduced to a universal formula.
 
-AI contributes research leads and critique. It does not certify truth or authorize editorial decisions. The rules themselves need evaluation. Fair pay and rest are legitimate project needs; transparent funding must remain separate from editorial judgment. Anyone who wants to support the work can find Alexander Radke’s PayPal address on the [contribution page](https://alexanderr1991.github.io/Wirklich/en/mitwirken/#unterstuetzen). Organizational arrangements and shared governance remain open.
+AI contributes research leads and critique. It does not certify truth or authorize editorial decisions. The rules themselves need evaluation. Fair pay and rest are legitimate project needs; transparent funding must remain separate from editorial judgment. Anyone who wants to support the work can find Alexander Radke’s PayPal address on the [contribution page](https://alexanderr1991.github.io/Vera/en/mitwirken/#unterstuetzen). Organizational arrangements and shared governance remain open.
 
-The register shows the evidence and review status of each claim. The next goal is ten fully examined, narrowly scoped claims, followed by an independent comparison of the method against alternatives, including error detection, false alarms, understanding, time and costs. Wider scope follows demonstrated benefit. The [English mission page](https://alexanderr1991.github.io/Wirklich/en/mission/) introduces the workshop and its approach.
+The register shows the evidence and review status of each claim. The next goal is ten fully examined, narrowly scoped claims, followed by an independent comparison of the method against alternatives, including error detection, false alarms, understanding, time and costs. Wider scope follows demonstrated benefit. The [English mission page](https://alexanderr1991.github.io/Vera/en/mission/) introduces the workshop and its approach.
 
 **Die Wirklichkeit steht über diesem Werk. Auch über seinem Bauplan.**

@@ -14,13 +14,13 @@ We welcome questions, objections, sources and improvements. **You do not need pr
 
 | Deutsch | English | Einstieg / Entry |
 |---|---|---|
-| Kunst und Gegenlesarten einbringen | Share art and alternative readings | [Kunst / Art](https://github.com/AlexanderR1991/Wirklich/issues/new?template=kunst.yml) |
-| Einen Härtetest einreichen | Challenge a claim | [Angriffsschwarm / Adversarial challenge](https://github.com/AlexanderR1991/Wirklich/issues/new?template=angriff.yml) |
-| Eine Frage stellen | Ask a question | [Frage / Question](https://github.com/AlexanderR1991/Wirklich/issues/new?template=frage.yml) |
-| Eine Idee vorschlagen | Propose an idea | [Idee / Idea](https://github.com/AlexanderR1991/Wirklich/issues/new?template=idee.yml) |
-| Einen Beleg untersuchen | Examine evidence | [Quellenprüfung / Evidence](https://github.com/AlexanderR1991/Wirklich/issues/new?template=quellenpruefung.yml) |
-| Eine These kritisieren | Challenge a thesis | [Kritik / Critique](https://github.com/AlexanderR1991/Wirklich/issues/new?template=kritik.yml) |
-| Eine Übersetzung prüfen | Review translation | [Übersetzung / Translation](https://github.com/AlexanderR1991/Wirklich/issues/new?template=uebersetzung.yml) |
+| Kunst und Gegenlesarten einbringen | Share art and alternative readings | [Kunst / Art](https://github.com/AlexanderR1991/Vera/issues/new?template=kunst.yml) |
+| Einen Härtetest einreichen | Challenge a claim | [Angriffsschwarm / Adversarial challenge](https://github.com/AlexanderR1991/Vera/issues/new?template=angriff.yml) |
+| Eine Frage stellen | Ask a question | [Frage / Question](https://github.com/AlexanderR1991/Vera/issues/new?template=frage.yml) |
+| Eine Idee vorschlagen | Propose an idea | [Idee / Idea](https://github.com/AlexanderR1991/Vera/issues/new?template=idee.yml) |
+| Einen Beleg untersuchen | Examine evidence | [Quellenprüfung / Evidence](https://github.com/AlexanderR1991/Vera/issues/new?template=quellenpruefung.yml) |
+| Eine These kritisieren | Challenge a thesis | [Kritik / Critique](https://github.com/AlexanderR1991/Vera/issues/new?template=kritik.yml) |
+| Eine Übersetzung prüfen | Review translation | [Übersetzung / Translation](https://github.com/AlexanderR1991/Vera/issues/new?template=uebersetzung.yml) |
 
 Schreibe in **Deutsch oder Englisch**. / Write in **German or English**.
 
@@ -87,6 +87,6 @@ Do not submit personal data, confidential communications, or third-party materia
 
 ## Fragen verknüpfen, ohne Unterschiede zu verlieren / Link questions without suppressing differences
 
-Prüfe zuerst den [Fragenatlas im Forum](https://alexanderr1991.github.io/Wirklich/de/forum/#fragenatlas), der bislang nur sechs redaktionelle Beispiele enthält. Auch eine ähnlich klingende Frage darf gestellt werden, wenn sie eine andere Voraussetzung, einen neuen Einwand oder eine bislang unbeachtete Perspektive aufzeigt. Ein Vorschlag zur Verbindung nennt beide ursprünglichen Formulierungen, Herkunft, Beziehungstyp, Begründung, Unterschiede und Einwandsmöglichkeiten. Nur ein geprüfter PR ändert `public/knowledge/questions.json`. Autonome KI-Massenkommentare, vorgetäuschte menschliche Identitäten und Scheinmehrheiten sind nicht zulässig. [Fragenatlas-Regeln](docs/fragenatlas.md).
+Prüfe zuerst den [Fragenatlas im Forum](https://alexanderr1991.github.io/Vera/de/forum/#fragenatlas), der bislang nur sechs redaktionelle Beispiele enthält. Auch eine ähnlich klingende Frage darf gestellt werden, wenn sie eine andere Voraussetzung, einen neuen Einwand oder eine bislang unbeachtete Perspektive aufzeigt. Ein Vorschlag zur Verbindung nennt beide ursprünglichen Formulierungen, Herkunft, Beziehungstyp, Begründung, Unterschiede und Einwandsmöglichkeiten. Nur ein geprüfter PR ändert `public/knowledge/questions.json`. Autonome KI-Massenkommentare, vorgetäuschte menschliche Identitäten und Scheinmehrheiten sind nicht zulässig. [Fragenatlas-Regeln](docs/fragenatlas.md).
 
 **English:** Similar questions may be genuinely different; preserve provenance and dissent. Propose traceable links in a reviewed PR; AI drafts must not auto-post or merge.

@@ -10,7 +10,7 @@ const project=readJSON("public/project.json");
 
 test("every published claim has exactly one permanent forum thread",()=>{
  assert.equal(forum.schema_version,1);
- assert.equal(forum.repository,"AlexanderR1991/Wirklich");
+ assert.equal(forum.repository,"AlexanderR1991/Vera");
  assert.equal(project.repository,"https://github.com/"+forum.repository);
  const ids=claims.map(claim=>claim.id);
  const threadIds=forum.threads.map(t=>t.claim_id);

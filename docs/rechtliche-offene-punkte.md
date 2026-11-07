@@ -2,7 +2,7 @@
 
 **Stand: 6. November 2026 · technische und redaktionelle Vorsichtsmaßnahmen, keine abgeschlossene Rechtsprüfung.**
 
-Die Website enthält nun ein deutlich als **unvollständig** gekennzeichnetes [Impressum](https://alexanderr1991.github.io/Wirklich/de/impressum/) und [Datenschutzhinweise](https://alexanderr1991.github.io/Wirklich/de/datenschutz/), jeweils mit englischer Fassung. Der Footer-Link „Spenden 🤍“ führt zum [Unterstützungsbereich](https://alexanderr1991.github.io/Wirklich/de/mitwirken/#unterstuetzen). Dort veröffentlicht Alexander Radke seine PayPal-Adresse für freiwillige Beiträge zum Projekt.
+Die Website enthält nun ein deutlich als **unvollständig** gekennzeichnetes [Impressum](https://alexanderr1991.github.io/Vera/de/impressum/) und [Datenschutzhinweise](https://alexanderr1991.github.io/Vera/de/datenschutz/), jeweils mit englischer Fassung. Der Footer-Link „Spenden 🤍“ führt zum [Unterstützungsbereich](https://alexanderr1991.github.io/Vera/de/mitwirken/#unterstuetzen). Dort veröffentlicht Alexander Radke seine PayPal-Adresse für freiwillige Beiträge zum Projekt.
 
 ## Was zwingend vor voller rechtlicher Freigabe offen ist
 
@@ -36,4 +36,4 @@ Die Website enthält nun ein deutlich als **unvollständig** gekennzeichnetes [I
 
 ## English summary
 
-The bilingual legal and privacy notices name Alexander Radke as the operator and data controller and give his existing public contact email for legal and privacy enquiries. The operator has deferred publication of an address for service, so the legal notice remains incomplete. The [contribution page](https://alexanderr1991.github.io/Wirklich/en/mitwirken/#unterstuetzen) lists Alexander Radke’s PayPal address for voluntary contributions to the project. Supporters enter the payment directly on PayPal. Account eligibility and tax treatment remain open.
+The bilingual legal and privacy notices name Alexander Radke as the operator and data controller and give his existing public contact email for legal and privacy enquiries. The operator has deferred publication of an address for service, so the legal notice remains incomplete. The [contribution page](https://alexanderr1991.github.io/Vera/en/mitwirken/#unterstuetzen) lists Alexander Radke’s PayPal address for voluntary contributions to the project. Supporters enter the payment directly on PayPal. Account eligibility and tax treatment remain open.

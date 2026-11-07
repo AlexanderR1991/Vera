@@ -62,7 +62,7 @@ revision_trigger: "what result should force narrowing, withdrawal, or correction
 
 **Für einen formalen Gegenbeweis:** Eine vollständig spezifizierte, prüfbare Gegeninstanz reicht, um eine universelle mathematische Behauptung zu widerlegen. **Für empirische Ergebnisse:** Datenqualität, Studiendesign, Alternativhypothesen und Reproduzierbarkeit prüfen. **Für ethische Konflikte:** Betroffene, Rechte und Wertannahmen offenlegen; kein Wahrheitsstempel durch Mehrheitsvotum oder KI.
 
-Eingang: [Adversarial Challenge Issue](https://github.com/AlexanderR1991/Wirklich/issues/new?template=angriff.yml). Korrekturen gehen als nachvollziehbare Pull Requests ein. Einwände müssen nicht unserem Weltbild entsprechen. Eine Widerlegung wird dokumentiert, nicht verborgen.
+Eingang: [Adversarial Challenge Issue](https://github.com/AlexanderR1991/Vera/issues/new?template=angriff.yml). Korrekturen gehen als nachvollziehbare Pull Requests ein. Einwände müssen nicht unserem Weltbild entsprechen. Eine Widerlegung wird dokumentiert, nicht verborgen.
 
 ## 4. Was als Erfolg zählt / Success conditions
 
@@ -105,6 +105,6 @@ We invite mathematicians, logicians, philosophers, statisticians and critical re
 
 Wir trennen die **Genauigkeit einer gerichteten Wiedergabe** (`V(B→A)` und `V(A→B)`) von der **inhaltlichen Übereinstimmung** (`K`). Elementare Zahlenbeispiele zeigen, dass perfektes Wiedergeben mit vollständig gegensätzlichen Antworten vereinbar ist und vollständige Übereinstimmung die korrekte Wiedergabe gerade **nicht** erzwingt. Die empirische Wirksamkeit eines Gesprächsverfahrens ist damit nicht gezeigt.
 
-[Definitionen, Gegenbeispiele, Annahmen, Falsifikation und Schutzgrenzen](mathematik-des-dazwischen.md) · [Website DE](https://alexanderr1991.github.io/Wirklich/de/die-bruecke/) · [Website EN](https://alexanderr1991.github.io/Wirklich/en/die-bruecke/) · [Offene Sprachprobe](schnittmengen.md)
+[Definitionen, Gegenbeispiele, Annahmen, Falsifikation und Schutzgrenzen](mathematik-des-dazwischen.md) · [Website DE](https://alexanderr1991.github.io/Vera/de/die-bruecke/) · [Website EN](https://alexanderr1991.github.io/Vera/en/die-bruecke/) · [Offene Sprachprobe](schnittmengen.md)
 
 **Prüffragen:** Tragen die Skalenannahmen? Wie unterscheiden wir echte Verständigung von bloßem Erraten, strategischer Anpassung oder erzwungener Zustimmung? Was würde unsere Hypothese in einer vorab registrierten Studie widerlegen?
