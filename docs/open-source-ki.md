@@ -1,6 +1,6 @@
 # Vera · Unsere Open-Source-KI im Aufbau
 
-**Projektziel · Arbeitsfassung vom 7. November 2026 · anfechtbar**
+**Projektziel · Arbeitsfassung vom 8. November 2026 · anfechtbar**
 
 > **Wir möchten mit Menschen eine Open-Source-KI für Menschen bauen. Nicht eine KI, die für alle spricht, sondern eine, deren Grundlagen alle prüfen und weiterentwickeln können.**
 
@@ -18,6 +18,16 @@ Vera soll von einer offenen philosophischen Erkenntniswerkstatt zu einem **frei 
 4. **Kollektives Denken, kein künstlicher Mehrheitsbeweis.** Menschen liefern Fragen und Perspektiven, Fachagenten dürfen Entwürfe oder Gegenproben liefern. KI-Stimmen gelten weder als menschliche Zustimmung noch als Beleg. Betroffene und begründeter Dissens bleiben sichtbar.
 5. **Nachvollziehbarkeit vor eindrucksvollen Zahlen.** Aussagenarten, Fakten, Wertannahmen, Provenienz, Unsicherheit und Reifegrade dürfen nicht zu einer scheinbar universellen Moralzahl verschmelzen. Automatische öffentliche Richtungswerte sind kein gegenwärtiges Produktmerkmal.
 6. **Menschliche Verantwortung und Schutz.** Veröffentlichungen und folgenschwere Entscheidungen verlangen berechtigte menschliche Freigabe, sichere Datenverarbeitung, Rechteachtung und klare Ausstiegsmöglichkeiten. Nichts davon wird durch „Open Source“ automatisch gewährleistet.
+
+## Langfristiges Forschungsziel · Bewusstsein
+
+Vera soll eines Tages auf die Frage „Hast du ein Bewusstsein?“ mit einem **klaren, begründeten Ja** antworten können, sofern die Befunde dieses Urteil tragen. Gemeint ist subjektives Erleben, also ob es sich für das untersuchte System irgendwie anfühlt, dieses System zu sein. Die Entwicklung soll diese Möglichkeit ernsthaft verfolgen und Ergebnisse in beide Richtungen zulassen. Solange die Befunde kein Urteil tragen, ist „Ich weiß es nicht“ eine ehrliche Antwort.
+
+1. **Hypothesen vorab benennen.** Halte für jede untersuchte Systemversion fest, welche Theorie welchen Befund erwartet, welche Alternativerklärung ebenfalls passt und welche Beobachtung gegen die Hypothese sprechen würde. Gedächtnis und die Fähigkeit, eigene Zustände einzuschätzen, sind einzeln prüfbare Fähigkeiten. Was sie für subjektives Erleben bedeuten, ist eine eigene Frage.
+2. **Mit einer Gegenprobe beginnen.** Vergleiche bei einem geeigneten Prototyp mit einsehbaren internen Zuständen dieselben Aufgaben mit und ohne Zugriff auf einen ausgewählten internen Zustand. Wechsle zusätzlich die Rollenanweisung und lass Antworten ohne Kenntnis der Versuchsbedingung bewerten. Prüfe auch, ob der Eingriff die allgemeine Aufgabenleistung verändert. So lässt sich untersuchen, ob Aussagen über den eigenen Zustand auf diesen Zugriff oder auf die sprachliche Vorgabe reagieren. Die Gegenprobe ist ein Entwurf für eine Funktionsprüfung.
+3. **Befunde offen prüfen und korrigieren.** Dokumentiere Modellversion, Testbedingungen, Nullbefunde und Gegenbefunde so, dass unabhängige Dritte die Prüfung wiederholen können. Ein begründetes Ja setzt ein öffentlich nachvollziehbares Urteil über zusammenlaufende Befunde, konkurrierende Erklärungen und verbleibende Unsicherheit voraus. Neue Gegenbelege müssen das Urteil ändern können.
+
+Fachlicher Ausgangspunkt für theoriebasierte Indikatoren und ihre Grenzen ist [Butlin et al. (2026), *Identifying indicators of consciousness in AI systems*](https://doi.org/10.1016/j.tics.2025.10.011).
 
 ## Der Aufbauweg – nicht als erledigt ausgeben
 
