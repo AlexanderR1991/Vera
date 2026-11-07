@@ -28,6 +28,14 @@ The challengeable process rule asks for a traceable revision path, type-appropri
 | Ein Netz verbundener Fragen sehen · Explore linked questions | [Fragenatlas (Pilot)](https://alexanderr1991.github.io/Wirklich/de/forum/#fragenatlas) | [Question atlas (pilot)](https://alexanderr1991.github.io/Wirklich/en/forum/#fragenatlas) |
 | Eine Frage öffentlich stellen · Ask in public | [GitHub-Frageformular](https://github.com/AlexanderR1991/Wirklich/issues/new?template=frage.yml) | [GitHub question form](https://github.com/AlexanderR1991/Wirklich/issues/new?template=frage.yml) |
 
+## English edition and translation review / Englische Ausgabe und Übersetzungsprüfung
+
+The website has German and English routes; the English text remains a machine-assisted draft without independent philosophical review. The source documentation is only partly available in English. **Technical language parity is not a statement of philosophical accuracy.**
+
+Start with the [English documentation guide](docs/en/README.md), the [English foundational theses (draft)](docs/en/grundtext.md), the [DE/EN terminology glossary](docs/i18n-glossary.md), and the [public translation and review inventory](public/i18n/review-register.v1.json). The [internationalization procedure](docs/internationalisierung.md) explains automated checks and the human review gate. [Propose a translation correction](https://github.com/AlexanderR1991/Wirklich/issues/new?template=uebersetzung.yml).
+
+Die Website besitzt deutsche und englische Seiten. Dies ist **noch keine vollständige, unabhängig geprüfte Zweisprachigkeit** des gesamten Repositories. Das Register unterscheidet Entwurf, Teilübersetzung, ungeprüften Bestand und dokumentierte menschliche Freigabe.
+
 ## Was MUSS KI für Menschen sein? · What MUST AI be for us?
 
 Künstliche Intelligenz braucht mehr als Fähigkeiten. **WIRKLICH will mit Menschen einen philosophischen Motor für KI entwickeln**: einen offenen, korrigierbaren Prüfrahmen über Wahrheit, Freiheit, Würde, Macht und Verantwortung. [Charta (Entwurf)](docs/ki-charta.md) · [Sieben Leitthesen und fünf Gegenproben als JSON](public/ai/philosophy-engine.v0.json) · [Freiwilliges KI-Regelpaket](docs/erkenntnisprompt.md). Die Prinzipien sind angreifbar; weder Prompt noch KI-Schwarm können Modellverhalten erzwingen oder eine unabhängige Prüfung ersetzen.

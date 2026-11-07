@@ -1,0 +1,594 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-11-07",
+  "source_language": "de",
+  "target_language": "en",
+  "scope": "Language coverage and editorial review. Draft and unassessed are not independently approved.",
+  "website": {
+    "notes": "All published static routes have DE/EN mirrors. The generated game card family is tracked through shared route code.",
+    "pages": {
+      "angriffsschwarm": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewed_at": null,
+        "source_commit": null,
+        "review_url": null
+      },
+      "atlas": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewed_at": null,
+        "source_commit": null,
+        "review_url": null
+      },
+      "aussagen": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewed_at": null,
+        "source_commit": null,
+        "review_url": null
+      },
+      "baum-des-wissens": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewed_at": null,
+        "source_commit": null,
+        "review_url": null
+      },
+      "bibliothek": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewed_at": null,
+        "source_commit": null,
+        "review_url": null
+      },
+      "bruecken-zwischen-den-religionen": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewed_at": null,
+        "source_commit": null,
+        "review_url": null
+      },
+      "datenschutz": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewed_at": null,
+        "source_commit": null,
+        "review_url": null
+      },
+      "erkenntnishorizont": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewed_at": null,
+        "source_commit": null,
+        "review_url": null
+      },
+      "erkenntnisnavigator": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewed_at": null,
+        "source_commit": null,
+        "review_url": null
+      },
+      "ernaehrung-und-verantwortung": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewed_at": null,
+        "source_commit": null,
+        "review_url": null
+      },
+      "esoterik-und-mathematik": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewed_at": null,
+        "source_commit": null,
+        "review_url": null
+      },
+      "forschungsstrom": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewed_at": null,
+        "source_commit": null,
+        "review_url": null
+      },
+      "forum": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewed_at": null,
+        "source_commit": null,
+        "review_url": null
+      },
+      "fragen-und-ki-prompt": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewed_at": null,
+        "source_commit": null,
+        "review_url": null
+      },
+      "gegenprobe-01": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewed_at": null,
+        "source_commit": null,
+        "review_url": null
+      },
+      "impressum": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewed_at": null,
+        "source_commit": null,
+        "review_url": null
+      },
+      "index": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewed_at": null,
+        "source_commit": null,
+        "review_url": null
+      },
+      "ki-und-mensch": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewed_at": null,
+        "source_commit": null,
+        "review_url": null
+      },
+      "kunst-und-erkenntnis": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewed_at": null,
+        "source_commit": null,
+        "review_url": null
+      },
+      "lesestueck-wahrheit": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewed_at": null,
+        "source_commit": null,
+        "review_url": null
+      },
+      "manifest": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewed_at": null,
+        "source_commit": null,
+        "review_url": null
+      },
+      "medizin": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewed_at": null,
+        "source_commit": null,
+        "review_url": null
+      },
+      "methode": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewed_at": null,
+        "source_commit": null,
+        "review_url": null
+      },
+      "militaer-und-verantwortung": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewed_at": null,
+        "source_commit": null,
+        "review_url": null
+      },
+      "mission": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewed_at": null,
+        "source_commit": null,
+        "review_url": null
+      },
+      "mitwirken": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewed_at": null,
+        "source_commit": null,
+        "review_url": null
+      },
+      "politik-die-dem-menschen-dient": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewed_at": null,
+        "source_commit": null,
+        "review_url": null
+      },
+      "projektobservatorium": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewed_at": null,
+        "source_commit": null,
+        "review_url": null
+      },
+      "projektstatus": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewed_at": null,
+        "source_commit": null,
+        "review_url": null
+      },
+      "pruefstand": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewed_at": null,
+        "source_commit": null,
+        "review_url": null
+      },
+      "regelkreis": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewed_at": null,
+        "source_commit": null,
+        "review_url": null
+      },
+      "schnittmengen": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewed_at": null,
+        "source_commit": null,
+        "review_url": null
+      },
+      "warum-liebe-wirkt": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewed_at": null,
+        "source_commit": null,
+        "review_url": null
+      },
+      "werkstatt": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewed_at": null,
+        "source_commit": null,
+        "review_url": null
+      }
+    }
+  },
+  "documents": {
+    "angriffsschwarm.md": {
+      "status": "unassessed",
+      "priority": "support",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "architektur.md": {
+      "status": "unassessed",
+      "priority": "core",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "aussagenregister.md": {
+      "status": "unassessed",
+      "priority": "support",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "community-governance.md": {
+      "status": "unassessed",
+      "priority": "core",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "emporirren.md": {
+      "status": "unassessed",
+      "priority": "support",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "erkenntnisnavigator.md": {
+      "status": "unassessed",
+      "priority": "support",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "erkenntnisprompt.md": {
+      "status": "unassessed",
+      "priority": "support",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "erkenntnisreife.md": {
+      "status": "unassessed",
+      "priority": "core",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "esoterik-und-mathematik.md": {
+      "status": "unassessed",
+      "priority": "support",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "evaluation-v1.md": {
+      "status": "unassessed",
+      "priority": "support",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "finanzierung.md": {
+      "status": "unassessed",
+      "priority": "support",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "forschungsprogramm-ernaehrung.md": {
+      "status": "unassessed",
+      "priority": "support",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "forschungsprogramm-liebe.md": {
+      "status": "unassessed",
+      "priority": "support",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "forschungsprogramm-militaer.md": {
+      "status": "unassessed",
+      "priority": "support",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "forschungsprogramm-politik.md": {
+      "status": "unassessed",
+      "priority": "support",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "forum.md": {
+      "status": "unassessed",
+      "priority": "support",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "fragenatlas.md": {
+      "status": "unassessed",
+      "priority": "support",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "gesamtpruefung-baum.md": {
+      "status": "unassessed",
+      "priority": "support",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "grundtext.md": {
+      "status": "draft",
+      "priority": "core",
+      "target": "docs/en/grundtext.md",
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "i18n-glossary.md": {
+      "status": "shared_bilingual",
+      "priority": "support",
+      "target": "docs/i18n-glossary.md",
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "internationalisierung.md": {
+      "status": "unassessed",
+      "priority": "support",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "ki-charta.md": {
+      "status": "unassessed",
+      "priority": "core",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "kunst-und-erkenntnis.md": {
+      "status": "unassessed",
+      "priority": "support",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "license-options.md": {
+      "status": "unassessed",
+      "priority": "support",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "mathematischer-pruefstand.md": {
+      "status": "unassessed",
+      "priority": "support",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "methode.md": {
+      "status": "partial",
+      "priority": "core",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "methodenkritik.md": {
+      "status": "unassessed",
+      "priority": "core",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "mission.md": {
+      "status": "unassessed",
+      "priority": "core",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "rechtliche-offene-punkte.md": {
+      "status": "unassessed",
+      "priority": "support",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "redaktionelle-grenzen.md": {
+      "status": "unassessed",
+      "priority": "support",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "release-1.0.md": {
+      "status": "unassessed",
+      "priority": "support",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "roadmap.md": {
+      "status": "unassessed",
+      "priority": "support",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "schnittmengen.md": {
+      "status": "unassessed",
+      "priority": "support",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "selbstkorrektur.md": {
+      "status": "partial",
+      "priority": "core",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "spielpilot.md": {
+      "status": "unassessed",
+      "priority": "support",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "theologischer-dialog.md": {
+      "status": "unassessed",
+      "priority": "support",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "versionsgeschichte.md": {
+      "status": "unassessed",
+      "priority": "support",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "wahrheitsschwarm.md": {
+      "status": "unassessed",
+      "priority": "support",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    }
+  }
+}

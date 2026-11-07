@@ -6,7 +6,7 @@
   "scripts": {
     "predev": "node scripts/build-locales.mjs",
     "dev": "astro dev",
-    "prebuild": "node --test tests/*.test.mjs && node scripts/validate-claims.mjs && node scripts/validate-questions.mjs && node scripts/validate-release.mjs && node scripts/build-locales.mjs",
+    "prebuild": "node --test tests/*.test.mjs && node scripts/validate-claims.mjs && node scripts/validate-questions.mjs && node scripts/validate-release.mjs && node scripts/validate-i18n.mjs && node scripts/build-locales.mjs",
     "build": "astro build && node scripts/verify-dist.mjs",
     "preview": "astro preview",
     "test": "node --test tests/*.test.mjs",

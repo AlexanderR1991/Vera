@@ -5,7 +5,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Die deutsche Fassung ist derzeit Ausgangspunkt. Die englische Ausgabe ist ein Übersetzungsentwurf.
+        Die deutsche Fassung ist derzeit Ausgangspunkt. Die englische Ausgabe ist ein Übersetzungsentwurf. Begriffsentscheidungen: docs/i18n-glossary.md; Freigabestatus: public/i18n/review-register.v1.json.
         German is currently the original; English is a translation draft.
   - type: input
     id: quelle
@@ -36,3 +36,13 @@ body:
     id: grund
     attributes:
       label: "Begründung und Nuance / Reasoning and nuance"
+  - type: input
+    id: revision
+    attributes:
+      label: "Quell-Commit / Exact German source revision"
+      description: "Unveränderliche Git-Revision angeben / Specify the immutable source commit SHA"
+  - type: textarea
+    id: nuancen
+    attributes:
+      label: "Philosophischer Unterschied und Gegenlesart / Philosophical nuance and alternative interpretation"
+      description: "Insbesondere Wahrheit/Konsens/Belege/Review sauber unterscheiden / Check truth, consensus, evidence and review status"

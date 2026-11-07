@@ -53,7 +53,7 @@ const canonical=root?siteRoot:absoluteFor(lang,slug);
 <a class="header-project" href={project.repository} target="_blank" rel="noopener noreferrer">GITHUB <span aria-hidden="true">↗</span></a>
 </div></header>
 <div class="edition-line"><a href={pathFor(lang,"projektstatus")} data-project-version={project.version}>{t.name} / VERSION {project.version} ↗</a><span>{t.motto}</span></div>
-{lang==="en"&&!root&&<div class="translation-notice"><div class="container"><span aria-hidden="true">◇</span><span>{t.status}</span><a href={pathFor("de",slug)}>Deutsch →</a></div></div>}
+{lang==="en"&&!root&&<div class="translation-notice"><div class="container"><span aria-hidden="true">◇</span><span>{t.status}</span><a href={pathFor(lang,"projektstatus","sprachfassungen")}>Translation review ↗</a><a href={pathFor("de",slug)}>Deutsch →</a></div></div>}
 <main id="inhalt"><slot /></main>
 <footer class="footer"><div class="container footer__grid">
 <div><img src={base+"assets/signet.svg"} width="54" height="54" alt="" /><h2>{t.footerTitle}</h2><p>{t.footerDescription}</p></div>
