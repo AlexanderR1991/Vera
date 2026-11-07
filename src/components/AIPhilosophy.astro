@@ -65,6 +65,7 @@ const local=x=>x[lang];
    <h2>{t("Stelle auch diese Charta infrage.","Challenge this charter too.")}</h2>
    <p>{t("Unser Regelpaket kann diese Fragen freiwillig in einen KI-Chat tragen. Es verändert nicht die zugrunde liegende KI, deren Anbieterregeln oder die rechtlichen Pflichten. Es beweist keine Sicherheit und gibt KI-Schwärmen keine redaktionellen Stimmen.","Our optional rule pack can carry these questions into an AI chat. It does not change the underlying AI, provider rules or legal obligations. It proves no safety and gives AI swarms no editorial votes.")}</p>
    <div class="ai-charter__links">
+    <a href={pathFor(lang,"kollektive-moral")}>{t("Kollektive Moral: korrigierbarer Richtungsindex →","Collective morality: a revisable direction index →")}</a>
     <a href={pathFor(lang,"fragen-und-ki-prompt","prompt")}>{t("Mit eigener KI erproben →","Try it with your own AI →")}</a>
     <a href={base+"ai/philosophy-engine.v0.json"}>{t("Offenen Prüfkatalog als JSON ansehen →","Read the open JSON casebook →")}</a>
     <a href={project.repository+"/blob/main/docs/ki-charta.md"}>{t("Vollständige Charta lesen ↗","Read the full charter ↗")}</a>
