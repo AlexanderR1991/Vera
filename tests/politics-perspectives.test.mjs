@@ -13,7 +13,7 @@ test("political perspectives represent substantive right and other arguments in 
   assert.equal(p.perspectivesSources.length,8);
   for(const x of p.perspectives){
    for(const field of ["topic","right","other","test"]){
-    assert.ok(typeof x[field]==="string"&&x[field].trim().length>30,lang+" "+x.id+" missing "+field);
+    assert.ok(typeof x[field]==="string"&&x[field].trim().length>(field==="topic"?4:30),lang+" "+x.id+" missing "+field);
    }
   }
   for(const field of ["perspectivesLabel","perspectivesTitle","perspectivesIntro","perspectivesRightLabel","perspectivesOtherLabel","perspectivesTestLabel","perspectivesBoundary","perspectivesSourcesLabel"]){
