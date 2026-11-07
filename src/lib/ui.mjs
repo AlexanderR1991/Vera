@@ -10,10 +10,10 @@ export const ui = {
       "Bibliothek",
       "Aussagen",
       "Methode",
-      "Forum",
       "Mitwirken",
       "Werkstatt",
-      "Navigator"
+      "Navigator",
+      "Forum"
     ],
     "motto": "ERKENNTNIS IST KEIN ENDZUSTAND",
     "footerTitle": "Die Wirklichkeit steht über diesem Werk.",
@@ -70,9 +70,9 @@ export const ui = {
       "Claims",
       "Method",
       "Contribute",
-      "Forum",
       "Workshop",
-      "Navigator"
+      "Navigator",
+      "Forum"
     ],
     "motto": "KNOWLEDGE IS NEVER COMPLETE",
     "footerTitle": "Reality stands above this work.",

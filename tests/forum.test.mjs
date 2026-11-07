@@ -1,6 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import {readFileSync} from "node:fs";
+import {ui,navigation} from "../src/lib/ui.mjs";
 
 const readJSON=path=>JSON.parse(readFileSync(new URL("../"+path,import.meta.url),"utf8"));
 const claims=readJSON("public/knowledge/claims.json").claims;
@@ -31,4 +32,12 @@ test("forum entry points use the registry and GitHub discussion routes",()=>{
  assert.match(component,/\/discussions/);
  assert.match(register,/threads\.get\(c\.id\)/);
  assert.match(sitemap,/"forum"/);
+});
+test("the bilingual header navigation labels the forum correctly",()=>{
+ const item=navigation.find(([slug])=>slug==="forum");
+ assert.ok(item);
+ for(const lang of ["de","en"]){
+  assert.equal(ui[lang].nav[item[1]],"Forum");
+  assert.equal(ui[lang].titles.forum,lang==="de"?"Das Forum":"The Forum");
+ }
 });
