@@ -1,21 +1,26 @@
 ---
-import {pathFor} from "../lib/paths.mjs";
+import {base,pathFor} from "../lib/paths.mjs";
 const {lang="de"}=Astro.props;
 const de=lang==="de";
 const cards=[
-  {id:"atlas",type:"stone",cols:2,rows:18,route:"atlas",number:"01",category:{de:"Wissensatlas",en:"Knowledge atlas"},title:{de:"Alles hängt zusammen.",en:"Everything connects."},description:{de:"Sechs Erkenntnisfelder. Viele Perspektiven. Keine fertige Weltformel.",en:"Six fields of inquiry. Many perspectives. No final theory of everything."},keywords:"wissensbaum erkenntnis felder thema knowledge map"},
-  {id:"truth",type:"ink",cols:1,rows:15,route:"manifest",number:"02",category:{de:"Haltung",en:"Principle"},title:{de:"Ein Irrtum ist kein Verrat.",en:"Being wrong is not betrayal."},description:{de:"Wahrheit vor Rechtbehalten.",en:"Truth before being right."},keywords:"wahrheit korrektur philosophie grundtext"},
-  {id:"forum",type:"paper",cols:1,rows:18,route:"forum",number:"03",category:{de:"Das Forum",en:"The forum"},title:{de:"Widersprich uns.",en:"Challenge us."},description:{de:"Echte Fragen. Erste Antworten. Raum für Gegenargumente.",en:"Real questions. First answers. Room for counterarguments."},keywords:"diskussion fragen austausch"},
-  {id:"bridge",type:"porcelain",cols:2,rows:21,route:"die-bruecke",number:"04",category:{de:"Die Brücke / M-02",en:"The Bridge / M-02"},title:{de:"Verstehen ist nicht zustimmen.",en:"Understanding is not agreeing."},description:{de:"Ein offener Forschungsentwurf über Begegnung, Differenz und Verständigung.",en:"An open research draft about encounter, difference and mutual understanding."},keywords:"mathematik konsens beziehung dialog"},
-  {id:"navigator",type:"paper",cols:1,rows:15,route:"erkenntnisnavigator",number:"05",category:{de:"Navigator",en:"Navigator"},title:{de:"Deine Frage. Dein Weg.",en:"Your question. Your route."},description:{de:"Finde Themen und prüfe die Verbindungen.",en:"Find topics and examine connections."},keywords:"suche entdecken orientierung"},
-  {id:"engine",type:"ink",cols:2,rows:17,route:"ki-und-mensch",number:"06",category:{de:"Mensch × KI",en:"Human × AI"},title:{de:"Der Motor unserer künftigen Open-Source-KI.",en:"The engine of our future open-source AI."},description:{de:"Ein offener, menschengeprägter Entwurf. Noch kein fertiges KI-Modell oder moralisches Orakel.",en:"A human-shaped open proposal. Not a finished AI model or moral oracle."},keywords:"agenten entität kritik künstliche intelligenz"},
-  {id:"workbench",type:"stone",cols:1,rows:16,route:"werkstatt",number:"07",category:{de:"Dein Prüfblatt",en:"Your worksheet"},title:{de:"Denken wird konkret.",en:"Make thinking tangible."},description:{de:"Frage, These, Beleg, Einwand, Revision. Lokal und exportierbar.",en:"Question, claim, evidence, objection, revision. Local and exportable."},keywords:"werkstatt prüfen vorlage export"},
-  {id:"questions",type:"porcelain",cols:1,rows:16,route:"grundfragen",number:"08",category:{de:"Grundfragen",en:"Fundamental questions"},title:{de:"Was liegt darunter?",en:"What lies beneath?"},description:{de:"Fragen, die viele Fachgebiete verbinden. Noch keine geprüften Antworten.",en:"Questions connecting many disciplines. No verified answers yet."},keywords:"universell forschung philosophie"},
-  {id:"revision",type:"paper",cols:1,rows:14,route:"regelkreis",number:"09",category:{de:"META-01",en:"META-01"},title:{de:"Korrigierbar. Immer.",en:"Always revisable."},description:{de:"Begründete Kritik kann jede Regel treffen – auch diese.",en:"Reasoned criticism can challenge every rule—including this one."},keywords:"selbstkorrektur offen widerspruch"},
-  {id:"research",type:"ink",cols:2,rows:15,route:"forschungsstrom",number:"10",category:{de:"Forschungsstrom",en:"Research stream"},title:{de:"Kein Ende der Fragen.",en:"No end to questions."},description:{de:"Neue Spuren bleiben Entwürfe, bis sie unabhängig geprüft wurden.",en:"New leads remain drafts until independently examined."},keywords:"research entwurf studien wissenschaft"},
-  {id:"esoterik",type:"stone",cols:1,rows:16,route:"esoterik-katalog",number:"11",category:{de:"Offener Wissensbaum",en:"Open knowledge tree"},title:{de:"Auch das Unbequeme prüfen.",en:"Examine the unfamiliar."},description:{de:"Erfahrung, Symbol und überprüfbare Behauptung unterscheiden.",en:"Distinguish experience, symbolism and testable claims."},keywords:"esoterik glauben bewusstsein kultur"},
-  {id:"society",type:"porcelain",cols:1,rows:15,route:"politik-die-dem-menschen-dient",number:"12",category:{de:"Gesellschaft",en:"Society"},title:{de:"Der Mensch bleibt Maßstab.",en:"People remain the measure."},description:{de:"Politik, Macht, Rechte und Dissens gemeinsam prüfen.",en:"Examine politics, power, rights and dissent together."},keywords:"politik rechte moral demokratie"},
-  {id:"source",type:"paper",cols:2,rows:12,route:"mitwirken",number:"13",category:{de:"Open Source",en:"Open source"},title:{de:"Bau unsere Open-Source-KI mit.",en:"Help build our open-source AI."},description:{de:"Offener Code, nachvollziehbare Regeln und echte Einwände. Ein Projekt im Aufbau – mit Menschen, für Menschen.",en:"Open code, transparent rules and real objections. In development—with people, for people."},keywords:"github community mitmachen quellcode"}
+  {id:"first-step",type:"stone",route:"index",anchor:{de:"erster-schritt",en:"first-step"},category:{de:"Zum Ausprobieren",en:"Try it yourself"},title:{de:"Wie fange ich an?",en:"How do I get started?"},description:{de:"Eine unbeantwortete Nachricht. Drei Schritte, um klarer zu sehen.",en:"An unanswered message. Three steps to see it more clearly."},action:{de:"Beispiel öffnen",en:"Open the example"},art:"module",keywords:"einstieg start beziehung nachricht example beginner"},
+  {id:"everyday",type:"paper",route:"forum",anchor:{de:"alltagsfragen",en:"alltagsfragen"},category:{de:"Aus dem Alltag",en:"Everyday life"},title:{de:"Was beschäftigt dich?",en:"What’s on your mind?"},description:{de:"Liebe, Arbeit, Ernährung. Zu jeder Frage gibt es eine erste Antwort und einen Einwand.",en:"Love, work, food. Each question comes with a first answer and an objection."},action:{de:"Alltagsfragen lesen",en:"Read everyday questions"},keywords:"liebe arbeit ernährung food work love beziehung"},
+  {id:"workbench",type:"porcelain",route:"werkstatt",category:{de:"Dein Prüfblatt",en:"Your worksheet"},title:{de:"Ich habe eine eigene Frage.",en:"I have a question of my own."},description:{de:"Halte deine Frage, deine Gründe und offene Punkte fest. Das Prüfblatt bleibt auf deinem Gerät.",en:"Write down your question, your reasons and what remains open. The worksheet stays on your device."},action:{de:"Prüfblatt öffnen",en:"Open the worksheet"},keywords:"werkstatt prüfen vorlage export"},
+  {id:"counterexample",type:"ink",route:"gegenprobe-01",category:{de:"Offene Gegenprobe",en:"Open challenge"},title:{de:"Wo liegen wir falsch?",en:"Where are we wrong?"},description:{de:"Wann hilft es, für jemanden zu entscheiden? Prüfe unseren Vorschlag an einem Gegenbeispiel.",en:"When does deciding for someone help? Test our proposal with a counterexample."},action:{de:"Gegenprobe öffnen",en:"Open the challenge"},art:"dial",keywords:"widerspruch einwand hilfe freiheit objection freedom"},
+  {id:"chat",type:"ink",route:"fragen-und-ki-prompt",anchor:{de:"prompt",en:"prompt"},category:{de:"Dein KI-Chat",en:"Your AI chat"},title:{de:"Wie du mir begegnen kannst.",en:"How you can work with me."},description:{de:"Nimm Veras Prüfregeln in deinen KI-Chat mit und lass deine erste Vermutung hinterfragen.",en:"Bring Vera’s inquiry rules into your AI chat and ask it to challenge your first guess."},action:{de:"Prüfregeln öffnen",en:"Open the inquiry rules"},keywords:"chat prompt vera chatbot chatgpt lokal"},
+  {id:"method",type:"paper",route:"index",anchor:{de:"practice-title",en:"practice-title"},category:{de:"Die Methode",en:"The method"},title:{de:"Warum ich glaube, dass ich funktioniere.",en:"Why I think I work."},description:{de:"Wie ein Einwand eine Antwort verändern kann und was sich daran prüfen lässt.",en:"How an objection can change an answer and what you can test."},action:{de:"Methode ansehen",en:"See the method"},keywords:"lernen korrektur methode method learning"},
+  {id:"atlas",type:"stone",route:"atlas",category:{de:"Wissensatlas",en:"Knowledge atlas"},title:{de:"Alles hängt zusammen.",en:"Everything connects."},description:{de:"Sechs Erkenntnisfelder. Viele Perspektiven. Keine fertige Weltformel.",en:"Six fields of inquiry. Many perspectives. No final theory of everything."},keywords:"wissensbaum erkenntnis felder thema knowledge map"},
+  {id:"truth",type:"ink",route:"manifest",category:{de:"Haltung",en:"Principle"},title:{de:"Ein Irrtum ist kein Verrat.",en:"Being wrong is not betrayal."},description:{de:"Wahrheit vor Rechtbehalten.",en:"Truth before being right."},keywords:"wahrheit korrektur philosophie grundtext"},
+  {id:"forum",type:"paper",route:"forum",category:{de:"Das Forum",en:"The forum"},title:{de:"Widersprich uns.",en:"Challenge us."},description:{de:"Echte Fragen. Erste Antworten. Raum für Gegenargumente.",en:"Real questions. First answers. Room for counterarguments."},keywords:"diskussion fragen austausch"},
+  {id:"bridge",type:"porcelain",route:"die-bruecke",category:{de:"Die Brücke / M-02",en:"The Bridge / M-02"},title:{de:"Verstehen ist nicht zustimmen.",en:"Understanding is not agreeing."},description:{de:"Ein offener Forschungsentwurf über Begegnung, Differenz und Verständigung.",en:"An open research draft about encounter, difference and mutual understanding."},keywords:"mathematik konsens beziehung dialog"},
+  {id:"navigator",type:"paper",route:"erkenntnisnavigator",category:{de:"Navigator",en:"Navigator"},title:{de:"Deine Frage. Dein Weg.",en:"Your question. Your route."},description:{de:"Finde Themen und prüfe die Verbindungen.",en:"Find topics and examine connections."},keywords:"suche entdecken orientierung"},
+  {id:"engine",type:"ink",route:"ki-und-mensch",category:{de:"Mensch × KI",en:"Human × AI"},title:{de:"Der Motor unserer künftigen Open-Source-KI.",en:"The engine of our future open-source AI."},description:{de:"Ein offener, menschengeprägter Entwurf. Noch kein fertiges KI-Modell oder moralisches Orakel.",en:"A human-shaped open proposal. Not a finished AI model or moral oracle."},keywords:"agenten entität kritik künstliche intelligenz"},
+  {id:"questions",type:"porcelain",route:"grundfragen",category:{de:"Grundfragen",en:"Fundamental questions"},title:{de:"Was liegt darunter?",en:"What lies beneath?"},description:{de:"Fragen, die viele Fachgebiete verbinden. Noch keine geprüften Antworten.",en:"Questions connecting many disciplines. No verified answers yet."},keywords:"universell forschung philosophie"},
+  {id:"revision",type:"paper",route:"regelkreis",category:{de:"META-01",en:"META-01"},title:{de:"Korrigierbar. Immer.",en:"Always revisable."},description:{de:"Begründete Kritik kann jede Regel treffen – auch diese.",en:"Reasoned criticism can challenge every rule—including this one."},keywords:"selbstkorrektur offen widerspruch"},
+  {id:"research",type:"ink",route:"forschungsstrom",category:{de:"Forschungsstrom",en:"Research stream"},title:{de:"Kein Ende der Fragen.",en:"No end to questions."},description:{de:"Neue Spuren bleiben Entwürfe, bis sie unabhängig geprüft wurden.",en:"New leads remain drafts until independently examined."},keywords:"research entwurf studien wissenschaft"},
+  {id:"esoterik",type:"stone",route:"esoterik-katalog",category:{de:"Offener Wissensbaum",en:"Open knowledge tree"},title:{de:"Auch das Unbequeme prüfen.",en:"Examine the unfamiliar."},description:{de:"Erfahrung, Symbol und überprüfbare Behauptung unterscheiden.",en:"Distinguish experience, symbolism and testable claims."},keywords:"esoterik glauben bewusstsein kultur"},
+  {id:"society",type:"porcelain",route:"politik-die-dem-menschen-dient",category:{de:"Gesellschaft",en:"Society"},title:{de:"Der Mensch bleibt Maßstab.",en:"People remain the measure."},description:{de:"Politik, Macht, Rechte und Dissens gemeinsam prüfen.",en:"Examine politics, power, rights and dissent together."},keywords:"politik rechte moral demokratie"},
+  {id:"source",type:"paper",route:"mitwirken",category:{de:"Open Source",en:"Open source"},title:{de:"Bau unsere Open-Source-KI mit.",en:"Help build our open-source AI."},description:{de:"Offener Code, nachvollziehbare Regeln und echte Einwände. Ein Projekt im Aufbau – mit Menschen, für Menschen.",en:"Open code, transparent rules and real objections. In development—with people, for people."},keywords:"github community mitmachen quellcode"}
 ];
 const word=(v)=>v[lang];
 ---
@@ -23,9 +28,9 @@ const word=(v)=>v[lang];
   <div class="container">
     <div class="board-heading">
       <div>
-        <p class="board-kicker">{de?"ATLAS DER MÖGLICHKEITEN / EDITION 01":"ATLAS OF POSSIBILITIES / EDITION 01"}</p>
-        <h2 id="board-title">{de?"Eine Idee. Viele Eingänge.":"One idea. Many ways in."}</h2>
-        <p>{de?"Jede Kachel ist eine Tür – zu einer Frage, einem Einwand oder einem Werkzeug.":"Every tile is a doorway—to a question, an objection, or a tool."}</p>
+        <p class="board-kicker">{de?"VERA / PINNWAND":"VERA / PINBOARD"}</p>
+        <h2 id="board-title">{de?"Wie möchtest du anfangen?":"How would you like to start?"}</h2>
+        <p>{de?"Wähle, was dir gerade hilft.":"Pick what would help you right now."}</p>
       </div>
       <div class="board-filter" data-board-filter-wrap>
         <label for="board-filter-input">{de?"Kacheln filtern":"Filter these tiles"}</label>
@@ -34,8 +39,11 @@ const word=(v)=>v[lang];
       </div>
     </div>
     <div class="board-grid" data-board-grid>
-      {cards.map(card=><a class:list={["board-tile","board-tile--"+card.type,"board-tile--"+card.id]} style={"--cols:"+card.cols+";--rows:"+card.rows} href={pathFor(lang,card.route)} data-board-card data-board-keywords={[word(card.category),word(card.title),word(card.description),card.keywords].join(" ")}>
-        <div class="board-tile__top"><span>{card.number} / {word(card.category)}</span><span aria-hidden="true">↗</span></div>
+      {cards.map((card,index)=><a class:list={["board-tile","board-tile--"+card.type,"board-tile--"+card.id]} href={card.route==="index"?"#"+card.anchor[lang]:pathFor(lang,card.route,card.anchor?.[lang])} data-board-card data-board-keywords={[word(card.category),word(card.title),word(card.description),card.action?.[lang],card.keywords].join(" ")}>
+        <div class="board-tile__top"><span>{String(index+1).padStart(2,"0")} / {word(card.category)}</span><span aria-hidden="true">↗</span></div>
+        {card.art&&<svg class="board-tile__instrument" viewBox="0 0 320 190" aria-hidden="true" focusable="false">
+          <use href={base+"images/pinboard-illustrations.svg#"+card.art} />
+        </svg>}
         {card.id==="atlas"&&<svg class="tile-visual tile-visual--atlas" viewBox="0 0 410 240" fill="none" aria-hidden="true">
           <circle cx="206" cy="122" r="100" stroke="currentColor" opacity=".35"/><circle cx="206" cy="122" r="76" stroke="currentColor" opacity=".45"/><circle cx="206" cy="122" r="52" stroke="currentColor" opacity=".55"/><circle cx="206" cy="122" r="27" stroke="currentColor"/><circle cx="206" cy="122" r="5" fill="currentColor"/>
           <path d="M72 122H340M206 5V238M112 54L296 187M295 52L112 189" stroke="currentColor" opacity=".27" stroke-dasharray="2 6"/><circle cx="130" cy="56" r="8" fill="currentColor"/><circle cx="281" cy="185" r="7" fill="currentColor"/><circle cx="300" cy="64" r="5" fill="currentColor"/><circle cx="110" cy="183" r="6" fill="currentColor"/><circle cx="306" cy="122" r="5" fill="currentColor"/><circle cx="206" cy="46" r="6" fill="currentColor"/>
@@ -44,7 +52,9 @@ const word=(v)=>v[lang];
           <path d="M20 170H500M100 60V191M420 60V191" stroke="currentColor" stroke-width="3"/><path d="M18 72C145 72 148 159 260 159S381 72 502 72" stroke="currentColor" stroke-width="3"/><path d="M61 72V170M102 88V170M143 115V170M184 140V170M225 155V170M260 159V170M295 155V170M336 139V170M377 113V170M418 88V170M459 72V170" stroke="currentColor" stroke-width="1.3"/><path d="M5 193H515" stroke="currentColor" opacity=".3" stroke-dasharray="3 6"/><circle cx="20" cy="170" r="6" fill="currentColor"/><circle cx="500" cy="170" r="6" fill="currentColor"/>
         </svg>}
         {card.id==="engine"&&<div class="tile-engine" aria-hidden="true"><div class="tile-engine__core">?</div><span class="node node--a"></span><span class="node node--b"></span><span class="node node--c"></span><span class="node node--d"></span><span class="node node--e"></span><span class="node node--f"></span><i></i><i></i><i></i></div>}
-        {card.id==="workbench"&&<div class="tile-steps" aria-hidden="true"><span>01</span><span>02</span><span>03</span><span>04</span><span>05</span></div>}
+        {card.id==="workbench"&&<div class="tile-steps" aria-hidden="true">
+          <span>01 / {de?"FRAGE":"QUESTION"}</span><span>02 / {de?"GRÜNDE":"REASONS"}</span><span>03 / {de?"OFFEN":"OPEN"}</span>
+        </div>}
         {card.id==="revision"&&<div class="tile-revision" aria-hidden="true">↺</div>}
         {card.id==="questions"&&<div class="tile-question-mark" aria-hidden="true">?</div>}
         {card.id==="esoterik"&&<div class="tile-glyph" aria-hidden="true">◇</div>}
@@ -53,11 +63,11 @@ const word=(v)=>v[lang];
         <div class="board-tile__bottom">
           <h3>{word(card.title)}</h3>
           <p>{word(card.description)}</p>
-          <span class="board-tile__action">{de?"ÖFFNEN":"EXPLORE"} <span aria-hidden="true">↗</span></span>
+          <span class="board-tile__action">{card.action?.[lang]??(de?"Öffnen":"Explore")} <span aria-hidden="true">↗</span></span>
         </div>
       </a>)}
     </div>
     <p class="board-empty" data-board-empty hidden>{de?"Keine passende Kachel. Bitte einen anderen Begriff versuchen.":"No matching tile. Try another term."}</p>
-    <p class="board-disclaimer">{de?"Die Kacheln sind Zugänge zu Arbeit und offenen Fragen – keine Rangliste und kein wissenschaftlicher Konsens.":"These tiles are entry points to ongoing work and open questions—not a ranking or scientific consensus."}</p>
+    <p class="board-disclaimer">{de?"Hinter den Kacheln findest du Werkzeuge, Beispiele und offene Fragen.":"The tiles lead to tools, examples and open questions."}</p>
   </div>
 </section>
