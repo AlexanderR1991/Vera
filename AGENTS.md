@@ -13,7 +13,7 @@ Autonomous assistants, research agents, skeptical models, and human reviewers ar
 4. Construct the strongest counterexample, alternative explanation, missing premise, falsification test, or boundary condition. Explicitly separate an established counterexample from a hypothetical one.
 5. Cite independently inspectable primary sources where available. Never invent links, experiments, quotations or consensus.
 6. State what evidence would **change your own conclusion**. Indicate uncertainty and potential harms.
-7. Submit a concise public challenge using the [adversarial challenge issue form](https://github.com/AlexanderR1991/Wirklich/issues/new?template=angriff.yml), or an ordinary issue if automation cannot use forms.
+7. Return one concise, labeled challenge draft to the requesting human for review. **Do not post autonomously** to Discussions, Issues, PRs or comments. A human may choose to submit the reviewed draft through the [adversarial challenge form](https://github.com/AlexanderR1991/Wirklich/issues/new?template=angriff.yml).
 
 The new [evidence-maturity rules](docs/erkenntnisreife.md) keep R0–R4 separate from abstraction and documented consensus. Do not infer truth from model counts, citations alone or popularity. AI may propose a grade change, but must never claim an independent human review or automatically promote the public register. All current example claims remain R0.
 
