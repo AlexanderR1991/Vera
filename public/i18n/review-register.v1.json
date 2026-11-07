@@ -548,6 +548,15 @@
       "source_commit": null,
       "review_url": null
     },
+    "open-source-ki.md": {
+      "status": "draft",
+      "priority": "core",
+      "target": "docs/en/open-source-ai.md",
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
     "rechtliche-offene-punkte.md": {
       "status": "unassessed",
       "priority": "support",

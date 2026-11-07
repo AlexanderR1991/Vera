@@ -10,6 +10,10 @@ Dieser Satz ist eine **anfechtbare Verfahrensregel**, nicht bloß Werbung: Jede 
 
 The challengeable process rule asks for a traceable revision path, type-appropriate checks, visible dissent and human accountability—not automatic agreement or AI-certified truth. [The correction loop (EN)](https://alexanderr1991.github.io/Wirklich/en/regelkreis/).
 
+**Unser nächstes großes Ziel ist eine Open-Source-KI – mit Menschen, für Menschen.** WIRKLICH entwickelt dafür einen offenen philosophischen Motor, nachvollziehbare Regeln und maschinenlesbare Protokolle. **Stand heute: offene Erkenntniswerkstatt und frühe Prototypen, keine fertige oder unabhängig betreibbare WIRKLICH-KI.** Wir wollen Menschen erreichen, bevor wir technisch skalieren. [Vision, Offenheitskriterien und ehrlicher Status (DE)](docs/open-source-ki.md) · [Open-source AI goal and current status (EN)](docs/en/open-source-ai.md).
+
+**Our next major goal is open-source AI — with people, for people.** We are building its philosophical foundation in public. This is a goal, not a claim that WIRKLICH already operates an independently runnable open AI model. [Read the development principles](docs/en/open-source-ai.md).
+
 **Mit Philosophie die Menschheit zum Konsens führen.** Hier kann jeder eine Frage stellen. Wenn unsere Antworten auseinandergehen, suchen wir nach einem Punkt, den wir aus eigenen Gründen mittragen. Was strittig bleibt, halten wir fest. Unsere philosophische Grundlage ist der [Grundtext des Wirklichen](docs/grundtext.md).[^ursprung]
 
 **To guide humanity toward consensus through philosophy.** Anyone can bring a question. When our answers differ, we look for a point we can each agree on for our own reasons. We record where we still disagree.

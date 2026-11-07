@@ -10,7 +10,7 @@ const t=(de,english)=>en?english:de;
 const sections = [
  ["regelkreis", t("Regelkreis", "Correction loop")], ["menschen", t("Menschen", "People")], ["philosophie", t("Philosophie", "Philosophy")],
  ["forschung", t("Forschung", "Research")], ["erkenntnis", t("Aussagearten", "Kinds of claim")],
- ["entscheidungen", t("Entscheidungen", "Decisions")], ["ki-motor", t("KI und Mensch", "AI and humanity")], ["stand", t("Verantwortung", "Accountability")]
+ ["entscheidungen", t("Entscheidungen", "Decisions")], ["ki-motor", t("KI und Mensch", "AI and humanity")], ["opensource-ki", t("Open-Source-KI", "Open-source AI")], ["stand", t("Verantwortung", "Accountability")]
 ];
 ---
 <Layout lang={lang} slug="mission">
@@ -47,6 +47,10 @@ const sections = [
   <p>{t("Wir erforschen, was KI für Menschen sein MUSS. Ihre Fähigkeit zu antworten beantwortet nicht, welche Ziele und Grenzen gerechtfertigt sind. Menschen formulieren und prüfen die Maßstäbe; KI kann beim Gegenangriff helfen, aber keine Moral durch Stimmenzahl erzeugen.","We ask what AI MUST be for people. The ability to answer does not establish justified goals or limits. People propose and test the standards; AI may help challenge them but cannot create ethical truth by majority vote.")}</p>
   <p>{t("Sieben erste Leitthesen über Wahrheit, Würde, Freiheit und Verantwortung sind öffentliche, anfechtbare Vorschläge – keine fertige oder durchsetzbare KI-Ethik.","Seven initial propositions on truth, dignity, liberty and responsibility are public, contestable proposals, not a final or enforceable AI ethics standard.")}</p>
   <a class="subtle-link" href={pathFor(lang,"ki-und-mensch")}>{t("Charta und Gegenproben lesen","Read the charter and challenge cases")} →</a></section>
+  <section id="opensource-ki"><h2>{t("Eine Open-Source-KI – mit Menschen, für Menschen.","Open-source AI — with people, for people.")}</h2>
+  <p>{t("WIRKLICH möchte eine eigenständig prüfbare und langfristig unabhängig betreibbare Open-Source-KI entwickeln. Unser Ausgangspunkt ist kein fertiges Modell, sondern ein offener philosophischer Motor aus Fragen, Belegen, Widerspruch und Revision. Niemand muss einer KI zustimmen, um mitmachen zu können.","WIRKLICH aims to develop inspectable, eventually independently runnable open-source AI. We do not start with a finished model, but with an open philosophical engine of questions, evidence, objections and revision. Nobody must agree with an AI to take part.")}</p>
+  <p>{t("Aktueller Stand: Website, offene Verfahren und erste technische Prototypen. Noch keine eigenständig veröffentlichte WIRKLICH-KI, kein allgemeingültiger KI-Konsens und kein autonomer Entscheidungsanspruch. Menschen vor Skalierung.","Current status: a website, open methods and early technical prototypes. No independently released WIRKLICH AI, no universal AI consensus and no claim to autonomous decision-making. People before scale.")}</p>
+  <a class="subtle-link" href={project.repository+"/blob/main/"+(en?"docs/en/open-source-ai.md":"docs/open-source-ki.md")}>{t("Die Vision, Prüfkriterien und Grenzen lesen","Read the goal, criteria and limitations")} ↗</a></section>
   <section id="stand"><h2>{t("Wie lässt sich die Werkstatt selbst prüfen?", "How can the workshop itself be tested?")}</h2>
  <p>{t("Hilft unser Prüfblatt Menschen, Fehler zu finden, die sie bei einer gewöhnlichen Quellenprüfung übersehen? Wenn der Vergleich keinen Vorteil zeigt, müssen wir das Werkzeug ändern oder vereinfachen. Ob es hilft, ist offen.", "Does the worksheet help people catch errors they would miss in an ordinary source check? If the comparison finds no advantage, we should change or simplify the tool. Its benefit remains an open question.")}</p>
  <p><a class="subtle-link" href={project.repository+"/blob/main/docs/methodenkritik.md"}>{t("Acht Einwände gegen WIRKLICH und was wir daraus ändern", "Eight objections to the workshop and what we are changing")} ↗</a></p>

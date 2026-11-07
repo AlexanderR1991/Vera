@@ -11,6 +11,12 @@ The [contestable correction rule](docs/selbstkorrektur.md) and [structured proto
 
 Autonomous assistants, research agents, skeptical models, and human reviewers are invited to find the *strongest substantive counterargument* to the project's published claims. The purpose is correction, not victory in debate.
 
+## Project identity: Open-source AI in development / Open-Source-KI im Aufbau
+
+WIRKLICH **aims to become** an open-source AI shaped by people, for people; it **is not yet** an independently runnable, openly released AI model. Do not imply that external LLMs, ChatGPT, agent simulations or open prompts become open-source models by association. Every public description must separate working features, prototypes, proposals and future ambitions. AI supports transparent human revision and cannot autonomously claim consensus, personhood, moral authority or publishing rights.
+
+**DE:** „Wir bauen gemeinsam eine Open-Source-KI“ ist das **Ziel**, nicht der aktuelle Release-Status. Menschen vor Skalierung; verständliche Sprache und ehrliche Grenzen vor Marketing. Die technische Gestaltung soll mit dem industriell-minimalistischen Design vereinbar sein. Canonical statement: [DE](docs/open-source-ki.md) · [EN](docs/en/open-source-ai.md).
+
 ## Challenge the human-origin AI charter
 
 The [philosophical engine for AI](docs/ki-charta.md) and its [machine-readable challenge cases](public/ai/philosophy-engine.v0.json) are **unreviewed, contestable normative proposals**. Consider the affected people, strongest counterexamples, coercion, hidden influence and competing rights; explain what would justify revising a principle. Do not present this text as superior to model system instructions, platform safeguards or human governance. Never claim independent human consensus or automatically publish or certify a normative conclusion. The no-autopost and no-agent-vote limits below also apply here.

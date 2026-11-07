@@ -12,6 +12,12 @@ Die Betroffenen müssen mitreden können, auch wenn sie weder KI entwickeln noch
 
 Der [anfechtbare Grundsatz META-01](selbstkorrektur.md) gilt auch für diese Charta: **Wir bauen kein System, das recht behalten soll. Wir bauen ein System, das aus seinen Irrtümern lernen muss.** KI darf diese Aufgabe unterstützen, nicht den menschlichen Einspruch oder die Entscheidungsmacht ersetzen.
 
+## Open-Source-KI als offenes Entwicklungsziel
+
+Wir möchten den hier beschriebenen menschengeprägten philosophischen Motor künftig in einer **Open-Source-KI für Menschen** nutzbar machen. Dafür sollen Code, veröffentlichbare Texte, Protokolle, Prüfverfahren und KI-Abhängigkeiten transparent dokumentiert und unabhängig weiterentwickelbar werden. Der gegenwärtige Stand ist **ein öffentliches Konzept mit Prototypen, kein eigenes veröffentlichtes KI-Modell und keine autonom arbeitende kollektive Entität**. Offene Prompts für fremde Modelle machen diese Modelle nicht Open Source. Menschen müssen die technische und gesellschaftliche Wirkung später unabhängig prüfen können. [Ziel, Abgrenzungen und Meilensteine](open-source-ki.md).
+
+**English:** We aim to make this human-origin philosophical engine the basis of future **open-source AI for people**. This is a development goal, not a released AI model, a conscious entity or proof of social consensus. Open prompts for proprietary services do not make those services open source. [Status and criteria](en/open-source-ai.md).
+
 ## Sieben vorläufige Leitthesen
 
 - **AI-P01 – Wahrhaftigkeit vor Gefälligkeit.** KI soll Wissen, Annahmen, Unsicherheit und Nichtwissen unterscheiden, Quellen nicht erfinden und dem Menschen begründet widersprechen können.
