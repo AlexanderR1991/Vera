@@ -1,0 +1,70 @@
+---
+import {base, pathFor} from "../lib/paths.mjs";
+const {lang="de"} = Astro.props;
+const en = lang === "en";
+---
+<div class="header-search" data-site-search data-lang={lang} data-index-url={base + "search/" + lang + ".json"}>
+  <form class="header-search__form" role="search" method="get" action={pathFor(lang, "suche")}
+    aria-label={en ? "Search the website" : "Website durchsuchen"}>
+    <label for="site-search-input" class="site-search-visually-hidden">{en ? "Search for topics and questions" : "Themen und Fragen suchen"}</label>
+    <svg class="header-search__icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="10.8" cy="10.8" r="6.6"/><path d="m16 16 5 5"/></svg>
+    <input id="site-search-input" name="q" type="search" autocomplete="off" maxlength="120" data-site-search-input
+      placeholder={en ? "Search WIRKLICH…" : "WIRKLICH durchsuchen…"} />
+    <button type="submit" aria-label={en ? "Show all search results" : "Alle Suchergebnisse anzeigen"} title={en ? "Search" : "Suchen"}>↵</button>
+  </form>
+  <div class="header-search__panel" data-site-search-panel hidden>
+    <p class="header-search__status" data-site-search-status role="status"></p>
+    <ul class="header-search__results" data-site-search-results></ul>
+    <a class="header-search__all" data-site-search-all href={pathFor(lang, "suche")}>
+      {en ? "Show all results" : "Alle Ergebnisse anzeigen"} →
+    </a>
+  </div>
+</div>
+<script>
+  import "../client/site-search.mjs";
+</script>
+<style is:global>
+  .site-search-visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+  .header-search{position:relative;flex:0 1 220px;min-width:160px;z-index:80}
+  .header-search__form{display:flex;align-items:center;gap:7px;min-height:38px;border:1px solid rgba(205,181,143,.35);border-radius:8px;padding:0 8px;background:rgba(255,255,255,.035)}
+  .header-search__form:focus-within{border-color:var(--gold-bright);box-shadow:0 0 0 2px rgba(206,177,124,.12)}
+  .header-search__icon{flex:none;color:var(--gold)}
+  .header-search__form input{flex:1;min-width:0;width:100%;font:12px var(--sans);color:var(--text);background:transparent;border:0;outline:0;padding:8px 0}
+  .header-search__form input:focus{outline:0}
+  .header-search__form input::placeholder{color:#aaa69c;opacity:1}
+  .header-search__form button{flex:none;border:0;background:transparent;color:var(--gold-bright);font-size:19px;cursor:pointer;min-width:25px;min-height:32px;padding:0}
+  .header-search__panel{position:absolute;right:0;top:calc(100% + 10px);width:min(440px,calc(100vw - 30px));max-height:min(70vh,520px);overflow-y:auto;background:#111619;border:1px solid rgba(205,181,143,.35);border-radius:12px;box-shadow:0 16px 40px rgba(0,0,0,.5);padding:12px;z-index:100}
+  .header-search__panel[hidden]{display:none}
+  .header-search__status{color:#c7beb1;font-size:12px;margin:2px 5px 9px}
+  .header-search__results{list-style:none;padding:0;margin:0;display:grid;gap:4px}
+  .header-search__results li{list-style:none;margin:0}
+  .header-search__results a{display:block;text-decoration:none;padding:10px;border-radius:6px;color:var(--text);font-size:13px;line-height:1.4}
+  .header-search__results a:hover,.header-search__results a:focus-visible{background:rgba(205,181,143,.12)}
+  .header-search__results small{display:block;color:var(--gold);font-size:10px;margin-bottom:2px;text-transform:uppercase;letter-spacing:.08em}
+  .header-search__all{display:block;padding:11px 8px 2px;color:var(--gold-bright);border-top:1px solid rgba(205,181,143,.2);margin-top:8px;font-size:12px;text-decoration:none}
+  .site-search-page{padding:clamp(45px,8vw,100px) 0;max-width:850px}
+  .site-search-page h1{font-size:clamp(42px,6vw,72px);margin:14px 0}
+  .site-search-page__intro{max-width:650px;margin-bottom:28px}
+  .site-search-page__form{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:20px}
+  .site-search-page__form label{font-weight:600;flex-basis:100%;font-size:13px}
+  .site-search-page__form input{flex:1 1 270px;min-width:180px;background:#151a1b;border:1px solid rgba(205,181,143,.4);color:var(--text);border-radius:6px;padding:13px;font:inherit}
+  .site-search-page__form button{border:1px solid var(--gold);color:#191612;background:var(--gold-bright);border-radius:6px;padding:13px 20px;cursor:pointer;font:inherit}
+  .site-search-page__status{color:var(--gold-bright);margin:20px 0}
+  .site-search-page__results{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+  .site-search-page__results li{list-style:none;padding:18px 20px;border:1px solid rgba(205,181,143,.22);border-radius:8px;background:rgba(255,255,255,.02)}
+  .site-search-page__results small{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:7px}
+  .site-search-page__results a{font-family:var(--serif);font-size:22px;line-height:1.4;color:var(--text);text-decoration:none}
+  .site-search-page__results a:hover{text-decoration:underline;text-decoration-color:var(--gold)}
+  .site-search-page__results p{font-size:14px;line-height:1.6;margin:8px 0 0;overflow-wrap:anywhere}
+  .site-search-page__foot{margin-top:28px;font-size:13px}
+  @media(min-width:931px) and (max-width:1320px){
+    .site-header__inner{flex-wrap:wrap;gap:12px;padding-block:12px}
+    .site-header__inner .site-nav{order:1}
+    .site-header__inner .language-switch{order:2}
+    .site-header__inner .header-project{order:3}
+    .site-header__inner .header-search{order:4;flex:1 1 100%}
+  }
+  @media(max-width:930px){.site-header__inner .header-search{order:3;flex:1 1 180px}.site-header__inner .site-nav{order:4}}
+  @media(max-width:660px){.site-header__inner .header-search{order:3;flex-basis:100%;margin-bottom:12px}.site-header__inner .site-nav{order:4}}
+  @media(prefers-reduced-motion:reduce){.header-search__panel{scroll-behavior:auto}}
+</style>

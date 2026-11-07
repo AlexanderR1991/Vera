@@ -377,3 +377,16 @@ for(const lang of ["de","en"]){
 }
 if(errors.length){console.error(errors.join("\n"));process.exit(1);}
 console.log("Verified bilingual universal question atlas, public scan, citation trace and domain backlinks.");
+
+// Header and full search route stay bilingual and index the built site, not only headings.
+for (const lang of ["de","en"]) {
+  const home = await readFile(join(out,lang,"index.html"),"utf8");
+  const page = await readFile(join(out,lang,"suche","index.html"),"utf8");
+  const data = JSON.parse(await readFile(join(out,"search",lang+".json"),"utf8"));
+  if (!home.includes('data-site-search') || !home.includes('/'+lang+'/suche/')) errors.push("Missing header search "+lang);
+  if (!page.includes('data-search-page') || !page.includes('data-search-page-results')) errors.push("Missing search route "+lang);
+  if (data.lang!==lang || data.entries.length<150 || !data.entries.some(item=>item.type==="page"&&item.search.length>400))
+    errors.push("Missing or un-enriched search index "+lang);
+}
+if(errors.length){console.error(errors.join("\n"));process.exit(1);}
+console.log("Verified bilingual header search, full results routes and published-content indexes.");

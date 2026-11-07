@@ -1,6 +1,7 @@
 ---
 import {ui,navigation} from "../lib/ui.mjs";
 import UniversalQuestionsContext from "../components/UniversalQuestionsContext.astro";
+import SiteSearch from "../components/SiteSearch.astro";
 import {pathFor,absoluteFor,base} from "../lib/paths.mjs";
 import project from "../../public/project.json" with {type: "json"};
 const {lang="de",slug="index",root=false}=Astro.props;
@@ -47,6 +48,7 @@ const canonical=root?siteRoot:absoluteFor(lang,slug);
 <nav id="site-navigation" class="site-nav" aria-label={lang==="de"?"Hauptnavigation":"Main navigation"}>
 {navigation.map(([slugName,i])=><a href={pathFor(lang,slugName)} aria-current={!root&&slug===slugName?"page":undefined}>{t.nav[i]}</a>)}
 </nav>
+<SiteSearch lang={lang}/>
 <nav class="language-switch" aria-label={lang==="de"?"Sprache":"Language"}>
 <a href={pathFor("de",slug)} lang="de" hreflang="de" aria-current={!root&&lang==="de"?"page":undefined}>DE</a><span aria-hidden="true">/</span>
 <a href={pathFor("en",slug)} lang="en" hreflang="en" aria-current={!root&&lang==="en"?"page":undefined}>EN</a>

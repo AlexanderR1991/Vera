@@ -25,6 +25,7 @@ export const ui = {
     "copyright": "© 2026 AlexanderR1991 & Mitwirkende · Texte CC BY-SA 4.0 · Code MIT",
     "disclosure": "MIT KI-UNTERSTÜTZUNG ERSTELLT · OFFEN FÜR KRITIK",
     "titles": {
+      "suche": "Suche",
       "erkenntnisnavigator": "Erkenntnisnavigator",
       "werkstatt": "Dein Prüfblatt",
       "projektstatus": "Version und Projektstatus",
@@ -89,6 +90,7 @@ export const ui = {
     "copyright": "© 2026 AlexanderR1991 & contributors · Text CC BY-SA 4.0 · Code MIT",
     "disclosure": "CREATED WITH AI ASSISTANCE · OPEN TO CRITICISM",
     "titles": {
+      "suche": "Search",
       "erkenntnisnavigator": "Knowledge Navigator",
       "werkstatt": "Your Inquiry Worksheet",
       "projektstatus": "Version and Project Status",
