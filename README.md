@@ -26,6 +26,7 @@ The challengeable process rule asks for a traceable revision path, type-appropri
 | Eine Frage für sich prüfen · Work privately | [Prüfblatt öffnen](https://alexanderr1991.github.io/Wirklich/de/werkstatt/) | [Open a worksheet](https://alexanderr1991.github.io/Wirklich/en/werkstatt/) |
 | Eine passende Verbindung finden · Find a relevant connection | [Erkenntnisnavigator](https://alexanderr1991.github.io/Wirklich/de/erkenntnisnavigator/) | [Knowledge navigator](https://alexanderr1991.github.io/Wirklich/en/erkenntnisnavigator/) |
 | Ein Netz verbundener Fragen sehen · Explore linked questions | [Fragenatlas (Pilot)](https://alexanderr1991.github.io/Wirklich/de/forum/#fragenatlas) | [Question atlas (pilot)](https://alexanderr1991.github.io/Wirklich/en/forum/#fragenatlas) |
+| Die Mathematik der Verständigung prüfen · Explore the mathematics of understanding | [Die Brücke · M-02](https://alexanderr1991.github.io/Wirklich/de/die-bruecke/) | [The Bridge · M-02](https://alexanderr1991.github.io/Wirklich/en/die-bruecke/) |
 | Einen esoterischen Wissensast prüfen · Explore an esoteric question | [Esoterik-Wissensbaum](https://alexanderr1991.github.io/Wirklich/de/esoterik-katalog/) | [Esotericism tree](https://alexanderr1991.github.io/Wirklich/en/esoterik-katalog/) |
 | Eine Frage öffentlich stellen · Ask in public | [GitHub-Frageformular](https://github.com/AlexanderR1991/Wirklich/issues/new?template=frage.yml) | [GitHub question form](https://github.com/AlexanderR1991/Wirklich/issues/new?template=frage.yml) |
 
@@ -58,6 +59,12 @@ Four fictional everyday cards and three optional worksheet prompts offer a simpl
 Bei einer Tatsachenfrage suchen wir Belege und Gegenbelege. Bei einer Wertfrage legen wir den Maßstab offen und hören auf die Menschen, die mit den Folgen leben. Aus vorhandenen Erkenntnissen kann eine neue Vermutung entstehen. Wir formulieren, woran sie scheitern könnte. Ein begründeter Dissens kann das Ergebnis sein. [Methode](docs/methode.md) · [Mission](docs/mission.md)
 
 The topic map connects questions across disciplines. Each claim record gives its scope, reasons, strongest objection, review status and revision history. Research feeds collect leads. People decide which revisions enter the public record. [Explore topics](https://alexanderr1991.github.io/Wirklich/en/baum-des-wissens/) · [Inspect the register](https://alexanderr1991.github.io/Wirklich/en/aussagen/)
+
+## Die Brücke · Mathematics Between Minds
+
+**Verstehen ist nicht Zustimmung.** M-02 untersucht in einem bewusst engen Modell, wie zutreffend zwei Menschen die jeweils formulierten Positionen wiedergeben können – getrennt davon, wie stark diese Positionen übereinstimmen. Das elementare Gegenbeispiel ist mathematisch nachvollziehbar; die Behauptung, dass bestimmte Gesprächsformen Verständigung *tatsächlich verbessern*, bleibt eine **ungetestete, widerlegbare Hypothese**. Keine psychologisch validierte Skala und keine Bewertung von Menschen. [Forschungsentwurf M-02](docs/mathematik-des-dazwischen.md) · [Mathematischer Prüfstand](docs/mathematischer-pruefstand.md) · [Zweisprachige Modelldemonstration](https://alexanderr1991.github.io/Wirklich/de/die-bruecke/).
+
+**Understanding need not mean agreement.** M-02 uses a restricted, explicitly provisional mathematical model to distinguish directed accuracy of restating another person's expressed position from agreement on the same items. Elementary numerical examples are formally checkable; the predicted benefit of reciprocal restatement is an **untested empirical hypothesis**, not a proved law of cooperation. No person ranking, moral truth score or validated measurement instrument is claimed. [Research proposal and English précis](docs/mathematik-des-dazwischen.md) · [Interactive toy model in English](https://alexanderr1991.github.io/Wirklich/en/die-bruecke/).
 
 ## Wie reift eine Erkenntnis? · How a claim matures
 
