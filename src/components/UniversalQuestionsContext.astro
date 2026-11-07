@@ -1,0 +1,35 @@
+---
+import {pathFor} from "../lib/paths.mjs";
+import {questionsForRoute,findingsForRoute} from "../lib/universal-questions.mjs";
+import questions from "../../public/knowledge/universal-questions.v1.json";
+import findings from "../../public/knowledge/universal-findings.v1.json";
+const {lang="de",slug="index"}=Astro.props;
+const en=lang==="en";
+const t=(de,english)=>en?english:de;
+const related=slug==="grundfragen"?[]:questionsForRoute(questions,slug,3);
+const approved=findingsForRoute(questions,findings,slug);
+---
+{related.length>0&&<aside class="uq-context container" aria-labelledby="uq-context-title">
+  <p class="section-kicker">{t("DIE BRÜCKE · VERBUNDENE GRUNDFRAGEN","THE BRIDGE · LINKED FUNDAMENTAL QUESTIONS")}</p>
+  <h2 id="uq-context-title">{t("Welche größeren Fragen berührt dieses Thema?","Which larger questions touch this topic?")}</h2>
+  <ul>{related.map(q=><li><a href={pathFor(lang,"grundfragen",q.id.toLowerCase())}><strong>{q.id}</strong> · {q.question[lang]} <span aria-hidden="true">→</span></a></li>)}</ul>
+  {approved.length>0&&<div class="uq-context__findings">
+    <h3>{t("Dokumentierte, geprüfte Teilantworten","Documented reviewed partial findings")}</h3>
+    {approved.map(f=><p><strong>{f.id}</strong> · {f.answer[lang]} <a href={f.review_url} target="_blank" rel="noopener noreferrer">{t("Review","Review")} ↗</a></p>)}
+  </div>}
+  <p class="uq-context__note">{t("Grundfragen sind redaktionelle, ungeprüfte Synthesen. Die Zuordnung ist kein Wahrheitsbeleg; geprüfte Antworten werden nur nach nachvollziehbarer menschlicher Freigabe eingeblendet.","Fundamental questions are unreviewed editorial syntheses. Connections are not evidence of truth; findings appear only after traceable human review.")}</p>
+  <a class="uq-context__all" href={pathFor(lang,"grundfragen")}>{t("Alle Grundfragen ansehen","Explore all fundamental questions")} →</a>
+</aside>}
+<style>
+.uq-context{padding-block:clamp(2.7rem,5vw,4.3rem);border-top:1px solid var(--line)}
+.uq-context h2{font:400 clamp(1.7rem,3vw,2.65rem)/1.25 var(--serif);margin:.8rem 0 1.5rem}
+.uq-context ul{list-style:none;margin:0 0 1rem;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem}
+.uq-context li{border-top:1px solid var(--line);min-width:0}
+.uq-context li a{display:block;padding:1rem .4rem 1rem 0;color:var(--text);text-decoration:none;line-height:1.65}
+.uq-context li a:hover,.uq-context__all:hover{color:var(--gold-bright)}
+.uq-context li strong{color:var(--gold-bright);font-size:.8rem;letter-spacing:.06em}
+.uq-context__note{font-size:.82rem;max-width:68rem;color:#aeb3b0;line-height:1.7}
+.uq-context__findings{padding:1rem 1.4rem;border:1px solid var(--line);margin:1.5rem 0}
+.uq-context__findings a,.uq-context__all{color:var(--gold-bright);text-underline-offset:.2em}
+@media(max-width:820px){.uq-context ul{grid-template-columns:1fr}}
+</style>

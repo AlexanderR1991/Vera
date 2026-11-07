@@ -1,0 +1,155 @@
+---
+import Layout from "../layouts/SiteLayout.astro";
+import {pathFor} from "../lib/paths.mjs";
+import questions from "../../public/knowledge/universal-questions.v1.json";
+import findings from "../../public/knowledge/universal-findings.v1.json";
+import scan from "../../public/research/universal-scan.v1.json";
+import {findingsForQuestion} from "../lib/universal-questions.mjs";
+import "../styles/universal-questions.css";
+
+const {lang="de"}=Astro.props;
+const en=lang==="en";
+const t=(de,english)=>en?english:de;
+const themeLabels={
+ knowledge:{de:"Wissen & Wahrheit",en:"Knowledge & truth"},
+ experience:{de:"Erleben & Deutung",en:"Experience & meaning"},
+ relations:{de:"Verständigung & Konflikt",en:"Understanding & conflict"},
+ power:{de:"Freiheit & Macht",en:"Liberty & power"},
+ agency:{de:"Fürsorge & Autonomie",en:"Care & agency"},
+ systems:{de:"Systeme & Folgen",en:"Systems & effects"},
+ uncertainty:{de:"Unsicherheit & Zukunft",en:"Uncertainty & future"}
+};
+const typeLabels={
+ empirical:{de:"Empirische Prüfung",en:"Empirical question"},
+ normative:{de:"Wertfrage",en:"Normative question"},
+ methodological:{de:"Methodenfrage",en:"Method question"},
+ mixed:{de:"Gemischte Frage",en:"Mixed question"},
+ formal:{de:"Formale Frage",en:"Formal question"},
+ interpretative:{de:"Deutungsfrage",en:"Interpretive question"}
+};
+const questionById=new Map(questions.questions.map(q=>[q.id,q]));
+const relationsFor=id=>questions.relations.filter(r=>r.from===id||r.to===id);
+const sourceLink=p=>`https://github.com/AlexanderR1991/Wirklich/blob/${questions.source_revision}/${p}`;
+const issueLink="https://github.com/AlexanderR1991/Wirklich/issues/new?template=grundfrage.yml";
+---
+<Layout lang={lang} slug="grundfragen" description={t("Universelle Grundfragen aus den WIRKLICH-Themenfeldern: Quellen, Gegeneinwände, offene Erkenntnisse und Rückwege in die Fachbereiche.","Universal questions across REALLY?'s fields: source traces, counterquestions, open findings and return paths to their domains.")}>
+ <div class="uq">
+  <header class="uq-hero">
+   <div class="container">
+    <p class="section-kicker">{t("WIRKLICH · DATENSAMMLUNG · DIE BRÜCKE","REALLY? · RESEARCH COLLECTION · THE BRIDGE")}</p>
+    <h1>{t("Die Fragen","The questions")}<br/><em>{t("hinter unseren Fragen.","behind our questions.")}</em></h1>
+    <p class="uq-lead">{t("Was verbindet Liebe, Medizin, Politik, Kunst, Mathematik, Religion und KI? Wir suchen die gemeinsamen Grundprobleme – nicht die eine Antwort, die alle überstimmt.","What connects love, medicine, politics, art, mathematics, religion and AI? We seek shared underlying problems—not a single answer that overrules everyone.")}</p>
+    <p class="uq-status">{t("16 redaktionelle Grundfragen · ungeprüfte Forschungsagenda · keine gesicherten Universalwahrheiten","16 editorial fundamental questions · unreviewed research agenda · no established universal truths")}</p>
+    <div class="button-row">
+      <a class="button button--gold" href="#katalog">{t("Grundfragen durchsehen","Browse the questions")} ↓</a>
+      <a class="button button--ghost" href="#kreislauf">{t("Den Erkenntniskreislauf verstehen","Understand the feedback loop")} ↓</a>
+    </div>
+   </div>
+  </header>
+
+  <section class="section uq-section" id="kreislauf" aria-labelledby="uq-loop-title">
+   <div class="container">
+    <p class="section-kicker">{t("EIN KREISLAUF – KEINE WAHRHEITSMASCHINE","A LOOP – NOT A TRUTH MACHINE")}</p>
+    <h2 id="uq-loop-title">{t("Aus Themen wachsen Grundfragen. Aus Prüfungen entstehen Rückwege.","Topics yield underlying questions. Tests create paths back.")}</h2>
+    <ol class="uq-loop">
+     <li><span>01</span><strong>{t("Sammeln","Collect")}</strong><p>{t("Öffentliche Projekttexte und Aussagen werden als Quellen erfasst. Die Maschine protokolliert Texttreffer, nicht Bedeutung.","Public project texts and claims are indexed. The scan records word matches, not meaning.")}</p></li>
+     <li><span>02</span><strong>{t("Verdichten","Synthesize")}</strong><p>{t("Redaktionell formulierte Grundfragen erhalten feste IDs, Gegenfragen und Herkunftsverweise.","Editorially phrased fundamental questions get stable IDs, counterquestions and source traces.")}</p></li>
+     <li><span>03</span><strong>{t("Widerlegen & prüfen","Challenge & test")}</strong><p>{t("Menschen prüfen Aussageart, Argumente, Belege, blinde Flecken und betroffene Perspektiven. Ein Dissens darf bleiben.","People examine claim types, arguments, evidence, blind spots and affected viewpoints. Disagreement may remain.")}</p></li>
+     <li><span>04</span><strong>{t("Zurückführen","Return findings")}</strong><p>{t("Erst nach dokumentierter menschlicher Freigabe erscheint eine begrenzte Teilantwort auch auf den zugeordneten Fachseiten. Neue Einwände öffnen sie erneut.","Only after documented human review does a bounded partial finding appear on the relevant domain pages. New objections can reopen it.")}</p></li>
+    </ol>
+    <p class="uq-scan">{t("Der reproduzierbare Wortmuster-Scan umfasst aktuell","The reproducible lexical scan currently covers")} <strong>{scan.corpus.file_count}</strong> {t("öffentliche Textquellen. Er ist keine semantische KI-Analyse und enthält keine privaten Gespräche. Auch die Auswahl der 16 Fragen ist kritisierbar.","public text sources. It is not a semantic AI analysis and includes no private conversations. The selection of 16 questions is itself contestable.")} <a href={pathFor(lang,"forschungsstrom")}>{t("Zum Forschungsstrom","Research stream")} ↗</a></p>
+    <p><a class="uq-text-link" href="https://github.com/AlexanderR1991/Wirklich/blob/main/docs/grundfragen-kreislauf.md">{t("Technische Regeln, Aufnahme und Rückführung","Technical rules, intake and return workflow")} ↗</a> · <a class="uq-text-link" href={pathFor(lang,"forum","fragenatlas")}>{t("Bestehender Fragenatlas im Forum","Existing question atlas in the forum")} →</a></p>
+   </div>
+  </section>
+
+  <section class="section section--paper uq-section" id="katalog" aria-labelledby="uq-list-title">
+   <div class="container">
+    <p class="section-kicker">{t("GRUNDFRAGEN · AUSGANGSFASSUNG 01","FUNDAMENTAL QUESTIONS · INITIAL EDITION 01")}</p>
+    <h2 id="uq-list-title">{t("Welche Frage berührt dich?","Which question matters to you?")}</h2>
+    <p>{t("Jede Frage zeigt, wo sie im bestehenden Werk entstanden ist und wohin Antworten später zurückkehren könnten. Quellverweise sind keine Belege für die Frage oder eine Antwort.","Each question shows where it arose in the current work and where findings could later return. Source links do not themselves prove any question or answer.")}</p>
+    <div class="uq-controls" data-uq-controls>
+      <label for="uq-query">{t("Im Katalog suchen","Search the catalogue")}
+        <input id="uq-query" data-uq-search type="search" autocomplete="off" placeholder={t("Wahrheit, Freiheit, Konsens…","Truth, liberty, consensus…")}/>
+      </label>
+      <label for="uq-theme">{t("Themenfamilie","Theme")}
+        <select id="uq-theme" data-uq-theme>
+          <option value="all">{t("Alle Themen","All themes")}</option>
+          {Object.entries(themeLabels).map(([id,title])=><option value={id}>{title[lang]}</option>)}
+        </select>
+      </label>
+      <p data-uq-count role="status">{questions.questions.length} {t("Grundfragen","questions")}</p>
+    </div>
+    <div class="uq-grid" data-uq-list>
+     {questions.questions.map(q=>{
+       const approved=findingsForQuestion(findings,q.id);
+       const relationList=relationsFor(q.id);
+       const matching=questionById.get(q.id);
+       return <article class="uq-card" id={q.id.toLowerCase()} data-uq-card data-theme={q.theme} data-search={JSON.stringify([q.id,q.question.de,q.question.en,q.why.de,q.why.en,q.challenge.de,q.challenge.en,q.topics.join(" ")].join(" ").toLowerCase())}>
+         <div class="uq-card__top"><span>{q.id} · {themeLabels[q.theme][lang]}</span><small>{t("UNGEPRÜFTE GRUNDFRAGE","UNREVIEWED QUESTION")}</small></div>
+         <h3>{q.question[lang]}</h3>
+         <p>{q.why[lang]}</p>
+         <p class="uq-challenge"><strong>{t("Gegenfrage:","Counterquestion:")}</strong> {q.challenge[lang]}</p>
+         <div class="uq-card__status"><span>{typeLabels[q.question_type][lang]}</span><span>{approved.length?t("Teilantwort nach Review","Reviewed partial finding"):t("Antwort offen","Finding open")}</span></div>
+         {approved.map(f=><div class="uq-approved">
+            <strong>{t("Geprüfte Teilantwort","Reviewed partial finding")} · {f.id}</strong>
+            <p>{f.answer[lang]}</p>
+            <p>{f.scope[lang]}</p>
+            <a href={f.review_url} target="_blank" rel="noopener noreferrer">{t("Review nachvollziehen","Inspect human review")} ↗</a>
+         </div>)}
+         <details class="uq-details">
+          <summary>{t("Herkunft und Rückwege","Sources and return routes")}</summary>
+          <p>{t("Aus diesen öffentlichen Passagen wurde die Frage redaktionell angeregt – nicht bewiesen:","These public passages prompted editorial synthesis; they do not prove the question:")}</p>
+          <ul>{q.source_paths.map(p=><li><a href={sourceLink(p)} target="_blank" rel="noopener noreferrer">{p.replace("docs/","")}</a></li>)}</ul>
+          <p>{t("Zugeordnete Fachbereiche, in denen später geprüfte Teilantworten sichtbar werden können:","Destination areas where reviewed partial findings can later appear:")}</p>
+          <ul>{q.return_routes.map(route=><li><a href={pathFor(lang,route)}>{route.replaceAll("-"," ")}</a></li>)}</ul>
+          {q.related_atlas_ids.length>0&&<p>{t("Bezug zum bisherigen Fragenatlas:","Related existing question atlas IDs:")} {q.related_atlas_ids.join(", ")}</p>}
+         </details>
+         {relationList.length>0&&<p class="uq-relations">{t("Verwandte Grundfragen:","Related fundamental questions:")} {relationList.map(r=><a href={"#"+(r.from===q.id?r.to:r.from).toLowerCase()}>{r.from===q.id?r.to:r.from}</a>)}</p>}
+         <a class="uq-text-link" href={issueLink} target="_blank" rel="noopener noreferrer">{t("Antwort, Einwand oder neue Frage vorschlagen","Propose a finding, objection or new question")} ↗</a>
+       </article>;
+     })}
+    </div>
+    <p class="uq-empty" data-uq-empty hidden>{t("Kein Treffer. Versuche eine andere Formulierung oder ein anderes Thema.","No result. Try another wording or theme.")}</p>
+   </div>
+  </section>
+
+  <section class="section uq-section" aria-labelledby="uq-contribute-title">
+    <div class="container uq-outro">
+      <p class="section-kicker">{t("MITDENKEN · ERKENNTNIS SAMMELN","CONTRIBUTE · COLLECT INQUIRY")}</p>
+      <h2 id="uq-contribute-title">{t("Vielleicht ist die wichtigste Grundfrage noch gar nicht gestellt.","Perhaps the most important fundamental question has not been asked yet.")}</h2>
+      <p>{t("Bringe eine fehlende Perspektive, ein Gegenbeispiel oder eine begrenzte Antwort ein. Beiträge werden als öffentliche GitHub-Issues zur menschlichen Prüfung vorgeschlagen; sie erscheinen nicht automatisch im Wissensbestand.","Offer a missing perspective, counterexample or bounded answer. Submissions are public GitHub issues for human review; they do not automatically enter the knowledge base.")}</p>
+      <p class="uq-privacy">{t("Keine persönlichen Konfliktgespräche, Gesundheitsdaten, private Nachrichten oder identifizierenden Angaben anderer Menschen veröffentlichen. GitHub-Beiträge sind öffentlich; eine vertrauliche Datensammlung existiert hier nicht.","Do not publish private conflicts, health records, messages or identifying details about others. GitHub submissions are public; this project does not offer confidential case storage.")}</p>
+      <div class="button-row">
+       <a class="button button--gold" href={issueLink} target="_blank" rel="noopener noreferrer">{t("Neue Grundfrage / Einwand einreichen","Submit a question / objection")} ↗</a>
+       <a class="button button--ghost" href={pathFor(lang,"erkenntnisnavigator")}>{t("Fragen erkunden","Explore questions")} →</a>
+      </div>
+    </div>
+  </section>
+ </div>
+</Layout>
+
+<script>
+  for(const root of document.querySelectorAll("[data-uq-controls]")){
+    const query=root.querySelector("[data-uq-search]");
+    const theme=root.querySelector("[data-uq-theme]");
+    const count=root.querySelector("[data-uq-count]");
+    const cards=[...document.querySelectorAll("[data-uq-card]")];
+    const empty=document.querySelector("[data-uq-empty]");
+    const en=document.documentElement.lang==="en";
+    const normalize=x=>x.toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g,"").trim();
+    const update=()=>{
+      const term=normalize(query.value),chosen=theme.value;
+      let visible=0;
+      for(const card of cards){
+        const contents=normalize(card.dataset.search||"");
+        const show=(!term||contents.includes(term))&&(chosen==="all"||card.dataset.theme===chosen);
+        card.hidden=!show;
+        if(show)visible++;
+      }
+      count.textContent=visible+(en?" questions":" Grundfragen");
+      empty.hidden=visible!==0;
+    };
+    query.addEventListener("input",update);
+    theme.addEventListener("change",update);
+  }
+</script>

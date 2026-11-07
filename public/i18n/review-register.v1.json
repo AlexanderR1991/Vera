@@ -126,6 +126,13 @@
         "source_commit": null,
         "review_url": null
       },
+      "grundfragen": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewed_at": null,
+        "source_commit": null,
+        "review_url": null
+      },
       "impressum": {
         "status": "draft",
         "reviewer": null,
@@ -425,6 +432,15 @@
       "review_url": null
     },
     "gesamtpruefung-baum.md": {
+      "status": "unassessed",
+      "priority": "support",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "grundfragen-kreislauf.md": {
       "status": "unassessed",
       "priority": "support",
       "target": null,

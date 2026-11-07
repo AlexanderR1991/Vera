@@ -29,6 +29,13 @@ const featuredQuestions = everydayQuestions.questions.slice(0, 3);
     </div>
   </section>
 
+  <section class="home-ai container" aria-labelledby="home-universal-title">
+    <p class="section-kicker">{lang==="de"?"DIE GRUNDFRAGEN · ALLE THEMEN VERBINDEN":"FUNDAMENTAL QUESTIONS · CONNECTING EVERY FIELD"}</p>
+    <h2 id="home-universal-title">{lang==="de"?"Welche Fragen stecken hinter unseren Fragen?":"What questions lie behind our questions?"}</h2>
+    <p>{lang==="de"?"Von Liebe bis Mathematik, von Politik bis Bewusstsein: 16 ungeprüfte, übergreifende Grundfragen mit Herkunft, Gegenfragen und Rückwegen in die Fachbereiche. Eine offene Forschungsagenda – kein fertiges Wahrheitsregister.":"From love to mathematics and politics to consciousness: 16 unreviewed cross-domain questions with sources, counterquestions and links back to the original subjects. An open research agenda—not a truth register."}</p>
+    <a class="home-link" href={pathFor(lang,"grundfragen")}>{lang==="de"?"Die Grundfragen erkunden":"Explore the fundamental questions"} →</a>
+  </section>
+
   <section class="home-forum container" aria-labelledby="home-forum-title">
     <p class="section-kicker">{ui[lang].titles.forum}</p>
     <h2 id="home-forum-title">{t.forumTitle}</h2>

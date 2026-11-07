@@ -34,6 +34,19 @@ Das [Emporirren-Konzept](emporirren.md) verbindet Spielen, die eigene Frage und 
 - [ ] Zugänglichen Beitragsweg ohne eigenes GitHub-Konto mit Einwilligung und Kapazitätsgrenze erproben
 - [ ] Unabhängige fachliche Mitwirkung und Vertretung parallel zum ersten Bestand gewinnen; KI-Rollen zählen nicht als unabhängige Personen
 
+## Querschnittsinfrastruktur · Der Grundfragen-Kreislauf (7. November 2026)
+
+[Übergreifende Grundfragen](grundfragen-kreislauf.md) werden aus den öffentlichen Fachthemen heraus als eigene **ungeprüfte Forschungsagenda** sichtbar. Sie ersetzen weder den Fragenatlas noch die Erkenntnisreife.
+
+- [x] 16 U-IDs mit DE/EN-Fragen, Herkunft, Gegenfragen, Themen- und Rückwegverweisen
+- [x] Reproduzierbarer, explizit **lexikalischer** Scan publizierter Textdateien; keine selbstständige semantische KI-Prüfung
+- [x] Zweisprachiger Katalog mit Suche, Kategorisierung und Quellenlinks; offener GitHub-Einreichungsweg
+- [x] Sicher getrenntes, derzeit **leeres** Prüfregister für Teilbefunde; rein lesende Rückprojektion auf Fachseiten
+- [ ] Unabhängige redaktionelle Prüfung der 16 Synthesen und ihrer Quellenverbindungen
+- [ ] Ersten tatsächlichen begrenzten Teilbefund mit geeigneten menschlichen Reviewern untersuchen
+- [ ] Nutzerstudie: Hilft die neue Schicht im Vergleich zur bisherigen Suche, fachübergreifende Probleme zu erkennen?
+- [ ] Nach Nutzen- und Governance-Prüfung eventuell semantische KI-Vorschläge und strukturiertes Feedback einbauen; **keine autonome Veröffentlichung**
+
 ## Querschnittsforschung · Die Brücke / M-02
 
 [M-02 · Die Mathematik des Dazwischen](mathematik-des-dazwischen.md) ergänzt die [Sprachprobe](schnittmengen.md) um einen **vorläufigen operationalen Unterschied** zwischen gerichteter Wiedergabegenauigkeit und inhaltlicher Übereinstimmung.
