@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "version": "CI-0.1",
+  "status": "unvalidated_architecture_hypothesis",
+  "date": "2026-11-07",
+  "title": {
+    "de": "Kollektive Intelligenz – ein gemeinsamer Erkenntnisprozess",
+    "en": "Collective Intelligence – a shared inquiry process"
+  },
+  "hypothesis": {
+    "de": "Koordinierte Menschen und begrenzte KI-Werkzeuge könnten echte Fehler besser erkennen, begründet zwischen Fachgebieten übertragen und aus Korrekturen lernen als mit einer brauchbaren Alternative.",
+    "en": "Coordinated people and bounded AI tools might detect real errors, transfer justified insights across fields and learn from correction better than a practical alternative."
+  },
+  "limits": {
+    "de": "Kein bewiesenes kollektives Bewusstsein, keine trainierte Superintelligenz, keine automatische Moral und derzeit kein verifizierter Live-Wissensgraph.",
+    "en": "No demonstrated collective consciousness, trained superintelligence, automatic morality or currently verified live knowledge graph."
+  },
+  "atlas_fields": [
+    "wirklichkeit",
+    "leben",
+    "bewusstsein",
+    "mensch",
+    "gesellschaft",
+    "handeln"
+  ],
+  "stages": [
+    {
+      "id": "CI-01",
+      "de": "Fragen und Stimmen aufnehmen",
+      "en": "Receive questions and voices",
+      "status": "pilot",
+      "basis": "GitHub Issues/Discussions; questions.json",
+      "risk": {
+        "de": "Wer wird übersehen?",
+        "en": "Who is missing?"
+      }
+    },
+    {
+      "id": "CI-02",
+      "de": "Versioniert erinnern",
+      "en": "Remember through versions",
+      "status": "pilot",
+      "basis": "Git history; claims.json",
+      "risk": {
+        "de": "Sind Gegenpositionen nachvollziehbar?",
+        "en": "Can objections be traced?"
+      }
+    },
+    {
+      "id": "CI-03",
+      "de": "Muster vorschlagen",
+      "en": "Suggest patterns",
+      "status": "pilot",
+      "basis": "Atlas; Themenbaum; Erkenntnisnavigator",
+      "risk": {
+        "de": "Ist Ähnlichkeit nur ein Worttreffer?",
+        "en": "Is similarity merely a word match?"
+      }
+    },
+    {
+      "id": "CI-04",
+      "de": "Belege und Einwände prüfen",
+      "en": "Examine evidence and objections",
+      "status": "pilot",
+      "basis": "META-01; R0–R4",
+      "risk": {
+        "de": "Finden wir echte Fehler oder nur Scheinwidersprüche?",
+        "en": "Do we find real errors or spurious challenges?"
+      }
+    },
+    {
+      "id": "CI-05",
+      "de": "Menschlich verantworten",
+      "en": "Make accountable human decisions",
+      "status": "human_review",
+      "basis": "Pull Requests; Governance",
+      "risk": {
+        "de": "Bleiben Einspruch und Minderheiten sichtbar?",
+        "en": "Can minorities and appeals remain visible?"
+      }
+    },
+    {
+      "id": "CI-06",
+      "de": "Folgen zurückführen",
+      "en": "Feed outcomes back",
+      "status": "planned",
+      "basis": "Evaluation; Projektobservatorium",
+      "risk": {
+        "de": "Verbessert das Lernen Ergebnisse oder nur Textmengen?",
+        "en": "Does learning improve outcomes or only text volume?"
+      }
+    }
+  ],
+  "guards": [
+    {
+      "de": "Die sechs Atlasfelder sind Themenräume, keine Gehirnmodule.",
+      "en": "The six atlas fields are topic domains, not brain modules."
+    },
+    {
+      "de": "Keine Mehrheit, KI-Stimmenzahl oder Ähnlichkeit beweist eine Aussage.",
+      "en": "Majorities, AI vote counts and similarity never prove claims."
+    },
+    {
+      "de": "Aussageart, Belege, Reife, Konsens, Werte und hypothetische Richtungswerte bleiben getrennt.",
+      "en": "Claim type, evidence, maturity, consensus, values and hypothetical direction scores remain distinct."
+    },
+    {
+      "de": "Korrekturen brauchen Herkunft, Einwand, Grund und menschliche Verantwortung.",
+      "en": "Revisions require provenance, objections, reasons and accountable people."
+    },
+    {
+      "de": "Kein autonomes Schreiben in öffentliche Diskussionen oder automatische redaktionelle Beförderung.",
+      "en": "No autonomous public discussion posting or editorial grade promotion."
+    },
+    {
+      "de": "Persönliche Daten, Nichtteilnahme und Rechte Betroffener werden geschützt.",
+      "en": "Protect personal data, the right not to participate and affected people's rights."
+    }
+  ],
+  "tests": [
+    {
+      "de": "Fehlererkennung gegen normale Quellensuche bei vergleichbarem Zeitbudget prüfen.",
+      "en": "Compare error detection with ordinary source checking at similar time budgets."
+    },
+    {
+      "de": "Falsche fachübergreifende Verbindungen und Bestätigungsfehler messen.",
+      "en": "Measure false cross-domain connections and confirmation bias."
+    },
+    {
+      "de": "Prüfen, ob ernsthafte Minderheiteneinwände Revisionen tatsächlich beeinflussen.",
+      "en": "Test whether substantiated minority objections really influence revisions."
+    },
+    {
+      "de": "Prüfen, ob spätere Urteile besser werden statt nur länger und teurer.",
+      "en": "Test whether later judgments improve instead of becoming longer and costlier."
+    }
+  ],
+  "related_draft": {
+    "name": "Bedingter moralischer Richtungsindex (separater Forschungsentwurf)",
+    "url": "https://github.com/AlexanderR1991/Wirklich/pull/73",
+    "status": "open_unvalidated"
+  }
+}

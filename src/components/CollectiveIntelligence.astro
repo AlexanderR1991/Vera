@@ -1,0 +1,60 @@
+---
+import Layout from "../layouts/SiteLayout.astro";
+import {pathFor,base} from "../lib/paths.mjs";
+import project from "../../public/project.json";
+import model from "../../public/protocol/collective-intelligence.v0.json";
+const {lang="de"}=Astro.props;
+const en=lang==="en";
+const t=(de,eng)=>en?eng:de;
+---
+<Layout lang={lang} slug="kollektive-intelligenz" description={model.hypothesis[lang]}>
+<article class="container collective">
+<header>
+<p class="section-kicker">{t("WIRKLICH · GRUNDIDEE · ENTWURF","WIRKLICH · FOUNDING IDEA · DRAFT")} {model.version}</p>
+<h1>{t("Eine neue Form","A new form")}<br/><em>{t("gemeinsamen Denkens.","of thinking together.")}</em></h1>
+<p class="collective-lead">{t("Nicht eine Intelligenz, die für die Menschheit denkt. Ein System, in dem Menschen miteinander besser denken können.","Not an intelligence that thinks for humanity. A system that could help people think better together.")}</p>
+<p>{model.hypothesis[lang]}</p><p class="collective-warning">{t("Architekturhypothese – nicht bewiesene kollektive Intelligenz.","Architecture hypothesis – not proven collective intelligence.")}</p>
+<div class="button-row"><a class="button button--gold" href="#kreislauf">{t("Den Lernkreislauf ansehen","Explore the learning loop")} ↓</a><a class="button button--ghost" href={pathFor(lang,"atlas")}>{t("Unseren Atlas ansehen","See our atlas")} →</a></div>
+</header>
+<section id="karte"><p class="section-kicker">{t("DIE KARTE","THE MAP")}</p>
+<h2>{t("Unser Atlas ist die Landkarte. Nicht schon das Gehirn.","Our atlas is the map. Not yet the brain.")}</h2>
+<p>{t("Wirklichkeit, Leben, Bewusstsein, Der Mensch, Gesellschaft und Handeln sind Themenräume. Durch Menschen, Fragen, begründete Verbindungen und Revisionen könnte daraus mehr als eine Sammlung werden. Die Ähnlichkeit zur KI ist funktional, nicht neurologisch.","Reality, life, consciousness, the human, society and action are topic domains. People, questions, justified connections and revision might make this more than a collection. The AI parallel is functional, not neurological.")}</p>
+<p>{model.limits[lang]} <a href={pathFor(lang,"baum-des-wissens")}>{t("Zum Themenbaum","Visit the topic tree")} →</a></p></section>
+<section id="kreislauf"><p class="section-kicker">{t("SECHS FUNKTIONEN · EIN REGELKREIS","SIX FUNCTIONS · ONE FEEDBACK LOOP")}</p>
+<h2>{t("So könnte das System gemeinsam lernen.","How the system might learn together.")}</h2>
+<ol class="collective-steps">{model.stages.map(step=><li>
+<span class="collective-id">{step.id} · {step.status==="planned"?t("GEPLANT","PLANNED"):step.status==="human_review"?t("MENSCHLICH","HUMAN"):t("PILOT","PILOT")}</span>
+<h3>{step[lang]}</h3><p>{step.basis}</p><p><strong>{t("Prüffrage:","Challenge:")}</strong> {step.risk[lang]}</p>
+</li>)}</ol>
+<p>{t("Ein neuer Einwand darf jede frühere Stufe öffnen. Niemand stimmt automatisch zu, und kein Agent darf selbst eine geprüfte Aussage veröffentlichen.","An objection may reopen any earlier stage. No automatic consensus, and no AI agent can independently publish verified claims.")} <a href={pathFor(lang,"regelkreis")}>{t("META-01 lesen","Read META-01")} →</a></p></section>
+<section id="grenzen"><p class="section-kicker">{t("GEGEN DIE EIGENE IDEE DENKEN","CHALLENGE THE IDEA ITSELF")}</p>
+<h2>{t("Ein Kollektiv kann sich auch gemeinsam irren.","A collective can be wrong together.")}</h2>
+<ul>{model.guards.map(g=><li>{g[lang]}</li>)}</ul>
+<p>{t("Ein moralischer Richtungsindex ist eine separate, noch ungeprüfte Forschungsfrage. Mehr Daten allein erzeugen keine Moral.","A moral direction index is a separate unvalidated proposal. More data do not automatically create morality.")} <a href={model.related_draft.url}>{t("Offenen Entwurf prüfen","Examine open proposal")} ↗</a></p></section>
+<section id="testen"><p class="section-kicker">{t("FALSIFIZIEREN STATT BEHAUPTEN","TEST, DON'T ASSERT")}</p>
+<h2>{t("Woran muss sich unsere Grundidee messen lassen?","What would count against our founding idea?")}</h2>
+<ol>{model.tests.map(x=><li>{x[lang]}</li>)}</ol>
+<p>{t("Wir brauchen unabhängige Vergleiche. Ein Null- oder Negativbefund muss das Konzept verändern dürfen.","We need independent comparisons. Null or negative findings must be able to change the concept.")}</p>
+<div class="collective-links"><a href={base+"protocol/collective-intelligence.v0.json"}>{t("Datenvertrag CI-0.1","Data contract CI-0.1")} →</a>
+<a href={project.repository+"/blob/main/docs/kollektive-intelligenz.md"}>{t("Architektur und Gegenproben","Architecture and challenges")} ↗</a>
+<a href={project.repository+"/issues/new?template=idee.yml"}>{t("Widersprechen und mitarbeiten","Challenge and contribute")} ↗</a></div>
+</section>
+</article></Layout>
+<style>
+.collective{padding-block:clamp(2rem,5vw,5rem)}
+.collective header{max-width:67rem;padding-bottom:3rem}
+.collective h1{font:clamp(3rem,6vw,5.7rem)/1.07 var(--serif);letter-spacing:-.03em;margin:.5rem 0 1.7rem}
+.collective h1 em{color:var(--gold-bright)}
+.collective-lead{font:clamp(1.3rem,2.6vw,2rem)/1.4 var(--serif);color:var(--gold-bright)}
+.collective-warning{color:var(--gold)}
+.collective section{border-top:1px solid var(--line);padding-block:3rem;scroll-margin-top:6rem}
+.collective h2{font:clamp(1.8rem,3.5vw,3rem)/1.2 var(--serif)}
+.collective section>p{max-width:58rem}
+.collective a{color:var(--gold-bright)}
+.collective-steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;padding:0;list-style:none}
+.collective-steps li{padding:1.4rem;border:1px solid var(--line);background:#121819}
+.collective-steps h3{font:clamp(1.2rem,2vw,1.5rem)/1.3 var(--serif);margin:.7rem 0}
+.collective-id{color:var(--gold);font-size:.8rem}
+.collective-links{display:flex;flex-wrap:wrap;gap:1.5rem}
+@media(max-width:700px){.collective-steps{grid-template-columns:1fr}}
+</style>
