@@ -68,6 +68,7 @@ const example = en ? {
       <div class="workbench-output">
         <p class="section-kicker">{t("DEIN ENTWURF", "YOUR DRAFT")}</p><h2 id="workbench-output-title">{t("Weitergeben, weiterdenken.","Share it, keep thinking.")}</h2>
         <p data-inquiry-completion aria-live="polite">{t("Offene Felder sind erlaubt.","Open fields are allowed.")}</p>
+        <div role="status"><p class="workbench-help" data-inquiry-curiosity hidden></p></div>
         <details><summary>{t("Textvorschau öffnen", "Open text preview")}</summary><pre data-inquiry-preview></pre></details>
         <div class="workbench-actions"><button type="button" disabled data-js-control data-export-text>{t("Text exportieren (.txt)", "Export text (.txt)")}</button><button type="button" disabled data-js-control data-export-json>{t("Prüfblatt exportieren (.json)", "Export worksheet (.json)")}</button></div>
         <details>

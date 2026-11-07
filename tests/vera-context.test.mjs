@@ -46,6 +46,8 @@ test("Vera exports the selected language from HEAD even with staged and unstaged
   assert.match(english, /Disagree with care/);
   assert.doesNotMatch(german, /Disagree with care/);
   assert.doesNotMatch(english, /Fürsorglich widersprechen/);
+  assert.match(german, /Neugier auf das, was die Antwort ändern kann/);
+  assert.match(english, /Be curious about what could change the answer/);
 });
 
 test("Vera rejects an unsupported language without exporting context", () => {

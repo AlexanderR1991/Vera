@@ -38,6 +38,27 @@ export function missingInquiryFields(note) {
   return inquiryFields.filter(key => !text(note[key]));
 }
 
+const curiosityPrompts = {
+  empirical: ["support", "Welche Beobachtung würde zwischen den plausiblen Antworten unterscheiden?", "What observation would distinguish the plausible answers?"],
+  formal: ["scope", "Von welcher Voraussetzung hängt die Schlussfolgerung ab?", "Which premise does the conclusion depend on?"],
+  normative: ["positions", "Wessen Sicht fehlt, und wie könnte sie die Entscheidung ändern?", "Whose perspective is missing, and how could it change the decision?"],
+  interpretive: ["positions", "Wessen eigene Beschreibung könnte deine Deutung verändern?", "Whose own account could change your interpretation?"],
+  metaphor: ["scope", "Wo endet der Vergleich, und was ändert sich dadurch?", "Where does the comparison break down, and what does that change?"]
+};
+const commonCuriosityPrompts = [
+  ["objection", "Welche andere Erklärung könnte zu einer anderen Antwort führen?", "What alternative explanation could lead to a different answer?"],
+  ["revision", "Welches Ergebnis würde deine Antwort ändern?", "What result would change your answer?"],
+  ["action", "Was kannst du als Nächstes konkret prüfen?", "What can you check next?"]
+];
+
+export function nextInquiryQuestion(note) {
+  if ((!note.question && !note.claim) || note.action) return "";
+  const preferred = curiosityPrompts[note.type];
+  const prompts = preferred ? [preferred, ...commonCuriosityPrompts] : commonCuriosityPrompts;
+  const prompt = prompts.find(([field]) => !note[field]);
+  return prompt[note.lang === "en" ? 2 : 1];
+}
+
 const labels = {
   de: {question:"Frage", claim:"Vorläufige Aussage", scope:"Begriffe, Geltungsbereich und Voraussetzungen", support:"Belege oder Gründe und deren Grenzen", positions:"Zustimmung, Dissens und fehlende Perspektiven", objection:"Stärkster Einwand und andere Erklärung", revision:"Was würde meine Position ändern?", action:"Nächster Schritt, Betroffene und Abbruchbedingung"},
   en: {question:"Question", claim:"Provisional claim", scope:"Terms, scope and premises", support:"Evidence or reasons and their limits", positions:"Agreement, disagreement and missing perspectives", objection:"Strongest objection and alternative explanation", revision:"What would change my position?", action:"Next step, affected people and stopping condition"}

@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import {createInquiry,parseInquiry,inquiryMarkdown,inquiryFields,missingInquiryFields,maxFieldLength,maxInquiryFileSize} from "../src/lib/inquiry.mjs";
+import {createInquiry,parseInquiry,inquiryMarkdown,inquiryFields,missingInquiryFields,maxFieldLength,maxInquiryFileSize,nextInquiryQuestion} from "../src/lib/inquiry.mjs";
 import {summarizeProject} from "../src/lib/project-status.mjs";
 import {claimReviewFingerprint} from "../src/lib/claims.mjs";
 
@@ -91,6 +91,18 @@ test("three-step notes remain unclassified and round-trip without invented detai
   for (const key of ["claim","scope","support","positions","revision"]) assert.equal(note[key],"");
   assert.match(inquiryMarkdown(note),/Aussageart: Noch nicht eingeordnet/);
   assert.match(inquiryMarkdown(createInquiry(values,"en")),/Claim type: Not classified yet/);
+});
+
+test("curiosity prioritizes one probe by claim type and stops at a recorded next step", () => {
+  const values = {question:"Kommt der Bus abends oft zu spät?", type:"empirical"};
+  const next = patch => nextInquiryQuestion(createInquiry({...values, ...patch}));
+  assert.equal(next({question:"  "}), "");
+  assert.match(next({}), /^Welche Beobachtung/);
+  assert.match(next({support:"Zwei verspätete Fahrten"}), /^Welche andere Erklärung/);
+  assert.match(next({type:"normative"}), /^Wessen Sicht fehlt/);
+  assert.match(next({support:"Fahrplan und Ankunftszeiten", objection:"Baustelle", revision:"Vergleich ohne Baustelle"}), /^Was kannst du als Nächstes/);
+  assert.equal(next({action:"Ankunftszeiten derselben Linie mit dem Fahrplan vergleichen"}), "");
+  assert.match(nextInquiryQuestion(createInquiry({claim:"The comparison holds.", type:"metaphor"},"en")), /^Where does the comparison break down/);
 });
 
 test("previous version-one detailed exports retain their classification and every field", () => {

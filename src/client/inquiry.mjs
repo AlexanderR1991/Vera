@@ -1,4 +1,4 @@
-import {createInquiry, parseInquiry, inquiryFields, inquiryMarkdown, maxInquiryFileSize} from "../lib/inquiry.mjs";
+import {createInquiry, parseInquiry, inquiryFields, inquiryMarkdown, maxInquiryFileSize, nextInquiryQuestion} from "../lib/inquiry.mjs";
 
 const root = document.querySelector("[data-inquiry-workbench]");
 if (root) {
@@ -7,6 +7,7 @@ if (root) {
   const form = root.querySelector("form");
   const status = root.querySelector("[data-inquiry-status]");
   const preview = root.querySelector("[data-inquiry-preview]");
+  const curiosity = root.querySelector("[data-inquiry-curiosity]");
   const storeKey = "wirklich.inquiry.v1";
   const t = (de, english) => en ? english : de;
   const read = () => createInquiry(Object.fromEntries(new FormData(form)), lang);
@@ -16,6 +17,10 @@ if (root) {
     root.querySelector("[data-inquiry-completion]").textContent = t("Du entscheidest, was offen bleibt. Deine Notizen sind noch kein geprüfter Befund.", "You decide what to leave open. Your notes are not a reviewed finding.");
     const guide = root.querySelector(`[data-type-guide="${note.type}"]`);
     root.querySelector("[data-inquiry-types]").textContent = guide.querySelector("p").textContent;
+    const question = nextInquiryQuestion(note);
+    const suggestion = question ? `${t("Vorschlag für deine nächste Prüffrage", "Suggested next question")}. ${question}` : "";
+    curiosity.hidden = !suggestion;
+    if (curiosity.textContent !== suggestion) curiosity.textContent = suggestion;
     return note;
   };
   const write = note => {
