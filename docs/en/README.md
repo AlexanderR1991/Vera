@@ -25,3 +25,7 @@ You need not be a programmer. Use the [translation review issue](https://github.
 A successful automated build guarantees **structural coverage**, not the truth or philosophical accuracy of a translation. English text may be called reviewed only after a named person documents the source revision, date, and public review decision. That review is not automatically independent. See the [internationalization policy and release checklist](../internationalisierung.md).
 
 Source repository: https://github.com/AlexanderR1991/Wirklich
+
+## M-02 · Mathematics Between Minds
+
+The provisional [M-02 research proposal](../mathematik-des-dazwischen.md) provides an English précis and a bilingual [toy demonstration](https://alexanderr1991.github.io/Wirklich/en/die-bruecke/). It separates directed accuracy of restatement from agreement, and distinguishes a formal illustration from an untested psychological hypothesis. This is **not** a validated scale, proved ethics system or independently reviewed publication.

@@ -56,6 +56,13 @@
         "source_commit": null,
         "review_url": null
       },
+      "die-bruecke": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewed_at": null,
+        "source_commit": null,
+        "review_url": null
+      },
       "erkenntnishorizont": {
         "status": "draft",
         "reviewer": null,
@@ -472,6 +479,15 @@
       "review_url": null
     },
     "license-options.md": {
+      "status": "unassessed",
+      "priority": "support",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "mathematik-des-dazwischen.md": {
       "status": "unassessed",
       "priority": "support",
       "target": null,

@@ -98,3 +98,13 @@ We invite mathematicians, logicians, philosophers, statisticians and critical re
 ---
 
 **Die Wirklichkeit steht über diesem Werk. / Reality stands above this work.**
+
+## 7. M-02 · Die Mathematik des Dazwischen / Mathematics Between Minds
+
+**Status: eigenständiger, unbegutachteter Forschungsentwurf (7. November 2026).** M-02 ist **keine** Folgerung aus der +1/−1-Heuristik und kein Beweis über objektive Moral.
+
+Wir trennen die **Genauigkeit einer gerichteten Wiedergabe** (`V(B→A)` und `V(A→B)`) von der **inhaltlichen Übereinstimmung** (`K`). Elementare Zahlenbeispiele zeigen, dass perfektes Wiedergeben mit vollständig gegensätzlichen Antworten vereinbar ist und vollständige Übereinstimmung die korrekte Wiedergabe gerade **nicht** erzwingt. Die empirische Wirksamkeit eines Gesprächsverfahrens ist damit nicht gezeigt.
+
+[Definitionen, Gegenbeispiele, Annahmen, Falsifikation und Schutzgrenzen](mathematik-des-dazwischen.md) · [Website DE](https://alexanderr1991.github.io/Wirklich/de/die-bruecke/) · [Website EN](https://alexanderr1991.github.io/Wirklich/en/die-bruecke/) · [Offene Sprachprobe](schnittmengen.md)
+
+**Prüffragen:** Tragen die Skalenannahmen? Wie unterscheiden wir echte Verständigung von bloßem Erraten, strategischer Anpassung oder erzwungener Zustimmung? Was würde unsere Hypothese in einer vorab registrierten Studie widerlegen?
