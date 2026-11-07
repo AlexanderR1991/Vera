@@ -244,6 +244,13 @@
         "reviewed_at": null,
         "source_commit": null,
         "review_url": null
+      },
+      "kollektive-moral": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewed_at": null,
+        "source_commit": null,
+        "review_url": null
       }
     }
   },
@@ -585,6 +592,15 @@
       "status": "unassessed",
       "priority": "support",
       "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "kollektive-moral.md": {
+      "status": "draft",
+      "priority": "core",
+      "target": "docs/en/collective-morality.md",
       "reviewer": null,
       "reviewed_at": null,
       "source_commit": null,
