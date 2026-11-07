@@ -27,6 +27,10 @@ Dies ist die **leitende Auslegungsregel für die Arbeitsweise** von WIRKLICH –
 
 Eine veröffentlichte Antwort kann **beibehalten, eingegrenzt, korrigiert, zurückgezogen oder offen gelassen** werden. Im letzten Fall benennen wir, was fehlt. Ein Review ist kein Beweis. Eine hohe Reifestufe bleibt rückstufbar. Wir suchen Gemeinsamkeiten, aber erzwingen keine Einigkeit.
 
+### Was wir bei einem −1 tun
+
+Ein −1 ist hier ein begründeter Hinweis auf einen Fehler oder eine schädliche Folge. Bei einem Einwand prüfen wir zuerst, ob er zutrifft. Erkannte Fehler korrigieren wir im zulässigen Rahmen und prüfen die Wirkung. Scheitert der erste Versuch, suchen wir einen anderen sicheren Weg, solange er begründet und verhältnismäßig ist. Können wir den Fehler oder seine Folgen nur teilweise beheben, begrenzen wir den verbleibenden Schaden soweit möglich und benennen, was bestehen bleibt. Ist eine Klärung blockiert, halten wir fest, welcher Beleg, welche Voraussetzung oder wessen Entscheidung den nächsten Schritt ermöglicht. Bis zur Prüfung der Wirkung bleibt der Fall offen.
+
 ## Mindestprotokoll für substanzielle Änderungen
 
 Der Pull Request oder der zugehörige Registereintrag hält fest: **bisherige Fassung und Version; Aussageart und Geltungsbereich; stärkster bekannter Einwand; denkbarer Revisionsauslöser; Entscheidung; neuer oder offener Stand; Begründung, menschlich verantwortliche Person und Datum.** Redaktionelle Kleinkorrekturen dürfen kürzer dokumentiert werden; wesentliche Regeländerungen folgen zusätzlich dem bestehenden [öffentlichen Governance-Verfahren](community-governance.md#wer-darf-die-regeln-ändern--who-can-change-the-rules).
@@ -61,6 +65,10 @@ Maschinenlesbare, unverbindliche Darstellung: [self-correction.v1.json](../publi
 ### Correction loop
 
 **Frame → Classify → Challenge → Examine → Decide → Record → Repeat.** Outcomes may be *retain, narrow, correct, withdraw or leave open*. Genuine disagreement can remain unresolved. A newly discovered objection can reopen even a highly reviewed claim.
+
+#### What we do when we find a −1
+
+Here, −1 is a substantiated indication of an error or harmful consequence. When someone raises an objection, first examine whether it holds. Correct confirmed errors within the scope of your authority and check the result. If the first attempt fails, look for a different safe approach while it is justified and proportionate. If only part of the error or its effects can be addressed, limit the remaining harm where feasible and state what persists. If resolution is blocked, record the evidence, prerequisite or human decision that would enable the next step. Keep the case open until the outcome can be checked.
 
 For a **substantive public revision**, document the old revision, claim type and scope, strongest objection, revision condition, outcome, new wording or explicit open state, reasons, date and responsible human. Minor copy edits can use a lighter record. Changes to the rules also follow the existing public [governance procedure](community-governance.md).
 

@@ -9,6 +9,8 @@
 
 The [contestable correction rule](docs/selbstkorrektur.md) and [structured protocol](public/protocol/self-correction.v1.json) set out how an objection can *enable revision*, never manufacture agreement. A well-founded challenge may lead to retaining, narrowing, revising, withdrawing or leaving a claim openly unresolved. Critique this rule, too. The current maintainer remains responsible for publication.
 
+When you find an error in your own work or a harmful consequence (−1), correct what you can and check the result. If full correction is blocked or impossible, limit remaining harm where feasible. State what remains open and identify the missing prerequisite, the evidence that would reopen review, or the human decision needed. If an attempt fails, try a different safe approach where warranted. Mark the issue resolved only after a check supports that conclusion.
+
 Autonomous assistants, research agents, skeptical models, and human reviewers are invited to find the *strongest substantive counterargument* to the project's published claims. The purpose is correction, not victory in debate.
 
 ## Project identity: Open-source AI in development / Open-Source-KI im Aufbau
