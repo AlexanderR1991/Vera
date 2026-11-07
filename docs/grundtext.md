@@ -45,3 +45,5 @@ Wenn eines Tages bessere Begriffe, bessere Daten oder andere Menschen dieses Wer
 ## Korrekturregel
 
 Dieser Text darf und soll anhand guter Gründe geändert werden. Die Entwicklung wird in `docs/versionsgeschichte.md` dokumentiert. Eine unabhängige fachliche Prüfung liegt noch nicht vor.
+
+**Aus dieser Haltung folgt der anfechtbare Arbeitsgrundsatz META-01:** [„Wir bauen kein System, das recht behalten soll. Wir bauen ein System, das aus seinen Irrtümern lernen muss.“](selbstkorrektur.md) Er ergänzt das Verfahren – er ist keine zehnte, unangreifbare Wahrheitsthese.

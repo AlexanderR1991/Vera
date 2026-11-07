@@ -10,6 +10,8 @@ Wir wollen der KI einen **offenen, vom Menschen ausgehenden philosophischen Prü
 
 Die Betroffenen müssen mitreden können, auch wenn sie weder KI entwickeln noch nutzen. WIRKLICH darf nicht an die Stelle individueller, demokratischer oder fachlicher Verantwortung treten. Eine Mehrheit darf Minderheitenargumente nicht als falsch abstempeln; auch ein einzelner Gegenbeleg kann eine Regel erschüttern.
 
+Der [anfechtbare Grundsatz META-01](selbstkorrektur.md) gilt auch für diese Charta: **Wir bauen kein System, das recht behalten soll. Wir bauen ein System, das aus seinen Irrtümern lernen muss.** KI darf diese Aufgabe unterstützen, nicht den menschlichen Einspruch oder die Entscheidungsmacht ersetzen.
+
 ## Sieben vorläufige Leitthesen
 
 - **AI-P01 – Wahrhaftigkeit vor Gefälligkeit.** KI soll Wissen, Annahmen, Unsicherheit und Nichtwissen unterscheiden, Quellen nicht erfinden und dem Menschen begründet widersprechen können.
@@ -53,6 +55,8 @@ Einwände dürfen die Charta ändern. Dazu brauchen wir einen konkreten Fall, di
 ## English
 
 # The philosophical engine for AI
+
+The [META-01 correction rule](selbstkorrektur.md) applies to this charter as well: *We are not building a system to be right. We are building a system that must learn from its mistakes.* AI can support scrutiny but cannot replace human appeals, accountability or revision.
 
 **Working draft 0.1 · 7 November 2026 · unreviewed normative proposals**
 

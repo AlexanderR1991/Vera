@@ -8,7 +8,7 @@ const {lang="de"}=Astro.props;
 const en=lang==="en";
 const t=(de,english)=>en?english:de;
 const sections = [
- ["menschen", t("Menschen", "People")], ["philosophie", t("Philosophie", "Philosophy")],
+ ["regelkreis", t("Regelkreis", "Correction loop")], ["menschen", t("Menschen", "People")], ["philosophie", t("Philosophie", "Philosophy")],
  ["forschung", t("Forschung", "Research")], ["erkenntnis", t("Aussagearten", "Kinds of claim")],
  ["entscheidungen", t("Entscheidungen", "Decisions")], ["ki-motor", t("KI und Mensch", "AI and humanity")], ["stand", t("Verantwortung", "Accountability")]
 ];
@@ -19,6 +19,9 @@ const sections = [
  <h1>{t("Was können wir gemeinsam herausfinden?", "What can we find out together?")}</h1>
  <p class="mission-lead">{t("Am Anfang steht eine Frage, die für jemanden etwas bedeutet. Wir bringen Erfahrungen, Fachwissen und Einwände zusammen. Unsere Aufgabe ist, eine Antwort so zu begründen, dass ein anderer Mensch sie prüfen und ändern kann.", "We start with a question that matters to someone. We bring experience, expertise and objections together. Our job is to give reasons for an answer that another person can examine and revise.")}</p>
  <nav class="mission-toc" aria-label={t("Auf dieser Seite","On this page")}>{sections.map(([id,label])=><a href={"#"+id}>{label}</a>)}</nav></header>
+ <section id="regelkreis"><h2>{t("Nicht Recht behalten. Aus Irrtümern lernen.","Not to be right. To learn from mistakes.")}</h2>
+ <p>{t("Unser selbstkorrigierender Grundsatz META-01 ist eine anfechtbare Arbeitsregel: Jede Frage bekommt eine faire Prüfung, ein besserer Einwand kann die Antwort ändern, und die alte Fassung bleibt nachvollziehbar. Dieses Verfahren ist eine Hypothese über gutes gemeinsames Lernen, kein bereits erbrachter Wirksamkeitsnachweis.","Our contestable meta-rule META-01 treats every question as open to fair examination, better objections as reasons to reconsider, and old versions as part of the record. This is a hypothesis about collective learning, not evidence that the method already works.")}</p>
+ <a class="subtle-link" href={pathFor(lang,"regelkreis")}>{t("Zehn Arbeitsregeln und den Regelkreis ansehen","Read the ten working rules and correction loop")} →</a></section>
  <section id="menschen"><h2>{t("Wir sind Menschen.", "We are people.")}</h2>
  <p>{t("Zwei Menschen können dieselbe Situation erleben und Verschiedenes daran wichtig finden. Wer betroffen ist, kann uns sagen, was in unserer Beschreibung fehlt. Wer widerspricht, soll zeigen können, an welcher Stelle sich unsere Antwort ändern müsste. Manchmal verstehen wir danach genauer, worüber wir uns weiterhin uneinig sind.", "Two people can live through the same situation and find different things important about it. Someone affected can tell us what our account leaves out. Someone who disagrees can point to the part of our answer that needs to change. Sometimes what we gain is a clearer understanding of where we still disagree.")}</p>
  <a class="subtle-link" href={pathFor(lang,"methode")+"#g-005"}>{t("Wie ein Einwand unsere fünfte These verändert hat", "How an objection changed our fifth thesis")} →</a></section>

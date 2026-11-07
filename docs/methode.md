@@ -2,6 +2,8 @@
 
 Wir entscheiden, welche Fassung wir mit welchen Gründen veröffentlichen. Eine Behauptung kann auch nach der Veröffentlichung falsch sein. Deshalb muss ein Leser erkennen können, worauf sie beruht und was zu ihrer Korrektur führen würde.
 
+**META-01:** [Wir bauen kein System, das recht behalten soll. Wir bauen ein System, das aus seinen Irrtümern lernen muss.](selbstkorrektur.md) Der Satz gilt als **anfechtbare Verfahrensregel**: Ein guter Einwand führt zur Prüfung; das Ergebnis darf auch Beibehaltung oder offener Dissens sein.
+
 ## Verfahren
 
 1. **Den Satz festhalten.** Frage, konkreten Wortlaut, Version und Geltungsbereich angeben. Enthält der Satz eine Annahme über die Welt und ein Werturteil, beide getrennt formulieren.
@@ -39,6 +41,8 @@ Der [Erkenntnisnavigator](erkenntnisnavigator.md) ergänzt die Prüfung um die F
 Die vier Karten des ersten Piloten sind redaktionelle Entwürfe. Auswahl und Bedingungsprüfung sind keine unabhängige Fachprüfung und ändern keine Registerzustände. Rückmeldungen zu beobachteten Folgen können eine Korrektur anregen; sie beweisen für sich genommen weder Kausalität noch allgemeine Wirksamkeit.
 
 ## English
+
+**META-01:** [We are not building a system to be right. We are building a system that must learn from its mistakes.](selbstkorrektur.md) This is a *contestable process rule*, not a guarantee of correct outcomes. An objection triggers careful review, not compulsory agreement.
 
 Record the exact claim, its scope and the version being examined. Separate assumptions about the world from value judgments. Choose a test suited to the claim. Compare evidence for empirical claims, check premises and derivations for formal ones, examine values and affected perspectives for normative ones, compare readings for interpretations and identify the limits of metaphors.
 

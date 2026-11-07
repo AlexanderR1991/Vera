@@ -1,0 +1,230 @@
+{
+  "schema_version": 1,
+  "protocol_version": "0.1.0",
+  "status": "editorial_normative_draft",
+  "principle_id": "META-01",
+  "date": "2026-11-07",
+  "motto": {
+    "de": "Wir bauen kein System, das recht behalten soll. Wir bauen ein System, das aus seinen Irrtümern lernen muss.",
+    "en": "We are not building a system to be right. We are building a system that must learn from its mistakes."
+  },
+  "source": "https://github.com/AlexanderR1991/Wirklich/blob/main/docs/selbstkorrektur.md",
+  "purpose": {
+    "de": "Öffentlich überprüfbarer Grundsatz für ein lernendes, menschlich verantwortetes Erkenntnissystem.",
+    "en": "Publicly challengeable principle for a learning inquiry system with human accountability."
+  },
+  "principles": [
+    {
+      "id": "SC-01",
+      "title": {
+        "de": "Jede Frage zählt",
+        "en": "Every question matters"
+      },
+      "test": {
+        "de": "Gibt es einen zugänglichen Raum für diese Frage – auch ohne Fachwissen?",
+        "en": "Can someone raise this question without specialist knowledge?"
+      }
+    },
+    {
+      "id": "SC-02",
+      "title": {
+        "de": "Jeder Satz ist anfechtbar",
+        "en": "Every claim is challengeable"
+      },
+      "test": {
+        "de": "Lässt sich auch diese Regel mit Gründen kritisieren und ändern?",
+        "en": "Can this rule itself be challenged and revised with reasons?"
+      }
+    },
+    {
+      "id": "SC-03",
+      "title": {
+        "de": "Die Prüfung passt zur Aussage",
+        "en": "Use a fitting method"
+      },
+      "test": {
+        "de": "Trennen wir Fakten, Formales, Werte, Deutungen und Metaphern?",
+        "en": "Do we distinguish evidence, proof, values, interpretation and metaphor?"
+      }
+    },
+    {
+      "id": "SC-04",
+      "title": {
+        "de": "Der stärkste Einwand wird gesucht",
+        "en": "Seek the strongest objection"
+      },
+      "test": {
+        "de": "Kennen wir die faire Gegenposition und eine echte Revisionsbedingung?",
+        "en": "Have we stated the strongest fair objection and a revision condition?"
+      }
+    },
+    {
+      "id": "SC-05",
+      "title": {
+        "de": "Belege zählen, nicht Stimmen",
+        "en": "Reasons outweigh votes"
+      },
+      "test": {
+        "de": "Bleibt der begründete Minderheiteneinwand trotz Mehrheiten sichtbar?",
+        "en": "Does reasoned minority dissent remain visible despite a majority?"
+      }
+    },
+    {
+      "id": "SC-06",
+      "title": {
+        "de": "Unsicherheit bleibt sichtbar",
+        "en": "Keep uncertainty visible"
+      },
+      "test": {
+        "de": "Ist der Status ehrlich, ohne erfundene Prozentwerte oder Prüfung?",
+        "en": "Is the status honest without fabricated probabilities or reviews?"
+      }
+    },
+    {
+      "id": "SC-07",
+      "title": {
+        "de": "Korrektur hinterlässt Spuren",
+        "en": "Corrections leave a trail"
+      },
+      "test": {
+        "de": "Sind alte und neue Fassung, Begründung und verantwortlicher Mensch verknüpft?",
+        "en": "Can readers trace the old and new wording, rationale and accountable person?"
+      }
+    },
+    {
+      "id": "SC-08",
+      "title": {
+        "de": "Muster sind Vorschläge",
+        "en": "Patterns are hypotheses"
+      },
+      "test": {
+        "de": "Trennen wir themenübergreifende Ähnlichkeiten von bewiesener Übertragbarkeit?",
+        "en": "Do we separate cross-topic analogies from verified transfer?"
+      }
+    },
+    {
+      "id": "SC-09",
+      "title": {
+        "de": "KI hilft, entscheidet nicht",
+        "en": "AI assists, people decide"
+      },
+      "test": {
+        "de": "Ist die Herkunft markiert und ersetzt kein Schwarm menschliche Prüfung?",
+        "en": "Are AI outputs labeled without replacing accountable human review?"
+      }
+    },
+    {
+      "id": "SC-10",
+      "title": {
+        "de": "Würde bleibt unantastbar",
+        "en": "Protect human dignity"
+      },
+      "test": {
+        "de": "Kritisieren wir die Idee, ohne Personen abzuwerten oder zu manipulieren?",
+        "en": "Do we challenge ideas without demeaning or manipulating people?"
+      }
+    }
+  ],
+  "cycle": [
+    {
+      "id": "frame",
+      "title": {
+        "de": "Frage präzisieren",
+        "en": "Frame the question"
+      },
+      "question": {
+        "de": "Worum geht es genau, für wen und unter welchen Bedingungen?",
+        "en": "What is at stake, for whom and under which conditions?"
+      }
+    },
+    {
+      "id": "classify",
+      "title": {
+        "de": "Aussageart unterscheiden",
+        "en": "Classify the claim"
+      },
+      "question": {
+        "de": "Welche Art Prüfung ist angemessen?",
+        "en": "What kind of examination fits?"
+      }
+    },
+    {
+      "id": "challenge",
+      "title": {
+        "de": "Stärksten Einwand suchen",
+        "en": "Seek the strongest challenge"
+      },
+      "question": {
+        "de": "Was könnte die bisherige Antwort zu Fall bringen?",
+        "en": "What might undermine the current answer?"
+      }
+    },
+    {
+      "id": "review",
+      "title": {
+        "de": "Begründung prüfen",
+        "en": "Examine the reasons"
+      },
+      "question": {
+        "de": "Welche unabhängigen Gründe tragen oder widerlegen den Satz?",
+        "en": "Which independent reasons support or undermine the claim?"
+      }
+    },
+    {
+      "id": "decide",
+      "title": {
+        "de": "Verantwortlich entscheiden",
+        "en": "Decide responsibly"
+      },
+      "question": {
+        "de": "Beibehalten, eingrenzen, korrigieren, zurückziehen oder offenlassen?",
+        "en": "Retain, narrow, correct, withdraw or leave open?"
+      }
+    },
+    {
+      "id": "record",
+      "title": {
+        "de": "Änderung dokumentieren",
+        "en": "Document the outcome"
+      },
+      "question": {
+        "de": "Was hat sich warum verändert, und wer trägt die Entscheidung?",
+        "en": "What changed, why, and who took responsibility?"
+      }
+    },
+    {
+      "id": "repeat",
+      "title": {
+        "de": "Erneut prüfen",
+        "en": "Review again"
+      },
+      "question": {
+        "de": "Welche neue Frage, Folge oder Beobachtung beginnt den nächsten Durchlauf?",
+        "en": "Which new objection, consequence or observation starts the next pass?"
+      }
+    }
+  ],
+  "decision_options": [
+    "retain",
+    "narrow",
+    "correct",
+    "withdraw",
+    "open"
+  ],
+  "revision_record": [
+    "source_revision",
+    "claim_type",
+    "scope",
+    "strongest_objection",
+    "revision_condition",
+    "decision",
+    "proposed_or_revised_wording",
+    "reason",
+    "human_responsible",
+    "date"
+  ],
+  "limitations": {
+    "de": "Normativer Verfahrensentwurf, keine bewiesene Erkenntnismaschine. Ein Review, eine Einigung oder eine KI-Antwort beweist keine Wahrheit. Veröffentlichungen und Regeländerungen benötigen menschliche Verantwortung.",
+    "en": "Normative process draft, not a validated truth engine. Review, agreement or AI output do not prove truth. Publication and rule changes require accountable human decisions."
+  }
+}

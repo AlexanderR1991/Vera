@@ -1,5 +1,13 @@
 # Versionsgeschichte
 
+## 2026-11-07 · META-01 – Der selbstkorrigierende Regelkreis
+
+- Die anfechtbare Leitregel lautet: **„Wir bauen kein System, das recht behalten soll. Wir bauen ein System, das aus seinen Irrtümern lernen muss.“** Ihre englische Fassung, zehn Arbeitsregeln, sieben Prüfschritte und die menschlichen Verantwortungsgrenzen sind in [selbstkorrektur.md](selbstkorrektur.md) und im [versionierten JSON-Protokoll](../public/protocol/self-correction.v1.json) beschrieben.
+- Startseite, Mission, Forum, KI-Charta, Governance, Beiträge, Prompts und Navigation verweisen auf denselben Regelkreis; die zweisprachige Website erklärt ihn eigenständig. Menschliche Prüfentscheidung, Beleglage und offener Dissens bleiben getrennt.
+- Der Prototyp darf aus dem eigenen Anspruch keine nachgewiesene Wirksamkeit ableiten. Die Vergleichsevaluation steht aus.
+- **Gründungsphase und Fristen:** Solange noch keine externen Menschen inhaltlich mitarbeiten, kann die derzeitige Redaktion einen öffentlich dokumentierten, begründeten Sofort-Merge vornehmen. Bei erster externer Mitarbeit sind Einwandsfristen, Einspruch und Beteiligung vor einer weiteren grundlegenden Regeländerung öffentlich neu zu prüfen. Die für PR #69 ursprünglich genannte Frist bis 9. November 2026 wird mit ausdrücklicher Entscheidung des Projektverantwortlichen vorzeitig aufgehoben; diese Abweichung von der bis dahin gültigen Regel wird offen dokumentiert, nicht rückwirkend als regelkonform ausgegeben.
+
+
 ## 2026-11-06 · Zwei Kisten und ein Dorfkonzert
 
 - Die [Durchschnittskarte](erkenntnisnavigator.md#distribution) prüft die Frage, ob beide Kisten eine Mindestmenge enthalten können. Sechs Portionen schließen zweimal vier aus. Zehn Portionen erlauben sowohl fünf und fünf als auch zwei und acht. Die [frühere Kartenfassung](https://github.com/AlexanderR1991/Wirklich/blob/8b46f7af121768d35ed0a27a99bf20fa806dbf00/src/lib/navigator.mjs#L61-L76) konnte beide Fälle offenlassen.

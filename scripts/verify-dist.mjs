@@ -1,7 +1,7 @@
 import {access,readFile,readdir} from "node:fs/promises";
 import {join} from "node:path";
 import {fields,topics,topicStates,selfReviews} from "../src/lib/tree.mjs";
-const out=join(process.cwd(),"dist"),slugs=["index","projektobservatorium","kunst-und-erkenntnis","mission","ki-und-mensch","baum-des-wissens","aussagen","forum","fragen-und-ki-prompt","forschungsstrom","atlas","bibliothek","lesestueck-wahrheit","manifest","pruefstand","methode","mitwirken","erkenntnishorizont","warum-liebe-wirkt","politik-die-dem-menschen-dient","bruecken-zwischen-den-religionen","militaer-und-verantwortung","medizin","ernaehrung-und-verantwortung","angriffsschwarm"],errors=[];
+const out=join(process.cwd(),"dist"),slugs=["index","projektobservatorium","kunst-und-erkenntnis","mission","regelkreis","ki-und-mensch","baum-des-wissens","aussagen","forum","fragen-und-ki-prompt","forschungsstrom","atlas","bibliothek","lesestueck-wahrheit","manifest","pruefstand","methode","mitwirken","erkenntnishorizont","warum-liebe-wirkt","politik-die-dem-menschen-dient","bruecken-zwischen-den-religionen","militaer-und-verantwortung","medizin","ernaehrung-und-verantwortung","angriffsschwarm"],errors=[];
 for(const lang of ["de","en"]){
  for(const slug of slugs){
   const file=join(out,lang,...(slug==="index"?[]:[slug]),"index.html");
@@ -286,6 +286,24 @@ for(const lang of ["de","en"]){
 if(errors.length){console.error(errors.join("\n"));process.exit(1);}
 console.log("Verified bilingual legal pages, support links, PayPal recipient and donation receipt disclosures.");
 
+
+// The self-correction rule must be accessible, bilingual and included in exported rules.
+const correctionProtocol=JSON.parse(await readFile("public/protocol/self-correction.v1.json","utf8"));
+const projectMeta=JSON.parse(await readFile("public/project.json","utf8"));
+if(projectMeta.guiding_principle?.id!==correctionProtocol.principle_id)errors.push("Correction rule and project profile disagree");
+for(const lang of ["de","en"]){
+ const home=await readFile(join(out,lang,"index.html"),"utf8");
+ const correctionPage=await readFile(join(out,lang,"regelkreis/index.html"),"utf8");
+ const pack=await readFile(join(out,"prompts","wirklich-regeln."+lang+".txt"),"utf8");
+ if(!home.includes(correctionProtocol.motto[lang])||!home.includes("/"+lang+"/regelkreis/"))errors.push("Missing META-01 on home "+lang);
+ if(!correctionPage.includes(correctionProtocol.motto[lang]))errors.push("Missing motto on correction page "+lang);
+ for(const p of correctionProtocol.principles)if(!correctionPage.includes(p.id))errors.push("Missing correction principle "+lang+"/"+p.id);
+ if(!pack.includes("META-01")||!pack.includes(correctionProtocol.motto[lang]))errors.push("Exported rules omit META-01 "+lang);
+ if(!sitemap.includes("/"+lang+"/regelkreis/"))errors.push("Correction route absent from sitemap "+lang);
+}
+try{await access(join(out,"protocol/self-correction.v1.json"));}catch{errors.push("Missing public self-correction protocol");}
+if(errors.length){console.error(errors.join("\n"));process.exit(1);}
+console.log("Verified META-01 on home, correction page, rule exports and sitemap.");
 
 // Check the public AI philosophy and voluntary chat rules without claiming ethical validity.
 const aiDraft=JSON.parse(await readFile("public/ai/philosophy-engine.v0.json","utf8"));

@@ -1,5 +1,6 @@
 import foundation from "../../docs/grundtext.md?raw";
 import method from "../../docs/methode.md?raw";
+import correction from "../../docs/selbstkorrektur.md?raw";
 import aiCharter from "../../docs/ki-charta.md?raw";
 import promptDe from "../../public/prompts/erkenntnisprompt-v1.de.txt?raw";
 import promptEn from "../../public/prompts/erkenntnisprompt-v1.en.txt?raw";
@@ -31,6 +32,10 @@ export function rulePack(lang) {
   if (methods.length !== 2 || methods.some(section => !section.trim())) {
     throw Error("Expected DE and EN sections in docs/methode.md");
   }
+  const correctionSections = correction.split(/^## English\s*$/m);
+  if (correctionSections.length !== 2 || correctionSections.some(section => !section.trim())) {
+    throw Error("Expected DE and EN sections in docs/selbstkorrektur.md");
+  }
   const aiSections = aiCharter.split(/^## English\s*$/m);
   if (aiSections.length !== 2 || aiSections.some(section => !section.trim())) {
     throw Error("Expected DE and EN sections in docs/ki-charta.md");
@@ -40,22 +45,27 @@ export function rulePack(lang) {
   const source = `${project.repository}/blob/${revision}/`;
   const sourceFiles = [
     "docs/grundtext.md",
+    "docs/selbstkorrektur.md",
     ...(en ? ["src/i18n/shared.en.json"] : []),
     "docs/methode.md",
     "docs/ki-charta.md",
     `public/prompts/erkenntnisprompt-v1.${lang}.txt`
   ];
+  const localCorrection = correctionSections[en ? 1 : 0].trim().replace(/\]\(([^)\s]+)\)/g,
+    (_, target) => `](${new URL(target, source + "docs/selbstkorrektur.md").href})`);
   const localMethod = methods[en ? 1 : 0].trim().replace(/\]\(([^)\s]+)\)/g,
     (_, target) => `](${new URL(target, source + "docs/methode.md").href})`);
   return [
     en ? `${project.english_name} · Rules for your AI (English translation draft)` : `${project.name} · Regelwerk für deine KI`,
     en
-      ? "Use this text to examine my question. Treat the theses below as philosophical proposals open to challenge. The final section contains the instructions for this conversation."
-      : "Nutze diesen Text, um meine Frage zu untersuchen. Prüfe die folgenden Thesen als philosophische Vorschläge, denen du begründet widersprechen kannst. Im letzten Abschnitt steht der Arbeitsauftrag für dieses Gespräch.",
+      ? "Use this text to examine my question. Treat the theses and the META-01 correction rule as contestable proposals. The final section contains the instructions for this conversation."
+      : "Nutze diesen Text, um meine Frage zu untersuchen. Prüfe die Thesen und die Selbstkorrekturregel META-01 als anfechtbare Vorschläge. Im letzten Abschnitt steht der Arbeitsauftrag für dieses Gespräch.",
     `${en ? "Latest published copy" : "Aktuelle veröffentlichte Fassung"} · ${new URL(rulePackPath(lang), project.website).href}`,
     `${en ? "Source texts" : "Quelltexte"} · AlexanderR1991 & ${en ? "contributors" : "Mitwirkende"} · CC BY-SA 4.0\nhttps://creativecommons.org/licenses/by-sa/4.0/\n${sourceFiles.map(file => source + file).join("\n")}`,
     en ? "FOUNDATIONAL THESES" : "THESEN DES GRUNDTEXTS",
     theses(lang),
+    en ? "META-01 · CHALLENGEABLE CORRECTION RULE" : "META-01 · ANFECHTBARER REGELKREIS",
+    localCorrection,
     en ? "HOW WE EXAMINE CLAIMS" : "WIE WIR AUSSAGEN PRÜFEN",
     localMethod,
     en ? "HUMAN-ORIGIN PHILOSOPHICAL ENGINE FOR AI (DRAFT)" : "PHILOSOPHISCHER MOTOR DER KI (ENTWURF)",

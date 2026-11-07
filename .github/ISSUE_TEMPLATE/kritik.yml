@@ -36,6 +36,11 @@ body:
     attributes:
       label: "Quellen und Gegenbelege / Evidence and counterexamples"
   - type: textarea
+    id: revisionsbedingung
+    attributes:
+      label: "Was würde die bisherige Antwort ändern? / Revision condition"
+      description: "Welcher Beleg, Gegenfall oder Wertkonflikt verlangt eine neue Prüfung? / What should trigger reconsideration?"
+  - type: textarea
     id: vorschlag
     attributes:
       label: "Vorschlag zur Korrektur / Suggested revision"

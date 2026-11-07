@@ -4,6 +4,10 @@
 
 Unsere Arbeitsfrage lautet: Hilft das strukturierte Prüfblatt Menschen bei begrenzten Aufgaben — und welchen zusätzlichen Nutzen oder Schaden bringt KI-Gegenkritik? Die Existenz einer Website beantwortet diese Frage nicht. Das Protokoll konkretisiert auch die öffentliche Selbstprüfung [B-03](https://github.com/AlexanderR1991/Wirklich/issues/30).
 
+## META-01 als testbare Arbeitshypothese
+
+Die Leitregel [„Aus Irrtümern lernen, statt recht behalten“](selbstkorrektur.md) wird **nicht durch ihren guten Klang bestätigt**. Der Vergleich soll ausdrücklich prüfen, ob das strukturierte Verfahren falsche Ersturteile seltener verfestigt, qualifizierte Gegenargumente angemessener berücksichtigt und Korrekturen besser nachvollziehbar macht – **ohne** mehr Schein-Einwände, Zeitaufwand, Ausgrenzung oder irreführende Sicherheit zu erzeugen. Auch ein Null- oder Negativergebnis muss zu einer Änderung oder Aufgabe des jeweiligen Wirksamkeitsanspruchs führen können.
+
 ## Zuerst Machbarkeit, dann Wirksamkeit
 
 Ein kleiner Pilot soll zunächst Verständnis der Aufgaben, Bedienbarkeit und Aufwand erkunden. Er liefert keine allgemeine Wirksamkeitsbehauptung. Vor einer bestätigenden Untersuchung brauchen wir geeignete unabhängige Beteiligte, geklärte Teilnahme und Datenverarbeitung, eine begründete Stichprobengröße, feste Auswertungsregeln und einen öffentlich zeitgestempelten Analyseplan. Nichts davon wird hier als bereits zugesagt dargestellt.
@@ -72,6 +76,8 @@ Die Aufgaben enthalten entscheidende und nicht entscheidende Hinweise, begründe
 - Der Bericht nennt die getestete Werkzeugfassung. Bei Änderungen bleiben deren Ergebnis und die damaligen Entscheidungskriterien nachlesbar.
 
 ## English
+
+The contestable [META-01](selbstkorrektur.md) commitment is a hypothesis to test, not evidence of efficacy. Compare correction quality, false objections, preserved dissent, accessibility, time and harms against a credible alternative. A null or negative result must remain publishable and may require narrowing or abandoning a claimed benefit.
 
 This is an unrun, unregistered protocol draft. Compare ordinary source-based review, the structured worksheet, and the worksheet plus one fixed AI critique step. Separate the value of structure from the added effect of AI. Define tasks, assignment, independent assessment, endpoints, sample rationale and analysis before any confirmatory study. Report false alarms, uncertainty, time, costs, null findings and harms. Normative and interpretive cases do not receive invented empirical truth labels.
 

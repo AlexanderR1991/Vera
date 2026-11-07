@@ -6,6 +6,8 @@ Die [erste Werkzeugfassung](release-1.0.md) macht diese Mission mit einem persö
 
 > Wissen prüfen. Menschlich handeln. Den Kurs korrigieren.
 
+**Leitregel META-01:** **Wir bauen kein System, das recht behalten soll. Wir bauen ein System, das aus seinen Irrtümern lernen muss.** Dieser Satz ist nicht nur ein Motto, sondern die anfechtbare Verfahrensregel für Einwände, dokumentierte Revisionen, KI-Rollen und den Umgang mit Dissens. [Vollständiger Regelkreis](selbstkorrektur.md). Die Wirksamkeit auf gesellschaftlicher Ebene bleibt eine zu prüfende Hypothese.
+
 Der Grundtext soll Menschen befähigen, unter Unsicherheit besser zu verstehen, begründeter zu entscheiden und ehrlicher zu korrigieren. Er verbindet eine Bibliothek verständlicher Erklärungen mit der nachvollziehbaren Arbeit an einzelnen Aussagen. Die gemeinsame Methode ist der Kern; die Kapitel sind ihre Anwendungsfelder.
 
 Die zweisprachige öffentliche Darstellung liegt unter `/de/mission/` und `/en/mission/`. Dieser Entwurf führt die bisherigen Themen und die in [PR #18](https://github.com/AlexanderR1991/Wirklich/pull/18) vorgeschlagene Vision eines offenen Wissenssystems zusammen. Er behauptet keine bereits erreichte Leistungsfähigkeit.
@@ -148,6 +150,8 @@ Erst nach gezeigtem Nutzen folgen mehr Themen und mehr Autonomie. Der langfristi
 
 
 ## English summary
+
+**META-01:** *We are not building a system to be right. We are building a system that must learn from its mistakes.* This is a challengeable process commitment for review, revision and accountability, not evidence that the method works or that everyone agrees. [Full correction loop](selbstkorrektur.md).
 
 **What MUST AI be for people?** WIRKLICH invites humans to develop, challenge and revise the philosophical standards by which AI itself is judged. Our [provisional charter](ki-charta.md) and [challenge cases](../public/ai/philosophy-engine.v0.json) do not establish universal consensus, certified safety or enforceable model rules. Human accountability and serious dissent remain essential.
 

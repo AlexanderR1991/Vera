@@ -1,6 +1,6 @@
 # Diskussionskodex
 
-Wir wollen radikale Kritik an Ideen und unbedingte Achtung vor Personen verbinden.
+Wir wollen radikale Kritik an Ideen und unbedingte Achtung vor Personen verbinden. Der [selbstkorrigierende Regelkreis META-01](docs/selbstkorrektur.md) verlangt Widerspruch ohne persönliche Entwertung; er ist keine Erlaubnis zu Belästigung, Manipulation oder Angriffen auf Menschen.
 
 - Widersprich offen und begründet; entwerte keine Personen.
 - Keine Drohungen, Belästigung, Diskriminierung oder Veröffentlichung privater Daten.
