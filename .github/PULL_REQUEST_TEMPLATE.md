@@ -31,6 +31,20 @@ Für **inhaltliche** Änderungen (nicht für einfache Tippfehler): Ziel ist nich
 - **Begründung, verbleibender Dissens / Rationale and unresolved dissent:**
 - **Verantwortliche Person und Datum / Accountable human editor and date:** (Maintainer ergänzt bei Entscheidung / maintainer fills at decision)
 
+## Übersetzungen und Sprachparität / Translation and language parity
+
+Only when public text, navigation, or structured DE/EN content changes:
+- **German source path + immutable source commit / Quelle + Commit:**
+- **English target and current wording / Zieltext:**
+- **Philosophical terms and the strongest alternative reading / Begriffe + Gegenlesart:**
+- **Glossary decision, unresolved nuance / Glossarentscheidung, Restunsicherheit:**
+- **Review status / Prüfstatus:** draft / partial / shared_bilingual / unassessed / reviewed
+- **Human reviewer, review date and public decision URL / Menschlicher Prüfer, Datum, Beleg:** (only when actually reviewed)
+- [ ] Route/data parity and the public review register are updated as applicable; no unverified translation is labelled approved.
+- [ ] German and English meanings, limitations, sources, and uncertainty match, or differences are explicitly documented.
+
+See [the bilingual editorial procedure](../docs/internationalisierung.md) and [conceptual glossary](../docs/i18n-glossary.md).
+
 ## Prüfliste / Checklist
 
 - [ ] Ich habe den [Beitragsleitfaden / Contribution guide](../CONTRIBUTING.md) gelesen.
