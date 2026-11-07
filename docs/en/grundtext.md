@@ -2,10 +2,18 @@
 
 > Reality stands above this work.
 
-**Draft English translation of the German working version 0.1, 4 November 2026.**
+**Draft English translation of German working version 0.2, 7 November 2026.**
 **Translation status: draft; not independently reviewed.** [German source](../grundtext.md) · [Translation review status](../../public/i18n/review-register.v1.json).
 
 This is an open, correctable philosophical draft, not a scientifically proven comprehensive theory.
+
+## Highest priority for design and growth: Meet people where they are.
+
+WIRKLICH exists for people, not for the growth of its own technology. Nobody should need to know philosophical jargon, programming or AI to ask a question, follow a line of reasoning or raise an objection. We begin with everyday questions, explain things accessibly first and offer deeper exploration as a choice. Simplicity must not conceal uncertainty, counterarguments or important distinctions.
+
+**People before scale.** More topics, features, automation and reach are not ends in themselves. Before expanding, we aim to test with small, diverse groups whether people can actually access the work, ask questions, understand the reasons and challenge conclusions. Where that fails, we improve language, navigation, accessibility and ways to participate rather than simply growing faster. Nobody has to keep up with our pace.
+
+“Meet everyone where they are” is an aspiration, not a claim that we already reach everyone. We must openly ask whose perspectives are missing and which barriers we have overlooked. Nobody is devalued for their education, language, circumstances, pace or differing beliefs. Participation and agreement are voluntary, and reasoned disagreement may remain. **This normative design principle, too, is open to public challenge and revision.**
 
 ## Thesis 01: Reality is not obliged to please us.
 

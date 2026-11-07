@@ -1,5 +1,12 @@
 # Versionsgeschichte
 
+## 2026-11-07 · Menschen vor Skalierung · Grundtext-Ergänzung
+
+- **Ausgangspunkt:** Die neun Grundthesen und META-01 sichern Wahrheitssuche, Würde und Korrektur, nennen aber bisher keinen ausdrücklichen Vorrang menschlicher Verständlichkeit gegenüber dem Wachstum von Funktionen und KI-Automatisierung.
+- **Ergänzung:** Vor These 01 steht eine anfechtbare Gestaltungsregel: „Jeden Menschen abholen.“ Alltagsnahe Einstiege und freiwillige Tiefe, ernsthafte Einwände, Teilnahme ohne Fach- und Technikpflicht sowie Prüfung mit unterschiedlichen Menschen sollen vor einer Ausweitung Vorrang haben. Die neun Thesen und META-01 bleiben bestehen.
+- **Prüfbarer Gegenfall:** Erhöht eine neue Funktion die Reichweite, aber Menschen können Gründe und Einspruchswege nicht mehr nachvollziehen, soll zunächst der Zugang verbessert und die Ausweitung zurückgestellt werden.
+- **Entscheidung und Verantwortung:** Aufnahme auf ausdrückliche Anweisung des Projektverantwortlichen; öffentliches Verfahren über PR #87, keine unabhängige Begutachtung. **Offene Grenze:** Nicht jeder Mensch kann sofort erreicht werden. Wirksamkeit und tatsächliche Barrierefreiheit bedürfen realer Tests; die Regel allein belegt sie nicht. Die Redaktion behält die Entscheidung nach dem bestehenden Governance-Verfahren.
+
 ## 2026-11-07 · META-01 – Der selbstkorrigierende Regelkreis
 
 - Die anfechtbare Leitregel lautet: **„Wir bauen kein System, das recht behalten soll. Wir bauen ein System, das aus seinen Irrtümern lernen muss.“** Ihre englische Fassung, zehn Arbeitsregeln, sieben Prüfschritte und die menschlichen Verantwortungsgrenzen sind in [selbstkorrektur.md](selbstkorrektur.md) und im [versionierten JSON-Protokoll](../public/protocol/self-correction.v1.json) beschrieben.

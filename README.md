@@ -14,6 +14,10 @@ The challengeable process rule asks for a traceable revision path, type-appropri
 
 **To guide humanity toward consensus through philosophy.** Anyone can bring a question. When our answers differ, we look for a point we can each agree on for our own reasons. We record where we still disagree.
 
+**Menschen vor Skalierung.** Jeder Mensch soll mit einer einfachen Frage beginnen und in eigenem Tempo mitdenken oder widersprechen können. Verständlichkeit und echte Zugänglichkeit haben Vorrang vor Funktionsfülle und KI-Automatisierung. Das ist unser [oberstes Gestaltungsprinzip im Grundtext](docs/grundtext.md#oberstes-gebot-für-gestaltung-und-wachstum-jeden-menschen-abholen) – ein prüfbarer Anspruch, keine bereits erreichte Garantie.
+
+**People before scale.** Anyone should be able to start with a simple question, think along at their own pace and disagree. Understanding and genuine access come before feature growth and AI automation. See the [foundational principle (draft translation)](docs/en/grundtext.md#highest-priority-for-design-and-growth-meet-people-where-they-are).
+
 | Einstieg | Deutsch | English |
 | --- | --- | --- |
 | Den selbstkorrigierenden Regelkreis verstehen · Explore the correction loop | [Regelkreis](https://alexanderr1991.github.io/Wirklich/de/regelkreis/) | [Correction loop](https://alexanderr1991.github.io/Wirklich/en/regelkreis/) |
