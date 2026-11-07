@@ -31,6 +31,8 @@ Alle Belege beziehen sich auf denselben vollständigen Commit, denselben Versuch
 | $D$ | `deploymentSucceeded` | Der Deploy-Job dieses Versuchs war bis zum Auswertungszeitpunkt erfolgreich. |
 | $L$ | `liveRevisionMatches` | Die geprüfte öffentliche Pages-Adresse lieferte zum Auswertungszeitpunkt die Zielrevision aus. |
 
+Als Revision zählt der tatsächlich ausgecheckte Commit. Bei Veras Pull-Request-Workflow prüft der Build den von GitHub erzeugten Test-Merge-Commit, und der Deploy-Job wird übersprungen. Lies die geprüfte SHA aus dem Checkout des Jobs. [GitHub-Dokumentation zum Test-Merge](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#how-the-merge-branch-affects-your-workflow)
+
 `false` bedeutet, dass die jeweilige Aussage im angegebenen Rahmen widerlegt ist. Wenn ein Jobstatus noch unklar ist, die Seite nicht erreichbar ist oder die Antwort keine überprüfbare Revisionskennung enthält, fehlt für die entsprechende Aussage ein Beleg. Die Quellenangaben sollen den geprüften Jobversuch beziehungsweise Abruf identifizieren. Der Befehl prüft die logische Konsistenz der Eingaben. Deren Herkunft, Zeitbezug und Zuordnung prüft die Person, die sie erhebt. Ein Abruf gilt für den beobachteten Zugangspunkt. Spätere Abrufe bilden einen neuen Auswertungszeitpunkt.
 
 `deployedAndLive` ist die abgeleitete Aussage $D\land L$, in Worten: Der konkrete Workflow-Versuch hat veröffentlicht und der geprüfte öffentliche Abruf liefert die Zielrevision. Der Deploy-Job setzt in diesem Workflow einen erfolgreichen Build voraus. Ein gezielter Wiederholungslauf kann dabei das Ergebnis eines früheren Versuchs desselben Laufs übernehmen. Daher gilt $D\Rightarrow B$ auch dann, wenn der Build-Job im Wiederholungsversuch nicht erneut ausgeführt wurde. [Job-Abhängigkeiten](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-jobs#defining-prerequisite-jobs) · [Wiederholung von Jobs](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/re-run-workflows-and-jobs)
@@ -62,6 +64,8 @@ A successful build and a live public revision answer different questions. This l
 | `deploymentSucceeded` | The same attempt's deploy job succeeded by that time. |
 | `liveRevisionMatches` | The checked public Pages endpoint served the target revision at that time. |
 | `deployedAndLive` | The specified attempt deployed successfully and the probe identified the target revision. Computed by the model. |
+
+Use the commit actually checked out by the job. Vera’s pull request build checks GitHub’s test merge commit and skips deployment. [GitHub documentation on the test merge](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#how-the-merge-branch-affects-your-workflow)
 
 Record a negative observation only when its claim is refuted within the given scope. An unavailable job status, an unreachable page, or a response without a verifiable revision leaves the corresponding claim without an observation. The caller verifies the provenance, time, and scope of the evidence. The tool checks its logical consistency. A public probe applies to the endpoint observed at the specified time.
 
