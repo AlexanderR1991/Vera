@@ -566,6 +566,15 @@
       "source_commit": null,
       "review_url": null
     },
+    "redefreiheit-und-schutz.md": {
+      "status": "partial",
+      "priority": "core",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
     "release-1.0.md": {
       "status": "unassessed",
       "priority": "support",
