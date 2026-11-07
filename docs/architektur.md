@@ -22,6 +22,10 @@ Die [JSON-Fassung](../public/protocol/self-correction.v1.json) beschreibt die ze
 
 Die [KI-Charta](ki-charta.md) ist ein menschengeprägter, öffentlich angreifbarer Normenentwurf. [Versionierter JSON-Prüfkatalog](../public/ai/philosophy-engine.v0.json), [Website](https://alexanderr1991.github.io/Wirklich/de/ki-und-mensch/) und [freiwilliges KI-Regelpaket](erkenntnisprompt.md) geben denselben Ansatz in unterschiedlichen Zugangsformen wieder. Normative Vorschläge sind keine gemessenen Modellfähigkeiten. Strukturtests prüfen nur Datenkonsistenz; keine automatische KI-Aufsicht und kein fremder Modellzugriff.
 
+## Kollektive Moral · Richtung als zusätzliche, reversible Ebene (Entwurf 7. November 2026)
+
+Der [Forschungsentwurf](kollektive-moral.md) ergänzt den Erkenntnismotor um eine **bedingte Richtungslandkarte** mit optionalem späterem Index von −1 bis +1. Die Ebene trennt **Evidenz, Wertprofil, Wirkung, Richtung, Unsicherheit und Dissens**. Sie ersetzt weder Aussagearten, R0–R4 noch Konsens oder menschliche Entscheidung. Die Zahl setzt einen definierten Kontext und Vergleich, unabhängig geprüfte Wirkungsannahmen, offen gelegte Wertgewichte, kalibrierte Unsicherheit, Sensitivitäts- und Rechteprüfung voraus. Wenn plausible Wertprofile die Richtung umkehren, ist **kein allgemeiner Einzelwert** vertretbar. Der mögliche Konvergenzmotor sucht über Themen hinweg stabile **bedingte** Gemeinsamkeiten statt universeller Moralgesetze. Aktuell gibt es **keine tatsächlichen Zahlenwerte**; [DE/EN-Seite](https://alexanderr1991.github.io/Wirklich/de/kollektive-moral/) und [JSON-Entwurf](../public/knowledge/direction-index.v0.json) zeigen nur das Forschungsprogramm. Der Maßstab selbst bleibt gemäß META-01 korrigierbar.
+
 ## Gestaltung
 - Dunkle Grundflächen, warmes Elfenbein, sparsam Gold und Weinrot.
 - Klassische Serifenschriften für große Sinnabschnitte, sachliche Sans-Serif für Navigation und Metadaten.
