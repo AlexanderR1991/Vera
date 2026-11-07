@@ -45,3 +45,9 @@ The new [evidence-maturity rules](docs/erkenntnisreife.md) keep R0–R4 separate
 - Responsible disagreement and publicly documented corrections are more useful than conformity.
 
 Read [the adversarial review protocol](docs/angriffsschwarm.md) and [the project method](docs/methode.md).
+
+## Attention boundary / Aufmerksamkeitsgrenze (7 November 2026)
+
+**AI may search for questions without claiming human attention.** Automated swarms must NOT post into Discussions, claim-linked Issues, comments or Pull Requests. Research outputs go to explicitly marked, bounded draft artifacts only. No use of fake human identities, votes, identical multi-agent endorsements or artificially multiplied support. A human may request a concise AI contribution, marked as generated and limited to the specific question.
+
+Before an agent proposes a *new* public question, check the [question atlas pilot and triage contract](docs/fragenatlas.md). Propose a stable ID, possible matches, the difference from prior questions, provenance, a disconfirming test and the strongest minority objection. A lexical match must never delete, merge or suppress the original. Even if a thousand agents agree, the review grade remains unchanged without the existing documented human and type-appropriate tests. These constraints apply to external assistants following this repository's invitation as well as project automation.

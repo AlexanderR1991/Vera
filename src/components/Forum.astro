@@ -4,6 +4,8 @@ import {pathFor} from "../lib/paths.mjs";
 import project from "../../public/project.json" with {type: "json"};
 import register from "../../public/knowledge/claims.json";
 import forum from "../../public/knowledge/forum-threads.json";
+import questionAtlas from "../../public/knowledge/questions.json";
+import {connectionsForQuestion} from "../lib/questions.mjs";
 import "../styles/mission.css";
 
 const {lang="de"}=Astro.props;
@@ -11,6 +13,14 @@ const en=lang==="en";
 const t=(de,english)=>en?english:de;
 const threads=new Map(forum.threads.map(thread=>[thread.claim_id,thread.issue_number]));
 const discussions=project.repository+"/discussions";
+const claimById=new Map(register.claims.map(claim=>[claim.id,claim]));
+const relationLabels={
+ depends_on:{outgoing:t("Hängt ab von","Depends on"),incoming:t("Voraussetzung für","Needed by")},
+ subquestion_of:{outgoing:t("Teilfrage von","Subquestion of"),incoming:t("Enthält Teilfrage","Has subquestion")},
+ related_to:{outgoing:t("Verbunden mit","Related to"),incoming:t("Verbunden mit","Related to")},
+ alternative_framing:{outgoing:t("Andere Formulierung","Alternative framing"),incoming:t("Andere Formulierung","Alternative framing")},
+ possible_duplicate:{outgoing:t("Mögliche Dopplung","Possible duplicate"),incoming:t("Mögliche Dopplung","Possible duplicate")}
+};
 const reviewText={
  unreviewed:t("Ungeprüft","Unreviewed"),
  in_review:t("In Prüfung","Under review"),
@@ -70,6 +80,41 @@ const reviewText={
     <a href={project.repository+"/pulls"} target="_blank" rel="noopener noreferrer">{t("Änderungen verfolgen ↗","Follow proposed changes ↗")}</a>
    </article>
   </div>
+ </section>
+
+
+ <section class="forum-section container forum-question-atlas" id="fragenatlas" data-question-atlas data-results-label={t("Fragen sichtbar","questions shown")} aria-labelledby="forum-questions-title">
+  <div class="forum-section__intro">
+   <p class="section-kicker">{t("MENSCHEN · KI-LABOR · FRAGENATLAS","PEOPLE · AI LAB · QUESTION ATLAS")}</p>
+   <h2 id="forum-questions-title">{t("Viele Fragen. Ein nachvollziehbares Netz.","Many questions. One traceable network.")}</h2>
+   <p>{t("Das Gespräch bleibt menschlich. Die bestehenden KI-Schwärme arbeiten in begrenzten Forschungsströmen – nicht als endlose Kommentatoren. Ein redaktionelles Fragenregister verbindet Fragen mit Aussagen und untereinander, ohne sie automatisch zusammenzulegen.","Conversation stays human. Existing AI swarms work within limited research streams, not as endless commenters. An editorial question register connects questions to claims and to each other without automatically merging them.")}</p>
+  </div>
+  <div class="forum-workspaces" aria-label={t("Drei getrennte Arbeitsräume","Three distinct workspaces")}>
+   <div><span>01 · {t("FORUM","FORUM")}</span><strong>{t("Menschen sprechen","People deliberate")}</strong><p>{t("Freie Gespräche, begründete Einwände und auf Wunsch angefragte KI-Hilfe. Keine ungefragten Agenten-Debatten.","Open conversation, reasoned objections and AI help only when requested. No unsolicited agent debates.")}</p></div>
+   <div><span>02 · {t("LABOR","LAB")}</span><strong>{t("KI untersucht","AI investigates")}</strong><p>{t("Begrenzte, als ungeprüft markierte Entwürfe. Kein automatischer Versand an Discussions oder Issues.","Bounded, explicitly unverified drafts. No automatic posting to Discussions or Issues.")}</p></div>
+   <div><span>03 · {t("FRAGENATLAS","QUESTION ATLAS")}</span><strong>{t("Verbindungen prüfen","Examine connections")}</strong><p>{t("Stabile IDs, begründete Querverbindungen und Links zum Aussagenregister. Ein kleiner Pilot, kein vollständiger Live-Index.","Stable IDs, reasoned cross-links and links to the claim register. A small pilot, not a complete live index.")}</p></div>
+  </div>
+  <div class="forum-question-search">
+   <label for="forum-question-query">{t("Fragen und Themen im Beispielregister durchsuchen","Search questions and topics in the example register")}</label>
+   <input id="forum-question-query" type="search" placeholder={t("z. B. KI, Verantwortung, Belege","e.g. AI, responsibility, evidence")} autocomplete="off" maxlength="160" data-forum-question-search disabled />
+   <p class="forum-question-search__note">{t("Die Suche vergleicht nur Wörter im Browser; sie ist keine KI-Auswertung. Alle Beispiel-Fragen sind ungeprüft.","Search compares words in your browser only; it is not AI analysis. All example questions remain unreviewed.")} <a href={pathFor(lang,"erkenntnisnavigator")}>{t("Erkenntnisnavigator öffnen ↗","Open knowledge navigator ↗")}</a></p>
+   <p aria-live="polite" data-forum-question-count>{questionAtlas.questions.length} {t("Fragen sichtbar","questions shown")}</p>
+  </div>
+  <div class="forum-question-grid" id="forum-question-grid">
+   {questionAtlas.questions.map(q=><article class="forum-question-card" id={"frage-"+q.id} data-forum-question-card data-search-text={[q.id,q.question.de,q.question.en,...q.topics,...q.claim_ids].join(" ").toLocaleLowerCase()}>
+    <p class="forum-question-card__meta">{q.id} · {t("Redaktionelle Beispielfrage · ungeprüft","Editorial example question · unreviewed")}</p>
+    <h3>{q.question[lang]}</h3>
+    <p class="forum-question-card__claim-label">{t("Verknüpfte Aussagen","Linked claims")}</p>
+    <div class="forum-question-card__claims">{q.claim_ids.map(id=><a href={pathFor(lang,"aussagen",id)}>{id} · {t("Aussage prüfen","Examine claim")}</a>)}</div>
+    {connectionsForQuestion(questionAtlas,q.id).length>0&&<div class="forum-question-card__relations">
+     <p>{t("Begründete Verbindungen","Reasoned connections")}</p>
+     <ul>{connectionsForQuestion(questionAtlas,q.id).map(link=><li><a href={"#frage-"+link.question.id}>{relationLabels[link.type][link.direction]} · {link.question.id}</a><span>{link.reason[lang]}</span></li>)}</ul>
+    </div>}
+    <a class="forum-question-card__source" href={q.source_url} target="_blank" rel="noopener noreferrer">{t("Herkunft der Beispielfrage ↗","Example question provenance ↗")}</a>
+   </article>)}
+  </div>
+  <p data-forum-question-empty hidden>{t("Kein Treffer in diesem kleinen Register. Das bedeutet nicht, dass die Frage unbeantwortet oder unwichtig ist.","No match in this small register. That does not mean the question is unanswerable or unimportant.")}</p>
+  <p class="forum-questions__bottom">{t("Eine eigene Frage fehlt? Sie darf neu sein, einem bestehenden Thema widersprechen oder einen übersehenen Unterschied zeigen. Ein Vorschlag führt nie automatisch zu Konsens oder einer höheren Erkenntnisreife.","Have a missing question? It may be new, challenge an existing topic or reveal an overlooked distinction. A proposal never automatically establishes consensus or higher evidence maturity.")} <a href={project.repository+"/issues/new?template=frage.yml"} target="_blank" rel="noopener noreferrer">{t("Frage einreichen ↗","Submit a question ↗")}</a> · <a href={project.repository+"/blob/main/docs/fragenatlas.md"} target="_blank" rel="noopener noreferrer">{t("Regeln für Zusammenführung und KI ↗","Read the AI and question-linking rules ↗")}</a></p>
  </section>
 
  <section class="forum-section forum-claims" id="aussagen" aria-labelledby="forum-claims-title">
@@ -172,4 +217,53 @@ const reviewText={
  .forum-boundaries a{display:block;margin-top:1rem;font-size:.82rem}
  @media(max-width:900px){.forum-hero__grid,.forum-invitation__inner{grid-template-columns:1fr}.forum-hero__seal{max-width:30rem}.forum-rooms{grid-template-columns:1fr}}
  @media(max-width:680px){.forum-hero{padding:3.6rem 0}.forum-hero h1{font-size:clamp(2.85rem,11vw,4.5rem)}.forum-claim-grid,.forum-steps{grid-template-columns:1fr}.forum-rooms article{padding:1.5rem}.forum-claim h3{margin-bottom:1.3rem}}
+
+ .forum-question-atlas{scroll-margin-top:8rem}
+ .forum-workspaces{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin-bottom:2.5rem}
+ .forum-workspaces>div{border:1px solid var(--line);background:#121a1b;padding:1.3rem;min-width:0}
+ .forum-workspaces span{display:block;color:var(--gold-bright);font-size:.68rem;letter-spacing:.12em;margin-bottom:.8rem}
+ .forum-workspaces strong{display:block;font:1.45rem/1.3 var(--serif);font-weight:500}
+ .forum-workspaces p{font-size:.87rem;line-height:1.7;margin-bottom:0}
+ .forum-question-search{display:grid;gap:.5rem;max-width:46rem;margin-bottom:1.8rem}
+ .forum-question-search label{font-weight:650;font-size:.94rem}
+ .forum-question-search input{width:100%;min-height:46px;background:#0b1011;color:#f4f0e9;border:1px solid #b99d69;padding:.8rem 1rem;font:inherit;border-radius:3px}
+ .forum-question-search p{margin:.25rem 0;font-size:.81rem;line-height:1.6}
+ .forum-question-search__note a,.forum-question-card a,.forum-questions__bottom a{color:var(--gold-bright);text-underline-offset:.2em}
+ .forum-question-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+ .forum-question-card{display:flex;flex-direction:column;gap:.85rem;border:1px solid var(--line);padding:1.5rem;background:#101719;min-width:0;scroll-margin-top:8rem}
+ .forum-question-card[hidden],.forum-question-atlas [hidden]{display:none!important}
+ .forum-question-card__meta{font-size:.7rem!important;letter-spacing:.06em;color:var(--gold-bright);margin:0}
+ .forum-question-card h3{font:1.55rem/1.35 var(--serif);margin:0;overflow-wrap:anywhere}
+ .forum-question-card__claim-label,.forum-question-card__relations>p{font-size:.79rem!important;font-weight:700;margin:0}
+ .forum-question-card__claims{display:flex;flex-wrap:wrap;gap:.55rem 1rem}
+ .forum-question-card__claims a{font-size:.79rem;min-height:34px;display:inline-flex;align-items:center}
+ .forum-question-card__relations{border-top:1px solid var(--line);padding-top:.7rem}
+ .forum-question-card__relations ul{padding-left:1.1rem;margin:.65rem 0 0}
+ .forum-question-card__relations li{padding:.35rem 0;font-size:.8rem;line-height:1.55}
+ .forum-question-card__relations li span{display:block;color:#b7bcb7}
+ .forum-question-card__source{font-size:.75rem;margin-top:auto}
+ .forum-questions__bottom{max-width:62rem;margin-top:1.4rem;font-size:.86rem;line-height:1.75}
+ @media(max-width:900px){.forum-workspaces{grid-template-columns:1fr}}
+ @media(max-width:700px){.forum-question-grid{grid-template-columns:1fr}}
 </style>
+<script>
+ const atlas=document.querySelector("[data-question-atlas]");
+ const search=atlas?.querySelector("[data-forum-question-search]");
+ if(search){
+  const cards=[...atlas.querySelectorAll("[data-forum-question-card]")];
+  const count=atlas.querySelector("[data-forum-question-count]");
+  const empty=atlas.querySelector("[data-forum-question-empty]");
+  search.disabled=false;
+  search.addEventListener("input",()=>{
+   const query=search.value.normalize("NFKC").toLocaleLowerCase().trim();
+   let visible=0;
+   for(const card of cards){
+    const show=!query||card.dataset.searchText.includes(query);
+    card.hidden=!show;
+    if(show)visible++;
+   }
+   count.textContent=visible+" "+atlas.dataset.resultsLabel;
+   empty.hidden=visible!==0;
+  });
+ }
+</script>
