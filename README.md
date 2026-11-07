@@ -53,6 +53,24 @@ Künstliche Intelligenz braucht mehr als Fähigkeiten. **WIRKLICH will mit Mensc
 
 **We ask people to define and challenge the principles by which AI is judged.** This is a provisional, human-origin inquiry framework, not a universal or certified ethics standard.
 
+## Vera lokal fragen · Ask Vera locally
+
+Vera kann das [versionierte Projektprofil](docs/vera.md) und den Erkenntnisprompt direkt an ein lokales Sprachmodell übergeben. Dafür brauchst du einen Git-Checkout, Node.js ab 22.12 und [Ollama](https://ollama.com/download). Starte Ollama lokal mit [abgeschalteten Cloud-Funktionen](https://docs.ollama.com/faq#how-do-i-disable-ollamas-cloud-features) und lade einmal ein Modell, etwa mit `ollama pull qwen2.5:1.5b`. Danach funktioniert der folgende Befehl mit diesem Modell auch offline.
+
+```sh
+node scripts/vera-ask.mjs de qwen2.5:1.5b "Welcher Einwand könnte deine Antwort ändern?"
+```
+
+Vera can pass the versioned project profile and inquiry prompt directly to a local language model. Use a Git checkout, Node.js 22.12 or later, and Ollama running with its cloud features disabled. Download a model once with `ollama pull qwen2.5:1.5b`, then ask a question offline.
+
+```sh
+node scripts/vera-ask.mjs en qwen2.5:1.5b "What evidence would change your answer?"
+```
+
+Der Befehl sendet Profil, Prompt und Frage an `127.0.0.1` (Port `11434`, einstellbar mit `VERA_OLLAMA_PORT`). Die Modellantwort ist ein Entwurf. Git-Stand und Modell stehen separat im Terminal. Verlinkte Quellen müssen bei Bedarf von Menschen geprüft werden.
+
+The command sends the profile, prompt and question to `127.0.0.1` (port `11434`, configurable via `VERA_OLLAMA_PORT`). The answer is a model draft. The terminal shows the Git revision and model separately. Follow up on linked sources directly when needed.
+
 ## Gemeinsam klüger werden · Learn together
 
 **Wenn Open Source bei Blender funktioniert, warum nicht auch in der Philosophie?** Bei Blender kann jemand einen Fehler zeigen, den andere übersehen haben, und eine Änderung vorschlagen. Bei WIRKLICH kann ein einziger Einwand einen Grundsatz verändern. Einer unserer Sätze empfahl, Menschen so zu helfen, dass sie ihre eigene Kraft finden. Was ist mit jemandem, der ein Leben lang Hilfe braucht? Heute steht ausdrücklich im Text, dass Fürsorge auch dann wertvoll ist. Lies beide Fassungen und prüfe selbst, ob die neue dem Einwand gerecht wird. [Mitwirken bei Blender](https://www.blender.org/get-involved/) · [Die Änderung im Wortlaut](https://github.com/AlexanderR1991/Wirklich/pull/31/files)
