@@ -1,0 +1,74 @@
+name: "Esoterik: Ast oder Einwand / Esotericism: Branch or objection"
+description: "Neuen Unterast, andere Einordnung oder begründeten Widerspruch vorschlagen / Propose a subbranch, reclassification or objection"
+title: "[ESOTERIK] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Dieser Vorgang ist ein öffentlicher Vorschlag, keine sofort veröffentlichte Wahrheit.**
+        Er bleibt mit den Gegenargumenten und der menschlichen redaktionellen Entscheidung nachvollziehbar. Prüfe vorher den vorhandenen Katalog und veröffentliche keine vertraulichen Angaben oder geschützten Rituale.
+        
+        **This is a public proposal, not an approved claim.** Check existing entries, allow genuine disagreement and do not disclose private or protected material. No AI agent may post autonomously.
+  - type: input
+    id: parent
+    attributes:
+      label: "Betroffener Haupt- oder Unterast / Existing branch ID"
+      description: "z. B. ESO-06, ESO-06.01; oder NEU / e.g. ESO-06, ESO-06.01; or NEW"
+      placeholder: "ESO-06"
+    validations:
+      required: true
+  - type: dropdown
+    id: change
+    attributes:
+      label: "Anliegen / Proposal type"
+      options:
+        - "Neuer Unterast / New subbranch"
+        - "Andere Einordnung / Reclassification"
+        - "Einwand oder Gegenmodell / Objection or countermodel"
+        - "Quellenkorrektur / Source correction"
+        - "Zusammenführung oder Verbindung / Link or possible duplicate"
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: "These oder offene Frage / Claim or open question"
+      description: "Was genau soll ergänzt oder geändert werden? / What exactly should change?"
+      placeholder: "Meine überprüfbare Frage lautet ... / My testable question is ..."
+    validations:
+      required: true
+  - type: dropdown
+    id: method
+    attributes:
+      label: "Vermutlicher Prüfweg / Proposed method"
+      options:
+        - "Geschichte & Quellen / History & sources"
+        - "Deutung & Symbol / Interpretation & symbol"
+        - "Erfahrung & Selbstbericht / Experience & self-report"
+        - "Prüfbare Behauptung / Testable claim"
+        - "Ethik & Verantwortung / Ethics & responsibility"
+        - "Formale Struktur / Formal structure"
+        - "Unklar oder mehrere / Unclear or several"
+    validations:
+      required: true
+  - type: textarea
+    id: strongest
+    attributes:
+      label: "Stärkstes Gegenargument und Korrekturbedingung / Strongest objection and revision condition"
+      description: "Was könnte deine eigene Position ändern? / What could change your mind?"
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: "Quellen, Herkunft, Unsicherheiten / Sources, provenance, uncertainties"
+      description: "Bitte keine privaten Daten, fremden vertraulichen Rituale oder urheberrechtlich geschützten Volltexte posten. / No private data, protected rituals or copyrighted full texts."
+    validations:
+      required: false
+  - type: textarea
+    id: others
+    attributes:
+      label: "Betroffene Gemeinschaften, Rechte und Risiken / Affected communities, rights and risks"
+      description: "Wer müsste angehört werden? Wann sollte etwas nicht veröffentlicht werden? / Who must be consulted, and when should material not be published?"
+    validations:
+      required: false
