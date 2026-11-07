@@ -21,6 +21,7 @@ Die Reihenfolge folgt überprüfbaren Voraussetzungen. Die Kapitel bleiben erhal
 - [x] Zweisprachiges persönliches Prüfblatt mit Text-/JSON-Export, validiertem Import und optionalem Browserspeicher
 - [x] Öffentlicher Projektstatus mit Bestandszahlen aus den Daten und einheitlichem Versionsprofil
 - [x] [Konkreter Entwurf für den Methodenvergleich](evaluation-v1.md); **noch kein Versuch und keine Vorregistrierung**
+- [x] [Kleiner Fragenatlas-Pilot](fragenatlas.md) mit sechs redaktionellen Beispielfragen, stabilen IDs, begründeten Frage-/Aussage-Links und lokaler Offline-Triage; **keine GitHub-Live-Synchronisation oder semantische Zusammenführung**
 
 ## Sofort und parallel · Verständlicher Einstieg und reale Verantwortung
 
@@ -77,6 +78,9 @@ Keine Vorregistrierung oder Wirksamkeit ist bislang nachgewiesen. Ohne tragfähi
 - [ ] Weitere Kapitel in das strukturierte Aussagenmodell überführen
 - [ ] Quellenketten und Beziehungen zwischen Aussagen modellieren
 - [ ] Volltextsuche, stabile Versionsansichten und differenzierte offene Schnittstellen ergänzen
+- [ ] Menschlich überprüfbare Verknüpfung realer GitHub-Fragen und Wiedereröffnung falscher Zusammenführungen testen
+- [ ] Bot-/Moderationsschutz, Aufmerksamkeitsbudget und unabhängige Einspruchswege vor öffentlichen KI-Agenten erproben
+- [ ] Sprachübergreifende semantische Verfahren gegenüber gewöhnlicher Suche unabhängig evaluieren
 - [ ] Weitere Sprachen mit qualifizierter Prüfung aufnehmen
 - [ ] Wissensraum, Forschungsraum und Entscheidungsraum im gesamten Bestand technisch und visuell trennen
 - [ ] Unabhängig prüfen lassen, ob das System als Ergänzung oder Alternative zu bestehenden Wissensangeboten einen Nutzen bringt
