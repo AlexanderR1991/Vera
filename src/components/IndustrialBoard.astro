@@ -31,7 +31,7 @@ const cards=[
  {id:"kanji",route:"manifest",col:8,row:4,kind:"kanji",title:{de:"Wahrheit",en:"Truth"},art:{de:"真\nWAHRHEIT",en:"真\nTRUTH"}},
  {id:"care",route:"mitwirken",col:9,row:4,kind:"flower",title:{de:"Jeden Menschen abholen",en:"Include every person"},art:{de:"✧",en:"✧"}}
 ];
-const word=v=>v[lang];
+const word=(v)=>v[lang];
 ---
 <section class="industrial-board vision-board" aria-labelledby="board-title">
   <div class="container vision-board__shell">
@@ -61,7 +61,7 @@ const word=v=>v[lang];
       )}
       <a class="vision-hero" href={pathFor(lang,"ki-und-mensch")}
          data-board-card
-         data-board-keywords="open source KI ai mensch menschheit hello humanity vision ki-und-mensch zukunft">
+         data-board-keywords="Open-Source-KI open source KI ai mensch menschheit hello humanity vision ki-und-mensch zukunft">
         <div class="vision-hero__copy">
           <span class="vision-hero__overline">{de?"DIE VISION / IM AUFBAU":"THE VISION / IN DEVELOPMENT"}</span>
           <p class="vision-hero__hello">{de?"Hallo":"Hello"}<span>{de?"Menschheit.":"humanity."}</span></p>
