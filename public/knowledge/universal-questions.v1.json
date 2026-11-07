@@ -1,0 +1,842 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-11-07",
+  "source_revision": "8dbeedf4c21a9e51d032fd78431ad35847a14d64",
+  "status": "unreviewed_editorial_cross_domain_synthesis",
+  "scope": {
+    "de": "16 redaktionell aus publizierten Forschungsbereichen abgeleitete Grundfragen; kein vollständiger semantischer KI-Durchlauf, kein Konsens, keine geprüfte Wahrheit.",
+    "en": "16 editorial cross-domain questions drawn from published research areas; not a complete semantic AI analysis, established consensus, or verified truth."
+  },
+  "method": {
+    "de": "Quellenauswahl und Verknüpfungen sind angreifbar. Ein unabhängiger lexikalischer Scan wird bei Builds erstellt; Texttreffer belegen keine semantische Verbindung.",
+    "en": "Source selection and links can be challenged. A separate lexical scan is generated at build time; word matches do not establish semantic relationships."
+  },
+  "questions": [
+    {
+      "id": "U-001",
+      "version": 1,
+      "origin": "editorial_synthesis",
+      "review_status": "unreviewed",
+      "answer_status": "open",
+      "theme": "knowledge",
+      "question_type": "methodological",
+      "question": {
+        "de": "Woran erkennen wir, dass eine Überzeugung korrigiert werden muss?",
+        "en": "How do we know when a belief needs revision?"
+      },
+      "why": {
+        "de": "WIRKLICH verlangt Korrekturbereitschaft; Wissenschaft, Heilungsbehauptungen und Symboldeutungen brauchen dennoch unterschiedliche Gegenprüfungen.",
+        "en": "WIRKLICH calls for revisability, yet science, treatment claims and symbolic interpretation require different tests."
+      },
+      "challenge": {
+        "de": "Kann eine vorschnelle Korrektur schlechter sein als ein begründetes Offenlassen?",
+        "en": "Could premature revision be worse than leaving a claim unresolved?"
+      },
+      "topics": [
+        "philosophie",
+        "medizin",
+        "esoterik"
+      ],
+      "source_paths": [
+        "docs/grundtext.md",
+        "docs/erkenntnisreife.md",
+        "docs/esoterik-katalog.md"
+      ],
+      "return_routes": [
+        "methode",
+        "medizin",
+        "esoterik-katalog"
+      ],
+      "related_atlas_ids": [
+        "Q-002",
+        "Q-006"
+      ],
+      "lexical_signals": [
+        "irr",
+        "korrekt",
+        "gegen"
+      ]
+    },
+    {
+      "id": "U-002",
+      "version": 1,
+      "origin": "editorial_synthesis",
+      "review_status": "unreviewed",
+      "answer_status": "open",
+      "theme": "experience",
+      "question_type": "mixed",
+      "question": {
+        "de": "Was an einer subjektiven Erfahrung können andere prüfen, ohne sie zu entwerten?",
+        "en": "What about a subjective experience can others test without dismissing it?"
+      },
+      "why": {
+        "de": "Symbolische Deutung, Kunst und intersubjektive Messmodelle unterscheiden Erleben von überprüfbaren Erklärungen.",
+        "en": "Symbolic interpretation, art and intersubjective measurement distinguish experience from testable explanations."
+      },
+      "challenge": {
+        "de": "Welche Teile des Erlebens gehen durch die gewählte Messung unwiederbringlich verloren?",
+        "en": "Which aspects of experience are lost through the chosen measurement?"
+      },
+      "topics": [
+        "bewusstsein",
+        "kunst",
+        "esoterik",
+        "mathematik"
+      ],
+      "source_paths": [
+        "docs/esoterik-katalog.md",
+        "docs/kunst-und-erkenntnis.md",
+        "docs/mathematik-des-dazwischen.md"
+      ],
+      "return_routes": [
+        "esoterik-katalog",
+        "kunst-und-erkenntnis",
+        "die-bruecke"
+      ],
+      "related_atlas_ids": [
+        "Q-002"
+      ],
+      "lexical_signals": [
+        "erfahr",
+        "interpret",
+        "subjekt"
+      ]
+    },
+    {
+      "id": "U-003",
+      "version": 1,
+      "origin": "editorial_synthesis",
+      "review_status": "unreviewed",
+      "answer_status": "open",
+      "theme": "relations",
+      "question_type": "empirical",
+      "question": {
+        "de": "Können Menschen einander verstehen, obwohl ihre Überzeugungen unvereinbar bleiben?",
+        "en": "Can people understand each other while their convictions remain incompatible?"
+      },
+      "why": {
+        "de": "M-02, religiöser Dialog und Sprachprobe trennen Verstehen, Zustimmung und begründeten Dissens.",
+        "en": "M-02, interfaith dialogue and the conversation exercise separate understanding, agreement and reasoned dissent."
+      },
+      "challenge": {
+        "de": "Ist korrektes Wiedergeben bereits Verstehen oder nur geschicktes Nachahmen?",
+        "en": "Is accurate restatement understanding—or only skilled imitation?"
+      },
+      "topics": [
+        "konflikte",
+        "religion",
+        "mathematik",
+        "bildung"
+      ],
+      "source_paths": [
+        "docs/schnittmengen.md",
+        "docs/mathematik-des-dazwischen.md",
+        "docs/theologischer-dialog.md"
+      ],
+      "return_routes": [
+        "schnittmengen",
+        "die-bruecke",
+        "bruecken-zwischen-den-religionen"
+      ],
+      "related_atlas_ids": [
+        "Q-005"
+      ],
+      "lexical_signals": [
+        "versteh",
+        "konsens",
+        "zustimm"
+      ]
+    },
+    {
+      "id": "U-004",
+      "version": 1,
+      "origin": "editorial_synthesis",
+      "review_status": "unreviewed",
+      "answer_status": "open",
+      "theme": "power",
+      "question_type": "normative",
+      "question": {
+        "de": "Wann schlägt Schutz in Kontrolle oder Bevormundung um?",
+        "en": "When does protection turn into control or paternalism?"
+      },
+      "why": {
+        "de": "Institutionen, Verteidigung und Fürsorge können schützen oder Autonomie beschneiden; dieselbe Spannung tritt in mehreren Bereichen auf.",
+        "en": "Institutions, defence and care can protect or limit autonomy; the same tension recurs across domains."
+      },
+      "challenge": {
+        "de": "Welche Verantwortung entsteht, wenn Nichteingreifen ebenfalls schwere Schäden zulässt?",
+        "en": "What responsibility arises when not intervening also permits serious harm?"
+      },
+      "topics": [
+        "politik",
+        "militaer",
+        "liebe",
+        "ethik"
+      ],
+      "source_paths": [
+        "docs/forschungsprogramm-politik.md",
+        "docs/forschungsprogramm-militaer.md",
+        "docs/forschungsprogramm-liebe.md"
+      ],
+      "return_routes": [
+        "politik-die-dem-menschen-dient",
+        "militaer-und-verantwortung",
+        "warum-liebe-wirkt"
+      ],
+      "related_atlas_ids": [
+        "Q-001",
+        "Q-005"
+      ],
+      "lexical_signals": [
+        "schutz",
+        "freiheit",
+        "macht"
+      ]
+    },
+    {
+      "id": "U-005",
+      "version": 1,
+      "origin": "editorial_synthesis",
+      "review_status": "unreviewed",
+      "answer_status": "open",
+      "theme": "agency",
+      "question_type": "normative",
+      "question": {
+        "de": "Wann darf Hilfe eine Entscheidung vorbereiten, ohne sie dem Menschen abzunehmen?",
+        "en": "When may support inform a decision without taking it away from the person?"
+      },
+      "why": {
+        "de": "Hilfeprinzip, KI-Charta und Fürsorgeforschung treffen sich im Spannungsfeld zwischen Verantwortung und Selbstbestimmung.",
+        "en": "The help principle, AI charter and care research meet around responsibility and agency."
+      },
+      "challenge": {
+        "de": "Wie verfahren wir, wenn jemand vorübergehend nicht selbst entscheiden kann?",
+        "en": "What happens when a person cannot presently decide for themselves?"
+      },
+      "topics": [
+        "liebe",
+        "ethik",
+        "technik",
+        "medizin"
+      ],
+      "source_paths": [
+        "docs/grundtext.md",
+        "docs/ki-charta.md",
+        "docs/forschungsprogramm-liebe.md"
+      ],
+      "return_routes": [
+        "warum-liebe-wirkt",
+        "ki-und-mensch",
+        "medizin"
+      ],
+      "related_atlas_ids": [
+        "Q-001",
+        "Q-005"
+      ],
+      "lexical_signals": [
+        "hilfe",
+        "entscheid",
+        "autonom"
+      ]
+    },
+    {
+      "id": "U-006",
+      "version": 1,
+      "origin": "editorial_synthesis",
+      "review_status": "unreviewed",
+      "answer_status": "open",
+      "theme": "power",
+      "question_type": "normative",
+      "question": {
+        "de": "Worauf darf eine Gemeinschaft sich einigen, wenn Freiheit und Gemeinwohl kollidieren?",
+        "en": "What may a community agree to when liberty and collective welfare conflict?"
+      },
+      "why": {
+        "de": "Politik, Ressourcenzugang und Sicherheit berühren denselben Konflikt um Rechte, Lasten und legitime Prioritäten.",
+        "en": "Politics, access to resources and security share conflicts about rights, burdens and legitimate priorities."
+      },
+      "challenge": {
+        "de": "Welche Rechte dürfen auch bei großem Nutzen für die Mehrheit nicht verrechnet werden?",
+        "en": "Which rights must not be traded away even for substantial majority benefit?"
+      },
+      "topics": [
+        "politik",
+        "ethik",
+        "ernaehrung",
+        "militaer"
+      ],
+      "source_paths": [
+        "docs/forschungsprogramm-politik.md",
+        "docs/forschungsprogramm-ernaehrung.md",
+        "docs/forschungsprogramm-militaer.md"
+      ],
+      "return_routes": [
+        "politik-die-dem-menschen-dient",
+        "ernaehrung-und-verantwortung",
+        "militaer-und-verantwortung"
+      ],
+      "related_atlas_ids": [
+        "Q-005"
+      ],
+      "lexical_signals": [
+        "gerecht",
+        "frei",
+        "verantwort"
+      ]
+    },
+    {
+      "id": "U-007",
+      "version": 1,
+      "origin": "editorial_synthesis",
+      "review_status": "unreviewed",
+      "answer_status": "open",
+      "theme": "knowledge",
+      "question_type": "methodological",
+      "question": {
+        "de": "Welche Art von Beleg passt zu welcher Art von Behauptung?",
+        "en": "Which kinds of evidence fit which kinds of claims?"
+      },
+      "why": {
+        "de": "Mathematik beweist Folgerungen, Medizin prüft Wirkungen, Ethik legt Werte offen und Esoterik unterscheidet Erfahrungsberichte von Behauptungen.",
+        "en": "Mathematics proves implications; medicine tests effects; ethics discloses values; esotericism distinguishes testimony from claims."
+      },
+      "challenge": {
+        "de": "Wie vermeiden wir, dass eine starke Geschichte wie ein Experiment behandelt wird?",
+        "en": "How do we avoid treating a compelling story as an experiment?"
+      },
+      "topics": [
+        "philosophie",
+        "medizin",
+        "mathematik",
+        "esoterik"
+      ],
+      "source_paths": [
+        "docs/methode.md",
+        "docs/mathematischer-pruefstand.md",
+        "docs/forschungsprogramm-ernaehrung.md",
+        "docs/esoterik-katalog.md"
+      ],
+      "return_routes": [
+        "methode",
+        "pruefstand",
+        "esoterik-katalog",
+        "ernaehrung-und-verantwortung"
+      ],
+      "related_atlas_ids": [
+        "Q-004",
+        "Q-006"
+      ],
+      "lexical_signals": [
+        "beleg",
+        "beweis",
+        "empir"
+      ]
+    },
+    {
+      "id": "U-008",
+      "version": 1,
+      "origin": "editorial_synthesis",
+      "review_status": "unreviewed",
+      "answer_status": "open",
+      "theme": "systems",
+      "question_type": "methodological",
+      "question": {
+        "de": "Wie messen wir Fortschritt, ohne die Messgröße zum eigentlichen Ziel zu machen?",
+        "en": "How can we measure progress without turning the metric into the objective?"
+      },
+      "why": {
+        "de": "Verständigungsskalen, Erkenntnisreife und Wirkungsevaluation drohen genau das zu verzerren, was sie sichtbar machen sollen.",
+        "en": "Understanding scales, epistemic maturity and impact evaluations can distort the very phenomena they seek to illuminate."
+      },
+      "challenge": {
+        "de": "Was könnte sich trotz steigender Kennzahl in Wirklichkeit verschlechtern?",
+        "en": "What could become worse even as the metric rises?"
+      },
+      "topics": [
+        "mathematik",
+        "technik",
+        "bildung",
+        "ethik"
+      ],
+      "source_paths": [
+        "docs/mathematik-des-dazwischen.md",
+        "docs/evaluation-v1.md",
+        "docs/erkenntnisnavigator.md"
+      ],
+      "return_routes": [
+        "die-bruecke",
+        "erkenntnisnavigator",
+        "projektstatus"
+      ],
+      "related_atlas_ids": [
+        "Q-003"
+      ],
+      "lexical_signals": [
+        "mess",
+        "wert",
+        "prüf"
+      ]
+    },
+    {
+      "id": "U-009",
+      "version": 1,
+      "origin": "editorial_synthesis",
+      "review_status": "unreviewed",
+      "answer_status": "open",
+      "theme": "relations",
+      "question_type": "normative",
+      "question": {
+        "de": "Wann wird Konsens zur Unterdrückung einer begründeten Minderheitenposition?",
+        "en": "When does consensus suppress a well-grounded minority view?"
+      },
+      "why": {
+        "de": "Governance, Erkenntnisreife und Gesprächsmethode verlangen ausdrücklich, Gegenargumente nicht durch Stimmenzahlen auszulöschen.",
+        "en": "Governance, maturity rules and dialogue insist that objections must not be erased by vote counts."
+      },
+      "challenge": {
+        "de": "Wie verhindern wir, dass unbegrenzter Einspruch notwendige Entscheidungen dauerhaft blockiert?",
+        "en": "How do we prevent unlimited objections from indefinitely blocking necessary decisions?"
+      },
+      "topics": [
+        "politik",
+        "konflikte",
+        "bildung",
+        "ethik"
+      ],
+      "source_paths": [
+        "docs/community-governance.md",
+        "docs/erkenntnisreife.md",
+        "docs/schnittmengen.md"
+      ],
+      "return_routes": [
+        "forum",
+        "schnittmengen",
+        "politik-die-dem-menschen-dient"
+      ],
+      "related_atlas_ids": [
+        "Q-006"
+      ],
+      "lexical_signals": [
+        "mehrheit",
+        "konsens",
+        "einwand"
+      ]
+    },
+    {
+      "id": "U-010",
+      "version": 1,
+      "origin": "editorial_synthesis",
+      "review_status": "unreviewed",
+      "answer_status": "open",
+      "theme": "uncertainty",
+      "question_type": "mixed",
+      "question": {
+        "de": "Wann ist Handeln trotz ungeklärter Wahrheit gerechtfertigt?",
+        "en": "When is action justified despite unresolved truth?"
+      },
+      "why": {
+        "de": "Gesundheits-, Sicherheits- und Alltagsentscheidungen können nicht immer auf Gewissheit warten; Bedingungen und Abbruchregeln müssen offenliegen.",
+        "en": "Health, security and daily decisions cannot always wait for certainty; conditions and stopping rules must be explicit."
+      },
+      "challenge": {
+        "de": "Wann ist Abwarten selbst die gefährlichere Entscheidung?",
+        "en": "When is waiting itself the more dangerous decision?"
+      },
+      "topics": [
+        "philosophie",
+        "ernaehrung",
+        "militaer",
+        "technik"
+      ],
+      "source_paths": [
+        "docs/methode.md",
+        "docs/forschungsprogramm-ernaehrung.md",
+        "docs/forschungsprogramm-militaer.md"
+      ],
+      "return_routes": [
+        "methode",
+        "ernaehrung-und-verantwortung",
+        "militaer-und-verantwortung"
+      ],
+      "related_atlas_ids": [
+        "Q-002"
+      ],
+      "lexical_signals": [
+        "risiko",
+        "unsicher",
+        "entscheid"
+      ]
+    },
+    {
+      "id": "U-011",
+      "version": 1,
+      "origin": "editorial_synthesis",
+      "review_status": "unreviewed",
+      "answer_status": "open",
+      "theme": "systems",
+      "question_type": "mixed",
+      "question": {
+        "de": "Wer erhält den Nutzen neuer Fähigkeiten und wer trägt ihre Risiken?",
+        "en": "Who receives the benefits of new capabilities and who bears their risks?"
+      },
+      "why": {
+        "de": "Die Frage verbindet die KI-Charta mit politischen Institutionen, militärischen Risiken und gerechter Verteilung.",
+        "en": "The question connects the AI charter with institutions, security risks and fair distribution."
+      },
+      "challenge": {
+        "de": "Wer ist verantwortlich, wenn ein Vorteil kollektiv, ein Schaden aber individuell ist?",
+        "en": "Who is accountable when benefits are collective but harm is individual?"
+      },
+      "topics": [
+        "technik",
+        "politik",
+        "wirtschaft",
+        "ethik"
+      ],
+      "source_paths": [
+        "docs/ki-charta.md",
+        "docs/forschungsprogramm-politik.md",
+        "docs/forschungsprogramm-militaer.md"
+      ],
+      "return_routes": [
+        "ki-und-mensch",
+        "politik-die-dem-menschen-dient",
+        "militaer-und-verantwortung"
+      ],
+      "related_atlas_ids": [
+        "Q-003",
+        "Q-005"
+      ],
+      "lexical_signals": [
+        "ki",
+        "macht",
+        "risiko"
+      ]
+    },
+    {
+      "id": "U-012",
+      "version": 1,
+      "origin": "editorial_synthesis",
+      "review_status": "unreviewed",
+      "answer_status": "open",
+      "theme": "knowledge",
+      "question_type": "methodological",
+      "question": {
+        "de": "Wie verhindert ein offenes Regelwerk, dass es nur seine eigenen Werte bestätigt?",
+        "en": "How can an open rulebook avoid merely confirming its own values?"
+      },
+      "why": {
+        "de": "Offenheit, Selbstkorrektur und die Kritik weltanschaulicher Voreinstellungen müssen am eigenen Verfahren beginnen.",
+        "en": "Openness, self-correction and criticism of worldview biases must begin with the method itself."
+      },
+      "challenge": {
+        "de": "Wer darf Regeln ändern, wenn deren Regeln gerade strittig sind?",
+        "en": "Who may change rules when the rules for change are themselves disputed?"
+      },
+      "topics": [
+        "philosophie",
+        "ethik",
+        "religion",
+        "bildung"
+      ],
+      "source_paths": [
+        "docs/methodenkritik.md",
+        "docs/selbstkorrektur.md",
+        "docs/community-governance.md"
+      ],
+      "return_routes": [
+        "regelkreis",
+        "methode",
+        "bruecken-zwischen-den-religionen",
+        "forum"
+      ],
+      "related_atlas_ids": [
+        "Q-006"
+      ],
+      "lexical_signals": [
+        "kritik",
+        "regel",
+        "widerspruch"
+      ]
+    },
+    {
+      "id": "U-013",
+      "version": 1,
+      "origin": "editorial_synthesis",
+      "review_status": "unreviewed",
+      "answer_status": "open",
+      "theme": "agency",
+      "question_type": "normative",
+      "question": {
+        "de": "Was bedeutet gute Fürsorge, wenn Selbstständigkeit nicht erreichbar ist?",
+        "en": "What is good care when independence cannot be attained?"
+      },
+      "why": {
+        "de": "Der korrigierte Grundtext betont dauerhafte Fürsorge; die Gesprächsmethode verpflichtet zur Perspektive der Betroffenen.",
+        "en": "The revised foundational text affirms lasting care; the dialogue method centres affected people's perspectives."
+      },
+      "challenge": {
+        "de": "Darf der Wunsch nach Selbstständigkeit niemals Vorrang erhalten?",
+        "en": "Must the desire for independence never take precedence?"
+      },
+      "topics": [
+        "liebe",
+        "gesundheit",
+        "medizin",
+        "ethik"
+      ],
+      "source_paths": [
+        "docs/grundtext.md",
+        "docs/forschungsprogramm-liebe.md",
+        "docs/schnittmengen.md"
+      ],
+      "return_routes": [
+        "warum-liebe-wirkt",
+        "medizin",
+        "schnittmengen"
+      ],
+      "related_atlas_ids": [
+        "Q-001"
+      ],
+      "lexical_signals": [
+        "fürsorge",
+        "hilfe",
+        "würde"
+      ]
+    },
+    {
+      "id": "U-014",
+      "version": 1,
+      "origin": "editorial_synthesis",
+      "review_status": "unreviewed",
+      "answer_status": "open",
+      "theme": "experience",
+      "question_type": "methodological",
+      "question": {
+        "de": "Wie bewahren wir verschiedene Erkenntnisformen, ohne beliebige Behauptungen gleichzustellen?",
+        "en": "How can we respect different ways of knowing without treating all claims as equally supported?"
+      },
+      "why": {
+        "de": "Erlebensberichte, künstlerische Interpretation, mathematische Formalisierung und empirische Behauptungen brauchen unterscheidbare Prüfmaßstäbe.",
+        "en": "Experiences, artistic interpretation, mathematical formalization and empirical claims need distinct standards."
+      },
+      "challenge": {
+        "de": "Kann eine wissenschaftliche Prüfung die Bedeutung einer Deutung überhaupt erschöpfen?",
+        "en": "Can a scientific test exhaust the meaning of an interpretation?"
+      },
+      "topics": [
+        "kunst",
+        "esoterik",
+        "philosophie",
+        "mathematik"
+      ],
+      "source_paths": [
+        "docs/kunst-und-erkenntnis.md",
+        "docs/esoterik-katalog.md",
+        "docs/mathematischer-pruefstand.md"
+      ],
+      "return_routes": [
+        "kunst-und-erkenntnis",
+        "esoterik-katalog",
+        "pruefstand"
+      ],
+      "related_atlas_ids": [
+        "Q-002"
+      ],
+      "lexical_signals": [
+        "symbol",
+        "beweis",
+        "interpret"
+      ]
+    },
+    {
+      "id": "U-015",
+      "version": 1,
+      "origin": "editorial_synthesis",
+      "review_status": "unreviewed",
+      "answer_status": "open",
+      "theme": "relations",
+      "question_type": "mixed",
+      "question": {
+        "de": "Wann gilt ein menschlicher Konflikt als gelöst, wenn Unterschiede bleiben?",
+        "en": "When is a human conflict resolved if disagreements remain?"
+      },
+      "why": {
+        "de": "Die Brücke trennt Verstehen von Einigkeit; Frieden, tragfähige Vereinbarung und Dissens sind unterschiedliche mögliche Ergebnisse.",
+        "en": "The bridge separates understanding from agreement; peace, workable commitments and dissent are different possible outcomes."
+      },
+      "challenge": {
+        "de": "Kann ein formal erreichter Kompromiss dennoch ungerecht oder unsicher sein?",
+        "en": "Can a formally reached compromise remain unjust or unsafe?"
+      },
+      "topics": [
+        "konflikte",
+        "politik",
+        "militaer",
+        "psychologie"
+      ],
+      "source_paths": [
+        "docs/schnittmengen.md",
+        "docs/mathematik-des-dazwischen.md",
+        "docs/forschungsprogramm-politik.md"
+      ],
+      "return_routes": [
+        "schnittmengen",
+        "die-bruecke",
+        "politik-die-dem-menschen-dient"
+      ],
+      "related_atlas_ids": [
+        "Q-001"
+      ],
+      "lexical_signals": [
+        "konflikt",
+        "einig",
+        "versteh"
+      ]
+    },
+    {
+      "id": "U-016",
+      "version": 1,
+      "origin": "editorial_synthesis",
+      "review_status": "unreviewed",
+      "answer_status": "open",
+      "theme": "uncertainty",
+      "question_type": "normative",
+      "question": {
+        "de": "Welche Verantwortung tragen wir für Folgen, die noch niemand sicher vorhersagen kann?",
+        "en": "What responsibility do we bear for consequences nobody can yet predict reliably?"
+      },
+      "why": {
+        "de": "Klimabezogene Ressourcenfolgen, technische Entscheidungen und gesellschaftliche Regeln reichen in eine ungewisse Zukunft.",
+        "en": "Environmental resource consequences, technology and institutions extend into an uncertain future."
+      },
+      "challenge": {
+        "de": "Wie vermeiden wir, dass Vorsorge als unbegrenzte Machtbefugnis benutzt wird?",
+        "en": "How do we prevent precaution from becoming unlimited power?"
+      },
+      "topics": [
+        "politik",
+        "umwelt",
+        "technik",
+        "ernaehrung"
+      ],
+      "source_paths": [
+        "docs/forschungsprogramm-politik.md",
+        "docs/forschungsprogramm-ernaehrung.md",
+        "docs/ki-charta.md"
+      ],
+      "return_routes": [
+        "politik-die-dem-menschen-dient",
+        "ernaehrung-und-verantwortung",
+        "ki-und-mensch"
+      ],
+      "related_atlas_ids": [],
+      "lexical_signals": [
+        "folge",
+        "risiko",
+        "zukunft"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "from": "U-015",
+      "to": "U-003",
+      "type": "depends_on",
+      "reason": {
+        "de": "Ein Konflikt kann nicht allein durch Übereinstimmung bewertet werden; Verstehen ist ein eigener Prüfpunkt.",
+        "en": "A conflict outcome cannot be assessed by agreement alone; understanding is a separate test."
+      }
+    },
+    {
+      "from": "U-003",
+      "to": "U-002",
+      "type": "related_to",
+      "reason": {
+        "de": "Gutes gegenseitiges Wiedergeben setzt das Wissen um die Grenzen des Zugangs zum fremden Erleben voraus.",
+        "en": "Accurate restatement requires acknowledging limits in access to another person's experience."
+      }
+    },
+    {
+      "from": "U-008",
+      "to": "U-003",
+      "type": "related_to",
+      "reason": {
+        "de": "Ein Verstehenswert kann steigen, ohne dass wirkliche Verständigung gelingt.",
+        "en": "A restatement metric can rise without genuine understanding."
+      }
+    },
+    {
+      "from": "U-006",
+      "to": "U-009",
+      "type": "depends_on",
+      "reason": {
+        "de": "Kollektive Entscheidungen müssen begründete Minderheiteneinwände mitbehandeln.",
+        "en": "Collective decisions must address reasoned minority objections."
+      }
+    },
+    {
+      "from": "U-004",
+      "to": "U-005",
+      "type": "related_to",
+      "reason": {
+        "de": "Schutz und Hilfe können Autonomie achten oder verdrängen.",
+        "en": "Protection and assistance can respect or displace agency."
+      }
+    },
+    {
+      "from": "U-013",
+      "to": "U-005",
+      "type": "alternative_framing",
+      "reason": {
+        "de": "Dauerhafte Fürsorge stellt den Schwerpunkt von Unabhängigkeit auf Bedürfnis und Zustimmung um.",
+        "en": "Lasting care shifts focus from independence to need and consent."
+      }
+    },
+    {
+      "from": "U-001",
+      "to": "U-007",
+      "type": "depends_on",
+      "reason": {
+        "de": "Korrekturen brauchen zum Aussage-Typ passende Belege.",
+        "en": "Revisions require evidence suited to the claim type."
+      }
+    },
+    {
+      "from": "U-012",
+      "to": "U-001",
+      "type": "related_to",
+      "reason": {
+        "de": "Ein Regelwerk muss seine eigenen Revisionskriterien der Kritik öffnen.",
+        "en": "A rulebook must expose its own revision criteria to criticism."
+      }
+    },
+    {
+      "from": "U-010",
+      "to": "U-016",
+      "type": "related_to",
+      "reason": {
+        "de": "Entscheiden unter Unsicherheit betrifft kurzfristige wie langfristige Folgen.",
+        "en": "Decision-making under uncertainty concerns immediate and long-term effects."
+      }
+    },
+    {
+      "from": "U-014",
+      "to": "U-007",
+      "type": "depends_on",
+      "reason": {
+        "de": "Vielfältige Erkenntnisformen benötigen unterscheidbare Prüfregeln.",
+        "en": "Different kinds of inquiry need distinct standards of examination."
+      }
+    },
+    {
+      "from": "U-011",
+      "to": "U-006",
+      "type": "related_to",
+      "reason": {
+        "de": "Verteilung von Nutzen und Risiko ist Teil kollektiver Prioritätensetzung.",
+        "en": "Distribution of risks and benefits is part of collective priority-setting."
+      }
+    }
+  ]
+}

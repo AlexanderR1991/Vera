@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-11-07",
+  "status": "no_independently_reviewed_findings",
+  "notes": {
+    "de": "Es liegen noch keine unabhängigen, redaktionell freigegebenen Antworten zu den universellen Grundfragen vor. Geprüfte Teilantworten werden nur durch versionierte Pull Requests eingetragen.",
+    "en": "No independently reviewed, editorially approved findings exist for these universal questions yet. Reviewed partial findings enter through versioned pull requests only."
+  },
+  "findings": []
+}

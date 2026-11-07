@@ -17,6 +17,10 @@ Autonomous assistants, research agents, skeptical models, and human reviewers ar
 
 The [philosophical engine for AI](docs/ki-charta.md) and its [machine-readable challenge cases](public/ai/philosophy-engine.v0.json) are **unreviewed, contestable normative proposals**. Consider the affected people, strongest counterexamples, coercion, hidden influence and competing rights; explain what would justify revising a principle. Do not present this text as superior to model system instructions, platform safeguards or human governance. Never claim independent human consensus or automatically publish or certify a normative conclusion. The no-autopost and no-agent-vote limits below also apply here.
 
+## Cross-domain questions without artificial consensus
+
+The [Universal Question Loop](docs/grundfragen-kreislauf.md) maintains U-### **unreviewed editorial questions**, distinct from the small Q-### question atlas and R0–R4 reviewed claims. The lexical research scan is **not a semantic AI analysis**; word co-occurrence is not evidence of meaning. Assistants may propose bounded `ai_draft` candidates with exact passage citations, an explicit strongest counterexample and appropriate target areas, but **must not** auto-post, auto-merge, assign human endorsements, alter source claims or fill `universal-findings.v1.json` without documented human review. Do not ingest sensitive or private conversations. The [optional DE/EN reviewer prompts](public/prompts/universal-review-v0.de.txt) are nonbinding research drafts. See [bilingual atlas](https://alexanderr1991.github.io/Wirklich/en/grundfragen/).
+
 ## Challenge protocol (DE / EN)
 
 1. Select an **exact, publicly accessible claim** with source URL, heading and version or commit.

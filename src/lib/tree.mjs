@@ -1,6 +1,6 @@
 // An editorial map, not a completeness claim or an evidence ranking.
 const b=(de,en)=>({de,en});
-export const treeSnapshot="2026-11-06";
+export const treeSnapshot="2026-11-07";
 export const fields=[
  {id:"wirklichkeit",name:b("Wirklichkeit","Reality")},
  {id:"leben",name:b("Leben","Life")},
@@ -31,7 +31,7 @@ export const topics=[
  {id:"militaer",name:b("Militär, Frieden & Schutz","Military power, peace & protection"),fields:["gesellschaft","handeln"],state:"draft",slug:"militaer-und-verantwortung",question:b("Welche Grenzen braucht Macht, die schützen soll?","What limits are needed for power intended to protect?")},
  {id:"religion",name:b("Religion, Weltbilder & Theologie","Religion, worldviews & theology"),fields:["bewusstsein","mensch","gesellschaft","handeln"],state:"draft",slug:"bruecken-zwischen-den-religionen",question:b("Wie verstehen wir fremde Überzeugungen und erhalten echten Dissens?","How do we understand unfamiliar beliefs while preserving real disagreement?")},
  {id:"kunst",name:b("Kunst, Ästhetik & Ausdruck","Art, aesthetics & expression"),fields:["bewusstsein","mensch","gesellschaft"],state:"draft",slug:"kunst-und-erkenntnis",question:b("Welche Erfahrung oder Gegenfrage öffnet ein Werk?","Which experience or counterquestion does a work open up?")},
- {id:"esoterik",name:b("Esoterik, Symbol & Modell","Esotericism, symbols & models"),fields:["wirklichkeit","bewusstsein","mensch"],state:"draft",slug:"esoterik-und-mathematik",question:b("Was ist Deutung, was ein formales Muster, was eine prüfbare Vorhersage?","What is interpretation, what is a formal pattern, and what is a testable prediction?")},
+ {id:"esoterik",name:b("Esoterik, Symbol & Modell","Esotericism, symbols & models"),fields:["wirklichkeit","bewusstsein","mensch"],state:"draft",slug:"esoterik-katalog",question:b("Was ist Deutung, was ein formales Muster, was eine prüfbare Vorhersage?","What is interpretation, what is a formal pattern, and what is a testable prediction?")},
  {id:"konflikte",name:b("Konflikte & Schnittmengen","Conflicts & common ground"),fields:["mensch","gesellschaft","handeln"],state:"draft",slug:"schnittmengen",anchor:"sprachprobe",question:b("Was meinen wir mit „fair“, wenn wir die Miete teilen? Worüber sind wir uns weiterhin uneinig?","What do we mean by ‘fair’ when we split the rent? Where do we still disagree?")},
  {id:"wirtschaft",name:b("Wirtschaft, Arbeit & Versorgung","Economics, work & provision"),fields:["mensch","gesellschaft","handeln"],state:"open",question:b("Wie organisieren wir Lebenszeit, Güter und tragfähige Finanzierung?","How do we organize time, goods and sustainable funding?")},
  {id:"technik",name:b("Technik, KI & Verantwortung","Technology, AI & responsibility"),fields:["wirklichkeit","bewusstsein","gesellschaft","handeln"],state:"open",question:b("Welche Fähigkeiten helfen wem, und wer trägt die Folgen?","Which capabilities help whom, and who bears the consequences?")},

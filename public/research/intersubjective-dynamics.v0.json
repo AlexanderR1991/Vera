@@ -1,0 +1,82 @@
+{
+  "id": "M-02",
+  "version": "0.1",
+  "date": "2026-11-07",
+  "title": {
+    "de": "Die Mathematik des Dazwischen",
+    "en": "Mathematics Between Minds"
+  },
+  "status": "unreviewed_research_proposal",
+  "field": "intersubjective dynamics (working name)",
+  "purpose": "Operational distinction between directed accuracy of restatement and content agreement; not a measure of conscious experience or moral truth.",
+  "scope": "Two voluntary adults, same prespecified 0..4 response items; equal item weighting and equal category spacing are assumptions.",
+  "definitions": {
+    "items": "m >= 1, fixed and anchored before and after",
+    "directed_accuracy_B_to_A": "1 - sum(abs(a_j - b_estimate_a_j))/(4*m)",
+    "directed_accuracy_A_to_B": "1 - sum(abs(b_j - a_estimate_b_j))/(4*m)",
+    "agreement": "1 - sum(abs(a_j - b_j))/(4*m)",
+    "reporting": "Report both directed values separately, with item-level detail; never merge into human ranking."
+  },
+  "formal_result": {
+    "id": "M-02.1",
+    "type": "deduction_from_definitions",
+    "claim": "Perfect restatement accuracy and maximal disagreement can coexist; maximal agreement and inaccurate restatements can coexist.",
+    "witnesses": [
+      {
+        "a": [
+          0
+        ],
+        "b": [
+          4
+        ],
+        "aEstimatesB": [
+          4
+        ],
+        "bEstimatesA": [
+          0
+        ],
+        "vAB": 1,
+        "vBA": 1,
+        "k": 0
+      },
+      {
+        "a": [
+          4
+        ],
+        "b": [
+          4
+        ],
+        "aEstimatesB": [
+          0
+        ],
+        "bEstimatesA": [
+          0
+        ],
+        "vAB": 0,
+        "vBA": 0,
+        "k": 1
+      }
+    ]
+  },
+  "hypothesis": {
+    "id": "H-M02",
+    "type": "untested_empirical",
+    "claim": "Reciprocal restatement with permission to correct improves both directed accuracy measures relative to a time-matched neutral discussion; change in agreement is not required.",
+    "disconfirmation": "No improvement, reversal, systematic harms or failure under a pre-registered comparison."
+  },
+  "limits": [
+    "Not psychometrically validated",
+    "Ordinal item spacing assumed",
+    "No direct access to experience",
+    "Possible strategic or coerced responses",
+    "Goodhart / gaming risk",
+    "Not suitable for abuse mediation or ranking people",
+    "No personal data collection implemented"
+  ],
+  "references": [
+    "https://doi.org/10.1007/s11229-024-04503-4",
+    "https://doi.org/10.1037/pspa0000115",
+    "https://doi.org/10.1080/0022250X.1990.9990069"
+  ],
+  "source": "docs/mathematik-des-dazwischen.md"
+}

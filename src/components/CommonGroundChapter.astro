@@ -20,6 +20,12 @@ const t=copy[lang];
 <section class="section section--paper common-section"><div class="narrow">
 <h2>{t.introTitle}</h2><p>{t.intro}</p><p>{t.introNote}</p>
 </div></section>
+<section class="section common-section" aria-labelledby="common-bridge-title"><div class="narrow">
+  <p class="section-kicker">{lang==="de"?"DIE BRÜCKE · M-02":"THE BRIDGE · M-02"}</p>
+  <h2 id="common-bridge-title">{lang==="de"?"Verstehen ist nicht Zustimmen.":"Understanding is not agreement."}</h2>
+  <p>{lang==="de"?"Bevor wir eine Schnittmenge suchen, fragen wir: Können A und B die Sicht der jeweils anderen Person richtig wiedergeben? Unser mathematisches Forschungsmodell hält Wiedergabegenauigkeit und inhaltliche Übereinstimmung bewusst auseinander. Es ersetzt weder Einwilligung noch das Recht, eine Diskussion abzubrechen.":"Before seeking common ground, we ask: Can A and B accurately restate the other's view? Our mathematical research model deliberately separates restatement accuracy from content agreement. It replaces neither consent nor the right to end a conversation."}</p>
+  <p><a class="subtle-link" href={pathFor(lang,"die-bruecke")}>{lang==="de"?"Das Modell M-02 mit Beispielzahlen prüfen":"Explore M-02 with example numbers"} →</a></p>
+</div></section>
 <ConsensusExercise lang={lang} />
 <section class="section common-section" id="fragen"><div class="container">
 <h2>{t.stepsTitle}</h2>

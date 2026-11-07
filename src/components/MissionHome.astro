@@ -29,6 +29,13 @@ const featuredQuestions = everydayQuestions.questions.slice(0, 3);
     </div>
   </section>
 
+  <section class="home-ai container" aria-labelledby="home-universal-title">
+    <p class="section-kicker">{lang==="de"?"DIE GRUNDFRAGEN · ALLE THEMEN VERBINDEN":"FUNDAMENTAL QUESTIONS · CONNECTING EVERY FIELD"}</p>
+    <h2 id="home-universal-title">{lang==="de"?"Welche Fragen stecken hinter unseren Fragen?":"What questions lie behind our questions?"}</h2>
+    <p>{lang==="de"?"Von Liebe bis Mathematik, von Politik bis Bewusstsein: 16 ungeprüfte, übergreifende Grundfragen mit Herkunft, Gegenfragen und Rückwegen in die Fachbereiche. Eine offene Forschungsagenda – kein fertiges Wahrheitsregister.":"From love to mathematics and politics to consciousness: 16 unreviewed cross-domain questions with sources, counterquestions and links back to the original subjects. An open research agenda—not a truth register."}</p>
+    <a class="home-link" href={pathFor(lang,"grundfragen")}>{lang==="de"?"Die Grundfragen erkunden":"Explore the fundamental questions"} →</a>
+  </section>
+
   <section class="home-collective container" aria-labelledby="collective-home-title">
     <p class="section-kicker">{lang==="de"?"GRUNDIDEE · KOLLEKTIVE INTELLIGENZ":"FOUNDING IDEA · COLLECTIVE INTELLIGENCE"}</p>
     <h2 id="collective-home-title">{lang==="de"?"Können wir gemeinsam besser denken als allein?":"Can we think better together than alone?"}</h2>
@@ -65,6 +72,14 @@ const featuredQuestions = everydayQuestions.questions.slice(0, 3);
     <h2 id="home-ai-title">{lang==="de"?"Was MUSS KI für uns Menschen sein?":"What MUST AI be for us?"}</h2>
     <p>{lang==="de"?"Technische Intelligenz gibt keine moralische Richtung vor. Wir wollen mit Menschen den philosophischen Maßstab entwickeln, an dem KI gemessen, kritisiert und verbessert werden kann.":"Technical intelligence does not set its moral direction. With people, we want to develop the philosophical standards by which AI can be judged, challenged and improved."}</p>
     <a class="home-link" href={pathFor(lang,"ki-und-mensch")}>{lang==="de"?"Den philosophischen Motor prüfen":"Examine the philosophical engine"} <span aria-hidden="true">→</span></a>
+  </section>
+
+  <section class="home-ai container" aria-labelledby="home-bridge-title">
+    <p class="section-kicker">{lang==="de"?"DIE BRÜCKE · NEUES FORSCHUNGSPROGRAMM":"THE BRIDGE · NEW RESEARCH PROGRAMME"}</p>
+    <h2 id="home-bridge-title">{lang==="de"?"Verstehen, ohne zustimmen zu müssen.":"Understanding without having to agree."}</h2>
+    <p>{lang==="de"?"Muss Einigkeit das Ziel jedes Konflikts sein? Unsere offene Forschung trennt zwei Fragen: Wie gut können Menschen die Position des anderen wiedergeben – und wie stark stimmen sie inhaltlich überein?":"Does every conflict have to end in agreement? Our open research separates two questions: How accurately can people restate each other's position, and how much do their own views agree?"}</p>
+    <a class="home-link" href={pathFor(lang,"die-bruecke")}>{lang==="de"?"Die Mathematik des Dazwischen erkunden":"Explore Mathematics Between Minds"} →</a>
+    <p>{lang==="de"?"Forschungsentwurf M-02 · Modellbeispiele, noch keine Studie.":"M-02 research draft · model examples, not a completed study."}</p>
   </section>
 
   <section class="home-doorways container" aria-label={t.doorwaysLabel}>
