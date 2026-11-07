@@ -46,6 +46,14 @@ On GitHub, open the relevant file, click the pencil icon, edit your fork, and op
 
 **Projektchronik / Project timeline.** Für einen Meilenstein ergänze in `src/lib/observatory-events.json` eine kurze Beschreibung in beiden Sprachen, die Issue- oder PR-Nummer und den belegten UTC-Zeitpunkt der Meldung oder Übernahme. Ordne ihn zeitlich ein. Die Tagesstände entstehen beim Build aus der vollständigen Git-Historie. / To add a milestone, record both descriptions, the issue or PR number and the verified UTC opening or merge time in chronological order. The build derives daily snapshots from a full Git checkout.
 
+## META-01 · Bessere Einwände ermöglichen bessere Fassungen
+
+> Wir bauen kein System, das recht behalten soll. Wir bauen ein System, das aus seinen Irrtümern lernen muss.
+
+Dieser [anfechtbare Grundsatz](docs/selbstkorrektur.md) verlangt bei **substanziellen** Änderungsvorschlägen ein kleines Korrekturprotokoll: bisherige Stelle und Version, Aussageart und Geltungsbereich, stärkster bekannter Einwand, Maßstab und Revisionsbedingung, vorgeschlagene Entscheidung (beibehalten, eingrenzen, korrigieren, zurückziehen oder offenlassen), neue Fassung oder offene Frage, Gründe und menschliche Verantwortung. Ein Tippfehler braucht keinen Forschungsbericht. Auch die Leitregel selbst darf kritisiert werden. Die Entscheidung bleibt bis zum Aufbau einer gemeinsamen Governance beim benannten Maintainer.
+
+**English:** The [contestable META-01 correction loop](docs/selbstkorrektur.md) asks substantive PRs to trace the old version, claim kind and scope, strongest fair objection, revision test, proposed outcome and accountable editor. Corrections are not guaranteed by objections, votes or AI agreement. Minor copy edits may use a lighter record.
+
 ## 3. So prüfen wir Beiträge / How contributions are evaluated
 
 - **Empirische Aussage / Empirical claim:** Reputable, verifiable sources, relevant caveats, and contrary findings.
