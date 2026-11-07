@@ -57,6 +57,15 @@ const reviewText={
  </section>
 
  <EverydayQuestions lang={lang} />
+ <section class="forum-section container" aria-labelledby="forum-universal-title">
+   <p class="section-kicker">{t("GRUNDFRAGEN · NEUE VERBINDUNGEN","FUNDAMENTAL QUESTIONS · CROSS-DOMAIN CONNECTIONS")}</p>
+   <h2 id="forum-universal-title">{t("Welche Frage taucht überall wieder auf?","Which question keeps recurring?")}</h2>
+   <p>{t("Der neue Grundfragenatlas sammelt übergreifende Fragen mit Quellen und Gegenfragen. Das ist eine redaktionell ungeprüfte Forschungsagenda, keine automatisch ausgewertete Menschenmeinung.","The new fundamental-question atlas collects cross-domain questions with source links and counterquestions. It is an unreviewed editorial research agenda, not an automated evaluation of people's views.")}</p>
+   <div class="button-row"><a class="button button--gold" href={pathFor(lang,"grundfragen")}>{t("Grundfragen untersuchen","Explore fundamental questions")} →</a>
+     <a class="button button--ghost" href={project.repository+"/issues/new?template=grundfrage.yml"} target="_blank" rel="noopener noreferrer">{t("Frage oder Einwand einreichen","Submit a question or objection")} ↗</a></div>
+ </section>
+
+
 
  <section class="forum-section container" id="esoterik-forum" aria-labelledby="esoterik-forum-title">
   <p class="section-kicker">{t("OFFENER WISSENSBAUM · NEUE ÄSTE","OPEN KNOWLEDGE TREE · NEW BRANCHES")}</p>
