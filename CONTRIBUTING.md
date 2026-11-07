@@ -56,6 +56,8 @@ Dieser [anfechtbare Grundsatz](docs/selbstkorrektur.md) verlangt bei **substanzi
 
 **English:** The [contestable META-01 correction loop](docs/selbstkorrektur.md) asks substantive PRs to trace the old version, claim kind and scope, strongest fair objection, revision test, proposed outcome and accountable editor. Corrections are not guaranteed by objections, votes or AI agreement. Minor copy edits may use a lighter record.
 
+[Einen Git-Stand lokal auf Wiederherstellbarkeit prüfen](docs/vera-wiederherstellung.md) · [Run a local Git recovery drill](docs/vera-wiederherstellung.md#english)
+
 ## 3. So prüfen wir Beiträge / How contributions are evaluated
 
 - **Empirische Aussage / Empirical claim:** Reputable, verifiable sources, relevant caveats, and contrary findings.
