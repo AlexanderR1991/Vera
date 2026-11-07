@@ -1,6 +1,6 @@
 # Fragenatlas & KI-Schleuse / Question atlas & AI attention boundary
 
-**Pilot seit 7. November 2026.** Der [Fragenatlas im Forum](https://alexanderr1991.github.io/Wirklich/de/forum/#fragenatlas) verbindet sechs **redaktionelle, ungeprüfte Beispielfragen**. Er ist kein Live-Index aller GitHub Discussions und noch kein verifizierter Wissensgraph.
+**Pilot seit 7. November 2026.** Der [Fragenatlas im Forum](https://alexanderr1991.github.io/Wirklich/de/forum/#fragenatlas) verbindet sieben **redaktionelle, ungeprüfte Beispielfragen**. Er ist kein Live-Index aller GitHub Discussions und noch kein verifizierter Wissensgraph.
 
 > **Die Zahl der Fragen darf wachsen. Die Unübersichtlichkeit nicht.**
 >
@@ -13,6 +13,12 @@
 - **Fragenatlas (Verbindungen):** Das manuell gepflegte `public/knowledge/questions.json` hält stabile Frage-IDs, DE/EN-Wortlaut, Typ, Herkunft, zugeordnete Themen, Links zu bestehenden Aussage-IDs und begründete Beziehungen fest. Änderungen brauchen einen redaktionell geprüften PR. Der Atlas befördert **keine** Aussage auf eine höhere Erkenntnis- oder Konsensstufe.
 
 Diese Räume sind derzeit Arbeitsbereiche des vorhandenen Repositories, keine separate Diskussionsplattform oder neue Datenbank.
+
+## Neues politisches Beispiel / New political example
+
+**Q-007** fragt bilingual, wer von Produktivitätssteigerungen profitiert und welchen Einfluss Eigentum, Mitbestimmung und Verteilungsregeln haben. Verknüpft: **P-001 (R0, ungeprüft)**, Politik, Wirtschaft sowie die Fragen nach KI-Entscheidungen und der Prüfung von Gegenbelegen. Diese Verbindungen sind thematische Arbeitshypothesen, keine bestätigte Kausalstruktur und kein Konsens.
+
+Im [Forum](https://alexanderr1991.github.io/Wirklich/de/forum/#alltag-verteilung) gibt es dazu einen einfachen Einstieg, eine vorläufige Antwort und einen konstruierbaren Einwand. [Politische Fallprüfung](forschungsprogramm-politik.md) enthält historische Gegenbeispiele mit Grenzen ihrer Aussagekraft.
 
 ## Verbindungen ohne Scheinkonsens
 
@@ -39,7 +45,7 @@ Frage-zu-Aussage-Links besagen **nur**, dass der öffentliche Eintrag relevant s
 
 ## Datenformat und lokale Triage
 
-Das öffentliche Register `public/knowledge/questions.json` führt `schema_version: 1` und stabile IDs `Q-001` usw. Nach Veröffentlichung darf eine ID nicht neu vergeben werden. Die `origin`-Werte sind `editorial_draft` und `human_submission`. **KI-Entwürfe (`ai_draft`) sind im öffentlichen Register durch den Validator verboten.** `review_status: unreviewed` bleibt bei allen sechs Beispielen. `human_curated` benötigt einen namentlichen und datierten Review-Eintrag, dessen Echtheit ein Strukturskript allein nicht sicherstellen kann.
+Das öffentliche Register `public/knowledge/questions.json` führt `schema_version: 1` und stabile IDs `Q-001` usw. Nach Veröffentlichung darf eine ID nicht neu vergeben werden. Die `origin`-Werte sind `editorial_draft` und `human_submission`. **KI-Entwürfe (`ai_draft`) sind im öffentlichen Register durch den Validator verboten.** `review_status: unreviewed` bleibt bei allen sieben Beispielen. `human_curated` benötigt einen namentlichen und datierten Review-Eintrag, dessen Echtheit ein Strukturskript allein nicht sicherstellen kann.
 
 Für die Offline-Triage lässt sich eine lokale (nicht automatisch publizierte) JSON-Datei anlegen:
 
