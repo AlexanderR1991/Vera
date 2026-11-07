@@ -5,7 +5,7 @@ import project from "../../public/project.json" with {type: "json"};
 const {lang="de",slug="index",root=false}=Astro.props;
 const t=ui[lang];
 const footerGroups = [
-  { title: t.explore, routes: ["erkenntnisnavigator", "baum-des-wissens", "bibliothek", "aussagen", "forum", "pruefstand", "forschungsstrom"] },
+  { title: t.explore, routes: ["erkenntnisnavigator", "baum-des-wissens", "esoterik-katalog", "bibliothek", "aussagen", "forum", "pruefstand", "forschungsstrom"] },
   { title: t.project, routes: ["mission", "regelkreis", "methode", "ki-und-mensch", "projektstatus", "projektobservatorium", "mitwirken"] }
 ];
 const description = Astro.props.description ?? t.description;
