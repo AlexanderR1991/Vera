@@ -1,7 +1,8 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import fixtures from "../public/research/philosophical-motor-examples.v0.json" with {type:"json"};
-import {validateSyntheticScenario,examineDirection,traceRevisionImpact,provenanceAudit,assessScopedAgreement} from "../src/lib/philosophical-motor.mjs";
+import published from "../public/knowledge/claims.json" with {type:"json"};
+import {validateSyntheticScenario,examineDirection,traceRevisionImpact,provenanceAudit,assessScopedAgreement,describePublishedClaim} from "../src/lib/philosophical-motor.mjs";
 
 const [plurality,rights,missing] = fixtures.cases;
 
@@ -83,4 +84,19 @@ test("same median estimates do not imply robust positive orientation",()=>{
   hypothetical.dimensions[0].effects=[-1,0.2,1];
   const result=examineDirection(hypothetical);
   assert.notEqual(result.direction,"positive_across_profiles");
+});
+
+test("public claim records are read without rating, fictitious consensus or R promotion",()=>{
+  assert.ok(published.claims.length>=3);
+  for(const claim of published.claims){
+    const item=describePublishedClaim(claim);
+    assert.equal(item.status,"read_only_record");
+    assert.equal(item.maturity_level,claim.maturity.level);
+    assert.equal(item.consensus_status,claim.consensus.status);
+    assert.equal(item.version,claim.version);
+    assert.equal(item.source_records,claim.sources.length);
+    assert.equal(item.direction,null);
+    assert.equal(item.public_score_allowed,false);
+  }
+  assert.equal(describePublishedClaim({id:"fake"}).status,"invalid_claim");
 });

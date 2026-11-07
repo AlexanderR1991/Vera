@@ -183,3 +183,30 @@ export function assessScopedAgreement(input) {
   if (answers.every(answer => answer === "yes")) return "agreement_on_exact_version";
   return "proposed_or_open";
 }
+
+/**
+ * Read-only adapter for the CURRENT public claims registry.
+ * Review level and consensus are copied, never inferred or promoted.
+ * Sources and AI roles do not create numerical trust, votes or moral scores.
+ */
+export function describePublishedClaim(claim) {
+  const closed = (status) => ({status, direction: null, public_score_allowed: false});
+  if (!claim || !filled(claim.id) || !filled(claim.type) ||
+      !Number.isInteger(claim.version) || claim.version < 1 ||
+      !Number.isInteger(claim.maturity?.level) ||
+      claim.maturity.level < 0 || claim.maturity.level > 4 ||
+      !filled(claim.consensus?.status) ||
+      !Array.isArray(claim.sources)) return closed("invalid_claim");
+  return {
+    ...closed("read_only_record"),
+    id: claim.id,
+    version: claim.version,
+    claim_type: claim.type,
+    abstraction_level: claim.abstraction_level ?? null,
+    epistemic_status: claim.epistemic_status ?? null,
+    review_status: claim.review_status ?? null,
+    maturity_level: claim.maturity.level,
+    consensus_status: claim.consensus.status,
+    source_records: claim.sources.length
+  };
+}

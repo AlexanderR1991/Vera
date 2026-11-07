@@ -262,6 +262,7 @@ Q_t=(\text{Trefferquote},\;\text{Fehlalarmquote},\;
 | M-01 | [Prüfstand](mathematischer-pruefstand.md) | Formales Gegenbeispiel zur universellen Rangordnung |
 | M-02 | [M-02](mathematik-des-dazwischen.md), [inter-subjective Testdaten](../public/research/intersubjective-dynamics.v0.json) | Abstandsbasierter Spielzeugwert für Verständnis und Übereinstimmung |
 | M-03 | [Reiner JS-Kern](../src/lib/philosophical-motor.mjs) | Validierung, Intervall-Aggregation und Wertprofil-Sensitivität **nur für synthetische Fälle** |
+| Bestehende Aussagen | [Read-only-Adapter](../src/lib/philosophical-motor.mjs) | Liest echte öffentliche Aussageart, Version, R0–R4, Konsensstatus und Zahl der verzeichneten Quellen **ohne** neue Bewertung |
 | M-03-Schutz | gleicher JS-Kern | Fehlende Werte bleiben fehlend; Rechte-/Schutzstatus getrennt; realer Score gesperrt |
 | M-03-Abhängigkeiten | gleicher JS-Kern | Markiert die Prüffolge nach geänderter Prämisse; verändert keine Aussagen |
 | M-03-Herkunft | gleicher JS-Kern | Erfasst Quell-IDs und deklarierte Abhängigkeitsgruppen; behauptet **keine geprüfte** Unabhängigkeit |

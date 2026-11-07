@@ -130,7 +130,7 @@ Open issues include arbitrary scale choice, causal identification, statistical d
 
 ## 9. What is actually implemented
 
-The new prototype contains deterministic, read-only functions for toy interval aggregation, weight validation, noncompensatory safeguarding, exact-version hypothetical consent, provenance-ID audit and a dependency-review queue. [Synthetic cases](../../public/research/philosophical-motor-examples.v0.json) and [Node tests](../../tests/philosophical-motor.test.mjs) exercise these invariants. The published claims and fundamental-question registers remain unchanged. **There is no automatic cross-domain inference, autonomous expert swarm, real scoring, social-vote engine or AI proof of moral truth.**
+The new prototype also reads the current public claim register through a **read-only adapter**, keeping original R0–R4 and consensus states intact and never inferring a direction. It contains deterministic functions for toy interval aggregation, weight validation, noncompensatory safeguarding, exact-version hypothetical consent, provenance-ID audit and a dependency-review queue. [Synthetic cases](../../public/research/philosophical-motor-examples.v0.json) and [Node tests](../../tests/philosophical-motor.test.mjs) exercise these invariants. The published claims and fundamental-question registers remain unchanged. **There is no automatic cross-domain inference, autonomous expert swarm, real scoring, social-vote engine or AI proof of moral truth.**
 
 A correct outcome can be **"not comparable under the disclosed assumptions."** This is a productive limit rather than a failure.
 

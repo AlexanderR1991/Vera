@@ -3,12 +3,15 @@ import Layout from "../layouts/SiteLayout.astro";
 import {base,pathFor} from "../lib/paths.mjs";
 import project from "../../public/project.json";
 import fixtures from "../../public/research/philosophical-motor-examples.v0.json";
-import {examineDirection} from "../lib/philosophical-motor.mjs";
+import claimsData from "../../public/knowledge/claims.json";
+import {maturityLabels,consensusLabels} from "../lib/maturity.mjs";
+import {examineDirection,describePublishedClaim} from "../lib/philosophical-motor.mjs";
 
 const {lang="de"}=Astro.props;
 const en=lang==="en";
 const t=(de,english)=>en?english:de;
 const examples=fixtures.cases.map(scenario=>({scenario,result:examineDirection(scenario)}));
+const publishedClaims=claimsData.claims.map(claim=>({claim,snapshot:describePublishedClaim(claim)}));
 const signed=value=>typeof value==="number"?(value>0?"+":"")+value.toFixed(3):"—";
 const labels={
  profile_sensitive:t("Profilabhängig: kein allgemeiner Einzelwert","Profile-sensitive: no universal score"),
@@ -37,6 +40,23 @@ const safeguards={
     </div>
    </div>
   </header>
+
+  <section class="section motor-section">
+   <div class="container">
+    <p class="section-kicker">{t("TATSÄCHLICHE AUSSAGEN · NUR LESEN","EXISTING CLAIMS · READ ONLY")}</p>
+    <h2>{t("Was der Motor heute wirklich weiß.","What the engine actually knows today.")}</h2>
+    <p>{t("Die Einträge stammen aus dem öffentlichen Aussagenregister. Ihr Prüfstatus wird unverändert gelesen: keine automatische Aufstufung, keine gesellschaftliche Konsensbehauptung, keine moralische Punktzahl.","These entries come from the public claim register. Their review status is read unchanged: no automatic promotion, no claim of social consensus, and no moral score.")}</p>
+    <div class="motor-claims">
+      {publishedClaims.map(({claim,snapshot})=><article class="motor-claim">
+        <small>{snapshot.id} · v{snapshot.version} · {snapshot.claim_type}</small>
+        <h3>{claim.statement[lang]}</h3>
+        <p>{maturityLabels[lang][snapshot.maturity_level]} · {consensusLabels[lang][snapshot.consensus_status]}</p>
+        <span>{t("Richtungsindex: nicht berechnet","Directional index: not computed")}</span>
+      </article>)}
+    </div>
+    <p><a href={pathFor(lang,"aussagen")}>{t("Zum vollständigen Aussagenregister","Explore the full claim register")} →</a></p>
+   </div>
+  </section>
 
   <section class="section motor-section">
    <div class="container">
@@ -133,6 +153,13 @@ const safeguards={
 .motor-section{padding-block:clamp(3rem,6vw,5rem)}
 .motor-section h2{max-width:54rem;font-size:clamp(1.65rem,3vw,2.65rem);line-height:1.2;margin:.7rem 0 1.7rem}
 .motor-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.motor-claims{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin:2rem 0}
+.motor-claim{border:1px solid var(--line);border-radius:12px;padding:1.2rem}
+.motor-claim small{font-size:.72rem;color:var(--motor-accent)}
+.motor-claim h3{font-size:1rem;line-height:1.4;margin:.55rem 0 .8rem}
+.motor-claim p{font-size:.85rem;opacity:.72}
+.motor-claim span{display:inline-block;font-size:.78rem;border:1px solid var(--line);border-radius:30px;padding:.3rem .7rem}
+@media(max-width:760px){.motor-claims{grid-template-columns:1fr}}
 .motor-card{padding:1.4rem;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.025)}
 .motor-card small{color:var(--motor-accent)}
 .motor-card h3{margin:.7rem 0 .4rem;font-size:1.25rem}
