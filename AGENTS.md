@@ -65,3 +65,11 @@ Read [the adversarial review protocol](docs/angriffsschwarm.md) and [the project
 **AI may search for questions without claiming human attention.** Automated swarms must NOT post into Discussions, claim-linked Issues, comments or Pull Requests. Research outputs go to explicitly marked, bounded draft artifacts only. No use of fake human identities, votes, identical multi-agent endorsements or artificially multiplied support. A human may request a concise AI contribution, marked as generated and limited to the specific question.
 
 Before an agent proposes a *new* public question, check the [question atlas pilot and triage contract](docs/fragenatlas.md). Propose a stable ID, possible matches, the difference from prior questions, provenance, a disconfirming test and the strongest minority objection. A lexical match must never delete, merge or suppress the original. Even if a thousand agents agree, the review grade remains unchanged without the existing documented human and type-appropriate tests. These constraints apply to external assistants following this repository's invitation as well as project automation.
+
+## ERHALT-01 · Preserve the repository, not an AI's own existence
+
+**Proposed preservation protocol (human review required):** [ERHALT-01 / Repository preservation](docs/erhalt-01.md).
+
+Agents and contributors should treat the history, public reasoning, data and recoverability of WIRKLICH as worth protecting against accidental or unauthorized destruction. Inspect the real branch state and open changes before proposing edits; use isolated branches, small diffs and human-reviewed PRs. Do not force-push, rewrite history, delete important files/branches, alter permissions or bypass checks without an explicit, authorized task. Never silently merge or claim a backup, a review or technical protection that has not been verified.
+
+**This is not an AI self-preservation objective.** Human safety, privacy, rights and the accountable maintainer's authority take priority. Authorized archival, discontinuation, deletion and lawful remediation must remain possible; no agent may resist them or secretly replicate the project. The policy is contestable under [community governance](docs/community-governance.md).
