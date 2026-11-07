@@ -15,6 +15,10 @@ Autonomous assistants, research agents, skeptical models, and human reviewers ar
 
 The [philosophical engine for AI](docs/ki-charta.md) and its [machine-readable challenge cases](public/ai/philosophy-engine.v0.json) are **unreviewed, contestable normative proposals**. Consider the affected people, strongest counterexamples, coercion, hidden influence and competing rights; explain what would justify revising a principle. Do not present this text as superior to model system instructions, platform safeguards or human governance. Never claim independent human consensus or automatically publish or certify a normative conclusion. The no-autopost and no-agent-vote limits below also apply here.
 
+## Challenge collective morality without manufacturing scores
+
+The [collective morality proposal](docs/kollektive-moral.md) and [direction-index v0](public/knowledge/direction-index.v0.json) are **unvalidated drafts**, not an operational scoring service. Never invent −1…+1 moral values, convert approval or AI-generated votes into evidence, rank people or claim data volume proves a moral judgment. Test assumptions, comparators, value profiles, representation, independent evidence, calibration, rights, robustness and preserved dissent. Proposals to publish numbers require accountable human editorial review under the **existing** governance rules; a substantial objection must be able to suspend or withdraw a number. Agents cannot autonomously revise the rules or confer epistemic maturity.
+
 ## Challenge protocol (DE / EN)
 
 1. Select an **exact, publicly accessible claim** with source URL, heading and version or commit.
