@@ -19,6 +19,10 @@ The [philosophical engine for AI](docs/ki-charta.md) and its [machine-readable c
 
 The [Universal Question Loop](docs/grundfragen-kreislauf.md) maintains U-### **unreviewed editorial questions**, distinct from the small Q-### question atlas and R0–R4 reviewed claims. The lexical research scan is **not a semantic AI analysis**; word co-occurrence is not evidence of meaning. Assistants may propose bounded `ai_draft` candidates with exact passage citations, an explicit strongest counterexample and appropriate target areas, but **must not** auto-post, auto-merge, assign human endorsements, alter source claims or fill `universal-findings.v1.json` without documented human review. Do not ingest sensitive or private conversations. The [optional DE/EN reviewer prompts](public/prompts/universal-review-v0.de.txt) are nonbinding research drafts. See [bilingual atlas](https://alexanderr1991.github.io/Wirklich/en/grundfragen/).
 
+## REDE-01 · Preserve dissent without reproducing harm
+
+When reviewing WIRKLICH, distinguish harsh or unpopular disagreement from credible threats, repeated targeted harassment, privacy abuse and unlawful material. **Mere offense, criticism of this project, votes, or AI judgments alone are not grounds to suppress a claim.** For genuine risk, propose the least restrictive *effective* measure and explain uncertainty; do not reproduce personal data or harmful content as public evidence. No agent may automatically issue a final moderation decision, publish a complaint, or claim a functioning reporting channel. See the [bilingual speech-and-safety proposal](docs/redefreiheit-und-schutz.md) and the [unimplemented protocol draft](public/protocol/speech-and-safety.v0.json).
+
 ## Challenge protocol (DE / EN)
 
 1. Select an **exact, publicly accessible claim** with source URL, heading and version or commit.
