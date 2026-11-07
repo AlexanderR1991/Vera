@@ -1,273 +1,167 @@
 ---
 import Layout from "../layouts/SiteLayout.astro";
+import IndustrialBoard from "./IndustrialBoard.astro";
 import copy from "../lib/mission-copy.json";
 import {pathFor} from "../lib/paths.mjs";
 import {ui} from "../lib/ui.mjs";
 import everydayQuestions from "../../public/knowledge/everyday-questions.json";
-import project from "../../public/project.json" with {type: "json"};
+import project from "../../public/project.json" with {type:"json"};
 import protocol from "../../public/protocol/self-correction.v1.json";
 
-const {lang = "de"} = Astro.props;
-const t = copy[lang];
-const featuredQuestions = everydayQuestions.questions.slice(0, 3);
+const {lang="de"}=Astro.props;
+const t=copy[lang];
+const de=lang==="de";
+const featuredQuestions=everydayQuestions.questions.slice(0,3);
 ---
 <Layout lang={lang} slug="index" description={t.metaDescription}>
   <section class="home-opening" aria-labelledby="home-heading">
-    <div class="container home-intro">
-      <p class="section-kicker">{ui[lang].name} · {ui[lang].subtitle}</p>
-      <h1 id="home-heading">{t.headline} <em>{t.headlineAccent}</em></h1>
-      <p class="home-invitation">{t.invitation}</p>
-      <p class="home-motto">{t.motto}</p>
-      <blockquote class="home-meta-rule">{protocol.motto[lang]}</blockquote>
-      <div class="button-row">
-        <a class="button button--gold" href={pathFor(lang, "forum", "alltagsfragen")}>{t.forumLink} <span aria-hidden="true">→</span></a>
-        <a class="home-link" href={pathFor(lang, "regelkreis")}>{t.metaRuleLink}</a>
-        <a class="home-link" href={pathFor(lang, "mission")}>{t.missionLink}</a>
+    <div class="container home-opening__grid">
+      <div class="home-intro">
+        <p class="section-kicker">{ui[lang].name} / {de?"DIE OFFENE ERKENNTNISWERKSTATT":"THE OPEN INQUIRY WORKSHOP"}</p>
+        <h1 id="home-heading">{t.headline} <em>{t.headlineAccent}</em></h1>
+        <p class="home-invitation">{t.invitation}</p>
+        <p class="home-motto">{t.motto}</p>
+        <blockquote class="home-meta-rule">{protocol.motto[lang]}</blockquote>
+        <div class="button-row">
+          <a class="button button--gold" href={pathFor(lang,"forum","alltagsfragen")}>{de?"Eine Frage öffnen":"Open a question"} <span aria-hidden="true">↗</span></a>
+          <a class="button button--ghost" href={pathFor(lang,"erkenntnisnavigator")}>{de?"Etwas entdecken":"Explore the atlas"} <span aria-hidden="true">→</span></a>
+        </div>
+        <p class="home-lead">{t.lead}</p>
       </div>
-      <p class="home-lead">{t.lead}</p>
-      <p class="home-principle">{t.principle}</p>
+      <div class="home-mechanism" aria-label={de?"Abstrakte technische Illustration: ein offener, verbundener Erkenntniskreis":"Abstract technical illustration: an open, connected inquiry loop"} role="img">
+        <div class="home-mechanism__label"><span>W / 001</span><span>{de?"FRAGE → PRÜFUNG → REVISION":"QUESTION → TEST → REVISION"}</span></div>
+        <svg class="home-mechanism__drawing" viewBox="0 0 620 610" aria-hidden="true" fill="none">
+          <defs>
+            <linearGradient id="mechanism-shade" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f9f9f6"/><stop offset=".5" stop-color="#c3c7c5"/><stop offset="1" stop-color="#8e9697"/></linearGradient>
+          </defs>
+          <g transform="translate(309 305)">
+            <circle r="243" stroke="#525959" stroke-width="1" stroke-dasharray="2 8"/>
+            <circle r="220" stroke="#6d7274" stroke-width="1" opacity=".7"/>
+            <circle r="188" stroke="#606668" stroke-width="13"/>
+            <circle r="188" stroke="#f4f4f0" stroke-width="1.5"/>
+            <circle r="168" stroke="#f4f4f0" stroke-width="3"/>
+            <circle r="141" stroke="#545b5f" stroke-width="22"/>
+            <circle r="141" stroke="#fafaf6" stroke-width="1"/>
+            <circle r="113" stroke="#7b8285" stroke-width="1"/>
+            <circle r="91" fill="url(#mechanism-shade)" stroke="#f9f9f6" stroke-width="7"/>
+            <circle r="62" fill="#141718" stroke="#545a5c" stroke-width="2"/>
+            <circle r="38" fill="#c9cecc" stroke="#23282a" stroke-width="9"/>
+            <circle r="9" fill="#23282a"/>
+            {Array.from({length:32},(_,i)=>{const a=i*Math.PI/16;return <path d={"M"+(199*Math.cos(a))+" "+(199*Math.sin(a))+"L"+(216*Math.cos(a))+" "+(216*Math.sin(a))} stroke="#24292b" stroke-width={i%4===0?3:1} />})}
+            {Array.from({length:12},(_,i)=>{const a=i*Math.PI/6;return <circle cx={168*Math.cos(a)} cy={168*Math.sin(a)} r="4" fill="#fafaf6" />})}
+            <path d="M-270 0H270M0-270V270" stroke="#3d4345" stroke-dasharray="3 8" opacity=".6"/>
+            <path d="M-70-70L70 70M-70 70L70-70" stroke="#a3a9a8" opacity=".4"/>
+            <g stroke="#f9f9f6" stroke-width="1"><path d="M-226-181h65l41 40"/><path d="M152 165l38 40h70"/></g>
+            <circle cx="-225" cy="-181" r="5" fill="#f9f9f6"/><circle cx="260" cy="205" r="5" fill="#f9f9f6"/>
+          </g>
+        </svg>
+        <div class="home-mechanism__foot"><span>OPEN SYSTEM / R0–R4</span><span>{de?"KEIN LETZTES URTEIL":"NO FINAL VERDICT"}</span></div>
+      </div>
+    </div>
+    <div class="container home-opening__foot">
+      <span>01 / {de?"MENSCHEN":"PEOPLE"}</span>
+      <span>02 / {de?"WIDERSPRUCH":"DISSENT"}</span>
+      <span>03 / {de?"KORREKTUR":"REVISION"}</span>
+      <span>{de?"OPEN SOURCE · NACH VORN GERICHTET":"OPEN SOURCE · FORWARD-LOOKING"}</span>
     </div>
   </section>
 
-  <section class="home-ai container" aria-labelledby="home-universal-title">
-    <p class="section-kicker">{lang==="de"?"DIE GRUNDFRAGEN · ALLE THEMEN VERBINDEN":"FUNDAMENTAL QUESTIONS · CONNECTING EVERY FIELD"}</p>
-    <h2 id="home-universal-title">{lang==="de"?"Welche Fragen stecken hinter unseren Fragen?":"What questions lie behind our questions?"}</h2>
-    <p>{lang==="de"?"Von Liebe bis Mathematik, von Politik bis Bewusstsein: 16 ungeprüfte, übergreifende Grundfragen mit Herkunft, Gegenfragen und Rückwegen in die Fachbereiche. Eine offene Forschungsagenda – kein fertiges Wahrheitsregister.":"From love to mathematics and politics to consciousness: 16 unreviewed cross-domain questions with sources, counterquestions and links back to the original subjects. An open research agenda—not a truth register."}</p>
-    <a class="home-link" href={pathFor(lang,"grundfragen")}>{lang==="de"?"Die Grundfragen erkunden":"Explore the fundamental questions"} →</a>
-  </section>
+  <IndustrialBoard lang={lang}/>
 
-  <section class="home-forum container" aria-labelledby="home-forum-title">
-    <p class="section-kicker">{ui[lang].titles.forum}</p>
-    <h2 id="home-forum-title">{t.forumTitle}</h2>
-    <p>{t.forumIntro}</p>
-    <ul class="home-forum__questions" role="list">
-      {featuredQuestions.map(question => (
-        <li>
-          <a href={pathFor(lang, "forum", `alltag-${question.id}`)}>
-            <span class="home-forum__topic">{question.topic[lang]}</span>
-            <span>{question.question[lang]} <span aria-hidden="true">→</span></span>
+  <section class="home-forum section-shell" aria-labelledby="home-forum-title">
+    <div class="container">
+      <div class="home-section-title">
+        <div><p class="section-kicker">/ {de?"AUS DEM FORUM":"FROM THE FORUM"}</p><h2 id="home-forum-title">{t.forumTitle}</h2></div>
+        <div><p>{t.forumIntro}</p><a class="home-link" href={pathFor(lang,"forum")}>{de?"Alle Diskussionen":"All discussions"} ↗</a></div>
+      </div>
+      <ul class="home-forum__questions" role="list">
+        {featuredQuestions.map((question,index)=><li>
+          <a href={pathFor(lang,"forum","alltag-"+question.id)}>
+            <span class="home-forum__topic">{String(index+1).padStart(2,"0")} / {question.topic[lang]}</span>
+            <span class="home-forum__question">{question.question[lang]}</span>
+            <span class="home-forum__arrow" aria-hidden="true">↗</span>
           </a>
-        </li>
-      ))}
-    </ul>
+        </li>)}
+      </ul>
+    </div>
   </section>
 
-  <section class="home-practice container" aria-labelledby="practice-title">
-    <h2 id="practice-title">{t.practiceTitle}</h2>
-    <ol>{t.practiceSteps.map(([title, text]) => <li><strong>{title}</strong><p>{text}</p></li>)}</ol>
-    <p class="home-practice-note">{t.practiceNote} <a class="home-link" href={pathFor(lang, "methode", "erkenntnismotor")}>{lang === "de" ? "Den Weg einer Frage im Schaubild verfolgen" : "Follow a question through the diagram"} →</a></p>
-    <p class="home-practice-note">{t.aiNote} <a class="home-link" href={pathFor(lang, "fragen-und-ki-prompt", "prompt")}>{t.aiLink} <span aria-hidden="true">→</span></a></p>
-  </section>
-
-  <section class="home-ai container" aria-labelledby="home-ai-title">
-    <p class="section-kicker">{lang==="de"?"KI UND MENSCH · OFFENE FORSCHUNG":"AI AND HUMANITY · OPEN INQUIRY"}</p>
-    <h2 id="home-ai-title">{lang==="de"?"Was MUSS KI für uns Menschen sein?":"What MUST AI be for us?"}</h2>
-    <p>{lang==="de"?"Technische Intelligenz gibt keine moralische Richtung vor. Wir wollen mit Menschen den philosophischen Maßstab entwickeln, an dem KI gemessen, kritisiert und verbessert werden kann.":"Technical intelligence does not set its moral direction. With people, we want to develop the philosophical standards by which AI can be judged, challenged and improved."}</p>
-    <a class="home-link" href={pathFor(lang,"ki-und-mensch")}>{lang==="de"?"Den philosophischen Motor prüfen":"Examine the philosophical engine"} <span aria-hidden="true">→</span></a>
-  </section>
-
-  <section class="home-ai container" aria-labelledby="home-bridge-title">
-    <p class="section-kicker">{lang==="de"?"DIE BRÜCKE · NEUES FORSCHUNGSPROGRAMM":"THE BRIDGE · NEW RESEARCH PROGRAMME"}</p>
-    <h2 id="home-bridge-title">{lang==="de"?"Verstehen, ohne zustimmen zu müssen.":"Understanding without having to agree."}</h2>
-    <p>{lang==="de"?"Muss Einigkeit das Ziel jedes Konflikts sein? Unsere offene Forschung trennt zwei Fragen: Wie gut können Menschen die Position des anderen wiedergeben – und wie stark stimmen sie inhaltlich überein?":"Does every conflict have to end in agreement? Our open research separates two questions: How accurately can people restate each other's position, and how much do their own views agree?"}</p>
-    <a class="home-link" href={pathFor(lang,"die-bruecke")}>{lang==="de"?"Die Mathematik des Dazwischen erkunden":"Explore Mathematics Between Minds"} →</a>
-    <p>{lang==="de"?"Forschungsentwurf M-02 · Modellbeispiele, noch keine Studie.":"M-02 research draft · model examples, not a completed study."}</p>
+  <section class="home-method section-shell" aria-labelledby="practice-title">
+    <div class="container">
+      <div class="home-section-title"><div><p class="section-kicker">/ {de?"DIE METHODE":"THE METHOD"}</p><h2 id="practice-title">{t.practiceTitle}</h2></div>
+      <p>{t.practiceNote}</p></div>
+      <ol class="home-method__steps">
+        {t.practiceSteps.map(([title,text],i)=><li>
+          <span class="home-method__number">0{i+1}</span>
+          <h3>{title}</h3>
+          <p>{text}</p>
+        </li>)}
+      </ol>
+      <div class="home-method__links">
+        <a class="home-link" href={pathFor(lang,"methode","erkenntnismotor")}>{de?"Den Regelweg verstehen":"See the examination process"} ↗</a>
+        <a class="home-link" href={pathFor(lang,"werkstatt")}>{t.worksheet} ↗</a>
+        <a class="home-link" href={pathFor(lang,"fragen-und-ki-prompt","prompt")}>{t.aiLink} ↗</a>
+      </div>
+    </div>
   </section>
 
   <section class="home-doorways container" aria-label={t.doorwaysLabel}>
-    <div class="home-play">
-      <p class="section-kicker">{t.playLabel}</p>
+    <article class="home-play">
+      <div class="home-tile-top"><span>{t.playLabel}</span><span>01 / 02</span></div>
+      <div class="home-play__symbol" aria-hidden="true">?</div>
       <h2>{t.playTitle}</h2>
       <p>{t.playIntro}</p>
-      <p class="home-play-scene">{t.gameScenario}</p>
-      <a class="home-link" href={pathFor(lang, "spiel")}>{t.play} <span aria-hidden="true">→</span></a>
+      <blockquote class="home-play-scene">{t.gameScenario}</blockquote>
+      <a class="home-link" href={pathFor(lang,"spiel")}>{t.play} ↗</a>
       <p class="home-note">{t.playNote}</p>
-    </div>
+    </article>
     <article class="home-example" aria-labelledby="home-example-title">
-      <div class="example-heading"><p>{t.exampleLabel}</p><span>{t.exampleId}</span></div>
+      <div class="home-tile-top"><span>{t.exampleLabel}</span><span>{t.exampleId}</span></div>
+      <span class="home-example__mark" aria-hidden="true">↺</span>
       <h2 id="home-example-title">{t.exampleTitle}</h2>
       <p class="example-body">{t.exampleText}</p>
-      <div class="button-row">
-        <a class="home-link" href={pathFor(lang, "methode") + "#g-005"}>{t.exampleLink} <span aria-hidden="true">→</span></a>
-        <a class="home-link" href={pathFor(lang, "gegenprobe-01")}>{lang === "de" ? "Mit deiner KI ein Gegenbeispiel suchen" : "Look for a counterexample with your AI"} <span aria-hidden="true">→</span></a>
+      <div class="home-example__links">
+        <a class="home-link" href={pathFor(lang,"methode")+"#g-005"}>{t.exampleLink} ↗</a>
+        <a class="home-link" href={pathFor(lang,"gegenprobe-01")}>{de?"Gegenbeispiel suchen":"Find a counterexample"} ↗</a>
       </div>
     </article>
   </section>
 
-  <section class="home-explore" aria-labelledby="explore-title">
+  <section class="home-explore section-shell" aria-labelledby="explore-title">
     <div class="container home-pair">
-      <div>
-        <p class="section-kicker">{t.exploreLabel}</p>
+      <div class="home-explore__intro">
+        <p class="section-kicker">/ {t.exploreLabel}</p>
         <h2 id="explore-title">{t.exploreTitle}</h2>
-        <p>{t.consensusLimit} <a class="home-link" href={pathFor(lang, "schnittmengen", "sprachprobe")}>{lang === "de" ? "Die Sprachprobe zu zweit ausprobieren" : "Try the conversation exercise with someone"} →</a></p>
+        <p>{t.consensusLimit}</p>
         <p>{t.exploreText}</p>
-        <a class="home-link" href={pathFor(lang, "baum-des-wissens")}>{t.treeLink} <span aria-hidden="true">→</span></a>
+        <div class="home-explore__links">
+          <a class="home-link" href={pathFor(lang,"baum-des-wissens")}>{t.treeLink} ↗</a>
+          <a class="home-link" href={pathFor(lang,"schnittmengen","sprachprobe")}>{de?"Die Sprachprobe zu zweit":"The conversation exercise"} ↗</a>
+          <a class="home-link" href={pathFor(lang,"mission")}>{t.missionLink} ↗</a>
+        </div>
       </div>
       <div class="home-groups">
-        <details>
+        <details open>
           <summary>{t.bringQuestion}</summary>
           <p>{t.privacy}</p>
           <ul>
-            <li><a href={pathFor(lang, "erkenntnisnavigator")}>{t.ownQuestion}</a></li>
-            <li><a href={pathFor(lang, "werkstatt")}>{t.worksheet}</a></li>
-            <li><a href={project.repository + "/issues/new?template=frage.yml"}>{t.publicQuestion} <span aria-hidden="true">↗</span></a></li>
+            <li><a href={pathFor(lang,"erkenntnisnavigator")}>{t.ownQuestion} ↗</a></li>
+            <li><a href={pathFor(lang,"werkstatt")}>{t.worksheet} ↗</a></li>
+            <li><a href={project.repository+"/issues/new?template=frage.yml"}>{t.publicQuestion} ↗</a></li>
           </ul>
         </details>
-        {t.groups.map(group => (
-          <details>
-            <summary>{group.title}</summary>
-            <p>{group.text}</p>
-            <ul>{group.links.map(([label, slug]) => <li><a href={pathFor(lang, slug)}>{label}</a></li>)}</ul>
-          </details>
-        ))}
+        {t.groups.map(group=><details>
+          <summary>{group.title}</summary>
+          <p>{group.text}</p>
+          <ul>{group.links.map(([label,slug])=><li><a href={pathFor(lang,slug)}>{label} ↗</a></li>)}</ul>
+        </details>)}
       </div>
     </div>
   </section>
 
   <aside class="home-status container">
-    <span>{ui[lang].name} {project.version}</span>
-    <p>{t.status}</p>
-    <a class="home-link" href={pathFor(lang, "projektstatus")}>{t.statusLink} <span aria-hidden="true">→</span></a>
+    <span>{ui[lang].name} / {project.version}</span>
+    <p>{t.status} {t.principle}</p>
+    <a class="home-link" href={pathFor(lang,"projektstatus")}>{t.statusLink} ↗</a>
   </aside>
 </Layout>
-
-<style>
-  .home-ai { padding-block: clamp(2.8rem,5vw,4.4rem); border-top:1px solid var(--line); }
-  .home-ai h2 { font:clamp(2rem,4vw,3.4rem)/1.15 var(--serif); max-width:49rem; margin:.5rem 0 1rem; }
-  .home-ai p:not(.section-kicker) {max-width:47rem}
-  .home-ai .home-link {display:inline-flex;align-items:center;min-height:44px}
-  .home-forum { padding-block: clamp(2.6rem, 4vw, 3.8rem); border-bottom: 1px solid var(--line); }
-  .home-forum h2 { font: clamp(1.9rem, 3vw, 2.8rem)/1.2 var(--serif); margin: .5rem 0; }
-  .home-forum p:not(.section-kicker) { max-width: 47rem; margin: .6rem 0 0; }
-  .home-forum__questions { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .85rem; list-style: none; padding: 0; margin: 1.4rem 0 0; }
-  .home-forum__questions a { display: grid; gap: .3rem; align-content: start; height: 100%; padding: 1rem; border: 1px solid var(--line); color: var(--gold-bright); }
-  .home-forum__questions a:hover { border-color: var(--gold); }
-  .home-forum__questions a > span:last-child { text-decoration: underline; text-underline-offset: .2em; }
-  .home-forum__topic { color: var(--text); font-size: .8rem; }
-  .home-opening {
-    position: relative;
-    isolation: isolate;
-    overflow: hidden;
-    padding-block: clamp(4.5rem, 8vw, 8rem);
-    background: radial-gradient(ellipse at 82% 28%, #29413b48, transparent 60%), linear-gradient(115deg, #0b0e10 25%, #11191a 100%);
-    border-bottom: 1px solid var(--line);
-  }
-  .home-opening::after {
-    content: "";
-    position: absolute;
-    right: -10%;
-    top: 50%;
-    transform: translateY(-50%);
-    width: clamp(20rem, 46vw, 38rem);
-    aspect-ratio: 1;
-    border: 1px solid rgba(194, 166, 126, .17);
-    border-radius: 50%;
-    box-shadow: 0 0 0 5rem rgba(194, 166, 126, .018), 0 0 0 10rem rgba(194, 166, 126, .012);
-    pointer-events: none;
-  }
-  .home-intro { position: relative; z-index: 1; }
-  .home-intro h1 {
-    max-width: 56rem;
-    margin: .22em 0 .26em;
-    font-size: clamp(3.6rem, 7.3vw, 7rem);
-    letter-spacing: -.05em;
-    line-height: 1.04;
-  }
-  .home-intro h1 em { color: var(--gold-bright); font-weight: 400; }
-  .home-invitation {
-    max-width: 46rem;
-    margin: 0 0 clamp(2rem, 4vw, 3.3rem);
-    color: var(--gold-bright);
-    font: clamp(1.3rem, 2.4vw, 1.9rem)/1.4 var(--serif);
-  }
-  .home-motto {
-    max-width: 53rem;
-    margin: 0 0 1.25rem;
-    color: var(--text);
-    font: clamp(1.85rem, 3.2vw, 3rem)/1.2 var(--serif);
-    letter-spacing: -.024em;
-  }
-  .home-meta-rule { max-width: 52rem; margin: 1.3rem 0; padding: .6rem 0 .6rem 1.2rem; border-left: 3px solid var(--gold); color: var(--gold-bright); font: clamp(1.15rem, 2vw, 1.6rem)/1.5 var(--serif); }
-  .home-lead { max-width: 43rem; font-size: clamp(1.06rem, 1.6vw, 1.25rem); line-height: 1.7; }
-  .home-principle { max-width: 43rem; font-size: .95rem; line-height: 1.7; }
-  .home-intro .button-row { margin-block: 1.5rem; gap: .5rem 1.5rem; }
-  .home-practice { padding-block: clamp(2.6rem, 4vw, 3.8rem); border-bottom: 1px solid var(--line); }
-  .home-practice h2 { font-size: clamp(1.7rem, 3vw, 2.5rem); }
-  .home-practice ol { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.3rem 2.5rem; padding-left: 1.5rem; }
-  .home-practice li::marker { color: var(--gold-bright); }
-  .home-practice li p { margin: .3rem 0 0; }
-  .home-practice-note { max-width: 54rem; font-size: .95rem; }
-  .home-doorways {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: stretch;
-    gap: clamp(1.2rem, 3vw, 2.2rem);
-    padding-block: clamp(2.8rem, 5vw, 5rem);
-    border-bottom: 1px solid var(--line);
-  }
-  .home-play {
-    padding: clamp(1.4rem, 3vw, 2.9rem);
-    border-top: .32rem solid var(--gold);
-    background: #131b1c;
-  }
-  .home-play h2, .home-example h2, .home-explore h2 {
-    margin: .62em 0 .44em;
-    font-size: clamp(2rem, 3.1vw, 3.2rem);
-    line-height: 1.11;
-    letter-spacing: -.035em;
-  }
-  .home-play-scene {
-    max-width: 29rem;
-    margin: 1.55rem 0;
-    color: var(--text);
-    font: italic clamp(1.1rem, 1.7vw, 1.35rem)/1.55 var(--serif);
-  }
-  .home-note { max-width: 35rem; font-size: .85rem; margin: .9rem 0 0; }
-  .home-link, .home-groups a { text-decoration: underline; text-underline-offset: .23em; }
-  .home-link { display: inline-flex; align-items: center; min-height: 36px; color: var(--gold-bright); font-size: .95rem; }
-  .home-example {
-    padding: clamp(1.4rem, 3vw, 2.9rem);
-    border-top: .32rem solid #ae8d56;
-    background: #e8dfcb;
-    color: #232827;
-  }
-  .example-heading {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 1rem;
-    padding-bottom: .9rem;
-    border-bottom: 1px solid #9b947e;
-    color: #4c493c;
-    font: 600 .72rem/1.5 var(--sans);
-    letter-spacing: .13em;
-    text-transform: uppercase;
-  }
-  .example-heading p { color: inherit; margin: 0; }
-  .example-body { color: #3e4239; line-height: 1.65; margin-bottom: 1.25rem; }
-  .home-example .home-link { color: #342d1d; font-weight: 600; }
-  .home-example .home-link:focus-visible { outline-color: #493515; }
-  .home-explore { padding-block: clamp(2.8rem, 5vw, 5rem); }
-  .home-pair { display: grid; grid-template-columns: 1.2fr 1fr; align-items: start; gap: clamp(2rem, 7vw, 7rem); }
-  .home-explore .home-pair > div > p:not(.section-kicker) { max-width: 35rem; }
-  .home-groups { border-top: 1px solid var(--line); }
-  .home-groups details { border-bottom: 1px solid var(--line); }
-  .home-groups summary { padding-block: 1.1rem; color: var(--text); cursor: pointer; font-size: 1.08rem; }
-  .home-groups summary::marker { color: var(--gold); }
-  .home-groups summary:focus-visible { outline: 2px solid var(--gold-bright); outline-offset: 3px; }
-  .home-groups ul { list-style: none; padding: 0; margin: 0 0 1.3rem; }
-  .home-groups a { display: inline-block; color: var(--gold-bright); padding: .25rem 0; }
-  .home-status { display: flex; flex-wrap: wrap; align-items: baseline; gap: .5rem 1.3rem; padding-block: 1.2rem; border-top: 1px solid var(--line); }
-  .home-status > span { color: var(--gold); font-size: .8rem; font-weight: 600; }
-  .home-status p { flex: 1 1 20rem; margin: 0; font-size: .9rem; }
-  @media (max-width: 780px) {
-    .home-opening { padding-block: 3.5rem 4.5rem; }
-    .home-opening::after { right: -19rem; opacity: .5; }
-    .home-practice ol, .home-forum__questions { grid-template-columns: minmax(0, 1fr); }
-    .home-doorways, .home-pair { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
-  }
-  @media (max-width: 480px) {
-    .home-intro h1 { font-size: clamp(3.1rem, 12vw, 4rem); }
-    .home-motto { font-size: clamp(1.8rem, 7vw, 2.2rem); }
-  }
-</style>
