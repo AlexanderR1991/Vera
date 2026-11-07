@@ -119,6 +119,25 @@
         "MED-001"
       ],
       "source_url": "https://github.com/AlexanderR1991/Wirklich/blob/main/docs/erkenntnisreife.md"
+    },
+    {
+      "id": "Q-007",
+      "version": 1,
+      "question": {
+        "de": "Wie beeinflussen Eigentums-, Mitbestimmungs- und Verteilungsregeln die Vorteile steigender Produktivität?",
+        "en": "How do ownership, co-determination and distribution rules shape who benefits from rising productivity?"
+      },
+      "question_type": "empirical",
+      "origin": "editorial_draft",
+      "review_status": "unreviewed",
+      "topics": [
+        "politik",
+        "wirtschaft"
+      ],
+      "claim_ids": [
+        "P-001"
+      ],
+      "source_url": "https://github.com/AlexanderR1991/Wirklich/blob/main/docs/forschungsprogramm-politik.md"
     }
   ],
   "relations": [
@@ -165,6 +184,24 @@
       "reason": {
         "de": "Mehrere gleich instruierte KI-Rollen sind keine unabhängigen Bestätigungen.",
         "en": "Multiple similarly instructed AI roles do not constitute independent confirmations."
+      }
+    },
+    {
+      "from": "Q-007",
+      "to": "Q-005",
+      "type": "related_to",
+      "reason": {
+        "de": "KI kann Produktivitätsgewinne verändern; die Kontrolle über KI-Entscheidungen ist nicht mit ihrer wirtschaftlichen Verteilung identisch.",
+        "en": "AI can change productivity gains, while governing AI decisions is distinct from distributing their economic benefits."
+      }
+    },
+    {
+      "from": "Q-007",
+      "to": "Q-006",
+      "type": "related_to",
+      "reason": {
+        "de": "Die Verteilungsbehauptung braucht überprüfbare Gegenbelege statt bloßer ideologischer oder zahlenmäßiger Zustimmung.",
+        "en": "The distribution claim needs testable counterevidence rather than ideological or numerical agreement."
       }
     }
   ]
