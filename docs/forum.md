@@ -22,6 +22,12 @@ Die antike Agora, Stoa und das römische Forum inspirieren die Darstellung, **ni
 
 **English:** The Agora, Stoa and Curia are navigational metaphors for three existing tools, not separate hosted forums: open GitHub Discussions, issue threads anchored to each claim ID, and reviewed pull requests for changes. A claim is never promoted by votes, comment counts or AI replies. The statement and its review status remain in the versioned register, separate from discussion. Use respectful, specific objections, cite the version and sources, and say what would change your mind. Public posts require a GitHub account; no confidential complaint route, response SLA or independent moderation is currently promised.
 
+## REDE-01 · Was darf stehen bleiben? / What can remain visible?
+
+**Möglichst jede Position prüfen, aber nicht jeden schädlichen Wortlaut öffentlich konservieren.** Der [anfechtbare Entwurf REDE-01](redefreiheit-und-schutz.md) schützt unangenehme, gegenläufige und sachlich falsche Thesen vor bloßer Mehrheitszensur. Wenn glaubhafte Gefährdung, gezielte Belästigung oder Privatsphäre betroffen sind, gelten vier abgestufte Antworten: stehen lassen, einordnen, vorläufig einschränken, öffentliche Verbreitung beenden. Der Maßstab ist konkreter Schutz, nicht die Unangreifbarkeit einer Idee. Grund und Einspruch sollen prüfbar sein; schädliche Originalinhalte werden **nicht zur Transparenz öffentlich wiederholt**.
+
+**English:** The [contestable REDE-01 proposal](redefreiheit-und-schutz.md) distinguishes lawful disagreement from credible threats, targeted harassment and privacy violations. Keep, contextualize, restrict pending accountable review, or stop public distribution as appropriate. Do not preserve harmful raw material publicly. There is no live moderation API or independent appeals service in this GitHub-based pilot.
+
 ## Alltagsfragen · Everyday questions
 
 Der [Einstieg ins Forum](https://alexanderr1991.github.io/Wirklich/de/forum/#alltagsfragen) zeigt ausgewählte Alltagsfragen mit einer ersten philosophischen Antwort und einer Gegenfrage. Die Antworten sind KI-unterstützte, vorläufige Denkangebote. Die Gegenfrage hilft dabei, einen konkreten Fall zu finden, den die Antwort erklären können sollte. Der Abschnitt ist ohne Konto lesbar. Einwände und bessere Antworten lassen sich über ein kurzes öffentliches GitHub-Formular einreichen.
