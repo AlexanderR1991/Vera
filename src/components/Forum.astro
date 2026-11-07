@@ -1,0 +1,175 @@
+---
+import Layout from "../layouts/SiteLayout.astro";
+import {pathFor} from "../lib/paths.mjs";
+import project from "../../public/project.json" with {type: "json"};
+import register from "../../public/knowledge/claims.json";
+import forum from "../../public/knowledge/forum-threads.json";
+import "../styles/mission.css";
+
+const {lang="de"}=Astro.props;
+const en=lang==="en";
+const t=(de,english)=>en?english:de;
+const threads=new Map(forum.threads.map(thread=>[thread.claim_id,thread.issue_number]));
+const discussions=project.repository+"/discussions";
+const reviewText={
+ unreviewed:t("Ungeprüft","Unreviewed"),
+ in_review:t("In Prüfung","Under review"),
+ reviewed:t("Prüfung dokumentiert","Review documented"),
+ disputed:t("Umstritten","Disputed"),
+ withdrawn:t("Zurückgezogen","Withdrawn")
+};
+---
+<Layout lang={lang} slug="forum" description={t("Das Forum von WIRKLICH: offen miteinander denken, konkrete Aussagen prüfen und begründet widersprechen. Gespräche auf GitHub, Änderungen nur nach Prüfung.","The WIRKLICH forum: think together, examine specific claims and disagree with reasons. Conversations on GitHub; changes require review.")}>
+ <section class="forum-hero" aria-labelledby="forum-title">
+  <div class="container forum-hero__grid">
+   <div>
+    <p class="section-kicker">{t("DAS FORUM · EIN ORT FÜR VIELE STIMMEN","THE FORUM · A PLACE FOR MANY VOICES")}</p>
+    <h1 id="forum-title">{t("Das Forum.","The Forum.")}<br /><em>{t("Widerspruch ist willkommen.","Disagreement is welcome.")}</em></h1>
+    <p class="forum-lead">{t("Ein Ort, an dem unsere Fragen und Konflikte zusammenlaufen. Nicht, um Menschen zu überstimmen – sondern um gemeinsam genauer zu werden.","A place where our questions and conflicts meet. Not to outvote people, but to become more precise together.")}</p>
+    <p>{t("Die griechische Agora und das römische Forum sind Inspirationen, keine Vorlagen für Hierarchie oder Ausschluss. Jede Stimme darf fragen. Entscheidend ist, ob die Gründe tragen.","The Greek agora and Roman forum inspire us, but not their hierarchies or exclusions. Everyone may ask questions. What matters is whether the reasons hold up.")}</p>
+    <div class="button-row">
+     <a class="button button--gold" href={discussions} target="_blank" rel="noopener noreferrer">{t("Zum offenen Gespräch ↗","Join the open conversation ↗")}</a>
+     <a class="button button--ghost" href="#aussagen">{t("Eine Aussage diskutieren ↓","Discuss a claim ↓")}</a>
+    </div>
+   </div>
+   <aside class="forum-hero__seal" aria-label={t("Drei Fragen für ein gutes Gespräch","Three questions for a constructive discussion")}>
+    <span class="forum-hero__glyph" aria-hidden="true">Φ</span>
+    <p class="section-kicker">{t("DREI FRAGEN","THREE QUESTIONS")}</p>
+    <ol>
+     <li>{t("Was meinst du genau?","What exactly do you mean?")}</li>
+     <li>{t("Was spricht dagegen?","What challenges it?")}</li>
+     <li>{t("Was könnte uns umstimmen?","What could change our minds?")}</li>
+    </ol>
+   </aside>
+  </div>
+ </section>
+
+ <section class="forum-section container" aria-labelledby="forum-places">
+  <div class="forum-section__intro">
+   <p class="section-kicker">{t("DREI WEGE, EIN GEMEINSAMES DENKEN","THREE PATHS, ONE SHARED INQUIRY")}</p>
+   <h2 id="forum-places">{t("Wo möchtest du beginnen?","Where would you like to begin?")}</h2>
+   <p>{t("Dies sind drei Zugänge zu unseren vorhandenen GitHub-Gesprächen und Prüfabläufen – keine vorgetäuschten eigenständigen Unterforen.","These are three pathways into our existing GitHub conversations and review workflow, not fictional standalone subforums.")}</p>
+  </div>
+  <div class="forum-rooms">
+   <article>
+    <span class="forum-room__number">01 · AGORA</span>
+    <h3>{t("Der offene Platz","The open square")}</h3>
+    <p>{t("Eine Frage stellen, eine Idee erkunden, Perspektiven teilen. Ohne dass schon eine fertige These nötig ist.","Ask a question, explore an idea, share perspectives. No finished thesis required.")}</p>
+    <a href={discussions} target="_blank" rel="noopener noreferrer">{t("Gespräche ansehen ↗","Explore conversations ↗")}</a>
+   </article>
+   <article>
+    <span class="forum-room__number">02 · STOA</span>
+    <h3>{t("Der Ort der Prüfung","The place of examination")}</h3>
+    <p>{t("Bei einer konkreten Aussage bleiben, ihren Geltungsbereich klären, Quellen und Gegenbeispiele zusammentragen.","Stay with a specific claim, clarify its scope, and examine sources and counterexamples.")}</p>
+    <a href="#aussagen">{t("Aussagen und Debatten ↓","Claims and discussions ↓")}</a>
+   </article>
+   <article>
+    <span class="forum-room__number">03 · CURIA</span>
+    <h3>{t("Der Weg zur Entscheidung","The path to a decision")}</h3>
+    <p>{t("Was soll am Werk geändert werden? Änderungen werden öffentlich begründet, geprüft und versioniert – nicht per Mehrheitsentscheid als wahr erklärt.","What should change in the work? Edits are publicly reasoned, reviewed and versioned, never declared true by a majority vote.")}</p>
+    <a href={project.repository+"/pulls"} target="_blank" rel="noopener noreferrer">{t("Änderungen verfolgen ↗","Follow proposed changes ↗")}</a>
+   </article>
+  </div>
+ </section>
+
+ <section class="forum-section forum-claims" id="aussagen" aria-labelledby="forum-claims-title">
+  <div class="container">
+   <div class="forum-section__intro">
+    <p class="section-kicker">{t("DIREKT MIT DEM AUSSAGENREGISTER VERBUNDEN","DIRECTLY LINKED TO THE CLAIM REGISTER")}</p>
+    <h2 id="forum-claims-title">{t("Jede Aussage hat ihren eigenen Gesprächsfaden.","Every claim has its own discussion thread.")}</h2>
+    <p>{t("Die Kennung bleibt stabil, auch wenn die Aussage überarbeitet wird. Im Forum wird diskutiert; im Register stehen die redaktionell dokumentierte Fassung, Prüfstatus und Versionsgeschichte.","The identifier stays stable even when the statement is revised. The forum holds discussion; the register holds the editorially documented statement, review status and version history.")}</p>
+   </div>
+   <div class="forum-claim-grid">
+    {register.claims.map(claim=><article class="forum-claim">
+     <div class="forum-claim__meta"><span>{claim.id} · v{claim.version}</span><span>R{claim.maturity.level} · {reviewText[claim.review_status]}</span></div>
+     <h3>{claim.statement[lang]}</h3>
+     <div class="forum-claim__links">
+      <a class="forum-claim__thread" href={project.repository+"/issues/"+threads.get(claim.id)} target="_blank" rel="noopener noreferrer">{t("Debatte lesen & antworten ↗","Read & join the debate ↗")}</a>
+      <a href={pathFor(lang,"aussagen",claim.id)}>{t("Aussage prüfen →","Examine the claim →")}</a>
+     </div>
+    </article>)}
+   </div>
+   <p class="forum-claims__note">{t("Diese Fäden sind öffentliche GitHub Issues. Sie dokumentieren Gespräche, keine bestätigten Wahrheitsurteile. Einen gezielten Einwand kannst du zusätzlich über das Prüf-Formular einreichen.","These threads are public GitHub Issues. They document conversations, not verified truth judgments. You can also submit a focused objection through the challenge form.")} <a href={project.repository+"/issues/new?template=angriff.yml"} target="_blank" rel="noopener noreferrer">{t("Einwand einreichen ↗","Submit an objection ↗")}</a></p>
+  </div>
+ </section>
+
+ <section class="forum-section container forum-method" aria-labelledby="forum-method-title">
+  <div class="forum-section__intro">
+   <p class="section-kicker">{t("VOM GESPRÄCH ZUR ERKENNTNIS","FROM CONVERSATION TO UNDERSTANDING")}</p>
+   <h2 id="forum-method-title">{t("Was geschieht mit einem guten Einwand?","What happens to a good objection?")}</h2>
+  </div>
+  <ol class="forum-steps">
+   <li><strong>01</strong><div><h3>{t("Verstehen","Understand")}</h3><p>{t("Begriffe, Voraussetzungen und den stärksten fairen Sinn der Aussage klären.","Clarify terms, assumptions and the strongest fair reading of the claim.")}</p></div></li>
+   <li><strong>02</strong><div><h3>{t("Prüfen","Examine")}</h3><p>{t("Einwände, Beispiele, Daten oder Quellen nach den passenden Maßstäben prüfen.","Test objections, examples, data or sources with methods appropriate to the claim.")}</p></div></li>
+   <li><strong>03</strong><div><h3>{t("Unterschiede festhalten","Record disagreement")}</h3><p>{t("Konsens nur dokumentieren, wenn er wirklich besteht. Offen gebliebener Dissens ist ein ehrliches Ergebnis.","Document agreement only when it actually exists. Unresolved disagreement is an honest outcome.")}</p></div></li>
+   <li><strong>04</strong><div><h3>{t("Korrigieren","Revise")}</h3><p>{t("Erst begründeter Änderungsvorschlag, redaktionelle Prüfung und Versionierung ändern den Registereintrag. Kein Klick erhöht die Erkenntnisreife.","Only a reasoned proposal, editorial review and versioning change the register. No click raises evidence maturity.")}</p></div></li>
+  </ol>
+ </section>
+
+ <section class="forum-section forum-invitation" aria-labelledby="forum-invite-title">
+  <div class="container forum-invitation__inner">
+   <div>
+    <p class="section-kicker">{t("DEIN ERSTER BEITRAG","YOUR FIRST CONTRIBUTION")}</p>
+    <h2 id="forum-invite-title">{t("Du musst nicht recht haben, um etwas beizutragen.","You do not have to be right to contribute.")}</h2>
+    <p>{t("Auch eine einfache Frage kann eine wichtige Voraussetzung sichtbar machen. Beginne gern mit der Begrüßungsdiskussion oder erkunde die offenen Gespräche.","Even a simple question can reveal an important assumption. Start with the welcome discussion or explore the open conversations.")}</p>
+    <div class="button-row"><a class="button button--gold" href={discussions+"/7"} target="_blank" rel="noopener noreferrer">{t("Zur Begrüßung ↗","Go to the welcome thread ↗")}</a><a class="button button--ghost" href={discussions} target="_blank" rel="noopener noreferrer">{t("Alle Diskussionen ↗","All discussions ↗")}</a></div>
+   </div>
+   <aside class="forum-boundaries">
+    <h3>{t("Frei denken. Menschen achten.","Think freely. Respect people.")}</h3>
+    <p>{t("Widerspruch darf scharf sein; persönliche Angriffe, Drohungen und private Daten haben hier keinen Platz. Du darfst auch beim Dissens bleiben oder das Gespräch verlassen.","Criticism may be sharp; personal attacks, threats and private information do not belong here. It is also fine to disagree or leave the discussion.")}</p>
+    <p>{t("Lesen ist öffentlich möglich; zum Schreiben brauchst du derzeit ein GitHub-Konto. Beiträge sind öffentlich. Es gibt noch keinen zugesagten vertraulichen Meldeweg, keine garantierten Antwortzeiten und keine unabhängige Moderationsinstanz.","Reading is public; posting currently requires a GitHub account. Contributions are public. There is no promised confidential reporting channel, guaranteed response time or independent moderation body yet.")}</p>
+    <a href={project.repository+"/blob/main/CODE_OF_CONDUCT.md"} target="_blank" rel="noopener noreferrer">{t("Diskussionskodex lesen ↗","Read the code of conduct ↗")}</a>
+    <a href={project.repository+"/blob/main/docs/forum.md"} target="_blank" rel="noopener noreferrer">{t("So funktioniert das Forum ↗","How the forum works ↗")}</a>
+   </aside>
+  </div>
+ </section>
+</Layout>
+
+<style>
+ .forum-hero{padding:clamp(4rem,7vw,7rem) 0;background:radial-gradient(ellipse at 79% 44%,#6d503229,transparent 56%),linear-gradient(120deg,#0b0e10,#111b1c);border-bottom:1px solid var(--line);overflow:hidden}
+ .forum-hero__grid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(15rem,.68fr);align-items:center;gap:clamp(2rem,6vw,6.5rem)}
+ .forum-hero h1{font-size:clamp(3.4rem,6.7vw,6.5rem);letter-spacing:-.055em;line-height:1.06;margin:.3em 0 .4em}
+ .forum-hero h1 em{font-weight:400;color:var(--gold-bright)}
+ .forum-lead{max-width:46rem;color:#e4d9c5;font:clamp(1.2rem,2vw,1.6rem)/1.6 var(--serif)}
+ .forum-hero__grid>div>p:not(.section-kicker){max-width:45rem}
+ .forum-hero .button-row{margin-top:2rem}
+ .forum-hero__seal{padding:2.5rem;border:1px solid #bda1754a;background:radial-gradient(circle at 50% 22%,#ae8d5420,transparent 65%),#121719;text-align:center}
+ .forum-hero__glyph{display:block;font:clamp(4.5rem,8vw,7.5rem)/1.1 var(--serif);color:var(--gold-bright);margin-bottom:1rem}
+ .forum-hero__seal ol{margin:1.3rem 0 0;padding:1rem 0 0;border-top:1px solid var(--line);list-style:none;text-align:left;counter-reset:forum}
+ .forum-hero__seal li{counter-increment:forum;padding:.7rem 0;border-bottom:1px solid var(--line);font:1rem/1.45 var(--serif)}
+ .forum-hero__seal li::before{content:counter(forum,decimal-leading-zero);font:600 .65rem var(--sans);letter-spacing:.12em;color:var(--gold);margin-right:.75rem}
+ .forum-section{padding-block:clamp(3.2rem,6vw,5.6rem)}
+ .forum-section__intro{max-width:52rem;margin-bottom:2.4rem}
+ .forum-section h2{font-size:clamp(2.2rem,4.6vw,4rem);letter-spacing:-.04em;line-height:1.13;margin:.35em 0}
+ .forum-rooms{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.1rem}
+ .forum-rooms article{border-top:2px solid var(--gold);padding:2rem;background:#141b1b;display:flex;flex-direction:column}
+ .forum-room__number{font-size:.69rem;color:var(--gold-bright);letter-spacing:.18em}
+ .forum-rooms h3{font:clamp(1.6rem,2.6vw,2.4rem)/1.2 var(--serif);margin:1.3rem 0 .9rem}
+ .forum-rooms p{font-size:.92rem;line-height:1.75;flex:1}
+ .forum-rooms a,.forum-boundaries a,.forum-claims__note a{color:var(--gold-bright);text-decoration:underline;text-underline-offset:.25em}
+ .forum-rooms a{display:inline-flex;align-items:center;min-height:44px;font-size:.85rem;margin-top:1rem}
+ .forum-claims{background:#101719;border-block:1px solid var(--line);scroll-margin-top:9rem}
+ .forum-claim-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+ .forum-claim{min-width:0;display:flex;flex-direction:column;padding:clamp(1.4rem,2.6vw,2.4rem);border:1px solid var(--line);background:#0b1011}
+ .forum-claim__meta{display:flex;flex-wrap:wrap;gap:.5rem 1rem;color:var(--gold-bright);font-size:.74rem;letter-spacing:.04em}
+ .forum-claim h3{font:clamp(1.3rem,2vw,1.8rem)/1.45 var(--serif);margin:1.25rem 0 2rem;overflow-wrap:anywhere;flex:1}
+ .forum-claim__links{display:flex;flex-wrap:wrap;gap:.75rem 1.5rem;align-items:center}
+ .forum-claim__links a{display:inline-flex;align-items:center;min-height:44px;text-decoration:underline;text-underline-offset:.23em;font-size:.82rem}
+ .forum-claim__links .forum-claim__thread{color:var(--gold-bright);font-weight:700}
+ .forum-claims__note{max-width:60rem;font-size:.83rem;line-height:1.8;margin:1.6rem 0 0}
+ .forum-steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;list-style:none;margin:0;padding:0}
+ .forum-steps li{display:flex;align-items:flex-start;gap:1.2rem;border-top:1px solid var(--gold);padding:1.6rem 0}
+ .forum-steps li>strong{color:var(--gold-bright);font:1rem var(--serif)}
+ .forum-steps h3{font:1.65rem/1.25 var(--serif);margin:0 0 .5rem}
+ .forum-steps p{margin:0;max-width:27rem;font-size:.9rem}
+ .forum-invitation{background:radial-gradient(ellipse at 12% 30%,#6d503221,transparent 56%),#101719;border-top:1px solid var(--line)}
+ .forum-invitation__inner{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(18rem,.8fr);gap:clamp(2rem,6vw,6rem)}
+ .forum-invitation__inner>div>p:not(.section-kicker){max-width:42rem}
+ .forum-invitation .button-row{margin-top:1.5rem}
+ .forum-boundaries{padding:1.6rem;border:1px solid var(--line);align-self:start}
+ .forum-boundaries h3{font:1.5rem/1.3 var(--serif);margin:0 0 1rem}
+ .forum-boundaries p{font-size:.85rem;line-height:1.8}
+ .forum-boundaries a{display:block;margin-top:1rem;font-size:.82rem}
+ @media(max-width:900px){.forum-hero__grid,.forum-invitation__inner{grid-template-columns:1fr}.forum-hero__seal{max-width:30rem}.forum-rooms{grid-template-columns:1fr}}
+ @media(max-width:680px){.forum-hero{padding:3.6rem 0}.forum-hero h1{font-size:clamp(2.85rem,11vw,4.5rem)}.forum-claim-grid,.forum-steps{grid-template-columns:1fr}.forum-rooms article{padding:1.5rem}.forum-claim h3{margin-bottom:1.3rem}}
+</style>

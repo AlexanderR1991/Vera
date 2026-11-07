@@ -12,7 +12,8 @@ export const ui = {
       "Methode",
       "Mitwirken",
       "Werkstatt",
-      "Navigator"
+      "Navigator",
+      "Forum"
     ],
     "motto": "ERKENNTNIS IST KEIN ENDZUSTAND",
     "footerTitle": "Die Wirklichkeit steht über diesem Werk.",
@@ -31,6 +32,7 @@ export const ui = {
       "mission": "Unsere Mission",
       "baum-des-wissens": "Der fliegende Baum",
       "aussagen": "Aussagenregister",
+      "forum": "Das Forum",
       "index": "Start",
       "atlas": "Wissensatlas",
       "bibliothek": "Bibliothek",
@@ -69,7 +71,8 @@ export const ui = {
       "Method",
       "Contribute",
       "Workshop",
-      "Navigator"
+      "Navigator",
+      "Forum"
     ],
     "motto": "KNOWLEDGE IS NEVER COMPLETE",
     "footerTitle": "Reality stands above this work.",
@@ -88,6 +91,7 @@ export const ui = {
       "mission": "Our Mission",
       "baum-des-wissens": "The Flying Tree",
       "aussagen": "Claim Register",
+      "forum": "The Forum",
       "index": "Home",
       "atlas": "Atlas of Knowledge",
       "bibliothek": "Library",
@@ -115,4 +119,4 @@ export const ui = {
     "description": project.english_name + " Bring a question to the open inquiry workshop. Examine the evidence, test objections and record what would change your mind."
   }
 };
-export const navigation = [["erkenntnisnavigator",7],["werkstatt",6],["atlas",1],["aussagen",3],["methode",4],["mitwirken",5]];
+export const navigation = [["erkenntnisnavigator",7],["werkstatt",6],["atlas",1],["aussagen",3],["forum",8],["methode",4],["mitwirken",5]];

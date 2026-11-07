@@ -1,7 +1,7 @@
 import {access,readFile,readdir} from "node:fs/promises";
 import {join} from "node:path";
 import {fields,topics,topicStates,selfReviews} from "../src/lib/tree.mjs";
-const out=join(process.cwd(),"dist"),slugs=["index","projektobservatorium","kunst-und-erkenntnis","mission","baum-des-wissens","aussagen","fragen-und-ki-prompt","forschungsstrom","atlas","bibliothek","lesestueck-wahrheit","manifest","pruefstand","methode","mitwirken","erkenntnishorizont","warum-liebe-wirkt","politik-die-dem-menschen-dient","bruecken-zwischen-den-religionen","militaer-und-verantwortung","medizin","ernaehrung-und-verantwortung","angriffsschwarm"],errors=[];
+const out=join(process.cwd(),"dist"),slugs=["index","projektobservatorium","kunst-und-erkenntnis","mission","baum-des-wissens","aussagen","forum","fragen-und-ki-prompt","forschungsstrom","atlas","bibliothek","lesestueck-wahrheit","manifest","pruefstand","methode","mitwirken","erkenntnishorizont","warum-liebe-wirkt","politik-die-dem-menschen-dient","bruecken-zwischen-den-religionen","militaer-und-verantwortung","medizin","ernaehrung-und-verantwortung","angriffsschwarm"],errors=[];
 for(const lang of ["de","en"]){
  for(const slug of slugs){
   const file=join(out,lang,...(slug==="index"?[]:[slug]),"index.html");
@@ -92,6 +92,8 @@ if(errors.length){console.error(errors.join("\n"));process.exit(1);}
 // Mission routes and the register must remain discoverable in both languages.
 const registry=JSON.parse(await readFile("public/knowledge/claims.json","utf8"));
 const exported=JSON.parse(await readFile(join(out,"knowledge/claims.json"),"utf8"));
+const forumThreads=JSON.parse(await readFile("public/knowledge/forum-threads.json","utf8"));
+const forumById=new Map(forumThreads.threads.map(thread=>[thread.claim_id,thread.issue_number]));
 if(JSON.stringify(registry)!==JSON.stringify(exported))errors.push("Register export differs from the rendered source");
 const sitemap=await readFile(join(out,"sitemap.xml"),"utf8");
 for(const lang of ["de","en"]){
@@ -102,12 +104,17 @@ for(const lang of ["de","en"]){
   if(!homeMain.includes(link))errors.push("Missing homepage entry point "+lang+" "+link);
  }
  const register=await readFile(join(out,lang,"aussagen/index.html"),"utf8");
+ const forumPage=await readFile(join(out,lang,"forum/index.html"),"utf8");
+ if(!home.includes("/Wirklich/"+lang+"/forum/")||!sitemap.includes("/Wirklich/"+lang+"/forum/"))errors.push("Forum route not discoverable "+lang);
+ if(!forumPage.includes("/discussions"))errors.push("Forum missing discussions entry "+lang);
  for(const slug of ["werkstatt","aussagen","baum-des-wissens"]){
   const route="/Wirklich/"+lang+"/"+slug+"/";
   if(!home.includes(route)||!sitemap.includes(route))errors.push("Undiscoverable route "+route);
  }
  for(const c of registry.claims){
   if(!register.includes('id="'+c.id+'"')||!register.includes(c.statement[lang]))errors.push("Missing rendered claim "+lang+"/"+c.id);
+  const url="/issues/"+forumById.get(c.id);
+  if(!forumPage.includes(url)||!forumPage.includes(c.statement[lang])||!register.includes(url))errors.push("Missing linked claim forum "+lang+"/"+c.id);
  }
  for(const id of ["forschung","bauplan","erkenntnis","entscheidungen","ki","versorgung","stand"]){
   if(!mission.includes('id="'+id+'"'))errors.push("Missing mission anchor "+lang+"/"+id);

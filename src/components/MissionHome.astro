@@ -31,6 +31,15 @@ const t = copy[lang];
     <p class="home-practice-note">{t.aiNote} <a class="home-link" href={pathFor(lang, "fragen-und-ki-prompt", "prompt")}>{t.aiLink} <span aria-hidden="true">→</span></a></p>
   </section>
 
+  <section class="home-forum container" aria-labelledby="home-forum-title">
+    <div>
+      <p class="section-kicker">{lang === "de" ? "DAS FORUM · GEMEINSAM GENAUER WERDEN" : "THE FORUM · LEARN THROUGH DISAGREEMENT"}</p>
+      <h2 id="home-forum-title">{lang === "de" ? "Ein Ort für unseren Widerspruch." : "A place for our disagreements."}</h2>
+      <p>{lang === "de" ? "Freie Gespräche, starke Gegenargumente und direkte Diskussionen zu jeder Aussage im Register. Nicht Mehrheiten entscheiden über Wahrheit, sondern nachvollziehbare Gründe und Prüfungen." : "Open conversations, strong objections and a dedicated discussion for each claim. Truth is not decided by majorities, but by reasons and appropriate checks."}</p>
+    </div>
+    <a class="button button--ghost" href={pathFor(lang, "forum")}>{lang === "de" ? "Das Forum betreten →" : "Enter the Forum →"}</a>
+  </section>
+
   <section class="home-doorways container" aria-label={t.doorwaysLabel}>
     <div class="home-play">
       <p class="section-kicker">{t.playLabel}</p>
@@ -89,6 +98,11 @@ const t = copy[lang];
 </Layout>
 
 <style>
+  .home-forum { display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2rem;align-items:center;padding-block:2.6rem;border-bottom:1px solid var(--line); }
+  .home-forum h2 { font:clamp(1.9rem,3vw,2.8rem)/1.2 var(--serif);margin:.5rem 0; }
+  .home-forum p:not(.section-kicker) { max-width:47rem;margin:.6rem 0 0;font-size:.94rem; }
+  .home-forum .button {white-space:nowrap}
+  @media(max-width:780px){.home-forum{grid-template-columns:1fr;gap:1.25rem}.home-forum .button{justify-self:start;white-space:normal}}
   .home-opening {
     position: relative;
     isolation: isolate;
