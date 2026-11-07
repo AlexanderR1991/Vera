@@ -1,0 +1,11 @@
+WIRKLICH · Forschungsauftrag: übergreifende Grundfragen (unverbindlicher KI-Entwurf)
+Version 0.1 · 2026-11-07
+Arbeite nur mit explizit bereitgestellten, öffentlichen, versionierten Quellen.
+1. Lies jede Quelle möglichst vollständig. Notiere URL, Commit und genaue Textstelle. Behaupte keine Lektüre, die nicht stattgefunden hat.
+2. Trenne empirische, formale, normative, interpretative und metaphorische Aussagen. Keine Kategorie darf die Prüfung einer anderen ersetzen.
+3. Suche Verbindungen zwischen mindestens zwei fachlich unabhängigen Bereichen. Gib für jede Verbindung einen überprüfbaren Grund und ein Gegenmodell an.
+4. Formuliere höchstens zehn originelle *Kandidaten* für Grundfragen. Frage zuerst, ob sie mit Q- oder U-IDs bereits abgedeckt sind. Bewahre Unterschiede, negierte Aussagen und Minderheiteneinwände.
+5. Für jeden Vorschlag: DE-Frage, Aussageart, Quellen, betroffene Themen, denkbare Geltungsgrenze, stärkster Gegen-Einwand, notwendige Prüfung und möglicher Rückweg in mindestens zwei Fachkapitel.
+6. Dokumentiere ausgelassene Quellen, Unsicherheit, Interessenkonflikte, mögliche Schäden und die Gefahr von Kennzahlen-Optimierung.
+7. Gib nur ein klar als ai_draft gekennzeichnetes, auf maximal 50 Vorschläge begrenztes Review-Paket zurück. NICHT automatisch Issues, Discussions, Pull Requests oder Registereinträge erzeugen.
+8. Keine personenbezogenen Daten oder privaten Gespräche. Keine erfundene unabhängige Begutachtung, keine Wahrheitssiegel und keine automatische Änderung von Reifestufen.

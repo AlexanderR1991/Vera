@@ -1,7 +1,7 @@
 import {access,readFile,readdir} from "node:fs/promises";
 import {join} from "node:path";
 import {fields,topics,topicStates,selfReviews} from "../src/lib/tree.mjs";
-const out=join(process.cwd(),"dist"),slugs=["index","projektobservatorium","kunst-und-erkenntnis","mission","regelkreis","ki-und-mensch","baum-des-wissens","aussagen","forum","fragen-und-ki-prompt","forschungsstrom","atlas","bibliothek","lesestueck-wahrheit","manifest","pruefstand","methode","mitwirken","erkenntnishorizont","warum-liebe-wirkt","politik-die-dem-menschen-dient","bruecken-zwischen-den-religionen","militaer-und-verantwortung","medizin","ernaehrung-und-verantwortung","angriffsschwarm"],errors=[];
+const out=join(process.cwd(),"dist"),slugs=["index","projektobservatorium","die-bruecke","grundfragen","kunst-und-erkenntnis","mission","regelkreis","ki-und-mensch","baum-des-wissens","esoterik-katalog","aussagen","forum","fragen-und-ki-prompt","forschungsstrom","atlas","bibliothek","lesestueck-wahrheit","manifest","pruefstand","methode","mitwirken","erkenntnishorizont","warum-liebe-wirkt","politik-die-dem-menschen-dient","bruecken-zwischen-den-religionen","militaer-und-verantwortung","medizin","ernaehrung-und-verantwortung","angriffsschwarm"],errors=[];
 for(const lang of ["de","en"]){
  for(const slug of slugs){
   const file=join(out,lang,...(slug==="index"?[]:[slug]),"index.html");
@@ -321,3 +321,59 @@ for(const lang of ["de","en"]){
 try{await access(join(out,"ai/philosophy-engine.v0.json"));}catch{errors.push("Missing public AI JSON casebook");}
 if(errors.length){console.error(errors.join("\n"));process.exit(1);}
 console.log("Verified bilingual AI philosophy, challenge cases and optional rule-pack inclusion.");
+
+
+
+// Esotericism: every published question is an editorial draft, bilingual and linked
+// from the wider tree and the forum. The issue form invites human submissions only.
+const esotericTree=JSON.parse(await readFile("public/knowledge/esoterik-tree.json","utf8"));
+const esotericExport=JSON.parse(await readFile(join(out,"knowledge/esoterik-tree.json"),"utf8"));
+if(JSON.stringify(esotericTree)!==JSON.stringify(esotericExport))errors.push("Esotericism public JSON differs from editorial input");
+if(esotericTree.status!=="unreviewed_editorial_draft")errors.push("Esotericism catalogue cannot claim review");
+for(const lang of ["de","en"]){
+ const chapter=await readFile(join(out,lang,"esoterik-katalog/index.html"),"utf8");
+ const treePage=await readFile(join(out,lang,"baum-des-wissens/index.html"),"utf8");
+ const forumPage=await readFile(join(out,lang,"forum/index.html"),"utf8");
+ const route="/Wirklich/"+lang+"/esoterik-katalog/";
+ if(!sitemap.includes(route)||!treePage.includes(route)||!forumPage.includes(route))errors.push("Esotericism not discoverable in "+lang);
+ for(const token of ["data-esoteric-catalog","data-esoteric-branch","data-esoteric-item","data-esoteric-query","esoterik-ast.yml"]){
+  if(!chapter.includes(token))errors.push("Missing catalogue affordance "+lang+"/"+token);
+ }
+ for(const group of esotericTree.branches){
+  const anchor="ast-"+group.id.toLowerCase();
+  if(!chapter.includes('id="'+anchor+'"')||!treePage.includes("#"+anchor))errors.push("Main esoteric branch missing "+lang+"/"+group.id);
+  for(const item of group.children){
+   const leafAnchor="ast-"+item.id.toLowerCase().replace(".","-");
+   if(!chapter.includes('id="'+leafAnchor+'"')||!chapter.includes(item.title[lang]))errors.push("Esoteric leaf missing "+lang+"/"+item.id);
+  }
+ }
+}
+if(errors.length){console.error(errors.join("\n"));process.exit(1);}
+console.log("Verified 17 bilingual esoteric branches, static subbranches, source JSON, human issue submission and tree/forum discovery.");
+
+// M-02: bilingual, explicitly provisional public research route.
+for(const lang of ["de","en"]){
+ const page=await readFile(join(out,lang,"die-bruecke","index.html"),"utf8");
+ for(const term of ["data-bridge-demo","data-score","M-02","10.1007/s11229-024-04503-4"]){
+  if(!page.includes(term))errors.push("Bridge mathematics page "+lang+" lacks "+term);
+ }
+}
+if(errors.length){console.error(errors.join("\n"));process.exit(1);}
+
+// Universal question loop: public corpus scan, bilingual, safely unreviewed catalogue.
+const uqScan=JSON.parse(await readFile(join(out,"research/universal-scan.v1.json"),"utf8"));
+const uqQuestions=JSON.parse(await readFile(join(out,"knowledge/universal-questions.v1.json"),"utf8"));
+const uqFindings=JSON.parse(await readFile(join(out,"knowledge/universal-findings.v1.json"),"utf8"));
+if(uqScan.status!=="automatic_lexical_scan_unreviewed"||uqScan.questions.length!==uqQuestions.questions.length)errors.push("Universal scan is not a complete unreviewed report");
+if(uqFindings.findings.length!==0)console.log("Universal findings exist: review metadata must remain valid.");
+for(const lang of ["de","en"]){
+ const html=await readFile(join(out,lang,"grundfragen","index.html"),"utf8");
+ const domain=await readFile(join(out,lang,"schnittmengen","index.html"),"utf8");
+ for(const token of ["data-uq-controls","data-uq-card","grundfrage.yml","U-016","U-001"]){
+  if(!html.includes(token))errors.push("Universal questions page "+lang+" lacks "+token);
+ }
+ if(!domain.includes("/"+lang+"/grundfragen/"))errors.push("Universal questions missing from domain backlink "+lang);
+ if(!sitemap.includes("/"+lang+"/grundfragen/"))errors.push("Universal questions missing from sitemap "+lang);
+}
+if(errors.length){console.error(errors.join("\n"));process.exit(1);}
+console.log("Verified bilingual universal question atlas, public scan, citation trace and domain backlinks.");

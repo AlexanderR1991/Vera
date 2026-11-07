@@ -11,6 +11,24 @@ Die Schönheit darf zum Denken einladen; sie darf es nicht ersetzen. Gestaltung 
 
 Die [JSON-Fassung](../public/protocol/self-correction.v1.json) beschreibt die zehn Arbeitsregeln und die Prüfschleife maschinenlesbar. Der [öffentliche Regelkreis](https://alexanderr1991.github.io/Wirklich/de/regelkreis/) vermittelt sie in DE/EN. KI kann Vorschläge und Verknüpfungen liefern; automatische Statusänderungen oder selbstlegitimierende Mehrheitsentscheidungen sind ausgeschlossen. Wie gut die Methode tatsächlich funktioniert, muss im [Vergleichsprotokoll](evaluation-v1.md) geprüft werden.
 
+## Neue Grundfragen-Schicht · Querprüfung und Rückweg
+
+[Die Grundfragen](grundfragen-kreislauf.md) ergänzen Themenbaum, Fragenatlas und Erkenntnisnavigator um eine **separate, öffentlich angreifbare Forschungsagenda**. 16 U-IDs sind von bisherigen Projektfeldern abgeleitete **ungeprüfte Vorschläge**; sie stehen nicht über den Fachkapiteln. Ihre Herkunft und vorgeschlagenen Rückwege stehen in [universal-questions.v1.json](../public/knowledge/universal-questions.v1.json).
+
+```text
+Publizierte Quellen → lexikalische Inventur (unverifizierte Hinweise)
+                 ↘ redaktionelle Verdichtung → U-### / Gegenfrage
+                                             ↓
+                                   menschliche Prüfung / PR
+                                             ↓
+                               Teilbefund UF-### (noch keiner)
+                                             ↓
+             Fachseiten (automatische Projektion nur geprüfter Befunde)
+                                             ↖ neue Gegenkritik
+```
+
+Die erste Inventur nutzt **kein** autonomes LLM und keine personenbezogenen Daten: `npm run scan:universal` erstellt beim Build ein Protokoll über die ausgewählten öffentlichen, maschinenlesbaren Textquellen. Texttreffer sind keine Bedeutungsnachweise. `npm run plan:universal` beschreibt die Rückwege für später qualifiziert geprüfte Befunde; es veröffentlicht und schreibt nichts. Das **leere** geprüfte Befundregister wird bewusst vom offenen Fragenregister und den vorhandenen R0–R4-Aussagen getrennt. [Katalog DE](https://alexanderr1991.github.io/Wirklich/de/grundfragen/) · [EN](https://alexanderr1991.github.io/Wirklich/en/grundfragen/).
+
 ## Fünf Ebenen des öffentlichen Werks
 1. **Auftakt:** atmosphärischer, verständlicher Zugang ohne Vorwissen.
 2. **Atlas:** sechs Felder: Wirklichkeit, Leben, Bewusstsein, Mensch, Gesellschaft, Handeln.

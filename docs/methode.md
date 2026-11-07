@@ -4,6 +4,10 @@ Wir entscheiden, welche Fassung wir mit welchen Gründen veröffentlichen. Eine 
 
 **META-01:** [Wir bauen kein System, das recht behalten soll. Wir bauen ein System, das aus seinen Irrtümern lernen muss.](selbstkorrektur.md) Der Satz gilt als **anfechtbare Verfahrensregel**: Ein guter Einwand führt zur Prüfung; das Ergebnis darf auch Beibehaltung oder offener Dissens sein.
 
+## Übergreifende Grundfragen
+
+[Der Grundfragen-Kreislauf](grundfragen-kreislauf.md) verbindet die Prüfschritte mit fachübergreifenden, vorläufigen U-IDs: ähnliche Probleme, unterschiedliche Prüfmaßstäbe, mögliche Gegenmodelle und Rückwege zu den Ausgangsthemen. **Neue Fragen sind nicht neue Wahrheiten.** Die lexikalische Textinventur darf Quellen und möglichen Prüfbedarf anzeigen, jedoch weder Wissen zertifizieren noch Menschen durch Mehrheitszahlen überstimmen. Geprüfte Teilbefunde gehen nach dokumentierter menschlicher Entscheidung in ein getrenntes Register; sie erscheinen nur mit benanntem Geltungsbereich in den zugeordneten Bereichen.
+
 ## Verfahren
 
 1. **Den Satz festhalten.** Frage, konkreten Wortlaut, Version und Geltungsbereich angeben. Enthält der Satz eine Annahme über die Welt und ein Werturteil, beide getrennt formulieren.

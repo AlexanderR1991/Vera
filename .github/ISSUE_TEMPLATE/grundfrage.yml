@@ -1,0 +1,62 @@
+name: "Grundfrage / Fundamental question"
+description: "Grundfrage, Quellenkritik, Gegenbeispiel oder Antwortvorschlag / question, criticism, counterexample or proposed finding"
+title: "[Grundfrage / Universal question] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Öffentlicher Beitrag / Public submission.** Schreibe keine privaten Nachrichten, Krankengeschichten, Identitätsangaben Dritter oder vertraulichen Konfliktverläufe. Ein Issue ist ein **ungeprüfter Vorschlag**, keine festgestellte Wahrheit.
+        **Public submission.** Do not include private conversations, health records, identifiers of other people or confidential conflicts. Issues are unreviewed proposals.
+  - type: dropdown
+    id: kind
+    attributes:
+      label: "Art des Beitrags / Kind of contribution"
+      options:
+        - "Neue übergreifende Grundfrage / New cross-domain question"
+        - "Einwand oder Gegenbeispiel / Objection or counterexample"
+        - "Begrenzte Teilantwort zur Prüfung / Bounded proposed finding"
+        - "Falsche Zuordnung / Incorrect domain link"
+        - "Übersetzung oder Verständlichkeit / Translation or clarity"
+    validations:
+      required: true
+  - type: input
+    id: universal-id
+    attributes:
+      label: "U-ID (falls vorhanden) / U-ID (if any)"
+      description: "Zum Beispiel U-003; NEW für eine neue Grundfrage / e.g. U-003 or NEW"
+      placeholder: "U-003 / NEW"
+    validations:
+      required: true
+  - type: textarea
+    id: question
+    attributes:
+      label: "Aussage, Frage oder Korrektur / Statement, question or proposed correction"
+      description: "Präzise Formulierung und Geltungsbereich / Precise wording and scope"
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: "Quellen und betroffene Bereiche / Sources and affected domains"
+      description: "Öffentliche Dateien/URLs, Fachbereiche; keine privaten Daten / Public files or URLs and relevant domains"
+    validations:
+      required: true
+  - type: textarea
+    id: strongest-objection
+    attributes:
+      label: "Stärkster Einwand und Grenze / Strongest objection and boundary"
+      description: "Was könnte die Vermutung widerlegen oder ihre Anwendung einschränken? / What could refute or limit the proposal?"
+    validations:
+      required: true
+  - type: textarea
+    id: review
+    attributes:
+      label: "Prüfmethode und fehlende Perspektiven / Proposed check and missing perspectives"
+      description: "Welche Prüfung wäre passend? Welche Betroffenen müssten gehört werden? / What test fits, and whose view is missing?"
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: "Öffentlichkeit / Public visibility"
+      options:
+        - label: "Ich teile keine sensiblen privaten Daten und verstehe, dass der Beitrag öffentlich ist. / I share no sensitive private data and understand this is public."
+          required: true

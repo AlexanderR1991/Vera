@@ -14,6 +14,12 @@
 
 Diese Räume sind derzeit Arbeitsbereiche des vorhandenen Repositories, keine separate Diskussionsplattform oder neue Datenbank.
 
+## Abgrenzung zur Grundfragen-Schicht (U-IDs)
+
+Neben den sechs individuellen Beispiel-Fragen `Q-001`…`Q-006` gibt es nun die **separaten, übergreifenden [Grundfragen U-001…U-016](grundfragen-kreislauf.md)**. Sie verbinden mehrere veröffentlichte Disziplinen, ohne die ursprünglichen Fragen zu löschen oder gleichzusetzen. Beziehungen zwischen den beiden Registern sind lediglich Verweise mit expliziter Herkunft, keine automatische Fusion oder Wahrheitsübertragung. Die Grundfragen-Seite ist **keine zweite Agora**: Beiträge laufen über [ein öffentliches, menschlich geprüftes GitHub-Issue-Formular](https://github.com/AlexanderR1991/Wirklich/issues/new?template=grundfrage.yml).
+
+Ein **lexikalischer** Korpus-Scan gibt nur Prüfanlässe aus; ein späterer KI-gestützter semantischer Durchlauf muss eigens eingebaut, begrenzt, gekennzeichnet und evaluiert werden. Das Register für fachlich überprüfte Grundfragen-**Teilantworten** ist derzeit leer. Für die bestehenden Q-IDs gelten unverändert die Triage- und Schutzgrenzen dieses Dokuments.
+
 ## Neues politisches Beispiel / New political example
 
 **Q-007** fragt bilingual, wer von Produktivitätssteigerungen profitiert und welchen Einfluss Eigentum, Mitbestimmung und Verteilungsregeln haben. Verknüpft: **P-001 (R0, ungeprüft)**, Politik, Wirtschaft sowie die Fragen nach KI-Entscheidungen und der Prüfung von Gegenbelegen. Diese Verbindungen sind thematische Arbeitshypothesen, keine bestätigte Kausalstruktur und kein Konsens.
