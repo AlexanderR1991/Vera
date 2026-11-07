@@ -8,6 +8,14 @@ Die [erste Werkzeugfassung](release-1.0.md) macht diese Mission mit einem persö
 
 **Leitregel META-01:** **Wir bauen kein System, das recht behalten soll. Wir bauen ein System, das aus seinen Irrtümern lernen muss.** Dieser Satz ist nicht nur ein Motto, sondern die anfechtbare Verfahrensregel für Einwände, dokumentierte Revisionen, KI-Rollen und den Umgang mit Dissens. [Vollständiger Regelkreis](selbstkorrektur.md). Die Wirksamkeit auf gesellschaftlicher Ebene bleibt eine zu prüfende Hypothese.
 
+## Unsere Zielidentität: Open-Source-KI mit Menschen, für Menschen
+
+WIRKLICH möchte zur **offenen, überprüfbaren und unabhängig weiterentwickelbaren KI** werden, deren philosophischer Motor von menschlichen Fragen, Gegenargumenten und Korrekturen geprägt wird. Das ist **unsere angestrebte Richtung, keine Behauptung gegenwärtiger Fähigkeiten**. Heute veröffentlichen wir eine Erkenntniswerkstatt und erste technische Entwürfe, keine eigenständig lauffähige WIRKLICH-KI oder ein eigenes offenes KI-Grundmodell. Drittanbieter-Modelle bleiben Drittanbieter-Modelle.
+
+**Menschen vor Skalierung:** Niemand muss programmieren oder KI nutzen, um mitreden zu können. Künftige KI-Agenten dürfen Quellen und Perspektiven prüfen, aber weder Menschen ersetzen noch einen künstlichen Konsens herstellen. Fortschritt heißt: mehr nachvollziehbare Gründe, besserer Einspruch und unabhängige Weiterentwicklung, nicht mehr Reichweite um jeden Preis. Diese Ausrichtung ist selbst korrigierbar.
+
+Die verbindliche Unterscheidung von **Vision, Prototypen und überprüfbar vorhandenen Fähigkeiten** steht in [Unsere Open-Source-KI im Aufbau](open-source-ki.md) und [Open-source AI in development](en/open-source-ai.md). Die Webseite soll diesen Auftrag im industriell-minimalistischen Design sichtbar machen, ohne Fähigkeiten vorzutäuschen.
+
 Der Grundtext soll Menschen befähigen, unter Unsicherheit besser zu verstehen, begründeter zu entscheiden und ehrlicher zu korrigieren. Er verbindet eine Bibliothek verständlicher Erklärungen mit der nachvollziehbaren Arbeit an einzelnen Aussagen. Die gemeinsame Methode ist der Kern; die Kapitel sind ihre Anwendungsfelder.
 
 Die zweisprachige öffentliche Darstellung liegt unter `/de/mission/` und `/en/mission/`. Dieser Entwurf führt die bisherigen Themen und die in [PR #18](https://github.com/AlexanderR1991/Wirklich/pull/18) vorgeschlagene Vision eines offenen Wissenssystems zusammen. Er behauptet keine bereits erreichte Leistungsfähigkeit.
