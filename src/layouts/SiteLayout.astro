@@ -3,6 +3,8 @@ import {ui,navigation} from "../lib/ui.mjs";
 import UniversalQuestionsContext from "../components/UniversalQuestionsContext.astro";
 import {pathFor,absoluteFor,base} from "../lib/paths.mjs";
 import project from "../../public/project.json" with {type: "json"};
+import {createHash} from "node:crypto";
+import {readFileSync} from "node:fs";
 const {lang="de",slug="index",root=false}=Astro.props;
 const t=ui[lang];
 const footerGroups = [
@@ -11,6 +13,10 @@ const footerGroups = [
 ];
 const description = Astro.props.description ?? t.description;
 const title = Astro.props.pageTitle ?? (root ? "Choose your language / Sprache wählen" : t.titles[slug]);
+// Content-derived query stamps prevent stale shared CSS/JS between Pages deployments.
+const assetRevision=file=>createHash("sha256").update(readFileSync("public/assets/"+file)).digest("hex").slice(0,12);
+const cssRevision=assetRevision("style.css");
+const jsRevision=assetRevision("site.js");
 const siteRoot="https://alexanderr1991.github.io"+base;
 const canonical=root?siteRoot:absoluteFor(lang,slug);
 ---
@@ -33,11 +39,11 @@ const canonical=root?siteRoot:absoluteFor(lang,slug);
 <link rel="alternate" hreflang="en" href={absoluteFor("en",slug)} />
 <link rel="alternate" hreflang="x-default" href={siteRoot} />
 <link rel="icon" type="image/svg+xml" href={base+"assets/signet.svg"} />
-<link rel="stylesheet" href={base+"assets/style.css"} />
+<link rel="stylesheet" href={base+"assets/style.css?v="+cssRevision} />
 <title>{title} · {t.name}</title>
-<script is:inline src={base+"assets/site.js"} defer></script>
+<script is:inline src={base+"assets/site.js?v="+jsRevision} defer></script>
 </head>
-<body>
+<body class={slug==="index"&&!root?"is-home":undefined}>
 <a class="skip-link" href="#inhalt">{lang==="de"?"Zum Inhalt springen":"Skip to content"}</a>
 <header class="site-header"><div class="site-header__inner">
 <a class="brand" href={pathFor(lang)} aria-label={t.name+(lang==="de"?" – Startseite":" – homepage")}>
