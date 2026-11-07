@@ -34,6 +34,11 @@ const mechanismRivets=Array.from({length:12},(_,i)=>{
           <a class="button button--ghost" href={pathFor(lang,"erkenntnisnavigator")}>{de?"Etwas entdecken":"Explore the atlas"} <span aria-hidden="true">→</span></a>
         </div>
         <p class="home-lead">{t.lead}</p>
+        <aside class="home-ai-identity" aria-label={de?"Unsere Open-Source-KI-Vision":"Our open-source AI vision"}>
+          <strong>{de?"Unser Ziel: Eine Open-Source-KI für Menschen bauen.":"Our goal: Build an open-source AI for people."}</strong>
+          <p>{de?"Gemeinsam, korrigierbar und für jeden zugänglich. Aktuell sind wir eine offene Erkenntniswerkstatt mit ersten Prototypen – noch keine eigenständig veröffentlichte KI.":"Together, open to correction and accessible to everyone. Today we are an open inquiry workshop with early prototypes—not a released, independently runnable AI."}</p>
+          <a href={pathFor(lang,"ki-und-mensch")}>{de?"Idee und Grenzen prüfen":"Explore the goal and its limits"} ↗</a>
+        </aside>
       </div>
       <div class="home-mechanism" aria-label={de?"Abstrakte technische Illustration: ein offener, verbundener Erkenntniskreis":"Abstract technical illustration: an open, connected inquiry loop"} role="img">
         <div class="home-mechanism__label"><span>W / 001</span><span>{de?"FRAGE → PRÜFUNG → REVISION":"QUESTION → TEST → REVISION"}</span></div>
