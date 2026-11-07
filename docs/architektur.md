@@ -5,6 +5,12 @@
 ## Leitgedanke
 Die Schönheit darf zum Denken einladen; sie darf es nicht ersetzen. Gestaltung und Argumentation haben unterschiedliche Aufgaben.
 
+## Übergreifender Regelkreis · META-01
+
+Über allen Funktionsbereichen liegt eine **anfechtbare Verfahrensregel**: [Kein System, das recht behalten soll – ein System, das aus seinen Irrtümern lernen muss](selbstkorrektur.md). Die wiederholbaren Schritte sind **Frage → Aussageart → Einwand → Prüfung → menschliche Entscheidung → nachvollziehbare Revision → neue Frage**. Das ist kein zusätzlicher Wahrheitsrang, sondern ein Qualitätsanspruch an alle Ebenen.
+
+Die [JSON-Fassung](../public/protocol/self-correction.v1.json) beschreibt die zehn Arbeitsregeln und die Prüfschleife maschinenlesbar. Der [öffentliche Regelkreis](https://alexanderr1991.github.io/Wirklich/de/regelkreis/) vermittelt sie in DE/EN. KI kann Vorschläge und Verknüpfungen liefern; automatische Statusänderungen oder selbstlegitimierende Mehrheitsentscheidungen sind ausgeschlossen. Wie gut die Methode tatsächlich funktioniert, muss im [Vergleichsprotokoll](evaluation-v1.md) geprüft werden.
+
 ## Fünf Ebenen des öffentlichen Werks
 1. **Auftakt:** atmosphärischer, verständlicher Zugang ohne Vorwissen.
 2. **Atlas:** sechs Felder: Wirklichkeit, Leben, Bewusstsein, Mensch, Gesellschaft, Handeln.

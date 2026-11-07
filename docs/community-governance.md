@@ -10,6 +10,18 @@ Jeder kann über Issues Argumente einbringen und über Pull Requests Änderungen
 
 Anyone can suggest ideas through issues or changes through pull requests. **Submission does not imply acceptance.** Maintainers make editorial decisions and should explain substantive corrections or rejections.
 
+## META-01 · Öffentliche Selbstkorrektur / Public self-correction
+
+> Wir bauen kein System, das recht behalten soll. Wir bauen ein System, das aus seinen Irrtümern lernen muss.
+
+> We are not building a system to be right. We are building a system that must learn from its mistakes.
+
+Die [zehn Arbeitsregeln und der Regelkreis](selbstkorrektur.md) bilden eine **anfechtbare Verfahrensleitlinie**. Jede substanzielle Änderung braucht einen prüfbaren Bezug zur bisherigen Fassung, den stärksten bekannten Einwand, den passenden Prüfmaßstab, einen möglichen Revisionsauslöser, eine Entscheidung samt Begründung und einen benannten verantwortlichen Menschen. Die Entscheidungen lauten: **beibehalten, eingrenzen, korrigieren, zurückziehen, offenlassen**. Ein Minderheiteneinwand verschwindet nicht durch Mehrheitsstimmen. Ein Review beweist keine Wahrheit.
+
+**Diese Leitlinie setzt das bestehende Regeländerungsverfahren nicht außer Kraft.** Regeländerungen durchlaufen die unten beschriebenen Fristen, Prüfung und transparente Entscheidung des derzeitigen Maintainers. Auch META-01 ist änderbar; kein Entwurf darf die Regeln seiner eigenen Annahme rückwirkend ersetzen.
+
+**English:** META-01 is a challengeable editorial process commitment, not an immutable constitution. Substantive revisions need traceable old wording, strongest objection, appropriate review, revision condition, outcome, reasons and accountable human editor. Retaining a claim or recording unresolved disagreement may be valid outcomes. Rule changes still follow existing public governance.
+
 ## Aktueller Stand / Current status
 
 - Repository: öffentlich / public

@@ -4,6 +4,8 @@
 
 > Eine Erkenntnis steigt nicht durch Zustimmung auf, sondern durch die Qualität ihrer Begründung und Prüfung. Ihre Stellung bleibt jederzeit korrigierbar.
 
+**META-01:** Der [selbstkorrigierende Regelkreis](selbstkorrektur.md) verlangt, dass auch eine hochgereifte Aussage nach einem neuen qualifizierten Einwand rückgestuft, eingegrenzt oder zurückgezogen werden kann. Ein R-Wert zählt dokumentierte Prüfung, nicht die Fähigkeit einer Institution, recht zu behalten.
+
 ## Drei Achsen, kein Wahrheits-Thron
 
 1. **Aussageart** entscheidet über die angemessene Prüfung: empirisch, formal, normativ, interpretativ oder metaphorisch. Ein Wert kann nicht zum Naturgesetz „aufsteigen“.

@@ -2,6 +2,8 @@
 
 **WIRKLICH – öffentliche Gespräche, prüfbare Aussagen und dokumentierte Änderungen.**
 
+**META-01:** [Wir bauen kein System, das recht behalten soll. Wir bauen ein System, das aus seinen Irrtümern lernen muss.](selbstkorrektur.md) Jeder Diskussionsraum dient Erkenntnisgewinn, nicht dem Sieg einer Fraktion. Ein belastbarer Einwand kann eine Prüfung neu eröffnen, aber weder Lautstärke noch Bot-Masse erzwingen eine redaktionelle Änderung.
+
 Die antike Agora, Stoa und das römische Forum inspirieren die Darstellung, **nicht** eine antike Rangordnung, den Ausschluss von Menschen oder eine Abstimmung über Wahrheit. Die drei Begriffe bezeichnen verschiedene **Wege im bestehenden GitHub-System**, keine technisch separaten Community-Instanzen:
 
 - **Agora – freie Gespräche:** [GitHub Discussions](https://github.com/AlexanderR1991/Wirklich/discussions). Fragen und Ideen dürfen unfertig bleiben.
@@ -15,6 +17,8 @@ Die antike Agora, Stoa und das römische Forum inspirieren die Darstellung, **ni
 **Integrationsregel:** Beim Anlegen einer neuen Aussage eine eindeutige GitHub-Issue-Debatte erstellen, ihre Nummer in forum-threads.json aufnehmen und anschließend die Site-Checks ausführen. Bei Überarbeitung einer Aussage den Faden behalten und die diskutierte Version nennen. Debatten niemals automatisch in den Erkenntnisreifegrad übersetzen.
 
 ---
+
+**English:** [META-01](selbstkorrektur.md) asks each discussion space to learn from mistakes, not to win. A serious objection may reopen examination, while votes and bot volume never determine truth.
 
 **English:** The Agora, Stoa and Curia are navigational metaphors for three existing tools, not separate hosted forums: open GitHub Discussions, issue threads anchored to each claim ID, and reviewed pull requests for changes. A claim is never promoted by votes, comment counts or AI replies. The statement and its review status remain in the versioned register, separate from discussion. Use respectful, specific objections, cite the version and sources, and say what would change your mind. Public posts require a GitHub account; no confidential complaint route, response SLA or independent moderation is currently promised.
 

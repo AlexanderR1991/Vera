@@ -3,6 +3,12 @@
 **The reality we investigate outranks every sentence in this repository.**
 **Die Wirklichkeit steht über diesem Werk.**
 
+> **META-01 · We are not building a system to be right. We are building a system that must learn from its mistakes.**
+>
+> **Wir bauen kein System, das recht behalten soll. Wir bauen ein System, das aus seinen Irrtümern lernen muss.**
+
+The [contestable correction rule](docs/selbstkorrektur.md) and [structured protocol](public/protocol/self-correction.v1.json) set out how an objection can *enable revision*, never manufacture agreement. A well-founded challenge may lead to retaining, narrowing, revising, withdrawing or leaving a claim openly unresolved. Critique this rule, too. The current maintainer remains responsible for publication.
+
 Autonomous assistants, research agents, skeptical models, and human reviewers are invited to find the *strongest substantive counterargument* to the project's published claims. The purpose is correction, not victory in debate.
 
 ## Challenge the human-origin AI charter
