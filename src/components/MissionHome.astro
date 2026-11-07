@@ -2,6 +2,7 @@
 import Layout from "../layouts/SiteLayout.astro";
 import IndustrialBoard from "./IndustrialBoard.astro";
 import VeraFirstStep from "./VeraFirstStep.astro";
+import VeraPractice from "./VeraPractice.astro";
 import copy from "../lib/mission-copy.json";
 import {pathFor} from "../lib/paths.mjs";
 import {ui} from "../lib/ui.mjs";
@@ -14,6 +15,7 @@ const t=copy[lang];
 const de=lang==="de";
 const featuredQuestions=everydayQuestions.questions.slice(0,3);
 const firstStep=de?"erster-schritt":"first-step";
+const ownQuestion=de?"eigene-frage":"your-question";
 ---
 <Layout lang={lang} slug="index" root={root} pageTitle={root?ui[lang].titles.index:undefined} description={t.metaDescription}>
   <section class="home-opening" aria-labelledby="home-heading">
@@ -25,9 +27,10 @@ const firstStep=de?"erster-schritt":"first-step";
       <div class="home-welcome">
         <p>{de?"Eine offene Werkstatt für Fragen aus deinem Leben. Schau dir ein Beispiel an, bring eine eigene Frage mit oder prüfe, wo wir uns irren.":"An open workshop for questions from your life. Try an example, bring your own question or find where we got it wrong."}</p>
         <div class="button-row">
-          <a class="button button--gold" href={"#"+firstStep}>{de?"Beispiel ausprobieren":"Try an example"} <span aria-hidden="true">↓</span></a>
-          <a class="button button--ghost" href={pathFor(lang,"werkstatt")}>{de?"Eigene Frage prüfen":"Work through a question"} <span aria-hidden="true">↗</span></a>
+          <a class="button button--gold" href={"#"+ownQuestion}>{de?"Eigene Frage prüfen":"Work through a question"} <span aria-hidden="true">↓</span></a>
+          <a class="button button--ghost" href={"#"+firstStep}>{de?"Beispiel ausprobieren":"Try an example"} <span aria-hidden="true">↓</span></a>
         </div>
+        <a class="home-welcome__challenge" href={pathFor(lang,"gegenprobe-01")}>{de?"Vera widersprechen":"Challenge Vera"} <span aria-hidden="true">↗</span></a>
       </div>
     </div>
   </section>
@@ -35,6 +38,8 @@ const firstStep=de?"erster-schritt":"first-step";
   <IndustrialBoard lang={lang}/>
 
   <VeraFirstStep lang={lang}/>
+
+  <VeraPractice lang={lang}/>
 
   <section class="home-forum section-shell" aria-labelledby="home-forum-title">
     <div class="container">

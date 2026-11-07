@@ -2,13 +2,6 @@
 "use strict";
 document.documentElement.classList.add("has-js");
 const en=document.documentElement.lang==="en";
-const toggle=document.querySelector("[data-menu-toggle]"),nav=document.querySelector(".site-nav");
-if(toggle&&nav){
- const close=()=>{toggle.setAttribute("aria-expanded","false");nav.classList.remove("is-open");};
- toggle.addEventListener("click",()=>{const open=toggle.getAttribute("aria-expanded")!=="true";toggle.setAttribute("aria-expanded",String(open));nav.classList.toggle("is-open",open);});
- nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",close));
- document.addEventListener("keydown",e=>{if(e.key==="Escape" && toggle.getAttribute("aria-expanded")==="true"){close();toggle.focus();}});
-}
 const modes=[...document.querySelectorAll("[data-reading-mode]")];
 if(modes.length){
  const set=mode=>{document.querySelectorAll("[data-depth]").forEach(e=>{e.hidden=e.dataset.depth!==mode;});modes.forEach(b=>{const on=b.dataset.readingMode===mode;b.classList.toggle("is-active",on);b.setAttribute("aria-pressed",String(on));});};
