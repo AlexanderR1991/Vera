@@ -42,6 +42,12 @@ Künstliche Intelligenz braucht mehr als Fähigkeiten. **WIRKLICH will mit Mensc
 
 **We ask people to define and challenge the principles by which AI is judged.** This is a provisional, human-origin inquiry framework, not a universal or certified ethics standard.
 
+## Warum Open Source bleiben muss · Why we must remain open source
+
+**Unser Interessenmaßstab ist die Menschheit – kein Eigentümer, kein Unternehmen, kein Staat und keine KI.** Wer Menschen beim Prüfen von Erkenntnissen unterstützt, muss die eigenen Texte, Regeln, Methoden und möglichen Bewertungen selbst prüfbar und korrigierbar halten. Eine offene Lizenz allein garantiert weder Unabhängigkeit noch gerechte Teilhabe; private Daten und Rechte Dritter gehören nicht in die Öffentlichkeit. Wir sprechen **nicht** im Namen der Menschheit und haben noch keine unabhängige, repräsentative Governance. [OPEN-01: Begründung, Einwände und Grenzen](docs/offenheit.md) · [Governance](docs/community-governance.md).
+
+**Humanity is the interest we seek to serve—not an authority we can claim to represent.** A system that helps examine human judgments must expose its own published rules, reasoning and methods to scrutiny and correction. Open licenses enable independent continuation but cannot by themselves prevent capture. Privacy and contributors' rights remain protected. [OPEN-01: English draft](docs/en/openness.md) · [Licenses](LICENSING.md).
+
 ## Gemeinsam klüger werden · Learn together
 
 **Wenn Open Source bei Blender funktioniert, warum nicht auch in der Philosophie?** Bei Blender kann jemand einen Fehler zeigen, den andere übersehen haben, und eine Änderung vorschlagen. Bei WIRKLICH kann ein einziger Einwand einen Grundsatz verändern. Einer unserer Sätze empfahl, Menschen so zu helfen, dass sie ihre eigene Kraft finden. Was ist mit jemandem, der ein Leben lang Hilfe braucht? Heute steht ausdrücklich im Text, dass Fürsorge auch dann wertvoll ist. Lies beide Fassungen und prüfe selbst, ob die neue dem Einwand gerecht wird. [Mitwirken bei Blender](https://www.blender.org/get-involved/) · [Die Änderung im Wortlaut](https://github.com/AlexanderR1991/Wirklich/pull/31/files)
