@@ -16,6 +16,24 @@ Open source is therefore not just a development strategy. It is a **condition fo
 4. **Ability to continue independently:** Where rights allow, people should be able to read, use, check, improve and independently carry forward the published core. Forking provides a safeguard even against the original maintainers.
 5. **Participation:** Affected people and neglected perspectives need real ways to object. GitHub accounts, technical vocabulary and incomplete translations are current barriers to be reduced.
 
+## Open source—looking forward
+
+> **We open up more than today's work. We open up the possibility that others may go further than we do tomorrow.**
+
+WIRKLICH is not meant to become a finished worldview or the only platform for “correct” answers. **Future openness** means that new evidence, questions, overlooked experiences, different methods and future AI systems may change the project—even when they overturn our own proposals. Established work remains traceable; novelty alone is not evidence of progress.
+
+This commitment leads to testable design goals:
+
+1. **Open, versioned formats rather than platform lock-in:** Claims, objections, sources, review states and revisions should be exportable in documented, machine-readable formats and, where validated, usable by independent tools.
+2. **Documented interfaces rather than vendor dependence:** Future APIs, protocols and AI integrations should be documented, versioned and, wherever feasible, usable without an exclusive model or platform provider. Participation without AI must remain possible.
+3. **Extensibility without a monopoly on truth:** Disciplines, languages and independent implementations may add their own review methods while preserving visible claim types, uncertainty, human rights, accountability and dissent.
+4. **Forking and interoperability:** Independent continuation is possible within licensing and rights constraints. Divergences should be identifiable, and future technical comparison possible without forcing substantive agreement.
+5. **Progress must earn its name:** New automation or a directional index gains no authority from scale, speed or the label “open source”. Errors, dependencies, harms and benefits over simpler methods need evaluation before wide deployment.
+
+**Testable future milestone (not yet met):** An external team should be able to build a compatible application from a published, versioned protocol specification and test cases, and export and re-import a sample dataset—without access to private services or permission from the original editors. Technical compatibility emphatically **does not** require independent implementations to share moral judgments.
+
+This is an ambition, **not an established standard**. There is not yet an independently reviewed protocol specification, demonstrated cross-platform compatibility or an external reference implementation. The [roadmap](../roadmap.md) must record progress and setbacks. **Translation status: machine-assisted draft, not independently reviewed.**
+
 ## What should be open—and what must be protected
 
 The **published normative and technical core** should remain open: foundational texts, procedural rules, licensable source code, criteria for any proposed assessments, source roles, revision decisions and recorded dissent. Include reasons for accepting, rejecting or leaving a proposal unresolved.
