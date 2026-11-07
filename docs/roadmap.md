@@ -60,6 +60,20 @@ Das [Emporirren-Konzept](emporirren.md) verbindet Spielen, die eigene Frage und 
 
 **Keine Studie durchgeführt, keine validierte Skala, keine mathematisch bewiesene Verhaltensnorm.**
 
+## Atlas-Fachagenten · Architektur vorbereitet, Betrieb offen
+
+Der [AFA-0.1-Entwurf](fachagenten-netzwerk.md) / [English](en/atlas-specialist-agents.md) ordnet den 23 Atlas-Fachthemen jeweils eine **inaktive KI-Prüfrolle** zu. Ein inaktives [Rollenregister](../public/ai/atlas-agents.v0.json) und Strukturtests schaffen eine Grundlage für einen späteren **fragebezogenen**, nicht permanent laufenden Mehrperspektiven-Motor. Die Synthese darf keinen Modellkonsens als menschlichen Konsens ausgeben; R0–R4, META-01 und redaktionelle Freigaben bleiben maßgeblich.
+
+- [x] Zweisprachigen, anfechtbaren Architekturentwurf formulieren; vorhandene Atlasfelder, Themen und R0–R4 als Datengrenzen übernehmen
+- [x] Fachrollen und methodische Gegenrollen rein deklarativ und standardmäßig deaktiviert erfassen
+- [ ] Fachliche und demokratische Schieflagen der Rollen/Routing-Regeln durch Menschen und Betroffene prüfen lassen
+- [ ] Einen Datensatz künstlicher bzw. öffentlicher Gegenproben vorab definieren; Kosten-, Datenschutz-, Sicherheits- und Abbruchbedingungen festlegen
+- [ ] Eine isolierte, nur manuell ausführbare Orchestrierung mit Quellenledger und getrenntem Ersturteil bauen; kein Forum-Autoposting
+- [ ] Den Nutzen gegen reguläre Quellenprüfung und eine Einzel-KI unabhängig evaluieren; unzureichenden Nutzen als Abbruchgrund anerkennen
+- [ ] Erst danach über getrennt zu genehmigende Integration in den bestehenden Forschungsstrom entscheiden
+
+**Keine Aktivierung durch diesen Entwurf.** Die Existenz einer Rollenbeschreibung besagt weder Fachkompetenz noch erfolgreiche Prüfung. Ein späterer Schwarm darf keine Menschenstimmen vortäuschen.
+
 ## Etappe 1 · Ein kleiner, vollständig geprüfter Bestand
 
 Die [Gesamtprüfung des fliegenden Baums](gesamtpruefung-baum.md) verknüpft die Themen, sichtbaren Lücken und öffentlichen Selbstprüfungen [B-01](https://github.com/AlexanderR1991/Wirklich/issues/28), [B-02](https://github.com/AlexanderR1991/Wirklich/issues/29) und [B-03](https://github.com/AlexanderR1991/Wirklich/issues/30). Ein erweiterter Themenplan erfüllt die folgenden Freigabekriterien noch nicht.
