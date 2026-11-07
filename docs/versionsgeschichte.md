@@ -1,5 +1,11 @@
 # Versionsgeschichte
 
+## 2026-11-07 · OPEN-01 – Offenheit und das Interesse der Menschheit (Änderungsvorschlag)
+
+- [OPEN-01](offenheit.md) begründet den Open-Source-Anspruch als anfechtbare Selbstbindung: öffentlich prüfbarer normativer und technischer Kern, korrigierbare Regeln, Versionierung und Möglichkeit zur unabhängigen Weiterführung. Eine [englische Entwurfsfassung](en/openness.md) liegt vor.
+- Der Gedanke „Interessenmaßstab Menschheit“ wird ausdrücklich von einer **nicht vorhandenen** rechtlichen oder demokratischen Vertretung der Menschheit unterschieden. Aktuelle redaktionelle Kontrolle, Grenzen offener Lizenzen, Datenschutz und Rechte Dritter bleiben sichtbar.
+- Die Erklärung wird in README, Governance und der zweisprachigen Mission referenziert; der PR dokumentiert Einwand und Entscheidung. Unabhängige Kontrolle und barrierearme Mitwirkung bleiben offene Entwicklungsaufgaben.
+
 ## 2026-11-07 · META-01 – Der selbstkorrigierende Regelkreis
 
 - Die anfechtbare Leitregel lautet: **„Wir bauen kein System, das recht behalten soll. Wir bauen ein System, das aus seinen Irrtümern lernen muss.“** Ihre englische Fassung, zehn Arbeitsregeln, sieben Prüfschritte und die menschlichen Verantwortungsgrenzen sind in [selbstkorrektur.md](selbstkorrektur.md) und im [versionierten JSON-Protokoll](../public/protocol/self-correction.v1.json) beschrieben.
