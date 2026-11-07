@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import {readFileSync} from "node:fs";
 const read=(path)=>readFileSync(new URL("../"+path,import.meta.url),"utf8");
 
-test("industrial board retains independent DE/EN labels and links to real WIRKLICH routes",()=>{
+test("industrial board retains independent DE/EN labels and links to real Vera routes",()=>{
  const board=read("src/components/IndustrialBoard.astro");
  const home=read("src/components/MissionHome.astro");
  for(const id of ["atlas","forum","bridge","engine","workbench","questions","revision","research","esoterik","source"]){
@@ -55,11 +55,11 @@ test("site and philosophy accurately present an open-source AI goal rather than 
  assert.ok(board.includes("Open-Source-KI"));
  assert.ok(board.includes("open-source AI"));
  assert.ok(mission.includes("opensource-ki"));
- assert.ok(mission.includes("Noch keine eigenständig veröffentlichte WIRKLICH-KI"));
+ assert.ok(mission.includes("Noch keine eigenständig veröffentlichte Vera-KI"));
  assert.ok(ai.includes("kein offenes eigenes Grundmodell"));
  assert.ok(site.includes("Unser Ziel: eine Open-Source-KI mit Menschen bauen"));
- assert.ok(docs.includes("noch keine fertig entwickelte, selbstständig lauffähige WIRKLICH-KI"));
- assert.ok(docsEn.includes("no completed, independently runnable WIRKLICH AI"));
+ assert.ok(docs.includes("noch keine fertig entwickelte, selbstständig lauffähige Vera-KI"));
+ assert.ok(docsEn.includes("no completed, independently runnable Vera AI"));
  assert.equal(project.ai_ambition.status,"in_development");
  assert.equal(project.ai_ambition.own_open_foundation_model_released,false);
  assert.equal(project.ai_ambition.independently_runnable_model_available,false);

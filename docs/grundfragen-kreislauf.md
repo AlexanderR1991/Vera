@@ -1,6 +1,6 @@
 # Der Grundfragen-Kreislauf · The universal question loop
 
-**WIRKLICH · Forschungs- und Infrastrukturentwurf 0.1 · 7. November 2026.** Der Kreislauf ist **kein vollautomatischer philosophischer Wahrheitsgenerator** und kein semantisch umfassender KI-Audit. Alle anfangs veröffentlichten Grundfragen sind **redaktionell synthetisierte, ungeprüfte Vorschläge**, nicht bewiesene Universalien.
+**Vera · Forschungs- und Infrastrukturentwurf 0.1 · 7. November 2026.** Der Kreislauf ist **kein vollautomatischer philosophischer Wahrheitsgenerator** und kein semantisch umfassender KI-Audit. Alle anfangs veröffentlichten Grundfragen sind **redaktionell synthetisierte, ungeprüfte Vorschläge**, nicht bewiesene Universalien.
 
 > Aus Fragen entstehen verbindende Fragen. Erst Prüfung, Gegenprüfung und menschliche Verantwortung machen aus einer möglichen Antwort eine vorläufig belastbare Aussage. Der Weg zurück in die Fachbereiche muss sichtbar bleiben.
 

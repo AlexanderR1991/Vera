@@ -45,7 +45,7 @@ export const ui = {
       "mitwirken": "Mitwirken",
       "impressum": "Impressum",
       "datenschutz": "Datenschutz",
-      "fragen-und-ki-prompt": "Stellt uns Fragen! · WIRKLICH mit der eigenen KI nutzen",
+      "fragen-und-ki-prompt": "Stellt uns Fragen! · Vera mit der eigenen KI nutzen",
       "kunst-und-erkenntnis": "Kunst und Erkenntnis",
       "forschungsstrom": "Forschungsstrom",
       "angriffsschwarm": "Angriffsschwarm",
@@ -62,7 +62,7 @@ export const ui = {
       "militaer-und-verantwortung": "Militär und Verantwortung",
       "ernaehrung-und-verantwortung": "Ernährung und Verantwortung"
     },
-    "description": "WIRKLICH ist die offene Erkenntniswerkstatt: Fragen klären, Belege und Gegenargumente prüfen und verantwortlich handeln. Mit exportierbaren Prüfblättern und offenem Projektstatus."
+    "description": "Vera ist die offene Erkenntniswerkstatt: Fragen klären, Belege und Gegenargumente prüfen und verantwortlich handeln. Mit exportierbaren Prüfblättern und offenem Projektstatus."
   },
   "en": {
     "name": project.english_name,
@@ -109,7 +109,7 @@ export const ui = {
       "mitwirken": "Contribute",
       "impressum": "Legal notice",
       "datenschutz": "Privacy",
-      "fragen-und-ki-prompt": "Ask us questions! · Use REALLY? with your AI",
+      "fragen-und-ki-prompt": "Ask us questions! · Use Vera with your AI",
       "kunst-und-erkenntnis": "Art and Inquiry",
       "forschungsstrom": "Research Stream",
       "angriffsschwarm": "Adversarial Swarm",
@@ -126,7 +126,7 @@ export const ui = {
       "militaer-und-verantwortung": "Military Power and Responsibility",
       "ernaehrung-und-verantwortung": "Nutrition and Responsibility"
     },
-    "description": project.english_name + " Bring a question to the open inquiry workshop. Examine the evidence, test objections and record what would change your mind."
+    "description": project.english_name + " is an open inquiry workshop. Examine the evidence, test objections and record what would change your mind."
   }
 };
 export const navigation = [["erkenntnisnavigator",7],["werkstatt",6],["atlas",1],["aussagen",3],["forum",8],["regelkreis",4],["mitwirken",5]];

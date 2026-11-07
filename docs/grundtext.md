@@ -8,7 +8,7 @@ Dies ist ein offener, korrigierbarer philosophischer Entwurf, keine wissenschaft
 
 ## Oberstes Gebot für Gestaltung und Wachstum: Jeden Menschen abholen.
 
-WIRKLICH ist für Menschen da – nicht für das Wachstum seiner eigenen Technik. Niemand muss philosophische Fachwörter, Programmierung oder KI beherrschen, um eine Frage zu stellen, eine Begründung nachzuvollziehen oder zu widersprechen. Wir beginnen bei den Fragen des Alltags, erklären zuerst verständlich und bieten Vertiefung freiwillig an. Einfachheit darf Unsicherheit, Gegenargumente und wichtige Unterschiede nicht verstecken.
+Vera ist für Menschen da – nicht für das Wachstum seiner eigenen Technik. Niemand muss philosophische Fachwörter, Programmierung oder KI beherrschen, um eine Frage zu stellen, eine Begründung nachzuvollziehen oder zu widersprechen. Wir beginnen bei den Fragen des Alltags, erklären zuerst verständlich und bieten Vertiefung freiwillig an. Einfachheit darf Unsicherheit, Gegenargumente und wichtige Unterschiede nicht verstecken.
 
 **Menschen vor Skalierung.** Neue Themen, Funktionen, Automatisierung und Reichweite sind kein Selbstzweck. Bevor wir sie ausweiten, wollen wir in kleinen Runden mit unterschiedlichen Menschen prüfen, ob sie tatsächlich Zugang finden, Fragen stellen, Gründe verstehen und Einwände vorbringen können. Wo das nicht gelingt, verbessern wir Sprache, Orientierung, Barrierefreiheit und Beteiligungswege, statt bloß schneller zu wachsen. Niemand muss unserem Tempo folgen.
 

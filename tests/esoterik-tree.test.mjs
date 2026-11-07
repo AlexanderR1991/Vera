@@ -25,7 +25,7 @@ test("the esoteric research index remains an openly revisable DE/EN editorial dr
  for(const source of catalog.sources)assert.match(source.url,/^https:\/\//);
 });
 
-test("at least a hundred distinct, sourced questions connect the esoteric sub-tree to WIRKLICH",()=>{
+test("at least a hundred distinct, sourced questions connect the esoteric sub-tree to Vera",()=>{
  assert.ok(catalog.branches.length>=15);
  let leaves=0;
  const ids=new Set();

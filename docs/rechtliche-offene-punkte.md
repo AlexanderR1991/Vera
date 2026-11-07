@@ -1,4 +1,4 @@
-# WIRKLICH · Rechtliche Absicherung / legal launch checklist
+# Vera · Rechtliche Absicherung / legal launch checklist
 
 **Stand: 6. November 2026 · technische und redaktionelle Vorsichtsmaßnahmen, keine abgeschlossene Rechtsprüfung.**
 

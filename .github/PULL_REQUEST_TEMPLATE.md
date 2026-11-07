@@ -31,6 +31,16 @@ Für **inhaltliche** Änderungen (nicht für einfache Tippfehler): Ziel ist nich
 - **Begründung, verbleibender Dissens / Rationale and unresolved dissent:**
 - **Verantwortliche Person und Datum / Accountable human editor and date:** (Maintainer ergänzt bei Entscheidung / maintainer fills at decision)
 
+### Freiwillige Leseprobe bei öffentlichen Regeln und Anleitungen / Optional first-time reader check for public rules and instructions
+
+Bitte eine Person, die den Text erstmals liest, die Regel in eigenen Worten zu erklären und eine konkrete Stelle zu nennen, an der sie widersprechen würde. Halte die Beobachtung ohne persönliche Angaben fest. [Ablauf der Leseprobe](../docs/selbstkorrektur.md#verständlichkeit-beim-ersten-lesen-erproben)
+
+Ask a first-time reader to explain the rule in their own words and identify a specific point they would challenge. Record the observation without personal details. [How to run the check](../docs/selbstkorrektur.md#try-it-with-a-first-time-reader)
+
+- **Textstelle und Sprache / Passage and language:**
+- **Stand / Status:** ausstehend / pending · durchgeführt / completed
+- **Beobachtete Hürde und mögliche Überarbeitung / Observed difficulty and possible revision:**
+
 ## Übersetzungen und Sprachparität / Translation and language parity
 
 Only when public text, navigation, or structured DE/EN content changes:

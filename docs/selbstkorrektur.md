@@ -6,7 +6,7 @@
 >
 > **We are not building a system to be right. We are building a system that must learn from its mistakes.**
 
-Dies ist die **leitende Auslegungsregel für die Arbeitsweise** von WIRKLICH – kein wissenschaftliches Gesetz, keine Wahrheit über alle Menschen und kein unveränderliches Dogma. Der [Grundtext](grundtext.md) bleibt das philosophische Fundament; [Methode](methode.md), [Erkenntnisreife](erkenntnisreife.md) und [Gemeinschaftsregeln](community-governance.md) bestimmen die konkrete Prüfung. **Auch META-01 selbst darf begründet geändert oder verworfen werden.**
+Dies ist die **leitende Auslegungsregel für die Arbeitsweise** von Vera – kein wissenschaftliches Gesetz, keine Wahrheit über alle Menschen und kein unveränderliches Dogma. Der [Grundtext](grundtext.md) bleibt das philosophische Fundament; [Methode](methode.md), [Erkenntnisreife](erkenntnisreife.md) und [Gemeinschaftsregeln](community-governance.md) bestimmen die konkrete Prüfung. **Auch META-01 selbst darf begründet geändert oder verworfen werden.**
 
 ## Zehn überprüfbare Arbeitsregeln
 
@@ -33,6 +33,17 @@ Der Pull Request oder der zugehörige Registereintrag hält fest: **bisherige Fa
 
 **Beispiel G-005:** Die These „Hilf so, dass der andere seine eigene Kraft findet“ konnte als Ausschluss dauerhafter Fürsorge verstanden werden. Das Projekt ergänzte den Wert dauerhafter Unterstützung und dokumentierte die frühere Fassung. Ob die Verbesserung in weiteren Fällen trägt, bleibt prüfbar. [Fall und Grenzen](methode.md#eine-wirkliche-korrektur).
 
+### Verständlichkeit beim ersten Lesen erproben
+
+Bei Änderungen an öffentlichen Anleitungen oder Regeln kann eine Person, die den Text zum ersten Mal liest, freiwillig zwei Fragen beantworten.
+
+- Wie würdest du die Regel in eigenen Worten erklären?
+- An welcher Stelle würdest du ihr widersprechen und warum?
+
+Lass die Person den Text zuerst selbst lesen. Im Pull Request genügen die betroffene Textstelle, die beobachtete Hürde und eine mögliche Überarbeitung. Persönliche Angaben bleiben privat. Steht die Probe noch aus, bleibt der Status offen. Die Rückmeldung hilft beim Überarbeiten des Texts. Freigabe und Wirksamkeitsprüfung folgen ihren eigenen Verfahren.
+
+**Gedachtes Beispiel.** Eine Erstleserin versteht „offenlassen“ als „die Frage wird fallen gelassen“. Dann könnten wir ergänzen, welche Information fehlt und bei welchem Hinweis wir die Frage wieder aufnehmen. Ob die Ergänzung verständlich ist, müsste eine weitere Leseprobe zeigen.
+
 ## Grenze und Gegenprobe
 
 Die persönliche Erfahrung, dass ehrliche Selbstkorrektur hilfreich sein kann, motiviert das Projekt. Sie **beweist nicht**, dass dieselbe Methode gesellschaftlich skalierbar ist. Zu prüfen sind gerade Gegenbeispiele: Machtmissbrauch, Schein-Konsens, schlechte Moderation, übersehene Minderheiten, ungleiche Teilhabe, unnötige Bürokratie und Fälle, in denen das Verfahren **schlechter** als Alternativen funktioniert. [Evaluationsentwurf](evaluation-v1.md).
@@ -43,7 +54,7 @@ Maschinenlesbare, unverbindliche Darstellung: [self-correction.v1.json](../publi
 
 ## English
 
-**We are not building a system to be right. We are building a system that must learn from its mistakes.** This is a *provisional and challengeable meta-rule for how WIRKLICH works*, not a demonstrated law or an unchangeable constitution. The [foundational theses](grundtext.md) remain the philosophical basis. The [method](methode.md), [maturity levels](erkenntnisreife.md) and [community governance](community-governance.md) govern actual review. The meta-rule is itself revisable.
+**We are not building a system to be right. We are building a system that must learn from its mistakes.** This is a *provisional and challengeable meta-rule for how Vera works*, not a demonstrated law or an unchangeable constitution. The [foundational theses](grundtext.md) remain the philosophical basis. The [method](methode.md), [maturity levels](erkenntnisreife.md) and [community governance](community-governance.md) govern actual review. The meta-rule is itself revisable.
 
 ### Ten working rules
 
@@ -63,6 +74,12 @@ Maschinenlesbare, unverbindliche Darstellung: [self-correction.v1.json](../publi
 **Frame → Classify → Challenge → Examine → Decide → Record → Repeat.** Outcomes may be *retain, narrow, correct, withdraw or leave open*. Genuine disagreement can remain unresolved. A newly discovered objection can reopen even a highly reviewed claim.
 
 For a **substantive public revision**, document the old revision, claim type and scope, strongest objection, revision condition, outcome, new wording or explicit open state, reasons, date and responsible human. Minor copy edits can use a lighter record. Changes to the rules also follow the existing public [governance procedure](community-governance.md).
+
+### Try it with a first-time reader
+
+When changing public instructions or rules, invite a first-time reader to answer two questions voluntarily. “How would you explain this rule in your own words?” and “Which part would you challenge, and why?” Let them read before giving your own explanation. In the pull request, record the passage, any difficulty you observed and a possible revision. Keep personal details private. Mark the check as pending if it has yet to take place. Use feedback to revise the text. Approval and effectiveness testing follow their own procedures.
+
+**Hypothetical example.** A first-time reader takes “leave open” to mean that the question has been dropped. The text could name the missing information and say which new evidence would reopen the question. A further read-through could show whether that addition helps.
 
 This approach is inspired by personal self-correction, but its effectiveness across society is an **untested hypothesis**. It must be compared with alternatives, including risks of power concentration, manipulation, exclusion and false agreement. AI outputs and votes must not stand in for independent evidence or human accountability. The present maintainer remains responsible, and shared governance is not yet in place.
 

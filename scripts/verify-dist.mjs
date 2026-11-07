@@ -219,7 +219,7 @@ for(const lang of ["de","en"]){
  }
 }
 if(errors.length){console.error(errors.join("\n"));process.exit(1);}
-console.log(`Verified WIRKLICH ${project.version}: shared identity, accessible worksheet exports/import, bilingual release routes and data-derived status counts.`);
+console.log(`Verified ${project.name} ${project.version}: shared identity, accessible worksheet exports/import, bilingual release routes and data-derived status counts.`);
 
 // Navigator: public draft data, static reading cards and versioned provenance.
 const {connections}=await import("../src/lib/navigator.mjs");
@@ -297,6 +297,8 @@ for(const lang of ["de","en"]){
  const pack=await readFile(join(out,"prompts","wirklich-regeln."+lang+".txt"),"utf8");
  if(!home.includes(correctionProtocol.motto[lang])||!home.includes("/"+lang+"/regelkreis/"))errors.push("Missing META-01 on home "+lang);
  if(!correctionPage.includes(correctionProtocol.motto[lang]))errors.push("Missing motto on correction page "+lang);
+ const readerCheck=lang==="de"?"Verständlichkeit beim ersten Lesen erproben":"Try it with a first-time reader";
+ if(!correctionPage.includes('id="leseprobe"')||!pack.includes(readerCheck))errors.push("Missing first-time reader check "+lang);
  for(const p of correctionProtocol.principles)if(!correctionPage.includes(p.id))errors.push("Missing correction principle "+lang+"/"+p.id);
  if(!pack.includes("META-01")||!pack.includes(correctionProtocol.motto[lang]))errors.push("Exported rules omit META-01 "+lang);
  if(!sitemap.includes("/"+lang+"/regelkreis/"))errors.push("Correction route absent from sitemap "+lang);

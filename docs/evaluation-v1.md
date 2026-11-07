@@ -17,7 +17,7 @@ Ein kleiner Pilot soll zunächst Verständnis der Aufgaben, Bedienbarkeit und Au
 | Bedingung | Aufgabe und verfügbare Quellen | Zusätzliche Struktur |
 | --- | --- | --- |
 | A · Vergleich | Gleiche abgegrenzte Aufgabe, gleiche Quellen, vergleichbares Zeitbudget | Freie Notizen und eine verständliche allgemeine Prüfanweisung |
-| B · Prüfblatt | Wie A | WIRKLICH-Prüfblatt mit Aussageart, Einwand, Revisionsbedingung und begrenztem nächsten Schritt |
+| B · Prüfblatt | Wie A | Vera-Prüfblatt mit Aussageart, Einwand, Revisionsbedingung und begrenztem nächsten Schritt |
 | C · Prüfblatt und KI | Wie B | Ein vorab fixierter KI-Kritikschritt; Modellversion, Prompt, Einstellungen, Ausgaben, Fehler und Kosten dokumentiert |
 
 B gegen A untersucht den Nutzen der Struktur. C gegen B untersucht den zusätzlichen KI-Schritt. Ein Vergleich nur zwischen C und einer absichtlich schwachen Alternative wäre nicht aussagekräftig für diese beiden Fragen.

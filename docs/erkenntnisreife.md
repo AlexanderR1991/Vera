@@ -1,6 +1,6 @@
 # Erkenntnisreife: Aufstieg, Rückstufung und Konsens / Evidence maturity
 
-**WIRKLICH · Verfahrensentwurf und strukturell abgesicherter Pilot · 6. November 2026**
+**Vera · Verfahrensentwurf und strukturell abgesicherter Pilot · 6. November 2026**
 
 > Eine Erkenntnis steigt nicht durch Zustimmung auf, sondern durch die Qualität ihrer Begründung und Prüfung. Ihre Stellung bleibt jederzeit korrigierbar.
 
