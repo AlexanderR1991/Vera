@@ -129,7 +129,7 @@
         "question": "Wie können beide einander korrigieren, ohne dass Expertise oder Beteiligung bloße Dekoration wird?"
       }
     ],
-    "hypLabel": "FÜNF OFFENE POLITISCHE HYPOTHESEN",
+    "hypLabel": "SECHS OFFENE POLITISCHE HYPOTHESEN",
     "hypTitle": "Vorschläge, die widerlegbar bleiben müssen.",
     "hypIntro": "Keine dieser Hypothesen ist durch unser Projekt getestet oder wissenschaftlich bewiesen. Jede benötigt eine konkrete Politikmaßnahme, passende Vergleichsgruppen und eine ehrliche Evaluation.",
     "hypotheses": [
@@ -167,6 +167,13 @@
         "idea": "Befristete Erprobung, Evaluation und begründete Revision können Fehlentwicklungen früher sichtbar machen.",
         "test": "Vergleich regulierter Pilotprogramme mit dauerhaft ungeprüften Maßnahmen, inklusive Nebenwirkungen und Verteilung.",
         "against": "Häufige Änderungen können Vertrauen und Planungssicherheit beschädigen; nicht jede Wirkung ist kurzfristig messbar."
+      },
+      {
+        "code": "P-F",
+        "title": "Eigentum, Regeln und Verteilung",
+        "idea": "Eigentums-, Mitbestimmungs- und Verteilungsregeln können beeinflussen, wem Produktivitätsgewinne zugutekommen.",
+        "test": "Vergleiche über Zeit Firmen oder Regionen bei ähnlicher Technik: Lohn- und Kapitaleinkommen, Arbeitszeit, Mitbestimmung, Steuern; kontrolliere Branche, Konjunktur und Auswahl.",
+        "against": "Technologie, Qualifikation, globale Preise, demografische Veränderungen und Selbstselektion könnten einen großen Teil der Unterschiede erklären."
       }
     ],
     "aiLabel": "DIE NEUE MACHTFRAGE",
@@ -243,7 +250,69 @@
     "tagFinding": "BEFUND UND KONTEXT",
     "tagLimit": "GRENZE DER AUSSAGE",
     "tagTest": "MÖGLICHE PRÜFUNG",
-    "tagAgainst": "GEGENMODELL"
+    "tagAgainst": "GEGENMODELL",
+    "systemLabel": "MARX PRÜFEN · EIGENTUM, ARBEIT UND MACHT",
+    "systemTitle": "Wem gehört der Wohlstand?",
+    "systemIntro": "Karl Marx untersuchte, wie Eigentum an Produktionsmitteln, Lohnarbeit und die Anhäufung von Kapital wirtschaftliche Abhängigkeiten prägen. Die Mehrwerttheorie ist eine umstrittene Erklärung, nicht der Nachweis, dass jeder Gewinn ungerecht sei. Unsere politische Frage lautet: Welche Regeln verteilen Entscheidungsmacht, Einkommen und Risiken – und mit welchen Folgen?",
+    "systemThesisLabel": "P-001 · OFFENE ARBEITSHYPOTHESE · R0",
+    "systemThesis": "Produktivität schafft Möglichkeiten. Wem ihre Früchte zufallen, hängt auch von Eigentum, Verhandlungsmacht und politischen Institutionen ab. Weder privater Gewinn noch öffentliches Eigentum beweist für sich allein Gerechtigkeit.",
+    "systemThesisNote": "Erster Satz: empirisch prüfbare Verteilungsfrage. Zweiter Satz: Warnung vor vorschnellen normativen Schlüssen. Maßstäbe für faire Verteilung müssen begründet und dürfen nicht als naturwissenschaftliche Tatsachen ausgegeben werden.",
+    "systemCasesLabel": "FÜNF GEGENPROBEN STATT EINER IDEOLOGIE",
+    "systemCasesTitle": "Was nicht in ein einfaches Entweder-oder passt.",
+    "systemCasesIntro": "Die Fälle entkräften pauschale Behauptungen oder zeigen ihre Grenzen. Sie sind keine kontrollierten Experimente und entscheiden nicht, welches politische Gesamtsystem richtig ist.",
+    "systemCounterLabel": "WELCHE PAUSCHALTHese WIRD ANGEGRIFFEN?",
+    "systemLimitLabel": "WAS DARAUS NICHT FOLGT",
+    "systemCases": [
+      {
+        "kind": "DEUTSCHLAND · SOZIALE MARKTWIRTSCHAFT",
+        "title": "Privates Eigentum und Mitbestimmung können zusammenbestehen.",
+        "text": "In Deutschland verbindet die soziale Marktwirtschaft Privateigentum und Wettbewerb mit Sozialregeln. Betriebs- und Unternehmensmitbestimmung können Beschäftigten Einfluss auf Entscheidungen geben. Diese Mischform stellt die Behauptung infrage, Märkte bedeuteten zwangsläufig vollständige Machtlosigkeit der Beschäftigten.",
+        "counter": "„Entweder freier Markt oder Schutz der Beschäftigten.“",
+        "limit": "Mitbestimmung ist nach Unternehmen und Rechtsform verschieden. Ihre Existenz sagt allein nichts über die Fairness jedes Lohns oder die Verteilung aller Gewinne.",
+        "source": "Bundeszentrale für politische Bildung · Mitbestimmung",
+        "url": "https://www.bpb.de/kurz-knapp/lexika/lexikon-der-wirtschaft/20126/mitbestimmung/"
+      },
+      {
+        "kind": "NORWEGEN · STAATLICHE ERLÖSE UND FINANZMÄRKTE",
+        "title": "Ein Staat kann gemeinsames Vermögen über Märkte anlegen.",
+        "text": "Norwegens staatlicher Pensionsfonds sammelt Erdöleinnahmen und investiert unter anderem in internationale Aktien und Anleihen. Öffentliche Vermögensverwaltung und private Unternehmen stehen hier nicht in einem einfachen Gegensatz.",
+        "counter": "„Staatliches Eigentum und Marktwirtschaft schließen sich aus.“",
+        "limit": "Norwegen besitzt besondere Rohstofferlöse und institutionelle Voraussetzungen. Ein Staatsfonds beweist weder die Übertragbarkeit noch die gerechte Verteilung innerhalb jedes Landes.",
+        "source": "Norwegisches Finanzministerium · Government Pension Fund",
+        "url": "https://www.regjeringen.no/en/topics/the-economy/the-government-pension-fund/id1441/"
+      },
+      {
+        "kind": "SPANIEN · GENOSSENSCHAFTEN",
+        "title": "Beschäftigte können Eigentümer sein und zugleich im Wettbewerb stehen.",
+        "text": "Die MONDRAGON-Gruppe beschreibt sich als Verbund demokratisch organisierter Genossenschaften, die auf internationalen Märkten wirtschaften. Das ist eine reale Alternative zu der Vorstellung, nur klassische Anteilseigner oder ein Zentralstaat könnten Produktionsmittel besitzen.",
+        "counter": "„Demokratisches Eigentum an Betrieben verlangt immer staatliche Zentralplanung.“",
+        "limit": "Die Angaben stammen zunächst von der Organisation selbst. Mitgliedschaft, nicht genossenschaftliche Beschäftigung, Finanzierung, Krisen und Übertragbarkeit müssen unabhängig geprüft werden.",
+        "source": "MONDRAGON · Selbstbeschreibung und Genossenschaftsprinzipien",
+        "url": "https://www.mondragon-corporation.com/en/about-us/"
+      },
+      {
+        "kind": "HISTORISCHE PLANWIRTSCHAFTEN · KNAPPHEITEN",
+        "title": "Die Abschaffung privaten Eigentums beseitigt Machtprobleme nicht automatisch.",
+        "text": "Die ökonomische Forschung zu staatssozialistischen Planwirtschaften, insbesondere Arbeiten über János Kornai, dokumentiert chronische Engpässe, Warteschlangen und systemische Fehlanreize bei zentral koordinierter Produktion.",
+        "counter": "„Wenn der Staat die Produktion kontrolliert, wird automatisch bedarfsgerecht verteilt.“",
+        "limit": "Historische Staatssozialismen unterscheiden sich von demokratischem Gemeineigentum, Genossenschaften und einzelnen öffentlichen Dienstleistungen. Ein Fall widerlegt nicht jede Form staatlicher Beteiligung.",
+        "source": "Cambridge Journal of Economics · Kornai und Mangelwirtschaft",
+        "url": "https://academic.oup.com/cje/article/45/2/371/6067266"
+      },
+      {
+        "kind": "CHINA · REFORMPERIODE SEIT 1978",
+        "title": "Staatliche Steuerung und Marktöffnung können gleichzeitig wirken.",
+        "text": "Die Weltbank beschreibt für China seit Beginn der Reform- und Öffnungspolitik eine starke Abnahme extremer Einkommensarmut – fast 800 Millionen Menschen über rund vier Jahrzehnte. Dafür wird ein Zusammenspiel aus wirtschaftlichem Wandel, Politik und institutionellen Bedingungen untersucht.",
+        "counter": "„Mehr Markt kann die Lebenslage armer Menschen niemals verbessern“ – ebenso wie „allein ein freier Markt erklärt diesen Wandel“.",
+        "limit": "Das ist ein historischer Länderfall, kein Kausalexperiment. Armutsgrenzen, Ungleichheit, Umweltfolgen und politische Rechte sind getrennt zu untersuchen.",
+        "source": "Weltbank · Four Decades of Poverty Reduction in China (2022)",
+        "url": "https://www.worldbank.org/en/news/press-release/2022/04/01/lifting-800-million-people-out-of-poverty-new-report-looks-at-lessons-from-china-s-experience"
+      }
+    ],
+    "systemChallenge": "Prüfregel: Jede politische Diagnose erhält mindestens ein Gegenbeispiel aus einer anderen Eigentums- oder Institutionenordnung. Wo eine Wertfrage offenbleibt, benennen wir den Dissens statt eine Mehrheit zur Wahrheit zu erklären.",
+    "systemForum": "Über Verteilung und Macht im Forum nachdenken ↗",
+    "systemMarxSource": "Karl Marx im philosophischen Überblick · Stanford Encyclopedia of Philosophy",
+    "systemMarxUrl": "https://plato.stanford.edu/entries/marx/"
   },
   "en": {
     "eyebrow": "LIBER CIVITATIS · POLITICS AS AN OPEN QUESTION",
@@ -375,7 +444,7 @@
         "question": "How can each correct the other without becoming mere window dressing?"
       }
     ],
-    "hypLabel": "FIVE OPEN POLITICAL HYPOTHESES",
+    "hypLabel": "SIX OPEN POLITICAL HYPOTHESES",
     "hypTitle": "Proposals that must remain open to refutation.",
     "hypIntro": "None of these hypotheses has been independently tested or established by our project. Each would require a concrete intervention, suitable comparisons, and an honest evaluation.",
     "hypotheses": [
@@ -413,6 +482,13 @@
         "idea": "Time-limited pilots, evaluation, and explained revisions may reveal problems sooner.",
         "test": "Compare monitored pilots with policies without systematic review, including externalities and unequal impacts.",
         "against": "Frequent revisions can erode trust and predictability; some outcomes take years to measure."
+      },
+      {
+        "code": "P-F",
+        "title": "Ownership, rules and distribution",
+        "idea": "Rules on ownership, participation and redistribution may influence who benefits from productivity gains.",
+        "test": "Compare firms or regions with similar technology over time: wages, capital income, hours, participation and taxation; account for industry, cycles and selection.",
+        "against": "Technology, skills, global prices, demographics and self-selection might explain much of the observed differences."
       }
     ],
     "aiLabel": "THE NEW QUESTION OF POWER",
@@ -489,6 +565,68 @@
     "tagFinding": "FINDING AND CONTEXT",
     "tagLimit": "LIMIT OF THE CLAIM",
     "tagTest": "POSSIBLE TEST",
-    "tagAgainst": "COUNTERMODEL"
+    "tagAgainst": "COUNTERMODEL",
+    "systemLabel": "TEST MARX · OWNERSHIP, WORK AND POWER",
+    "systemTitle": "Who gets the wealth we create?",
+    "systemIntro": "Karl Marx examined how ownership of the means of production, wage labour and capital accumulation shape economic dependence. His surplus-value theory is contested, not proof that every profit is unjust. The political question is: which rules allocate decision-making power, income and risks, and with what consequences?",
+    "systemThesisLabel": "P-001 · OPEN WORKING HYPOTHESIS · R0",
+    "systemThesis": "Productivity creates possibilities. Who receives its benefits also depends on ownership, bargaining power and political institutions. Neither private profit nor public ownership, by itself, proves justice.",
+    "systemThesisNote": "The first sentence raises an empirically testable distribution question; the second warns against premature normative conclusions. Standards of fairness must be justified rather than presented as scientific facts.",
+    "systemCasesLabel": "FIVE COUNTERTESTS, NOT ONE IDEOLOGY",
+    "systemCasesTitle": "Where simple either-or stories break down.",
+    "systemCasesIntro": "These cases challenge sweeping generalisations or establish boundary conditions. They are not controlled experiments and do not settle which overall political system is correct.",
+    "systemCounterLabel": "WHICH SWEEPING CLAIM IS CHALLENGED?",
+    "systemLimitLabel": "WHAT DOES NOT FOLLOW",
+    "systemCases": [
+      {
+        "kind": "GERMANY · SOCIAL MARKET ECONOMY",
+        "title": "Private ownership and worker participation can coexist.",
+        "text": "Germany's social market economy combines private property and competition with social rules. Co-determination at workplace and company level can give workers a voice in decisions. This mixed model challenges the claim that markets necessarily leave workers without any say.",
+        "counter": "“Either free markets or worker protection.”",
+        "limit": "Co-determination varies by company and legal form. Its existence alone says nothing about the fairness of every wage or the distribution of all profits.",
+        "source": "German Federal Agency for Civic Education · Co-determination (German)",
+        "url": "https://www.bpb.de/kurz-knapp/lexika/lexikon-der-wirtschaft/20126/mitbestimmung/"
+      },
+      {
+        "kind": "NORWAY · PUBLIC REVENUES AND FINANCIAL MARKETS",
+        "title": "A state can invest shared wealth through markets.",
+        "text": "Norway's government pension fund receives petroleum revenues and invests, among other assets, in international shares and bonds. Public management of wealth and privately owned companies are not mutually exclusive here.",
+        "counter": "“State ownership and market economies cannot coexist.”",
+        "limit": "Norway has particular natural-resource income and institutional conditions. The fund alone proves neither transferability nor fair distribution within every country.",
+        "source": "Norwegian Ministry of Finance · Government Pension Fund",
+        "url": "https://www.regjeringen.no/en/topics/the-economy/the-government-pension-fund/id1441/"
+      },
+      {
+        "kind": "SPAIN · COOPERATIVES",
+        "title": "Workers can own firms that compete in markets.",
+        "text": "The MONDRAGON group describes itself as an association of democratically organised cooperatives operating in international markets. This offers a real-world alternative to the claim that only conventional shareholders or a central state can own production.",
+        "counter": "“Democratic ownership of firms always requires central state planning.”",
+        "limit": "The information initially comes from the organisation itself. Membership, non-member employees, finance, crises and transferability need independent scrutiny.",
+        "source": "MONDRAGON · Organisation and cooperative principles",
+        "url": "https://www.mondragon-corporation.com/en/about-us/"
+      },
+      {
+        "kind": "HISTORICAL PLANNED ECONOMIES · SHORTAGES",
+        "title": "Ending private ownership does not automatically end power problems.",
+        "text": "Economic research on state-socialist planned economies, including the scholarship on János Kornai, documents chronic shortages, queues and institutional incentives that impaired centrally coordinated production.",
+        "counter": "“State control of production automatically ensures allocation according to need.”",
+        "limit": "Historical state-socialist systems differ from democratic common ownership, cooperatives and individual public services. One case does not refute all public-sector involvement.",
+        "source": "Cambridge Journal of Economics · Kornai and shortage economies",
+        "url": "https://academic.oup.com/cje/article/45/2/371/6067266"
+      },
+      {
+        "kind": "CHINA · REFORM PERIOD SINCE 1978",
+        "title": "State coordination and market opening can operate together.",
+        "text": "The World Bank documents a major decline in extreme income poverty in China since reform and opening up began: nearly 800 million people over roughly four decades. Its analysis considers economic transformation, public policies and institutional conditions together.",
+        "counter": "“More markets can never reduce poverty” — but also “free markets alone explain the change.”",
+        "limit": "This is a historical country case, not a causal experiment. Poverty thresholds, inequality, environmental costs and political rights require separate evaluation.",
+        "source": "World Bank · Four Decades of Poverty Reduction in China (2022)",
+        "url": "https://www.worldbank.org/en/news/press-release/2022/04/01/lifting-800-million-people-out-of-poverty-new-report-looks-at-lessons-from-china-s-experience"
+      }
+    ],
+    "systemChallenge": "Examination rule: every political diagnosis faces at least one counterexample drawn from a different ownership or institutional arrangement. When a value conflict remains, we document disagreement instead of declaring a majority to be truth.",
+    "systemForum": "Explore distribution and power in the forum ↗",
+    "systemMarxSource": "Karl Marx in philosophical context · Stanford Encyclopedia of Philosophy",
+    "systemMarxUrl": "https://plato.stanford.edu/entries/marx/"
   }
 }
