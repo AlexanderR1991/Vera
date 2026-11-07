@@ -113,9 +113,9 @@ Eine Frage braucht nur einen verständlichen Satz. Für einen Einwand helfen die
 
 **On GitHub.** If Copilot cloud agent is available to you and this repository, select `AlexanderR1991/Vera` and then **Vera** in the agent picker. The profile gives her tools to read and search. [Agent picker](https://github.com/copilot/agents) · [Agent profile](.github/agents/vera.agent.md)
 
-**In deinem KI-Chat.** Führe im Git-Checkout einen der Befehle aus und kopiere die Ausgabe in eine neue Sitzung. Der Export enthält Veras Profil, Prüfregeln und die angegebenen Zeilen aus demselben Commit. Teile nur Inhalte, die dafür freigegeben sind.
+**In deinem KI-Chat.** Führe im Git-Checkout einen der Befehle aus und kopiere die Ausgabe in eine neue Sitzung. Der Export enthält Veras Profil, Prüfregeln, aktuelle Projektbefunde aus dem Gedächtnis und die angegebenen Zeilen aus demselben Commit. Teile nur Inhalte, die dafür freigegeben sind. [Projektgedächtnis](docs/vera-memory.v1.json)
 
-**In your own AI chat.** Run one of these commands from a Git checkout and paste the output into a fresh session. It includes Vera’s profile, inquiry rules and the selected lines from the same commit. Share material only when it is approved for sharing.
+**In your own AI chat.** Run one of these commands from a Git checkout and paste the output into a fresh session. It includes Vera’s profile, inquiry rules, recent project memory and the selected lines from the same commit. Share material only when it is approved for sharing. [Project memory](docs/vera-memory.v1.json)
 
 ```sh
 node scripts/vera-task.mjs de docs/selbstkorrektur.md:24-32

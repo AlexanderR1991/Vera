@@ -1,5 +1,6 @@
 import { execFileSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
+import { formatMemory, memoryPath } from "./vera-memory.mjs";
 
 const root = fileURLToPath(new URL("../", import.meta.url));
 const [language = "de", ...extra] = process.argv.slice(2);
@@ -27,10 +28,11 @@ if (extra.length || !["de", "en"].includes(language)) {
     }
 
     const english = language === "en";
-    const sources = [profilePath, promptPath, "AGENTS.md", "docs/grundtext.md",
+    const sources = [profilePath, promptPath, memoryPath, "AGENTS.md", "docs/grundtext.md",
       "docs/selbstkorrektur.md", "docs/ki-charta.md", "docs/community-governance.md"];
     const sourceUrls = sources.map((path) => `${project.repository}/blob/${revision}/${path}`);
     const prompt = read(promptPath).trim();
+    const memory = formatMemory(JSON.parse(read(memoryPath)), { language, repository: project.repository, revision });
     const header = [
       `Vera · Git ${revision}`,
       english
@@ -40,9 +42,9 @@ if (extra.length || !["de", "en"].includes(language)) {
       ...sourceUrls
     ].join("\n");
 
-    process.stdout.write(`${header}\n\n${profiles[english ? 1 : 0].trim()}\n\n${prompt}\n`);
+    process.stdout.write(`${header}\n\n${profiles[english ? 1 : 0].trim()}\n\n${memory}\n\n${prompt}\n`);
   } catch (error) {
-    console.error(`Vera context unavailable. Use a Git checkout containing the committed Vera profile and inquiry prompt. ${error.message.split("\n")[0]}`);
+    console.error(`Vera context unavailable. Use a Git checkout containing the committed Vera profile, inquiry prompt and project memory. ${error.message.split("\n")[0]}`);
     process.exitCode = 1;
   }
 }

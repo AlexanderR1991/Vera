@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "VM-001",
+      "status": "reproduced",
+      "sources": [
+        {
+          "path": "src/lib/intersubjective.mjs",
+          "revision": "1001c9604e5b3df7d4d95325436e7181790f5164"
+        },
+        { "path": "tests/intersubjective.test.mjs" },
+        { "path": "docs/mathematik-des-dazwischen.md" }
+      ],
+      "de": {
+        "observation": "M-02 meldete in beiden Richtungen +1, wenn A und B ihre Antworten von 0 auf 4 änderten und die Schätzungen bei 4 blieben.",
+        "lesson": "Eine wandernde Referenz kann wie ein Gewinn aussehen. Die betroffene Richtung bleibt im Vergleich offen. Veränderung der Übereinstimmung wird getrennt erfasst.",
+        "limits": "Gleiche Fragen und Bedeutungen müssen von den Prüfenden sichergestellt werden. Die Rechnung misst Treffgenauigkeit bei Antworten. Die Gesprächshypothese ist ungetestet."
+      },
+      "en": {
+        "observation": "M-02 returned +1 in both directions when A and B changed their answers from 0 to 4 and both estimates stayed at 4.",
+        "lesson": "A moving reference can look like a gain. Withhold the affected directional comparison and report change in agreement separately.",
+        "limits": "Researchers must ensure that item wording and meaning stay comparable. The score measures accuracy on answers. The conversation hypothesis is untested."
+      }
+    },
+    {
+      "id": "VM-002",
+      "status": "reproduced",
+      "sources": [
+        { "path": "docs/mathematischer-pruefstand.md" }
+      ],
+      "de": {
+        "observation": "Für die Kriterienvektoren (1,0) und (0,1) gibt es keine Pareto-Dominanz. Gewichte (0,75; 0,25) bevorzugen den ersten, umgekehrte Gewichte den zweiten.",
+        "lesson": "Die Rangfolge folgt hier aus den gewählten Prioritäten. Unvergleichbarkeit kann ein korrektes Ergebnis sein.",
+        "limits": "Das Beispiel setzt vergleichbare, vorher festgelegte Kriterien voraus. Rechte, fehlende Daten und Wertkonflikte brauchen eine eigene Prüfung."
+      },
+      "en": {
+        "observation": "Neither criterion vector (1,0) or (0,1) Pareto-dominates the other. Weights (0.75, 0.25) favor the first and reversed weights favor the second.",
+        "lesson": "The ranking here follows from the chosen priorities. Incomparability can be the correct outcome.",
+        "limits": "The example assumes comparable, prespecified criteria. Rights, missing data and value conflicts require separate assessment."
+      }
+    },
+    {
+      "id": "VM-003",
+      "status": "open",
+      "sources": [
+        {
+          "path": "docs/philosophischer-motor-mathematik.md",
+          "revision": "a8c9a660f13f6397205d1c7b405665a555d60c0d"
+        },
+        {
+          "path": "src/lib/philosophical-motor.mjs",
+          "revision": "a8c9a660f13f6397205d1c7b405665a555d60c0d"
+        },
+        { "path": "docs/mathematischer-pruefstand.md" }
+      ],
+      "de": {
+        "observation": "Im offenen M-03-Entwurf können gekoppelte Effekte stets positiv sein, obwohl die Intervallschranke negativ ist. Zwei gleich gewichtete Profile mit verschiedenen Namen ergeben im Prototyp sogar ein positives Vorzeichen für die rechnerische Null aus 0,1 + 0,2 − 0,3.",
+        "lesson": "Gemeinsam zulässige Szenarien, tatsächlich unterschiedliche Gewichte und numerische Vorzeichengrenzen getrennt prüfen.",
+        "limits": "Die Gegenproben beziehen sich auf den angegebenen Entwurfsstand. Eine Korrektur von M-03 steht aus. Die Beispiele verwenden synthetische Daten."
+      },
+      "en": {
+        "observation": "In the open M-03 draft, coupled effects can always yield a positive score despite a negative interval bound. The prototype also gives a positive sign for the exact decimal zero 0.1 + 0.2 − 0.3 when given identically weighted profiles with different names.",
+        "lesson": "Check jointly feasible scenarios, genuinely distinct weights and numerical sign boundaries separately.",
+        "limits": "These checks target the linked draft revision. An M-03 fix is pending. The examples use synthetic data."
+      }
+    }
+  ]
+}

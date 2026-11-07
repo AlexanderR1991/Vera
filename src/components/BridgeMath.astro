@@ -35,7 +35,7 @@ const fields=[
         <div class="bridge-grid">
           <article><span>01 / E</span><h3>{t("Erleben","Experience")}</h3><p>{t("Was empfindet ein Mensch wirklich? Diese Erfahrung ist nicht unmittelbar von außen messbar. Seine Antwort ist nicht sein gesamtes Erleben.","What does someone actually experience? That experience is not directly measurable from the outside. Their answer is not the whole of their experience.")}</p></article>
           <article><span>02 / V</span><h3>{t("Verstehen","Understanding")}</h3><p>{t("Wie zutreffend kann ich die ausdrücklich formulierte Position der anderen Person wiedergeben? Diese begrenzte Genauigkeit versuchen wir zu operationalisieren.","How accurately can I restate the position the other person explicitly describes? We try to operationalize this limited form of accuracy.")}</p></article>
-          <article><span>03 / K</span><h3>{t("Übereinstimmung","Agreement")}</h3><p>{t("Wie ähnlich sind unsere eigenen Positionen zu denselben Fragen? Das kann hoch oder niedrig sein – unabhängig davon, wie gut wir einander wiedergeben.","How similar are our own positions on the same questions? Agreement may be high or low independently of restatement accuracy.")}</p></article>
+          <article><span>03 / K</span><h3>{t("Übereinstimmung","Agreement")}</h3><p>{t("Wie ähnlich sind unsere eigenen Positionen zu denselben Fragen? Auch bei großer Meinungsverschiedenheit können wir die Antworten des Gegenübers genau treffen.","How similar are our own positions on the same questions? Even when we disagree strongly, we can accurately predict each other's answers.")}</p></article>
         </div>
         <p class="bridge-aside">{t("Die zentrale Unterscheidung: Verstehen ist nicht Zustimmen. Das ist zunächst eine Aussage über unsere Definitionen – keine bewiesene Gesetzmäßigkeit des Zusammenlebens.","The central distinction: understanding is not agreement. This follows from our definitions; it is not a proven law of human relationships.")}</p>
       </div>
@@ -64,8 +64,8 @@ const fields=[
             </div>
           </div>
           <div class="bridge-demo__results" aria-live="polite" aria-atomic="true">
-            <div><span>{t("B versteht A","B restates A")}</span><strong data-score="fromBtoA">{Math.round(example.fromBtoA*100)} %</strong></div>
-            <div><span>{t("A versteht B","A restates B")}</span><strong data-score="fromAtoB">{Math.round(example.fromAtoB*100)} %</strong></div>
+            <div><span>{t("Treffgenauigkeit von B für A","B's accuracy in estimating A")}</span><strong data-score="fromBtoA">{Math.round(example.fromBtoA*100)} %</strong></div>
+            <div><span>{t("Treffgenauigkeit von A für B","A's accuracy in estimating B")}</span><strong data-score="fromAtoB">{Math.round(example.fromAtoB*100)} %</strong></div>
             <div class="bridge-demo__agreement"><span>{t("Inhaltliche Übereinstimmung","Content agreement")}</span><strong data-score="agreement">{Math.round(example.agreement*100)} %</strong></div>
             <p data-demo-interpretation>{t("A und B vertreten Gegensätze und treffen trotzdem die Antwort der jeweils anderen Person.","A and B disagree completely but accurately predict each other's answers.")}</p>
           </div>
@@ -139,7 +139,7 @@ const fields=[
         ? (en?"They disagree completely and still predict each other's answers accurately.":"Sie sind vollständig uneinig und geben die Antworten dennoch richtig wieder.")
         : scores.agreement===1&&scores.fromAtoB===0&&scores.fromBtoA===0
         ? (en?"They agree completely but incorrectly estimate each other's answers.":"Sie sind sich vollständig einig und schätzen die Antworten dennoch falsch ein.")
-        : (en?"Notice how agreement and the two directions of restatement accuracy vary independently.":"Beobachte, wie Zustimmung und die beiden Richtungen der Wiedergabegenauigkeit getrennt variieren.");
+        : (en?"Change an answer or estimate to see which scores move.":"Ändere eine Antwort oder Schätzung und beobachte, welche Werte sich bewegen.");
     };
     for(const input of Object.values(inputs)) input.addEventListener("input",update);
     for(const button of root.querySelectorAll("[data-preset]")) button.addEventListener("click",()=>{
