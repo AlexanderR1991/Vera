@@ -34,6 +34,19 @@ Das [Emporirren-Konzept](emporirren.md) verbindet Spielen, die eigene Frage und 
 - [ ] Zugänglichen Beitragsweg ohne eigenes GitHub-Konto mit Einwilligung und Kapazitätsgrenze erproben
 - [ ] Unabhängige fachliche Mitwirkung und Vertretung parallel zum ersten Bestand gewinnen; KI-Rollen zählen nicht als unabhängige Personen
 
+## Querschnittsforschung · Die Brücke / M-02
+
+[M-02 · Die Mathematik des Dazwischen](mathematik-des-dazwischen.md) ergänzt die [Sprachprobe](schnittmengen.md) um einen **vorläufigen operationalen Unterschied** zwischen gerichteter Wiedergabegenauigkeit und inhaltlicher Übereinstimmung.
+
+- [x] Begriffe, elementares Gegenbeispiel, hypothetische Zahlen und offene Fehlerquellen dokumentiert
+- [x] Bilinguale, rein lokale Spielzeug-Demonstration und überprüfbare Rechenfunktionen vorbereitet
+- [ ] Messkonzept mit Psychologie, Messtheorie und Konfliktforschung unabhängig prüfen; ordinale Skalenprobleme bearbeiten
+- [ ] Befragungsitems, Schutzkonzept, Abbruchkriterien, Kontrolldesign und primäre Zielgrößen vorab festlegen
+- [ ] Freiwilligen Pilotversuch nur mit tragfähiger ethischer Absicherung durchführen; Nullbefunde und Schäden gleichwertig veröffentlichen
+- [ ] Klären, ob das Modell gegenüber einfacheren Gesprächsübungen echten zusätzlichen Erkenntnisgewinn bringt
+
+**Keine Studie durchgeführt, keine validierte Skala, keine mathematisch bewiesene Verhaltensnorm.**
+
 ## Etappe 1 · Ein kleiner, vollständig geprüfter Bestand
 
 Die [Gesamtprüfung des fliegenden Baums](gesamtpruefung-baum.md) verknüpft die Themen, sichtbaren Lücken und öffentlichen Selbstprüfungen [B-01](https://github.com/AlexanderR1991/Wirklich/issues/28), [B-02](https://github.com/AlexanderR1991/Wirklich/issues/29) und [B-03](https://github.com/AlexanderR1991/Wirklich/issues/30). Ein erweiterter Themenplan erfüllt die folgenden Freigabekriterien noch nicht.
