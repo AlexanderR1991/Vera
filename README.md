@@ -8,6 +8,7 @@
 
 | Einstieg | Deutsch | English |
 | --- | --- | --- |
+| Eine Alltagsfrage prüfen · Examine an everyday question | [Fragen und erste Antworten](https://alexanderr1991.github.io/Wirklich/de/forum/#alltagsfragen) | [Questions and first answers](https://alexanderr1991.github.io/Wirklich/en/forum/#alltagsfragen) |
 | Eine Minute spielen · Play a one-minute round | [Auf den zweiten Blick](https://alexanderr1991.github.io/Wirklich/de/spiel/) | [A second look](https://alexanderr1991.github.io/Wirklich/en/spiel/) |
 | Die Werkstatt kennenlernen · Visit the workshop | [Startseite](https://alexanderr1991.github.io/Wirklich/de/) | [Home](https://alexanderr1991.github.io/Wirklich/en/) |
 | Mit der eigenen KI Gegenargumente suchen · Ask your own AI for objections | [Prüfregeln für deinen Chat kopieren](https://alexanderr1991.github.io/Wirklich/de/fragen-und-ki-prompt/#prompt) | [Copy the rules for your chat](https://alexanderr1991.github.io/Wirklich/en/fragen-und-ki-prompt/#prompt) |

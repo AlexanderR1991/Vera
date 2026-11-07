@@ -1,0 +1,28 @@
+name: "Alltagsfrage beantworten / Respond to an everyday question"
+description: "Teile ein Gegenbeispiel, einen Grund oder eine bessere Antwort / Share a counterexample, a reason or a better answer"
+title: "[Alltag] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Ein konkreter Fall oder ein guter Grund genügt für den Anfang. Du kannst ein Beispiel erfinden und als hypothetisch kennzeichnen. Der Beitrag ist öffentlich. Lass private Daten weg.
+        A concrete case or a good reason is enough to get started. You can use a fictional example and mark it as hypothetical. This contribution is public. Leave out private information.
+  - type: input
+    id: source
+    attributes:
+      label: "Frage im Forum / Forum question"
+      description: "Link zur Frage und ihrer vorläufigen Antwort / Link to the question and its provisional answer"
+    validations:
+      required: true
+  - type: textarea
+    id: antwort
+    attributes:
+      label: "Dein Beitrag / Your response"
+      description: "Was trägt, wo scheitert die Antwort, oder welche Unterscheidung fehlt? / Where does the answer hold up or break down? What distinction is missing?"
+    validations:
+      required: true
+  - type: textarea
+    id: vorschlag
+    attributes:
+      label: "Dein Änderungsvorschlag / Your proposed revision"
+      description: "Wie würdest du die Antwort formulieren? / How would you phrase the answer?"

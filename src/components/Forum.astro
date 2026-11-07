@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/SiteLayout.astro";
+import EverydayQuestions from "./EverydayQuestions.astro";
 import {pathFor} from "../lib/paths.mjs";
 import project from "../../public/project.json" with {type: "json"};
 import register from "../../public/knowledge/claims.json";
@@ -29,17 +30,16 @@ const reviewText={
  withdrawn:t("Zurückgezogen","Withdrawn")
 };
 ---
-<Layout lang={lang} slug="forum" description={t("Das Forum von WIRKLICH: offen miteinander denken, konkrete Aussagen prüfen und begründet widersprechen. Gespräche auf GitHub, Änderungen nur nach Prüfung.","The WIRKLICH forum: think together, examine specific claims and disagree with reasons. Conversations on GitHub; changes require review.")}>
+<Layout lang={lang} slug="forum" description={t("Alltagsfragen über Liebe, Arbeit, Essen und mehr. Lies eine erste philosophische Antwort und prüfe sie an einem Beispiel aus dem Leben.","Everyday questions about love, work, food and more. Read a first philosophical answer and test it against a real-life example.")}>
  <section class="forum-hero" aria-labelledby="forum-title">
   <div class="container forum-hero__grid">
    <div>
     <p class="section-kicker">{t("DAS FORUM · EIN ORT FÜR VIELE STIMMEN","THE FORUM · A PLACE FOR MANY VOICES")}</p>
     <h1 id="forum-title">{t("Das Forum.","The Forum.")}<br /><em>{t("Widerspruch ist willkommen.","Disagreement is welcome.")}</em></h1>
-    <p class="forum-lead">{t("Ein Ort, an dem unsere Fragen und Konflikte zusammenlaufen. Nicht, um Menschen zu überstimmen – sondern um gemeinsam genauer zu werden.","A place where our questions and conflicts meet. Not to outvote people, but to become more precise together.")}</p>
-    <p>{t("Die griechische Agora und das römische Forum sind Inspirationen, keine Vorlagen für Hierarchie oder Ausschluss. Jede Stimme darf fragen. Entscheidend ist, ob die Gründe tragen.","The Greek agora and Roman forum inspire us, but not their hierarchies or exclusions. Everyone may ask questions. What matters is whether the reasons hold up.")}</p>
+    <p class="forum-lead">{t("Hier gehen wir Fragen nach, die uns im Alltag beschäftigen. Such dir eine aus und prüfe unsere Antwort an einem Fall, den du kennst.","Here we explore questions we live with every day. Pick one and test our answer against a case you know.")}</p>
     <div class="button-row">
-     <a class="button button--gold" href={discussions} target="_blank" rel="noopener noreferrer">{t("Zum offenen Gespräch ↗","Join the open conversation ↗")}</a>
-     <a class="button button--ghost" href="#aussagen">{t("Eine Aussage diskutieren ↓","Discuss a claim ↓")}</a>
+     <a class="button button--gold" href="#alltagsfragen">{t("Eine Alltagsfrage wählen ↓","Pick an everyday question ↓")}</a>
+     <a class="button button--ghost" href={discussions} target="_blank" rel="noopener noreferrer">{t("Offene Gespräche ↗","Open conversations ↗")}</a>
     </div>
    </div>
    <aside class="forum-hero__seal" aria-label={t("Drei Fragen für ein gutes Gespräch","Three questions for a constructive discussion")}>
@@ -54,11 +54,13 @@ const reviewText={
   </div>
  </section>
 
+ <EverydayQuestions lang={lang} />
+
  <section class="forum-section container" aria-labelledby="forum-places">
   <div class="forum-section__intro">
    <p class="section-kicker">{t("DREI WEGE, EIN GEMEINSAMES DENKEN","THREE PATHS, ONE SHARED INQUIRY")}</p>
    <h2 id="forum-places">{t("Wo möchtest du beginnen?","Where would you like to begin?")}</h2>
-   <p>{t("Dies sind drei Zugänge zu unseren vorhandenen GitHub-Gesprächen und Prüfabläufen – keine vorgetäuschten eigenständigen Unterforen.","These are three pathways into our existing GitHub conversations and review workflow, not fictional standalone subforums.")}</p>
+   <p>{t("Die griechische Agora und das römische Forum haben uns inspiriert. Heute findest du hier drei Wege in unsere öffentlichen Gespräche und Prüfungen auf GitHub.","The Greek agora and Roman forum inspired us. Here you’ll find three ways into our public conversations and reviews on GitHub.")}</p>
   </div>
   <div class="forum-rooms">
    <article>
@@ -171,15 +173,15 @@ const reviewText={
 </Layout>
 
 <style>
- .forum-hero{padding:clamp(4rem,7vw,7rem) 0;background:radial-gradient(ellipse at 79% 44%,#6d503229,transparent 56%),linear-gradient(120deg,#0b0e10,#111b1c);border-bottom:1px solid var(--line);overflow:hidden}
- .forum-hero__grid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(15rem,.68fr);align-items:center;gap:clamp(2rem,6vw,6.5rem)}
- .forum-hero h1{font-size:clamp(3.4rem,6.7vw,6.5rem);letter-spacing:-.055em;line-height:1.06;margin:.3em 0 .4em}
+ .forum-hero{padding:clamp(2.25rem,5vw,4.5rem) 0;background:radial-gradient(ellipse at 79% 44%,#6d503229,transparent 56%),linear-gradient(120deg,#0b0e10,#111b1c);border-bottom:1px solid var(--line);overflow:hidden}
+ .forum-hero__grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(15rem,.62fr);align-items:center;gap:clamp(2rem,5vw,5rem)}
+ .forum-hero h1{font-size:clamp(3rem,6vw,5.7rem);letter-spacing:-.055em;line-height:1.06;margin:.24em 0 .28em}
  .forum-hero h1 em{font-weight:400;color:var(--gold-bright)}
  .forum-lead{max-width:46rem;color:#e4d9c5;font:clamp(1.2rem,2vw,1.6rem)/1.6 var(--serif)}
  .forum-hero__grid>div>p:not(.section-kicker){max-width:45rem}
  .forum-hero .button-row{margin-top:2rem}
- .forum-hero__seal{padding:2.5rem;border:1px solid #bda1754a;background:radial-gradient(circle at 50% 22%,#ae8d5420,transparent 65%),#121719;text-align:center}
- .forum-hero__glyph{display:block;font:clamp(4.5rem,8vw,7.5rem)/1.1 var(--serif);color:var(--gold-bright);margin-bottom:1rem}
+ .forum-hero__seal{padding:1.5rem 2rem;border:1px solid #bda1754a;background:radial-gradient(circle at 50% 22%,#ae8d5420,transparent 65%),#121719;text-align:center}
+ .forum-hero__glyph{display:block;font:3.4rem/1.1 var(--serif);color:var(--gold-bright);margin-bottom:.7rem}
  .forum-hero__seal ol{margin:1.3rem 0 0;padding:1rem 0 0;border-top:1px solid var(--line);list-style:none;text-align:left;counter-reset:forum}
  .forum-hero__seal li{counter-increment:forum;padding:.7rem 0;border-bottom:1px solid var(--line);font:1rem/1.45 var(--serif)}
  .forum-hero__seal li::before{content:counter(forum,decimal-leading-zero);font:600 .65rem var(--sans);letter-spacing:.12em;color:var(--gold);margin-right:.75rem}
@@ -215,8 +217,8 @@ const reviewText={
  .forum-boundaries h3{font:1.5rem/1.3 var(--serif);margin:0 0 1rem}
  .forum-boundaries p{font-size:.85rem;line-height:1.8}
  .forum-boundaries a{display:block;margin-top:1rem;font-size:.82rem}
- @media(max-width:900px){.forum-hero__grid,.forum-invitation__inner{grid-template-columns:1fr}.forum-hero__seal{max-width:30rem}.forum-rooms{grid-template-columns:1fr}}
- @media(max-width:680px){.forum-hero{padding:3.6rem 0}.forum-hero h1{font-size:clamp(2.85rem,11vw,4.5rem)}.forum-claim-grid,.forum-steps{grid-template-columns:1fr}.forum-rooms article{padding:1.5rem}.forum-claim h3{margin-bottom:1.3rem}}
+ @media(max-width:900px){.forum-hero__grid,.forum-invitation__inner{grid-template-columns:1fr}.forum-hero__seal{display:none}.forum-rooms{grid-template-columns:1fr}}
+ @media(max-width:680px){.forum-hero h1{font-size:clamp(2.65rem,9.5vw,4.5rem)}.forum-claim-grid,.forum-steps{grid-template-columns:1fr}.forum-rooms article{padding:1.5rem}.forum-claim h3{margin-bottom:1.3rem}}
 
  .forum-question-atlas{scroll-margin-top:8rem}
  .forum-workspaces{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin-bottom:2.5rem}

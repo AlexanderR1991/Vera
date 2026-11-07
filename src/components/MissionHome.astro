@@ -3,10 +3,12 @@ import Layout from "../layouts/SiteLayout.astro";
 import copy from "../lib/mission-copy.json";
 import {pathFor} from "../lib/paths.mjs";
 import {ui} from "../lib/ui.mjs";
+import everydayQuestions from "../../public/knowledge/everyday-questions.json";
 import project from "../../public/project.json" with {type: "json"};
 
 const {lang = "de"} = Astro.props;
 const t = copy[lang];
+const featuredQuestions = everydayQuestions.questions.slice(0, 3);
 ---
 <Layout lang={lang} slug="index" description={t.metaDescription}>
   <section class="home-opening" aria-labelledby="home-heading">
@@ -15,13 +17,29 @@ const t = copy[lang];
       <h1 id="home-heading">{t.headline} <em>{t.headlineAccent}</em></h1>
       <p class="home-invitation">{t.invitation}</p>
       <p class="home-motto">{t.motto}</p>
+      <div class="button-row">
+        <a class="button button--gold" href={pathFor(lang, "forum", "alltagsfragen")}>{t.forumLink} <span aria-hidden="true">→</span></a>
+        <a class="home-link" href={pathFor(lang, "mission")}>{t.missionLink}</a>
+      </div>
       <p class="home-lead">{t.lead}</p>
       <p class="home-principle">{t.principle}</p>
-      <div class="button-row">
-        <a class="button button--gold" href={pathFor(lang, "mission")}>{t.missionLink}</a>
-        <a class="home-link" href={pathFor(lang, "erkenntnisnavigator")}>{t.ownQuestion}</a>
-      </div>
     </div>
+  </section>
+
+  <section class="home-forum container" aria-labelledby="home-forum-title">
+    <p class="section-kicker">{ui[lang].titles.forum}</p>
+    <h2 id="home-forum-title">{t.forumTitle}</h2>
+    <p>{t.forumIntro}</p>
+    <ul class="home-forum__questions" role="list">
+      {featuredQuestions.map(question => (
+        <li>
+          <a href={pathFor(lang, "forum", `alltag-${question.id}`)}>
+            <span class="home-forum__topic">{question.topic[lang]}</span>
+            <span>{question.question[lang]} <span aria-hidden="true">→</span></span>
+          </a>
+        </li>
+      ))}
+    </ul>
   </section>
 
   <section class="home-practice container" aria-labelledby="practice-title">
@@ -29,15 +47,6 @@ const t = copy[lang];
     <ol>{t.practiceSteps.map(([title, text]) => <li><strong>{title}</strong><p>{text}</p></li>)}</ol>
     <p class="home-practice-note">{t.practiceNote} <a class="home-link" href={pathFor(lang, "methode", "erkenntnismotor")}>{lang === "de" ? "Den Weg einer Frage im Schaubild verfolgen" : "Follow a question through the diagram"} →</a></p>
     <p class="home-practice-note">{t.aiNote} <a class="home-link" href={pathFor(lang, "fragen-und-ki-prompt", "prompt")}>{t.aiLink} <span aria-hidden="true">→</span></a></p>
-  </section>
-
-  <section class="home-forum container" aria-labelledby="home-forum-title">
-    <div>
-      <p class="section-kicker">{lang === "de" ? "DAS FORUM · GEMEINSAM GENAUER WERDEN" : "THE FORUM · LEARN THROUGH DISAGREEMENT"}</p>
-      <h2 id="home-forum-title">{lang === "de" ? "Ein Ort für unseren Widerspruch." : "A place for our disagreements."}</h2>
-      <p>{lang === "de" ? "Freie Gespräche, starke Gegenargumente und direkte Diskussionen zu jeder Aussage im Register. Nicht Mehrheiten entscheiden über Wahrheit, sondern nachvollziehbare Gründe und Prüfungen." : "Open conversations, strong objections and a dedicated discussion for each claim. Truth is not decided by majorities, but by reasons and appropriate checks."}</p>
-    </div>
-    <a class="button button--ghost" href={pathFor(lang, "forum")}>{lang === "de" ? "Das Forum betreten →" : "Enter the Forum →"}</a>
   </section>
 
   <section class="home-doorways container" aria-label={t.doorwaysLabel}>
@@ -74,7 +83,7 @@ const t = copy[lang];
           <summary>{t.bringQuestion}</summary>
           <p>{t.privacy}</p>
           <ul>
-            <li><a href={pathFor(lang, "erkenntnisnavigator")}>{lang === "de" ? "Passende Ansätze finden und Voraussetzungen prüfen" : "Find possible approaches and check their conditions"}</a></li>
+            <li><a href={pathFor(lang, "erkenntnisnavigator")}>{t.ownQuestion}</a></li>
             <li><a href={pathFor(lang, "werkstatt")}>{t.worksheet}</a></li>
             <li><a href={project.repository + "/issues/new?template=frage.yml"}>{t.publicQuestion} <span aria-hidden="true">↗</span></a></li>
           </ul>
@@ -98,11 +107,14 @@ const t = copy[lang];
 </Layout>
 
 <style>
-  .home-forum { display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2rem;align-items:center;padding-block:2.6rem;border-bottom:1px solid var(--line); }
-  .home-forum h2 { font:clamp(1.9rem,3vw,2.8rem)/1.2 var(--serif);margin:.5rem 0; }
-  .home-forum p:not(.section-kicker) { max-width:47rem;margin:.6rem 0 0;font-size:.94rem; }
-  .home-forum .button {white-space:nowrap}
-  @media(max-width:780px){.home-forum{grid-template-columns:1fr;gap:1.25rem}.home-forum .button{justify-self:start;white-space:normal}}
+  .home-forum { padding-block: clamp(2.6rem, 4vw, 3.8rem); border-bottom: 1px solid var(--line); }
+  .home-forum h2 { font: clamp(1.9rem, 3vw, 2.8rem)/1.2 var(--serif); margin: .5rem 0; }
+  .home-forum p:not(.section-kicker) { max-width: 47rem; margin: .6rem 0 0; }
+  .home-forum__questions { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .85rem; list-style: none; padding: 0; margin: 1.4rem 0 0; }
+  .home-forum__questions a { display: grid; gap: .3rem; align-content: start; height: 100%; padding: 1rem; border: 1px solid var(--line); color: var(--gold-bright); }
+  .home-forum__questions a:hover { border-color: var(--gold); }
+  .home-forum__questions a > span:last-child { text-decoration: underline; text-underline-offset: .2em; }
+  .home-forum__topic { color: var(--text); font-size: .8rem; }
   .home-opening {
     position: relative;
     isolation: isolate;
@@ -148,7 +160,7 @@ const t = copy[lang];
   }
   .home-lead { max-width: 43rem; font-size: clamp(1.06rem, 1.6vw, 1.25rem); line-height: 1.7; }
   .home-principle { max-width: 43rem; font-size: .95rem; line-height: 1.7; }
-  .home-intro .button-row { margin-top: 2.1rem; gap: 1rem 1.5rem; }
+  .home-intro .button-row { margin-block: 1.5rem; gap: .5rem 1.5rem; }
   .home-practice { padding-block: clamp(2.6rem, 4vw, 3.8rem); border-bottom: 1px solid var(--line); }
   .home-practice h2 { font-size: clamp(1.7rem, 3vw, 2.5rem); }
   .home-practice ol { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.3rem 2.5rem; padding-left: 1.5rem; }
@@ -221,7 +233,7 @@ const t = copy[lang];
   @media (max-width: 780px) {
     .home-opening { padding-block: 3.5rem 4.5rem; }
     .home-opening::after { right: -19rem; opacity: .5; }
-    .home-practice ol { grid-template-columns: minmax(0, 1fr); }
+    .home-practice ol, .home-forum__questions { grid-template-columns: minmax(0, 1fr); }
     .home-doorways, .home-pair { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
   }
   @media (max-width: 480px) {
