@@ -89,6 +89,18 @@ Die [KI-Charta](ki-charta.md) und der [zweisprachige Prüfkatalog](../public/ai/
 - [ ] Ausstieg, Export und Weiterverwendung praktisch ermöglichen
 - [ ] Die von Beginn an geprüfte Zugänglichkeit fortlaufend mit betroffenen Nutzerinnen und Nutzern verbessern
 
+## Zukunftsoffenheit · Vom offenen Projekt zum unabhängig nutzbaren Protokoll (OPEN-01)
+
+**Ziel, noch kein Status:** WIRKLICH möchte eine offen dokumentierte und von anderen unabhängig implementierbare Methode für Aussagen, Kritik, Quellen, Revisionen und sichtbaren Dissens entwickeln. Das wäre ein Beitrag zu einem möglichen Open-Source-Standard, nicht dessen bereits erfolgte Anerkennung. [Begründung und Grenzen](offenheit.md#open-source--nach-vorn-gerichtet).
+
+- [ ] Entwurf einer minimalen versionierten Protokollspezifikation mit stabilen Kennungen, typisierten Aussagen, belegbaren Quellenrollen, Einwänden, Revisionsereignissen und expliziten Unsicherheiten veröffentlichen.
+- [ ] Beispiel-Datensätze und öffentliche, automatisierbare Konformitätstests bereitstellen; technische Kompatibilität von inhaltlicher Zustimmung trennen.
+- [ ] Export, Import, Versionierung, Migration und kontrollierte Abwärtskompatibilität mit anderen Werkzeugen praktisch testen.
+- [ ] Eine **unabhängige** externe Implementierung und eine kritische Prüfung von Dokumentation, Zugänglichkeit und Lizenzgrenzen ermöglichen und auswerten.
+- [ ] Risiken durch Zentralisierung, KI-/Anbieterbindung, Missbrauch und übertriebene Wahrheits- oder Standardisierungsansprüche regelmäßig offen prüfen.
+
+**Freigabebedingung:** Erst nach einer nachvollziehbaren externen Implementierung und Evaluation von Interoperabilität dürfen wir von nachgewiesener unabhängiger Implementierbarkeit sprechen. Die gesellschaftliche Anerkennung als Standard erfordert darüber hinaus tatsächliche Adoption und bleibt offen.
+
 ## Etappe 4 · Erst nach Bewährung verbreitern
 
 - [ ] Weitere Kapitel in das strukturierte Aussagenmodell überführen
