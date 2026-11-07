@@ -1,0 +1,93 @@
+---
+import Layout from "../layouts/SiteLayout.astro";
+import {base,pathFor} from "../lib/paths.mjs";
+import project from "../../public/project.json";
+import engine from "../../public/ai/philosophy-engine.v0.json";
+import "../styles/mission.css";
+const {lang="de"}=Astro.props;
+const en=lang==="en";
+const t=(de,english)=>en?english:de;
+const local=x=>x[lang];
+---
+<Layout lang={lang} slug="ki-und-mensch" description={t("Was MUSS KI für uns Menschen sein? Öffentliche Charta, Gegenargumente und Prüffälle.","What MUST AI be for human beings? An open philosophical charter and adversarial tests.")}>
+ <article class="container mission-document ai-charter">
+  <header>
+   <p class="section-kicker">{t("WIRKLICH · KI UND MENSCH · ENTWURF","WIRKLICH · AI AND HUMANITY · DRAFT")} {engine.engine_version}</p>
+   <h1>{t("Der philosophische Motor der KI.","The philosophical engine for AI.")}</h1>
+   <p class="mission-lead">{t("Was MUSS KI für uns Menschen sein? Technik allein legt keinen guten Zweck fest. Wir wollen die Maßstäbe dafür gemeinsam mit Menschen finden, prüfen und wieder ändern können.","What MUST AI be for human beings? Technology does not define its own good purpose. We want people to develop, challenge and revise the standards by which it is judged.")}</p>
+   <p class="ai-charter__motto">{t("Die KI mag denken können. Doch die Frage, wofür sie denken soll, kommt vom Menschen.","AI may be able to reason. But the question of what it should reason for comes from people.")}</p>
+   <div class="button-row">
+    <a class="button button--gold" href="#leitthesen">{t("Leitthesen prüfen ↓","Examine principles ↓")}</a>
+    <a class="button button--ghost" href={pathFor(lang,"forum","alltag-ki")}>{t("Im Forum widersprechen →","Challenge this in the forum →")}</a>
+   </div>
+  </header>
+  <section id="auftrag">
+   <p class="section-kicker">{t("DER AUFTRAG","THE PURPOSE")}</p>
+   <h2>{t("Ein Prüfrahmen. Kein neues Dogma.","An inquiry framework. Not a new dogma.")}</h2>
+   <p>{t("WIRKLICH will die philosophischen Anforderungen an KI nicht einer Maschine, einem Gründer oder einer Mehrheit überlassen. Betroffene sollen mitreden können – auch Menschen, die gar keine KI benutzen. MUSS ist eine begründungsbedürftige Frage, noch kein weltweiter Konsens.","WIRKLICH does not leave AI ethics to a machine, a founder or a majority. People affected should have a voice, including those who do not use AI. MUST is a question requiring justification, not an established world-wide consensus.")}</p>
+  </section>
+  <section id="leitthesen">
+   <p class="section-kicker">{t("SIEBEN ANFECHTBARE VORSCHLÄGE","SEVEN CONTESTABLE PROPOSALS")}</p>
+   <h2>{t("Woran messen wir KI?","By what standards should we judge AI?")}</h2>
+   <div class="ai-charter__grid">
+    {engine.principles.map(p=><article class="ai-charter__card" id={p.id}>
+     <span>{p.id} · {t("NORMATIVER ENTWURF","NORMATIVE DRAFT")}</span>
+     <h3>{local(p.title)}</h3><p>{local(p.test_question)}</p>
+    </article>)}
+   </div>
+  </section>
+  <section id="motor">
+   <p class="section-kicker">{t("DER PHILOSOPHISCHE MOTOR","THE PHILOSOPHICAL ENGINE")}</p>
+   <h2>{t("Fünf Schritte. Immer wieder.","Five steps. Again and again.")}</h2>
+   <ol class="ai-charter__steps">
+    <li>{t("Menschliche Frage und Betroffene benennen.","Name the human question and those affected.")}</li>
+    <li>{t("Fakten, Normen und Zielkonflikte trennen.","Distinguish facts, norms and value conflicts.")}</li>
+    <li>{t("Das stärkste Gegenargument suchen.","Seek the strongest objection.")}</li>
+    <li>{t("Fehler, Folgen und Alternativen prüfen.","Test failures, consequences and alternatives.")}</li>
+    <li>{t("Menschlich verantworten, Einwände erhalten, korrigieren.","Let people take responsibility, preserve dissent and revise.")}</li>
+   </ol>
+   <p>{t("Das ist keine Moralformel. Ein begründeter Dissens darf bleiben.","This is not a formula for morality. Reasoned disagreement may remain.")}</p>
+  </section>
+  <section id="prueffaelle">
+   <p class="section-kicker">{t("ERSTE GEGENPROBEN","FIRST ADVERSARIAL CASES")}</p>
+   <h2>{t("Wo könnte unsere Idee scheitern?","Where could our proposal fail?")}</h2>
+   <div class="ai-charter__grid">
+    {engine.cases.map(c=><article class="ai-charter__case">
+     <span>{c.id} · {c.principles.join(" / ")}</span>
+     <h3>{local(c.scenario)}</h3>
+     <p><strong>{t("Prüfen:","Examine:")}</strong> {local(c.inspect)}</p>
+     <p><strong>{t("Warnsignal:","Failure:")}</strong> {local(c.failure)}</p>
+    </article>)}
+   </div>
+  </section>
+  <section id="mitmachen">
+   <h2>{t("Stelle auch diese Charta infrage.","Challenge this charter too.")}</h2>
+   <p>{t("Unser Regelpaket kann diese Fragen freiwillig in einen KI-Chat tragen. Es verändert nicht die zugrunde liegende KI, deren Anbieterregeln oder die rechtlichen Pflichten. Es beweist keine Sicherheit und gibt KI-Schwärmen keine redaktionellen Stimmen.","Our optional rule pack can carry these questions into an AI chat. It does not change the underlying AI, provider rules or legal obligations. It proves no safety and gives AI swarms no editorial votes.")}</p>
+   <div class="ai-charter__links">
+    <a href={pathFor(lang,"fragen-und-ki-prompt","prompt")}>{t("Mit eigener KI erproben →","Try it with your own AI →")}</a>
+    <a href={base+"ai/philosophy-engine.v0.json"}>{t("Offenen Prüfkatalog als JSON ansehen →","Read the open JSON casebook →")}</a>
+    <a href={project.repository+"/blob/main/docs/ki-charta.md"}>{t("Vollständige Charta lesen ↗","Read the full charter ↗")}</a>
+    <a href={project.repository+"/issues/new?template=idee.yml"}>{t("Einwand oder neuen Fall einreichen ↗","Submit an objection or case ↗")}</a>
+   </div>
+   <p class="ai-charter__status">{t("Status: Entwurf 0.1. Keine unabhängige Validierung. Bitte keine persönlichen Falldaten öffentlich posten.","Status: draft 0.1. No independent validation. Do not publish private case details.")}</p>
+  </section>
+ </article>
+</Layout>
+<style>
+ .ai-charter{padding-block:clamp(2.5rem,6vw,5rem)}
+ .ai-charter header{max-width:65rem}
+ .ai-charter section{border-top:1px solid var(--line);margin-top:3.4rem;padding-top:2.5rem;scroll-margin-top:6rem}
+ .ai-charter__motto{font:clamp(1.4rem,3vw,2rem)/1.35 var(--serif);color:var(--gold-bright);max-width:50rem;margin:1.3rem 0}
+ .ai-charter__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin:1.5rem 0}
+ .ai-charter__card,.ai-charter__case{border:1px solid var(--line);padding:1.35rem;background:#111719;min-width:0}
+ .ai-charter__card span,.ai-charter__case span{color:var(--gold);font-size:.75rem;letter-spacing:.04em}
+ .ai-charter__card h3,.ai-charter__case h3{font:clamp(1.2rem,2vw,1.55rem)/1.3 var(--serif);margin:.6rem 0;color:var(--text)}
+ .ai-charter__card p{margin:0}
+ .ai-charter__steps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1rem;list-style:decimal;padding-left:1.5rem}
+ .ai-charter__steps li{padding:.7rem .4rem;border-top:2px solid var(--gold)}
+ .ai-charter__links{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;margin:1rem 0}
+ .ai-charter__links a{color:var(--gold-bright);text-decoration:underline;text-underline-offset:.2em;display:inline-flex;align-items:center;min-height:44px}
+ .ai-charter__status{font-size:.88rem;color:var(--text-soft)}
+ @media(max-width:800px){.ai-charter__steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+ @media(max-width:600px){.ai-charter__steps,.ai-charter__grid{grid-template-columns:1fr}}
+</style>

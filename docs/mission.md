@@ -124,6 +124,14 @@ Recherche- und Kritikrollen liefern Hinweise und Entwürfe. Modellübereinstimmu
 
 Menschen entscheiden über redaktionelle Aufnahme und verantworten die Begründung. Fachprüfung, Moderation und Betroffenenbeteiligung sind unterschiedliche Aufgaben. Derzeit ist der Repository-Eigentümer verantwortlich. Ein unabhängiges Gremium existiert noch nicht. Gründerstatus und Finanzierung dürfen Argumente nicht ersetzen.
 
+### Der philosophische Motor der KI: Was MUSS KI für Menschen sein?
+
+Wir wollen KI nicht nur bei der Prüfung menschlicher Thesen nutzen. **Menschen sollen den philosophischen Prüfrahmen entwickeln und kritisieren können, an dem KI selbst gemessen wird.** Eine Maschine kann Antworten liefern, ohne dass daraus folgt, wofür sie Antworten liefern sollte. Der Rahmen fragt deshalb nach Wahrheit, Würde, Freiheit, Macht, Fürsorge und Verantwortung.
+
+Die [öffentliche KI-Charta](ki-charta.md) formuliert sieben anfechtbare normative Vorschläge. Der [maschinenlesbare Prüfkatalog](../public/ai/philosophy-engine.v0.json) bietet erste Gegenproben. Betroffene Menschen, auch Nichtnutzer, sollen mitentscheiden können, welche Prüfungen und Korrekturen notwendig sind. Wertkonflikte, Gegenpositionen und Dissens bleiben sichtbar; weder Mehrheit noch KI-Schwarm beweisen eine Moral.
+
+**MUSS** steht für zu rechtfertigende Mindestanforderungen – nicht für einen bereits erreichten Menschheitskonsens oder die technische Durchsetzbarkeit. Das freiwillige KI-Regelpaket kann diese Charta als Gesprächskontext bereitstellen, verändert aber nicht fremde KI-Systeme. Unabhängige Wirksamkeitsprüfung und Beteiligung sind offen.
+
 ## 7. Finanzierung als Versorgung
 
 Menschen dürfen von sinnvoller Arbeit leben. Faire Vergütung, Erholung und tragfähige Arbeitszeiten gehören zur Mission. Der frei zugängliche Kern soll erhalten bleiben. Geldquellen, Interessen, Ausgaben und Vergütungsregeln sollen nachvollziehbar sein; Geld darf keinen Belegstatus und keine redaktionelle Vorzugsbehandlung kaufen.
@@ -140,6 +148,9 @@ Erst nach gezeigtem Nutzen folgen mehr Themen und mehr Autonomie. Der langfristi
 
 
 ## English summary
+
+**What MUST AI be for people?** WIRKLICH invites humans to develop, challenge and revise the philosophical standards by which AI itself is judged. Our [provisional charter](ki-charta.md) and [challenge cases](../public/ai/philosophy-engine.v0.json) do not establish universal consensus, certified safety or enforceable model rules. Human accountability and serious dissent remain essential.
+
 
 > To guide humanity toward consensus through philosophy.
 

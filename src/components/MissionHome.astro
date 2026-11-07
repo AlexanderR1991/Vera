@@ -49,6 +49,13 @@ const featuredQuestions = everydayQuestions.questions.slice(0, 3);
     <p class="home-practice-note">{t.aiNote} <a class="home-link" href={pathFor(lang, "fragen-und-ki-prompt", "prompt")}>{t.aiLink} <span aria-hidden="true">→</span></a></p>
   </section>
 
+  <section class="home-ai container" aria-labelledby="home-ai-title">
+    <p class="section-kicker">{lang==="de"?"KI UND MENSCH · OFFENE FORSCHUNG":"AI AND HUMANITY · OPEN INQUIRY"}</p>
+    <h2 id="home-ai-title">{lang==="de"?"Was MUSS KI für uns Menschen sein?":"What MUST AI be for us?"}</h2>
+    <p>{lang==="de"?"Technische Intelligenz gibt keine moralische Richtung vor. Wir wollen mit Menschen den philosophischen Maßstab entwickeln, an dem KI gemessen, kritisiert und verbessert werden kann.":"Technical intelligence does not set its moral direction. With people, we want to develop the philosophical standards by which AI can be judged, challenged and improved."}</p>
+    <a class="home-link" href={pathFor(lang,"ki-und-mensch")}>{lang==="de"?"Den philosophischen Motor prüfen":"Examine the philosophical engine"} <span aria-hidden="true">→</span></a>
+  </section>
+
   <section class="home-doorways container" aria-label={t.doorwaysLabel}>
     <div class="home-play">
       <p class="section-kicker">{t.playLabel}</p>
@@ -107,6 +114,10 @@ const featuredQuestions = everydayQuestions.questions.slice(0, 3);
 </Layout>
 
 <style>
+  .home-ai { padding-block: clamp(2.8rem,5vw,4.4rem); border-top:1px solid var(--line); }
+  .home-ai h2 { font:clamp(2rem,4vw,3.4rem)/1.15 var(--serif); max-width:49rem; margin:.5rem 0 1rem; }
+  .home-ai p:not(.section-kicker) {max-width:47rem}
+  .home-ai .home-link {display:inline-flex;align-items:center;min-height:44px}
   .home-forum { padding-block: clamp(2.6rem, 4vw, 3.8rem); border-bottom: 1px solid var(--line); }
   .home-forum h2 { font: clamp(1.9rem, 3vw, 2.8rem)/1.2 var(--serif); margin: .5rem 0; }
   .home-forum p:not(.section-kicker) { max-width: 47rem; margin: .6rem 0 0; }

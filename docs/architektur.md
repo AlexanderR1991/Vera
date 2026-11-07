@@ -12,6 +12,10 @@ Die Schönheit darf zum Denken einladen; sie darf es nicht ersetzen. Gestaltung 
 4. **Prüfstand:** Status, Aussageart, Quellen, Einwände, Alternativen und Entscheidungen.
 5. **Mitwirkung:** respektvolle Kritik und transparente Korrekturen.
 
+## KI als Gegenstand des Erkenntnismotors
+
+Die [KI-Charta](ki-charta.md) ist ein menschengeprägter, öffentlich angreifbarer Normenentwurf. [Versionierter JSON-Prüfkatalog](../public/ai/philosophy-engine.v0.json), [Website](https://alexanderr1991.github.io/Wirklich/de/ki-und-mensch/) und [freiwilliges KI-Regelpaket](erkenntnisprompt.md) geben denselben Ansatz in unterschiedlichen Zugangsformen wieder. Normative Vorschläge sind keine gemessenen Modellfähigkeiten. Strukturtests prüfen nur Datenkonsistenz; keine automatische KI-Aufsicht und kein fremder Modellzugriff.
+
 ## Gestaltung
 - Dunkle Grundflächen, warmes Elfenbein, sparsam Gold und Weinrot.
 - Klassische Serifenschriften für große Sinnabschnitte, sachliche Sans-Serif für Navigation und Metadaten.
