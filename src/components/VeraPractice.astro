@@ -1,0 +1,168 @@
+---
+import { pathFor } from "../lib/paths.mjs";
+
+const { lang = "de" } = Astro.props;
+const t = (de, en) => lang === "en" ? en : de;
+const id = t("eigene-frage", "your-question");
+const fields = [
+  {
+    key: "observation",
+    label: t("Was ist passiert?", "What happened?"),
+    hint: t("Schreib auf, was du selbst gesehen, gehört oder gelesen hast.", "Write what you saw, heard or read yourself.")
+  },
+  {
+    key: "guess",
+    label: t("Was vermutest du?", "What do you think might explain it?"),
+    hint: t("Welche Erklärung kommt dir in den Sinn? Welche andere wäre möglich?", "What explanation comes to mind? What else could explain it?")
+  },
+  {
+    key: "next",
+    label: t("Was wäre ein kleiner nächster Schritt?", "What would be one small next step?"),
+    hint: t("Was könntest du klären, ohne dich schon festzulegen?", "What could you clarify before committing to a decision?")
+  }
+];
+---
+<section class="vera-practice container" id={id} aria-labelledby={`${id}-title`} tabindex="-1" data-vera-practice>
+  <div class="vera-practice__intro">
+    <p class="section-kicker">{t("DEINE FRAGE · OHNE KONTO", "YOUR QUESTION · NO ACCOUNT NEEDED")}</p>
+    <h2 id={`${id}-title`}>{t("Was beschäftigt dich?", "What’s on your mind?")}</h2>
+    <p>{t(
+      "Nimm eine Situation aus deinem Alltag. Trenne, was du beobachtet hast, von dem, was du vermutest. Danach kannst du überlegen, was du als Nächstes klären möchtest.",
+      "Take a situation from your life. Separate what you observed from what you’re guessing. Then consider what you want to clarify next."
+    )}</p>
+    <p class="vera-practice__privacy">{t(
+      "Vera ordnet deine Sätze hier im Browser. Die Übung versendet und speichert deine Eingaben nicht.",
+      "Vera organizes your sentences here in your browser. The exercise does not send or save your entries."
+    )}</p>
+    <a class="vera-practice__link" href={pathFor(lang, "werkstatt")}>{t("Ausführliches Prüfblatt öffnen", "Open the full worksheet")} <span aria-hidden="true">↗</span></a>
+  </div>
+  <div class="vera-practice__work">
+    <ol class="vera-practice__guide" data-practice-guide>
+      {fields.map(({ label, hint }) => <li><strong>{label}</strong> {hint}</li>)}
+    </ol>
+    <form autocomplete="off" aria-label={t("Eigene Frage sortieren", "Organize your own question")}
+      data-practice-form
+      data-empty-message={t("Schreib etwas in mindestens eines der drei Felder.", "Write something in at least one of the three fields.")}
+      hidden>
+      <p class="vera-practice__help">{t("Ein Feld reicht für den Anfang. Alles andere darf offenbleiben.", "One field is enough to start. You can leave the others open.")}</p>
+      {fields.map(({ key, label, hint }) => (
+        <div class="vera-practice__field">
+          <label for={`${id}-${key}`}>{label}</label>
+          <p id={`${id}-${key}-hint`}>{hint}</p>
+          <textarea id={`${id}-${key}`} aria-describedby={`${id}-${key}-hint`}
+            rows="2" maxlength="2000" spellcheck="false" data-practice-input></textarea>
+        </div>
+      ))}
+      <button class="button button--gold" type="submit">{t("Meine Gedanken ordnen", "Organize my thoughts")}</button>
+    </form>
+    <div class="vera-practice__result" data-practice-result
+      data-open-value={t("Noch offen.", "Still open.")}
+      hidden>
+      <h3 tabindex="-1" data-practice-heading>{t("Dein Zwischenstand", "Your notes so far")}</h3>
+      <dl>
+        {fields.map(({ label }) => (
+          <div>
+            <dt>{label}</dt>
+            <dd data-practice-output></dd>
+          </div>
+        ))}
+      </dl>
+      <button class="button button--ghost" type="button" data-practice-edit>{t("Gedanken bearbeiten", "Edit my notes")}</button>
+    </div>
+  </div>
+</section>
+
+<script>
+  for (const practice of document.querySelectorAll<HTMLElement>("[data-vera-practice]")) {
+    const guide = practice.querySelector<HTMLElement>("[data-practice-guide]");
+    const form = practice.querySelector<HTMLFormElement>("[data-practice-form]");
+    const result = practice.querySelector<HTMLElement>("[data-practice-result]");
+    const edit = practice.querySelector<HTMLButtonElement>("[data-practice-edit]");
+    const heading = practice.querySelector<HTMLElement>("[data-practice-heading]");
+    if (!guide || !form || !result || !edit || !heading) continue;
+
+    const inputs = Array.from(form.querySelectorAll<HTMLTextAreaElement>("[data-practice-input]"));
+    const outputs = result.querySelectorAll<HTMLElement>("[data-practice-output]");
+    const firstInput = inputs[0];
+
+    form.addEventListener("input", () => firstInput.setCustomValidity(""));
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const values = inputs.map(input => input.value.trim());
+      if (!values.some(Boolean)) {
+        firstInput.setCustomValidity(form.dataset.emptyMessage ?? "");
+        firstInput.reportValidity();
+        return;
+      }
+      outputs.forEach((output, index) => {
+        output.textContent = values[index] || result.dataset.openValue || "";
+      });
+      form.hidden = true;
+      result.hidden = false;
+      heading.focus();
+    });
+
+    edit.addEventListener("click", () => {
+      result.hidden = true;
+      form.hidden = false;
+      firstInput.focus();
+    });
+
+    guide.hidden = true;
+    form.hidden = false;
+  }
+</script>
+
+<style>
+  .vera-practice {
+    display: grid;
+    grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+    gap: clamp(1.25rem, 5vw, 4.5rem);
+    padding: clamp(1.25rem, 4vw, 3rem);
+    margin-block: clamp(2rem, 6vw, 5rem);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--ink2);
+  }
+  .vera-practice__intro h2 {
+    margin: .25em 0 .55em;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    line-height: 1.05;
+  }
+  .vera-practice__intro p { max-width: 40ch; }
+  .vera-practice__privacy, .vera-practice__help, .vera-practice__field p { font-size: .875rem; }
+  .vera-practice__link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    gap: .5rem;
+    font-size: .875rem;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: .2em;
+  }
+  .vera-practice__guide { padding-inline-start: 1.3rem; }
+  .vera-practice__guide li { margin-block: .65rem; }
+  .vera-practice__field { margin-block: 1rem; }
+  .vera-practice__field label, .vera-practice__result dt { font-weight: 700; }
+  .vera-practice__field p { margin: .2rem 0 .4rem; }
+  .vera-practice__field textarea {
+    display: block;
+    width: 100%;
+    min-height: 4.5rem;
+    resize: vertical;
+    padding: .65rem .75rem;
+    border: 1px solid var(--muted);
+    border-radius: 5px;
+    background: var(--ink);
+    color: var(--text);
+    font: inherit;
+  }
+  .vera-practice__result h3 { margin-bottom: .65rem; font-size: 1.75rem; }
+  .vera-practice__result dl { margin: 0 0 1rem; }
+  .vera-practice__result dl > div { padding-block: .6rem; border-top: 1px solid var(--line); }
+  .vera-practice__result dd { margin: .2rem 0 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+  @media (max-width: 720px) {
+    .vera-practice { grid-template-columns: 1fr; }
+  }
+</style>

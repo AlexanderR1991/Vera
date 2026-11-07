@@ -1,6 +1,8 @@
 ---
 import Layout from "../layouts/SiteLayout.astro";
 import IndustrialBoard from "./IndustrialBoard.astro";
+import VeraFirstStep from "./VeraFirstStep.astro";
+import VeraPractice from "./VeraPractice.astro";
 import copy from "../lib/mission-copy.json";
 import {pathFor} from "../lib/paths.mjs";
 import {ui} from "../lib/ui.mjs";
@@ -8,77 +10,36 @@ import everydayQuestions from "../../public/knowledge/everyday-questions.json";
 import project from "../../public/project.json" with {type:"json"};
 import protocol from "../../public/protocol/self-correction.v1.json";
 
-const {lang="de"}=Astro.props;
+const {lang="de",root=false}=Astro.props;
 const t=copy[lang];
 const de=lang==="de";
 const featuredQuestions=everydayQuestions.questions.slice(0,3);
-const mechanismTicks=Array.from({length:32},(_,i)=>{
- const a=i*Math.PI/16;
- return {d:"M"+(199*Math.cos(a))+" "+(199*Math.sin(a))+"L"+(216*Math.cos(a))+" "+(216*Math.sin(a)),width:i%4===0?3:1};
-});
-const mechanismRivets=Array.from({length:12},(_,i)=>{
- const a=i*Math.PI/6;return {x:168*Math.cos(a),y:168*Math.sin(a)};
-});
+const firstStep=de?"erster-schritt":"first-step";
+const ownQuestion=de?"eigene-frage":"your-question";
 ---
-<Layout lang={lang} slug="index" description={t.metaDescription}>
+<Layout lang={lang} slug="index" root={root} pageTitle={root?ui[lang].titles.index:undefined} description={t.metaDescription}>
   <section class="home-opening" aria-labelledby="home-heading">
     <div class="container home-opening__grid">
       <div class="home-intro">
-        <p class="section-kicker">{ui[lang].name} / {de?"DIE OFFENE ERKENNTNISWERKSTATT":"THE OPEN INQUIRY WORKSHOP"}</p>
+        <p class="section-kicker"><span class="home-intro__signal" aria-hidden="true"></span>{de?"HALLO, ICH BIN VERA.":"HELLO, I’M VERA."}</p>
         <h1 id="home-heading">{t.headline} <em>{t.headlineAccent}</em></h1>
-        <p class="home-invitation">{t.invitation}</p>
-        <p class="home-motto">{t.motto}</p>
-        <blockquote class="home-meta-rule">{protocol.motto[lang]}</blockquote>
+      </div>
+      <div class="home-welcome">
+        <p>{de?"Eine offene Werkstatt für Fragen aus deinem Leben. Schau dir ein Beispiel an, bring eine eigene Frage mit oder prüfe, wo wir uns irren.":"An open workshop for questions from your life. Try an example, bring your own question or find where we got it wrong."}</p>
         <div class="button-row">
-          <a class="button button--gold" href={pathFor(lang,"forum","alltagsfragen")}>{de?"Eine Frage öffnen":"Open a question"} <span aria-hidden="true">↗</span></a>
-          <a class="button button--ghost" href={pathFor(lang,"erkenntnisnavigator")}>{de?"Etwas entdecken":"Explore the atlas"} <span aria-hidden="true">→</span></a>
+          <a class="button button--gold" href={"#"+ownQuestion}>{de?"Eigene Frage prüfen":"Work through a question"} <span aria-hidden="true">↓</span></a>
+          <a class="button button--ghost" href={"#"+firstStep}>{de?"Beispiel ausprobieren":"Try an example"} <span aria-hidden="true">↓</span></a>
         </div>
-        <p class="home-lead">{t.lead}</p>
-        <aside class="home-ai-identity" aria-label={de?"Unsere Open-Source-KI-Vision":"Our open-source AI vision"}>
-          <strong>{de?"Unser Ziel: Eine Open-Source-KI für Menschen bauen.":"Our goal: Build an open-source AI for people."}</strong>
-          <p>{de?"Gemeinsam, korrigierbar und für jeden zugänglich. Aktuell sind wir eine offene Erkenntniswerkstatt mit ersten Prototypen – noch keine eigenständig veröffentlichte KI.":"Together, open to correction and accessible to everyone. Today we are an open inquiry workshop with early prototypes—not a released, independently runnable AI."}</p>
-          <a href={pathFor(lang,"ki-und-mensch")}>{de?"Idee und Grenzen prüfen":"Explore the goal and its limits"} ↗</a>
-        </aside>
+        <a class="home-welcome__challenge" href={pathFor(lang,"gegenprobe-01")}>{de?"Vera widersprechen":"Challenge Vera"} <span aria-hidden="true">↗</span></a>
       </div>
-      <div class="home-mechanism" aria-label={de?"Abstrakte technische Illustration: ein offener, verbundener Erkenntniskreis":"Abstract technical illustration: an open, connected inquiry loop"} role="img">
-        <div class="home-mechanism__label"><span>W / 001</span><span>{de?"FRAGE → PRÜFUNG → REVISION":"QUESTION → TEST → REVISION"}</span></div>
-        <svg class="home-mechanism__drawing" viewBox="0 0 620 610" aria-hidden="true" fill="none">
-          <defs>
-            <linearGradient id="mechanism-shade" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f9f9f6"/><stop offset=".5" stop-color="#c3c7c5"/><stop offset="1" stop-color="#8e9697"/></linearGradient>
-          </defs>
-          <g transform="translate(309 305)">
-            <circle r="243" stroke="#525959" stroke-width="1" stroke-dasharray="2 8"/>
-            <circle r="220" stroke="#6d7274" stroke-width="1" opacity=".7"/>
-            <circle r="188" stroke="#606668" stroke-width="13"/>
-            <circle r="188" stroke="#f4f4f0" stroke-width="1.5"/>
-            <circle r="168" stroke="#f4f4f0" stroke-width="3"/>
-            <circle r="141" stroke="#545b5f" stroke-width="22"/>
-            <circle r="141" stroke="#fafaf6" stroke-width="1"/>
-            <circle r="113" stroke="#7b8285" stroke-width="1"/>
-            <circle r="91" fill="url(#mechanism-shade)" stroke="#f9f9f6" stroke-width="7"/>
-            <circle r="62" fill="#141718" stroke="#545a5c" stroke-width="2"/>
-            <circle r="38" fill="#c9cecc" stroke="#23282a" stroke-width="9"/>
-            <circle r="9" fill="#23282a"/>
-            {mechanismTicks.map(tick=><path d={tick.d} stroke="#24292b" stroke-width={tick.width}/>)}
-            {mechanismRivets.map(rivet=><circle cx={rivet.x} cy={rivet.y} r="4" fill="#fafaf6"/>)}
-            <path d="M-270 0H270M0-270V270" stroke="#3d4345" stroke-dasharray="3 8" opacity=".6"/>
-            <path d="M-70-70L70 70M-70 70L70-70" stroke="#a3a9a8" opacity=".4"/>
-            <g stroke="#f9f9f6" stroke-width="1"><path d="M-226-181h65l41 40"/><path d="M152 165l38 40h70"/></g>
-            <circle cx="-225" cy="-181" r="5" fill="#f9f9f6"/><circle cx="260" cy="205" r="5" fill="#f9f9f6"/>
-          </g>
-        </svg>
-        <div class="home-mechanism__foot"><span>OPEN SYSTEM / R0–R4</span><span>{de?"KEIN LETZTES URTEIL":"NO FINAL VERDICT"}</span></div>
-      </div>
-    </div>
-    <div class="container home-opening__foot">
-      <span>01 / {de?"MENSCHEN":"PEOPLE"}</span>
-      <span>02 / {de?"WIDERSPRUCH":"DISSENT"}</span>
-      <span>03 / {de?"KORREKTUR":"REVISION"}</span>
-      <span>{de?"OPEN SOURCE · NACH VORN GERICHTET":"OPEN SOURCE · FORWARD-LOOKING"}</span>
     </div>
   </section>
 
   <IndustrialBoard lang={lang}/>
+
+  <VeraFirstStep lang={lang}/>
+
+  <VeraPractice lang={lang}/>
 
   <section class="home-forum section-shell" aria-labelledby="home-forum-title">
     <div class="container">
@@ -100,8 +61,8 @@ const mechanismRivets=Array.from({length:12},(_,i)=>{
 
   <section class="home-method section-shell" aria-labelledby="practice-title">
     <div class="container">
-      <div class="home-section-title"><div><p class="section-kicker">/ {de?"DIE METHODE":"THE METHOD"}</p><h2 id="practice-title">{t.practiceTitle}</h2></div>
-      <p>{t.practiceNote}</p></div>
+      <div class="home-section-title"><div><p class="section-kicker">/ {de?"DIE METHODE":"THE METHOD"}</p><h2 id="practice-title" tabindex="-1">{de?"Warum ich glaube, dass ich funktioniere":"Why I think I work"}</h2></div>
+      <p>{de?"Wenn du deine Beobachtung, deine Vermutung und deinen nächsten Schritt getrennt anschaust, wird sichtbar, wo ein Einwand etwas ändern kann. Ob das im Alltag hilft, lässt sich an konkreten Fällen prüfen.":"Looking at your observation, your guess and your next step separately shows where an objection might change something. Everyday cases let us test whether that helps."}</p></div>
       <ol class="home-method__steps">
         {t.practiceSteps.map(([title,text],i)=><li>
           <span class="home-method__number">0{i+1}</span>
@@ -109,6 +70,7 @@ const mechanismRivets=Array.from({length:12},(_,i)=>{
           <p>{text}</p>
         </li>)}
       </ol>
+      <blockquote class="home-meta-rule">{protocol.motto[lang]}</blockquote>
       <div class="home-method__links">
         <a class="home-link" href={pathFor(lang,"methode","erkenntnismotor")}>{de?"Den Regelweg verstehen":"See the examination process"} ↗</a>
         <a class="home-link" href={pathFor(lang,"werkstatt")}>{t.worksheet} ↗</a>
@@ -132,6 +94,10 @@ const mechanismRivets=Array.from({length:12},(_,i)=>{
       <span class="home-example__mark" aria-hidden="true">↺</span>
       <h2 id="home-example-title">{t.exampleTitle}</h2>
       <p class="example-body">{t.exampleText}</p>
+      <details>
+        <summary>{de?"Was wurde ergänzt?":"What was added?"}</summary>
+        <blockquote>{de?"Auch dauerhafte Unterstützung ist wertvoll. Würde und Fürsorge dürfen nicht von erreichbarer Selbstständigkeit abhängen.":"Lasting support is valuable too. Dignity and care must not depend on attainable independence."}</blockquote>
+      </details>
       <div class="home-example__links">
         <a class="home-link" href={pathFor(lang,"methode")+"#g-005"}>{t.exampleLink} ↗</a>
         <a class="home-link" href={pathFor(lang,"gegenprobe-01")}>{de?"Gegenbeispiel suchen":"Find a counterexample"} ↗</a>
@@ -171,6 +137,11 @@ const mechanismRivets=Array.from({length:12},(_,i)=>{
     </div>
   </section>
 
+  <aside class="home-ai-identity container" aria-label={de?"Unsere Open-Source-KI-Vision":"Our open-source AI vision"}>
+    <strong>{de?"Unser Ziel: Eine Open-Source-KI für Menschen bauen.":"Our goal: Build an open-source AI for people."}</strong>
+    <p>{de?"Heute kannst du in der Werkstatt Fragen prüfen, Beispiele ausprobieren und die Regeln in deinem eigenen KI-Chat nutzen. Ein eigenständig veröffentlichtes Vera-Modell steht noch aus.":"Today you can examine questions, try examples and use the workshop rules in your own AI chat. An independently released Vera model is still to come."}</p>
+    <a class="home-link" href={pathFor(lang,"ki-und-mensch")}>{de?"Idee und Projektstand prüfen":"Explore the goal and project status"} <span aria-hidden="true">↗</span></a>
+  </aside>
   <aside class="home-status container">
     <span>{ui[lang].name} / {project.version}</span>
     <p>{t.status} {t.principle}</p>

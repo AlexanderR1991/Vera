@@ -1,0 +1,131 @@
+---
+import { pathFor } from "../lib/paths.mjs";
+
+const { lang = "de" } = Astro.props;
+const t = (de, en) => lang === "en" ? en : de;
+const id = t("erster-schritt", "first-step");
+const steps = [
+  {
+    question: t("Was hast du beobachtet?", "What did you observe?"),
+    answer: t(
+      "Du hast gestern geschrieben. Bis jetzt kam keine Antwort. Das ist alles, was du an der Nachricht ablesen kannst.",
+      "You sent a message yesterday. So far, you haven't heard back. That's all the message thread tells you."
+    )
+  },
+  {
+    question: t("Welche Erklärung ist noch offen?", "What could explain it?"),
+    answer: t(
+      "Vielleicht hatte die Person keine Zeit, hat die Nachricht übersehen oder möchte gerade kein Gespräch. Aus der Stille allein lässt sich das nicht entscheiden.",
+      "They might have been busy, missed the message, or prefer not to talk right now. The silence alone can't tell you which."
+    )
+  },
+  {
+    question: t("Was wäre ein kleiner nächster Schritt?", "What's one small next step?"),
+    answer: t(
+      "Wenn es nicht eilt, gib der Person Zeit und schau morgen noch einmal. Wenn du zeitnah planen musst, frag einmal freundlich nach, ob ein anderer Tag passt. Hat die Person um Abstand gebeten, respektiere das und plane ohne ihre Zusage.",
+      "If it can wait, give them time and check again tomorrow. If you need to make plans soon, ask once if another day would work. If they've asked for space, respect that and make plans without counting on a reply."
+    )
+  }
+];
+---
+
+<section class="first-step container" id={id} aria-labelledby={`${id}-title`} tabindex="-1">
+  <div class="first-step__intro">
+    <p class="section-kicker">{t("ZUM AUSPROBIEREN · OHNE KONTO", "TRY IT · NO ACCOUNT NEEDED")}</p>
+    <h2 id={`${id}-title`}>{t("Finde einen nächsten Schritt.", "Find a next step.")}</h2>
+    <p class="first-step__scene">{t(
+      "Gestern hast du jemandem geschrieben und um ein kurzes Gespräch gebeten. Du hast noch keine Antwort. Jetzt fragst du dich, ob du der Person egal bist.",
+      "You messaged someone yesterday to ask for a quick chat. You haven't heard back. Now you wonder whether you matter to them."
+    )}</p>
+    <p>{t(
+      "Überleg dir zu jeder Frage eine Antwort. Klapp sie dann auf und vergleiche mit dem Beispiel.",
+      "Think of your own answer to each question, then open it to compare with the example."
+    )}</p>
+  </div>
+  <div class="first-step__practice">
+    <ol role="list">
+      {steps.map(({ question, answer }, index) => (
+        <li>
+          <details>
+            <summary><span class="first-step__number" aria-hidden="true">0{index + 1}</span>{question}</summary>
+            <p>{answer}</p>
+          </details>
+        </li>
+      ))}
+    </ol>
+    <p class="first-step__transfer">{t(
+      "Probier die drei Fragen an einer eigenen Situation aus. Was würde dich dazu bringen, deinen nächsten Schritt zu ändern?",
+      "Try the three questions on a situation of your own. What would make you change your next step?"
+    )}</p>
+    <div class="first-step__links">
+      <a href={pathFor(lang, "werkstatt")}>{t("Eigene Frage in der Werkstatt prüfen", "Work through your own question")} <span aria-hidden="true">→</span></a>
+      <a href={pathFor(lang, "forum", "alltagsfragen")}>{t("Weitere Alltagsfragen lesen", "Read more everyday questions")} <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .first-step {
+    display: grid;
+    grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+    gap: clamp(1.5rem, 5vw, 5rem);
+    padding: clamp(1.25rem, 4vw, 3rem);
+    margin-block: clamp(2.5rem, 6vw, 5.5rem);
+    background: var(--ink2);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+  }
+  .first-step__intro h2 {
+    margin: .25em 0 .55em;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    line-height: 1.05;
+  }
+  .first-step__intro p { max-width: 37ch; margin: 0; }
+  .first-step__intro .first-step__scene {
+    padding-inline-start: .8rem;
+    margin-block-end: .85rem;
+    border-inline-start: 2px solid var(--text-soft);
+    color: var(--text);
+  }
+  .first-step__practice ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid var(--line);
+  }
+  .first-step__practice li { border-bottom: 1px solid var(--line); }
+  .first-step__practice summary {
+    min-height: 44px;
+    padding: .75rem .25rem;
+    color: var(--text);
+    cursor: pointer;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+  }
+  .first-step__practice summary:hover { background: var(--ink3); }
+  .first-step__number {
+    display: inline-block;
+    min-width: 2em;
+    margin-inline-start: .25em;
+    color: var(--text-soft);
+    font-size: .75rem;
+    font-variant-numeric: tabular-nums;
+  }
+  .first-step__practice details p { margin: 0 0 1rem; padding-inline: .25rem; }
+  .first-step__transfer { margin: 1rem 0 .25rem; }
+  .first-step__links { display: flex; flex-wrap: wrap; gap: 0 1rem; }
+  .first-step__links a {
+    display: inline-block;
+    min-height: 44px;
+    padding-block: .6rem;
+    color: var(--text);
+    font-size: .875rem;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: .2em;
+  }
+  .first-step__links a:hover { color: var(--signal); }
+  @media (max-width: 720px) {
+    .first-step { grid-template-columns: 1fr; }
+  }
+</style>
