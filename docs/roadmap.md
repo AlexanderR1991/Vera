@@ -78,6 +78,20 @@ Die [KI-Charta](ki-charta.md) und der [zweisprachige Prüfkatalog](../public/ai/
 
 **Freigabegrenze:** Ohne unabhängige Evaluation keine Behauptung über tatsächliche Modellkonformität, Sicherheit oder universelle Gültigkeit.
 
+## Querschnittsforschung · Kollektive Moral und Richtungsindex
+
+[Konzept und Abbruchkriterien](kollektive-moral.md) · [DE/EN-Webseite](https://alexanderr1991.github.io/Wirklich/de/kollektive-moral/) · [Datenentwurf](../public/knowledge/direction-index.v0.json). Das ist bislang **kein funktionierender Score**.
+
+- [x] Philosophisches Modell, Gegenproben, Schutzgrenzen und versionierten JSON-Entwurf zur Diskussion dokumentieren
+- [ ] Eine konkrete Vergleichsfrage samt Wertprofilen und Betroffenen vorab festlegen
+- [ ] Quellen, mögliche Verzerrungen, Messskalen und Anwendungsgrenzen untersuchen
+- [ ] Unabhängige Prüfung der Wirkungsannahmen (R3+) und kalibrierte Unsicherheitsmessung erreichen
+- [ ] Sensitivität unterschiedlicher begründbarer Wertprofile prüfen und Minderheitendissens erhalten
+- [ ] In unabhängigen Blindtests den Nutzen **mit** Index gegen eine Richtungskarte **ohne** Zahl vergleichen
+- [ ] Rechteprüfung, verantwortliche Freigabe, Einspruch und vollständige Rücknahme von Zahlen organisatorisch erproben
+
+**Freigabestopp:** Keine öffentliche Zahl ohne vorher dokumentierte Methodik, tragfähige Evidenz, robuste Interpretation, Schutz vor Personenbewertungen und menschliche Verantwortung. Viele Menschen allein sind kein Prüfmaßstab.
+
 ## Etappe 3 · Verantwortung und Versorgung verteilen
 
 **Freigabekriterium:** Zuständigkeiten, Einspruchswege und Finanzierung sind nachvollziehbar und im Alltag erprobt.
