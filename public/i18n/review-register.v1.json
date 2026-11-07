@@ -63,6 +63,13 @@
         "source_commit": null,
         "review_url": null
       },
+      "entitaet": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewed_at": null,
+        "source_commit": null,
+        "review_url": null
+      },
       "erkenntnishorizont": {
         "status": "draft",
         "reviewer": null,
@@ -308,6 +315,15 @@
     "emporirren.md": {
       "status": "unassessed",
       "priority": "support",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "entitaet.md": {
+      "status": "partial",
+      "priority": "core",
       "target": null,
       "reviewer": null,
       "reviewed_at": null,
