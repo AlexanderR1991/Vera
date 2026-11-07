@@ -1,6 +1,6 @@
 # Politik, die dem Menschen dient – Forschungsprogramm / Politics That Serves People
 
-**Status:** Version 0.6 · 2026-11-05. Überparteilicher philosophischer Entwurf und offene institutionelle Forschungsagenda. **Keine wissenschaftlich validierte Staatslehre, kein Wahlprogramm und keine unabhängige Begutachtung.**
+**Status:** Version 0.7 · 2026-11-07. Überparteilicher philosophischer Entwurf und offene institutionelle Forschungsagenda. **Keine wissenschaftlich validierte Staatslehre, kein Wahlprogramm und keine unabhängige Begutachtung.**
 
 ## Leitfrage / Central question
 
@@ -53,6 +53,26 @@ https://www.oecd.org/en/topics/ai-principles.html
 
 **Aussagekraft:** Internationale normative Empfehlungen für menschenrechtskonforme, transparente und verantwortliche KI; **keine Prognose** über Beschäftigungseffekte oder Verteilungsfragen und keine empirische Bestätigung einer bestimmten Sozial- oder Steuerreform.
 
+## Marx, Wohlstand und politische Gegenbeispiele / Marx, wealth and political counterexamples
+
+**Verdichtete Arbeitsfrage (P-001, R0):** Wem wachsende Produktivität zugutekommt, hängt nicht nur von der Technik, sondern auch von Eigentum, Verhandlungsmacht und politischen Institutionen ab. Das ist ein zu prüfender empirischer Zusammenhang. **Welche Verteilung gerecht ist, bleibt eine eigene normative Frage.**
+
+Marx analysiert Lohnarbeit, Mehrwert und Kapitalakkumulation als zusammenhängende Mechanismen. Das liefert Fragen zu wirtschaftlicher Macht, aber **keinen automatischen Beweis**, dass jeder Gewinn Unrecht ist, Arbeitszeit allein alle Preise erklärt oder öffentliches Eigentum bereits eine gerechte Gesellschaft erzeugt. Siehe [Marx in der Stanford Encyclopedia of Philosophy](https://plato.stanford.edu/entries/marx/) und [Das Kapital, Band I, Akkumulationsprozess](https://marx-ebooks.github.io/MEW/23/ME23-589.html).
+
+| Vergleichsfall / case | Angriff auf die Pauschalthese | Stärkste Grenze des Vergleichs |
+| --- | --- | --- |
+| [Deutschland: betriebliche und Unternehmensmitbestimmung](https://www.bpb.de/kurz-knapp/lexika/lexikon-der-wirtschaft/20126/mitbestimmung/) | Märkte und private Unternehmen bedeuten nicht notwendig völlige Abwesenheit von Arbeitnehmerstimmen | Mitbestimmung ist begrenzt, differenziert geregelt und garantiert keinen bestimmten Verteilungserfolg |
+| [Norwegen: Government Pension Fund](https://www.regjeringen.no/en/topics/the-economy/the-government-pension-fund/id1441/) | Öffentlich verwaltetes Vermögen und private Wertpapiermärkte können kombiniert werden | Rohstoffreichtum und institutionelle Voraussetzungen sind nicht allgemein übertragbar |
+| [Spanien: MONDRAGON-Genossenschaften](https://www.mondragon-corporation.com/en/about-us/) | Demokratische Eigentumsformen benötigen nicht zwangsläufig staatliche Zentralplanung | Zunächst Selbstbeschreibung der Organisation; Mitgliedschaft, Personalstruktur und Krisen unabhängig prüfen |
+| [Historische staatssozialistische Planwirtschaften](https://academic.oup.com/cje/article/45/2/371/6067266) | Staatliches Produktionseigentum vermeidet nicht automatisch Knappheit, Warteschlangen oder unkontrollierte Macht | Kornai-Forschung über historische Systeme widerlegt nicht jedes Modell öffentlicher Dienste oder demokratischen Gemeineigentums |
+| [China: Reformperiode ab 1978](https://www.worldbank.org/en/news/press-release/2022/04/01/lifting-800-million-people-out-of-poverty-new-report-looks-at-lessons-from-china-s-experience) | Weder „Marktelemente können nie Armut verringern“ noch „der Staat spielt dabei keine Rolle“ passt als vollständige Erklärung | Weltbank-Rückblick (2022), historische Armutsgrenzen, keine eindeutige Kausalzurechnung; Grundrechte getrennt prüfen |
+
+**Stärkste Gegenpositionen offen halten:** Marktwirtschaftliche Ansätze betonen Preiswissen, Wettbewerb und Innovationsanreize; marxistische und andere kritische Ansätze betonen asymmetrische Verfügungsmacht und strukturelle Abhängigkeiten; Genossenschaftsansätze wollen Entscheidungsrechte im Betrieb anders verteilen; wohlfahrtsstaatliche Mischmodelle kombinieren Instrumente. Keine Position wird durch ein einzelnes Land oder eine einzelne Kennzahl bewiesen oder verworfen.
+
+**Prüfung statt Lagerbildung:** Vor einer politischen Empfehlung die genaue Maßnahme, Betroffenen, Vergleichsordnung und Zeitperiode definieren. Effekte auf Einkommen, Teilhabe, Preise, Innovation, Freiheitsrechte, Finanzierung und Umwelt gesondert messen. Schlechte Beobachtungen, gewünschte Normen und historische Sonderbedingungen nicht vermischen.
+
+**Further inquiry (EN):** Marx's structural critique motivates a contestable hypothesis about ownership, bargaining power and distribution. German co-determination, Norway's sovereign fund, worker cooperatives, historical shortage economies and China's reform-period poverty reduction provide **context-sensitive countertests**, not a verdict for one ideology. Distributional outcomes and moral fairness require different standards of assessment. The [bilingual political chapter](https://alexanderr1991.github.io/Wirklich/en/politik-die-dem-menschen-dient/#eigentum-und-macht) exposes the same cases and limitations in English.
+
 ## Offene Hypothesen / Open hypotheses
 
 | ID | Vorschlag | Mögliche Prüfung | Gegenmodell |
@@ -62,6 +82,7 @@ https://www.oecd.org/en/topics/ai-principles.html
 | P-C | Verlässliche Sicherung erweitert unter Bedingungen reale Handlungsmöglichkeiten | Vergleich von Unterstützung, Qualifizierung und Einkommenssicherung; Teilhabe und Kosten | Finanzierbarkeit, Wechselwirkungen mit Steuern, Anreize, Zugangshürden |
 | P-D | Frühzeitige Maßnahmen können Verlierer technologischer Umbrüche schützen | Längsschnittdaten zu Arbeit, Löhnen, Regionen und Kompetenzen; Alternativen prüfen | Technologiefolgen unklar, Regulierungsfehler, Innovationsverluste |
 | P-E | Evaluierbare, revidierbare Politik erkennt Nebenwirkungen früher | Vergleich zeitlich begrenzter Piloten und dauerhafter Regelungen | Unsichere Daten, kurze Zeithorizonte, fehlende Verlässlichkeit |
+| P-F | Eigentum, Mitbestimmung und Verteilungsregeln beeinflussen möglicherweise, wer Produktivitätsgewinne erhält | Vergleich geeigneter Branchen, Regionen oder Unternehmen über Zeit, bei Kontrolle von Technologie, Qualifikation und Konjunktur | Selektion, exogene Preise, sektorale Struktur und andere unbeobachtete Ursachen |
 
 Alle Hypothesen sind **nicht vorregistrierte, ungeprüfte Arbeitsvorschläge**. Eigene Studien erfordern unabhängige Planung und ggf. ethische sowie datenschutzrechtliche Prüfung.
 
