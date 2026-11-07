@@ -89,6 +89,12 @@ Version **1.0.0** stellt das lokale Prüfblatt mit Import und Export bereit. Die
 
 The [status page](https://alexanderr1991.github.io/Wirklich/en/projektstatus/) shows what has been reviewed. The next goals are ten claims examined by qualified human reviewers, a comparison with ordinary source checking and an independent route for appeals. [Roadmap](docs/roadmap.md) · [Governance](docs/community-governance.md) · [Funding](docs/finanzierung.md)
 
+## Freie Rede braucht Schutz · Freedom to challenge
+
+**Auch das Unbequeme darf zur Sprache kommen.** Eine Kritik wird nicht wegen Kränkung, Unbeliebtheit oder Widerspruch zur Projektleitung beseitigt. Doch Menschen haben weder einen Anspruch auf ein ungeschütztes Publikum noch müssen wir Drohungen, Doxxing oder gezielte Einschüchterung öffentlich konservieren. Der **anfechtbare Entwurf REDE-01** sieht eine gestufte Sichtbarkeitsentscheidung vor: stehen lassen, einordnen, vorläufig einschränken und prüfen, öffentliche Verbreitung beenden. Mit menschlicher Verantwortung, datensparsamer Begründung und Einspruch. Das ist **noch kein aktives Moderationssystem**. [REDE-01 (DE/EN)](docs/redefreiheit-und-schutz.md) · [Versionierter Verfahrensentwurf](public/protocol/speech-and-safety.v0.json).
+
+**English:** Discomfort, dissent and criticism of WIRKLICH do not themselves warrant suppression. Credible threats, privacy abuse and targeted harassment may require proportionate restrictions. REDE-01 proposes four visibility outcomes with human reasons and appeal, not a live automated filter. [Read the bilingual proposal](docs/redefreiheit-und-schutz.md).
+
 ## Mitwirken · Contribute
 
 Eine Frage braucht nur einen verständlichen Satz. Für einen Einwand helfen die genaue Stelle, dein Grund und eine mögliche Korrektur. Redaktionelle Änderungen werden in einem öffentlichen Pull Request begründet und von einem verantwortlichen Menschen freigegeben. [Beitragsleitfaden / Contribution guide](CONTRIBUTING.md) · [Kritik einreichen / Challenge a claim](https://github.com/AlexanderR1991/Wirklich/issues/new?template=angriff.yml) · [Erkenntnisprompt / Inquiry prompt](docs/erkenntnisprompt.md)
