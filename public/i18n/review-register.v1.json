@@ -629,6 +629,15 @@
       "source_commit": null,
       "review_url": null
     },
+    "vorwaertsgerichtete-entitaet.md": {
+      "status": "draft",
+      "priority": "core",
+      "target": "docs/en/forward-inquiry.md",
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
     "wahrheitsschwarm.md": {
       "status": "unassessed",
       "priority": "support",
