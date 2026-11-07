@@ -6,6 +6,12 @@ Ziel ist, mögliche Verbindungen untersuchbar zu machen. Eine symbolische Tradit
 
 The aim is to make possible connections examinable. Symbolic traditions may inspire questions; formalisation can expose structure or contradictions. Fit to reality is a further empirical question. A successful encoding establishes neither a supernatural mechanism nor predictive ability. English remains a translation draft.
 
+## Ein Platz im größeren Baum / A place in the wider tree
+
+Diese Werkstatt ist ein einzelner Prüfweg des [offenen Esoterik-Wissensbaums](esoterik-katalog.md) mit 17 Hauptästen und 134 Unterfragen. Die Themen von Tarot über Hermetik bis zur Parapsychologie sind keine bestätigten Befunde. Neue Äste und Gegenmodelle können öffentlich vorgeschlagen und nach menschlicher Prüfung im versionierten Katalog ergänzt werden.
+
+This workshop is one method within the [open esotericism tree](esoterik-katalog.md). Its 17 main branches and 134 subquestions are not validated findings. Further branches and countermodels can be proposed and included after human review.
+
 ## Drei Werkzeuge / Three tools
 
 1. **Symbol → Modell:** Bearbeitbares Prüfblatt mit Aussageart, Definitionen, Formel samt Worten, Folgerung/Vorhersage, Gegenmodell, Prüfung, Korrekturbedingung und Quellenlücken. Vorlagen: I Ging, Resonanz als Deutung, hypothetischer Intuitionstest. Export als JSON oder Text. Kein KI-Aufruf und keine automatische Wahrheits- oder Beweisprüfung. / Editable worksheet with explicit claim type, assumptions, predictions, alternatives and revision criteria; JSON/text export. No automatic truth or proof evaluation.
