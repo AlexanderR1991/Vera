@@ -1,0 +1,170 @@
+---
+import Layout from "../layouts/SiteLayout.astro";
+import project from "../../public/project.json";
+import catalog from "../../public/knowledge/esoterik-tree.json";
+import {topics} from "../lib/tree.mjs";
+import {base,pathFor} from "../lib/paths.mjs";
+import "../styles/esoterik.css";
+
+const {lang="de"}=Astro.props;
+const t=(de,en)=>lang==="en"?en:de;
+const get=(pair)=>pair[lang];
+const types=catalog.kind_labels;
+const sources=new Map(catalog.sources.map(source=>[source.id,source]));
+const related=new Map(topics.map(topic=>[topic.id,topic]));
+const total=catalog.branches.reduce((sum,item)=>sum+item.children.length,0);
+const anchor=id=>"ast-"+id.toLocaleLowerCase().replace(/[^a-z0-9]+/g,"-");
+const proposal=(id,title)=>project.repository+"/issues/new?template=esoterik-ast.yml&title="+encodeURIComponent("[ESOTERIK "+id+"] "+title);
+---
+<Layout lang={lang} slug="esoterik-katalog" pageTitle={t("Esoterik · Offener Wissensbaum","Esotericism · Open Knowledge Tree")} description={t("Ein offener, zweisprachiger Forschungsindex mit prüfbaren Fragen, historischen Strömungen, Symbolik, Erfahrungen und diskutierbaren Unterästen.","An open bilingual research index spanning historical traditions, symbolism, experience, testable questions and discussable subbranches.")}>
+ <article class="esoteric-page" data-esoteric-catalog data-lang={lang}>
+  <header class="esoteric-hero">
+   <div class="container">
+    <p class="section-kicker">{t("WIRKLICH · OFFENER FORSCHUNGSBAUM","WIRKLICH · OPEN RESEARCH TREE")}</p>
+    <h1>{t("Esoterik.","Esotericism.")}<br /><em>{t("Alles darf gefragt werden.","Every question is welcome.")}</em></h1>
+    <p class="esoteric-lead">{t("Was haben Menschen über Jahrhunderte in Symbolen, Ritualen und außergewöhnlichen Erfahrungen gesucht? Was ist historisch belegbar, was persönlich bedeutungsvoll – und was als Wirkung überprüfbar?","What have people sought through symbols, rituals and unusual experiences over centuries? What is historically documented, personally meaningful or empirically testable?")}</p>
+    <p>{get(catalog.scope)}</p>
+    <div class="esoteric-stats" aria-label={t("Umfang des vorläufigen Katalogs","Size of this provisional catalogue")}>
+     <span><strong>{catalog.branches.length}</strong> {t("Hauptäste","main branches")}</span>
+     <span><strong>{total}</strong> {t("Unteräste","subbranches")}</span>
+     <span><strong>0</strong> {t("automatisch bestätigte Thesen","automatically certified claims")}</span>
+    </div>
+    <div class="button-row">
+     <a class="button button--gold" href="#katalog">{t("Den Baum erkunden","Explore the tree")} ↓</a>
+     <a class="button button--ghost" href={pathFor(lang,"baum-des-wissens","ast-esoterik")}>{t("Zum gesamten Wissensbaum","See the full knowledge tree")} ↗</a>
+    </div>
+   </div>
+  </header>
+
+  <section class="container esoteric-method" id="pruefwege">
+   <p class="section-kicker">{t("VERSCHIEDENE ERKENNTNISWEGE · KEINE WAHRHEITSSTUFEN","DIFFERENT METHODS · NOT RANKS OF TRUTH")}</p>
+   <h2>{t("Zuerst klären, welche Frage wir stellen.","First ask what kind of question this is.")}</h2>
+   <p>{t("Jeder Eintrag nennt nur den naheliegenden ersten Prüfweg. Eine einzelne Tradition kann zugleich historische, religiöse, symbolische und empirische Aussagen enthalten. Eine Kategorienzuordnung bestätigt keinen Mechanismus und ist selbst kritisierbar.","Each entry suggests only a starting method. One tradition may involve historical, religious, symbolic and empirical claims at once. A category does not validate a mechanism and may itself be challenged.")}</p>
+   <div class="esoteric-lenses">
+    {Object.entries(types).map(([id,name])=><div><strong>{get(name)}</strong><p>{({
+      history:t("Wer sagt es, seit wann und aus welcher Quelle?","Who said it, when, and in what source?"),
+      interpretation:t("Welche Bedeutung hat ein Zeichen? Welche Gegenlesart gibt es?","What does a symbol mean? What alternative reading exists?"),
+      experience:t("Was wurde erlebt – unabhängig von der Erklärung dafür?","What was experienced, apart from an explanation?"),
+      empirical:t("Welche Vorhersage wäre überprüfbar? Welche Gegenprobe?","What prediction could be tested, and against what baseline?"),
+      normative:t("Wessen Freiheit, Interessen und Risiken stehen auf dem Spiel?","Whose freedom, interests and risks are at stake?"),
+      formal:t("Was folgt logisch oder mathematisch aus klaren Definitionen?","What follows logically or mathematically from clear definitions?")
+     })[id]}</p></div>)}
+   </div>
+   <p class="esoteric-warning">{t("Besonders bei Heilungs- oder Gefahrenbehauptungen gilt: Bedeutung und Trost sind kein Wirksamkeitsnachweis. Dieses Register bietet keine Diagnosen oder Behandlungsanweisungen. Öffentliche Beiträge dürfen keine vertraulichen Daten oder geschützten Rituale Dritter offenlegen.","For claims about health or danger in particular: meaning and comfort are not evidence of efficacy. This register gives no diagnoses or treatment instructions. Public submissions must not disclose private data or protected community rituals.")}</p>
+  </section>
+
+  <section class="container esoteric-examples" aria-label={t("Drei Beispiele","Three examples")}>
+   <article><small>01 / TAROT</small><h3>{t("Ein Symbol kann helfen.","A symbol can help.")}</h3><p>{t("Eine Karte kann eine neue Perspektive auslösen. Daraus folgt nicht, dass sie künftige Ereignisse vorhersagt.","A card can prompt a new perspective. That does not establish an ability to predict future events.")}</p></article>
+   <article><small>02 / ASTROLOGIE</small><h3>{t("Eine Prognose ist prüfbar.","A forecast can be tested.")}</h3><p>{t("Wer einen äußeren Effekt behauptet, kann vorher festlegen, was eintreten müsste und woran ein Irrtum erkennbar wäre.","Someone claiming an external effect can specify in advance what should happen and what would count as a failure.")}</p></article>
+   <article><small>03 / KULTUR</small><h3>{t("Nicht alles gehört uns.","Not everything is ours to share.")}</h3><p>{t("Lebendige Überlieferungen sind mehr als Material für neue Deutungen. Herkunft, Zustimmung und Grenzen der Weitergabe bleiben wichtig.","Living traditions are more than material for reinterpretation. Provenance, consent and limits on sharing matter.")}</p></article>
+  </section>
+
+  <section class="container esoteric-directory" id="katalog">
+   <p class="section-kicker">{t("KATALOG · BESTANDSAUFNAHME","CATALOGUE · EDITORIAL INVENTORY")}</p>
+   <h2>{t("Ein Ast endet nicht an dieser Seite.","A branch does not end on this page.")}</h2>
+   <p>{t("Öffne einen Hauptast, untersuche eine Teilfrage, verfolge ihre Quellen und widersprich. Neue Äste werden auf GitHub vorgeschlagen, öffentlich besprochen und nach menschlicher Prüfung in diese versionierte Datei übernommen – nicht automatisch veröffentlicht.","Open a main branch, examine a question, follow its sources and disagree. New branches are proposed on GitHub, discussed publicly and added to this versioned file following human editorial review, never published automatically.")}</p>
+   <div class="esoteric-tools" hidden data-esoteric-tools role="search">
+    <label>{t("Begriff oder Frage suchen","Search for a term or question")}<input type="search" maxlength="160" data-esoteric-query placeholder={t("z. B. Tarot, Kundalini, Heilung …","e.g. Tarot, Kundalini, healing…")} /></label>
+    <label>{t("Prüfweg","Method")}<select data-esoteric-kind><option value="">{t("Alle Prüfwege","All methods")}</option>{Object.entries(types).map(([kind,label])=><option value={kind}>{get(label)}</option>)}</select></label>
+    <button type="button" class="button button--ghost" data-esoteric-clear>{t("Filter löschen","Clear filters")}</button>
+   </div>
+   <p class="esoteric-results" data-esoteric-count role="status" aria-live="polite">{total} {t("Unteräste im redaktionellen Entwurf","subbranches in the editorial draft")}</p>
+
+   <div class="esoteric-branches">
+    {catalog.branches.map((branch,index)=><section class="esoteric-branch" id={anchor(branch.id)} data-esoteric-branch data-search={[get(branch.title),get(branch.intro)].join(" ")}>
+     <details open={index===0}>
+      <summary><span class="esoteric-branch__no">{branch.id}</span><span class="esoteric-branch__headline"><strong>{get(branch.title)}</strong><span>{get(branch.intro)}</span></span><span class="esoteric-branch__count">{branch.children.length} {t("Unteräste","subbranches")} <span aria-hidden="true">＋</span></span></summary>
+      <div class="esoteric-branch__body">
+       <div class="esoteric-memberships"><span>{t("Berührt andere Äste:","Other branches involved:")}</span>{branch.topics.map(id=><a href={pathFor(lang,"baum-des-wissens","ast-"+id)}>{get(related.get(id).name)}</a>)}</div>
+       <div class="esoteric-items">
+        {branch.children.map(item=><article class="esoteric-item" id={anchor(item.id)} data-esoteric-item data-kind={item.kind} data-search={[get(item.title),get(item.context),get(item.question),item.id].join(" ")}>
+         <div class="esoteric-item__meta"><span>{item.id}</span><span>{get(types[item.kind])}</span></div>
+         <h3>{get(item.title)}</h3>
+         <p>{get(item.context)}</p>
+         <p class="esoteric-question"><strong>{t("Offene Frage:","Open question:")}</strong> {get(item.question)}</p>
+         <div class="esoteric-item__actions">
+          <a href={proposal(item.id,get(item.title))} target="_blank" rel="noopener noreferrer">{t("Diesen Ast diskutieren","Discuss this branch")} ↗</a>
+          <a href={"#"+anchor(item.id)} aria-label={t("Link zum Unterast kopieren über die Adresszeile: ","Link to subbranch: ")+item.id}># {t("Link","Link")}</a>
+         </div>
+        </article>)}
+       </div>
+       <div class="esoteric-branch__sources">
+        <h3>{t("Ausgewählte Einstiegsquellen","Selected starting sources")}</h3>
+        <p>{t("Sie belegen nicht sämtliche Aussagen oder Wirkbehauptungen dieses Hauptastes. Herkunft und weitere Quellen können ergänzt werden.","They do not substantiate every claim or effect in this branch. Provenance and additional sources can be added.")}</p>
+        <ul>{branch.source_ids.map(id=><li><a href={sources.get(id).url} target="_blank" rel="noopener noreferrer">{sources.get(id).title} ↗</a></li>)}</ul>
+       </div>
+       <a class="esoteric-proposal" href={proposal(branch.id,get(branch.title))} target="_blank" rel="noopener noreferrer">{t("Neuen Unterast oder Gegenposition vorschlagen","Propose a new subbranch or counterposition")} ↗</a>
+      </div>
+     </details>
+    </section>)}
+   </div>
+   <p hidden data-esoteric-empty>{t("Kein Eintrag entspricht der Suche. Das Thema darf trotzdem als neuer Ast vorgeschlagen werden.","No entry matches. You may still propose the missing topic as a new branch.")}</p>
+  </section>
+
+  <section class="container esoteric-participate" id="neuer-ast">
+   <p class="section-kicker">{t("DER BAUM BLEIBT OFFEN","THE TREE REMAINS OPEN")}</p>
+   <h2>{t("Eine Frage, die fehlt, ist ein möglicher neuer Ast.","A missing question can become a new branch.")}</h2>
+   <ol>
+    <li>{t("Bestehende Fragen durchsuchen und die nächstliegende Ast-Kennung notieren.","Search existing questions and note the closest branch ID.")}</li>
+    <li>{t("Begriff, Quelle oder Erfahrung benennen und die stärkste Gegenposition zulassen.","State the concept, source or experience and allow the strongest opposing view.")}</li>
+    <li>{t("Frage als öffentlichen Vorschlag einreichen. Redaktionelle Prüfung entscheidet über Ergänzung, Änderung oder begründeten Dissens.","Submit a public proposal. Editorial review determines addition, revision or documented disagreement.")}</li>
+   </ol>
+   <div class="button-row">
+    <a class="button button--gold" href={proposal("NEU",t("Neuer Ast","New branch"))} target="_blank" rel="noopener noreferrer">{t("Neuen Ast vorschlagen","Propose a new branch")} ↗</a>
+    <a class="button button--ghost" href={pathFor(lang,"forum")}>{t("Zum Forum","Go to the forum")} ↗</a>
+    <a class="button button--ghost" href={pathFor(lang,"esoterik-und-mathematik")}>{t("Symbol und Mathematik prüfen","Explore symbols and mathematics")} ↗</a>
+   </div>
+   <p>{t("Lesen ist ohne Konto möglich. Für öffentliche Beiträge wird derzeit ein GitHub-Konto benötigt. Der Katalog ist keine Live-Synchronisierung aller Diskussionen; Vorschläge und ihre Entscheidungen bleiben getrennt und nachverfolgbar.","Reading requires no account. Public submissions currently require a GitHub account. The catalogue is not a live mirror of every discussion; proposals and editorial decisions stay separate and traceable.")}</p>
+   <p><a href={base+"knowledge/esoterik-tree.json"}>{t("Offenen Katalog als JSON lesen","Read the open catalogue as JSON")} ↗</a> · <a href={project.repository+"/blob/main/docs/esoterik-katalog.md"}>{t("Regeln und Quellen des Katalogs","Catalogue rules and sources")} ↗</a></p>
+   <p class="esoteric-review">{t("Arbeitsstand:","Draft state:")} {catalog.version} · {catalog.snapshot} · {t("KI-unterstützter, ungeprüfter Redaktionsentwurf. Korrekturen und strukturelle Gegenentwürfe ausdrücklich erwünscht.","AI-assisted, unreviewed editorial draft. Corrections and alternative classifications explicitly welcome.")}</p>
+  </section>
+ </article>
+</Layout>
+
+<script>
+ const page=document.querySelector<HTMLElement>("[data-esoteric-catalog]");
+ const tools=page?.querySelector<HTMLElement>("[data-esoteric-tools]");
+ const search=page?.querySelector<HTMLInputElement>("[data-esoteric-query]");
+ const kind=page?.querySelector<HTMLSelectElement>("[data-esoteric-kind]");
+ const clear=page?.querySelector<HTMLButtonElement>("[data-esoteric-clear]");
+ const count=page?.querySelector<HTMLElement>("[data-esoteric-count]");
+ const empty=page?.querySelector<HTMLElement>("[data-esoteric-empty]");
+ if(page&&tools&&search&&kind&&clear&&count&&empty){
+  const branches=[...page.querySelectorAll<HTMLElement>("[data-esoteric-branch]")];
+  const normalize=(value:string)=>value.toLocaleLowerCase().normalize("NFKD").replace(/\p{M}/gu,"");
+  const apply=()=>{
+   const query=normalize(search.value).trim();
+   const method=kind.value;
+   const active=Boolean(query||method);
+   let visible=0;
+   for(const branch of branches){
+    const group=normalize(branch.dataset.search||"");
+    let found=0;
+    for(const item of branch.querySelectorAll<HTMLElement>("[data-esoteric-item]")){
+     const matchesText=!query||(normalize(item.dataset.search||"").includes(query)||group.includes(query));
+     const show=matchesText&&(!method||item.dataset.kind===method);
+     item.hidden=!show;
+     if(show)found++;
+    }
+    branch.hidden=found===0;
+    if(active&&found)branch.querySelector("details")!.open=true;
+    visible+=found;
+   }
+   count.textContent=String(visible)+" / "+String(page.querySelectorAll("[data-esoteric-item]").length)+" "+(page.dataset.lang==="en"?"subbranches visible":"Unteräste sichtbar");
+   empty.hidden=visible!==0;
+  };
+  search.addEventListener("input",apply);
+  kind.addEventListener("change",apply);
+  clear.addEventListener("click",()=>{search.value="";kind.value="";apply();search.focus();});
+  tools.hidden=false;apply();
+  const revealHash=()=>{
+   const id=decodeURIComponent(location.hash.slice(1));
+   if(!/^ast-eso-\d{2}(?:-\d{2})?$/.test(id))return;
+   const target=document.getElementById(id);
+   const details=target?.closest("details");
+   if(details)details.open=true;
+  };
+  addEventListener("hashchange",revealHash);
+  revealHash();
+ }
+</script>
