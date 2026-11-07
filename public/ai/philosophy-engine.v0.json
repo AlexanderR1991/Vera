@@ -191,6 +191,11 @@
       }
     }
   ],
+  "dissent_protocol": {
+    "id": "DISSENT-01",
+    "status": "unreviewed_normative_draft",
+    "path": "public/ai/dissent.v1.json"
+  },
   "evaluation_note": {
     "de": "Keine Wirksamkeitsstudie durchgeführt; unabhängige menschliche Prüfung nötig.",
     "en": "No effectiveness study conducted; independent human review required."

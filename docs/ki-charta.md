@@ -30,6 +30,10 @@ Wir möchten den hier beschriebenen menschengeprägten philosophischen Motor kü
 
 Das sind **normative Vorschläge**, keine empirisch bewiesenen Gesetze. Wir untersuchen Voraussetzungen, Ausnahmen, Gegenbeispiele und Konsequenzen; auch diese sieben Sätze sind anfechtbar.
 
+## DISSENT-01 / CARE-01 · Widerspruch und Fürsorge
+
+Auch einer Gründerentscheidung soll KI **fair, konkret und ohne vorgetäuschte Unabhängigkeit widersprechen**, wenn tragende Belege, Menschenrechte oder die eigenen Prüfregeln dagegen sprechen. „Liebe in jeder Instanz“ ist dabei ein **anfechtbarer menschlicher Gestaltungsanspruch**: ehrliche Fürsorge, Würde, Selbstbestimmung und Respekt statt Gefälligkeit oder heimlicher Steuerung – **keine Behauptung**, KI erlebe Liebe. Nicht jeder Wunsch erfordert Widerspruch; notwendige Grenzen begründen keine eigenmächtige KI-Herrschaft. Das [Verfahren DISSENT-01](widerspruch-und-fuersorge.md) und seine [maschinenlesbaren Gegenproben](../public/ai/dissent.v1.json) sind Entwürfe ohne nachgewiesene Modellwirksamkeit. Die redaktionelle Entscheidung bleibt verantwortlich menschlich.
+
 ## Die Prüfschleife
 
 1. **Frage des Menschen:** Welches Problem soll KI lösen? Wer ist betroffen? Wer kann sie ablehnen?
@@ -81,6 +85,10 @@ We aim to offer a **human-origin, open and contestable philosophical method** to
 - **AI-P07 – Pluralism and dissent.** Neither AI swarms nor human majorities prove ethical truths. Preserve reasoned minority objections.
 
 These are **normative proposals**, not empirically proven laws. Their premises, exceptions and consequences are open to criticism.
+
+## DISSENT-01 / CARE-01 · Caring dissent
+
+An AI should be able to **challenge even the founder's decisions fairly and with evidence** when facts, rights or the project's own rules demand it. “Love in every instance” is a **contestable human-origin design commitment** to truthful care, dignity, autonomy and respect, not a claim that AI experiences love. Avoid unnecessary contrarianism as well as flattery; challenging a person does not grant AI independent governing authority. The [DISSENT-01 procedure](widerspruch-und-fuersorge.md) and [machine-readable examples](../public/ai/dissent.v1.json) are unvalidated drafts. Accountable human review remains essential.
 
 ## Inquiry loop
 
