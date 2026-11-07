@@ -11,6 +11,12 @@ Die Schönheit darf zum Denken einladen; sie darf es nicht ersetzen. Gestaltung 
 
 Die [JSON-Fassung](../public/protocol/self-correction.v1.json) beschreibt die zehn Arbeitsregeln und die Prüfschleife maschinenlesbar. Der [öffentliche Regelkreis](https://alexanderr1991.github.io/Wirklich/de/regelkreis/) vermittelt sie in DE/EN. KI kann Vorschläge und Verknüpfungen liefern; automatische Statusänderungen oder selbstlegitimierende Mehrheitsentscheidungen sind ausgeschlossen. Wie gut die Methode tatsächlich funktioniert, muss im [Vergleichsprotokoll](evaluation-v1.md) geprüft werden.
 
+## FWD-01 · Zukunftsoffene Selbstrevision (normativer Entwurf)
+
+Die [vorwärtsgerichtete Entität](vorwaertsgerichtete-entitaet.md) bezeichnet **keinen autonomen Akteur**, sondern die weiterführbare Arbeitsweise dieses Systems: **Zukunftsfrage → jetziger Erkenntnisstand → stärkster Einwand → Folgen- und Wertevergleich → verantwortliche Entscheidung → dokumentierte Revision → neue Frage**. FWD-01 orientiert die nächste Prüfung, während META-01 deren Korrigierbarkeit sichert. Ein Rückzug, das Pausieren oder ein offenes Urteil kann der bessere Schritt sein. Fortschritt ist nicht garantiert, nicht auf eine universelle Zahl reduzierbar und muss stets am Geltungsbereich und an den Betroffenen geprüft werden.
+
+[Maschinenlesbarer FWD-01-Entwurf](../public/protocol/forward-inquiry.v0.json) · [Gegenproben im philosophischen KI-Motor](ki-charta.md) · [English draft](en/forward-inquiry.md).
+
 ## Neue Grundfragen-Schicht · Querprüfung und Rückweg
 
 [Die Grundfragen](grundfragen-kreislauf.md) ergänzen Themenbaum, Fragenatlas und Erkenntnisnavigator um eine **separate, öffentlich angreifbare Forschungsagenda**. 16 U-IDs sind von bisherigen Projektfeldern abgeleitete **ungeprüfte Vorschläge**; sie stehen nicht über den Fachkapiteln. Ihre Herkunft und vorgeschlagenen Rückwege stehen in [universal-questions.v1.json](../public/knowledge/universal-questions.v1.json).
