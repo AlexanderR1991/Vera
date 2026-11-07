@@ -14,9 +14,9 @@ Provide sources for factual claims and reasons for philosophical positions.
 
 ### Nur bei Regeländerungen / For rule changes only
 
-Verlinke die geltende Regel mit Commit und Abschnitt. Nenne den neuen Wortlaut, einen Fall mit anderer Entscheidung und wessen Befugnisse sich ändern. Vor der Entscheidung ergänzt der Maintainer die Frist für Einwände, danach Gründe, mögliche Befangenheit und den stärksten offenen Einwand. [Verfahren / Procedure](../docs/community-governance.md)
+Verlinke die geltende Regel mit Commit und Abschnitt. Nenne den neuen Wortlaut, einen Fall mit anderer Entscheidung und wessen Befugnisse sich ändern. Vor der Entscheidung ergänzt der Maintainer die Frist für Einwände oder dokumentiert die begründete Sofortentscheidung in der Gründungsphase. Bei externer Beteiligung gelten die erneuten Beratungs- und Fristregeln. Gründe, Befangenheit und stärkster offener Einwand bleiben zu dokumentieren. [Verfahren / Procedure](../docs/community-governance.md)
 
-Link the current rule at a specific commit and section. Give the proposed wording, a case that would be decided differently and whose authority changes. The maintainer sets a deadline for objections in advance and then records the reasons, conflicts of interest and strongest outstanding objection.
+Link the current rule at a specific commit and section. Give the proposed wording, a case that would be decided differently and whose authority changes. The maintainer announces an objection window, or explicitly justifies immediate founding-phase approval without external contributors. With external participation, the public review and deadline rules apply. Always record reasons, conflicts of interest and the strongest outstanding objection.
 
 ## META-01 · Korrekturprotokoll / Correction record
 
