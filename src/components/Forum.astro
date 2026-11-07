@@ -8,6 +8,7 @@ import forum from "../../public/knowledge/forum-threads.json";
 import questionAtlas from "../../public/knowledge/questions.json";
 import {connectionsForQuestion} from "../lib/questions.mjs";
 import "../styles/mission.css";
+import esoterik from "../../public/knowledge/esoterik-tree.json";
 
 const {lang="de"}=Astro.props;
 const en=lang==="en";
@@ -56,6 +57,18 @@ const reviewText={
  </section>
 
  <EverydayQuestions lang={lang} />
+
+ <section class="forum-section container" id="esoterik-forum" aria-labelledby="esoterik-forum-title">
+  <p class="section-kicker">{t("OFFENER WISSENSBAUM · NEUE ÄSTE","OPEN KNOWLEDGE TREE · NEW BRANCHES")}</p>
+  <h2 id="esoterik-forum-title">{t("Esoterik ist kein einzelner Gedanke.","Esotericism is not a single idea.")}</h2>
+  <p>{t("Die neue Esoterik-Karte enthält","The new esotericism map contains")} {esoterik.branches.length} {t("Hauptäste und","main branches and")} {esoterik.branches.reduce((sum,branch)=>sum+branch.children.length,0)} {t("diskutierbare Unteräste. Jeder Ast trägt eine andere Frage; kein Beitrag wird per Mehrheit oder durch KI automatisch wahr.","discussable subbranches. Each carries its own question; neither votes nor AI automatically establish its truth.")}</p>
+  <details class="forum-esoteric-details"><summary>{t("Die Hauptäste anzeigen","Show the main branches")}</summary>
+   <ul>{esoterik.branches.map(branch=><li><a href={pathFor(lang,"esoterik-katalog","ast-"+branch.id.toLowerCase())}>{branch.id} · {branch.title[lang]}</a></li>)}</ul>
+  </details>
+  <div class="button-row"><a class="button button--gold" href={pathFor(lang,"esoterik-katalog")}>{t("Fragenbaum erkunden","Explore the question tree")} ↗</a><a class="button button--ghost" href={project.repository+"/issues/new?template=esoterik-ast.yml"} target="_blank" rel="noopener noreferrer">{t("Neuen Unterast vorschlagen","Propose a new subbranch")} ↗</a></div>
+  <p class="forum-questions__bottom">{t("Diskussionsvorschläge werden als öffentliche GitHub Issues eingereicht. Sie sind keine automatisch erzeugten Debatten und erscheinen erst nach redaktioneller Prüfung im Katalog. Lesen ist ohne Konto möglich.","Discussion proposals are submitted as public GitHub Issues. They are not auto-created threads and enter the catalogue only after editorial review. Reading requires no account.")}</p>
+ </section>
+
 
  <section class="forum-section container" aria-labelledby="forum-places">
   <div class="forum-section__intro">
