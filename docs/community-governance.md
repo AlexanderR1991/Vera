@@ -75,7 +75,9 @@ Appeals can be submitted as public issues identifying the decision, objection, r
 
 ## Diskussionsräume / Discussion spaces
 
-In [Discussions](https://github.com/AlexanderR1991/Wirklich/discussions) können offene Gespräche, Vorstellungsrunden und die Erkundung von Ideen stattfinden. **Issues** bleiben für überprüfbare, konkrete Aufgaben und Fehler; **Pull Requests** für tatsächliche Text- und Codeänderungen.
+In [Discussions](https://github.com/AlexanderR1991/Wirklich/discussions) können offene Gespräche, Vorstellungsrunden und die Erkundung von Ideen stattfinden. Die zweisprachige Website-Seite [Das Forum](https://alexanderr1991.github.io/Wirklich/de/forum/) führt zu diesen Gesprächen und zu einem festen öffentlichen Issue-Debattenfaden **je Aussage-ID**. Die Zuordnung steht in [forum-threads.json](../public/knowledge/forum-threads.json); die Debatten bleiben auch bei neuen Aussageversionen nachvollziehbar. **Issues** bleiben für konkrete, prüfbare Aufgaben, Fehler und die an Aussagen gebundenen Debatten; **Pull Requests** für tatsächliche Text- und Codeänderungen. Die Agora-/Stoa-/Curia-Namen dienen der Orientierung, sie sind keine gesondert betriebenen Unterforen. Gesprächsbeiträge und Reaktionen setzen keine Wahrheitsebene und keinen Prüfstatus herauf. [Forum-Protokoll](forum.md).
+
+The bilingual [Forum](https://alexanderr1991.github.io/Wirklich/en/forum/) links open GitHub Discussions and permanent issue threads for every registered claim. [The mapping](../public/knowledge/forum-threads.json) uses stable claim IDs. Those discussions do not change review or maturity status automatically. The Agora/Stoa/Curia labels describe paths through existing GitHub services, not separately hosted subforums. Actual edits go through reviewed pull requests.
 
 ## Erster Beitrag / Welcome discussion
 

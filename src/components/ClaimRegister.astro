@@ -3,9 +3,11 @@ import Layout from "../layouts/SiteLayout.astro";
 import {absoluteFor,pathFor,base} from "../lib/paths.mjs";
 import project from "../../public/project.json" with {type: "json"};
 import register from "../../public/knowledge/claims.json";
+import forum from "../../public/knowledge/forum-threads.json";
 import {maturityLabels,abstractionLabels,consensusLabels} from "../lib/maturity.mjs";
 import "../styles/mission.css";
 const {lang="de"}=Astro.props;
+const threads=new Map(forum.threads.map(thread=>[thread.claim_id,thread.issue_number]));
 const en=lang==="en";
 const t=(de,english)=>en?english:de;
 const types={normative:t("Normatives Urteil","Normative judgment"),metaphor:t("Metapher","Metaphor"),empirical:t("Empirische Aussage","Empirical claim"),formal:t("Formale Aussage","Formal claim"),interpretive:t("Interpretation","Interpretation")};
@@ -56,11 +58,12 @@ const support={value_commitment:t("Wertentscheidung","Value commitment"),concept
     <p>{t("Modellversion: ","Model version: ")}{c.ai_assistance.model||t("nicht erfasst","not recorded")}</p>
     <ul>{c.history.map(h=><li>v{h.version} · {h.date} · {h.change[lang]}</li>)}</ul>
    </details>
+   <div class="button-row claim-discussion-links"><a class="button button--gold" href={project.repository+"/issues/"+threads.get(c.id)} target="_blank" rel="noopener noreferrer">{t("Im Forum diskutieren ↗","Discuss in the Forum ↗")}</a>
    <a class="button button--ghost" href={project.repository + "/issues/new?" + new URLSearchParams({
     template: "angriff.yml",
     title: `[${c.id} v${c.version}] ${t("Begründeter Einwand", "Reasoned objection")}`,
     source: `${absoluteFor(lang, "aussagen")}#${c.id} · ${c.id} v${c.version} · ${c.statement[lang]}`
-   })}>{t("Diesen Eintrag kritisieren ↗","Challenge this entry ↗")}</a>
+   })}>{t("Gezielten Einwand einreichen ↗","Submit a focused objection ↗")}</a></div>
   </section>)}
  </article>
 </Layout>

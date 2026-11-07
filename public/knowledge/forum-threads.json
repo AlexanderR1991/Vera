@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "repository": "AlexanderR1991/Wirklich",
+  "threads": [
+    {
+      "claim_id": "G-005",
+      "issue_number": 61
+    },
+    {
+      "claim_id": "H-001",
+      "issue_number": 62
+    },
+    {
+      "claim_id": "KI-001",
+      "issue_number": 63
+    },
+    {
+      "claim_id": "MED-001",
+      "issue_number": 64
+    }
+  ]
+}
