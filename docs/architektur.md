@@ -118,3 +118,10 @@ Das Forum nutzt weiterhin GitHub Discussions (Agora), aussagegebundene Issues (S
 Die Offline-Triage (max. 50 `ai_draft`-Kandidaten je Lauf) schlägt nur mögliche Dopplungen oder lexikalische Nachbarn vor; sie ruft keine KI auf und veröffentlicht nichts. Die vorhandenen Schwarm-Workflows schreiben weiterhin ausschließlich in begrenzte, ungeprüfte Forschungsdateien. Ein vollständig semantischer oder automatisch aktualisierter Wissensgraph ist **nicht** vorhanden. [Vertrag, Grenzen und Eskalationsregeln](fragenatlas.md).
 
 **English:** The new question graph is an editorial pilot, not a live Discussion/Issue index or automated semantic engine. AI drafts stay separate; the local triage never publishes or promotes claims.
+
+## ENT-00 · Entität als offener, überprüfbarer Integrationskern (7. November 2026)
+
+Die [Entität](entitaet.md) bezeichnet einen **experimentellen, kollektiven Erkenntniskreislauf**, keine lebende oder bewusste KI: **Frage → Typ → Perspektiven → starker Einwand → Prüfung → Revisionsentwurf → menschliche Entscheidung → Versionierung → neue Frage.** Das [maschinenlesbare ENT-00-Protokoll](../public/protocol/entity-loop.v0.json), das deterministische [JS-Modul](../src/lib/entity-core.mjs) und die [bilinguale lokale Demo](https://alexanderr1991.github.io/Wirklich/de/entitaet/) binden vorhandene Grundsätze zusammen, statt konkurrierende Prüfgrade einzuführen.
+
+Die Demo kann ungeprüfte Einwände nur **privat im Browser** hinzufügen und als JSON exportieren; sie besitzt keinen verifizierten menschlichen Review, keinen aktiven Agentenschwarm und keinen Richtungsindex. Entwürfe und Hinweise ändern weder öffentliche Thesen noch R0–R4 oder Konsens. Ein menschlicher Statuswechsel benötigt einen **extern authentifizierten** Freigabepfad, der hier nicht implementiert ist. Die PRs zu kollektiver Intelligenz, vorwärtsgerichteter Entität, Agenten, Richtungsindex und Mathematik bleiben separate, offen zu prüfende Vorschläge. „Fortschritt“ ist keine garantierte Eigenschaft einer Änderung; auch Rückzug, Pause und Dissens sind zulässig. [META-01](selbstkorrektur.md) bleibt selbst anfechtbar.
+
