@@ -1,0 +1,236 @@
+{
+  "schema_version": 1,
+  "kind": "synthetic_toy_examples",
+  "status": "unvalidated_research_draft",
+  "evaluation": "Effects, value weights, safeguarding declarations and comparisons are invented for model tests. None is observed, calibrated or human approved.",
+  "cases": [
+    {
+      "id": "SYN-M03-01",
+      "kind": "synthetic",
+      "title": {
+        "de": "Gute Absicht, widersprüchliche Richtungen",
+        "en": "Good intentions, conflicting directions"
+      },
+      "context": {
+        "action": "Fictional assistance programme",
+        "baseline": "No additional assistance",
+        "population": "Fictional adults",
+        "horizon": "One fictional year"
+      },
+      "dimensions": [
+        {
+          "id": "autonomy",
+          "label": {
+            "de": "Selbstbestimmung",
+            "en": "Agency"
+          },
+          "effects": [
+            0.1,
+            0.2,
+            0.3
+          ]
+        },
+        {
+          "id": "care",
+          "label": {
+            "de": "Fürsorge",
+            "en": "Care"
+          },
+          "effects": [
+            0.4,
+            0.5,
+            0.6
+          ]
+        },
+        {
+          "id": "resources",
+          "label": {
+            "de": "Ressourcen",
+            "en": "Resources"
+          },
+          "effects": [
+            -0.6,
+            -0.4,
+            -0.2
+          ]
+        }
+      ],
+      "value_profiles": [
+        {
+          "id": "care-agency",
+          "label": {
+            "de": "Fürsorge & Freiheit",
+            "en": "Care & agency"
+          },
+          "weights": {
+            "autonomy": 0.4,
+            "care": 0.4,
+            "resources": 0.2
+          }
+        },
+        {
+          "id": "resources",
+          "label": {
+            "de": "Ressourcenpriorität",
+            "en": "Resource priority"
+          },
+          "weights": {
+            "autonomy": 0.2,
+            "care": 0.2,
+            "resources": 0.6
+          }
+        }
+      ],
+      "safeguards": [
+        {
+          "id": "rights",
+          "status": "pass"
+        },
+        {
+          "id": "safety",
+          "status": "pass"
+        }
+      ]
+    },
+    {
+      "id": "SYN-M03-02",
+      "kind": "synthetic",
+      "title": {
+        "de": "Positive Wirkung trotz roter Grenze",
+        "en": "Positive effects despite a hard limit"
+      },
+      "context": {
+        "action": "Fictional coercive intervention",
+        "baseline": "No intervention",
+        "population": "Fictional adults",
+        "horizon": "One fictional month"
+      },
+      "dimensions": [
+        {
+          "id": "effectiveness",
+          "label": {
+            "de": "Wirkung",
+            "en": "Effectiveness"
+          },
+          "effects": [
+            0.5,
+            0.7,
+            0.8
+          ]
+        },
+        {
+          "id": "cost",
+          "label": {
+            "de": "Aufwand",
+            "en": "Cost"
+          },
+          "effects": [
+            -0.1,
+            0,
+            0.1
+          ]
+        }
+      ],
+      "value_profiles": [
+        {
+          "id": "effective",
+          "label": {
+            "de": "Wirkungsorientiert",
+            "en": "Effectiveness-weighted"
+          },
+          "weights": {
+            "effectiveness": 0.9,
+            "cost": 0.1
+          }
+        },
+        {
+          "id": "balanced",
+          "label": {
+            "de": "Ausgewogen",
+            "en": "Balanced"
+          },
+          "weights": {
+            "effectiveness": 0.5,
+            "cost": 0.5
+          }
+        }
+      ],
+      "safeguards": [
+        {
+          "id": "rights",
+          "status": "fail"
+        },
+        {
+          "id": "safety",
+          "status": "pass"
+        }
+      ]
+    },
+    {
+      "id": "SYN-M03-03",
+      "kind": "synthetic",
+      "title": {
+        "de": "Unbekannt ist nicht neutral",
+        "en": "Unknown is not neutral"
+      },
+      "context": {
+        "action": "Fictional new procedure",
+        "baseline": "Existing procedure",
+        "population": "Fictional community",
+        "horizon": "One fictional year"
+      },
+      "dimensions": [
+        {
+          "id": "benefit",
+          "label": {
+            "de": "Nutzen",
+            "en": "Benefit"
+          },
+          "effects": [
+            0.2,
+            0.3,
+            0.4
+          ]
+        },
+        {
+          "id": "harm",
+          "label": {
+            "de": "Ungeklärte Risiken",
+            "en": "Unassessed harm"
+          },
+          "effects": null
+        }
+      ],
+      "value_profiles": [
+        {
+          "id": "benefit",
+          "label": {
+            "de": "Nutzenorientiert",
+            "en": "Benefit priority"
+          },
+          "weights": {
+            "benefit": 0.8,
+            "harm": 0.2
+          }
+        },
+        {
+          "id": "precaution",
+          "label": {
+            "de": "Vorsorgeorientiert",
+            "en": "Precaution"
+          },
+          "weights": {
+            "benefit": 0.2,
+            "harm": 0.8
+          }
+        }
+      ],
+      "safeguards": [
+        {
+          "id": "rights",
+          "status": "unknown"
+        }
+      ]
+    }
+  ]
+}
