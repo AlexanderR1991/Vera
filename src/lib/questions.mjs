@@ -14,6 +14,7 @@ export function validateQuestionAtlas(data, claims = [], knownTopics = []) {
  if (data?.schema_version !== 1) errors.push("Unsupported question atlas schema");
  if (!date(data?.updated_at)) errors.push("Missing atlas update date");
  if (!Array.isArray(data?.questions) || data.questions.length === 0) return [...errors,"Questions must be a nonempty array"];
+ const relations = Array.isArray(data?.relations) ? data.relations : [];
  if (!Array.isArray(data?.relations)) errors.push("Relations must be an array");
  for (const q of data.questions) {
   if (!q || typeof q !== "object") {errors.push("Invalid question object");continue;}
@@ -31,7 +32,7 @@ export function validateQuestionAtlas(data, claims = [], knownTopics = []) {
   if (!Array.isArray(q.topics) || !q.topics.length || new Set(q.topics).size !== q.topics.length || (knownTopics.length && q.topics.some(id => !topicIds.has(id)))) fail("invalid topic references");
  }
  const seen = new Set(), parentGraph = new Map();
- for (const edge of data.relations ?? []) {
+ for (const edge of relations) {
   if (!edge || typeof edge !== "object") {errors.push("Invalid relation");continue;}
   const key = `${edge.from}:${edge.type}:${edge.to}`;
   if (!ids.has(edge.from) || !ids.has(edge.to) || edge.from === edge.to) errors.push(`${key}: missing endpoint or self link`);
@@ -84,7 +85,7 @@ export function triageQuestionCandidates(candidates, atlas, lang = "de") {
  return candidates.map(candidate => {
   if (!candidate || typeof candidate.id !== "string" || !/^C-[\w-]{1,60}$/.test(candidate.id) ||
       ids.has(candidate.id) || candidate.origin !== "ai_draft" ||
-      !bilingual(candidate.question) || candidate.question[lang].length > 600) {
+      !bilingual(candidate.question) || candidate.question.de.length > 600 || candidate.question.en.length > 600) {
    throw Error("Invalid candidate id, origin, text or duplicate");
   }
   ids.add(candidate.id);
