@@ -1,0 +1,2623 @@
+{
+  "schema_version": 1,
+  "version": "0.1.0",
+  "snapshot": "2026-11-07",
+  "status": "unreviewed_editorial_draft",
+  "languages": [
+    "de",
+    "en"
+  ],
+  "scope": {
+    "de": "Offener, unvollständiger Forschungsindex: weder Glaubensbekenntnis noch Wirksamkeitsregister. Auch die Auswahl und Zuordnung der Themen sind angreifbar.",
+    "en": "Open, incomplete research index: neither creed nor evidence-of-efficacy register. The selection and categorization themselves are contestable."
+  },
+  "kind_labels": {
+    "history": {
+      "de": "Geschichte & Quellen",
+      "en": "History & sources"
+    },
+    "interpretation": {
+      "de": "Deutung & Symbol",
+      "en": "Interpretation & symbol"
+    },
+    "experience": {
+      "de": "Erfahrung & Selbstbericht",
+      "en": "Experience & self-report"
+    },
+    "empirical": {
+      "de": "Prüfbare Behauptung",
+      "en": "Testable claim"
+    },
+    "normative": {
+      "de": "Ethik & Verantwortung",
+      "en": "Ethics & responsibility"
+    },
+    "formal": {
+      "de": "Formale Struktur",
+      "en": "Formal structure"
+    }
+  },
+  "sources": [
+    {
+      "id": "uva",
+      "title": "University of Amsterdam · Western esotericism",
+      "url": "https://www.uva.nl/en/discipline/religious-studies/western-esotericism/article.html"
+    },
+    {
+      "id": "oxford",
+      "title": "Oxford University Press · The Western Esoteric Traditions",
+      "url": "https://academic.oup.com/book/9553"
+    },
+    {
+      "id": "global",
+      "title": "Religious Comparativism, Esotericism, and the Global Occult (2024)",
+      "url": "https://doi.org/10.30965/23642807-bja10080"
+    },
+    {
+      "id": "met",
+      "title": "The Metropolitan Museum of Art · Before Fortune-Telling",
+      "url": "https://www.metmuseum.org/fr/perspectives/tarot-2"
+    },
+    {
+      "id": "bbc",
+      "title": "BBC Earth · Is Astrology Backed By Science?",
+      "url": "https://www.bbcearth.com/news/is-astrology-backed-by-science"
+    },
+    {
+      "id": "nccih",
+      "title": "US NIH NCCIH · Reiki",
+      "url": "https://www.nccih.nih.gov/health/reiki"
+    },
+    {
+      "id": "unesco",
+      "title": "UNESCO · Ethics and Intangible Cultural Heritage",
+      "url": "https://ich.unesco.org/en/ethics-and-ich-00866"
+    },
+    {
+      "id": "cos",
+      "title": "Center for Open Science · Preregistration",
+      "url": "https://www.cos.io/initiatives/prereg"
+    }
+  ],
+  "branches": [
+    {
+      "id": "ESO-01",
+      "title": {
+        "de": "Begriffe, Methoden & Grenzen",
+        "en": "Terms, methods & boundaries"
+      },
+      "intro": {
+        "de": "Esoterik ist kein einheitliches Glaubenssystem. Das Wort bezeichnet unterschiedliche historische Strömungen und gegenwärtige Selbstdeutungen. Hier klären wir zuerst, worüber überhaupt gesprochen wird.",
+        "en": "Esotericism is not a single belief system. The term covers distinct historical currents and contemporary self-understandings. Inquiry begins by clarifying what is actually being discussed."
+      },
+      "topics": [
+        "philosophie",
+        "geschichte",
+        "religion"
+      ],
+      "source_ids": [
+        "uva",
+        "oxford",
+        "global"
+      ],
+      "children": [
+        {
+          "id": "ESO-01.01",
+          "title": {
+            "de": "Esoterisch und exoterisch",
+            "en": "Esoteric and exoteric"
+          },
+          "context": {
+            "de": "Innenwissen und öffentlich vermitteltes Wissen werden je nach Kontext unterschiedlich abgegrenzt.",
+            "en": "Inner teachings and publicly shared knowledge are distinguished differently in different contexts."
+          },
+          "question": {
+            "de": "Wer bestimmt, was als verborgenes Wissen gilt?",
+            "en": "Who decides what counts as hidden knowledge?"
+          },
+          "kind": "history"
+        },
+        {
+          "id": "ESO-01.02",
+          "title": {
+            "de": "Okkultismus",
+            "en": "Occultism"
+          },
+          "context": {
+            "de": "Das Wort benennt auch konkrete Bewegungen der Neuzeit; es ist kein Synonym für alles Ungewohnte.",
+            "en": "The term also names specific modern movements; it is not a synonym for everything unfamiliar."
+          },
+          "question": {
+            "de": "Welche historische Praxis wird mit dem Begriff erfasst?",
+            "en": "Which historical practice does the term actually describe?"
+          },
+          "kind": "history"
+        },
+        {
+          "id": "ESO-01.03",
+          "title": {
+            "de": "Mystik und Esoterik",
+            "en": "Mysticism and esotericism"
+          },
+          "context": {
+            "de": "Mystische Erfahrung und esoterische Überlieferung können sich berühren, sind aber nicht deckungsgleich.",
+            "en": "Mystical experience and esoteric transmission may overlap but are not identical."
+          },
+          "question": {
+            "de": "Wann wird ein inneres Erleben zu einer Aussage über die Welt?",
+            "en": "When does an inner experience become a claim about the world?"
+          },
+          "kind": "interpretation"
+        },
+        {
+          "id": "ESO-01.04",
+          "title": {
+            "de": "Geheimlehre und Initiation",
+            "en": "Secrecy and initiation"
+          },
+          "context": {
+            "de": "Zugangsbeschränkungen können Zugehörigkeit schaffen, aber auch Macht konzentrieren.",
+            "en": "Restricted access may build belonging, but it can also concentrate power."
+          },
+          "question": {
+            "de": "Wann schützt Geheimhaltung, und wann verhindert sie berechtigte Kritik?",
+            "en": "When does secrecy protect, and when does it block justified criticism?"
+          },
+          "kind": "normative"
+        },
+        {
+          "id": "ESO-01.05",
+          "title": {
+            "de": "Offenbarung und Autorität",
+            "en": "Revelation and authority"
+          },
+          "context": {
+            "de": "Eine Berufung auf höhere Einsicht lässt sich als Quellenanspruch untersuchen, nicht als Beweis verwenden.",
+            "en": "An appeal to higher insight can be studied as an authority claim, not treated as proof."
+          },
+          "question": {
+            "de": "Wie darf jemand einer Offenbarung widersprechen?",
+            "en": "How may someone challenge a claimed revelation?"
+          },
+          "kind": "normative"
+        },
+        {
+          "id": "ESO-01.06",
+          "title": {
+            "de": "Entsprechungen und Analogien",
+            "en": "Correspondences and analogies"
+          },
+          "context": {
+            "de": "Ähnlichkeit zwischen Symbolen oder Strukturen begründet noch keine kausale Verbindung.",
+            "en": "Similarity between symbols or structures does not establish a causal link."
+          },
+          "question": {
+            "de": "Welche zusätzliche Beobachtung würde aus einer Analogie eine belastbare Erklärung machen?",
+            "en": "What further observation could turn an analogy into a supported explanation?"
+          },
+          "kind": "formal"
+        },
+        {
+          "id": "ESO-01.07",
+          "title": {
+            "de": "Tradition, Neuerfindung, Quellen",
+            "en": "Transmission, reinvention, sources"
+          },
+          "context": {
+            "de": "Viele angeblich uralten Lehren wurden später verändert, neu zusammengesetzt oder neu zugeschrieben.",
+            "en": "Many supposedly ancient teachings were later adapted, recombined or newly attributed."
+          },
+          "question": {
+            "de": "Welche Fassung stammt nachweislich aus welcher Zeit?",
+            "en": "Which version can actually be dated to which period?"
+          },
+          "kind": "history"
+        }
+      ]
+    },
+    {
+      "id": "ESO-02",
+      "title": {
+        "de": "Antike Hermetik & philosophische Ursprünge",
+        "en": "Ancient Hermeticism & philosophical origins"
+      },
+      "intro": {
+        "de": "Spätantike Texte und philosophische Schulen bilden wichtige historische Bezugspunkte. Eine genealogische Verbindung ist von der Behauptung einer unveränderten Geheimtradition zu trennen.",
+        "en": "Late antique texts and philosophical schools are important historical reference points. A documented lineage must be distinguished from claims of an unchanged secret tradition."
+      },
+      "topics": [
+        "geschichte",
+        "philosophie",
+        "religion"
+      ],
+      "source_ids": [
+        "uva",
+        "oxford"
+      ],
+      "children": [
+        {
+          "id": "ESO-02.01",
+          "title": {
+            "de": "Corpus Hermeticum",
+            "en": "Corpus Hermeticum"
+          },
+          "context": {
+            "de": "Spätantike Texte unter dem Namen Hermes; verschiedene Überlieferungs- und Auslegungsschichten.",
+            "en": "Late antique writings attributed to Hermes, with distinct layers of transmission and interpretation."
+          },
+          "question": {
+            "de": "Welche Aussagen gehören zum Text und welche zu späteren Lesarten?",
+            "en": "Which claims belong to the text and which to later interpretations?"
+          },
+          "kind": "history"
+        },
+        {
+          "id": "ESO-02.02",
+          "title": {
+            "de": "Hermes Trismegistos",
+            "en": "Hermes Trismegistus"
+          },
+          "context": {
+            "de": "Tradierte Autorfigur zwischen ägyptischen und griechischen Bezügen, keine nachgewiesene Einzelbiografie.",
+            "en": "A transmitted author figure with Egyptian and Greek associations, not an established individual biography."
+          },
+          "question": {
+            "de": "Wie entsteht Autorität durch eine zugeschriebene Urheberfigur?",
+            "en": "How does authority arise through an attributed author figure?"
+          },
+          "kind": "history"
+        },
+        {
+          "id": "ESO-02.03",
+          "title": {
+            "de": "Gnostische Strömungen",
+            "en": "Gnostic currents"
+          },
+          "context": {
+            "de": "Uneinheitliche religiöse Bewegungen und Texte, die nicht zu einer einzigen Lehre verkürzt werden dürfen.",
+            "en": "Diverse religious movements and texts that should not be reduced to one doctrine."
+          },
+          "question": {
+            "de": "Was bedeutet Erlösung durch Erkenntnis in verschiedenen Quellen?",
+            "en": "What does salvation through knowledge mean in different sources?"
+          },
+          "kind": "history"
+        },
+        {
+          "id": "ESO-02.04",
+          "title": {
+            "de": "Neuplatonismus",
+            "en": "Neoplatonism"
+          },
+          "context": {
+            "de": "Philosophische Systeme über Einheit, Geist und Wirklichkeit beeinflussten viele spätere Deutungen.",
+            "en": "Philosophical systems of unity, mind and reality influenced later interpretations."
+          },
+          "question": {
+            "de": "Welche Schlüsse sind philosophisch, welche behaupten Naturmechanismen?",
+            "en": "Which inferences are philosophical and which posit natural mechanisms?"
+          },
+          "kind": "interpretation"
+        },
+        {
+          "id": "ESO-02.05",
+          "title": {
+            "de": "Theurgie",
+            "en": "Theurgy"
+          },
+          "context": {
+            "de": "Ritual und philosophische Kosmologie werden historisch miteinander verknüpft.",
+            "en": "Ritual and philosophical cosmology were historically combined."
+          },
+          "question": {
+            "de": "Was berichten Quellen über die Praxis, was behaupten sie über ihre Wirksamkeit?",
+            "en": "What do sources report about practice versus efficacy?"
+          },
+          "kind": "history"
+        },
+        {
+          "id": "ESO-02.06",
+          "title": {
+            "de": "Mysterienkulte",
+            "en": "Mystery cults"
+          },
+          "context": {
+            "de": "Historische Gemeinschaften mit teils begrenztem Zugang; unvollständige Quellenlage.",
+            "en": "Historical communities with partly restricted access and an incomplete record."
+          },
+          "question": {
+            "de": "Wie gehen wir mit absichtlich lückenhafter Überlieferung um?",
+            "en": "How should we handle deliberately incomplete records?"
+          },
+          "kind": "history"
+        },
+        {
+          "id": "ESO-02.07",
+          "title": {
+            "de": "Antike Astrologie und Naturdeutung",
+            "en": "Ancient astrology and natural interpretation"
+          },
+          "context": {
+            "de": "Himmelsbeobachtung, Kalenderwissen und Deutung waren historisch enger verflochten als heute.",
+            "en": "Celestial observation, calendars and interpretation were historically more intertwined than today."
+          },
+          "question": {
+            "de": "Wo endet nachprüfbare Himmelskunde und wo beginnt Zukunftsdeutung?",
+            "en": "Where does verifiable astronomy end and forecasting begin?"
+          },
+          "kind": "history"
+        }
+      ]
+    },
+    {
+      "id": "ESO-03",
+      "title": {
+        "de": "Kabbala, christliche Esoterik & Rosenkreuzertum",
+        "en": "Kabbalah, Christian esotericism & Rosicrucianism"
+      },
+      "intro": {
+        "de": "Jüdische Kabbala ist eine lebendige religiöse Tradition und darf nicht mit ihren christlichen oder modernen okkulten Aneignungen gleichgesetzt werden. Differenzen in Herkunft und Deutung bleiben sichtbar.",
+        "en": "Jewish Kabbalah is a living religious tradition and must not be equated with Christian or modern occult adaptations. Distinctions of origin and meaning stay visible."
+      },
+      "topics": [
+        "religion",
+        "geschichte",
+        "ethik"
+      ],
+      "source_ids": [
+        "uva",
+        "oxford",
+        "unesco"
+      ],
+      "children": [
+        {
+          "id": "ESO-03.01",
+          "title": {
+            "de": "Jüdische Kabbala",
+            "en": "Jewish Kabbalah"
+          },
+          "context": {
+            "de": "Vielgestaltige jüdische mystische Text- und Auslegungstradition.",
+            "en": "A diverse Jewish mystical textual and interpretive tradition."
+          },
+          "question": {
+            "de": "Wie unterscheiden sich Binnenverständnis und fremde Deutung?",
+            "en": "How do practitioners' understandings differ from outside interpretations?"
+          },
+          "kind": "history"
+        },
+        {
+          "id": "ESO-03.02",
+          "title": {
+            "de": "Christliche Cabala",
+            "en": "Christian Cabala"
+          },
+          "context": {
+            "de": "Renaissancezeitliche christliche Aufnahme jüdischer Begriffe mit eigenen theologischen Zielen.",
+            "en": "Renaissance Christian adaptations of Jewish concepts for distinct theological aims."
+          },
+          "question": {
+            "de": "Welche Bedeutungen gingen bei der Übertragung verloren?",
+            "en": "What meanings were lost in the transfer?"
+          },
+          "kind": "history"
+        },
+        {
+          "id": "ESO-03.03",
+          "title": {
+            "de": "Hermetische Qabalah",
+            "en": "Hermetic Qabalah"
+          },
+          "context": {
+            "de": "Neuzeitliche okkulte Symbolsysteme nutzen kabbalistische Begriffe in veränderter Form.",
+            "en": "Modern occult symbolic systems reuse Kabbalistic terms in altered forms."
+          },
+          "question": {
+            "de": "Wie sind Übernahme, Umdeutung und Herkunft offenzulegen?",
+            "en": "How should borrowing, reinterpretation and provenance be disclosed?"
+          },
+          "kind": "history"
+        },
+        {
+          "id": "ESO-03.04",
+          "title": {
+            "de": "Rosenkreuzer-Manifeste",
+            "en": "Rosicrucian manifestos"
+          },
+          "context": {
+            "de": "Frühneuzeitliche Texte verbinden Reformideen, Symbolik und Geheimnis.",
+            "en": "Early modern texts combine reform ideas, symbolism and secrecy."
+          },
+          "question": {
+            "de": "Welche Organisationen oder Lehren sind historisch belegbar?",
+            "en": "Which organizations or teachings are historically documented?"
+          },
+          "kind": "history"
+        },
+        {
+          "id": "ESO-03.05",
+          "title": {
+            "de": "Jakob Böhme und Theosophie",
+            "en": "Jakob Böhme and theosophy"
+          },
+          "context": {
+            "de": "Christliche Naturmystik und spekulative Weltdeutung sind im historischen Zusammenhang zu lesen.",
+            "en": "Christian nature mysticism and speculative cosmology require historical context."
+          },
+          "question": {
+            "de": "Welche inneren Bilder sollen als Aussagen über Natur gelten?",
+            "en": "Which inner images are meant to be claims about nature?"
+          },
+          "kind": "interpretation"
+        },
+        {
+          "id": "ESO-03.06",
+          "title": {
+            "de": "Engel und himmlische Hierarchien",
+            "en": "Angels and celestial hierarchies"
+          },
+          "context": {
+            "de": "Engelmodelle haben unterschiedliche religiöse und esoterische Genealogien.",
+            "en": "Angel models have different religious and esoteric genealogies."
+          },
+          "question": {
+            "de": "Sind Hierarchien Metaphern, Glaubensüberzeugungen oder überprüfbare Behauptungen?",
+            "en": "Are hierarchies metaphors, beliefs or testable claims?"
+          },
+          "kind": "interpretation"
+        },
+        {
+          "id": "ESO-03.07",
+          "title": {
+            "de": "Apokryphe und Zuschreibungen",
+            "en": "Apocrypha and attributions"
+          },
+          "context": {
+            "de": "Außerkanonische Texte sind historisch analysierbar, ohne ihre Offenbarungsansprüche zu bestätigen.",
+            "en": "Non-canonical writings can be studied historically without validating revelation claims."
+          },
+          "question": {
+            "de": "Wie werden Textalter und Autorschaft geprüft?",
+            "en": "How are a text's age and authorship examined?"
+          },
+          "kind": "history"
+        }
+      ]
+    },
+    {
+      "id": "ESO-04",
+      "title": {
+        "de": "Alchemie & Naturphilosophie",
+        "en": "Alchemy & natural philosophy"
+      },
+      "intro": {
+        "de": "Alchemie umfasste materielle Experimente ebenso wie religiöse und symbolische Deutungen. Moderne Metaphern einer seelischen Wandlung sind nicht mit historischen Laborpraktiken gleichzusetzen.",
+        "en": "Alchemy involved material experimentation as well as religious and symbolic interpretation. Modern metaphors for psychological transformation are not identical to historical laboratory practice."
+      },
+      "topics": [
+        "natur",
+        "mathematik",
+        "philosophie",
+        "geschichte"
+      ],
+      "source_ids": [
+        "oxford",
+        "uva"
+      ],
+      "children": [
+        {
+          "id": "ESO-04.01",
+          "title": {
+            "de": "Historische Stoffumwandlung",
+            "en": "Historical transmutation"
+          },
+          "context": {
+            "de": "Materielle Verfahren und ihre damaligen Vorstellungen von Stoffen sind von heutigen chemischen Theorien zu unterscheiden.",
+            "en": "Historical material practices and ideas about substances differ from modern chemistry."
+          },
+          "question": {
+            "de": "Welche Verfahren lassen sich experimentell nachvollziehen?",
+            "en": "Which procedures can be replicated experimentally?"
+          },
+          "kind": "history"
+        },
+        {
+          "id": "ESO-04.02",
+          "title": {
+            "de": "Stein der Weisen",
+            "en": "Philosopher's stone"
+          },
+          "context": {
+            "de": "Ein wechselhaftes Symbol und Ziel materieller wie geistiger Alchemie.",
+            "en": "A shifting symbol and aim of material as well as spiritual alchemy."
+          },
+          "question": {
+            "de": "Wird ein realer Stoff oder ein innerer Prozess behauptet?",
+            "en": "Is a material substance or an inner process being claimed?"
+          },
+          "kind": "interpretation"
+        },
+        {
+          "id": "ESO-04.03",
+          "title": {
+            "de": "Nigredo, Albedo, Citrinitas, Rubedo",
+            "en": "Nigredo, Albedo, Citrinitas, Rubedo"
+          },
+          "context": {
+            "de": "Wandlungsstufen werden heute oft psychologisch gelesen; die historische Vielfalt bleibt zu prüfen.",
+            "en": "Stages of transformation are often read psychologically today; their historical variety needs examination."
+          },
+          "question": {
+            "de": "Was erklärt das Stufenmodell und was projizieren wir nachträglich hinein?",
+            "en": "What does the stage model explain and what do we project onto it?"
+          },
+          "kind": "interpretation"
+        },
+        {
+          "id": "ESO-04.04",
+          "title": {
+            "de": "Vier-Elemente-Lehren",
+            "en": "Four-element theories"
+          },
+          "context": {
+            "de": "Antike Ordnungsschemata können symbolisch genutzt werden, sind aber keine heutige Chemie.",
+            "en": "Ancient classification schemes can be used symbolically but are not modern chemistry."
+          },
+          "question": {
+            "de": "Welche Fragen lassen sich damit ordnen, welche physikalischen Aussagen nicht?",
+            "en": "What can the scheme organize, and what physical claims cannot it support?"
+          },
+          "kind": "formal"
+        },
+        {
+          "id": "ESO-04.05",
+          "title": {
+            "de": "Paracelsismus",
+            "en": "Paracelsian currents"
+          },
+          "context": {
+            "de": "Historische Medizin- und Naturvorstellungen mit starkem Wandel über die Jahrhunderte.",
+            "en": "Historical medical and natural thought that changed substantially over centuries."
+          },
+          "question": {
+            "de": "Welche historischen Praktiken sind dokumentiert und welche Wirkungen belegt?",
+            "en": "Which practices are documented and which effects are established?"
+          },
+          "kind": "history"
+        },
+        {
+          "id": "ESO-04.06",
+          "title": {
+            "de": "Laborbuch versus Gleichnis",
+            "en": "Laboratory notebook versus allegory"
+          },
+          "context": {
+            "de": "Derselbe alchemische Text kann Verfahrensanweisung oder Bildsprache enthalten.",
+            "en": "One alchemical text may mix technical procedure and figurative language."
+          },
+          "question": {
+            "de": "Welche Lesart widerspricht welchen Quellen?",
+            "en": "Which reading conflicts with which sources?"
+          },
+          "kind": "interpretation"
+        },
+        {
+          "id": "ESO-04.07",
+          "title": {
+            "de": "Gold als Symbol",
+            "en": "Gold as symbol"
+          },
+          "context": {
+            "de": "Gold kann materiellen Wert, Reinheit oder Vollendung repräsentieren.",
+            "en": "Gold may represent material value, purity or completion."
+          },
+          "question": {
+            "de": "Wann wird eine Wertmetapher als Naturgesetz missverstanden?",
+            "en": "When is a value metaphor mistaken for a law of nature?"
+          },
+          "kind": "interpretation"
+        }
+      ]
+    },
+    {
+      "id": "ESO-05",
+      "title": {
+        "de": "Astrologie, Sterne & Zeitzyklen",
+        "en": "Astrology, stars & time cycles"
+      },
+      "intro": {
+        "de": "Astronomie untersucht Himmelskörper; Astrologie deutet ihre Stellungen. Historische Praxis, persönliche Sinngebung und überprüfbare Vorhersagen benötigen unterschiedliche Prüfwege.",
+        "en": "Astronomy studies celestial bodies; astrology interprets their positions. Historical practice, personal meaning and testable predictions require different methods."
+      },
+      "topics": [
+        "natur",
+        "psychologie",
+        "geschichte",
+        "mathematik"
+      ],
+      "source_ids": [
+        "oxford",
+        "bbc"
+      ],
+      "children": [
+        {
+          "id": "ESO-05.01",
+          "title": {
+            "de": "Geburtshoroskop",
+            "en": "Natal chart"
+          },
+          "context": {
+            "de": "Horoskope ordnen Geburtsdaten symbolischen Positionen zu.",
+            "en": "Horoscopes map birth data to symbolic positions."
+          },
+          "question": {
+            "de": "Können vorher festgelegte Deutungen Persönlichkeitsmerkmale unabhängig vorhersagen?",
+            "en": "Can interpretations fixed in advance independently predict personality traits?"
+          },
+          "kind": "empirical"
+        },
+        {
+          "id": "ESO-05.02",
+          "title": {
+            "de": "Tierkreiszeichen",
+            "en": "Zodiac signs"
+          },
+          "context": {
+            "de": "Zodiaksysteme haben historische Konventionen und unterschiedliche Varianten.",
+            "en": "Zodiac systems have historical conventions and differing variants."
+          },
+          "question": {
+            "de": "Wie trennen wir kulturelle Zeichen von behaupteter Kausalität?",
+            "en": "How do we distinguish cultural signs from asserted causation?"
+          },
+          "kind": "history"
+        },
+        {
+          "id": "ESO-05.03",
+          "title": {
+            "de": "Planeten- und Häuserdeutung",
+            "en": "Planets and houses"
+          },
+          "context": {
+            "de": "Astrologische Schulen ordnen Positionen verschiedene Eigenschaften zu.",
+            "en": "Astrological schools assign different qualities to positional schemes."
+          },
+          "question": {
+            "de": "Wie konsistent sind Deutungsregeln zwischen Schulen?",
+            "en": "How consistent are interpretation rules across schools?"
+          },
+          "kind": "empirical"
+        },
+        {
+          "id": "ESO-05.04",
+          "title": {
+            "de": "Transite und Prognosen",
+            "en": "Transits and forecasts"
+          },
+          "context": {
+            "de": "Zeitbezogene Deutungen können als konkrete Vorhersagen formuliert und vorab protokolliert werden.",
+            "en": "Time-based interpretations can be made into specific forecasts recorded in advance."
+          },
+          "question": {
+            "de": "Übertreffen klare Prognosen eine geeignete Vergleichsmethode?",
+            "en": "Do specific forecasts outperform an appropriate baseline?"
+          },
+          "kind": "empirical"
+        },
+        {
+          "id": "ESO-05.05",
+          "title": {
+            "de": "Synastrie und Beziehungen",
+            "en": "Synastry and relationships"
+          },
+          "context": {
+            "de": "Partnerdeutungen können Wünsche spiegeln, aber auch Erwartungen festschreiben.",
+            "en": "Compatibility readings may reflect wishes but also impose expectations."
+          },
+          "question": {
+            "de": "Sagen sie Beziehungen besser vorher als verfügbare Vergleichsdaten?",
+            "en": "Do they predict relationships better than available comparison data?"
+          },
+          "kind": "empirical"
+        },
+        {
+          "id": "ESO-05.06",
+          "title": {
+            "de": "Mondphasen und Rituale",
+            "en": "Moon phases and rituals"
+          },
+          "context": {
+            "de": "Astronomische Mondphasen sind messbar; zugeschriebene psychische Effekte brauchen eigene Belege.",
+            "en": "Lunar phases are measurable; attributed psychological effects require their own evidence."
+          },
+          "question": {
+            "de": "Welche Änderung ist physikalisch belegt, welche nur symbolisch?",
+            "en": "Which changes are physical facts and which are only symbolic?"
+          },
+          "kind": "empirical"
+        },
+        {
+          "id": "ESO-05.07",
+          "title": {
+            "de": "Jyotisha / indische Astrologie",
+            "en": "Jyotisha / Indian astrology"
+          },
+          "context": {
+            "de": "Eigenständige lebendige Tradition mit unterschiedlichen Schulen und religiösen Kontexten.",
+            "en": "A distinct living tradition with multiple schools and religious contexts."
+          },
+          "question": {
+            "de": "Was lässt sich nur mit Kenntnis ihres kulturellen Kontexts verstehen?",
+            "en": "What requires knowledge of its own cultural context?"
+          },
+          "kind": "history"
+        },
+        {
+          "id": "ESO-05.08",
+          "title": {
+            "de": "Chinesische astrologische Systeme",
+            "en": "Chinese astrological systems"
+          },
+          "context": {
+            "de": "Diverse Kalender- und Deutungspraktiken dürfen nicht zu einem einzigen westlichen Horoskop verschmolzen werden.",
+            "en": "Diverse calendrical and interpretive practices must not be collapsed into one Western horoscope."
+          },
+          "question": {
+            "de": "Welche Regeln stammen aus welcher konkreten Tradition?",
+            "en": "Which rules come from which specific tradition?"
+          },
+          "kind": "history"
+        }
+      ]
+    },
+    {
+      "id": "ESO-06",
+      "title": {
+        "de": "Orakel, Karten & Divination",
+        "en": "Oracles, cards & divination"
+      },
+      "intro": {
+        "de": "Divinatorische Verfahren können als Spiel, Reflexion, Ritual oder Vorhersage auftreten. Ein subjektiv treffender Eindruck bestätigt keine übernatürliche Informationsquelle.",
+        "en": "Divinatory practices can be games, reflection, ritual or prediction. A subjectively accurate impression does not establish a supernatural source of information."
+      },
+      "topics": [
+        "mathematik",
+        "psychologie",
+        "kunst",
+        "geschichte"
+      ],
+      "source_ids": [
+        "met",
+        "cos",
+        "oxford"
+      ],
+      "children": [
+        {
+          "id": "ESO-06.01",
+          "title": {
+            "de": "Tarot: Geschichte und Bildsprache",
+            "en": "Tarot: history and imagery"
+          },
+          "context": {
+            "de": "Tarot begann als Kartenspiel; die verbreitete okkulte Lesart entwickelte sich später.",
+            "en": "Tarot originated as a card game; widespread occult readings developed later."
+          },
+          "question": {
+            "de": "Welche Deutung ist historisch und welche moderne Projektion?",
+            "en": "Which interpretation is historical and which is a modern projection?"
+          },
+          "kind": "history"
+        },
+        {
+          "id": "ESO-06.02",
+          "title": {
+            "de": "Tarot: Entscheidungen und Selbstreflexion",
+            "en": "Tarot: decisions and reflection"
+          },
+          "context": {
+            "de": "Offene Fragen können Selbstdeutung fördern, ohne Entscheidungen vorzugeben.",
+            "en": "Open-ended questions may facilitate reflection without dictating decisions."
+          },
+          "question": {
+            "de": "Erweitert das Ritual Handlungsspielräume oder verengt es sie?",
+            "en": "Does the ritual expand or restrict agency?"
+          },
+          "kind": "experience"
+        },
+        {
+          "id": "ESO-06.03",
+          "title": {
+            "de": "Lenormand-Karten",
+            "en": "Lenormand cards"
+          },
+          "context": {
+            "de": "Ein eigenes Kartensystem mit historisch gewachsenen Kombinationen.",
+            "en": "A distinct card system with historically developed combinations."
+          },
+          "question": {
+            "de": "Wie wurden Bedeutungen weitergegeben und verändert?",
+            "en": "How were meanings passed on and changed?"
+          },
+          "kind": "history"
+        },
+        {
+          "id": "ESO-06.04",
+          "title": {
+            "de": "I Ging und Hexagramme",
+            "en": "I Ching and hexagrams"
+          },
+          "context": {
+            "de": "Die Texttradition ist von einem binären Modell und von konkreten Orakelverfahren zu unterscheiden.",
+            "en": "The textual tradition is distinct from a binary model and particular casting methods."
+          },
+          "question": {
+            "de": "Was zeigt eine mathematische Codierung, ohne die Deutung zu beweisen?",
+            "en": "What can mathematical encoding show without proving interpretation?"
+          },
+          "kind": "formal"
+        },
+        {
+          "id": "ESO-06.05",
+          "title": {
+            "de": "Runenorakel",
+            "en": "Runic divination"
+          },
+          "context": {
+            "de": "Historische Schriftsysteme und neuzeitliche Orakelpraktiken dürfen nicht vermischt werden.",
+            "en": "Historical writing systems and modern divination must not be conflated."
+          },
+          "question": {
+            "de": "Wie alt ist die konkret verwendete Bedeutungszuweisung?",
+            "en": "How old is the particular attribution of meaning?"
+          },
+          "kind": "history"
+        },
+        {
+          "id": "ESO-06.06",
+          "title": {
+            "de": "Pendel und Radiästhesie",
+            "en": "Dowsing and pendulums"
+          },
+          "context": {
+            "de": "Bewegungen können durch unbemerkte Muskelimpulse erklärt werden; behauptete Fernmessung ist gesondert zu testen.",
+            "en": "Movement may be explained by unnoticed muscular impulses; claims of remote detection require separate tests."
+          },
+          "question": {
+            "de": "Wie schneidet eine verdeckte Probe gegenüber dem Zufall ab?",
+            "en": "How does a blinded test compare to chance?"
+          },
+          "kind": "empirical"
+        },
+        {
+          "id": "ESO-06.07",
+          "title": {
+            "de": "Numerologie",
+            "en": "Numerology"
+          },
+          "context": {
+            "de": "Zahlendeutungen verbinden Regeln, Assoziationen und persönliche Interpretation.",
+            "en": "Number interpretation combines rules, associations and personal interpretation."
+          },
+          "question": {
+            "de": "Welche Vorhersagen bleiben nach Festlegung der Regeln übrig?",
+            "en": "Which predictions remain once the rules are fixed in advance?"
+          },
+          "kind": "empirical"
+        },
+        {
+          "id": "ESO-06.08",
+          "title": {
+            "de": "Bibliomantie",
+            "en": "Bibliomancy"
+          },
+          "context": {
+            "de": "Zufällig ausgewählte Textstellen können neue Gedanken auslösen.",
+            "en": "Randomly selected passages can prompt new thoughts."
+          },
+          "question": {
+            "de": "Was ist interpretativer Gewinn und was behauptete übernatürliche Auskunft?",
+            "en": "What is an interpretive benefit versus claimed supernatural information?"
+          },
+          "kind": "interpretation"
+        },
+        {
+          "id": "ESO-06.09",
+          "title": {
+            "de": "Handlesen und Physiognomik",
+            "en": "Palmistry and physiognomy"
+          },
+          "context": {
+            "de": "Äußere Merkmale als Schicksalsdiagnose zu verwenden birgt empirische und ethische Probleme.",
+            "en": "Using bodily features to diagnose destiny raises empirical and ethical issues."
+          },
+          "question": {
+            "de": "Welche diskriminierenden Vorannahmen stecken in einer Lesart?",
+            "en": "Which discriminatory assumptions are embedded in a reading?"
+          },
+          "kind": "normative"
+        }
+      ]
+    },
+    {
+      "id": "ESO-07",
+      "title": {
+        "de": "Rituale, Magie & Hexentraditionen",
+        "en": "Ritual, magic & witch traditions"
+      },
+      "intro": {
+        "de": "Rituale können Zugehörigkeit, Aufmerksamkeit und Erinnerung strukturieren. Ihre soziale oder psychologische Bedeutung ist von Behauptungen äußerer magischer Wirksamkeit zu unterscheiden.",
+        "en": "Rituals can structure belonging, attention and memory. Their social or psychological meaning is distinct from claims of external magical efficacy."
+      },
+      "topics": [
+        "religion",
+        "psychologie",
+        "kunst",
+        "ethik"
+      ],
+      "source_ids": [
+        "uva",
+        "oxford",
+        "unesco"
+      ],
+      "children": [
+        {
+          "id": "ESO-07.01",
+          "title": {
+            "de": "Ritual und Intention",
+            "en": "Ritual and intention"
+          },
+          "context": {
+            "de": "Rituale wiederholen Handlungen und Bedeutungen; Ziele und Folgen müssen getrennt beschrieben werden.",
+            "en": "Rituals repeat actions and meanings; intentions and outcomes need separate descriptions."
+          },
+          "question": {
+            "de": "Was verändert das Ritual nachweisbar am eigenen Verhalten?",
+            "en": "What does the ritual demonstrably change in behavior?"
+          },
+          "kind": "experience"
+        },
+        {
+          "id": "ESO-07.02",
+          "title": {
+            "de": "Schutz- und Reinigungsrituale",
+            "en": "Protection and purification rituals"
+          },
+          "context": {
+            "de": "Symbolischer Schutz darf konkrete Gefahrenabwehr nicht ersetzen.",
+            "en": "Symbolic protection must not replace practical safeguards."
+          },
+          "question": {
+            "de": "Wann wird ein gutes Gefühl mit tatsächlicher Sicherheit verwechselt?",
+            "en": "When is feeling safe confused with actual safety?"
+          },
+          "kind": "normative"
+        },
+        {
+          "id": "ESO-07.03",
+          "title": {
+            "de": "Sigillen und Zeichen",
+            "en": "Sigils and symbols"
+          },
+          "context": {
+            "de": "Eigene Zeichen können Erinnerungen und Vorsätze bündeln.",
+            "en": "Personal marks can concentrate attention on intentions."
+          },
+          "question": {
+            "de": "Wie unterscheiden wir Motivation von behaupteter Fernwirkung?",
+            "en": "How do we distinguish motivation from claimed action at a distance?"
+          },
+          "kind": "interpretation"
+        },
+        {
+          "id": "ESO-07.04",
+          "title": {
+            "de": "Kerzen, Talismane und Amulette",
+            "en": "Candles, talismans and amulets"
+          },
+          "context": {
+            "de": "Objekte können Träger von Bedeutung sein, ohne dass ein Mechanismus belegt ist.",
+            "en": "Objects may carry meaning without an established mechanism."
+          },
+          "question": {
+            "de": "Was ist eine persönliche Zuschreibung, was eine überprüfbare Wirkung?",
+            "en": "What is a personal attribution and what is a testable effect?"
+          },
+          "kind": "interpretation"
+        },
+        {
+          "id": "ESO-07.05",
+          "title": {
+            "de": "Wicca und modernes Hexentum",
+            "en": "Wicca and modern witchcraft"
+          },
+          "context": {
+            "de": "Verschiedene moderne religiöse und spirituelle Strömungen mit eigenen Stimmen.",
+            "en": "Distinct modern religious and spiritual currents with their own voices."
+          },
+          "question": {
+            "de": "Wie vermeiden wir es, Praktizierende zu vereinheitlichen?",
+            "en": "How do we avoid treating practitioners as one uniform group?"
+          },
+          "kind": "history"
+        },
+        {
+          "id": "ESO-07.06",
+          "title": {
+            "de": "Volksmagie und regionale Bräuche",
+            "en": "Folk magic and local customs"
+          },
+          "context": {
+            "de": "Lokale Überlieferungen verändern sich und brauchen konkrete Herkunftsangaben.",
+            "en": "Local traditions evolve and require specific provenance."
+          },
+          "question": {
+            "de": "Welche Praxis ist für welchen Ort tatsächlich bezeugt?",
+            "en": "Which practice is documented for which place?"
+          },
+          "kind": "history"
+        },
+        {
+          "id": "ESO-07.07",
+          "title": {
+            "de": "Jahreskreis und Feste",
+            "en": "Seasonal wheel and festivals"
+          },
+          "context": {
+            "de": "Saisonale Feiern verbinden Naturbeobachtung, Kultur und spätere Neudeutung.",
+            "en": "Seasonal festivals combine observation of nature, culture and later reinterpretation."
+          },
+          "question": {
+            "de": "Welche Kontinuität ist belegt und welche wird erst behauptet?",
+            "en": "Which continuity is documented and which only asserted?"
+          },
+          "kind": "history"
+        },
+        {
+          "id": "ESO-07.08",
+          "title": {
+            "de": "Evokation und Beschwörung",
+            "en": "Evocation and invocation"
+          },
+          "context": {
+            "de": "Erzählungen über gerufene Wesen sind als religiöse Texte, Erleben oder Kausalbehauptung zu trennen.",
+            "en": "Accounts of invoked beings need separation as religious texts, experiences or causal claims."
+          },
+          "question": {
+            "de": "Welche alternative Erklärung könnte dieselbe Erfahrung hervorbringen?",
+            "en": "What alternative explanation could produce the same experience?"
+          },
+          "kind": "experience"
+        }
+      ]
+    },
+    {
+      "id": "ESO-08",
+      "title": {
+        "de": "Symbole, Archetypen & Deutung",
+        "en": "Symbols, archetypes & interpretation"
+      },
+      "intro": {
+        "de": "Symbolsysteme können etwas über Erzählungen, Gefühle und Selbstbilder sichtbar machen. Ihre Resonanz beim Einzelnen ist kein Beweis für eine allgemeingültige Struktur der Welt.",
+        "en": "Symbol systems can illuminate narratives, emotions and self-concepts. Personal resonance does not establish a universal structure of the world."
+      },
+      "topics": [
+        "kunst",
+        "psychologie",
+        "philosophie"
+      ],
+      "source_ids": [
+        "oxford",
+        "uva"
+      ],
+      "children": [
+        {
+          "id": "ESO-08.01",
+          "title": {
+            "de": "Archetypen und Jung",
+            "en": "Archetypes and Jung"
+          },
+          "context": {
+            "de": "Archetypen gehören zu einer psychologischen Theoriegeschichte mit umstrittener Erklärungskraft.",
+            "en": "Archetypes belong to a history of psychological theory with contested explanatory power."
+          },
+          "question": {
+            "de": "Welche Beobachtungen würden zwischen Theorie und Deutungsangebot unterscheiden?",
+            "en": "What observations would distinguish theory from interpretive proposal?"
+          },
+          "kind": "interpretation"
+        },
+        {
+          "id": "ESO-08.02",
+          "title": {
+            "de": "Schatten und Individuation",
+            "en": "Shadow and individuation"
+          },
+          "context": {
+            "de": "Die Schattenmetapher kann Selbstreflexion anregen, ersetzt aber keine Diagnostik.",
+            "en": "The shadow metaphor may support reflection but is not a diagnosis."
+          },
+          "question": {
+            "de": "Wann hilft die Metapher, und wann legt sie Menschen fest?",
+            "en": "When does the metaphor help, and when does it label people?"
+          },
+          "kind": "experience"
+        },
+        {
+          "id": "ESO-08.03",
+          "title": {
+            "de": "Synchronizität",
+            "en": "Synchronicity"
+          },
+          "context": {
+            "de": "Als bedeutungsvoller Zufall erlebt, aber nicht automatisch kausal verbunden.",
+            "en": "Experienced as meaningful coincidence but not automatically causally linked."
+          },
+          "question": {
+            "de": "Wie häufig wären ähnliche Zufälle ohne besondere Verbindung?",
+            "en": "How often would similar coincidences occur without a special link?"
+          },
+          "kind": "empirical"
+        },
+        {
+          "id": "ESO-08.04",
+          "title": {
+            "de": "Mandala und Kreis",
+            "en": "Mandala and circle"
+          },
+          "context": {
+            "de": "Geometrische Formen tragen je nach religiösem und künstlerischem Kontext verschiedene Bedeutungen.",
+            "en": "Geometric forms carry distinct meanings across religious and artistic contexts."
+          },
+          "question": {
+            "de": "Welche Bedeutungen sind historisch bezeugt und welche persönlich?",
+            "en": "Which meanings are historically attested and which personal?"
+          },
+          "kind": "interpretation"
+        },
+        {
+          "id": "ESO-08.05",
+          "title": {
+            "de": "Heilige Geometrie",
+            "en": "Sacred geometry"
+          },
+          "context": {
+            "de": "Mathematische Eigenschaften einer Form beweisen keine metaphysische Wirksamkeit.",
+            "en": "Mathematical properties of a shape do not establish metaphysical efficacy."
+          },
+          "question": {
+            "de": "Welche Aussage ist formal beweisbar, welche empirisch?",
+            "en": "Which claim can be proven formally and which must be tested empirically?"
+          },
+          "kind": "formal"
+        },
+        {
+          "id": "ESO-08.06",
+          "title": {
+            "de": "Tier- und Naturbilder",
+            "en": "Animal and nature imagery"
+          },
+          "context": {
+            "de": "Wolf, Schlange, Baum oder Sonne können je nach Kultur verschiedene Bedeutungen tragen.",
+            "en": "Wolf, serpent, tree or sun can carry different meanings across cultures."
+          },
+          "question": {
+            "de": "Wer deutet für wen, und was wird dabei ausgelassen?",
+            "en": "Who interprets for whom, and what is left out?"
+          },
+          "kind": "interpretation"
+        },
+        {
+          "id": "ESO-08.07",
+          "title": {
+            "de": "Farben, Zahlen und Entsprechungen",
+            "en": "Colors, numbers and correspondences"
+          },
+          "context": {
+            "de": "Zuordnungen können ästhetisch konsistent sein, ohne eindeutig zu sein.",
+            "en": "Correspondence systems can be aesthetically consistent without being unique."
+          },
+          "question": {
+            "de": "Welche konkurrierenden Zuordnungen erklären dieselbe Deutung?",
+            "en": "Which alternative mappings explain the same reading?"
+          },
+          "kind": "formal"
+        },
+        {
+          "id": "ESO-08.08",
+          "title": {
+            "de": "Traum- und Bildsprache",
+            "en": "Dream and image language"
+          },
+          "context": {
+            "de": "Traumbilder können biografisch bedeutsam sein; Wörterbücher liefern selten universelle Codes.",
+            "en": "Dream imagery may be biographically meaningful; dictionaries rarely provide universal codes."
+          },
+          "question": {
+            "de": "Wie prüfen wir eine Lesart ohne sie der träumenden Person aufzuzwingen?",
+            "en": "How can we explore a reading without imposing it on the dreamer?"
+          },
+          "kind": "experience"
+        }
+      ]
+    },
+    {
+      "id": "ESO-09",
+      "title": {
+        "de": "Bewusstsein & außergewöhnliches Erleben",
+        "en": "Consciousness & unusual experiences"
+      },
+      "intro": {
+        "de": "Intensive Erlebnisse können real empfunden werden, auch wenn ihre Ursachen offen sind. Wir nehmen Berichte ernst, ohne aus subjektiver Gewissheit eine bestätigte äußere Tatsache zu machen.",
+        "en": "Intense experiences can be genuinely felt while their causes remain open. We take reports seriously without turning subjective certainty into confirmed external fact."
+      },
+      "topics": [
+        "bewusstsein",
+        "psychologie",
+        "medizin",
+        "philosophie"
+      ],
+      "source_ids": [
+        "cos",
+        "nccih"
+      ],
+      "children": [
+        {
+          "id": "ESO-09.01",
+          "title": {
+            "de": "Meditation und Kontemplation",
+            "en": "Meditation and contemplation"
+          },
+          "context": {
+            "de": "Praxis und Wirkung hängen von Form, Kontext und Person ab.",
+            "en": "Practices and outcomes depend on form, context and person."
+          },
+          "question": {
+            "de": "Welche erlebte Veränderung wird beschrieben und wie lässt sie sich prüfen?",
+            "en": "What change is experienced, and how could it be assessed?"
+          },
+          "kind": "experience"
+        },
+        {
+          "id": "ESO-09.02",
+          "title": {
+            "de": "Trance und veränderte Zustände",
+            "en": "Trance and altered states"
+          },
+          "context": {
+            "de": "Aufmerksamkeits- und Wahrnehmungsveränderungen benötigen keine einzige metaphysische Erklärung.",
+            "en": "Changes in attention and perception do not require one metaphysical explanation."
+          },
+          "question": {
+            "de": "Welche Bedingungen gehen dem Zustand voraus?",
+            "en": "Which conditions precede the state?"
+          },
+          "kind": "experience"
+        },
+        {
+          "id": "ESO-09.03",
+          "title": {
+            "de": "Klarträume",
+            "en": "Lucid dreaming"
+          },
+          "context": {
+            "de": "Das Bewusstsein des Träumens lässt sich von behaupteten äußeren Informationszugängen trennen.",
+            "en": "Awareness during dreaming is distinct from claims of external information access."
+          },
+          "question": {
+            "de": "Welche Inhalte können unabhängig verifiziert werden?",
+            "en": "Which contents could be independently verified?"
+          },
+          "kind": "empirical"
+        },
+        {
+          "id": "ESO-09.04",
+          "title": {
+            "de": "Außerkörperliche Erfahrungen",
+            "en": "Out-of-body experiences"
+          },
+          "context": {
+            "de": "Ein starkes Körper- oder Raumgefühl belegt noch keinen verlagerten Wahrnehmungsort.",
+            "en": "A striking bodily or spatial feeling does not establish a displaced location of perception."
+          },
+          "question": {
+            "de": "Welche Vorhersage würde eine reine Innenperspektive ausschließen?",
+            "en": "What prediction could exclude a purely internal account?"
+          },
+          "kind": "empirical"
+        },
+        {
+          "id": "ESO-09.05",
+          "title": {
+            "de": "Nahtoderfahrungen",
+            "en": "Near-death experiences"
+          },
+          "context": {
+            "de": "Berichte verdienen Respekt; ihre neurobiologischen und philosophischen Erklärungen bleiben unterscheidbar.",
+            "en": "Reports deserve respect; neurobiological and philosophical explanations remain distinct."
+          },
+          "question": {
+            "de": "Welche Teile sind dokumentierte Erlebnisse, welche Jenseitsaussagen?",
+            "en": "Which parts are documented experiences and which claims about an afterlife?"
+          },
+          "kind": "experience"
+        },
+        {
+          "id": "ESO-09.06",
+          "title": {
+            "de": "Gateway / Hemi-Sync",
+            "en": "Gateway / Hemi-Sync"
+          },
+          "context": {
+            "de": "Audioverfahren und ihre Geschichte sind von nichtlokalen Bewusstseinsbehauptungen zu trennen.",
+            "en": "Audio methods and their history are distinct from claims of nonlocal consciousness."
+          },
+          "question": {
+            "de": "Welche Effekte lassen sich gegenüber passenden Kontrollbedingungen nachweisen?",
+            "en": "Which effects survive appropriate control conditions?"
+          },
+          "kind": "empirical"
+        },
+        {
+          "id": "ESO-09.07",
+          "title": {
+            "de": "Channeling und innere Stimmen",
+            "en": "Channeling and inner voices"
+          },
+          "context": {
+            "de": "Eine als fremd erlebte Stimme ist nicht automatisch ein Beleg einer äußeren Entität.",
+            "en": "A voice felt as external is not automatically evidence of an external entity."
+          },
+          "question": {
+            "de": "Wie gehen wir respektvoll mit Erleben und alternativen Erklärungen um?",
+            "en": "How do we respect experience while examining alternative explanations?"
+          },
+          "kind": "experience"
+        },
+        {
+          "id": "ESO-09.08",
+          "title": {
+            "de": "Visionen und Ekstase",
+            "en": "Visions and ecstasy"
+          },
+          "context": {
+            "de": "Starkes Bedeutungserleben kann lebensprägend sein, ohne eindeutige Weltdeutung.",
+            "en": "A powerful sense of meaning may shape a life without uniquely explaining reality."
+          },
+          "question": {
+            "de": "Wann trägt eine Erfahrung zur Einsicht bei, wann macht sie verletzlich?",
+            "en": "When does an experience aid understanding, and when does it increase vulnerability?"
+          },
+          "kind": "experience"
+        },
+        {
+          "id": "ESO-09.09",
+          "title": {
+            "de": "Traumdeutung und Vorahnung",
+            "en": "Dream interpretation and premonition"
+          },
+          "context": {
+            "de": "Vorahnungen müssen von nachträglicher Erinnerung und Auswahl unterschieden werden.",
+            "en": "Premonitions must be distinguished from hindsight and selective recall."
+          },
+          "question": {
+            "de": "Wie sähe ein vorab festgehaltener, auswertbarer Test aus?",
+            "en": "What would a pre-recorded, assessable test look like?"
+          },
+          "kind": "empirical"
+        }
+      ]
+    },
+    {
+      "id": "ESO-10",
+      "title": {
+        "de": "Energie-, Körper- & Schwingungsmodelle",
+        "en": "Energy, body & vibration models"
+      },
+      "intro": {
+        "de": "Viele Systeme sprechen von Energie in einem anderen Sinn als die Physik. Diese Bedeutungen müssen klar getrennt werden; die wissenschaftliche Bestätigung eines behaupteten Energiefeldes wird nicht vorausgesetzt.",
+        "en": "Many systems use 'energy' differently from physics. Meanings must be separated; scientific confirmation of a claimed energy field is not assumed."
+      },
+      "topics": [
+        "medizin",
+        "natur",
+        "religion",
+        "psychologie"
+      ],
+      "source_ids": [
+        "nccih",
+        "unesco"
+      ],
+      "children": [
+        {
+          "id": "ESO-10.01",
+          "title": {
+            "de": "Aura",
+            "en": "Aura"
+          },
+          "context": {
+            "de": "Farbfelder um Menschen werden verschieden interpretiert; behauptete Messbarkeit ist gesondert zu prüfen.",
+            "en": "Color fields around people receive varied interpretations; claimed measurability requires separate tests."
+          },
+          "question": {
+            "de": "Welche Messung würde ein unabhängiger Beobachter wiederholen können?",
+            "en": "What measurement could an independent observer replicate?"
+          },
+          "kind": "empirical"
+        },
+        {
+          "id": "ESO-10.02",
+          "title": {
+            "de": "Chakra-Modelle",
+            "en": "Chakra models"
+          },
+          "context": {
+            "de": "Mehrere indische Text- und Praxistraditionen haben unterschiedliche Chakra-Schemata.",
+            "en": "Several Indian textual and practice traditions contain differing chakra schemes."
+          },
+          "question": {
+            "de": "Welche historische Quelle meint welches Modell?",
+            "en": "Which historical source refers to which model?"
+          },
+          "kind": "history"
+        },
+        {
+          "id": "ESO-10.03",
+          "title": {
+            "de": "Qi und Prana",
+            "en": "Qi and prana"
+          },
+          "context": {
+            "de": "Begriffe aus unterschiedlichen Traditionen dürfen nicht als identische physikalische Größe behandelt werden.",
+            "en": "Concepts from different traditions must not be treated as the same physical quantity."
+          },
+          "question": {
+            "de": "Ist der Begriff eine Praxisbeschreibung, Metapher oder Messgröße?",
+            "en": "Is the term a practice description, metaphor or measurable quantity?"
+          },
+          "kind": "interpretation"
+        },
+        {
+          "id": "ESO-10.04",
+          "title": {
+            "de": "Kundalini",
+            "en": "Kundalini"
+          },
+          "context": {
+            "de": "Deutungen von Körpererfahrungen in verschiedenen Yoga-Traditionen verlangen kulturelle und gesundheitliche Sensibilität.",
+            "en": "Interpretations of bodily experiences in yoga traditions require cultural and health sensitivity."
+          },
+          "question": {
+            "de": "Wie lassen sich Erleben und Deutung unterscheiden, ohne Menschen zu übergehen?",
+            "en": "How can experience and interpretation be separated without dismissing people?"
+          },
+          "kind": "experience"
+        },
+        {
+          "id": "ESO-10.05",
+          "title": {
+            "de": "Reiki",
+            "en": "Reiki"
+          },
+          "context": {
+            "de": "Für das behauptete Energiefeld gibt es laut NCCIH keinen wissenschaftlichen Beleg; gesundheitliche Wirksamkeit ist nicht klar gezeigt.",
+            "en": "NCCIH reports no scientific evidence for the proposed energy field and no clear demonstration of health efficacy."
+          },
+          "question": {
+            "de": "Wie trennt eine Studie Zuwendung, Erwartung und spezifischen Effekt?",
+            "en": "How does a study separate care, expectation and a specific effect?"
+          },
+          "kind": "empirical"
+        },
+        {
+          "id": "ESO-10.06",
+          "title": {
+            "de": "Schwingung und Frequenz",
+            "en": "Vibration and frequency"
+          },
+          "context": {
+            "de": "Physikalische Frequenz hat eine Einheit; metaphorische 'Schwingung' nicht zwingend.",
+            "en": "Physical frequency has units; metaphorical 'vibration' need not."
+          },
+          "question": {
+            "de": "Welche Größe wird mit welchem Instrument gemessen?",
+            "en": "Which quantity is measured with which instrument?"
+          },
+          "kind": "formal"
+        },
+        {
+          "id": "ESO-10.07",
+          "title": {
+            "de": "Ley-Linien und Erdenergien",
+            "en": "Ley lines and earth energies"
+          },
+          "context": {
+            "de": "Landkartenmuster sind nicht automatisch physikalische Felder.",
+            "en": "Patterns on maps are not automatically physical fields."
+          },
+          "question": {
+            "de": "Welcher verblindete Test würde alternative Muster ausschließen?",
+            "en": "Which blinded test could exclude alternative patterns?"
+          },
+          "kind": "empirical"
+        },
+        {
+          "id": "ESO-10.08",
+          "title": {
+            "de": "Steine als Energieobjekte",
+            "en": "Stones as energy objects"
+          },
+          "context": {
+            "de": "Geologische Eigenschaften sind messbar, zugeschriebene feinstoffliche Eigenschaften nicht damit belegt.",
+            "en": "Geological properties are measurable; attributed subtle properties are not thereby established."
+          },
+          "question": {
+            "de": "Welche spezifische Wirkung wird unabhängig vorhergesagt?",
+            "en": "What specific effect is predicted independently?"
+          },
+          "kind": "empirical"
+        }
+      ]
+    },
+    {
+      "id": "ESO-11",
+      "title": {
+        "de": "Heilsversprechen & gesundheitliche Prüfung",
+        "en": "Healing claims & health evaluation"
+      },
+      "intro": {
+        "de": "Hier prüfen wir Behauptungen über Gesundheit, nicht die Würde der Menschen, die sie vertreten. Eine Praxis kann Trost geben; das ist kein Beweis für die Behandlung einer Krankheit. Medizinische Versorgung darf dadurch nicht ersetzt werden.",
+        "en": "We examine health claims, not the dignity of those holding them. A practice may provide comfort without proving disease treatment. It must not replace medical care."
+      },
+      "topics": [
+        "medizin",
+        "gesundheit",
+        "ethik",
+        "psychologie"
+      ],
+      "source_ids": [
+        "nccih",
+        "cos"
+      ],
+      "children": [
+        {
+          "id": "ESO-11.01",
+          "title": {
+            "de": "Edelsteinheilung",
+            "en": "Crystal healing"
+          },
+          "context": {
+            "de": "Heilungsbehauptungen müssen über allgemeine Erwartungs- und Zuwendungseffekte hinaus geprüft werden.",
+            "en": "Healing claims need tests beyond general expectation and attention effects."
+          },
+          "question": {
+            "de": "Welche konkrete gesundheitliche Wirkung ist reproduzierbar?",
+            "en": "What specific health effect is reproducible?"
+          },
+          "kind": "empirical"
+        },
+        {
+          "id": "ESO-11.02",
+          "title": {
+            "de": "Energetische Diagnostik",
+            "en": "Energy diagnosis"
+          },
+          "context": {
+            "de": "Krankheitsdiagnosen brauchen zuverlässige und überprüfbare Methoden.",
+            "en": "Disease diagnoses require reliable, verifiable methods."
+          },
+          "question": {
+            "de": "Wird ein Befund unabhängig vom Untersuchenden bestätigt?",
+            "en": "Is a finding confirmed independently of the practitioner?"
+          },
+          "kind": "empirical"
+        },
+        {
+          "id": "ESO-11.03",
+          "title": {
+            "de": "Klangschalen und Klangheilung",
+            "en": "Singing bowls and sound healing"
+          },
+          "context": {
+            "de": "Musik und Entspannung lassen sich untersuchen; darüber hinausgehende Heilbehauptungen separat.",
+            "en": "Music and relaxation can be studied; further healing claims require separate evidence."
+          },
+          "question": {
+            "de": "Welcher Effekt ist stärker als eine passende Vergleichsbedingung?",
+            "en": "Which effect exceeds an appropriate comparison condition?"
+          },
+          "kind": "empirical"
+        },
+        {
+          "id": "ESO-11.04",
+          "title": {
+            "de": "Homöopathie",
+            "en": "Homeopathy"
+          },
+          "context": {
+            "de": "Historische Lehre und Wirksamkeit konkreter Mittel müssen voneinander getrennt geprüft werden.",
+            "en": "Historical doctrine and the efficacy of particular remedies require separate assessment."
+          },
+          "question": {
+            "de": "Sind patientenrelevante Effekte in hochwertigen Studien belegt?",
+            "en": "Are patient-relevant effects supported by high-quality studies?"
+          },
+          "kind": "empirical"
+        },
+        {
+          "id": "ESO-11.05",
+          "title": {
+            "de": "Geistiges Heilen",
+            "en": "Spiritual healing"
+          },
+          "context": {
+            "de": "Berichte über Erleichterung sind nicht dasselbe wie objektiv nachgewiesene Heilung.",
+            "en": "Reports of relief are not equivalent to objectively established healing."
+          },
+          "question": {
+            "de": "Wie messen wir Nutzen, Schaden und verzögerte Behandlung?",
+            "en": "How do we measure benefit, harm and delayed treatment?"
+          },
+          "kind": "empirical"
+        },
+        {
+          "id": "ESO-11.06",
+          "title": {
+            "de": "Detox- und Entgiftungsversprechen",
+            "en": "Detox and cleansing claims"
+          },
+          "context": {
+            "de": "Unscharfe Toxinbegriffe erschweren die Prüfung von Werbeaussagen.",
+            "en": "Vague toxin terminology makes promotional claims difficult to test."
+          },
+          "question": {
+            "de": "Welcher Stoff soll auf welchem Weg schneller entfernt werden?",
+            "en": "Which substance is supposedly removed faster, and by what route?"
+          },
+          "kind": "empirical"
+        },
+        {
+          "id": "ESO-11.07",
+          "title": {
+            "de": "Placebo, Nocebo und Erwartung",
+            "en": "Placebo, nocebo and expectation"
+          },
+          "context": {
+            "de": "Erwartungen können Erleben beeinflussen; die Erklärung einzelner Studien braucht Sorgfalt.",
+            "en": "Expectations can influence experience; interpreting individual studies requires care."
+          },
+          "question": {
+            "de": "Welche Veränderungen sind subjektiv, welche objektiv gemessen?",
+            "en": "Which changes are subjective and which objectively measured?"
+          },
+          "kind": "empirical"
+        },
+        {
+          "id": "ESO-11.08",
+          "title": {
+            "de": "Selbstbestimmung und Behandlungsgrenzen",
+            "en": "Autonomy and treatment boundaries"
+          },
+          "context": {
+            "de": "Informierte Entscheidung erfordert ehrliche Aussagen zu Evidenz, Risiken und Alternativen.",
+            "en": "Informed decisions require honest statements about evidence, risks and alternatives."
+          },
+          "question": {
+            "de": "Welche Information braucht eine Person, um ohne Druck zu wählen?",
+            "en": "What does a person need to choose without pressure?"
+          },
+          "kind": "normative"
+        }
+      ]
+    },
+    {
+      "id": "ESO-12",
+      "title": {
+        "de": "Spiritismus, Jenseits & Kontakte",
+        "en": "Spiritualism, afterlife & contact"
+      },
+      "intro": {
+        "de": "Jenseitsüberzeugungen sind existentielle Fragen. Historische Bewegungen, persönliche Berichte und Behauptungen über überprüfbare Kommunikation haben unterschiedliche Geltungsansprüche.",
+        "en": "Afterlife beliefs pose existential questions. Historical movements, personal accounts and claims of verifiable communication make different kinds of claims."
+      },
+      "topics": [
+        "religion",
+        "bewusstsein",
+        "psychologie",
+        "geschichte"
+      ],
+      "source_ids": [
+        "oxford",
+        "uva"
+      ],
+      "children": [
+        {
+          "id": "ESO-12.01",
+          "title": {
+            "de": "Spiritismus des 19. Jahrhunderts",
+            "en": "Nineteenth-century spiritualism"
+          },
+          "context": {
+            "de": "Bewegungen, Sitzungen und Medien sind historisch dokumentierbar.",
+            "en": "Movements, séances and mediums can be studied historically."
+          },
+          "question": {
+            "de": "Welche sozialen Bedingungen förderten ihre Verbreitung?",
+            "en": "What social conditions aided their spread?"
+          },
+          "kind": "history"
+        },
+        {
+          "id": "ESO-12.02",
+          "title": {
+            "de": "Séancen und physikalische Phänomene",
+            "en": "Séances and physical phenomena"
+          },
+          "context": {
+            "de": "Berichtete Ereignisse benötigen nachvollziehbare Kontrollen und alternative Erklärungen.",
+            "en": "Reported events require traceable controls and alternative explanations."
+          },
+          "question": {
+            "de": "Welche Beobachtung wäre auch ohne Täuschung und Erwartung noch unerklärt?",
+            "en": "What observation would remain unexplained after controlling for deception and expectation?"
+          },
+          "kind": "empirical"
+        },
+        {
+          "id": "ESO-12.03",
+          "title": {
+            "de": "Medialität",
+            "en": "Mediumship"
+          },
+          "context": {
+            "de": "Innere Eindrücke können als Kontakt erlebt werden; Identifizierbarkeit ist prüfbar.",
+            "en": "Inner impressions can feel like contact; identification claims can be tested."
+          },
+          "question": {
+            "de": "Lassen sich unbekannte Informationen unabhängig und vorab prüfen?",
+            "en": "Can unknown details be independently checked in advance?"
+          },
+          "kind": "empirical"
+        },
+        {
+          "id": "ESO-12.04",
+          "title": {
+            "de": "Reinkarnation",
+            "en": "Reincarnation"
+          },
+          "context": {
+            "de": "Wiedergeburtsideen haben verschiedene religiöse und philosophische Formen.",
+            "en": "Rebirth ideas have distinct religious and philosophical forms."
+          },
+          "question": {
+            "de": "Welche Belege würden eine konkrete Erinnerung von späterem Lernen unterscheiden?",
+            "en": "What evidence could distinguish a claimed memory from later learning?"
+          },
+          "kind": "empirical"
+        },
+        {
+          "id": "ESO-12.05",
+          "title": {
+            "de": "Ahnenrituale",
+            "en": "Ancestor rituals"
+          },
+          "context": {
+            "de": "Gedenken, Trauer und spirituelle Bindung haben vielfältige kulturelle Gestalten.",
+            "en": "Remembrance, grief and spiritual connection have diverse cultural forms."
+          },
+          "question": {
+            "de": "Was bewahrt ein Ritual, ohne externe Kontakte behaupten zu müssen?",
+            "en": "What does a ritual preserve without positing external contact?"
+          },
+          "kind": "experience"
+        },
+        {
+          "id": "ESO-12.06",
+          "title": {
+            "de": "Geister und Spuk",
+            "en": "Ghosts and hauntings"
+          },
+          "context": {
+            "de": "Erlebnisse und Umweltbedingungen müssen vor einer übernatürlichen Erklärung untersucht werden.",
+            "en": "Experiences and environmental conditions require study before a supernatural explanation."
+          },
+          "question": {
+            "de": "Welche gewöhnlichen Ursachen wurden kontrolliert?",
+            "en": "Which ordinary causes have been controlled?"
+          },
+          "kind": "empirical"
+        },
+        {
+          "id": "ESO-12.07",
+          "title": {
+            "de": "Jenseitsbilder und Ethik",
+            "en": "Afterlife images and ethics"
+          },
+          "context": {
+            "de": "Vorstellungen von Tod und Fortleben prägen manchmal das gegenwärtige Handeln.",
+            "en": "Views of death and continuation may shape behavior in this life."
+          },
+          "question": {
+            "de": "Fördert eine Überzeugung Fürsorge oder macht sie Menschen erpressbar?",
+            "en": "Does a belief foster care or make people vulnerable to coercion?"
+          },
+          "kind": "normative"
+        }
+      ]
+    },
+    {
+      "id": "ESO-13",
+      "title": {
+        "de": "Lebendige Traditionen & interkulturelle Grenzen",
+        "en": "Living traditions & cross-cultural boundaries"
+      },
+      "intro": {
+        "de": "Religiöse Traditionen anderer Kulturen sind nicht automatisch 'Esoterik'. Diese Vergleichsäste markieren Berührungspunkte und Grenzen der Zuordnung. Angehörige der jeweiligen Gemeinschaften müssen selbst zu Wort kommen; geschützte Inhalte bleiben geschützt.",
+        "en": "Religious traditions from other cultures are not automatically 'esotericism'. These comparative branches mark possible contacts and limits of classification. Communities must speak for themselves; protected knowledge stays protected."
+      },
+      "topics": [
+        "religion",
+        "gesellschaft",
+        "geschichte",
+        "ethik"
+      ],
+      "source_ids": [
+        "global",
+        "unesco"
+      ],
+      "children": [
+        {
+          "id": "ESO-13.01",
+          "title": {
+            "de": "Vajrayana und buddhistischer Tantra",
+            "en": "Vajrayana and Buddhist tantra"
+          },
+          "context": {
+            "de": "Lebendige buddhistische Schulen haben eigene Praxisregeln, Texte und Vermittlungswege.",
+            "en": "Living Buddhist schools have their own rules, texts and forms of teaching."
+          },
+          "question": {
+            "de": "Wer ist zur öffentlichen Erklärung welcher Inhalte befugt?",
+            "en": "Who is entitled to explain which teachings publicly?"
+          },
+          "kind": "normative"
+        },
+        {
+          "id": "ESO-13.02",
+          "title": {
+            "de": "Sufische Mystik",
+            "en": "Sufi mysticism"
+          },
+          "context": {
+            "de": "Vielfältige islamische Traditionen, nicht ein westliches okkultes System.",
+            "en": "Diverse Islamic traditions, not a Western occult system."
+          },
+          "question": {
+            "de": "Was geht verloren, wenn Praxis aus ihrer Religion gelöst wird?",
+            "en": "What is lost when practice is separated from its religion?"
+          },
+          "kind": "history"
+        },
+        {
+          "id": "ESO-13.03",
+          "title": {
+            "de": "Yoga und Tantra",
+            "en": "Yoga and tantra"
+          },
+          "context": {
+            "de": "Begriffe umfassen sehr unterschiedliche historische und gegenwärtige indische Zusammenhänge.",
+            "en": "Terms span highly diverse historical and contemporary Indian contexts."
+          },
+          "question": {
+            "de": "Welche moderne Darstellung beruht auf welcher Tradition?",
+            "en": "Which modern portrayal draws from which tradition?"
+          },
+          "kind": "history"
+        },
+        {
+          "id": "ESO-13.04",
+          "title": {
+            "de": "Daoistische Praktiken",
+            "en": "Daoist practices"
+          },
+          "context": {
+            "de": "Kosmologie, Körperpraxis und Ritual verlangen eigene begriffliche Kontexte.",
+            "en": "Cosmology, body practice and ritual require their own conceptual contexts."
+          },
+          "question": {
+            "de": "Worin unterscheiden sich Praxisziel und naturwissenschaftliche Wirkaussage?",
+            "en": "How do the goals of a practice differ from scientific efficacy claims?"
+          },
+          "kind": "interpretation"
+        },
+        {
+          "id": "ESO-13.05",
+          "title": {
+            "de": "Indigene Spiritualitäten",
+            "en": "Indigenous spiritualities"
+          },
+          "context": {
+            "de": "Keine einheitliche Kategorie; Gemeinschaften haben unterschiedliche Rechte und Wissensgrenzen.",
+            "en": "Not one uniform category; communities have distinct rights and boundaries around knowledge."
+          },
+          "question": {
+            "de": "Wie sichern wir Zustimmung, Herkunft und das Recht auf Nicht-Veröffentlichung?",
+            "en": "How do we safeguard consent, provenance and the right not to publish?"
+          },
+          "kind": "normative"
+        },
+        {
+          "id": "ESO-13.06",
+          "title": {
+            "de": "Schamanische Begriffe",
+            "en": "Terms described as shamanic"
+          },
+          "context": {
+            "de": "Eine pauschale Bezeichnung kann unterschiedliche lokale Rollen und Rituale verdecken.",
+            "en": "A blanket label can obscure distinct local roles and rituals."
+          },
+          "question": {
+            "de": "Welcher Begriff stammt von wem und aus welchem Kontext?",
+            "en": "Whose term is this and from what context?"
+          },
+          "kind": "history"
+        },
+        {
+          "id": "ESO-13.07",
+          "title": {
+            "de": "Afro-diasporische Religionen",
+            "en": "African-diasporic religions"
+          },
+          "context": {
+            "de": "Eigenständige lebendige Religionen dürfen nicht unter pauschalen Magiebegriffen vereinnahmt werden.",
+            "en": "Distinct living religions must not be absorbed into generic labels of magic."
+          },
+          "question": {
+            "de": "Wie können wir Kontaktstellen untersuchen, ohne zu vereinnahmen?",
+            "en": "How can connections be studied without appropriation?"
+          },
+          "kind": "normative"
+        },
+        {
+          "id": "ESO-13.08",
+          "title": {
+            "de": "Kulturelle Übersetzung und Aneignung",
+            "en": "Cultural translation and appropriation"
+          },
+          "context": {
+            "de": "Austausch kann bereichern; Machtgefälle und Zustimmung sind mitzudenken.",
+            "en": "Exchange may enrich, but power differences and consent matter."
+          },
+          "question": {
+            "de": "Wer profitiert, wer wird falsch dargestellt oder ausgeschlossen?",
+            "en": "Who benefits, and who is misrepresented or excluded?"
+          },
+          "kind": "normative"
+        }
+      ]
+    },
+    {
+      "id": "ESO-14",
+      "title": {
+        "de": "Neuzeitliche Schulen & New Age",
+        "en": "Modern currents & New Age"
+      },
+      "intro": {
+        "de": "Die neuzeitliche Esoterik ist historisch durch Neugründungen, Übersetzungen und kulturelle Transfers geprägt. Eine Lehre muss nicht alt sein, um für Menschen wichtig zu sein; ihr Alter darf aber nicht erfunden werden.",
+        "en": "Modern esoteric currents developed through new movements, translations and cultural transfer. A teaching need not be ancient to matter to people, but its age must not be invented."
+      },
+      "topics": [
+        "geschichte",
+        "religion",
+        "gesellschaft",
+        "psychologie"
+      ],
+      "source_ids": [
+        "uva",
+        "oxford",
+        "global"
+      ],
+      "children": [
+        {
+          "id": "ESO-14.01",
+          "title": {
+            "de": "Theosophische Gesellschaft",
+            "en": "Theosophical Society"
+          },
+          "context": {
+            "de": "Neuzeitliche Bewegung mit komplexen Aneignungen außereuropäischer Traditionen.",
+            "en": "A modern movement with complex appropriations of non-European traditions."
+          },
+          "question": {
+            "de": "Welche Begriffe wurden von wem umgedeutet?",
+            "en": "Which concepts were reinterpreted by whom?"
+          },
+          "kind": "history"
+        },
+        {
+          "id": "ESO-14.02",
+          "title": {
+            "de": "Anthroposophie",
+            "en": "Anthroposophy"
+          },
+          "context": {
+            "de": "Weltanschauung mit kulturellen, pädagogischen und teils gesundheitlichen Ansprüchen.",
+            "en": "A worldview with cultural, educational and some health-related claims."
+          },
+          "question": {
+            "de": "Welche Aussagen sind Weltanschauung und welche verlangen Wirksamkeitsbelege?",
+            "en": "Which claims concern worldview, and which require efficacy evidence?"
+          },
+          "kind": "empirical"
+        },
+        {
+          "id": "ESO-14.03",
+          "title": {
+            "de": "Hermetic Order of the Golden Dawn",
+            "en": "Hermetic Order of the Golden Dawn"
+          },
+          "context": {
+            "de": "Neuzeitlicher Orden, der verschiedene Symbolsysteme kombinierte.",
+            "en": "A modern order that combined multiple symbolic systems."
+          },
+          "question": {
+            "de": "Welche vermeintlichen Kontinuitäten sind historisch belegbar?",
+            "en": "Which claimed continuities are historically supported?"
+          },
+          "kind": "history"
+        },
+        {
+          "id": "ESO-14.04",
+          "title": {
+            "de": "Kybalion und moderne Hermetik",
+            "en": "The Kybalion and modern Hermeticism"
+          },
+          "context": {
+            "de": "Ein modernes Werk, das nicht mit den spätantiken Hermetica gleichgesetzt werden darf.",
+            "en": "A modern work that must not be conflated with late antique Hermetica."
+          },
+          "question": {
+            "de": "Welche Lehre ist in welchem Text erstmals belegt?",
+            "en": "Which teaching is first attested in which text?"
+          },
+          "kind": "history"
+        },
+        {
+          "id": "ESO-14.05",
+          "title": {
+            "de": "New Age und Selbsthilfe",
+            "en": "New Age and self-help"
+          },
+          "context": {
+            "de": "Unterschiedliche spirituelle Angebote verknüpfen persönliche Sinnsuche und Markt.",
+            "en": "Diverse spiritual offerings connect quests for meaning with commerce."
+          },
+          "question": {
+            "de": "Welche Versprechen sind Deutung, welche überprüfbare Wirkung?",
+            "en": "Which promises are interpretations and which are testable effects?"
+          },
+          "kind": "empirical"
+        },
+        {
+          "id": "ESO-14.06",
+          "title": {
+            "de": "New Thought und positives Denken",
+            "en": "New Thought and positive thinking"
+          },
+          "context": {
+            "de": "Psychologische Motivation ist von der Behauptung zu trennen, Gedanken erzeugten externe Ereignisse.",
+            "en": "Psychological motivation differs from the claim that thoughts cause external events."
+          },
+          "question": {
+            "de": "Welche objektiven Folgen zeigt ein kontrollierter Vergleich?",
+            "en": "What objective effects appear under controlled comparison?"
+          },
+          "kind": "empirical"
+        },
+        {
+          "id": "ESO-14.07",
+          "title": {
+            "de": "Human Design",
+            "en": "Human Design"
+          },
+          "context": {
+            "de": "Junges Deutungssystem, das unter anderem astrologische und I-Ging-Motive kombiniert.",
+            "en": "A recent interpretive system combining astrological and I Ching motifs, among others."
+          },
+          "question": {
+            "de": "Welche Klassifikationen sind reproduzierbar und nützlich?",
+            "en": "Which classifications are reproducible and useful?"
+          },
+          "kind": "empirical"
+        },
+        {
+          "id": "ESO-14.08",
+          "title": {
+            "de": "Chaosmagie und moderne Praxis",
+            "en": "Chaos magic and modern practice"
+          },
+          "context": {
+            "de": "Neuere Formen experimentieren mit Symbolen und selbst gewählten Überzeugungsrahmen.",
+            "en": "Newer practices experiment with symbols and chosen belief frameworks."
+          },
+          "question": {
+            "de": "Wo wird eine Methode zum psychologischen Experiment, wo zur Kausalbehauptung?",
+            "en": "When is a method a psychological experiment versus a causal claim?"
+          },
+          "kind": "interpretation"
+        }
+      ]
+    },
+    {
+      "id": "ESO-15",
+      "title": {
+        "de": "Parapsychologie & Grenzbehauptungen",
+        "en": "Parapsychology & extraordinary claims"
+      },
+      "intro": {
+        "de": "Außergewöhnliche Behauptungen sind grundsätzlich untersuchbar, wenn Beobachtung, Erfolgsmaßstab und Alternativerklärungen präzisiert werden. Ein offenes Ergebnis ist weder Bestätigung noch Widerlegung aller Formen.",
+        "en": "Extraordinary claims can be examined when observations, success criteria and alternatives are specified. An unresolved result neither proves nor disproves all related claims."
+      },
+      "topics": [
+        "natur",
+        "mathematik",
+        "psychologie",
+        "bewusstsein"
+      ],
+      "source_ids": [
+        "cos",
+        "bbc"
+      ],
+      "children": [
+        {
+          "id": "ESO-15.01",
+          "title": {
+            "de": "Telepathie",
+            "en": "Telepathy"
+          },
+          "context": {
+            "de": "Behauptete Informationsübertragung ohne gewöhnliche Sinneskanäle.",
+            "en": "Claimed information transfer without ordinary sensory channels."
+          },
+          "question": {
+            "de": "Welche Abschirmung und Vorregistrierung verhindern Informationslecks?",
+            "en": "What shielding and preregistration prevent information leakage?"
+          },
+          "kind": "empirical"
+        },
+        {
+          "id": "ESO-15.02",
+          "title": {
+            "de": "Hellsehen",
+            "en": "Clairvoyance"
+          },
+          "context": {
+            "de": "Behauptete Kenntnis verborgener gegenwärtiger Sachverhalte.",
+            "en": "Claimed knowledge of hidden present facts."
+          },
+          "question": {
+            "de": "Wie verhindern verblindete Protokolle zufälliges Raten und Auswertungsspielraum?",
+            "en": "How can blinded protocols control guessing and flexible scoring?"
+          },
+          "kind": "empirical"
+        },
+        {
+          "id": "ESO-15.03",
+          "title": {
+            "de": "Präkognition",
+            "en": "Precognition"
+          },
+          "context": {
+            "de": "Behauptete Information über nicht zugängliche zukünftige Ereignisse.",
+            "en": "Claimed information about inaccessible future events."
+          },
+          "question": {
+            "de": "Wie werden vorab Zeitfenster und Trefferregeln festgelegt?",
+            "en": "How are the time window and scoring rules set in advance?"
+          },
+          "kind": "empirical"
+        },
+        {
+          "id": "ESO-15.04",
+          "title": {
+            "de": "Remote Viewing",
+            "en": "Remote viewing"
+          },
+          "context": {
+            "de": "Die Geschichte von Programmen ist kein Beweis für erfolgreiche Fernwahrnehmung.",
+            "en": "The history of programmes is not proof of successful remote perception."
+          },
+          "question": {
+            "de": "Wie schneidet eine verblindete Stichprobe gegen Zufall ab?",
+            "en": "How do blinded trials perform against chance?"
+          },
+          "kind": "empirical"
+        },
+        {
+          "id": "ESO-15.05",
+          "title": {
+            "de": "Psychokinese",
+            "en": "Psychokinesis"
+          },
+          "context": {
+            "de": "Behauptete Beeinflussung von Materie durch Gedanken.",
+            "en": "Claimed influence of thought on matter."
+          },
+          "question": {
+            "de": "Welche unabhängige Messung widerlegt einfache Störquellen?",
+            "en": "What independent measurement excludes mundane confounds?"
+          },
+          "kind": "empirical"
+        },
+        {
+          "id": "ESO-15.06",
+          "title": {
+            "de": "UFO- und Kontaktdeutungen",
+            "en": "UFO and contact interpretations"
+          },
+          "context": {
+            "de": "Unidentifizierte Beobachtung ist nicht gleichbedeutend mit einer spirituellen oder außerirdischen Ursache.",
+            "en": "An unidentified observation does not identify a spiritual or extraterrestrial cause."
+          },
+          "question": {
+            "de": "Welche Daten unterscheiden die konkurrierenden Erklärungen?",
+            "en": "What data distinguish competing accounts?"
+          },
+          "kind": "empirical"
+        },
+        {
+          "id": "ESO-15.07",
+          "title": {
+            "de": "Mustersehen und Zufall",
+            "en": "Pattern detection and randomness"
+          },
+          "context": {
+            "de": "Menschen erkennen oft Muster auch in zufälligen Folgen.",
+            "en": "People often see patterns in random sequences."
+          },
+          "question": {
+            "de": "Welche Treffer würden ein geeignetes Zufallsmodell tatsächlich überraschen?",
+            "en": "Which hits would genuinely challenge an appropriate chance model?"
+          },
+          "kind": "formal"
+        },
+        {
+          "id": "ESO-15.08",
+          "title": {
+            "de": "Replikationsprobleme",
+            "en": "Replication problems"
+          },
+          "context": {
+            "de": "Einzelbefunde sind von unabhängig wiederholten Ergebnissen zu unterscheiden.",
+            "en": "Single findings differ from independently repeated results."
+          },
+          "question": {
+            "de": "Wessen unabhängige Prüfung würde die eigene Position verändern?",
+            "en": "Whose independent test would change one's view?"
+          },
+          "kind": "normative"
+        }
+      ]
+    },
+    {
+      "id": "ESO-16",
+      "title": {
+        "de": "Kunst, Literatur & digitale Esoterik",
+        "en": "Art, literature & digital esotericism"
+      },
+      "intro": {
+        "de": "Esoterische Motive wandern durch Kunst, Popkultur und digitale Medien. Ihre ästhetische Kraft ist untersuchbar, ohne daraus einen naturwissenschaftlichen Wahrheitsanspruch abzuleiten.",
+        "en": "Esoteric motifs travel through art, popular culture and digital media. Their aesthetic power can be explored without turning them into scientific truth claims."
+      },
+      "topics": [
+        "kunst",
+        "technik",
+        "gesellschaft",
+        "geschichte"
+      ],
+      "source_ids": [
+        "met",
+        "global"
+      ],
+      "children": [
+        {
+          "id": "ESO-16.01",
+          "title": {
+            "de": "Alchemische Bildkunst",
+            "en": "Alchemical imagery"
+          },
+          "context": {
+            "de": "Künstlerische Bildprogramme verknüpfen Stoffe, Wandlung und religiöse Motive.",
+            "en": "Artistic programmes connect materials, transformation and religious imagery."
+          },
+          "question": {
+            "de": "Wie verändert sich Bedeutung über Epochen und Medien?",
+            "en": "How does meaning change across periods and media?"
+          },
+          "kind": "history"
+        },
+        {
+          "id": "ESO-16.02",
+          "title": {
+            "de": "Tarot als Illustration",
+            "en": "Tarot as illustration"
+          },
+          "context": {
+            "de": "Kartenbilder können als Kunst und Erzählwerk wirken, unabhängig vom Wahrsageanspruch.",
+            "en": "Tarot imagery can work as art and narrative independent of divination claims."
+          },
+          "question": {
+            "de": "Welche neue Lesart macht ein Bild möglich?",
+            "en": "What new reading does an image enable?"
+          },
+          "kind": "interpretation"
+        },
+        {
+          "id": "ESO-16.03",
+          "title": {
+            "de": "Mythos in Literatur und Film",
+            "en": "Myth in literature and film"
+          },
+          "context": {
+            "de": "Erzählungen können archetypische Rollen aufgreifen, ohne dass sie universelle Naturgesetze beschreiben.",
+            "en": "Stories may draw on archetypal roles without representing universal laws."
+          },
+          "question": {
+            "de": "Wann wird eine Erzählfigur zur scheinbaren Diagnose?",
+            "en": "When does a story character become a supposed diagnosis?"
+          },
+          "kind": "interpretation"
+        },
+        {
+          "id": "ESO-16.04",
+          "title": {
+            "de": "Okkulte Ästhetik und Musik",
+            "en": "Occult aesthetics and music"
+          },
+          "context": {
+            "de": "Klang, Gestaltung und Atmosphäre können Erfahrungen prägen.",
+            "en": "Sound, design and atmosphere can shape experience."
+          },
+          "question": {
+            "de": "Was wird tatsächlich erlebt, was nur zugeschrieben?",
+            "en": "What is actually experienced and what merely attributed?"
+          },
+          "kind": "experience"
+        },
+        {
+          "id": "ESO-16.05",
+          "title": {
+            "de": "Soziale Medien und Horoskope",
+            "en": "Social media and horoscopes"
+          },
+          "context": {
+            "de": "Algorithmen verstärken attraktive Muster und wiederholte Deutungen.",
+            "en": "Algorithms amplify appealing patterns and repeated interpretations."
+          },
+          "question": {
+            "de": "Welche Rolle spielen Selektion, Reichweite und Bestätigungsfehler?",
+            "en": "What roles do selection, reach and confirmation bias play?"
+          },
+          "kind": "empirical"
+        },
+        {
+          "id": "ESO-16.06",
+          "title": {
+            "de": "KI-Orakel und generierte Deutung",
+            "en": "AI oracles and generated readings"
+          },
+          "context": {
+            "de": "Sprachmodelle können überzeugende Bedeutungen erzeugen, ohne eine paranormale Quelle zu besitzen.",
+            "en": "Language models can generate compelling meanings without possessing a paranormal source."
+          },
+          "question": {
+            "de": "Wer ist für Einfluss, Transparenz und Fehlschlüsse verantwortlich?",
+            "en": "Who is responsible for influence, transparency and mistaken inferences?"
+          },
+          "kind": "normative"
+        },
+        {
+          "id": "ESO-16.07",
+          "title": {
+            "de": "Digitale Rituale und Gemeinschaften",
+            "en": "Digital rituals and communities"
+          },
+          "context": {
+            "de": "Online-Rituale schaffen neue Formen von Zugehörigkeit und Autorität.",
+            "en": "Online rituals create new forms of belonging and authority."
+          },
+          "question": {
+            "de": "Welche Bedürfnisse decken sie, welche Abhängigkeiten können entstehen?",
+            "en": "What needs do they meet, and what dependencies may arise?"
+          },
+          "kind": "normative"
+        }
+      ]
+    },
+    {
+      "id": "ESO-17",
+      "title": {
+        "de": "Prüfverfahren, Ethik & Macht",
+        "en": "Testing, ethics & power"
+      },
+      "intro": {
+        "de": "Dieser Ast prüft nicht nur esoterische Aussagen, sondern auch WIRKLICHs eigene Deutungsmacht: Fehlerquellen, kulturelle Rechte, Interessenkonflikte und Grenzen von Forschung. Auch diese Regeln bleiben kritisierbar.",
+        "en": "This branch examines not only esoteric claims but also WIRKLICH's own interpretive authority: error sources, cultural rights, conflicts of interest and research limits. These rules themselves remain challengeable."
+      },
+      "topics": [
+        "ethik",
+        "medizin",
+        "philosophie",
+        "technik",
+        "gesellschaft"
+      ],
+      "source_ids": [
+        "cos",
+        "nccih",
+        "unesco",
+        "global"
+      ],
+      "children": [
+        {
+          "id": "ESO-17.01",
+          "title": {
+            "de": "Aussagearten unterscheiden",
+            "en": "Distinguishing claim types"
+          },
+          "context": {
+            "de": "Historische, interpretative, erlebensbezogene und empirische Fragen brauchen verschiedene Maßstäbe.",
+            "en": "Historical, interpretive, experiential and empirical questions require different standards."
+          },
+          "question": {
+            "de": "Welchen Anspruch erhebt dieser konkrete Satz?",
+            "en": "What kind of claim does this particular sentence make?"
+          },
+          "kind": "formal"
+        },
+        {
+          "id": "ESO-17.02",
+          "title": {
+            "de": "Vorregistrierung und Kontrollgruppen",
+            "en": "Preregistration and controls"
+          },
+          "context": {
+            "de": "Vorab festgelegte Endpunkte schützen besser gegen nachträgliche Trefferwahl.",
+            "en": "Prespecified outcomes reduce the risk of cherry-picked successes."
+          },
+          "question": {
+            "de": "Welche Entscheidung steht schon vor der Messung fest?",
+            "en": "Which decision rule is fixed before measurement?"
+          },
+          "kind": "empirical"
+        },
+        {
+          "id": "ESO-17.03",
+          "title": {
+            "de": "Bestätigungsfehler und Barnum-Effekt",
+            "en": "Confirmation bias and Barnum effect"
+          },
+          "context": {
+            "de": "Vage Aussagen und ausgewählte Treffer können persönlich sehr präzise erscheinen.",
+            "en": "Vague statements and selective hits may feel highly personal."
+          },
+          "question": {
+            "de": "Wie oft trifft die Aussage auch auf Vergleichspersonen zu?",
+            "en": "How often does a claim also fit comparison participants?"
+          },
+          "kind": "empirical"
+        },
+        {
+          "id": "ESO-17.04",
+          "title": {
+            "de": "Erfahrung würdigen, Ursache prüfen",
+            "en": "Respect experience, test causes"
+          },
+          "context": {
+            "de": "Das Erleben einer Person ist nicht mit ihrer Erklärung dieses Erlebens gleichzusetzen.",
+            "en": "A person's experience is not identical to their explanation of that experience."
+          },
+          "question": {
+            "de": "Wie sprechen wir über Zweifel, ohne Würde abzusprechen?",
+            "en": "How do we discuss doubt without denying dignity?"
+          },
+          "kind": "normative"
+        },
+        {
+          "id": "ESO-17.05",
+          "title": {
+            "de": "Quellen, Übersetzung und Herkunft",
+            "en": "Sources, translation and provenance"
+          },
+          "context": {
+            "de": "Texte können falsch übersetzt oder spätere Zuschreibungen für antike Quellen gehalten werden.",
+            "en": "Texts can be mistranslated or later attributions mistaken for ancient sources."
+          },
+          "question": {
+            "de": "Welche Originalquelle trägt die konkrete Aussage?",
+            "en": "Which primary source supports the specific claim?"
+          },
+          "kind": "history"
+        },
+        {
+          "id": "ESO-17.06",
+          "title": {
+            "de": "Kulturelle Rechte und Einverständnis",
+            "en": "Cultural rights and consent"
+          },
+          "context": {
+            "de": "Nicht jedes Ritual, Wissen oder Symbol ist frei zur Veröffentlichung verfügbar.",
+            "en": "Not every ritual, teaching or symbol is available for publication."
+          },
+          "question": {
+            "de": "Wer muss einer Weitergabe zustimmen?",
+            "en": "Who must consent to sharing?"
+          },
+          "kind": "normative"
+        },
+        {
+          "id": "ESO-17.07",
+          "title": {
+            "de": "Manipulation und Abhängigkeitsverhältnisse",
+            "en": "Manipulation and dependency"
+          },
+          "context": {
+            "de": "Unfehlbarkeitsansprüche, Angst und finanzielle Abhängigkeit können Kritik unterdrücken.",
+            "en": "Claims of infallibility, fear and financial dependence may suppress criticism."
+          },
+          "question": {
+            "de": "Kann ein Mitglied ohne Druck widersprechen und gehen?",
+            "en": "Can a member disagree and leave without coercion?"
+          },
+          "kind": "normative"
+        },
+        {
+          "id": "ESO-17.08",
+          "title": {
+            "de": "Geschäftsmodelle und Heilsversprechen",
+            "en": "Business models and cure promises"
+          },
+          "context": {
+            "de": "Finanzielle Anreize beeinflussen, welche Behauptungen verbreitet werden.",
+            "en": "Financial incentives shape which claims are promoted."
+          },
+          "question": {
+            "de": "Wer verdient am Versprechen und trägt das Risiko?",
+            "en": "Who profits from the promise and who carries the risk?"
+          },
+          "kind": "normative"
+        },
+        {
+          "id": "ESO-17.09",
+          "title": {
+            "de": "Verschwörungserzählungen und Immunisierung",
+            "en": "Conspiracy narratives and immunization"
+          },
+          "context": {
+            "de": "Eine Theorie, die jeden Gegenbeleg zum Teil der Verschwörung erklärt, entzieht sich Kritik.",
+            "en": "A theory that labels every counterexample part of the conspiracy evades criticism."
+          },
+          "question": {
+            "de": "Welche denkbare Beobachtung könnte die These widerlegen?",
+            "en": "What conceivable observation could falsify the claim?"
+          },
+          "kind": "formal"
+        },
+        {
+          "id": "ESO-17.10",
+          "title": {
+            "de": "Widerspruch und dauerhafter Dissens",
+            "en": "Disagreement and lasting dissent"
+          },
+          "context": {
+            "de": "Offener Streit ist besser als ein erzwungener Scheinkonsens.",
+            "en": "Open disagreement is better than coerced pseudo-consensus."
+          },
+          "question": {
+            "de": "Was bleibt unvereinbar und wer dokumentiert den Minderheitseinwand?",
+            "en": "What remains incompatible, and who records minority objections?"
+          },
+          "kind": "normative"
+        }
+      ]
+    }
+  ]
+}
