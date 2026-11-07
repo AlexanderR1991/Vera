@@ -77,6 +77,13 @@
         "source_commit": null,
         "review_url": null
       },
+      "esoterik-katalog": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewed_at": null,
+        "source_commit": null,
+        "review_url": null
+      },
       "esoterik-und-mathematik": {
         "status": "draft",
         "reviewer": null,
@@ -314,6 +321,15 @@
     "erkenntnisreife.md": {
       "status": "unassessed",
       "priority": "core",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "esoterik-katalog.md": {
+      "status": "unassessed",
+      "priority": "support",
       "target": null,
       "reviewer": null,
       "reviewed_at": null,

@@ -26,6 +26,7 @@ The challengeable process rule asks for a traceable revision path, type-appropri
 | Eine Frage für sich prüfen · Work privately | [Prüfblatt öffnen](https://alexanderr1991.github.io/Wirklich/de/werkstatt/) | [Open a worksheet](https://alexanderr1991.github.io/Wirklich/en/werkstatt/) |
 | Eine passende Verbindung finden · Find a relevant connection | [Erkenntnisnavigator](https://alexanderr1991.github.io/Wirklich/de/erkenntnisnavigator/) | [Knowledge navigator](https://alexanderr1991.github.io/Wirklich/en/erkenntnisnavigator/) |
 | Ein Netz verbundener Fragen sehen · Explore linked questions | [Fragenatlas (Pilot)](https://alexanderr1991.github.io/Wirklich/de/forum/#fragenatlas) | [Question atlas (pilot)](https://alexanderr1991.github.io/Wirklich/en/forum/#fragenatlas) |
+| Einen esoterischen Wissensast prüfen · Explore an esoteric question | [Esoterik-Wissensbaum](https://alexanderr1991.github.io/Wirklich/de/esoterik-katalog/) | [Esotericism tree](https://alexanderr1991.github.io/Wirklich/en/esoterik-katalog/) |
 | Eine Frage öffentlich stellen · Ask in public | [GitHub-Frageformular](https://github.com/AlexanderR1991/Wirklich/issues/new?template=frage.yml) | [GitHub question form](https://github.com/AlexanderR1991/Wirklich/issues/new?template=frage.yml) |
 
 ## English edition and translation review / Englische Ausgabe und Übersetzungsprüfung
