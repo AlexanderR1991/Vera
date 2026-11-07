@@ -1,6 +1,6 @@
 # Politik, die dem Menschen dient – Forschungsprogramm / Politics That Serves People
 
-**Status:** Version 0.6 · 2026-11-05. Überparteilicher philosophischer Entwurf und offene institutionelle Forschungsagenda. **Keine wissenschaftlich validierte Staatslehre, kein Wahlprogramm und keine unabhängige Begutachtung.**
+**Status:** Version 0.7 · 2026-11-07. Überparteilicher philosophischer Entwurf und offene institutionelle Forschungsagenda. **Keine wissenschaftlich validierte Staatslehre, kein Wahlprogramm und keine unabhängige Begutachtung.**
 
 ## Leitfrage / Central question
 
@@ -74,6 +74,39 @@ Alle Hypothesen sind **nicht vorregistrierte, ungeprüfte Arbeitsvorschläge**. 
 - Expertenwissen und Bürgerperspektive: Evidenz und Lebenswirklichkeit als unterschiedliche, nicht beliebig austauschbare Erkenntnisquellen.
 
 Eine angemessene Bewertung benötigt konkrete Alternativen, Daten, Rechtsrahmen, Verteilungswirkungen, Nebenfolgen und die Sicht Betroffener. Keine Zielkonfliktseite erhält automatisch den Status einer universellen Wahrheit.
+
+## Politischer Perspektivpluralismus: rechts, links und dazwischen (Ergänzung 0.7)
+
+**Leitentscheidung:** Ein Argument wird nicht wegen seiner politischen Herkunft aus dem Forschungsraum ausgeschlossen; ebenso erhält es durch seine Aufnahme **keinen Wahrheits-, Gleichwertigkeits- oder Legitimationsstempel**. Wir prüfen den stärksten vernünftigen Kern einer Position, ihre Einwände und die Bedingungen, unter denen sie revidiert werden müsste. Auch die Darstellung selbst darf kritisiert und verändert werden.
+
+**Begriffsdisziplin:** *Rechts* ist kein einheitliches Weltbild. Christdemokratischer, liberal-konservativer, nationalkonservativer, rechtspopulistischer und rechtsextremer Diskurs unterscheiden sich in Begründungen und Verhältnis zur liberalen Demokratie; die Übergänge und die Zuordnung konkreter Akteure sind Gegenstand politikwissenschaftlicher Analyse. Entsprechend sind *links*, sozialdemokratisch, sozialistisch, grün und linksliberal nicht deckungsgleich. Wirtschaftspolitische, kulturelle, demokratiepolitische und außenpolitische Achsen dürfen nicht zu einer einzigen Linie zusammengepresst werden. Zur Einordnung siehe [bpb: Konservatismus](https://www.bpb.de/kurz-knapp/lexika/politiklexikon/17742/konservatismus/) und [bpb: Programmatik der AfD](https://www.bpb.de/themen/parteien/parteien-in-deutschland/afd/273132/die-programmatik-der-afd/) (2026).
+
+### Acht überprüfbare Konfliktfelder
+
+Die folgenden Aussagen sind **redaktionell formulierte Argumentationslinien**, keine wörtlichen Zitate, keine Zuweisung an alle Wählerinnen und Wähler und keine Bestätigung einer Wirksamkeit. Die Zuweisung ist bewusst exemplarisch; Positionen überschneiden sich.
+
+| Feld | Stärkstes konservatives/rechtes Argument (Steelman) | Stärkstes soziales/progressives Gegenargument (Steelman) | Prüfbare Frage |
+|---|---|---|---|
+| Migration und Integration | Ein Rechtsstaat muss Einreise, Aufenthaltsregeln und kommunale Aufnahmekapazität planbar steuern; sonst sinken Verlässlichkeit und Integrationsfähigkeit. | Schutzsuchende brauchen faire individuelle Verfahren; Zugewanderte sind keine homogene Gruppe, und Integration braucht reale Chancen. | Welche rechtmäßigen Verfahren schützen Menschen und funktionieren unter konkreten kommunalen, wirtschaftlichen und administrativen Bedingungen? |
+| Sicherheit und Grundrechte | Ohne durchsetzbare Regeln, wirksame Strafverfolgung und Schutz der Opfer bleibt Freiheit besonders für Verletzliche abstrakt. | Prävention, unabhängige Kontrolle und Datenschutz gehören zur Sicherheit; unverhältnismäßige Eingriffe können Freiheit ohne messbaren Sicherheitsgewinn mindern. | Welche Maßnahmen senken Taten, Rückfälle und Viktimisierung; welche Grundrechte berühren sie? |
+| Eigentum, Markt, Sozialstaat | Eigentumsschutz, Leistung, Wettbewerb und einfache Regeln können Investition, Erwerbsanreize und Innovation fördern. | Startchancen, öffentliche Güter und soziale Risiken sind ungleich; gezielte Absicherung und Investitionen können reale Freiheit erst ermöglichen. | Wie entwickeln sich Beschäftigung, Aufstieg, Armut, Produktivität, Finanzierung und Bürokratie bei konkret benannten Instrumenten? |
+| Tradition und Wandel | Überlieferte Institutionen, Sprache, Familienbeziehungen und regionale Verwurzelung bieten Kontinuität; rasche Reformen können Bindungen beschädigen. | Tradition ist kein hinreichender Grund, Freiheitsrechte oder gleiche Teilhabe einzuschränken; Menschen dürfen Lebensformen verändern. | Wo fördern Praktiken Zusammenhalt, wo begrenzen sie Selbstbestimmung und Zugang? |
+| Souveränität und Europa | Nähe zu nationalen und lokalen Entscheidungsträgern kann demokratische Verantwortlichkeit und Subsidiarität schützen. | Gemeinsame europäische Regeln können grenzüberschreitende Probleme effektiver und gerechter bewältigen als Einzelstaaten. | Welche Aufgaben gehören auf welche Ebene, mit welcher Kontrolle und welchen Kosten für Nachbarn? |
+| Energie und Klima | Bezahlbarkeit, Versorgungssicherheit, Technologieoffenheit und soziale Übergänge sind wesentliche Maßstäbe für Klimapolitik. | Verzögerung von Emissionsminderungen kann Klima- und Folgekosten erhöhen; verbindliches Handeln kann Freiheit künftiger Generationen sichern. | Welche Maßnahmen senken Emissionen bei tragbaren Gesamtkosten und gerechter Lastenverteilung? **Nicht offen als bloße Meinung:** Der menschengemachte Klimawandel ist laut IPCC nachgewiesen. |
+| Schulden und Investitionen | Finanzielle Disziplin schützt künftige Generationen vor nicht tragfähigen Versprechen und wahrt staatliche Handlungsfähigkeit. | Nicht sanierte Infrastruktur, schlechte Bildung und ausbleibende Zukunftsinvestitionen können selbst hohe spätere Lasten verursachen. | Welche Varianten hinterlassen ein tragfähiges Verhältnis aus Vermögen, Verpflichtungen und öffentlichen Leistungen? |
+| Meinung, Medien und Diskurs | Freie Gegenrede und geringe politische Zensur schützen Minderheitenpositionen vor Dominanz der jeweils Mächtigen. | Ohne Schutz vor Drohungen und gezielter Einschüchterung werden Menschen faktisch aus Debatten verdrängt; Moderation kann Teilhabe sichern. | Welche Regeln ermöglichen Streit, Widerspruch und Sicherheit, ohne rechtmäßige Kritik zu unterdrücken? |
+
+### Evidenz und Grenzen des Vergleichs
+
+1. **Normative Gegensätze sind keine wissenschaftlichen Messwerte.** „Mehr Freiheit“, „gerechter“ oder „heimatverbunden“ benötigen offengelegte Definitionen. Zahlen zu Schäden, Kosten oder Arbeitsmärkten müssen mit Zeitraum, Population, Datenqualität, Wirkungshypothese und Gegenbelegen ausgewiesen werden.
+2. **Kein künstliches Gleichgewicht der Faktenlage.** Wir prüfen politische *Mittel* offen, relativieren aber nicht einen gut belegten empirischen Sachverhalt, nur um zwei Lager symmetrisch erscheinen zu lassen (Beispiel: [IPCC AR6 – menschlicher Einfluss auf die Erwärmung](https://www.ipcc.ch/report/ar6/syr/resources/spm-headline-statements/)).
+3. **Menschen sind nicht ihre politischen Positionen.** Kritik an Ideen darf scharf sein; pauschale Zuschreibung von Schuld, Gefährlichkeit oder Minderwertigkeit an Bevölkerungsgruppen ist kein Beleg. Die in Deutschland geltenden Grundrechte, insbesondere [Art. 1, 3 und 5 GG](https://www.gesetze-im-internet.de/gg/BJNR000010949.html), begrenzen die staatliche Umsetzung politischer Forderungen. Rechtsextreme Thesen können *untersucht* und widerlegt werden, ohne als gleichberechtigte normative Handlungsoption beworben zu werden.
+4. **Kein Zwang zum Konsens.** Ein redlich dokumentierter Dissens ist ein zulässiges Ergebnis. Die aufgeschriebenen Gegenargumente bleiben auch nach einer politischen Entscheidung sichtbar und revidierbar.
+5. **Programme sind Primärquellen für Positionen, nicht für Wirkungen.** Als nachvollziehbare historische Beispiele dienen [CDU-Grundsatzprogramm 2024](https://www.cdu.de/grundsatzprogramm/), [CDU/CSU-Wahlprogramm 2025](https://www.cdu.de/wahlprogramm-von-cdu-und-csu/), [SPD 2025](https://www.spd.de/bundestagswahl/programm/), [Grüne 2025](https://www.gruene.de/artikel/zusammen-wachsen), [AfD 2025](https://www.afd.de/wahlprogramm25/) und die [bpb-Analyse 2026](https://www.bpb.de/themen/parteien/parteien-in-deutschland/afd/273132/die-programmatik-der-afd/). Diese zeitgebundenen Dokumente belegen weder den Stand aller Strömungen im November 2026 noch die tatsächlichen Folgen einer Maßnahme.
+
+**Forum- und Forschungsprotokoll:** Ausgangsbehauptung → stärkste faire Interpretation → getrennte Rechts-, Werte- und Tatsachenprüfung → mindestens ein ernsthaftes Gegenmodell → umsetzbare Alternativen einschließlich Nicht-Handeln → mögliche Schäden und Betroffene → Revisionsbedingung → dokumentierter Dissens oder begrenzte Übereinstimmung. Keine Parteirankings, Moralpunkte oder automatische politische Siegerkür durch KI.
+
+*English principle:* Political positions from the right, left and other traditions are recorded in their strongest defensible form, with counterarguments, legal limits, empirical tests and revision criteria. Recording a view does **not** make it true, lawful or equally well-supported. Disagreement may remain unresolved.
 
 ## KI und wirtschaftliche Freiheit
 
