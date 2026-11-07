@@ -5,7 +5,8 @@
 ## Read the ideas
 
 1. [Foundational theses — English draft](grundtext.md) (nine theses; full companion to [the German source](../grundtext.md)).
-2. [The correction loop — English website](https://alexanderr1991.github.io/Wirklich/en/regelkreis/) and [META-01 in both languages](../selbstkorrektur.md).
+2. [Collective intelligence as an unvalidated founding hypothesis](kollektive-intelligenz.md) and [public explanation](https://alexanderr1991.github.io/Wirklich/en/kollektive-intelligenz/).
+3. [The correction loop — English website](https://alexanderr1991.github.io/Wirklich/en/regelkreis/) and [META-01 in both languages](../selbstkorrektur.md).
 3. [How claims are examined — English website](https://alexanderr1991.github.io/Wirklich/en/methode/) and [technical method notes, with English summary](../methode.md).
 4. [AI and people — English website](https://alexanderr1991.github.io/Wirklich/en/ki-und-mensch/) and [the AI charter (primarily German)](../ki-charta.md).
 5. [The forum — questions, answers and objections](https://alexanderr1991.github.io/Wirklich/en/forum/).

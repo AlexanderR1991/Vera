@@ -13,7 +13,8 @@ export const ui = {
       "Mitwirken",
       "Werkstatt",
       "Navigator",
-      "Forum"
+      "Forum",
+      "Gemeinsam denken"
     ],
     "motto": "PRÜFEN · KORRIGIEREN · WEITERLERNEN",
     "footerTitle": "Die Wirklichkeit steht über diesem Werk.",
@@ -32,6 +33,7 @@ export const ui = {
       "mission": "Unsere Mission",
       "regelkreis": "Unser Regelkreis · META-01",
       "ki-und-mensch": "KI und Mensch · Philosophischer Motor",
+      "kollektive-intelligenz": "Kollektive Intelligenz · Grundidee",
       "baum-des-wissens": "Der fliegende Baum",
       "aussagen": "Aussagenregister",
       "forum": "Das Forum",
@@ -74,7 +76,8 @@ export const ui = {
       "Contribute",
       "Workshop",
       "Navigator",
-      "Forum"
+      "Forum",
+      "Think together"
     ],
     "motto": "EXAMINE · REVISE · KEEP LEARNING",
     "footerTitle": "Reality stands above this work.",
@@ -93,6 +96,7 @@ export const ui = {
       "mission": "Our Mission",
       "regelkreis": "Our Correction Loop · META-01",
       "ki-und-mensch": "AI and Humanity · Philosophical Engine",
+      "kollektive-intelligenz": "Collective Intelligence · Founding Idea",
       "baum-des-wissens": "The Flying Tree",
       "aussagen": "Claim Register",
       "forum": "The Forum",
@@ -123,4 +127,4 @@ export const ui = {
     "description": project.english_name + " Bring a question to the open inquiry workshop. Examine the evidence, test objections and record what would change your mind."
   }
 };
-export const navigation = [["erkenntnisnavigator",7],["werkstatt",6],["atlas",1],["aussagen",3],["forum",8],["regelkreis",4],["mitwirken",5]];
+export const navigation = [["erkenntnisnavigator",7],["werkstatt",6],["atlas",1],["kollektive-intelligenz",9],["aussagen",3],["forum",8],["regelkreis",4],["mitwirken",5]];

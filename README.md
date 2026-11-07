@@ -14,8 +14,15 @@ The challengeable process rule asks for a traceable revision path, type-appropri
 
 **To guide humanity toward consensus through philosophy.** Anyone can bring a question. When our answers differ, we look for a point we can each agree on for our own reasons. We record where we still disagree.
 
+## Die Grundidee: kollektive Intelligenz · The founding idea: collective intelligence
+
+**WIRKLICH soll Menschen nicht das Denken abnehmen, sondern ihnen ermöglichen, gemeinsam besser zu denken.** Der Atlas ordnet Fragen, das Forum bewahrt Widerspruch, Git dokumentiert unsere Revisionen, der philosophische Motor prüft Gründe und KI darf begrenzte Muster und Gegenargumente vorschlagen. Damit könnte ein korrigierbarer gemeinsamer Lernprozess entstehen. **Das ist bisher eine unvalidierte Architekturhypothese, keine bewiesene kollektive Intelligenz.** [Konzept CI-0.1](docs/kollektive-intelligenz.md) · [Grundidee auf der Website](https://alexanderr1991.github.io/Wirklich/de/kollektive-intelligenz/) · [Datenvertrag](public/protocol/collective-intelligence.v0.json).
+
+**WIRKLICH aims to help people think better together, not replace their judgment.** Its atlas maps domains, documented objections enable revision, the philosophical engine tests reasons and AI may assist with proposed links and challenges. This is an **unvalidated hypothesis**, not a demonstrated collective mind. [English concept](docs/en/kollektive-intelligenz.md) · [Public explanation](https://alexanderr1991.github.io/Wirklich/en/kollektive-intelligenz/).
+
 | Einstieg | Deutsch | English |
 | --- | --- | --- |
+| Kollektive Intelligenz als Grundidee prüfen · Explore collective intelligence | [Grundidee](https://alexanderr1991.github.io/Wirklich/de/kollektive-intelligenz/) | [Founding idea](https://alexanderr1991.github.io/Wirklich/en/kollektive-intelligenz/) |
 | Den selbstkorrigierenden Regelkreis verstehen · Explore the correction loop | [Regelkreis](https://alexanderr1991.github.io/Wirklich/de/regelkreis/) | [Correction loop](https://alexanderr1991.github.io/Wirklich/en/regelkreis/) |
 | Eine Alltagsfrage prüfen · Examine an everyday question | [Fragen und erste Antworten](https://alexanderr1991.github.io/Wirklich/de/forum/#alltagsfragen) | [Questions and first answers](https://alexanderr1991.github.io/Wirklich/en/forum/#alltagsfragen) |
 | Den philosophischen Motor für KI prüfen · Examine the philosophical engine for AI | [KI und Mensch](https://alexanderr1991.github.io/Wirklich/de/ki-und-mensch/) | [AI and Humanity](https://alexanderr1991.github.io/Wirklich/en/ki-und-mensch/) |

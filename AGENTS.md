@@ -7,6 +7,8 @@
 >
 > **Wir bauen kein System, das recht behalten soll. Wir bauen ein System, das aus seinen Irrtümern lernen muss.**
 
+The [collective-intelligence architecture CI-0.1](docs/kollektive-intelligenz.md) and [public data contract](public/protocol/collective-intelligence.v0.json) are **unvalidated proposals**. The six atlas fields are topic domains, not six neural modules. No collective consciousness, autonomous learner or validated moral score is claimed. Challenge whether taking questions → retaining provenance → proposing cross-domain links → checking appropriate evidence → human editorial review → feedback improves outcomes against realistic alternatives. Preserve human appeal and reasoned minority dissent. The numerical direction index proposed in open PR #73 is separate and does not justify ranking people.
+
 The [contestable correction rule](docs/selbstkorrektur.md) and [structured protocol](public/protocol/self-correction.v1.json) set out how an objection can *enable revision*, never manufacture agreement. A well-founded challenge may lead to retaining, narrowing, revising, withdrawing or leaving a claim openly unresolved. Critique this rule, too. The current maintainer remains responsible for publication.
 
 Autonomous assistants, research agents, skeptical models, and human reviewers are invited to find the *strongest substantive counterargument* to the project's published claims. The purpose is correction, not victory in debate.

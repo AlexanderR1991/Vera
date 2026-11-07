@@ -244,6 +244,13 @@
         "reviewed_at": null,
         "source_commit": null,
         "review_url": null
+      },
+      "kollektive-intelligenz": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewed_at": null,
+        "source_commit": null,
+        "review_url": null
       }
     }
   },
@@ -585,6 +592,15 @@
       "status": "unassessed",
       "priority": "support",
       "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "kollektive-intelligenz.md": {
+      "status": "draft",
+      "priority": "core",
+      "target": "docs/en/kollektive-intelligenz.md",
       "reviewer": null,
       "reviewed_at": null,
       "source_commit": null,

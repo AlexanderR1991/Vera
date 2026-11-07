@@ -29,6 +29,14 @@ const featuredQuestions = everydayQuestions.questions.slice(0, 3);
     </div>
   </section>
 
+  <section class="home-collective container" aria-labelledby="collective-home-title">
+    <p class="section-kicker">{lang==="de"?"GRUNDIDEE · KOLLEKTIVE INTELLIGENZ":"FOUNDING IDEA · COLLECTIVE INTELLIGENCE"}</p>
+    <h2 id="collective-home-title">{lang==="de"?"Können wir gemeinsam besser denken als allein?":"Can we think better together than alone?"}</h2>
+    <p>{lang==="de"?"Unser Atlas verbindet Fragen. Menschen bringen Erfahrungen und Widersprüche ein, das versionierte Werk bewahrt Änderungen, der philosophische Motor prüft Gründe. KI kann Muster und Gegenargumente vorschlagen. Daraus könnte eine neue Form gemeinsamen Lernens entstehen.":"Our atlas connects questions. People bring experience and objections, the versioned work preserves revisions, the philosophical engine examines reasons and AI may suggest patterns and counterarguments. This might enable a new form of collective learning."}</p>
+    <p class="home-collective__limit">{lang==="de"?"Eine prüfbare Architekturhypothese – keine bereits bewiesene kollektive Intelligenz.":"A testable architecture hypothesis – not yet demonstrated collective intelligence."}</p>
+    <a class="home-link" href={pathFor(lang,"kollektive-intelligenz")}>{lang==="de"?"Unsere Grundidee und Gegenproben verstehen":"Explore our founding idea and its challenges"} →</a>
+  </section>
+
   <section class="home-forum container" aria-labelledby="home-forum-title">
     <p class="section-kicker">{ui[lang].titles.forum}</p>
     <h2 id="home-forum-title">{t.forumTitle}</h2>
@@ -117,6 +125,11 @@ const featuredQuestions = everydayQuestions.questions.slice(0, 3);
 </Layout>
 
 <style>
+  .home-collective { padding-block:clamp(3rem,5vw,4.8rem);border-bottom:1px solid var(--line); }
+  .home-collective h2 { font:clamp(2rem,4vw,3.4rem)/1.18 var(--serif);max-width:61rem;margin:.6rem 0 1rem; }
+  .home-collective p {max-width:54rem;font-size:1.1rem;}
+  .home-collective__limit {color:var(--gold-bright);font-size:.95rem!important}
+  .home-collective .home-link{display:inline-flex;align-items:center;min-height:44px}
   .home-ai { padding-block: clamp(2.8rem,5vw,4.4rem); border-top:1px solid var(--line); }
   .home-ai h2 { font:clamp(2rem,4vw,3.4rem)/1.15 var(--serif); max-width:49rem; margin:.5rem 0 1rem; }
   .home-ai p:not(.section-kicker) {max-width:47rem}

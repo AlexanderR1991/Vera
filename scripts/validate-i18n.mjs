@@ -77,7 +77,7 @@ export async function checkInternationalization(){
  const jsonFiles=[
   "public/project.json","public/knowledge/claims.json",
   "public/knowledge/questions.json","public/knowledge/everyday-questions.json",
-  "public/ai/philosophy-engine.v0.json","public/protocol/self-correction.v1.json",
+  "public/ai/philosophy-engine.v0.json","public/protocol/self-correction.v1.json","public/protocol/collective-intelligence.v0.json",
   "src/lib/mission-copy.json","src/lib/horizon-copy.json","src/lib/love-copy.json",
   "src/lib/policy-copy.json","src/lib/common-ground-copy.json"
  ];

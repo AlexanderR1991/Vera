@@ -8,7 +8,7 @@ const {lang="de"}=Astro.props;
 const en=lang==="en";
 const t=(de,english)=>en?english:de;
 const sections = [
- ["regelkreis", t("Regelkreis", "Correction loop")], ["menschen", t("Menschen", "People")], ["philosophie", t("Philosophie", "Philosophy")],
+ ["regelkreis", t("Regelkreis", "Correction loop")], ["kollektiv", t("Kollektive Intelligenz", "Collective intelligence")], ["menschen", t("Menschen", "People")], ["philosophie", t("Philosophie", "Philosophy")],
  ["forschung", t("Forschung", "Research")], ["erkenntnis", t("Aussagearten", "Kinds of claim")],
  ["entscheidungen", t("Entscheidungen", "Decisions")], ["ki-motor", t("KI und Mensch", "AI and humanity")], ["stand", t("Verantwortung", "Accountability")]
 ];
@@ -22,6 +22,9 @@ const sections = [
  <section id="regelkreis"><h2>{t("Nicht Recht behalten. Aus Irrtümern lernen.","Not to be right. To learn from mistakes.")}</h2>
  <p>{t("Unser selbstkorrigierender Grundsatz META-01 ist eine anfechtbare Arbeitsregel: Jede Frage bekommt eine faire Prüfung, ein besserer Einwand kann die Antwort ändern, und die alte Fassung bleibt nachvollziehbar. Dieses Verfahren ist eine Hypothese über gutes gemeinsames Lernen, kein bereits erbrachter Wirksamkeitsnachweis.","Our contestable meta-rule META-01 treats every question as open to fair examination, better objections as reasons to reconsider, and old versions as part of the record. This is a hypothesis about collective learning, not evidence that the method already works.")}</p>
  <a class="subtle-link" href={pathFor(lang,"regelkreis")}>{t("Zehn Arbeitsregeln und den Regelkreis ansehen","Read the ten working rules and correction loop")} →</a></section>
+ <section id="kollektiv"><h2>{t("Kollektive Intelligenz: eine prüfbare Grundidee.","Collective intelligence: a testable founding idea.")}</h2>
+ <p>{t("Die sechs Atlasfelder ordnen Themen, keine Gehirnmodule. Menschen bringen Fragen ein; das Projekt bewahrt Aussagen und Einwände; der Navigator schlägt Verbindungen vor; angemessene Methoden prüfen sie; Menschen verantworten Revisionen. Diese Rückkopplung könnte gemeinsames Lernen ermöglichen. Ob sie bessere Erkenntnisse hervorbringt, ist noch ungeprüft.","The six atlas fields organize topics, not brain modules. People contribute questions; the project preserves claims and objections; the navigator suggests links; appropriate methods examine them; accountable people revise. This loop may enable collective learning, but its benefits remain unproven.")}</p>
+ <a class="subtle-link" href={pathFor(lang,"kollektive-intelligenz")}>{t("Architektur und Gegenproben ansehen","Explore architecture and challenges")} →</a></section>
  <section id="menschen"><h2>{t("Wir sind Menschen.", "We are people.")}</h2>
  <p>{t("Zwei Menschen können dieselbe Situation erleben und Verschiedenes daran wichtig finden. Wer betroffen ist, kann uns sagen, was in unserer Beschreibung fehlt. Wer widerspricht, soll zeigen können, an welcher Stelle sich unsere Antwort ändern müsste. Manchmal verstehen wir danach genauer, worüber wir uns weiterhin uneinig sind.", "Two people can live through the same situation and find different things important about it. Someone affected can tell us what our account leaves out. Someone who disagrees can point to the part of our answer that needs to change. Sometimes what we gain is a clearer understanding of where we still disagree.")}</p>
  <a class="subtle-link" href={pathFor(lang,"methode")+"#g-005"}>{t("Wie ein Einwand unsere fünfte These verändert hat", "How an objection changed our fifth thesis")} →</a></section>

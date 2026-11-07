@@ -11,6 +11,14 @@ Die Schönheit darf zum Denken einladen; sie darf es nicht ersetzen. Gestaltung 
 
 Die [JSON-Fassung](../public/protocol/self-correction.v1.json) beschreibt die zehn Arbeitsregeln und die Prüfschleife maschinenlesbar. Der [öffentliche Regelkreis](https://alexanderr1991.github.io/Wirklich/de/regelkreis/) vermittelt sie in DE/EN. KI kann Vorschläge und Verknüpfungen liefern; automatische Statusänderungen oder selbstlegitimierende Mehrheitsentscheidungen sind ausgeschlossen. Wie gut die Methode tatsächlich funktioniert, muss im [Vergleichsprotokoll](evaluation-v1.md) geprüft werden.
 
+## CI-0.1 · Kollektive Intelligenz (Architekturhypothese, 7. November 2026)
+
+**Das grundlegende Systembild:** Atlasfelder ordnen Themen; Menschen bringen Fragen, Perspektiven und Gegenbeispiele ein; versionierte Aussagen bilden ein externes Gedächtnis; Navigator und Fragenatlas schlagen Beziehungen vor; META-01 verlangt passende Prüfung; Menschen entscheiden verantwortlich; Folgen und Fehler können spätere Revisionen auslösen. Das ist ein **Rückkopplungsprozess, kein Wahrheitsrang und keine nachgewiesene künstliche Superintelligenz**.
+
+Die sechs Atlasfelder (Wirklichkeit, Leben, Bewusstsein, Mensch, Gesellschaft, Handeln) sind von den **sechs Prozessfunktionen** Aufnehmen, Erinnern, Verbinden, Prüfen, Entscheiden und Rückkoppeln zu unterscheiden. Der Prototyp ist statisch und redaktionell gepflegt; ein verifizierter Live-Beleggraph, autonome Lernfähigkeit, repräsentative Governance und unabhängiger Wirksamkeitsnachweis fehlen. Die im [PR #73](https://github.com/AlexanderR1991/Wirklich/pull/73) vorgeschlagene Moralrichtung ist gesondert und ungeprüft; keine automatische Ausgabe des Lernprozesses.
+
+[Ausgearbeitete Grundidee](kollektive-intelligenz.md) · [Öffentliche DE/EN-Seite](https://alexanderr1991.github.io/Wirklich/de/kollektive-intelligenz/) · [Versionierter Datenvertrag](../public/protocol/collective-intelligence.v0.json). Eine spätere Evaluation muss Fehlererkennung, falsche Analogien, Inklusion und Kosten gegen brauchbare Alternativen prüfen. Auch CI-0.1 bleibt widerlegbar.
+
 ## Fünf Ebenen des öffentlichen Werks
 1. **Auftakt:** atmosphärischer, verständlicher Zugang ohne Vorwissen.
 2. **Atlas:** sechs Felder: Wirklichkeit, Leben, Bewusstsein, Mensch, Gesellschaft, Handeln.
