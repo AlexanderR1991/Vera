@@ -9,7 +9,7 @@ This is an open, correctable philosophical draft, not a scientifically proven co
 
 ## Highest priority for design and growth: Meet people where they are.
 
-WIRKLICH exists for people, not for the growth of its own technology. Nobody should need to know philosophical jargon, programming or AI to ask a question, follow a line of reasoning or raise an objection. We begin with everyday questions, explain things accessibly first and offer deeper exploration as a choice. Simplicity must not conceal uncertainty, counterarguments or important distinctions.
+Vera exists for people, not for the growth of its own technology. Nobody should need to know philosophical jargon, programming or AI to ask a question, follow a line of reasoning or raise an objection. We begin with everyday questions, explain things accessibly first and offer deeper exploration as a choice. Simplicity must not conceal uncertainty, counterarguments or important distinctions.
 
 **People before scale.** More topics, features, automation and reach are not ends in themselves. Before expanding, we aim to test with small, diverse groups whether people can actually access the work, ask questions, understand the reasons and challenge conclusions. Where that fails, we improve language, navigation, accessibility and ways to participate rather than simply growing faster. Nobody has to keep up with our pace.
 

@@ -1,4 +1,4 @@
-# WIRKLICH · Our open-source AI in development
+# Vera · Our open-source AI in development
 
 **Project goal · Working draft, 7 November 2026 · open to revision**
 
@@ -6,9 +6,9 @@
 
 ## What this means
 
-WIRKLICH aims to grow from an open philosophical inquiry workshop into an **inspectable, independently extensible AI system**. Its philosophical engine is shaped by human questions, evidence, objections and documented corrections. AI may support and connect this work; it gains no authority over people by doing so.
+Vera aims to grow from an open philosophical inquiry workshop into an **inspectable, independently extensible AI system**. Its philosophical engine is shaped by human questions, evidence, objections and documented corrections. AI may support and connect this work; it gains no authority over people by doing so.
 
-**Current status:** We publish an open-source website and develop public texts, data formats, review methods and early technical components. **There is no completed, independently runnable WIRKLICH AI and no openly released foundation model of our own.** Giving an AI service open instructions does not make that third-party model open source. We make no claim of consciousness, autonomous learning or representative worldwide consensus.
+**Current status:** We publish an open-source website and develop public texts, data formats, review methods and early technical components. **There is no completed, independently runnable Vera AI and no openly released foundation model of our own.** Giving an AI service open instructions does not make that third-party model open source. We make no claim of consciousness, autonomous learning or representative worldwide consensus.
 
 ## Principles for development
 
@@ -39,6 +39,6 @@ If an original model is offered later, we must disclose which parts are actually
 - Links to the philosophy, source code, license scope, tests and documented limitations.
 - A recognizable industrial-minimal, monochrome, technically precise and accessible visual language — without pretending a diagram demonstrates AI capabilities.
 
-“We” means the people who develop, review or voluntarily contribute to WIRKLICH, **not an already living or conscious AI entity**. The current maintainer is accountable for the official version. We do not claim to represent humanity.
+“We” means the people who develop, review or voluntarily contribute to Vera, **not an already living or conscious AI entity**. The current maintainer is accountable for the official version. We do not claim to represent humanity.
 
 **Examine:** [Foundational principles (German)](../grundtext.md) · [META-01](../selbstkorrektur.md) · [AI charter](../ki-charta.md) · [Mission](../mission.md) · [Licenses](../../LICENSING.md) · [Contribute](../../CONTRIBUTING.md). The English edition remains a translation draft pending independent review.

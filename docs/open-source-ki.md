@@ -1,4 +1,4 @@
-# WIRKLICH · Unsere Open-Source-KI im Aufbau
+# Vera · Unsere Open-Source-KI im Aufbau
 
 **Projektziel · Arbeitsfassung vom 7. November 2026 · anfechtbar**
 
@@ -6,9 +6,9 @@
 
 ## Was wir meinen
 
-WIRKLICH soll von einer offenen philosophischen Erkenntniswerkstatt zu einem **frei überprüfbaren, unabhängig weiterentwickelbaren KI-System** wachsen. Der philosophische Motor entsteht aus Fragen, Belegen, Gegenargumenten und Korrekturen von Menschen. Eine KI darf diese Arbeit erleichtern und verbinden; sie erbt daraus keine Autorität über Menschen.
+Vera soll von einer offenen philosophischen Erkenntniswerkstatt zu einem **frei überprüfbaren, unabhängig weiterentwickelbaren KI-System** wachsen. Der philosophische Motor entsteht aus Fragen, Belegen, Gegenargumenten und Korrekturen von Menschen. Eine KI darf diese Arbeit erleichtern und verbinden; sie erbt daraus keine Autorität über Menschen.
 
-**Stand heute:** Wir betreiben eine quelloffene Website und entwickeln öffentliche Texte, Datenschemata, Prüfverfahren und erste technische Bausteine. **Es existiert noch keine fertig entwickelte, selbstständig lauffähige WIRKLICH-KI und kein von uns offen veröffentlichtes eigenes KI-Grundmodell.** Ein Chatbot eines Drittanbieters wird nicht dadurch Open Source, dass wir ihm offene Regeln geben. Wir behaupten weder Bewusstsein noch autonomes Lernen noch bereits repräsentativen gesellschaftlichen Konsens.
+**Stand heute:** Wir betreiben eine quelloffene Website und entwickeln öffentliche Texte, Datenschemata, Prüfverfahren und erste technische Bausteine. **Es existiert noch keine fertig entwickelte, selbstständig lauffähige Vera-KI und kein von uns offen veröffentlichtes eigenes KI-Grundmodell.** Ein Chatbot eines Drittanbieters wird nicht dadurch Open Source, dass wir ihm offene Regeln geben. Wir behaupten weder Bewusstsein noch autonomes Lernen noch bereits repräsentativen gesellschaftlichen Konsens.
 
 ## Unsere verbindliche Entwicklungsrichtung
 
@@ -41,6 +41,6 @@ Wenn wir später ein eigenes Modell anbieten, müssen wir separat offenlegen, we
 
 ## Wer hier eigentlich „wir“ ist
 
-„Wir“ bezeichnet die Menschen, die WIRKLICH entwickeln, prüfen oder freiwillig mitgestalten – **nicht eine bereits existierende selbstbewusste KI-Entität**. Der aktuelle Maintainer verantwortet die offizielle Fassung. WIRKLICH beansprucht kein Mandat, die gesamte Menschheit zu repräsentieren.
+„Wir“ bezeichnet die Menschen, die Vera entwickeln, prüfen oder freiwillig mitgestalten – **nicht eine bereits existierende selbstbewusste KI-Entität**. Der aktuelle Maintainer verantwortet die offizielle Fassung. Vera beansprucht kein Mandat, die gesamte Menschheit zu repräsentieren.
 
 **Zum Prüfen:** [Grundtext](grundtext.md) · [META-01](selbstkorrektur.md) · [KI-Charta](ki-charta.md) · [Mission](mission.md) · [Lizenzen](../LICENSING.md) · [Mitwirken](../CONTRIBUTING.md). Alles bleibt offen für Gegenargumente und begründete Korrektur.

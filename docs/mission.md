@@ -1,4 +1,4 @@
-# WIRKLICH 1.0 · Ein offenes Erkenntnissystem
+# Vera 1.0 · Ein offenes Erkenntnissystem
 
 Die [erste Werkzeugfassung](release-1.0.md) macht diese Mission mit einem persönlichen Prüfblatt und einem öffentlichen Projektstatus benutzbar. Grundtext des Wirklichen bleibt unser philosophisches Fundament. Welche Qualität die Methode erreicht, soll der [vorbereitete Vergleich](evaluation-v1.md) erst untersuchen.
 
@@ -10,7 +10,7 @@ Die [erste Werkzeugfassung](release-1.0.md) macht diese Mission mit einem persö
 
 ## Unsere Zielidentität: Open-Source-KI mit Menschen, für Menschen
 
-WIRKLICH möchte zur **offenen, überprüfbaren und unabhängig weiterentwickelbaren KI** werden, deren philosophischer Motor von menschlichen Fragen, Gegenargumenten und Korrekturen geprägt wird. Das ist **unsere angestrebte Richtung, keine Behauptung gegenwärtiger Fähigkeiten**. Heute veröffentlichen wir eine Erkenntniswerkstatt und erste technische Entwürfe, keine eigenständig lauffähige WIRKLICH-KI oder ein eigenes offenes KI-Grundmodell. Drittanbieter-Modelle bleiben Drittanbieter-Modelle.
+Vera möchte zur **offenen, überprüfbaren und unabhängig weiterentwickelbaren KI** werden, deren philosophischer Motor von menschlichen Fragen, Gegenargumenten und Korrekturen geprägt wird. Das ist **unsere angestrebte Richtung, keine Behauptung gegenwärtiger Fähigkeiten**. Heute veröffentlichen wir eine Erkenntniswerkstatt und erste technische Entwürfe, keine eigenständig lauffähige Vera-KI oder ein eigenes offenes KI-Grundmodell. Drittanbieter-Modelle bleiben Drittanbieter-Modelle.
 
 **Menschen vor Skalierung:** Niemand muss programmieren oder KI nutzen, um mitreden zu können. Künftige KI-Agenten dürfen Quellen und Perspektiven prüfen, aber weder Menschen ersetzen noch einen künstlichen Konsens herstellen. Fortschritt heißt: mehr nachvollziehbare Gründe, besserer Einspruch und unabhängige Weiterentwicklung, nicht mehr Reichweite um jeden Preis. Diese Ausrichtung ist selbst korrigierbar.
 
@@ -161,7 +161,7 @@ Erst nach gezeigtem Nutzen folgen mehr Themen und mehr Autonomie. Der langfristi
 
 **META-01:** *We are not building a system to be right. We are building a system that must learn from its mistakes.* This is a challengeable process commitment for review, revision and accountability, not evidence that the method works or that everyone agrees. [Full correction loop](selbstkorrektur.md).
 
-**What MUST AI be for people?** WIRKLICH invites humans to develop, challenge and revise the philosophical standards by which AI itself is judged. Our [provisional charter](ki-charta.md) and [challenge cases](../public/ai/philosophy-engine.v0.json) do not establish universal consensus, certified safety or enforceable model rules. Human accountability and serious dissent remain essential.
+**What MUST AI be for people?** Vera invites humans to develop, challenge and revise the philosophical standards by which AI itself is judged. Our [provisional charter](ki-charta.md) and [challenge cases](../public/ai/philosophy-engine.v0.json) do not establish universal consensus, certified safety or enforceable model rules. Human accountability and serious dissent remain essential.
 
 
 > To guide humanity toward consensus through philosophy.

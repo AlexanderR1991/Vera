@@ -1,6 +1,6 @@
 # Roadmap · Von der Vision zum belastbaren Erkenntnissystem
 
-**Stand: WIRKLICH 1.0.0 · Überarbeitung vom 6. November 2026**
+**Stand: Vera 1.0.0 · Überarbeitung vom 6. November 2026**
 
 Die erste zusammenhängende Werkzeugfassung ist in [Release 1.0](release-1.0.md) beschrieben. Das neue Prüfblatt und die öffentliche Statusseite machen den Arbeitsweg benutzbar. Die folgenden Freigabekriterien betreffen die Qualität des Bestands und die Prüfung der Methode; die Versionsnummer ersetzt sie nicht. P-01 entspricht dem geprüften Bestand, P-02 dem Methodenvergleich und P-03 der tragfähigen Verantwortung.
 

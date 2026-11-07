@@ -1,5 +1,10 @@
 # Versionsgeschichte
 
+## 2026-11-07 · Vera
+
+- Die Werkstatt trägt in beiden Sprachen den Namen **Vera**. WIRKLICH und REALLY? sind frühere Namen. Der Grundtext des Wirklichen ist das philosophische Fundament.
+- Website- und Repository-Adresse dienen weiterhin als Zugang zu veröffentlichten Inhalten und bisherigen Verweisen.
+
 ## 2026-11-07 · Menschen vor Skalierung · Grundtext-Ergänzung
 
 - **Ausgangspunkt:** Die neun Grundthesen und META-01 sichern Wahrheitssuche, Würde und Korrektur, nennen aber bisher keinen ausdrücklichen Vorrang menschlicher Verständlichkeit gegenüber dem Wachstum von Funktionen und KI-Automatisierung.

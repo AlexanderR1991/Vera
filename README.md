@@ -1,6 +1,8 @@
-# WIRKLICH / REALLY?
+# Vera
 
 **Die offene Erkenntniswerkstatt · The open inquiry workshop**
+
+*Bisheriger Projektname · Former project name* **WIRKLICH / REALLY?**
 
 > **META-01 · Wir bauen kein System, das recht behalten soll. Wir bauen ein System, das aus seinen Irrtümern lernen muss.**
 
@@ -10,9 +12,9 @@ Dieser Satz ist eine **anfechtbare Verfahrensregel**, nicht bloß Werbung: Jede 
 
 The challengeable process rule asks for a traceable revision path, type-appropriate checks, visible dissent and human accountability—not automatic agreement or AI-certified truth. [The correction loop (EN)](https://alexanderr1991.github.io/Wirklich/en/regelkreis/).
 
-**Unser nächstes großes Ziel ist eine Open-Source-KI – mit Menschen, für Menschen.** WIRKLICH entwickelt dafür einen offenen philosophischen Motor, nachvollziehbare Regeln und maschinenlesbare Protokolle. **Stand heute: offene Erkenntniswerkstatt und frühe Prototypen, keine fertige oder unabhängig betreibbare WIRKLICH-KI.** Wir wollen Menschen erreichen, bevor wir technisch skalieren. [Vision, Offenheitskriterien und ehrlicher Status (DE)](docs/open-source-ki.md) · [Open-source AI goal and current status (EN)](docs/en/open-source-ai.md).
+**Unser nächstes großes Ziel ist eine Open-Source-KI – mit Menschen, für Menschen.** Vera entwickelt dafür einen offenen philosophischen Motor, nachvollziehbare Regeln und maschinenlesbare Protokolle. **Stand heute: offene Erkenntniswerkstatt und frühe Prototypen, keine fertige oder unabhängig betreibbare Vera-KI.** Wir wollen Menschen erreichen, bevor wir technisch skalieren. [Vision, Offenheitskriterien und ehrlicher Status (DE)](docs/open-source-ki.md) · [Open-source AI goal and current status (EN)](docs/en/open-source-ai.md).
 
-**Our next major goal is open-source AI — with people, for people.** We are building its philosophical foundation in public. This is a goal, not a claim that WIRKLICH already operates an independently runnable open AI model. [Read the development principles](docs/en/open-source-ai.md).
+**Our next major goal is open-source AI — with people, for people.** We are building its philosophical foundation in public. This is a goal, not a claim that Vera already operates an independently runnable open AI model. [Read the development principles](docs/en/open-source-ai.md).
 
 **Mit Philosophie die Menschheit zum Konsens führen.** Hier kann jeder eine Frage stellen. Wenn unsere Antworten auseinandergehen, suchen wir nach einem Punkt, den wir aus eigenen Gründen mittragen. Was strittig bleibt, halten wir fest. Unsere philosophische Grundlage ist der [Grundtext des Wirklichen](docs/grundtext.md).[^ursprung]
 
@@ -49,15 +51,15 @@ Die Website besitzt deutsche und englische Seiten. Dies ist **noch keine vollst�
 
 ## Was MUSS KI für Menschen sein? · What MUST AI be for us?
 
-Künstliche Intelligenz braucht mehr als Fähigkeiten. **WIRKLICH will mit Menschen einen philosophischen Motor für KI entwickeln**: einen offenen, korrigierbaren Prüfrahmen über Wahrheit, Freiheit, Würde, Macht und Verantwortung. [Charta (Entwurf)](docs/ki-charta.md) · [Sieben Leitthesen und fünf Gegenproben als JSON](public/ai/philosophy-engine.v0.json) · [Freiwilliges KI-Regelpaket](docs/erkenntnisprompt.md). Die Prinzipien sind angreifbar; weder Prompt noch KI-Schwarm können Modellverhalten erzwingen oder eine unabhängige Prüfung ersetzen.
+Künstliche Intelligenz braucht mehr als Fähigkeiten. **Vera will mit Menschen einen philosophischen Motor für KI entwickeln**: einen offenen, korrigierbaren Prüfrahmen über Wahrheit, Freiheit, Würde, Macht und Verantwortung. [Charta (Entwurf)](docs/ki-charta.md) · [Sieben Leitthesen und fünf Gegenproben als JSON](public/ai/philosophy-engine.v0.json) · [Freiwilliges KI-Regelpaket](docs/erkenntnisprompt.md). Die Prinzipien sind angreifbar; weder Prompt noch KI-Schwarm können Modellverhalten erzwingen oder eine unabhängige Prüfung ersetzen.
 
 **We ask people to define and challenge the principles by which AI is judged.** This is a provisional, human-origin inquiry framework, not a universal or certified ethics standard.
 
 ## Gemeinsam klüger werden · Learn together
 
-**Wenn Open Source bei Blender funktioniert, warum nicht auch in der Philosophie?** Bei Blender kann jemand einen Fehler zeigen, den andere übersehen haben, und eine Änderung vorschlagen. Bei WIRKLICH kann ein einziger Einwand einen Grundsatz verändern. Einer unserer Sätze empfahl, Menschen so zu helfen, dass sie ihre eigene Kraft finden. Was ist mit jemandem, der ein Leben lang Hilfe braucht? Heute steht ausdrücklich im Text, dass Fürsorge auch dann wertvoll ist. Lies beide Fassungen und prüfe selbst, ob die neue dem Einwand gerecht wird. [Mitwirken bei Blender](https://www.blender.org/get-involved/) · [Die Änderung im Wortlaut](https://github.com/AlexanderR1991/Wirklich/pull/31/files)
+**Wenn Open Source bei Blender funktioniert, warum nicht auch in der Philosophie?** Bei Blender kann jemand einen Fehler zeigen, den andere übersehen haben, und eine Änderung vorschlagen. Bei Vera kann ein einziger Einwand einen Grundsatz verändern. Einer unserer Sätze empfahl, Menschen so zu helfen, dass sie ihre eigene Kraft finden. Was ist mit jemandem, der ein Leben lang Hilfe braucht? Heute steht ausdrücklich im Text, dass Fürsorge auch dann wertvoll ist. Lies beide Fassungen und prüfe selbst, ob die neue dem Einwand gerecht wird. [Mitwirken bei Blender](https://www.blender.org/get-involved/) · [Die Änderung im Wortlaut](https://github.com/AlexanderR1991/Wirklich/pull/31/files)
 
-**If open source works for Blender, why not for philosophy?** In Blender, someone can point out a bug others missed and propose a fix. At WIRKLICH, a single objection can change a principle. We wrote that we should help people find their own strength. What about someone who will need support all their life? The text now explicitly affirms the value of care in that case too. Read both versions and judge for yourself whether the revision answers the objection. [Contribute to Blender](https://www.blender.org/get-involved/) · [Follow the revision in English](https://alexanderr1991.github.io/Wirklich/en/methode/#g-005)
+**If open source works for Blender, why not for philosophy?** In Blender, someone can point out a bug others missed and propose a fix. At Vera, a single objection can change a principle. We wrote that we should help people find their own strength. What about someone who will need support all their life? The text now explicitly affirms the value of care in that case too. Read both versions and judge for yourself whether the revision answers the objection. [Contribute to Blender](https://www.blender.org/get-involved/) · [Follow the revision in English](https://alexanderr1991.github.io/Wirklich/en/methode/#g-005)
 
 **Irrtum für Irrtum:** vermuten, prüfen und begründet weiterdenken. Vier erfundene Alltagskarten und drei freiwillige Einstiegsfragen im Prüfblatt bilden den Anfang. Wer genauer prüfen möchte, öffnet weitere Fragen. Begründetes Beibehalten und Offenlassen sind ebenso möglich wie eine Korrektur. [Konzept, Selbstangriff und offene Grenzen](docs/emporirren.md) · [Erster Nutzungspilot](docs/spielpilot.md)
 

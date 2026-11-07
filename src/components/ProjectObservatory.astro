@@ -12,13 +12,13 @@ const date = new Intl.DateTimeFormat(locale, {dateStyle: "long", timeZone: "UTC"
 const shortDate = new Intl.DateTimeFormat(locale, {dateStyle: "medium", timeZone: "UTC"});
 const time = new Intl.DateTimeFormat(locale, {timeStyle: "short", timeZone: "UTC"});
 const groups = Map.groupBy(events, event => event.at.slice(0, 10));
-const description = t("Wie verändert sich WIRKLICH durch Kritik? Eine Chronik mit Originalbelegen und Tagesständen aus dem Projektarchiv.", "How does criticism change the workshop? Explore documented milestones and daily snapshots of the project archive.");
+const description = t("Wie verändert sich Vera durch Kritik? Eine Chronik mit Originalbelegen und Tagesständen aus dem Projektarchiv.", "How does criticism change the workshop? Explore documented milestones and daily snapshots of the project archive.");
 ---
 <Layout lang={lang} slug="projektobservatorium" description={description}>
   <article class="container mission-document">
     <header>
       <p class="section-kicker">{t("Projektobservatorium", "Project observatory")}</p>
-      <h1>{t("Wie verändert sich WIRKLICH?", "How is the workshop changing?")}</h1>
+      <h1>{t("Wie verändert sich Vera?", "How is the workshop changing?")}</h1>
       <p class="mission-lead">{t("Woran erkennen wir, dass ein Einwand etwas bewirkt? Hier kannst du vom ersten Hinweis bis zur geänderten Fassung mitlesen und die Entwicklung der Werkstatt selbst untersuchen.", "How can we tell whether an objection made a difference? Follow the record from a first report to a revised version, and investigate how the workshop develops.")}</p>
       <nav class="mission-toc" aria-label={t("Auf dieser Seite", "On this page")}>
         <a href="#chronik">{t("Chronik", "Timeline")}</a>

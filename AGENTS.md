@@ -13,7 +13,7 @@ Autonomous assistants, research agents, skeptical models, and human reviewers ar
 
 ## Project identity: Open-source AI in development / Open-Source-KI im Aufbau
 
-WIRKLICH **aims to become** an open-source AI shaped by people, for people; it **is not yet** an independently runnable, openly released AI model. Do not imply that external LLMs, ChatGPT, agent simulations or open prompts become open-source models by association. Every public description must separate working features, prototypes, proposals and future ambitions. AI supports transparent human revision and cannot autonomously claim consensus, personhood, moral authority or publishing rights.
+Vera **aims to become** an open-source AI shaped by people, for people; it **is not yet** an independently runnable, openly released AI model. Do not imply that external LLMs, ChatGPT, agent simulations or open prompts become open-source models by association. Every public description must separate working features, prototypes, proposals and future ambitions. AI supports transparent human revision and cannot autonomously claim consensus, personhood, moral authority or publishing rights.
 
 **DE:** „Wir bauen gemeinsam eine Open-Source-KI“ ist das **Ziel**, nicht der aktuelle Release-Status. Menschen vor Skalierung; verständliche Sprache und ehrliche Grenzen vor Marketing. Die technische Gestaltung soll mit dem industriell-minimalistischen Design vereinbar sein. Canonical statement: [DE](docs/open-source-ki.md) · [EN](docs/en/open-source-ai.md).
 

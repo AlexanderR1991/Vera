@@ -80,7 +80,7 @@ if (root) {
       const note = parseInquiry(await file.text());
       write(note);
       report(t("Prüfblatt importiert. Eigene Prüfung und öffentliche Einreichung bleiben getrennte Schritte.", "Worksheet imported. Your review and public submission remain separate steps."));
-    } catch { report(t("Import nicht möglich: Verwende einen WIRKLICH-JSON-Export bis 1 MiB. Dein bisheriger Entwurf bleibt erhalten.", "Use a worksheet exported as JSON, up to 1 MiB. Your existing draft is preserved.")); }
+    } catch { report(t("Import nicht möglich: Verwende einen Vera-JSON-Export bis 1 MiB. Dein bisheriger Entwurf bleibt erhalten.", "Use a worksheet exported as JSON, up to 1 MiB. Your existing draft is preserved.")); }
     event.target.value = "";
   });
   root.querySelector("[data-load-example]").addEventListener("click", () => {

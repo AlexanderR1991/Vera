@@ -1,6 +1,6 @@
 # Das Forum / The Forum
 
-**WIRKLICH – öffentliche Gespräche, prüfbare Aussagen und dokumentierte Änderungen.**
+**Vera – öffentliche Gespräche, prüfbare Aussagen und dokumentierte Änderungen.**
 
 **META-01:** [Wir bauen kein System, das recht behalten soll. Wir bauen ein System, das aus seinen Irrtümern lernen muss.](selbstkorrektur.md) Jeder Diskussionsraum dient Erkenntnisgewinn, nicht dem Sieg einer Fraktion. Ein belastbarer Einwand kann eine Prüfung neu eröffnen, aber weder Lautstärke noch Bot-Masse erzwingen eine redaktionelle Änderung.
 

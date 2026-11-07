@@ -2,7 +2,7 @@
 
 **Konzept und Selbstangriff · 6. November 2026 · Entwurf, noch kein Wirksamkeitsnachweis**
 
-WIRKLICH soll einen einfachen ersten Gedanken in eine besser begründete nächste Fassung verwandeln. Eine gute Frage, eine erkannte Grenze und ein begründetes Offenlassen können Fortschritt sein. Menschen werden dabei nicht in höhere und niedrigere Stufen eingeteilt.
+Vera soll einen einfachen ersten Gedanken in eine besser begründete nächste Fassung verwandeln. Eine gute Frage, eine erkannte Grenze und ein begründetes Offenlassen können Fortschritt sein. Menschen werden dabei nicht in höhere und niedrigere Stufen eingeteilt.
 
 > Eine Frage. Ein eigener Gedanke. Ein ernsthafter Gegenblick. Ein begründeter nächster Schritt.
 

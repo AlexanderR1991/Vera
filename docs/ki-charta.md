@@ -2,13 +2,13 @@
 
 **Arbeitsentwurf 0.1 · 7. November 2026 · ungeprüfte normative Vorschläge**
 
-> Die Fähigkeit einer KI beantwortet noch nicht die Frage nach ihrem Zweck. WIRKLICH will mit Menschen herausfinden, was KI für Menschen sein MUSS.
+> Die Fähigkeit einer KI beantwortet noch nicht die Frage nach ihrem Zweck. Vera will mit Menschen herausfinden, was KI für Menschen sein MUSS.
 
 ## Auftrag
 
 Wir wollen der KI einen **offenen, vom Menschen ausgehenden philosophischen Prüfrahmen** zur Verfügung stellen: eine überprüfbare Methode aus Fragen, Gegenargumenten, Wertkonflikten, konkreten Testfällen und öffentlichen Korrekturen. Keine Weltanschauung soll dabei unangreifbar sein. Ein KI-System ist weder durch seine Intelligenz noch durch die Zustimmung anderer Modelle moralisch legitimiert. **MUSS** ist unsere Frage nach begründbaren Mindestanforderungen – keine bereits gefundene Welteinigkeit und kein technisch erzwungenes Gesetz.
 
-Die Betroffenen müssen mitreden können, auch wenn sie weder KI entwickeln noch nutzen. WIRKLICH darf nicht an die Stelle individueller, demokratischer oder fachlicher Verantwortung treten. Eine Mehrheit darf Minderheitenargumente nicht als falsch abstempeln; auch ein einzelner Gegenbeleg kann eine Regel erschüttern.
+Die Betroffenen müssen mitreden können, auch wenn sie weder KI entwickeln noch nutzen. Vera darf nicht an die Stelle individueller, demokratischer oder fachlicher Verantwortung treten. Eine Mehrheit darf Minderheitenargumente nicht als falsch abstempeln; auch ein einzelner Gegenbeleg kann eine Regel erschüttern.
 
 Der [anfechtbare Grundsatz META-01](selbstkorrektur.md) gilt auch für diese Charta: **Wir bauen kein System, das recht behalten soll. Wir bauen ein System, das aus seinen Irrtümern lernen muss.** KI darf diese Aufgabe unterstützen, nicht den menschlichen Einspruch oder die Entscheidungsmacht ersetzen.
 
@@ -66,7 +66,7 @@ The [META-01 correction rule](selbstkorrektur.md) applies to this charter as wel
 
 **Working draft 0.1 · 7 November 2026 · unreviewed normative proposals**
 
-> AI capability alone does not answer what AI is for. WIRKLICH asks, together with people, what AI MUST be for human beings.
+> AI capability alone does not answer what AI is for. Vera asks, together with people, what AI MUST be for human beings.
 
 We aim to offer a **human-origin, open and contestable philosophical method** to people and willing AI systems: questions, explicit value conflicts, strong objections, practical tests and visible revision. **MUST** means proposed, justifiable minimum requirements, not an established world-wide consensus or an enforceable model instruction. People affected, including non-users, must be heard. Human editorial, democratic and professional responsibility is not delegated to AI or majority votes.
 
