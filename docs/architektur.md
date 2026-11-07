@@ -81,3 +81,12 @@ Der erste DE/EN-Pilot verwendet vier redaktionelle Entwurfskarten, lokale Wortsu
 Eine KI-Suche quer durch alle Äste sowie ein allgemeiner Wissensgraph mit versionierten, typisierten Verbindungen und Abhängigkeitsprüfung bleiben weitere Ausbauschritte. Der Pilot löst keine Modell-API-Aufrufe aus. Sein Nutzen gegenüber gewöhnlicher Suche muss noch gemessen werden.
 
 **English:** The knowledge navigator adds a direct route from everyday questions to possible insights. Abstraction does not rank truth. Four editorial draft cards use local keyword matching and explicit yes/no/unknown applicability checks; a private, optional reflection note can be exported as TXT. There is no AI service, automatic storage, submission or person score. Cross-topic AI retrieval and a versioned knowledge graph remain future work; comparative usefulness is unmeasured.
+
+
+## Fragenatlas und Aufmerksamkeitsgrenze · Pilot 7. November 2026
+
+Das Forum nutzt weiterhin GitHub Discussions (Agora), aussagegebundene Issues (Stoa) und geprüfte Pull Requests (Curia). Der neue **kleine Fragenatlas** unter `public/knowledge/questions.json` sammelt sechs redaktionelle, ungeprüfte Beispielfragen mit stabilen IDs, Links zum Aussagenregister und begründeten Kanten. `src/lib/questions.mjs` prüft Datenstruktur, Bezüge und zyklische Teilfragen; `src/components/Forum.astro` zeigt die Verbindungen und eine lokale Wortsuche. Der Themenbaum verlinkt den Pilotbereich.
+
+Die Offline-Triage (max. 50 `ai_draft`-Kandidaten je Lauf) schlägt nur mögliche Dopplungen oder lexikalische Nachbarn vor; sie ruft keine KI auf und veröffentlicht nichts. Die vorhandenen Schwarm-Workflows schreiben weiterhin ausschließlich in begrenzte, ungeprüfte Forschungsdateien. Ein vollständig semantischer oder automatisch aktualisierter Wissensgraph ist **nicht** vorhanden. [Vertrag, Grenzen und Eskalationsregeln](fragenatlas.md).
+
+**English:** The new question graph is an editorial pilot, not a live Discussion/Issue index or automated semantic engine. AI drafts stay separate; the local triage never publishes or promotes claims.
