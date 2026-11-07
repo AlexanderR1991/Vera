@@ -32,6 +32,14 @@ Die [zehn Arbeitsregeln und der Regelkreis](selbstkorrektur.md) bilden eine **an
 - Rechtliche Lizenzierung: Texte CC BY-SA 4.0; eigener Code MIT; Logo und fremde Materialien ausgenommen / content CC BY-SA 4.0, original code MIT; logo and third-party exceptions
 - Formale wissenschaftliche Begutachtung: nicht eingerichtet / not established
 
+## REDE-01 · Ausdrucksfreiheit und Schadensbegrenzung / Expression and harm prevention
+
+Der [anfechtbare REDE-01-Entwurf](redefreiheit-und-schutz.md) unterscheidet **eine Aussage prüfen** von **ihre Veröffentlichung oder Reichweite ermöglichen**. Bloße Kränkung, Unbeliebtheit, Kritik am Projekt oder Mehrheit stimmen keine Löschung ab. Konkrete Gefährdung von Menschen, Rechte Dritter, Einschüchterung und privater Datenmissbrauch können dagegen wirksame, verhältnismäßige Maßnahmen erfordern. Gegenrede, Kontext, vorläufige Einschränkung und Entfernen sind getrennte Entscheidungen; Schutz und Einspruch werden mit möglichst wenigen personenbezogenen Daten dokumentiert.
+
+Die endgültige Regelannahme folgt META-01 und dem unten stehenden öffentlichen Änderungsverfahren. **Es gibt noch keine eigene Moderationssoftware, keine vertrauliche Meldestelle und keine unabhängige Beschwerdeinstanz.** Externe GitHub-Dienste folgen zusätzlich ihren eigenen Regeln.
+
+**English:** [REDE-01](redefreiheit-und-schutz.md) protects criticism and unpopular claims without treating discomfort as sufficient grounds for restriction. Assess credible harm, privacy and rights; choose the least restrictive effective intervention, with human accountability and privacy-preserving reasons and review. This is a proposed procedure, not an operating moderation service or an already adopted rule.
+
 ## Ablauf / Process
 
 1. **Frage, Einwand oder Vorschlag / Question, objection or proposal:** GitHub Issue erstellen.
