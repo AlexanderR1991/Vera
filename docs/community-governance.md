@@ -10,6 +10,16 @@ Jeder kann über Issues Argumente einbringen und über Pull Requests Änderungen
 
 Anyone can suggest ideas through issues or changes through pull requests. **Submission does not imply acceptance.** Maintainers make editorial decisions and should explain substantive corrections or rejections.
 
+## OPEN-01 · Die Menschheit als Interessenmaßstab / Humanity as the guiding interest
+
+**WIRKLICH muss als öffentlich prüfbarer und weiterführbarer Erkenntnisprozess offen bleiben, weil es dem Interesse der Menschheit dienen soll, nicht exklusiven Eigentümer-, Unternehmens-, Staats- oder KI-Interessen.** Das ist eine anfechtbare redaktionelle Selbstbindung, **keine** Behauptung demokratischer Vertretung oder bereits erreichter Gemeinwohlwirkung.
+
+Zum öffentlichen Kern gehören die publizierten Texte, prüfbaren Regeln, lizenzierbarer Code, künftige Bewertungskriterien, Begründungen für redaktionelle Entscheidungen und dokumentierter Dissens. Privatdaten, geschützte Informationen und fremde Rechte bleiben geschützt. Die heutigen Lizenzen (MIT für eigenen Code, CC BY-SA 4.0 für eigene Texte) erlauben Weiterverwendung, verhindern aber **nicht** jede proprietäre Fork oder spätere Machtkonzentration. Die offizielle Redaktion liegt weiterhin beim Eigentümer; externe Aufsicht und Beteiligung sind noch aufzubauen.
+
+Ein Wechsel zu exklusiven oder nicht mehr nachprüfbaren Verfahren darf **nicht stillschweigend** erfolgen: Er benötigt einen sichtbaren Regeländerungs-PR nach den unten geltenden Verfahren, mit Folgen, Interessenkonflikten und stärkstem Einwand. Ein grundlegender Bruch ist offen als solcher zu kennzeichnen. Die Selbstbindung darf ebenso wie META-01 kritisiert werden. [Begründung und Grenzen auf Deutsch](offenheit.md) · [English draft](en/openness.md).
+
+**English:** WIRKLICH treats humanity's interests as its intended reference point, not as a mandate to speak on humanity's behalf. Its published core and editorial criteria should remain inspectable, correctable and independently reusable, subject to privacy, rights and security limits. Open licenses are necessary but insufficient against capture. Changes to openness require transparent, reviewable governance rather than silent privatization.
+
 ## META-01 · Öffentliche Selbstkorrektur / Public self-correction
 
 > Wir bauen kein System, das recht behalten soll. Wir bauen ein System, das aus seinen Irrtümern lernen muss.
