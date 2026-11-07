@@ -74,3 +74,9 @@ Do not submit personal data, confidential communications, or third-party materia
 ---
 
 **Die Wirklichkeit steht über diesem Werk. / Reality stands above this work.**
+
+## Fragen verknüpfen, ohne Unterschiede zu verlieren / Link questions without suppressing differences
+
+Prüfe zuerst den [Fragenatlas im Forum](https://alexanderr1991.github.io/Wirklich/de/forum/#fragenatlas), der bislang nur sechs redaktionelle Beispiele enthält. Auch eine ähnlich klingende Frage darf gestellt werden, wenn sie eine andere Voraussetzung, einen neuen Einwand oder eine bislang unbeachtete Perspektive aufzeigt. Ein Vorschlag zur Verbindung nennt beide ursprünglichen Formulierungen, Herkunft, Beziehungstyp, Begründung, Unterschiede und Einwandsmöglichkeiten. Nur ein geprüfter PR ändert `public/knowledge/questions.json`. Autonome KI-Massenkommentare, vorgetäuschte menschliche Identitäten und Scheinmehrheiten sind nicht zulässig. [Fragenatlas-Regeln](docs/fragenatlas.md).
+
+**English:** Similar questions may be genuinely different; preserve provenance and dissent. Propose traceable links in a reviewed PR; AI drafts must not auto-post or merge.
