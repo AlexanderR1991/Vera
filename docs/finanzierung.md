@@ -2,7 +2,7 @@
 
 **Stand 6. November 2026 · Regeln und offene Aufgaben**
 
-Forschung braucht Lebenszeit, Erholung und tragfähige Arbeit. Wer WIRKLICH unterstützen möchte, kann Alexander Radke freiwillig einen Betrag per PayPal senden. Welche Kontoart für diese Nutzung geeignet ist und wie die Beiträge steuerlich einzuordnen sind, ist noch offen. Die Inhalte bleiben unter ihren angegebenen Lizenzen frei zugänglich. Förderung kauft keine Aussage, Fachfreigabe, Moderationsentscheidung oder bevorzugte Behandlung eines Einwands.
+Forschung braucht Lebenszeit, Erholung und tragfähige Arbeit. Wer Vera unterstützen möchte, kann Alexander Radke freiwillig einen Betrag per PayPal senden. Welche Kontoart für diese Nutzung geeignet ist und wie die Beiträge steuerlich einzuordnen sind, ist noch offen. Die Inhalte bleiben unter ihren angegebenen Lizenzen frei zugänglich. Förderung kauft keine Aussage, Fachfreigabe, Moderationsentscheidung oder bevorzugte Behandlung eines Einwands.
 
 ## Was aktuell bekannt ist
 

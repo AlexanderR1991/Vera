@@ -1,4 +1,4 @@
-# Start here · WIRKLICH / REALLY?
+# Start here · Vera
 
 **This is an open-source inquiry workshop, not a theory that claims to have final answers.** The German edition is the editorial source. The public website has German and English routes; some repository documents remain untranslated or contain only an English summary. English text is currently a machine-assisted **draft without independent review**.
 

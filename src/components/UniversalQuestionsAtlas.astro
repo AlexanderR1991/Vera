@@ -32,11 +32,11 @@ const relationsFor=id=>questions.relations.filter(r=>r.from===id||r.to===id);
 const sourceLink=p=>`https://github.com/AlexanderR1991/Wirklich/blob/${questions.source_revision}/${p}`;
 const issueLink="https://github.com/AlexanderR1991/Wirklich/issues/new?template=grundfrage.yml";
 ---
-<Layout lang={lang} slug="grundfragen" description={t("Universelle Grundfragen aus den WIRKLICH-Themenfeldern: Quellen, Gegeneinwände, offene Erkenntnisse und Rückwege in die Fachbereiche.","Universal questions across REALLY?'s fields: source traces, counterquestions, open findings and return paths to their domains.")}>
+<Layout lang={lang} slug="grundfragen" description={t("Universelle Grundfragen aus den Vera-Themenfeldern: Quellen, Gegeneinwände, offene Erkenntnisse und Rückwege in die Fachbereiche.","Universal questions across Vera's fields: source traces, counterquestions, open findings and return paths to their domains.")}>
  <div class="uq">
   <header class="uq-hero">
    <div class="container">
-    <p class="section-kicker">{t("WIRKLICH · DATENSAMMLUNG · DIE BRÜCKE","REALLY? · RESEARCH COLLECTION · THE BRIDGE")}</p>
+    <p class="section-kicker">{t("Vera · DATENSAMMLUNG · DIE BRÜCKE","Vera · RESEARCH COLLECTION · THE BRIDGE")}</p>
     <h1>{t("Die Fragen","The questions")}<br/><em>{t("hinter unseren Fragen.","behind our questions.")}</em></h1>
     <p class="uq-lead">{t("Was verbindet Liebe, Medizin, Politik, Kunst, Mathematik, Religion und KI? Wir suchen die gemeinsamen Grundprobleme – nicht die eine Antwort, die alle überstimmt.","What connects love, medicine, politics, art, mathematics, religion and AI? We seek shared underlying problems—not a single answer that overrules everyone.")}</p>
     <p class="uq-status">{t("16 redaktionelle Grundfragen · ungeprüfte Forschungsagenda · keine gesicherten Universalwahrheiten","16 editorial fundamental questions · unreviewed research agenda · no established universal truths")}</p>

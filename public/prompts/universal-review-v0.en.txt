@@ -1,4 +1,4 @@
-REALLY? · Research instruction: cross-domain fundamental questions (non-authoritative AI draft)
+Vera · Research instruction: cross-domain fundamental questions (non-authoritative AI draft)
 Version 0.1 · 2026-11-07
 Work only with explicitly provided, public, versioned sources.
 1. Read each source as fully as possible. Cite its URL, commit and exact passage. Never claim to have read material you have not seen.

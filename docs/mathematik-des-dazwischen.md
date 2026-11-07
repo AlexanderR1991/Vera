@@ -1,6 +1,6 @@
 # M-02 · Die Mathematik des Dazwischen / Mathematics Between Minds
 
-**Status:** WIRKLICH-Forschungsentwurf 0.1, 7. November 2026. **Keine neue bewiesene Theorie menschlichen Miteinanders, keine validierte psychologische Skala, keine empirische Studie, keine unabhängige Begutachtung.** Das Modell operationalisiert ein kleines Teilproblem. [Mathematischer Prüfstand](mathematischer-pruefstand.md) · [Sprachprobe](schnittmengen.md) · [Öffentliche Versuchsanordnung](../public/research/intersubjective-dynamics.v0.json).
+**Status:** Vera-Forschungsentwurf 0.1, 7. November 2026. **Keine neue bewiesene Theorie menschlichen Miteinanders, keine validierte psychologische Skala, keine empirische Studie, keine unabhängige Begutachtung.** Das Modell operationalisiert ein kleines Teilproblem. [Mathematischer Prüfstand](mathematischer-pruefstand.md) · [Sprachprobe](schnittmengen.md) · [Öffentliche Versuchsanordnung](../public/research/intersubjective-dynamics.v0.json).
 
 > **Die Brücke:** Zwei Menschen müssen nicht dieselbe Überzeugung haben, um einander zutreffend verstehen zu können. Verständigung ist nicht mit Zustimmung gleichzusetzen.
 
@@ -96,7 +96,7 @@ Verwandte Forschung, ohne direkte Bestätigung unseres Modells:
 - **Eyal, Steffel & Epley (2018):** In Experimenten ist bloßes Sich-Hineinversetzen kein verlässlicher Ersatz für zuverlässiges Wissen über andere; die Studie motiviert das **Nachfragen statt Zuschreiben**. [Journal of Personality and Social Psychology, DOI 10.1037/pspa0000115](https://doi.org/10.1037/pspa0000115).
 - **Friedkin & Johnsen (1990):** Formalisierung sozialer Einflüsse, Meinungsbildung und Konflikt. Das ist **verwandte mathematische Soziologie**, keine Validierung von V. [Journal of Mathematical Sociology, DOI 10.1080/0022250X.1990.9990069](https://doi.org/10.1080/0022250X.1990.9990069).
 
-## 6. Wie M-02 in WIRKLICH eingebettet wird
+## 6. Wie M-02 in Vera eingebettet wird
 
 - **Philosophie:** [Schnittmengen finden](schnittmengen.md) bleibt das freiwillige Gesprächsverfahren, einschließlich offenem Dissens und Schutzgrenzen.
 - **Mathematik:** M-02 ist **neben** M-01 im [mathematischen Prüfstand](mathematischer-pruefstand.md) verortet. M-01 betrifft mehrkriterielle moralische Bewertungen, M-02 die Beschreibung von Verstehensgenauigkeit; die Kennzahlen dürfen nicht gleichgesetzt werden.

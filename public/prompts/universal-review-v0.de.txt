@@ -1,4 +1,4 @@
-WIRKLICH · Forschungsauftrag: übergreifende Grundfragen (unverbindlicher KI-Entwurf)
+Vera · Forschungsauftrag: übergreifende Grundfragen (unverbindlicher KI-Entwurf)
 Version 0.1 · 2026-11-07
 Arbeite nur mit explizit bereitgestellten, öffentlichen, versionierten Quellen.
 1. Lies jede Quelle möglichst vollständig. Notiere URL, Commit und genaue Textstelle. Behaupte keine Lektüre, die nicht stattgefunden hat.

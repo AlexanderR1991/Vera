@@ -225,7 +225,7 @@ export function buildNavigatorNote(input = {}) {
     conditional: t("Bedingt anwendbarer Vorschlag · kein Wahrheitssiegel", "Conditionally applicable proposal · not a certificate of truth")
   };
   const answerLabels = {yes: t("Ja, von mir angegeben", "Yes, stated by me"), no: t("Nein, von mir angegeben", "No, stated by me"), unknown: t("Unbekannt / offen", "Unknown / unresolved")};
-  const lines = [t("WIRKLICH · Erkenntnisnavigator", "REALLY? · Knowledge navigator"), "",
+  const lines = [t("Vera · Erkenntnisnavigator", "Vera · Knowledge navigator"), "",
     t("Persönlicher Entwurf. Die Antworten sind eigene Angaben, keine unabhängig geprüften Tatsachen.", "Personal draft. Answers are self-reported, not independently verified facts."), "",
     t("Meine Frage", "My question") + ":", textValue(data.question) || t("Offen", "Open"), ""];
   if (textValue(data.alternativeQuestion)) lines.push(t("Andere Formulierung", "Alternative wording") + ":", textValue(data.alternativeQuestion), "");

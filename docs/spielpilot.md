@@ -10,7 +10,7 @@ Nach der Veröffentlichung führt der [deutsche Spiellink](https://alexanderr199
 
 ## Die erste Tischrunde
 
-1. Lade zunächst fünf Menschen mit unterschiedlichen Lese-, Sprach- und Geräteerfahrungen, die WIRKLICH noch nicht kennen, einzeln zu einer freiwilligen Runde ein, etwa in einer Kaffeepause. Lies die Frage vor oder zeig die Karte. Wer möchte, kann alles mündlich mitspielen, während du die Karte bedienst.
+1. Lade zunächst fünf Menschen mit unterschiedlichen Lese-, Sprach- und Geräteerfahrungen, die Vera noch nicht kennen, einzeln zu einer freiwilligen Runde ein, etwa in einer Kaffeepause. Lies die Frage vor oder zeig die Karte. Wer möchte, kann alles mündlich mitspielen, während du die Karte bedienst.
 2. Lass die Person ihren ersten Tipp abgeben und den Hinweis aufdecken. Warte ab, was sie dann sagt. Wenn sie Hilfe braucht, frag, wo sie weiterkommen wollte. Mit ihrem Einverständnis kannst du dir den unklaren Schritt merken.
 3. Lass ihr die Wahl, aufzuhören, eine weitere Karte zu ziehen oder jemand anderem dieselbe Frage zu stellen. Eine freiwillige Rückmeldung passt ins Gespräch. „Gab es eine Stelle, an der du hängen geblieben bist?“ genügt.
 

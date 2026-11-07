@@ -1,8 +1,12 @@
 {
   "schema_version": 1,
-  "name": "WIRKLICH",
-  "english_name": "REALLY?",
+  "name": "Vera",
+  "english_name": "Vera",
   "former_name": "Grundtext des Wirklichen",
+  "previous_public_names": {
+    "de": "WIRKLICH",
+    "en": "REALLY?"
+  },
   "version": "1.0.0",
   "release_date": "2026-11-05",
   "subtitle": {

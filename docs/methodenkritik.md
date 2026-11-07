@@ -1,4 +1,4 @@
-# Acht Einwände gegen WIRKLICH
+# Acht Einwände gegen Vera
 
 **6. November 2026.** Ein Nutzer hat uns eine von Claude formulierte Kritik vorgelegt. Ausgangspunkt ist der [Projektstand vor dieser Prüfung](https://github.com/AlexanderR1991/Wirklich/tree/c201f5a4b017c13ba1092f29113e861d2687eb55). Die folgenden Urteile sind redaktionell begründet und stehen selbst zur Diskussion.
 
@@ -21,7 +21,7 @@
 
 **DebateGraph.** Die Hilfe führt vor, wie man Typ, Richtung und Ziel eines Querverweises ändert. Im Chicagoer Tutor/Mentor-Projekt beschrieb ein Anwender, wie viel zusätzliche Arbeit es kostet, Menschen zu erreichen und sie durch umfangreiche Informationen zu begleiten. Für unseren Navigator ergibt sich eine eigene Pilotfrage. Findet eine Person ohne Anleitung einen relevanten Einwand und kann sie erklären, warum er zu ihrer Frage passt? [Werkzeughilfe](https://debategraph.org/help) · [Praxisbericht](https://debategraph.us/2011/10/14/helping-kids-in-poverty-find-work/)
 
-Diese Befunde betreffen einzelne Funktionen und beobachtete Fälle. Wie gut WIRKLICH im Vergleich abschneidet, ist offen.
+Diese Befunde betreffen einzelne Funktionen und beobachtete Fälle. Wie gut Vera im Vergleich abschneidet, ist offen.
 
 ## English
 
@@ -29,4 +29,4 @@ The worksheet distinguishes the kind of claim from the evidence for it and from 
 
 The owner remains accountable for editorial decisions. Rule changes must be traceable to the rule in force at the time. Duplicate objections share a review, and genuinely new evidence can reopen it. The navigator offers several routes between topics. Comparing different ways to frame a question helps expose assumptions. AI objections need a human assessment against the cited claim. The evaluation protocol specifies when to withdraw a benefit claim and how to report an inconclusive result.
 
-Kialo's links and context-specific votes, Argüman's disputed choice of relation types, and DebateGraph's experience with guided navigation each address a different design problem. The sources above support those particular observations. Independent evaluation of WIRKLICH is still pending.
+Kialo's links and context-specific votes, Argüman's disputed choice of relation types, and DebateGraph's experience with guided navigation each address a different design problem. The sources above support those particular observations. Independent evaluation of Vera is still pending.

@@ -8,24 +8,24 @@ const t=(g,e)=>de?g:e;
 const operator="Alexander Radke";
 const email="radke.a91@gmail.com";
 ---
-<Layout lang={lang} slug={kind} pageTitle={t(imprint?"Impressum":"Datenschutz",imprint?"Legal notice":"Privacy notice")} description={t("Rechtliche Angaben und Datenschutz bei WIRKLICH – dokumentierter Ist-Stand mit offenen Pflichtangaben.","Legal and privacy information for WIRKLICH, including outstanding required details.")}>
+<Layout lang={lang} slug={kind} pageTitle={t(imprint?"Impressum":"Datenschutz",imprint?"Legal notice":"Privacy notice")} description={t("Rechtliche Angaben und Datenschutz bei Vera – dokumentierter Ist-Stand mit offenen Pflichtangaben.","Legal and privacy information for Vera, including outstanding required details.")}>
   <section class="section legal-heading"><div class="container">
     <p class="section-kicker">{t("RECHTLICHE INFORMATIONEN · STAND 06.11.2026","LEGAL INFORMATION · 6 NOVEMBER 2026")}</p>
     <h1>{t(imprint?"Impressum":"Datenschutz",imprint?"Legal notice":"Privacy notice")}</h1>
-    <p class="legal-lead">{imprint?t("Wer hinter WIRKLICH steht – und welche Angaben noch fehlen.","Who operates WIRKLICH — and which details are still missing."):t("Wie diese statische Website derzeit mit Daten umgeht.","How this static website currently handles data.")}</p>
+    <p class="legal-lead">{imprint?t("Wer hinter Vera steht – und welche Angaben noch fehlen.","Who operates Vera — and which details are still missing."):t("Wie diese statische Website derzeit mit Daten umgeht.","How this static website currently handles data.")}</p>
   </div></section>
   <section class="section section--paper"><article class="narrow legal-copy">
     {imprint ? <>
       <p class="legal-status" role="note">{t("Die ladungsfähige Anschrift des Betreibers fehlt. Das Impressum ist deshalb unvollständig.","The operator’s postal address for service is missing. This legal notice is therefore incomplete.")}</p>
       <h2>{t("Angaben zum Anbieter","Operator details")}</h2>
       <dl>
-        <div><dt>{t("Angebot","Service")}</dt><dd>WIRKLICH — {t("Die offene Erkenntniswerkstatt","The open inquiry workshop")}</dd></div>
+        <div><dt>{t("Angebot","Service")}</dt><dd>Vera — {t("Die offene Erkenntniswerkstatt","The open inquiry workshop")}</dd></div>
         <div><dt>{t("Anbieter und redaktionell Verantwortlicher","Operator and person responsible for editorial content")}</dt><dd>{operator}</dd></div>
         <div><dt>{t("Kontakt für Rechts- und Datenschutzanfragen","Contact for legal and privacy enquiries")}</dt><dd><a href={"mailto:"+email}>{email}</a></dd></div>
-        <div><dt>{t("Trägerschaft","Current status")}</dt><dd>{t("WIRKLICH ist ein privat getragenes Projekt. Es besteht keine Zugehörigkeit zu Wikimedia. Das Projekt hat keine anerkannte Gemeinnützigkeit.","WIRKLICH is a privately run project. It is unaffiliated with Wikimedia and has no recognised charitable status.")} <a href="https://github.com/AlexanderR1991/Wirklich">{t("Projekt auf GitHub","Project on GitHub")}</a></dd></div>
+        <div><dt>{t("Trägerschaft","Current status")}</dt><dd>{t("Vera ist ein privat getragenes Projekt. Es besteht keine Zugehörigkeit zu Wikimedia. Das Projekt hat keine anerkannte Gemeinnützigkeit.","Vera is a privately run project. It is unaffiliated with Wikimedia and has no recognised charitable status.")} <a href="https://github.com/AlexanderR1991/Wirklich">{t("Projekt auf GitHub","Project on GitHub")}</a></dd></div>
       </dl>
       <h2>{t("Inhalte und Rechte","Content and rights")}</h2>
-      <p>{t("WIRKLICH ist eine offene, korrigierbare Denk- und Erkenntniswerkstatt. Hypothesen, KI-Entwürfe und redaktionell ungeprüfte Aussagen sind als solche zu verstehen. Sie ersetzen keine persönliche Rechts-, Medizin- oder Finanzberatung.","WIRKLICH is an open, revisable inquiry workshop. Hypotheses, AI drafts and editorially unreviewed claims are not verified findings and do not replace individual legal, medical or financial advice.")}</p>
+      <p>{t("Vera ist eine offene, korrigierbare Denk- und Erkenntniswerkstatt. Hypothesen, KI-Entwürfe und redaktionell ungeprüfte Aussagen sind als solche zu verstehen. Sie ersetzen keine persönliche Rechts-, Medizin- oder Finanzberatung.","Vera is an open, revisable inquiry workshop. Hypotheses, AI drafts and editorially unreviewed claims are not verified findings and do not replace individual legal, medical or financial advice.")}</p>
       <p>{t("Urheber- und Lizenzangaben richten sich nach der jeweiligen Veröffentlichung und den dokumentierten Ausnahmen.","Copyright and licensing depend on the relevant publication and documented exceptions.")} <a href="https://github.com/AlexanderR1991/Wirklich/blob/main/LICENSING.md">{t("Lizenzdetails und Ausnahmen","Licences and exceptions")} ↗</a></p>
       <p>{t("Gesetzliche Grundlagen:","Relevant legal provisions:")} <a href="https://www.gesetze-im-internet.de/ddg/__5.html">§ 5 DDG</a> · <a href="https://www.die-medienanstalten.de/aufgaben/aufsicht/impressumspflicht/">§ 18 MStV / {t("Medienanstalten","media authorities")}</a>.</p>
       <p><a href={pathFor(lang,"datenschutz")}>{t("Zur Datenschutzerklärung","Read the privacy notice")} →</a></p>

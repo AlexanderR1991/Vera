@@ -23,8 +23,8 @@ const scenario = de
   ? "Jemand bittet mich, eine Entscheidung abzunehmen, die er oder sie selbst treffen könnte. Wann respektiere ich mit einem Ja die Freiheit dieser Person? Wann übergehe ich sie?"
   : "Someone asks me to make a decision they could make themselves. When would saying yes respect their freedom? When would it override their wishes?";
 const prompt = [
-  de ? `Prüfe die ethische Leitidee G-005 (Fassung 2) von WIRKLICH. „${claim}“ Zum Grundtext gehört auch dieser Zusatz. „${scope}“`
-     : `Examine the ethical principle G-005 (version 2) from WIRKLICH. “${claim}” Read it with this qualification. ${scope}`,
+  de ? `Prüfe die ethische Leitidee G-005 (Fassung 2) von Vera. „${claim}“ Zum Grundtext gehört auch dieser Zusatz. „${scope}“`
+     : `Examine the ethical principle G-005 (version 2) from Vera. “${claim}” Read it with this qualification. ${scope}`,
   de ? "Wir würden den Wortlaut überdenken, wenn er trotz dieses Zusatzes dazu führt, dass jemand gewünschte Hilfe verweigert oder unerwünschte Hilfe aufzwingt."
      : "We would reconsider the wording if, even with that qualification, it led someone to withhold wanted help or impose unwanted help.",
   scenario,
@@ -49,7 +49,7 @@ const submissions = repo + "/issues?" + new URLSearchParams({ q: "is:issue in:ti
       <p class="scenario">{scenario}</p>
       <blockquote>
         <p>{de ? `„${claim}“` : `“${claim}”`}</p>
-        <footer>WIRKLICH · G-005 · <a href={de ? passage : register}>{de ? "Wortlaut dieser Runde" : "Wording for this round"}</a></footer>
+        <footer>Vera · G-005 · <a href={de ? passage : register}>{de ? "Wortlaut dieser Runde" : "Wording for this round"}</a></footer>
       </blockquote>
       <p>{scope}</p>
     </header>

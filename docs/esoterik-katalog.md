@@ -1,6 +1,6 @@
 # Esoterik als offener Teilbaum / Esotericism as an open sub-tree
 
-**WIRKLICH · Arbeitsfassung v0.1.0 · 2026-11-07 · KI-unterstützt, redaktionell ungeprüft.**
+**Vera · Arbeitsfassung v0.1.0 · 2026-11-07 · KI-unterstützt, redaktionell ungeprüft.**
 
 [Öffentlicher Katalog DE](https://alexanderr1991.github.io/Wirklich/de/esoterik-katalog/) · [Open catalogue EN](https://alexanderr1991.github.io/Wirklich/en/esoterik-katalog/) · [Maschinenlesbarer Katalog](../public/knowledge/esoterik-tree.json) · [GitHub-Antragsformular](https://github.com/AlexanderR1991/Wirklich/issues/new?template=esoterik-ast.yml)
 

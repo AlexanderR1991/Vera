@@ -121,7 +121,7 @@ Wiederkehrende falsche Übertragungen, schlechteres Verständnis oder kein Vorte
 - [GraphRAG-Dokumentation von Microsoft](https://microsoft.github.io/graphrag/): möglicher Baustein für die spätere Suche in verknüpften Quellen. Ein Suchverfahren ersetzt keine Anwendbarkeitsprüfung.
 - [Dedre Gentner, Structure-Mapping (1983)](https://groups.psych.northwestern.edu/gentner/papers/Gentner83.2b.pdf): theoretischer Bezug für den Vergleich von Beziehungen und Strukturen statt bloßer Oberflächenähnlichkeit.
 
-Beide Bezüge begründen Architekturfragen. Sie belegen weder die Wirksamkeit von WIRKLICH noch die Richtigkeit einer konkreten Übertragung.
+Beide Bezüge begründen Architekturfragen. Sie belegen weder die Wirksamkeit von Vera noch die Richtigkeit einer konkreten Übertragung.
 
 ## English
 
