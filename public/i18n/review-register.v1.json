@@ -629,6 +629,15 @@
       "source_commit": null,
       "review_url": null
     },
+    "vera-liebe-als-richtung.md": {
+      "status": "unassessed",
+      "priority": "support",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
     "vera.md": {
       "status": "shared_bilingual",
       "priority": "support",

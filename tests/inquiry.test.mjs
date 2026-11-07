@@ -1,6 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import {createInquiry,parseInquiry,inquiryMarkdown,inquiryFields,missingInquiryFields,maxFieldLength,maxInquiryFileSize} from "../src/lib/inquiry.mjs";
+import {createInquiry,parseInquiry,inquiryMarkdown,inquiryFields,inquirySchema,missingInquiryFields,maxFieldLength,maxInquiryFileSize} from "../src/lib/inquiry.mjs";
+import {assessDirection, directionChecks, directionStates} from "../src/lib/inquiry-direction.mjs";
 import {summarizeProject} from "../src/lib/project-status.mjs";
 import {claimReviewFingerprint} from "../src/lib/claims.mjs";
 
@@ -31,7 +32,7 @@ test("English notes keep Unicode, quotes and multiline contents through JSON and
 
 test("import rejects foreign schemas, unknown types, invalid language and malformed fields", () => {
   const valid = createInquiry({question:"A question"});
-  for (const data of [null,[],{}, {...valid,schema_version:3}, {...valid,kind:"claim_record"}, {...valid,type:"true"}, {...valid,lang:"fr"}, {...valid,lang:undefined}, {...valid,support:4}, {...valid,revision:undefined}, {...valid,positions:undefined}]) {
+  for (const data of [null,[],{}, {...valid,schema_version:inquirySchema+1}, {...valid,kind:"claim_record"}, {...valid,type:"true"}, {...valid,lang:"fr"}, {...valid,lang:undefined}, {...valid,support:4}, {...valid,revision:undefined}, {...valid,positions:undefined}]) {
     assert.throws(()=>parseInquiry(JSON.stringify(data)));
   }
   assert.throws(()=>parseInquiry("{oops"));
@@ -98,7 +99,7 @@ test("previous version-one detailed exports retain their classification and ever
   const values = Object.fromEntries(oldFields.map(key => [key,`Preserve ${key}`]));
   for (const type of ["empirical","formal","normative","interpretive","metaphor"]) {
     const legacy = {schema_version:1,kind:"inquiry_note",lang:"de",type,...values};
-    assert.deepEqual(parseInquiry(JSON.stringify(legacy)),{...legacy,schema_version:2,positions:""});
+    assert.deepEqual(parseInquiry(JSON.stringify(legacy)),{...legacy,schema_version:inquirySchema,positions:""});
   }
 });
 
@@ -121,4 +122,42 @@ test("a valid worksheet with full-length fields still fits the import limit", ()
   const exported = JSON.stringify(note, null, 2);
   assert.ok(Buffer.byteLength(exported) < maxInquiryFileSize);
   assert.deepEqual(parseInquiry(exported),note);
+});
+
+test("every direction check can stop a step and open checks cannot count as yes", () => {
+  const combinations = directionChecks.reduce((partial, key) => partial.flatMap(direction =>
+    directionStates.map(state => ({...direction, [key]: state}))), [{}]);
+  const outcomes = {revise: 0, clarify: 0, review: 0, unassessed: 0};
+  for (const direction of combinations) {
+    const result = assessDirection(direction);
+    outcomes[result]++;
+    if (Object.values(direction).includes("no")) assert.equal(result, "revise");
+  }
+  assert.deepEqual(outcomes, {revise: 65, clarify: 14, review: 1, unassessed: 1});
+  assert.equal(assessDirection({evidence:"yes", agency:"yes", care:"yes", repair:"yes"}), "review");
+});
+
+test("direction checks survive export without treating consent or evidence as established", () => {
+  const direction = {evidence:"yes", agency:"no", care:"open", repair:"yes"};
+  for (const lang of ["de", "en"]) {
+    const note = createInquiry({action:"Publish the contribution", direction}, lang);
+    const reopened = parseInquiry(JSON.stringify(note));
+    assert.deepEqual(reopened, note);
+    assert.equal(reopened.support, "");
+    assert.equal(reopened.positions, "");
+    assert.match(inquiryMarkdown(reopened), lang === "de" ? /Halte inne/ : /Pause/);
+    assert.match(inquiryMarkdown(reopened), lang === "de" ? /bleibt ein Nein wirksam\? Nein/ : /would a no be respected\? No/);
+  }
+});
+
+test("older notes and unopened direction checks stay optional; malformed checks are rejected", () => {
+  const note = createInquiry({action:"Proposed step", positions:"Unresolved dissent"});
+  assert.deepEqual(parseInquiry(JSON.stringify({...note, schema_version:2})), note);
+  const open = {evidence:"open", agency:"open", care:"open", repair:"open"};
+  assert.deepEqual(createInquiry({...note, direction:open}), note);
+  assert.doesNotMatch(inquiryMarkdown(note), /Liebe als Richtung/);
+  for (const direction of [null, [], {...open, care:"great"}, {...open, evidence:undefined}]) {
+    assert.throws(() => parseInquiry(JSON.stringify({...note, direction})), /Invalid direction check/);
+  }
+  assert.throws(() => createInquiry({direction:{...open, agency:"yes"}}), /needs a next step/);
 });

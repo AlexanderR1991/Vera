@@ -3,10 +3,12 @@ import Layout from "../layouts/SiteLayout.astro";
 import project from "../../public/project.json" with {type: "json"};
 import {pathFor} from "../lib/paths.mjs";
 import {rulePack} from "../lib/rule-pack.mjs";
+import {directionChecks, directionCopy, directionStates} from "../lib/inquiry-direction.mjs";
 import "../styles/workbench.css";
 const {lang="de"} = Astro.props;
 const en = lang === "en";
 const t = (de, english) => en ? english : de;
+const direction = directionCopy[lang];
 const field = (key, de, english, hintDe, hintEn) => ({key, label:t(de,english), hint:t(hintDe,hintEn)});
 const simpleFields = [
   field("question","1 · Was denke oder frage ich?","1 · What do I think or wonder?","Ein Satz reicht. Du kannst auch mit „Ich weiß es noch nicht“ anfangen.","One sentence is enough. You can also start with “I do not know yet”."),
@@ -49,6 +51,17 @@ const example = en ? {
       <fieldset class="workbench-simple"><legend>{t("Hier anfangen · alle Felder freiwillig", "Start here · every field is optional")}</legend>
         {simpleFields.map(item=><div class="workbench-field"><label for={"inquiry-"+item.key}>{item.label}</label><p id={"hint-"+item.key}>{item.hint}</p><textarea id={"inquiry-"+item.key} name={item.key} rows={3} maxlength="12000" aria-describedby={"hint-"+item.key}></textarea></div>)}
       </fieldset>
+      <details class="workbench-deeper" id="richtung" data-inquiry-direction>
+        <summary>{direction.title}</summary>
+        <p class="workbench-help">{t("Vier freiwillige Fragen zu deinem nächsten Schritt. Du kannst die Gründe dafür im Feld oben festhalten. Sobald du den Schritt änderst, stehen alle Fragen wieder offen.", "Four optional questions about your next step. You can record your reasons in the field above. If you change the step, all four checks reopen.")}</p>
+        {directionChecks.map(key => <div>
+          <label class="workbench-label" for={`direction-${key}`}>{direction.questions[key]}</label>
+          <select id={`direction-${key}`} name={`direction-${key}`} disabled>
+            {directionStates.map(value => <option value={value}>{direction.states[value]}</option>)}
+          </select>
+        </div>)}
+        <p class="workbench-help" data-direction-result role="status">{t("Trage zuerst oben einen nächsten Schritt ein.", "Enter a next step above first.")}</p>
+      </details>
       <details class="workbench-deeper" data-inquiry-deeper>
         <summary>{t("Genauer prüfen · weitere Fragen öffnen", "Look more closely · open more questions")}</summary>
         <p class="workbench-help">{t("Diese Fragen helfen, wenn du deinen Gedanken genauer prüfen möchtest. Deine ersten drei Antworten bleiben erhalten.", "These questions help when you want to examine your idea more closely. Your first three answers stay in place.")}</p>
