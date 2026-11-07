@@ -83,7 +83,7 @@ const proposal=(id,title)=>project.repository+"/issues/new?template=esoterik-ast
          <p>{get(item.context)}</p>
          <p class="esoteric-question"><strong>{t("Offene Frage:","Open question:")}</strong> {get(item.question)}</p>
          <div class="esoteric-item__actions">
-          <a href={proposal(item.id,get(item.title))} target="_blank" rel="noopener noreferrer">{t("Diesen Ast diskutieren","Discuss this branch")} ↗</a>
+          <a href={proposal(item.id,get(item.title))} target="_blank" rel="noopener noreferrer">{t("Diskussion eröffnen","Discuss this branch")} ↗</a>
           <a href={"#"+anchor(item.id)} aria-label={t("Link zum Unterast kopieren über die Adresszeile: ","Link to subbranch: ")+item.id}># {t("Link","Link")}</a>
          </div>
         </article>)}
