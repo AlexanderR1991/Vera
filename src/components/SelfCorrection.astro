@@ -1,0 +1,79 @@
+---
+import Layout from "../layouts/SiteLayout.astro";
+import {base,pathFor} from "../lib/paths.mjs";
+import protocol from "../../public/protocol/self-correction.v1.json";
+import project from "../../public/project.json";
+import "../styles/mission.css";
+const {lang="de"}=Astro.props;
+const en=lang==="en";
+const t=(de,english)=>en?english:de;
+const local=value=>value[lang];
+---
+<Layout lang={lang} slug="regelkreis" description={local(protocol.purpose)}>
+ <article class="container mission-document self-correction">
+  <header>
+   <p class="section-kicker">META-01 · {t("UNSER GRUNDSATZ · ANFECHTBARER ENTWURF","OUR META-RULE · CONTESTABLE DRAFT")}</p>
+   <h1>{t("Ein System, das aus Irrtümern lernt.","A system that learns from mistakes.")}</h1>
+   <p class="self-correction__motto">{local(protocol.motto)}</p>
+   <p class="mission-lead">{t("Jeder Mensch soll einen Satz, eine Antwort oder das Verfahren selbst hinterfragen können. Wir suchen bessere Gründe – nicht Sieger. Dies ist ein Arbeitsversprechen, kein Nachweis, dass unsere Methode bereits funktioniert.","Anyone should be able to challenge a claim, an answer, or the method itself. We seek better reasons, not winners. This is a working commitment, not proof that our method already works.")}</p>
+   <div class="button-row">
+    <a class="button button--gold" href="#regelkreis">{t("Den Regelkreis verstehen ↓","Explore the loop ↓")}</a>
+    <a class="button button--ghost" href={pathFor(lang,"forum")}>{t("Eine Frage diskutieren →","Discuss a question →")}</a>
+   </div>
+  </header>
+  <section id="regelkreis" aria-labelledby="regelkreis-title">
+   <p class="section-kicker">{t("DAS VERFAHREN","THE PROCESS")}</p>
+   <h2 id="regelkreis-title">{t("Sieben Schritte. Wieder und wieder.","Seven steps. Again and again.")}</h2>
+   <ol class="self-correction__cycle">
+    {protocol.cycle.map((step,index)=><li id={"schritt-"+step.id}>
+     <span class="self-correction__number">{String(index+1).padStart(2,"0")}</span>
+     <h3>{local(step.title)}</h3>
+     <p>{local(step.question)}</p>
+    </li>)}
+   </ol>
+   <p class="self-correction__repeat">{t("↺ Ein neuer Einwand oder eine unerwartete Folge beginnt die nächste Prüfung.","↺ A new objection or unexpected consequence starts the next review.")}</p>
+  </section>
+  <section id="regeln" aria-labelledby="regeln-title">
+   <p class="section-kicker">{t("ZEHN ARBEITSREGELN","TEN WORKING RULES")}</p>
+   <h2 id="regeln-title">{t("Was unser System können muss – und was nicht.","What this system must do – and must not do.")}</h2>
+   <div class="self-correction__principles">
+    {protocol.principles.map(rule=><article id={rule.id}>
+     <span>{rule.id}</span><h3>{local(rule.title)}</h3><p>{local(rule.test)}</p>
+    </article>)}
+   </div>
+  </section>
+  <section id="korrektur" aria-labelledby="korrektur-title">
+   <h2 id="korrektur-title">{t("Korrektur ist ein öffentlich nachvollziehbarer Vorgang.","A correction must be traceable.")}</h2>
+   <p>{t("Behauptung, stärkster Einwand, Prüfmaßstab, neue oder offen gelassene Fassung und verantwortliche Person gehören zusammen. Gute Kritik führt zu einer neuen Prüfung, nicht automatisch zur Veröffentlichung. Und eine Mehrheit kann Belege nicht ersetzen.","A claim, its strongest objection, review criteria, revised or unresolved outcome and accountable person belong together. Good criticism triggers review, not automatic publication. A majority cannot replace evidence.")}</p>
+   <p><a class="subtle-link" href={pathFor(lang,"methode")+"#g-005"}>{t("Echte Textkorrektur G-005 ansehen","See actual revision G-005")} →</a></p>
+   <p><a class="subtle-link" href={pathFor(lang,"aussagen")}>{t("Prüfstand und offene Einwände lesen","Read claim records and open objections")} →</a></p>
+  </section>
+  <section id="grenze" aria-labelledby="grenze-title">
+   <h2 id="grenze-title">{t("Auch dieses Regelwerk darf scheitern.","Even this rule may fail.")}</h2>
+   <p>{local(protocol.limitations)}</p>
+   <p>{t("Die Übertragung persönlicher Selbstkorrektur auf eine globale Gemeinschaft ist eine offene Hypothese. Macht, Interessen, Manipulation, Ausgrenzung und ungleicher Zugang sind echte Gegenproben. Wir prüfen dieses Verfahren gegen Alternativen, statt seinen Erfolg zu behaupten.","Scaling personal self-correction into a global community is an open hypothesis. Power, incentives, manipulation, exclusion and unequal access are serious stress tests. We must compare the method with alternatives rather than assume success.")}</p>
+   <div class="self-correction__links">
+    <a href={project.repository+"/blob/main/docs/selbstkorrektur.md"}>{t("Vollständige Verfahrensregeln ↗","Full process rules ↗")}</a>
+    <a href={base+"protocol/self-correction.v1.json"}>{t("Regelkreis als JSON ↗","Loop as JSON ↗")}</a>
+    <a href={project.repository+"/issues/new?template=kritik.yml"}>{t("Regel selbst angreifen ↗","Challenge the rule ↗")}</a>
+    <a href={pathFor(lang,"fragen-und-ki-prompt","prompt")}>{t("Mit der eigenen KI prüfen →","Examine with your own AI →")}</a>
+   </div>
+  </section>
+ </article>
+</Layout>
+<style>
+.self-correction{padding-block:clamp(2.5rem,6vw,5rem)}
+.self-correction header{max-width:65rem}
+.self-correction__motto{font:clamp(1.55rem,3.1vw,2.65rem)/1.3 var(--serif);color:var(--gold-bright);max-width:60rem;margin:1.5rem 0}
+.self-correction section{border-top:1px solid var(--line);padding-top:2.5rem;margin-top:3rem;scroll-margin-top:6rem}
+.self-correction__cycle{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13rem),1fr));gap:1rem;padding:0;list-style:none;margin:1.6rem 0}
+.self-correction__cycle li,.self-correction__principles article{background:#111719;border:1px solid var(--line);padding:1.2rem;min-width:0}
+.self-correction__number,.self-correction__principles span{color:var(--gold-bright);font-size:.8rem;letter-spacing:.08em}
+.self-correction h3{font:clamp(1.15rem,2vw,1.45rem)/1.3 var(--serif);margin:.55rem 0}
+.self-correction__cycle p,.self-correction__principles p{margin:.4rem 0 0}
+.self-correction__repeat{font-weight:600;color:var(--gold-bright)}
+.self-correction__principles{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:1rem;margin:1.5rem 0}
+.self-correction__links{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;margin-top:1rem}
+.self-correction__links a{color:var(--gold-bright);text-decoration:underline;text-underline-offset:.2em;display:inline-flex;align-items:center;min-height:44px}
+[id]{scroll-margin-top:6rem}
+</style>
