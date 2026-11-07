@@ -45,7 +45,7 @@
   },
   "visual_identity": {
     "system": "industrial-editorial",
-    "status": "implemented_in_design_branch",
+    "status": "bundled_in_site_build",
     "design_stylesheet": "src/styles/industrial.css"
   }
 }
