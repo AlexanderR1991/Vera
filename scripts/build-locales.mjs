@@ -62,7 +62,7 @@ for(const name of names){
 }
 await mkdir("public/assets",{recursive:true});
 await copyFile("assets/signet.svg","public/assets/signet.svg");
-await writeFile("public/assets/style.css",(await get("assets/style.css"))+"\n"+(await get("src/styles/i18n.css")),"utf8");
+await writeFile("public/assets/style.css",(await get("assets/style.css"))+"\n"+(await get("src/styles/i18n.css"))+"\n"+(await get("src/styles/industrial.css")),"utf8");
 await copyFile("src/client/site.js","public/assets/site.js");
 await writeFile("public/.nojekyll","","utf8");
 for(const name of names.filter(n=>n!=="index")){
