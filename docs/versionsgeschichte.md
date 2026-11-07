@@ -1,5 +1,11 @@
 # Versionsgeschichte
 
+## 2026-11-07 · REDE-01 – freie Rede, Schutz und transparente Entscheidungen · Änderungsvorschlag
+
+- Bilingualer [REDE-01-Entwurf](redefreiheit-und-schutz.md) zur weitestmöglichen Offenheit auch bei unbequemer Kritik, mit Ausnahmen für konkrete Gefährdungen, Rechte Dritter und Privatsphäre.
+- Die vier Sichtbarkeitsentscheidungen bleiben von Wahrheitsstatus und Erkenntnisreife getrennt. Eine öffentliche Originalkopie ist nicht immer zulässig oder sinnvoll; die Abwägung verlangt ein verantwortliches menschliches Urteil, datensparsame Gründe und Einspruch.
+- Ein [versionierter, nicht ausführender JSON-Vertrag](../public/protocol/speech-and-safety.v0.json), Dokumentationslinks und Strukturtests machen die Idee überprüfbar. **Kein aktives Moderationssystem, keine automatische Regelannahme, keine unabhängige Beschwerdestelle.** Annahme nur nach dem öffentlich begründeten META-01-Regeländerungsverfahren.
+
 ## 2026-11-07 · META-01 – Der selbstkorrigierende Regelkreis
 
 - Die anfechtbare Leitregel lautet: **„Wir bauen kein System, das recht behalten soll. Wir bauen ein System, das aus seinen Irrtümern lernen muss.“** Ihre englische Fassung, zehn Arbeitsregeln, sieben Prüfschritte und die menschlichen Verantwortungsgrenzen sind in [selbstkorrektur.md](selbstkorrektur.md) und im [versionierten JSON-Protokoll](../public/protocol/self-correction.v1.json) beschrieben.
