@@ -2,7 +2,7 @@
   "de": {
     "headline": "Was ist",
     "headlineAccent": "wirklich?",
-    "lead": "Wir sehen die Welt unterschiedlich. WIRKLICH ist ein offener Ort, an dem wir Fragen stellen, Aussagen prüfen und Widerspruch ernst nehmen. Nicht um recht zu behalten. Sondern um gemeinsam bessere Antworten zu finden.",
+    "lead": "WIRKLICH sammelt Fragen, Gründe und Widersprüche aus allen Lebensbereichen. Wer bessere Einwände findet, kann eine neue Prüfung anstoßen. So lernen wir gemeinsam, ohne menschliche Würde oder offene Unterschiede zu übergehen.",
     "play": "Eine Runde spielen",
     "playNote": "Ohne Anmeldung. Ohne Zeitdruck. Du kannst auch laut mitdenken.",
     "bringQuestion": "Meine eigene Frage mitbringen",
@@ -75,6 +75,10 @@
         "text": "Auch unsere eigenen Regeln stehen zur Prüfung. Bei jedem Registereintrag kannst du nachlesen, was wir behaupten, welche Einwände vorliegen und was uns umstimmen würde.",
         "links": [
           [
+            "Den Regelkreis angreifen",
+            "regelkreis"
+          ],
+          [
             "Aussagenregister öffnen",
             "aussagen"
           ],
@@ -113,7 +117,7 @@
     "practiceNote": "Hier gibt es keine Punkte für die „richtige“ Meinung. Ein guter Grund kann dich umstimmen – oder deine Antwort stützen. Du bestimmst, wie tief du einsteigst.",
     "consensusLimit": "Gemeinsamkeiten suchen, Unterschiede ehrlich stehen lassen. Niemand muss zustimmen, und Einigkeit allein beweist nichts.",
     "gameScenario": "Du stehst im Supermarkt. An der linken Kasse warten zwei Leute, rechts vier. Wo stellst du dich an?",
-    "principle": "Konsens ist keine Pflicht zur Einigkeit und keine Abstimmung über Wahrheit. Wo Antworten offenbleiben, zeigen wir das ehrlich.",
+    "principle": "Konsens ist keine Pflicht zur Einigkeit. Ein starker Einwand zählt mehr als tausend Stimmen ohne Beleg; Änderungen bleiben öffentlich nachvollziehbar.",
     "missionLink": "Unsere Idee verstehen",
     "forumLink": "Alltagsfragen lesen",
     "forumTitle": "Welche Frage kennst du?",
@@ -124,12 +128,13 @@
     "doorwaysLabel": "Philosophie erleben und überprüfen",
     "metaDescription": "Was ist wirklich? Gemeinsam klüger werden. Irrtum für Irrtum. WIRKLICH ist eine offene Erkenntniswerkstatt für Fragen, Kritik und begründete Gemeinsamkeiten.",
     "aiNote": "Du nutzt schon einen KI-Chat? Gib ihm unsere Prüfregeln und frag ihn, was gegen deine erste Vermutung spricht.",
-    "aiLink": "Regeln für meinen KI-Chat öffnen"
+    "aiLink": "Regeln für meinen KI-Chat öffnen",
+    "metaRuleLink": "Den selbstkorrigierenden Regelkreis prüfen"
   },
   "en": {
     "headline": "What is",
     "headlineAccent": "real?",
-    "lead": "We see the world differently. WIRKLICH is an open place to ask questions, test claims and take disagreement seriously. Not to win arguments, but to find better answers together.",
+    "lead": "WIRKLICH brings together questions, reasons and disagreements from every area of life. Better objections can trigger a new examination. We learn together while protecting human dignity and acknowledging unresolved differences.",
     "play": "Play a round",
     "playNote": "No sign-up. No time limit. You can think out loud, too.",
     "bringQuestion": "Bring a question of my own",
@@ -202,6 +207,10 @@
         "text": "Our own rules are open to challenge. Each entry in the register records our reasoning, objections and what would change our minds.",
         "links": [
           [
+            "Challenge the correction loop",
+            "regelkreis"
+          ],
+          [
             "Open the claim register",
             "aussagen"
           ],
@@ -240,7 +249,7 @@
     "practiceNote": "There are no points for the “right” opinion. A good reason may change your mind or support your answer. You choose how far to explore.",
     "consensusLimit": "Look for common ground and record differences honestly. No one has to agree, and agreement alone proves nothing.",
     "gameScenario": "You're at the supermarket. Two people are waiting at the checkout on the left, four on the right. Which line do you join?",
-    "principle": "Consensus is neither a duty to agree nor a vote on truth. When a question remains unresolved, we say so openly.",
+    "principle": "Consensus is no obligation to agree. One strong objection can outweigh a thousand unsupported votes, and corrections remain traceable.",
     "missionLink": "Explore the idea",
     "forumLink": "Read everyday questions",
     "forumTitle": "Which question feels familiar?",
@@ -251,6 +260,7 @@
     "doorwaysLabel": "Experience and examine philosophy",
     "metaDescription": "What is real? Learn together, one correction at a time. WIRKLICH is an open inquiry workshop for questions, criticism and reasoned common ground.",
     "aiNote": "Already use an AI chat? Give it the workshop rules and ask what might count against your first guess.",
-    "aiLink": "Get the rules for my AI chat"
+    "aiLink": "Get the rules for my AI chat",
+    "metaRuleLink": "Explore the self-correcting rule"
   }
 }

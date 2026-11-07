@@ -2,12 +2,21 @@
 
 **Die offene Erkenntniswerkstatt · The open inquiry workshop**
 
+> **META-01 · Wir bauen kein System, das recht behalten soll. Wir bauen ein System, das aus seinen Irrtümern lernen muss.**
+
+Dieser Satz ist eine **anfechtbare Verfahrensregel**, nicht bloß Werbung: Jede Frage darf geprüft werden, ein starker Einwand muss eine neue Prüfung auslösen können, und substanzielle Korrekturen bleiben mit Gründen und verantwortlicher Person nachvollziehbar. [Der Regelkreis (DE)](https://alexanderr1991.github.io/Wirklich/de/regelkreis/) · [Normativer Grundsatz](docs/selbstkorrektur.md) · [Maschinenlesbarer Entwurf](public/protocol/self-correction.v1.json).
+
+> **META-01 · We are not building a system to be right. We are building a system that must learn from its mistakes.**
+
+The challengeable process rule asks for a traceable revision path, type-appropriate checks, visible dissent and human accountability—not automatic agreement or AI-certified truth. [The correction loop (EN)](https://alexanderr1991.github.io/Wirklich/en/regelkreis/).
+
 **Mit Philosophie die Menschheit zum Konsens führen.** Hier kann jeder eine Frage stellen. Wenn unsere Antworten auseinandergehen, suchen wir nach einem Punkt, den wir aus eigenen Gründen mittragen. Was strittig bleibt, halten wir fest. Unsere philosophische Grundlage ist der [Grundtext des Wirklichen](docs/grundtext.md).[^ursprung]
 
 **To guide humanity toward consensus through philosophy.** Anyone can bring a question. When our answers differ, we look for a point we can each agree on for our own reasons. We record where we still disagree.
 
 | Einstieg | Deutsch | English |
 | --- | --- | --- |
+| Den selbstkorrigierenden Regelkreis verstehen · Explore the correction loop | [Regelkreis](https://alexanderr1991.github.io/Wirklich/de/regelkreis/) | [Correction loop](https://alexanderr1991.github.io/Wirklich/en/regelkreis/) |
 | Eine Alltagsfrage prüfen · Examine an everyday question | [Fragen und erste Antworten](https://alexanderr1991.github.io/Wirklich/de/forum/#alltagsfragen) | [Questions and first answers](https://alexanderr1991.github.io/Wirklich/en/forum/#alltagsfragen) |
 | Den philosophischen Motor für KI prüfen · Examine the philosophical engine for AI | [KI und Mensch](https://alexanderr1991.github.io/Wirklich/de/ki-und-mensch/) | [AI and Humanity](https://alexanderr1991.github.io/Wirklich/en/ki-und-mensch/) |
 | Eine Minute spielen · Play a one-minute round | [Auf den zweiten Blick](https://alexanderr1991.github.io/Wirklich/de/spiel/) | [A second look](https://alexanderr1991.github.io/Wirklich/en/spiel/) |

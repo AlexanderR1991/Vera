@@ -15,6 +15,18 @@
   },
   "repository": "https://github.com/AlexanderR1991/Wirklich",
   "website": "https://alexanderr1991.github.io/Wirklich/",
-  "languages": ["de", "en"],
-  "licenses": {"original_text": "CC-BY-SA-4.0", "original_software": "MIT", "exceptions": "LICENSING.md"}
+  "languages": [
+    "de",
+    "en"
+  ],
+  "licenses": {
+    "original_text": "CC-BY-SA-4.0",
+    "original_software": "MIT",
+    "exceptions": "LICENSING.md"
+  },
+  "guiding_principle": {
+    "id": "META-01",
+    "protocol": "protocol/self-correction.v1.json",
+    "status": "editorial_normative_draft"
+  }
 }

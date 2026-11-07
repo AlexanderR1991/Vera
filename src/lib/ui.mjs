@@ -9,13 +9,13 @@ export const ui = {
       "Atlas",
       "Bibliothek",
       "Aussagen",
-      "Methode",
+      "Regelkreis",
       "Mitwirken",
       "Werkstatt",
       "Navigator",
       "Forum"
     ],
-    "motto": "ERKENNTNIS IST KEIN ENDZUSTAND",
+    "motto": "PRÜFEN · KORRIGIEREN · WEITERLERNEN",
     "footerTitle": "Die Wirklichkeit steht über diesem Werk.",
     "footerDescription": "Die offene Erkenntniswerkstatt. Fragen stellen, Wissen prüfen und verantwortlich handeln. Unser Fundament: der Grundtext des Wirklichen.",
     "explore": "ERKUNDEN",
@@ -30,6 +30,7 @@ export const ui = {
       "projektstatus": "Version und Projektstatus",
       "projektobservatorium": "Projektobservatorium",
       "mission": "Unsere Mission",
+      "regelkreis": "Unser Regelkreis · META-01",
       "ki-und-mensch": "KI und Mensch · Philosophischer Motor",
       "baum-des-wissens": "Der fliegende Baum",
       "aussagen": "Aussagenregister",
@@ -69,13 +70,13 @@ export const ui = {
       "Atlas",
       "Library",
       "Claims",
-      "Method",
+      "Correction loop",
       "Contribute",
       "Workshop",
       "Navigator",
       "Forum"
     ],
-    "motto": "KNOWLEDGE IS NEVER COMPLETE",
+    "motto": "EXAMINE · REVISE · KEEP LEARNING",
     "footerTitle": "Reality stands above this work.",
     "footerDescription": "The open inquiry workshop. Ask questions, examine knowledge and act responsibly. Our foundation: Grundtext des Wirklichen.",
     "explore": "EXPLORE",
@@ -90,6 +91,7 @@ export const ui = {
       "projektstatus": "Version and Project Status",
       "projektobservatorium": "Project Observatory",
       "mission": "Our Mission",
+      "regelkreis": "Our Correction Loop · META-01",
       "ki-und-mensch": "AI and Humanity · Philosophical Engine",
       "baum-des-wissens": "The Flying Tree",
       "aussagen": "Claim Register",
@@ -121,4 +123,4 @@ export const ui = {
     "description": project.english_name + " Bring a question to the open inquiry workshop. Examine the evidence, test objections and record what would change your mind."
   }
 };
-export const navigation = [["erkenntnisnavigator",7],["werkstatt",6],["atlas",1],["aussagen",3],["forum",8],["methode",4],["mitwirken",5]];
+export const navigation = [["erkenntnisnavigator",7],["werkstatt",6],["atlas",1],["aussagen",3],["forum",8],["regelkreis",4],["mitwirken",5]];
