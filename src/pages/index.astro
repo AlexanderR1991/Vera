@@ -10,6 +10,10 @@ import project from "../../public/project.json" with {type: "json"};
       <h1 id="welcome-title">Was ist <em>wirklich?</em><span lang="en">What is real?</span></h1>
       <p class="locale-landing__invitation">Gemeinsam klüger werden. Irrtum für Irrtum.<span lang="en">Learn together. One correction at a time.</span></p>
       <p class="locale-landing__motto">Mit Philosophie Menschen zu einem Konsens bringen.<span lang="en">Bringing people closer to consensus through philosophy.</span></p>
+      <nav class="locale-landing__questions" aria-label="Alltagsfragen / Everyday questions">
+        <a href={pathFor("de", "forum", "alltagsfragen")} lang="de" hreflang="de">Alltagsfragen auf Deutsch <span aria-hidden="true">→</span></a>
+        <a href={pathFor("en", "forum", "alltagsfragen")} lang="en" hreflang="en">Everyday questions in English <span aria-hidden="true">→</span></a>
+      </nav>
       <p>Wähle deine Sprache, um die Idee kennenzulernen und Fragen zu erkunden.</p>
       <p lang="en">Choose your language to explore the idea and bring your questions.</p>
       <nav class="locale-landing__links" aria-label="Sprache wählen / Choose a language">
@@ -28,4 +32,6 @@ import project from "../../public/project.json" with {type: "json"};
   .locale-landing__motto { color: var(--text); font: clamp(1.5rem, 3vw, 2rem)/1.35 var(--serif); }
   .locale-landing__invitation span, .locale-landing__motto span { display: block; margin-top: .25rem; color: var(--text-soft); font-size: .7em; }
   .locale-landing__links { margin-bottom: 0; }
+  .locale-landing__questions { display: flex; flex-wrap: wrap; justify-content: center; gap: 0 1.4rem; margin-top: 1rem; }
+  .locale-landing__questions a { display: inline-flex; align-items: center; gap: .4em; min-height: 44px; color: var(--gold-bright); text-decoration: underline; text-underline-offset: .2em; }
 </style>

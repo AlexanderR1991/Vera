@@ -1,0 +1,165 @@
+{
+  "schema_version": 1,
+  "questions": [
+    {
+      "id": "liebe",
+      "topic": {"de": "Liebe", "en": "Love"},
+      "question": {"de": "Muss ich bleiben, wenn ich jemanden liebe?", "en": "Do I have to stay if I love someone?"},
+      "answer": {
+        "de": "Liebe allein verpflichtet dich nicht zu bleiben. Wer aus Angst vor Schuld bleibt, kann Nähe vorspielen und beiden die Möglichkeit nehmen, frei zu entscheiden. Verantwortung für gemeinsame Kinder oder andere Verpflichtungen kann auch nach einer Trennung bestehen.",
+        "en": "Love alone creates no duty to stay. If guilt keeps you there, you may pretend to feel close and deny both people the chance to choose freely. Responsibilities for children or other shared commitments can continue after a separation."
+      },
+      "challenge": {
+        "de": "Welches Versprechen könnte das Bleiben rechtfertigen, selbst wenn du gerade keine Nähe mehr spürst?",
+        "en": "What promise might justify staying even when you no longer feel close?"
+      },
+      "related_page": "warum-liebe-wirkt"
+    },
+    {
+      "id": "arbeit",
+      "topic": {"de": "Arbeit", "en": "Work"},
+      "question": {"de": "Bin ich weniger wert, wenn ich weniger leiste?", "en": "Am I worth less if I achieve less?"},
+      "answer": {
+        "de": "Leistung kann erklären, wem du eine Aufgabe anvertraust. Wer daraus ableitet, wie viel menschlichen Respekt jemand verdient, macht Würde von Umständen wie Gesundheit und Glück abhängig. Der Maßstab, mit dem du einen erschöpften Kollegen abwertest, trifft dich an deinem eigenen schlechten Tag.",
+        "en": "Performance can help you decide whom to trust with a task. If it also decides how much human respect people deserve, dignity depends on circumstances like health and luck. The standard you use to look down on an exhausted colleague applies to you on your own bad day."
+      },
+      "challenge": {
+        "de": "Wenn du einer Person eine Aufgabe entziehst, woran zeigt sich, dass du ihre Würde weiterhin achtest?",
+        "en": "If you take someone off a task, what would show that you still respect their dignity?"
+      }
+    },
+    {
+      "id": "ernaehrung",
+      "topic": {"de": "Ernährung", "en": "Food"},
+      "question": {"de": "Muss ich ein schlechtes Gewissen haben, wenn ich esse, was ich mag?", "en": "Should I feel guilty for eating what I enjoy?"},
+      "answer": {
+        "de": "Genuss allein ist kein Grund für Schuld. Wenn dich eine Essentscheidung beschäftigt, lohnt es sich, genauer hinzusehen. Geht es um eine konkrete Folge, um einen Konflikt mit deinen Werten oder darum, was andere über dich denken? Ein schlechtes Gewissen kann auf jeden dieser Gründe reagieren. Welcher davon trägt, ist eine andere Frage.",
+        "en": "Enjoyment alone is no reason for guilt. If a food choice troubles you, look more closely. Is it about a concrete consequence, a conflict with your values, or what others think of you? A guilty conscience can respond to any of those reasons. Which one holds up is a separate question."
+      },
+      "challenge": {
+        "de": "Welche Essentscheidung würdest du auch dann bereuen, wenn niemand davon erführe? Was genau wäre der Grund?",
+        "en": "What food choice would you regret even if nobody found out? What exactly would be the reason?"
+      },
+      "related_page": "ernaehrung-und-verantwortung"
+    },
+    {
+      "id": "entscheidung",
+      "topic": {"de": "Entscheidungen", "en": "Decisions"},
+      "question": {"de": "Was, wenn ich mich falsch entscheide?", "en": "What if I make the wrong choice?"},
+      "answer": {
+        "de": "Eine Entscheidung kann vernünftig sein und schlecht ausgehen. Stell dir vor, du vertraust jemandem aus guten Gründen und wirst enttäuscht. Dann lohnt sich die Frage, was du damals wissen konntest, welche Zweifel du ernst genommen hast und ob du jetzt umsteuern kannst.",
+        "en": "A decision can be reasonable and still end badly. Imagine trusting someone for good reasons and being let down. Ask what you could have known at the time, which doubts you took seriously, and whether you can change course now."
+      },
+      "challenge": {
+        "de": "In welchem Fall würdest du eine Entscheidung allein wegen ihres Ausgangs für falsch halten, obwohl vorher gute Gründe dafür sprachen?",
+        "en": "When would you call a decision wrong based on its outcome alone, even though there were good reasons for it at the time?"
+      },
+      "related_page": "erkenntnisnavigator"
+    },
+    {
+      "id": "zugehoerigkeit",
+      "topic": {"de": "Zugehörigkeit", "en": "Belonging"},
+      "question": {"de": "Wie viel von mir darf ich verstecken, um dazuzugehören?", "en": "How much of myself can I hide to belong?"},
+      "answer": {
+        "de": "Du darfst selbst bestimmen, wem du was von dir zeigst. Wenn eine Gruppe dich nur akzeptiert, solange du ihr in wichtigen Dingen nach dem Mund redest, ist diese Zugehörigkeit brüchig. Vielleicht würde dich die Gruppe auch mit deinem Widerspruch aufnehmen. Solange du zustimmst, kannst du es kaum erfahren.",
+        "en": "You get to decide what to share and with whom. If a group accepts you only as long as you echo its views on things that matter, that belonging is fragile. The group might also accept you when you disagree. As long as you keep agreeing, it is hard to find out."
+      },
+      "challenge": {
+        "de": "Wann schützt dein Schweigen etwas Wertvolles, obwohl es bei anderen einen falschen Eindruck hinterlässt?",
+        "en": "When does your silence protect something valuable even though it leaves others with a false impression?"
+      }
+    },
+    {
+      "id": "geld",
+      "topic": {"de": "Geld", "en": "Money"},
+      "question": {"de": "Wann habe ich genug?", "en": "When do I have enough?"},
+      "answer": {
+        "de": "Mehr Geld kann einen Mangel beheben oder eine Freiheit eröffnen, die dir etwas bedeutet. Wenn du allein am Leben anderer misst, was dir fehlt, kann jede Gehaltserhöhung den Maßstab gleich mit verschieben. Die Frage nach genug beginnt damit, wofür du mehr willst und was du dafür hergibst.",
+        "en": "More money can meet a need or open up a freedom that matters to you. If other people's lives are your only yardstick for what you lack, every pay raise can move that yardstick too. The question of enough begins with what you want more for and what you give up to get it."
+      },
+      "challenge": {
+        "de": "Wann wäre es vernünftig, auf mehr hinzuarbeiten, selbst wenn du heute keinen Zweck dafür benennen kannst?",
+        "en": "When would it be reasonable to work toward having more even if you cannot name a purpose for it today?"
+      }
+    },
+    {
+      "id": "schuld",
+      "topic": {"de": "Schuld", "en": "Guilt"},
+      "question": {"de": "Wie lange muss ich für einen Fehler büßen?", "en": "How long do I have to pay for a mistake?"},
+      "answer": {
+        "de": "Verantwortung kann lange dauern, wenn die Folgen lange dauern. Ob du ihr gerecht wirst, zeigt sich daran, wie du mit dem Schaden umgehst und was du gegen eine Wiederholung tust. Wenn du vor allem darunter leidest, wie du selbst dastehst, kann der geschädigte Mensch dabei aus dem Blick geraten.",
+        "en": "Responsibility can last as long as the consequences do. How you address the harm and what you do to prevent it from happening again show whether you are taking responsibility. If you are mainly suffering over how you look, you may lose sight of the person you hurt."
+      },
+      "challenge": {
+        "de": "Kann jemand alles Mögliche wiedergutmachen und trotzdem noch etwas schulden? Wem und warum?",
+        "en": "Could someone make every repair they can and still owe something? To whom, and why?"
+      }
+    },
+    {
+      "id": "wahrheit",
+      "topic": {"de": "Wahrheit", "en": "Truth"},
+      "question": {"de": "Muss ich die Wahrheit sagen, wenn sie wehtut?", "en": "Do I have to tell the truth when it hurts?"},
+      "answer": {
+        "de": "Wenn jemand eine Tatsache braucht, um über das eigene Leben zu entscheiden, wiegt Offenheit schwer. Dass ein Gespräch unangenehm wird, ist dann ein schwacher Grund zu schweigen. Bei einer ungefragten Bemerkung über den Charakter oder das Aussehen eines Menschen liegt die Sache anders.",
+        "en": "If someone needs a fact to make a decision about their own life, openness carries real weight. The discomfort of a conversation is then a weak reason to stay silent. An unsolicited remark about someone's character or appearance is a different matter."
+      },
+      "challenge": {
+        "de": "Welche Wahrheit würdest du trotz ihrer Bedeutung für die Entscheidung vorenthalten? Wer würde die Folgen tragen?",
+        "en": "What truth would you withhold even though it matters to the decision? Who would bear the consequences?"
+      }
+    },
+    {
+      "id": "gerechtigkeit",
+      "topic": {"de": "Gerechtigkeit", "en": "Fairness"},
+      "question": {"de": "Ist es fair, wenn für alle dieselben Regeln gelten?", "en": "Is it fair when everyone follows the same rules?"},
+      "answer": {
+        "de": "Eine gemeinsame Regel kann willkürliche Bevorzugung verhindern. Ihre Wirkung kann trotzdem unfair sein, wenn sie jemanden wegen eines Hindernisses ausschließt, das mit ihrem Zweck nichts zu tun hat. Eine Ausnahme lässt sich daran prüfen, ob sie denselben Zweck besser erfüllt.",
+        "en": "A common rule can prevent arbitrary favoritism. Its effect can still be unfair if it excludes someone because of a barrier unrelated to its purpose. To test an exception, ask whether it serves that same purpose better."
+      },
+      "challenge": {
+        "de": "Jemand verpasst wegen eines Stromausfalls eine Abgabefrist. Wann wäre eine Ausnahme fair, wann wäre sie Bevorzugung?",
+        "en": "Someone misses a deadline because of a power outage. When would an exception be fair, and when would it amount to favoritism?"
+      },
+      "related_page": "politik-die-dem-menschen-dient"
+    },
+    {
+      "id": "aufmerksamkeit",
+      "topic": {"de": "Zeit", "en": "Time"},
+      "question": {"de": "Warum fehlt mir Zeit für das, was mir wichtig ist?", "en": "Why don't I have time for what matters to me?"},
+      "answer": {
+        "de": "Pflichten und Geld setzen echte Grenzen. Wo du Spielraum hast, zeigt die Verwendung deiner Zeit, was im Alltag Vorrang bekommt. Wenn du jede Lücke sofort mit etwas füllst, bekommt vieles, das erst in der Ruhe entsteht, gar keine Gelegenheit. Dazu gehören auch Gespräche, die länger brauchen als geplant.",
+        "en": "Obligations and money impose real limits. Where you have room to choose, how you spend your time shows what gets priority in practice. If you immediately fill every gap, things that only emerge when life slows down may never get a chance. That includes conversations that take longer than planned."
+      },
+      "challenge": {
+        "de": "Welche Zeit, die von außen verschwendet aussieht, ist für dich gut verbracht? Woran machst du das fest?",
+        "en": "What time looks wasted from the outside but feels well spent to you? How can you tell?"
+      }
+    },
+    {
+      "id": "trauer",
+      "topic": {"de": "Trauer", "en": "Grief"},
+      "question": {"de": "Verrate ich jemanden, wenn ich wieder glücklich bin?", "en": "Am I betraying someone if I feel happy again?"},
+      "answer": {
+        "de": "Ein Moment der Freude nimmt einem verlorenen Menschen seinen Platz in deiner Geschichte nicht. Wenn du diese Person nur durch Leid ehren könntest, würde jede Erholung eure gemeinsame Geschichte verkleinern. Was du von ihr bewahrst, kann auch darin sichtbar werden, wie du weiterlebst.",
+        "en": "A moment of joy does not take away the place a person you lost holds in your story. If suffering were the only way to honor them, every step toward recovery would diminish your shared history. What you carry forward from them can also show in the way you live."
+      },
+      "challenge": {
+        "de": "Wo verläuft für dich die Grenze zwischen Weiterleben und dem Bruch eines Versprechens?",
+        "en": "Where would you draw the line between going on with life and breaking a promise?"
+      }
+    },
+    {
+      "id": "sinn",
+      "topic": {"de": "Sinn", "en": "Meaning"},
+      "question": {"de": "Was macht ein gewöhnliches Leben bedeutsam?", "en": "What makes an ordinary life meaningful?"},
+      "answer": {
+        "de": "Ein Leben kann Bedeutung haben, wenn es für jemanden einen konkreten Unterschied macht. Wie viele Menschen davon erfahren, sagt wenig über diesen Unterschied. Wenn jemand durch dich zum ersten Mal erlebt, dass ihm wirklich zugehört wird, ist für diesen Menschen etwas geschehen, das ohne dich ausgeblieben wäre.",
+        "en": "A life can matter when it makes a concrete difference to someone. How many people hear about it tells you little about that difference. If someone feels truly heard for the first time because of you, something happened for them that would otherwise have been missing."
+      },
+      "challenge": {
+        "de": "Was kann ein Leben bedeutsam machen, wenn es für keinen anderen Menschen einen erkennbaren Unterschied macht?",
+        "en": "What can make a life meaningful if it makes no discernible difference to anyone else?"
+      }
+    }
+  ]
+}

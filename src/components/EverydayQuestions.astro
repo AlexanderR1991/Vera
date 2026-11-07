@@ -1,0 +1,87 @@
+---
+import { absoluteFor, pathFor } from "../lib/paths.mjs";
+import project from "../../public/project.json" with { type: "json" };
+import everyday from "../../public/knowledge/everyday-questions.json";
+
+const { lang = "de" } = Astro.props;
+const t = (de, en) => lang === "en" ? en : de;
+const anchor = id => `alltag-${id}`;
+const forumUrl = absoluteFor(lang, "forum");
+const objectionLabel = t("Einwand schreiben", "Write an objection");
+const objectionsLabel = t("Einwände suchen", "Find objections");
+---
+<section class="everyday container" id="alltagsfragen" aria-labelledby="everyday-title">
+  <header class="everyday__intro">
+    <p class="section-kicker">{t("PHILOSOPHIE IM ALLTAG", "PHILOSOPHY IN EVERYDAY LIFE")}</p>
+    <h2 id="everyday-title">{t("Fragen, die wir mit uns tragen.", "Questions we carry with us.")}</h2>
+    <p>{t("Zu jeder Frage findest du eine erste Antwort. Überleg, was daran einleuchtet. Dann such einen Fall, in dem sie zu kurz greift. Wie müsste die Antwort lauten, damit sie auch diesem Fall gerecht wird?", "Each question comes with a first answer. Consider what makes sense about it. Then look for a case where it falls short. How would the answer have to change to do justice to that case too?")}</p>
+  </header>
+
+  <nav class="everyday__topics" aria-label={t("Zu einem Alltagsthema springen", "Jump to an everyday topic")}>
+    <ul role="list">
+      {everyday.questions.map(entry => (
+        <li><a href={`#${anchor(entry.id)}`}>{entry.topic[lang]}</a></li>
+      ))}
+    </ul>
+  </nav>
+
+  <p class="everyday__posting">{t("Lesen geht ohne Konto. Wer einen Einwand teilen möchte, kann ihn öffentlich auf GitHub schreiben. Dafür brauchst du ein GitHub-Konto. Lass private Angaben weg.", "Anyone can read. You can share an objection publicly on GitHub with a GitHub account. Leave out private information.")}</p>
+
+  <div class="everyday__grid">
+    {everyday.questions.map(entry => {
+      const id = anchor(entry.id);
+      const tag = `ALLTAG-${entry.id}`;
+      const submit = new URLSearchParams({
+        template: "alltagsfrage.yml",
+        title: `[${tag}] ${entry.question[lang]}`,
+        source: `${forumUrl}#${id}`
+      });
+      const search = new URLSearchParams({ q: `is:issue in:title "${tag}"` });
+      return (
+        <article class="everyday-card" id={id} aria-labelledby={`${id}-title`}>
+          <p class="section-kicker">{entry.topic[lang]}</p>
+          <h3 id={`${id}-title`}>{entry.question[lang]}</h3>
+          <p class="everyday-card__answer"><strong>{t("Vorläufige Antwort", "Provisional answer")}</strong>{entry.answer[lang]}</p>
+          <div class="everyday-card__challenge">
+            <p><strong>{t("Jetzt du", "Your turn")}</strong>{entry.challenge[lang]}</p>
+          </div>
+          <div class="everyday-card__links">
+            <a href={`${project.repository}/issues/new?${submit}`} aria-label={`${objectionLabel} · ${entry.question[lang]}`}>
+              {objectionLabel} <span aria-hidden="true">↗</span>
+            </a>
+            <a href={`${project.repository}/issues?${search}`} aria-label={`${objectionsLabel} · ${entry.question[lang]}`}>
+              {objectionsLabel} <span aria-hidden="true">↗</span>
+            </a>
+            {entry.related_page && <a href={pathFor(lang, entry.related_page)}>{t("Hintergrund lesen", "Read the background")} <span aria-hidden="true">→</span></a>}
+          </div>
+        </article>
+      );
+    })}
+  </div>
+
+  <p class="everyday__next"><a href="#alltagsfragen">{t("Zur Themenwahl ↑", "Back to the topics ↑")}</a> <a href="#aussagen">{t("Aussagen im Register prüfen ↓", "Examine claims in the register ↓")}</a> <a href="#fragenatlas">{t("Fragenatlas erkunden ↓", "Explore the question atlas ↓")}</a></p>
+</section>
+
+<style>
+  .everyday { padding-block: clamp(2.5rem, 5vw, 4.5rem); scroll-margin-top: 1rem; }
+  .everyday__intro { max-width: 46rem; }
+  .everyday__intro h2 { font-size: clamp(2.25rem, 4.5vw, 4rem); line-height: 1.12; letter-spacing: -.04em; margin: .25em 0; }
+  .everyday__intro > p:last-child { margin-bottom: 1.25rem; }
+  .everyday__topics ul { display: flex; flex-wrap: wrap; gap: .45rem; margin: 0 0 1rem; padding: 0; list-style: none; }
+  .everyday__topics a { display: inline-flex; align-items: center; min-height: 44px; padding: .4rem .8rem; border: 1px solid var(--line); color: var(--text); }
+  .everyday__topics a:hover { border-color: var(--gold); color: var(--gold-bright); }
+  .everyday__posting { max-width: 54rem; margin-bottom: 1.5rem; font-size: .875rem; }
+  .everyday__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+  .everyday-card { min-width: 0; display: flex; flex-direction: column; padding: clamp(1rem, 3vw, 2rem); border: 1px solid var(--line); border-top: 2px solid var(--gold); background: #111719; scroll-margin-top: 1rem; }
+  .everyday-card:target { border-color: var(--gold-bright); }
+  .everyday-card > .section-kicker { margin: 0 0 .6rem; }
+  .everyday-card h3 { margin: 0 0 1.2rem; font-size: clamp(1.65rem, 2.9vw, 2.35rem); line-height: 1.18; }
+  .everyday-card strong { display: block; color: var(--text); font-size: .875rem; }
+  .everyday-card__answer { margin: 0 0 1.15rem; }
+  .everyday-card__challenge { margin-top: auto; padding-left: .9rem; border-left: 2px solid var(--gold); }
+  .everyday-card__challenge p { margin: 0; }
+  .everyday-card__links, .everyday__next { display: flex; flex-wrap: wrap; gap: 0 1rem; margin: .8rem 0 0; }
+  .everyday-card__links a, .everyday__next a { display: inline-flex; align-items: center; gap: .25rem; min-height: 44px; text-decoration: underline; text-underline-offset: .2em; color: var(--gold-bright); font-size: .875rem; }
+  .everyday-card__links a:first-child { font-weight: 700; }
+  @media (max-width: 760px) { .everyday__grid { grid-template-columns: 1fr; } }
+</style>

@@ -18,6 +18,14 @@ Die antike Agora, Stoa und das römische Forum inspirieren die Darstellung, **ni
 
 **English:** The Agora, Stoa and Curia are navigational metaphors for three existing tools, not separate hosted forums: open GitHub Discussions, issue threads anchored to each claim ID, and reviewed pull requests for changes. A claim is never promoted by votes, comment counts or AI replies. The statement and its review status remain in the versioned register, separate from discussion. Use respectful, specific objections, cite the version and sources, and say what would change your mind. Public posts require a GitHub account; no confidential complaint route, response SLA or independent moderation is currently promised.
 
+## Alltagsfragen · Everyday questions
+
+Der [Einstieg ins Forum](https://alexanderr1991.github.io/Wirklich/de/forum/#alltagsfragen) zeigt ausgewählte Alltagsfragen mit einer ersten philosophischen Antwort und einer Gegenfrage. Die Antworten sind KI-unterstützte, vorläufige Denkangebote. Die Gegenfrage hilft dabei, einen konkreten Fall zu finden, den die Antwort erklären können sollte. Der Abschnitt ist ohne Konto lesbar. Einwände und bessere Antworten lassen sich über ein kurzes öffentliches GitHub-Formular einreichen.
+
+Die [zweisprachige Quelldatei](../public/knowledge/everyday-questions.json) speist Startseite und Forum. Beim Überarbeiten bleiben der Link `#alltag-<id>` und die gemeinsame GitHub-Kennung `[ALLTAG-<id>]` erhalten. Die Kennung verbindet die Beiträge beider Sprachen. Führt ein Einwand zur Korrektur, verlinkt der Pull Request den Einwand und begründet die neue Fassung. Die Alltagsfragen sind ein eigener Einstieg. Der Fragenatlas erfasst belegte Verbindungen, das Aussagenregister dokumentiert den Prüfstatus seiner Aussagen.
+
+**English:** The [everyday questions](https://alexanderr1991.github.io/Wirklich/en/forum/#alltagsfragen) pair provisional, AI-assisted philosophical answers with a question readers can use to test each answer. The GitHub form is prefilled with a stable link and the same issue title identifier in both languages. If an objection leads to a revision, the pull request links to it and explains the change.
+
 
 ## KI-Schleuse und Fragenatlas · AI gate and question atlas
 
