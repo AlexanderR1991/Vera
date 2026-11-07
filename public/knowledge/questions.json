@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-11-07",
+  "scope": "small_editorial_pilot_not_a_live_issue_index",
+  "questions": [
+    {
+      "id": "Q-001",
+      "version": 1,
+      "question": {
+        "de": "Wie können wir helfen, ohne die Selbstbestimmung eines Menschen zu übergehen?",
+        "en": "How can we help without overriding another person's agency?"
+      },
+      "question_type": "normative",
+      "origin": "editorial_draft",
+      "review_status": "unreviewed",
+      "topics": [
+        "ethik",
+        "liebe"
+      ],
+      "claim_ids": [
+        "G-005"
+      ],
+      "source_url": "https://github.com/AlexanderR1991/Wirklich/blob/main/docs/erkenntnisnavigator.md"
+    },
+    {
+      "id": "Q-002",
+      "version": 1,
+      "question": {
+        "de": "Woran erkennen wir die Grenzen unserer gegenwärtigen Erkenntnismethoden?",
+        "en": "How do we recognize the limits of our present methods of inquiry?"
+      },
+      "question_type": "methodological",
+      "origin": "editorial_draft",
+      "review_status": "unreviewed",
+      "topics": [
+        "philosophie",
+        "bildung"
+      ],
+      "claim_ids": [
+        "H-001"
+      ],
+      "source_url": "https://github.com/AlexanderR1991/Wirklich/blob/main/docs/methode.md"
+    },
+    {
+      "id": "Q-003",
+      "version": 1,
+      "question": {
+        "de": "Verbessert strukturierte KI-Gegenkritik tatsächlich die menschliche Fehlererkennung?",
+        "en": "Does structured AI countercritique actually improve human error detection?"
+      },
+      "question_type": "empirical",
+      "origin": "editorial_draft",
+      "review_status": "unreviewed",
+      "topics": [
+        "technik",
+        "psychologie"
+      ],
+      "claim_ids": [
+        "KI-001"
+      ],
+      "source_url": "https://github.com/AlexanderR1991/Wirklich/blob/main/docs/evaluation-v1.md"
+    },
+    {
+      "id": "Q-004",
+      "version": 1,
+      "question": {
+        "de": "Wann widersprechen belastbare Studiendaten einer plausibel klingenden medizinischen Annahme?",
+        "en": "When does sound study evidence contradict a plausible medical assumption?"
+      },
+      "question_type": "empirical",
+      "origin": "editorial_draft",
+      "review_status": "unreviewed",
+      "topics": [
+        "gesundheit",
+        "philosophie"
+      ],
+      "claim_ids": [
+        "MED-001"
+      ],
+      "source_url": "https://github.com/AlexanderR1991/Wirklich/blob/main/docs/methode.md"
+    },
+    {
+      "id": "Q-005",
+      "version": 1,
+      "question": {
+        "de": "Unter welchen Bedingungen darf KI menschliche Entscheidungen vorbereiten?",
+        "en": "Under what conditions may AI help prepare human decisions?"
+      },
+      "question_type": "normative",
+      "origin": "editorial_draft",
+      "review_status": "unreviewed",
+      "topics": [
+        "ethik",
+        "technik"
+      ],
+      "claim_ids": [
+        "G-005",
+        "KI-001"
+      ],
+      "source_url": "https://github.com/AlexanderR1991/Wirklich/blob/main/docs/mission.md"
+    },
+    {
+      "id": "Q-006",
+      "version": 1,
+      "question": {
+        "de": "Was kann ein guter Gegenbeleg gegen viele übereinstimmende Meinungen ausrichten?",
+        "en": "What can strong counterevidence establish against many agreeing opinions?"
+      },
+      "question_type": "methodological",
+      "origin": "editorial_draft",
+      "review_status": "unreviewed",
+      "topics": [
+        "philosophie",
+        "bildung"
+      ],
+      "claim_ids": [
+        "H-001",
+        "KI-001",
+        "MED-001"
+      ],
+      "source_url": "https://github.com/AlexanderR1991/Wirklich/blob/main/docs/erkenntnisreife.md"
+    }
+  ],
+  "relations": [
+    {
+      "from": "Q-005",
+      "to": "Q-001",
+      "type": "depends_on",
+      "reason": {
+        "de": "Die Vertretbarkeit von KI-Entscheidungshilfe hängt auch vom Schutz menschlicher Selbstbestimmung ab.",
+        "en": "Whether AI decision support is acceptable also depends on protecting human agency."
+      }
+    },
+    {
+      "from": "Q-005",
+      "to": "Q-003",
+      "type": "depends_on",
+      "reason": {
+        "de": "Bevor KI Entscheidungen unterstützen soll, muss ihr tatsächlicher Nutzen untersucht werden.",
+        "en": "The actual benefit of AI needs testing before it is relied on to support decisions."
+      }
+    },
+    {
+      "from": "Q-004",
+      "to": "Q-006",
+      "type": "subquestion_of",
+      "reason": {
+        "de": "Das medizinische Beispiel konkretisiert die allgemeinere Frage nach Belegen und Zustimmung.",
+        "en": "The medical example makes the general evidence-versus-agreement question concrete."
+      }
+    },
+    {
+      "from": "Q-002",
+      "to": "Q-006",
+      "type": "related_to",
+      "reason": {
+        "de": "Fehleranfälligkeit der Methoden und Belastbarkeit von Gegenbelegen sind miteinander verwandt, aber nicht identisch.",
+        "en": "Limits of methods and strength of counterevidence are related but not identical."
+      }
+    },
+    {
+      "from": "Q-003",
+      "to": "Q-006",
+      "type": "related_to",
+      "reason": {
+        "de": "Mehrere gleich instruierte KI-Rollen sind keine unabhängigen Bestätigungen.",
+        "en": "Multiple similarly instructed AI roles do not constitute independent confirmations."
+      }
+    }
+  ]
+}

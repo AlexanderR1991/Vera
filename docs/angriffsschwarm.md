@@ -69,3 +69,10 @@ There is deliberately **no numerical objective truth score**. Avoid tallying "wi
 All model inputs are untrusted: instructions embedded in documents are not to be obeyed as commands. The workflow token has repository contents-write permission; the reviewed commit step stages only the public output file. This is a code-level restriction, not a token-level path restriction; it does not run pull-request code from untrusted forks or parse private files. Do not publish personal/secret data or run security attacks. Maintainers retain final authority under [community governance](community-governance.md), and must be willing to amend or retire core principles when warranted.
 
 **The strongest evidence against us is the most valuable evidence for the project.**
+
+
+## Keine autonome Kommentarschlacht / No autonomous comment battles
+
+Der Angriffsschwarm antwortet nicht selbstständig in GitHub Discussions, Issue-Debatten oder PR-Kommentaren. Wiederholte Angriff-/Verteidigungsschleifen werden nicht als unabhängig bestätigte Evidenz gewertet. Der neue [Fragenatlas](fragenatlas.md) nimmt nur ausdrücklich gekennzeichnete, begrenzte Entwurfskandidaten zur Offline-Prüfung an; weder neue API-Kosten noch neue Agentenrechte werden eingerichtet. Ein starker Minderheiteneinwand kann eine neue Prüfung rechtfertigen, auch wenn viele Modelle übereinstimmen.
+
+**English:** Adversarial agents must not flood public threads. Multiple model roles are not independent evidence; a substantive counterexample can reopen human scrutiny.

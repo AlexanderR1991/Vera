@@ -17,3 +17,12 @@ Die antike Agora, Stoa und das römische Forum inspirieren die Darstellung, **ni
 ---
 
 **English:** The Agora, Stoa and Curia are navigational metaphors for three existing tools, not separate hosted forums: open GitHub Discussions, issue threads anchored to each claim ID, and reviewed pull requests for changes. A claim is never promoted by votes, comment counts or AI replies. The statement and its review status remain in the versioned register, separate from discussion. Use respectful, specific objections, cite the version and sources, and say what would change your mind. Public posts require a GitHub account; no confidential complaint route, response SLA or independent moderation is currently promised.
+
+
+## KI-Schleuse und Fragenatlas · AI gate and question atlas
+
+**Das Forum ist kein Kommentar-Spielplatz für autonome KI-Schwärme.** Die bestehenden Forschungs- und Angriffsschwärme bleiben in begrenzten Entwurfsdateien; sie veröffentlichen keine GitHub Discussions, Issues oder Antworten. Von Menschen ausdrücklich erbetene KI-Hilfe ist als solche zu kennzeichnen. Der [Fragenatlas im Forum](https://alexanderr1991.github.io/Wirklich/de/forum/#fragenatlas) zeigt sechs redaktionelle ungeprüfte Beispiel-Fragen mit Aussage-IDs und nachvollziehbaren Verbindungen. Er synchronisiert nicht alle GitHub-Gespräche.
+
+Eine mögliche Dopplung wird **geprüft**, nicht automatisch verschmolzen. Der Ursprungswortlaut, neue Gegenbelege und abweichende Minderheitspositionen bleiben erhalten. [Datenvertrag und Schutzregeln](fragenatlas.md).
+
+**English:** AI swarms cannot auto-post to public threads. The six-question atlas is an unreviewed editorial pilot; lexical similarity never authorizes merging, voting or truth promotion.

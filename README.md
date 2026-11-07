@@ -14,6 +14,7 @@
 | Eine echte Korrektur lesen · Follow a real revision | [Wann ist Hilfe gut?](https://alexanderr1991.github.io/Wirklich/de/methode/#g-005) | [What makes help good?](https://alexanderr1991.github.io/Wirklich/en/methode/#g-005) |
 | Eine Frage für sich prüfen · Work privately | [Prüfblatt öffnen](https://alexanderr1991.github.io/Wirklich/de/werkstatt/) | [Open a worksheet](https://alexanderr1991.github.io/Wirklich/en/werkstatt/) |
 | Eine passende Verbindung finden · Find a relevant connection | [Erkenntnisnavigator](https://alexanderr1991.github.io/Wirklich/de/erkenntnisnavigator/) | [Knowledge navigator](https://alexanderr1991.github.io/Wirklich/en/erkenntnisnavigator/) |
+| Ein Netz verbundener Fragen sehen · Explore linked questions | [Fragenatlas (Pilot)](https://alexanderr1991.github.io/Wirklich/de/forum/#fragenatlas) | [Question atlas (pilot)](https://alexanderr1991.github.io/Wirklich/en/forum/#fragenatlas) |
 | Eine Frage öffentlich stellen · Ask in public | [GitHub-Frageformular](https://github.com/AlexanderR1991/Wirklich/issues/new?template=frage.yml) | [GitHub question form](https://github.com/AlexanderR1991/Wirklich/issues/new?template=frage.yml) |
 
 ## Gemeinsam klüger werden · Learn together
@@ -66,3 +67,9 @@ npm run dev
 Eigene Texte und Übersetzungen stehen unter CC BY-SA 4.0, eigener Code unter MIT. Hinweise zu fremden Werken und zum Signet stehen in den Lizenzdetails. [Licensing](LICENSING.md) · [Credits](AUTHORS.md)
 
 [^ursprung]: Die Projektidee entstand aus der Arbeit an *Die Richtung*. The German text edition is available here with its original credits. [Offene Textfassung 2.0](docs/archiv/die-richtung-2.0-lesefassung.txt) · [Rechte und Ausnahmen](LICENSING.md#die-richtung--open-book-text-edition)
+
+## KI-Schwärme und Fragenatlas · AI swarms and question atlas
+
+**KI darf prüfen, aber nicht die Diskussion durch Masse ersetzen.** Automatische Forschungsentwürfe bleiben getrennt von GitHub Discussions, Issues und redaktionellen Entscheidungen. Der [kleine Fragenatlas](docs/fragenatlas.md) versieht redaktionelle Beispiel-Fragen mit stabilen IDs und begründeten Beziehungen zu den Aussagen. Ein lokales Triage-Werkzeug schlägt nur mögliche Dopplungen und Wortähnlichkeiten vor – ohne automatische Veröffentlichung oder Zusammenführung. Begründeter Minderheiteneinwand und ursprüngliche Frageformulierung bleiben erhalten.
+
+**AI may investigate, not dominate public conversation.** The small [question atlas pilot](docs/fragenatlas.md) links curated example questions to claims and to each other; offline draft triage suggests lexical neighbors only. No automatic posts, merges, consensus changes or AI-authored human identities.

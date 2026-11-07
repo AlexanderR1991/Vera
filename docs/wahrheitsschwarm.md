@@ -35,3 +35,10 @@ Crossref und arXiv stellen nur Ausschnitte wissenschaftlicher Literatur bereit. 
 Lizenz: Code unter MIT gemäß LICENSE. Bibliografische Metadaten werden ihrem Anbieter Crossref oder arXiv zugeordnet. arXiv stellt beschreibende Metadaten unter CC0 bereit; Manuskripte haben gesonderte Rechte. Siehe [arXiv API-Nutzungsbedingungen](https://info.arxiv.org/help/api/tou.html) und [API-Handbuch](https://info.arxiv.org/help/api/user-manual.html), geprüft am 05.11.2026.
 
 Kunstwerke und andere öffentliche Netzquellen können über [Kunst und Erkenntnis](kunst-und-erkenntnis.md) eingereicht werden. Europeana ist ein verlinkter Rechercheeinstieg, kein automatisch angebundener Datenkanal.
+
+
+## Fragenatlas statt Forum-Flut / Question atlas instead of forum flooding
+
+Die Forschungsrollen veröffentlichen **keine** GitHub Discussions, Issues oder Kommentare. Ihre Fragen gelten weder als menschliche Stimmen noch als unabhängige Belege. Der [Fragenatlas](fragenatlas.md) besitzt eine gesonderte Offline-Triage für ausdrücklich gekennzeichnete Entwurfskandidaten; sie aktiviert keine neuen API-Aufrufe und keine zusätzlichen zeitgesteuerten Agenten. Eine Diskussion, eine Kantenempfehlung oder tausend gleiche Modellantworten erhöhen niemals Erkenntnisreife oder Konsens.
+
+**English:** The existing swarm produces bounded unverified research drafts only. Question triage does not enable automated posting, paid calls, merging, voting or truth promotion.
