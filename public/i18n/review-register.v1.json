@@ -210,6 +210,13 @@
         "source_commit": null,
         "review_url": null
       },
+      "philosophischer-motor": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewed_at": null,
+        "source_commit": null,
+        "review_url": null
+      },
       "politik-die-dem-menschen-dient": {
         "status": "draft",
         "reviewer": null,
@@ -543,6 +550,15 @@
       "status": "unassessed",
       "priority": "core",
       "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "philosophischer-motor-mathematik.md": {
+      "status": "draft",
+      "priority": "core",
+      "target": "docs/en/philosophical-motor-mathematics.md",
       "reviewer": null,
       "reviewed_at": null,
       "source_commit": null,

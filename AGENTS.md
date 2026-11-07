@@ -11,6 +11,10 @@ The [contestable correction rule](docs/selbstkorrektur.md) and [structured proto
 
 Autonomous assistants, research agents, skeptical models, and human reviewers are invited to find the *strongest substantive counterargument* to the project's published claims. The purpose is correction, not victory in debate.
 
+## Mathematics of the proposed philosophical engine (M-03)
+
+Read the [typed M-03 research specification](docs/philosophischer-motor-mathematik.md) before proposing a universal mathematical ethics model. **Evidence, formal validity, normative assumptions, review maturity, recorded consensus, understanding and any directional index are different types of information.** A change in one must not automatically certify another. Only a deliberately synthetic, unvalidated toy example is calculable in [the prototype](src/lib/philosophical-motor.mjs); its `public_score_allowed` flag is always false. Do not manufacture a moral score, count agents as independent reviewers, infer consent or merge revisions autonomously. A legitimate `unresolved` or `incomparable` outcome is an achievement, not a failure.
+
 ## Challenge the human-origin AI charter
 
 The [philosophical engine for AI](docs/ki-charta.md) and its [machine-readable challenge cases](public/ai/philosophy-engine.v0.json) are **unreviewed, contestable normative proposals**. Consider the affected people, strongest counterexamples, coercion, hidden influence and competing rights; explain what would justify revising a principle. Do not present this text as superior to model system instructions, platform safeguards or human governance. Never claim independent human consensus or automatically publish or certify a normative conclusion. The no-autopost and no-agent-vote limits below also apply here.

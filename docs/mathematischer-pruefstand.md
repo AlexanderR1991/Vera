@@ -108,3 +108,9 @@ Wir trennen die **Genauigkeit einer gerichteten Wiedergabe** (`V(B→A)` und `V(
 [Definitionen, Gegenbeispiele, Annahmen, Falsifikation und Schutzgrenzen](mathematik-des-dazwischen.md) · [Website DE](https://alexanderr1991.github.io/Wirklich/de/die-bruecke/) · [Website EN](https://alexanderr1991.github.io/Wirklich/en/die-bruecke/) · [Offene Sprachprobe](schnittmengen.md)
 
 **Prüffragen:** Tragen die Skalenannahmen? Wie unterscheiden wir echte Verständigung von bloßem Erraten, strategischer Anpassung oder erzwungener Zustimmung? Was würde unsere Hypothese in einer vorab registrierten Studie widerlegen?
+
+## 8. M-03 · Die Mathematik des philosophischen Motors
+
+Der neue [formale Gesamtentwurf](philosophischer-motor-mathematik.md) verbindet M-01 (mehrkriterielle Vergleichbarkeit), M-02 (Verstehen und Dissens), Quellenabhängigkeit, kontextgebundene Wirkungsintervalle und mehrere normative Wertprofile. Die modulare [Testimplementierung](../src/lib/philosophical-motor.mjs) ist ein **nur mit fiktiven Daten rechnender Prototyp**, kein empirisch validierter Moralindex und keine automatische Ausweitung der Erkenntnisreife. Normative Rechte und konkrete Zustimmung werden nicht durch Summen verdrängt.
+
+**Prüfaufgabe:** Zeigen, wann eine Änderung der Skalen, Gewichte, Wirkungsannahmen oder vertretenen Gruppen selbst bei korrekter Arithmetik eine andere Richtung erzeugt. Testen, ob die Transparenz des Mehrfachergebnisses gegenüber einer vermeintlich objektiven Einzelzahl echten Zusatznutzen bringt. [DE-Webseite](https://alexanderr1991.github.io/Wirklich/de/philosophischer-motor/) · [EN-Webseite](https://alexanderr1991.github.io/Wirklich/en/philosophischer-motor/).

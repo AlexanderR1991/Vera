@@ -11,6 +11,12 @@ Die Schönheit darf zum Denken einladen; sie darf es nicht ersetzen. Gestaltung 
 
 Die [JSON-Fassung](../public/protocol/self-correction.v1.json) beschreibt die zehn Arbeitsregeln und die Prüfschleife maschinenlesbar. Der [öffentliche Regelkreis](https://alexanderr1991.github.io/Wirklich/de/regelkreis/) vermittelt sie in DE/EN. KI kann Vorschläge und Verknüpfungen liefern; automatische Statusänderungen oder selbstlegitimierende Mehrheitsentscheidungen sind ausgeschlossen. Wie gut die Methode tatsächlich funktioniert, muss im [Vergleichsprotokoll](evaluation-v1.md) geprüft werden.
 
+## M-03 · Mathematik des philosophischen Motors (Entwurf 7. November 2026)
+
+Die [formale Spezifikation](philosophischer-motor-mathematik.md) verbindet M-01 (partielle Mehrzielordnung), M-02 (Verstehen vs. Zustimmung), die R0–R4-Prüfung, das Aussagen-/Fragenregister, META-01 und die noch offenen Vorschläge für einen pluralen Richtungsindex und KI-Fachrollen. Das Modell liefert **typisierte Ergebnisse** statt einer universellen Wahrheitszahl. Rechte-/Schutzgrenzen und exakte menschliche Zustimmung dürfen nicht durch Mittelwerte ersetzt werden. Eine behauptete Quelle oder wiederholte KI-Antwort ist kein unabhängiger Beweis.
+
+Ein erster [deterministischer Testkern](../src/lib/philosophical-motor.mjs) und [fiktive Fälle](../public/research/philosophical-motor-examples.v0.json) demonstrieren nur Intervallrechnung, Wertesensitivität, Datenlücken, Quellenprovenienz, Versionszustimmung und abhängige Folgeprüfungen; der **reale Richtungsindex bleibt gesperrt**. Zwei öffentliche Lesefassungen: [Deutsch](https://alexanderr1991.github.io/Wirklich/de/philosophischer-motor/) · [English](https://alexanderr1991.github.io/Wirklich/en/philosophischer-motor/). Kein neuer aktiver Agent, keine selbstständige Wahrheitssynthese oder normative Freigabe.
+
 ## Neue Grundfragen-Schicht · Querprüfung und Rückweg
 
 [Die Grundfragen](grundfragen-kreislauf.md) ergänzen Themenbaum, Fragenatlas und Erkenntnisnavigator um eine **separate, öffentlich angreifbare Forschungsagenda**. 16 U-IDs sind von bisherigen Projektfeldern abgeleitete **ungeprüfte Vorschläge**; sie stehen nicht über den Fachkapiteln. Ihre Herkunft und vorgeschlagenen Rückwege stehen in [universal-questions.v1.json](../public/knowledge/universal-questions.v1.json).
