@@ -1,8 +1,24 @@
 {
   "de": {
-    "headline": "Was ist",
-    "headlineAccent": "wirklich?",
-    "lead": "WIRKLICH sammelt Fragen, Gründe und Widersprüche aus allen Lebensbereichen. Wer bessere Einwände findet, kann eine neue Prüfung anstoßen. So lernen wir gemeinsam, ohne menschliche Würde oder offene Unterschiede zu übergehen.",
+    "headline": "Hallo, ich bin",
+    "headlineAccent": "Vera.",
+    "lead": "Ich glaube, dass wir besser verstehen, wenn ein guter Einwand eine Antwort verändern kann.",
+    "howLabel": "So arbeite ich",
+    "howTitle": "Warum ich glaube, dass ich funktioniere",
+    "howReason": "Ich setze auf etwas Einfaches. Wenn wir eine Behauptung und ihre Gründe offenlegen, kannst du zeigen, wo sie zu weit geht. Ein guter Einwand kann die Antwort verändern. Dann halten wir fest, was sich geändert hat, warum und was noch offen ist.",
+    "howStatus": "Hier findest du Texte, Beispiele und ein Prüfblatt. In einem KI-Chat kann ein Modell mit den Regeln der Werkstatt als Vera Fragen und Einwände entwerfen. Menschen prüfen Belege und entscheiden, was veröffentlicht wird. Eine eigenständig betreibbare Open-Source-KI ist das Ziel. Wie gut die Methode Menschen im Alltag hilft, bleibt zu prüfen.",
+    "tryLabel": "Ein Beispiel zum Ausprobieren",
+    "tryClaim": "„Jeder kann dieser Anleitung folgen.“",
+    "tryAction": "Einen Einwand prüfen",
+    "trySteps": [
+      ["Einwand", "„Bei Schritt zwei weiß ich nicht, wo ich klicken soll.“"],
+      ["Änderung", "Wir streichen die Behauptung und ergänzen in der Anleitung, wo die Schaltfläche steht."],
+      ["Nächste Prüfung", "Wir bitten Menschen, die die Anleitung zum ersten Mal sehen, Schritt zwei auszuprobieren. Wenn sie weiterhin hängen bleiben, überarbeiten wir ihn erneut."]
+    ],
+    "realExampleLink": "Eine dokumentierte Änderung ansehen",
+    "meetTitle": "Wie du mir begegnen kannst",
+    "meetInvitation": "Bring eine Frage mit. Oder widersprich mir. Sag mir, welche Stelle du anders siehst und warum.",
+    "meetAction": "Einen Einwand einbringen",
     "play": "Eine Runde spielen",
     "playNote": "Ohne Anmeldung. Ohne Zeitdruck. Du kannst auch laut mitdenken.",
     "bringQuestion": "Meine eigene Frage mitbringen",
@@ -97,7 +113,7 @@
         ]
       }
     ],
-    "invitation": "Gemeinsam klüger werden. Irrtum für Irrtum.",
+    "invitation": "Hier ist Platz für schwierige Fragen.",
     "ownQuestion": "Eine Frage oder einen Begriff erkunden",
     "practiceTitle": "Du musst nicht schon Bescheid wissen.",
     "practiceSteps": [
@@ -126,15 +142,31 @@
     "playTitle": "Eine Frage. Ein neuer Blick.",
     "playIntro": "Das Denken beginnt nicht mit großen Worten. Manchmal reicht eine Entscheidung im Alltag.",
     "doorwaysLabel": "Philosophie erleben und überprüfen",
-    "metaDescription": "Was ist wirklich? Gemeinsam klüger werden. Irrtum für Irrtum. WIRKLICH ist eine offene Erkenntniswerkstatt für Fragen, Kritik und begründete Gemeinsamkeiten.",
+    "metaDescription": "Vera zeigt, wie ein Einwand eine Antwort verändern kann. Probiere es aus und bring deine eigene Frage in die offene Erkenntniswerkstatt.",
     "aiNote": "Du nutzt schon einen KI-Chat? Gib ihm unsere Prüfregeln und frag ihn, was gegen deine erste Vermutung spricht.",
     "aiLink": "Regeln für meinen KI-Chat öffnen",
     "metaRuleLink": "Den selbstkorrigierenden Regelkreis prüfen"
   },
   "en": {
-    "headline": "What is",
-    "headlineAccent": "real?",
-    "lead": "WIRKLICH brings together questions, reasons and disagreements from every area of life. Better objections can trigger a new examination. We learn together while protecting human dignity and acknowledging unresolved differences.",
+    "headline": "Hi, I’m",
+    "headlineAccent": "Vera.",
+    "lead": "I think we understand more when a good objection can change an answer.",
+    "howLabel": "How I work",
+    "howTitle": "Why I think I work",
+    "howReason": "The idea is simple. When we make a claim and share our reasons, you can show where it goes too far. A good objection can change the answer. We record what changed, why it changed, and what remains open.",
+    "howStatus": "Here you’ll find essays, examples, and a worksheet. In an AI chat, a model can use the workshop’s rules to draft questions and objections as Vera. People check evidence and decide what gets published. Independently runnable open-source AI is the goal. How well this method helps people in everyday life remains to be tested.",
+    "tryLabel": "An example to try",
+    "tryClaim": "“Anyone can follow these instructions.”",
+    "tryAction": "Examine an objection",
+    "trySteps": [
+      ["Objection", "“At step two, I don’t know where to click.”"],
+      ["Change", "We withdraw the claim and add the button’s location to the instructions."],
+      ["Next check", "We ask people seeing the instructions for the first time to try step two. If they still get stuck, we revise it again."]
+    ],
+    "realExampleLink": "See a documented change",
+    "meetTitle": "How you can meet me",
+    "meetInvitation": "Bring a question. Or challenge me. Tell me which part you see differently and why.",
+    "meetAction": "Raise an objection",
     "play": "Play a round",
     "playNote": "No sign-up. No time limit. You can think out loud, too.",
     "bringQuestion": "Bring a question of my own",
@@ -229,7 +261,7 @@
         ]
       }
     ],
-    "invitation": "Learn together. One correction at a time.",
+    "invitation": "There’s room here for difficult questions.",
     "ownQuestion": "Explore a question or a term",
     "practiceTitle": "You do not need to know the answer.",
     "practiceSteps": [
@@ -258,7 +290,7 @@
     "playTitle": "One question. A new perspective.",
     "playIntro": "Thinking does not start with grand ideas. Sometimes, an everyday decision is enough.",
     "doorwaysLabel": "Experience and examine philosophy",
-    "metaDescription": "What is real? Learn together, one correction at a time. WIRKLICH is an open inquiry workshop for questions, criticism and reasoned common ground.",
+    "metaDescription": "Vera shows how an objection can change an answer. Try it and bring your own question to the open inquiry workshop.",
     "aiNote": "Already use an AI chat? Give it the workshop rules and ask what might count against your first guess.",
     "aiLink": "Get the rules for my AI chat",
     "metaRuleLink": "Explore the self-correcting rule"

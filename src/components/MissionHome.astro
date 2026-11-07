@@ -20,28 +20,21 @@ const mechanismRivets=Array.from({length:12},(_,i)=>{
  const a=i*Math.PI/6;return {x:168*Math.cos(a),y:168*Math.sin(a)};
 });
 ---
-<Layout lang={lang} slug="index" description={t.metaDescription}>
+<Layout lang={lang} slug="index" pageTitle={t.howTitle} description={t.metaDescription}>
   <section class="home-opening" aria-labelledby="home-heading">
     <div class="container home-opening__grid">
       <div class="home-intro">
         <p class="section-kicker">{ui[lang].name} / {de?"DIE OFFENE ERKENNTNISWERKSTATT":"THE OPEN INQUIRY WORKSHOP"}</p>
         <h1 id="home-heading">{t.headline} <em>{t.headlineAccent}</em></h1>
         <p class="home-invitation">{t.invitation}</p>
-        <p class="home-motto">{t.motto}</p>
-        <blockquote class="home-meta-rule">{protocol.motto[lang]}</blockquote>
-        <div class="button-row">
-          <a class="button button--gold" href={pathFor(lang,"forum","alltagsfragen")}>{de?"Eine Frage öffnen":"Open a question"} <span aria-hidden="true">↗</span></a>
-          <a class="button button--ghost" href={pathFor(lang,"erkenntnisnavigator")}>{de?"Etwas entdecken":"Explore the atlas"} <span aria-hidden="true">→</span></a>
-        </div>
         <p class="home-lead">{t.lead}</p>
-        <aside class="home-ai-identity" aria-label={de?"Unsere Open-Source-KI-Vision":"Our open-source AI vision"}>
-          <strong>{de?"Unser Ziel: Eine Open-Source-KI für Menschen bauen.":"Our goal: Build an open-source AI for people."}</strong>
-          <p>{de?"Gemeinsam, korrigierbar und für jeden zugänglich. Aktuell sind wir eine offene Erkenntniswerkstatt mit ersten Prototypen – noch keine eigenständig veröffentlichte KI.":"Together, open to correction and accessible to everyone. Today we are an open inquiry workshop with early prototypes—not a released, independently runnable AI."}</p>
-          <a href={pathFor(lang,"ki-und-mensch")}>{de?"Idee und Grenzen prüfen":"Explore the goal and its limits"} ↗</a>
-        </aside>
+        <div class="button-row">
+          <a class="button button--gold" href="#warum-ich-funktioniere">{t.howTitle} <span aria-hidden="true">↓</span></a>
+          <a class="button button--ghost" href="#vera-begegnen">{t.meetTitle} <span aria-hidden="true">↓</span></a>
+        </div>
       </div>
       <div class="home-mechanism" aria-label={de?"Abstrakte technische Illustration: ein offener, verbundener Erkenntniskreis":"Abstract technical illustration: an open, connected inquiry loop"} role="img">
-        <div class="home-mechanism__label"><span>W / 001</span><span>{de?"FRAGE → PRÜFUNG → REVISION":"QUESTION → TEST → REVISION"}</span></div>
+        <div class="home-mechanism__label"><span>VERA / 001</span><span>{de?"FRAGE → PRÜFUNG → KORREKTUR":"QUESTION → TEST → CORRECTION"}</span></div>
         <svg class="home-mechanism__drawing" viewBox="0 0 620 610" aria-hidden="true" fill="none">
           <defs>
             <linearGradient id="mechanism-shade" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f9f9f6"/><stop offset=".5" stop-color="#c3c7c5"/><stop offset="1" stop-color="#8e9697"/></linearGradient>
@@ -75,6 +68,40 @@ const mechanismRivets=Array.from({length:12},(_,i)=>{
       <span>02 / {de?"WIDERSPRUCH":"DISSENT"}</span>
       <span>03 / {de?"KORREKTUR":"REVISION"}</span>
       <span>{de?"OPEN SOURCE · NACH VORN GERICHTET":"OPEN SOURCE · FORWARD-LOOKING"}</span>
+    </div>
+  </section>
+
+  <section class="section-shell" id="warum-ich-funktioniere" aria-labelledby="home-how-title">
+    <div class="container home-pair home-how">
+      <div class="home-section-title home-how__intro">
+        <div>
+          <p class="section-kicker">{t.howLabel}</p>
+          <h2 id="home-how-title">{t.howTitle}</h2>
+        </div>
+        <p>{t.howReason}</p>
+        <blockquote class="home-meta-rule">{protocol.motto[lang]}</blockquote>
+        <p>{t.howStatus}</p>
+        <a class="home-link" href={pathFor(lang,"regelkreis")}>{t.metaRuleLink} <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="home-how__try">
+        <p class="section-kicker">{t.tryLabel}</p>
+        <blockquote>{t.tryClaim}</blockquote>
+        <details>
+          <summary>{t.tryAction}</summary>
+          <dl>
+            {t.trySteps.map(([label,body])=><div><dt>{label}</dt><dd>{body}</dd></div>)}
+          </dl>
+        </details>
+        <a class="home-link" href={pathFor(lang,"methode","g-005")}>{t.realExampleLink} <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+    <div class="container home-how__meet" id="vera-begegnen">
+      <h3>{t.meetTitle}</h3>
+      <p>{t.meetInvitation}</p>
+      <div class="button-row">
+        <a class="button button--gold" href={pathFor(lang,"forum","alltagsfragen")}>{t.forumLink} <span aria-hidden="true">↗</span></a>
+        <a class="button button--ghost" href={pathFor(lang,"mitwirken")}>{t.meetAction} <span aria-hidden="true">↗</span></a>
+      </div>
     </div>
   </section>
 

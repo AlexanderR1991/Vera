@@ -43,6 +43,7 @@ test("industrial palette is bundled through the existing static assets pipeline"
 
 test("site and philosophy accurately present an open-source AI goal rather than a finished model",()=>{
  const home=read("src/components/MissionHome.astro");
+ const homeCopy=JSON.parse(read("src/lib/mission-copy.json"));
  const board=read("src/components/IndustrialBoard.astro");
  const mission=read("src/components/MissionPage.astro");
  const ai=read("src/components/AIPhilosophy.astro");
@@ -50,8 +51,9 @@ test("site and philosophy accurately present an open-source AI goal rather than 
  const docs=read("docs/open-source-ki.md");
  const docsEn=read("docs/en/open-source-ai.md");
  const project=JSON.parse(read("public/project.json"));
- assert.ok(home.includes("Unser Ziel: Eine Open-Source-KI"));
- assert.ok(home.includes("Our goal: Build an open-source AI"));
+ assert.match(home,/\{t\.howStatus\}/);
+ assert.match(homeCopy.de.howStatus,/Eine eigenständig betreibbare Open-Source-KI ist das Ziel/);
+ assert.match(homeCopy.en.howStatus,/Independently runnable open-source AI is the goal/);
  assert.ok(board.includes("Open-Source-KI"));
  assert.ok(board.includes("open-source AI"));
  assert.ok(mission.includes("opensource-ki"));

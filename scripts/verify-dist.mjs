@@ -190,7 +190,10 @@ for(const lang of ["de","en"]){
  const name=lang==="de"?project.name:project.english_name;
  const home=await readFile(join(out,lang,"index.html"),"utf8");
  const heading=home.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/)?.[1];
- if(heading?.replace(/<[^>]+>/g," ").replace(/\s+/g," ").trim()!==(lang==="de"?"Was ist wirklich?":"What is real?"))errors.push("Missing guiding question on "+lang+" homepage");
+ if(heading?.replace(/<[^>]+>/g," ").replace(/\s+/g," ").trim()!==(lang==="de"?"Hallo, ich bin Vera.":"Hi, I’m Vera."))errors.push("Missing Vera introduction on "+lang+" homepage");
+ for(const id of ["warum-ich-funktioniere","vera-begegnen"]){
+  if(!home.includes(`href="#${id}"`)||!home.includes(`id="${id}"`))errors.push(`Missing Vera section or link #${id} on ${lang} homepage`);
+ }
  for(const entry of await readdir(join(out,lang),{withFileTypes:true})){
   const file=entry.isDirectory()?join(out,lang,entry.name,"index.html"):join(out,lang,entry.name);
   if(!entry.isDirectory()&&!entry.name.endsWith(".html"))continue;
