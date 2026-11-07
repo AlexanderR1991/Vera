@@ -252,6 +252,13 @@
         "source_commit": null,
         "review_url": null
       },
+      "suche": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewed_at": null,
+        "source_commit": null,
+        "review_url": null
+      },
       "warum-liebe-wirkt": {
         "status": "draft",
         "reviewer": null,
