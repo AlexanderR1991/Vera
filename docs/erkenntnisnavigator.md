@@ -4,7 +4,7 @@
 
 Der Baum ordnet Themen. Ein Netz kann seine Äste verbinden. Der Erkenntnisnavigator führt von einer konkreten Frage zu einer möglichen Erkenntnis und prüft mit dem Fragenden, ob deren Voraussetzungen passen. Niemand muss dafür das Fachgebiet oder den Fachbegriff schon kennen.
 
-Einstieg: [Deutsch](https://alexanderr1991.github.io/Wirklich/de/erkenntnisnavigator/) · [English](https://alexanderr1991.github.io/Wirklich/en/erkenntnisnavigator/).
+Einstieg: [Deutsch](https://alexanderr1991.github.io/Vera/de/erkenntnisnavigator/) · [English](https://alexanderr1991.github.io/Vera/en/erkenntnisnavigator/).
 
 ## Vier Ordnungen auseinanderhalten
 
@@ -145,6 +145,6 @@ Feedback can challenge general insights, but a reported outcome is a lead for ex
 
 ## Ergänzender Fragenatlas-Pilot · 7. November 2026
 
-Der Navigator bleibt eine lokale, begrenzte Suche über vier redaktionelle Musterkarten. Daneben zeigt das [Forum einen kleinen Fragenatlas](https://alexanderr1991.github.io/Wirklich/de/forum/#fragenatlas): sechs ungeprüfte Beispielfragen, die über stabile IDs, explizite Aussage-Links und begründete Beziehungen verbunden sind. Die Wortsuche und die Offline-Triage verstehen keine allgemeine Semantik. Es gibt weder eine automatische Synchronisation aus GitHub Discussions noch eine Übertragung von Antworten, Konsens oder Erkenntnisreife. [Regel- und Datenvertrag](fragenatlas.md).
+Der Navigator bleibt eine lokale, begrenzte Suche über vier redaktionelle Musterkarten. Daneben zeigt das [Forum einen kleinen Fragenatlas](https://alexanderr1991.github.io/Vera/de/forum/#fragenatlas): sechs ungeprüfte Beispielfragen, die über stabile IDs, explizite Aussage-Links und begründete Beziehungen verbunden sind. Die Wortsuche und die Offline-Triage verstehen keine allgemeine Semantik. Es gibt weder eine automatische Synchronisation aus GitHub Discussions noch eine Übertragung von Antworten, Konsens oder Erkenntnisreife. [Regel- und Datenvertrag](fragenatlas.md).
 
 **English:** The question atlas supplements the navigator's four pattern cards with six editorial examples and traceable links. It does not automatically merge threads or verify claims.

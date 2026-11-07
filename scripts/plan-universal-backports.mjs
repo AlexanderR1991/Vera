@@ -6,8 +6,8 @@ import {ui} from "../src/lib/ui.mjs";
 const routes=[...new Set(catalogue.questions.flatMap(q=>q.return_routes))].sort();
 const plan=routes.flatMap(route=>findingsForRoute(catalogue,ledger,route).map(f=>({
   route,question_id:f.question_id,finding_id:f.id,review_url:f.review_url,
-  route_de:"https://alexanderr1991.github.io/Wirklich/de/"+route+"/",
-  route_en:"https://alexanderr1991.github.io/Wirklich/en/"+route+"/",
+  route_de:"https://alexanderr1991.github.io/Vera/de/"+route+"/",
+  route_en:"https://alexanderr1991.github.io/Vera/en/"+route+"/",
   label_de:ui.de.titles[route],label_en:ui.en.titles[route],
   action:"already projected by UniversalQuestionsContext; editorial prose changes require a separate reviewed PR"
 })));

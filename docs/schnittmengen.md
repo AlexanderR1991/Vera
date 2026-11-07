@@ -32,11 +32,11 @@ Wer aus mehreren Einigungen einen gemeinsamen Plan ableitet, hält dessen genaue
 
 Als gemeinsamen, durchführbaren Plan kann die Gruppe den Vorschlag ausweisen, wenn die Zusagen miteinander vereinbar sind und alle genannten Beteiligten dieser Fassung ausdrücklich zugestimmt haben. Die ursprünglichen Teilzusagen behalten ihren jeweiligen Geltungsbereich.
 
-**Gedankenbeispiel.** Beim Dorfkonzert wollen Dirigentin und Solist das ganze 30-minütige Stück spielen. Solist und Veranstalterin wollen spätestens um 22 Uhr enden. Veranstalterin und Dirigentin setzen den Beginn auf 21:45 Uhr. Das Stück würde um 22:15 Uhr enden, selbst wenn alle dem Plan zustimmen. Bei einem Beginn um 21:30 Uhr passt die Dauer ins Zeitfenster. Ob die Beteiligten diesen geänderten Plan tragen, müssen alle drei selbst beantworten. [Zur Gesprächsübung](https://alexanderr1991.github.io/Wirklich/de/schnittmengen/#teilzusagen)
+**Gedankenbeispiel.** Beim Dorfkonzert wollen Dirigentin und Solist das ganze 30-minütige Stück spielen. Solist und Veranstalterin wollen spätestens um 22 Uhr enden. Veranstalterin und Dirigentin setzen den Beginn auf 21:45 Uhr. Das Stück würde um 22:15 Uhr enden, selbst wenn alle dem Plan zustimmen. Bei einem Beginn um 21:30 Uhr passt die Dauer ins Zeitfenster. Ob die Beteiligten diesen geänderten Plan tragen, müssen alle drei selbst beantworten. [Zur Gesprächsübung](https://alexanderr1991.github.io/Vera/de/schnittmengen/#teilzusagen)
 
 ## Verstehen vor Einigkeit · Verbindung zu M-02
 
-Die Sprachprobe fragt schon heute, ob ein Mensch die Ansicht des anderen korrekt in eigenen Worten wiedergeben kann. [M-02 · Die Mathematik des Dazwischen](mathematik-des-dazwischen.md) macht daraus **keine Pflichtkennzahl**, sondern einen begrenzten, noch unvalidierten Forschungsentwurf: Genauigkeit der Wiedergabe (`V`) und inhaltliche Einigkeit (`K`) sind verschiedene Dinge. Man kann verständig uneinig bleiben. Die [Website-Demonstration](https://alexanderr1991.github.io/Wirklich/de/die-bruecke/) zeigt nur erfundene Zahlen und erfasst keine Gesprächsdaten.
+Die Sprachprobe fragt schon heute, ob ein Mensch die Ansicht des anderen korrekt in eigenen Worten wiedergeben kann. [M-02 · Die Mathematik des Dazwischen](mathematik-des-dazwischen.md) macht daraus **keine Pflichtkennzahl**, sondern einen begrenzten, noch unvalidierten Forschungsentwurf: Genauigkeit der Wiedergabe (`V`) und inhaltliche Einigkeit (`K`) sind verschiedene Dinge. Man kann verständig uneinig bleiben. Die [Website-Demonstration](https://alexanderr1991.github.io/Vera/de/die-bruecke/) zeigt nur erfundene Zahlen und erfasst keine Gesprächsdaten.
 
 Keine Zahl ersetzt die ausdrückliche Zustimmung, die Rechte der Beteiligten, die Benennung von Machtasymmetrien oder das Recht, das Gespräch zu beenden.
 
@@ -97,7 +97,7 @@ Write down the exact plan, who it covers and the conditions that apply. Answer t
 
 The group can describe the combined plan as agreed and feasible once the commitments fit together and each named participant has explicitly agreed to that version. Earlier commitments retain their original scope.
 
-**Thought experiment.** At a village concert the conductor and soloist agree to play a full 30-minute piece. The soloist and organiser agree to finish by 22:00. The organiser and conductor set the start for 21:45. Even if everyone approves, the piece would end at 22:15. A 21:30 start fits the time window. Each of the three must still decide whether to accept the revised plan. [Try the exercise](https://alexanderr1991.github.io/Wirklich/en/schnittmengen/#teilzusagen)
+**Thought experiment.** At a village concert the conductor and soloist agree to play a full 30-minute piece. The soloist and organiser agree to finish by 22:00. The organiser and conductor set the start for 21:45. Even if everyone approves, the piece would end at 22:15. A 21:30 start fits the time window. Each of the three must still decide whether to accept the revised plan. [Try the exercise](https://alexanderr1991.github.io/Vera/en/schnittmengen/#teilzusagen)
 
 ## Geprüfte Grundlagen / Sources consulted
 

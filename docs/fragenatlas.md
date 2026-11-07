@@ -1,6 +1,6 @@
 # Fragenatlas & KI-Schleuse / Question atlas & AI attention boundary
 
-**Pilot seit 7. November 2026.** Der [Fragenatlas im Forum](https://alexanderr1991.github.io/Wirklich/de/forum/#fragenatlas) verbindet sechs **redaktionelle, ungeprüfte Beispielfragen**. Er ist kein Live-Index aller GitHub Discussions und noch kein verifizierter Wissensgraph.
+**Pilot seit 7. November 2026.** Der [Fragenatlas im Forum](https://alexanderr1991.github.io/Vera/de/forum/#fragenatlas) verbindet sechs **redaktionelle, ungeprüfte Beispielfragen**. Er ist kein Live-Index aller GitHub Discussions und noch kein verifizierter Wissensgraph.
 
 > **Die Zahl der Fragen darf wachsen. Die Unübersichtlichkeit nicht.**
 >
@@ -16,7 +16,7 @@ Diese Räume sind derzeit Arbeitsbereiche des vorhandenen Repositories, keine se
 
 ## Abgrenzung zur Grundfragen-Schicht (U-IDs)
 
-Neben den sechs individuellen Beispiel-Fragen `Q-001`…`Q-006` gibt es nun die **separaten, übergreifenden [Grundfragen U-001…U-016](grundfragen-kreislauf.md)**. Sie verbinden mehrere veröffentlichte Disziplinen, ohne die ursprünglichen Fragen zu löschen oder gleichzusetzen. Beziehungen zwischen den beiden Registern sind lediglich Verweise mit expliziter Herkunft, keine automatische Fusion oder Wahrheitsübertragung. Die Grundfragen-Seite ist **keine zweite Agora**: Beiträge laufen über [ein öffentliches, menschlich geprüftes GitHub-Issue-Formular](https://github.com/AlexanderR1991/Wirklich/issues/new?template=grundfrage.yml).
+Neben den sechs individuellen Beispiel-Fragen `Q-001`…`Q-006` gibt es nun die **separaten, übergreifenden [Grundfragen U-001…U-016](grundfragen-kreislauf.md)**. Sie verbinden mehrere veröffentlichte Disziplinen, ohne die ursprünglichen Fragen zu löschen oder gleichzusetzen. Beziehungen zwischen den beiden Registern sind lediglich Verweise mit expliziter Herkunft, keine automatische Fusion oder Wahrheitsübertragung. Die Grundfragen-Seite ist **keine zweite Agora**: Beiträge laufen über [ein öffentliches, menschlich geprüftes GitHub-Issue-Formular](https://github.com/AlexanderR1991/Vera/issues/new?template=grundfrage.yml).
 
 Ein **lexikalischer** Korpus-Scan gibt nur Prüfanlässe aus; ein späterer KI-gestützter semantischer Durchlauf muss eigens eingebaut, begrenzt, gekennzeichnet und evaluiert werden. Das Register für fachlich überprüfte Grundfragen-**Teilantworten** ist derzeit leer. Für die bestehenden Q-IDs gelten unverändert die Triage- und Schutzgrenzen dieses Dokuments.
 

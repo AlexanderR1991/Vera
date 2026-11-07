@@ -72,6 +72,6 @@ Alle vier Hypothesen sind **vorläufig und nicht vorregistriert**. Eine gute emp
 5. Fachliche und bilinguale Begutachtung einholen.
 6. Revisionen versionieren, auch wenn sie der Ausgangsthese widersprechen.
 
-**Beitragen / Contribute:** Über [GitHub Issues](https://github.com/AlexanderR1991/Wirklich/issues/new?template=quellenpruefung.yml) Gegenbelege, methodische Kritik und bessere Quellen einreichen. Offene philosophische Fragen gehören in [Discussions](https://github.com/AlexanderR1991/Wirklich/discussions).
+**Beitragen / Contribute:** Über [GitHub Issues](https://github.com/AlexanderR1991/Vera/issues/new?template=quellenpruefung.yml) Gegenbelege, methodische Kritik und bessere Quellen einreichen. Offene philosophische Fragen gehören in [Discussions](https://github.com/AlexanderR1991/Vera/discussions).
 
 **Lizenz:** Eigene redaktionelle Texte CC BY-SA 4.0 gemäß [LICENSING.md](../LICENSING.md). Die verlinkten Studien behalten ihre eigenen Rechte.

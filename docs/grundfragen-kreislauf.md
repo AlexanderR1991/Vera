@@ -79,7 +79,7 @@ Liebe / Medizin / Politik / Esoterik / Mathematik / KI / andere Bereiche
 
 ## 6. Reale Einreichung und Moderation
 
-Die [Grundfragen-Seite](https://alexanderr1991.github.io/Wirklich/de/grundfragen/) bietet Suche, thematische Filter, die 16 Quellenverbindungen sowie das **öffentliche [GitHub-Grundfragen-Formular](https://github.com/AlexanderR1991/Wirklich/issues/new?template=grundfrage.yml)**. Hier sind **Vorschläge** möglich – neue Frage, Einwand gegen eine Zuordnung, Gegenbeispiel, Teilantwort mit Quellen.
+Die [Grundfragen-Seite](https://alexanderr1991.github.io/Vera/de/grundfragen/) bietet Suche, thematische Filter, die 16 Quellenverbindungen sowie das **öffentliche [GitHub-Grundfragen-Formular](https://github.com/AlexanderR1991/Vera/issues/new?template=grundfrage.yml)**. Hier sind **Vorschläge** möglich – neue Frage, Einwand gegen eine Zuordnung, Gegenbeispiel, Teilantwort mit Quellen.
 
 Ein Issue ist weder eine bestätigte Antwort noch ein automatische Auslösung eines Agentenschwarms. Die redaktionelle Prüfung entscheidet, ob eine Änderung als versionierter PR aufgenommen wird. Aktuell existiert **kein** automatischer GitHub-Issues-Import, keine Hintergrund-KI mit freier Schreibbefugnis, keine vertrauliche Eingabe und keine personenbezogene Forschungsdatenbank.
 

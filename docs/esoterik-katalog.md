@@ -2,7 +2,7 @@
 
 **Vera · Arbeitsfassung v0.1.0 · 2026-11-07 · KI-unterstützt, redaktionell ungeprüft.**
 
-[Öffentlicher Katalog DE](https://alexanderr1991.github.io/Wirklich/de/esoterik-katalog/) · [Open catalogue EN](https://alexanderr1991.github.io/Wirklich/en/esoterik-katalog/) · [Maschinenlesbarer Katalog](../public/knowledge/esoterik-tree.json) · [GitHub-Antragsformular](https://github.com/AlexanderR1991/Wirklich/issues/new?template=esoterik-ast.yml)
+[Öffentlicher Katalog DE](https://alexanderr1991.github.io/Vera/de/esoterik-katalog/) · [Open catalogue EN](https://alexanderr1991.github.io/Vera/en/esoterik-katalog/) · [Maschinenlesbarer Katalog](../public/knowledge/esoterik-tree.json) · [GitHub-Antragsformular](https://github.com/AlexanderR1991/Vera/issues/new?template=esoterik-ast.yml)
 
 ## Gegenstand und Verfahrensregel
 
@@ -54,7 +54,7 @@ Die Gesamtzahl von **134 Unterästen** bezeichnet ausschließlich den redaktione
 ## Wie ein neuer Ast wächst
 
 1. **Bestand lesen:** mit der Suche auf der Katalogseite nach dem Begriff und möglichen Varianten suchen. Ähnliche Wörter sind kein Beweis für dieselbe Frage.
-2. **Vorschlagen:** Über das [öffentliche Esoterik-Formular](https://github.com/AlexanderR1991/Wirklich/issues/new?template=esoterik-ast.yml) bestehende Parent-ID, neue Fragestellung oder Gegenthese, beanspruchte Aussageart, stärksten Einwand, Quellen und Revisionsbedingung nennen.
+2. **Vorschlagen:** Über das [öffentliche Esoterik-Formular](https://github.com/AlexanderR1991/Vera/issues/new?template=esoterik-ast.yml) bestehende Parent-ID, neue Fragestellung oder Gegenthese, beanspruchte Aussageart, stärksten Einwand, Quellen und Revisionsbedingung nennen.
 3. **Unterschiede bewahren:** Falls bereits ein Ast vorhanden ist, zunächst mögliche Beziehungen dokumentieren (Teilfrage, andere Deutung, Widerspruch, möglicher Doppelgänger). Der Originalwortlaut und Minderheitspositionen werden nicht automatisch gelöscht.
 4. **Redaktion prüfen:** verantwortliche Menschen entscheiden nachvollziehbar, ob ein neuer Unterast aufgenommen, eine Einordnung geändert oder der Widerspruch dokumentiert wird. Ein KI-Schwarm darf Frageideen liefern, aber **weder öffentliche Issues posten noch abstimmen oder Erkenntnisreife vergeben**.
 5. **Versionieren:** die Datei `public/knowledge/esoterik-tree.json`, die Webansicht und die Tests werden gemeinsam per überprüfbarem Pull Request geändert. Keine automatische Promotion ins Aussagenregister und kein vorgetäuschter Konsens.

@@ -4,20 +4,20 @@
 
 ## Nachprüfung am 6. November 2026
 
-Ausgangspunkt dieser Durchsicht ist [der Projektstand nach PR 37](https://github.com/AlexanderR1991/Wirklich/tree/66616c10e3cf08d9a2bbf307dd999084520b9345). Vier Fragen haben das Ergebnis verändert.
+Ausgangspunkt dieser Durchsicht ist [der Projektstand nach PR 37](https://github.com/AlexanderR1991/Vera/tree/66616c10e3cf08d9a2bbf307dd999084520b9345). Vier Fragen haben das Ergebnis verändert.
 
 | Frage | Befund im Ausgangsstand | Änderung |
 | --- | --- | --- |
 | Wie erlebt ein neuer Leser die Werkstatt? | Auf Startseite und Unterseiten wiederholten sich Einladungen zu denselben Kapiteln. Auf der Methodenseite standen zwei Projektvorstellungen vor der eigentlichen Überschrift. | Die Startseite bietet ein privates Prüfblatt, eine öffentliche Frage und eine dokumentierte Korrektur an. Die Bibliothek führt die lesbaren Fachkapitel an einem Ort zusammen. |
 | Ist erkennbar, wann ein Einwand etwas bewirkt hat? | Der Grundtext würdigte dauerhafte Unterstützung bereits ausdrücklich. G-005 führte diese Präzisierung noch als künftigen Schritt. | [G-005 im Register](../public/knowledge/claims.json) dokumentiert jetzt die Revision und ihren Anlass. Die Methode führt durch die Änderung an These 05. Das Urteil ist normativ, der Reviewstatus bleibt ungeprüft. |
 | Was belegt ein erfolgreicher Suchlauf? | Der gespeicherte Forschungsstrom führte fünf Hinweise mit Publikationsdaten nach seinem Abfragetag. | Der Datenstand wurde von 33 auf 28 berichtigt. Der Datumsfilter gilt bei neuen Treffern und übernommenen Einträgen. Ein abrufbarer Treffer bleibt ein Hinweis zur Quellenprüfung. |
-| Wo lässt sich die Werkstatt widerlegen? | Der Vergleich des Prüfblatts mit gewöhnlicher Quellenprüfung ist geplant. Es fehlen Ergebnisse und ein unabhängiger Einspruchsweg. | Der [Projektstatus](https://alexanderr1991.github.io/Wirklich/de/projektstatus/) und das [Vergleichsprotokoll](evaluation-v1.md) machen diese Grenze auffindbar. Eine dokumentierte Textkorrektur zeigt die Arbeitsweise an einem Fall. Die Frage nach dem Nutzen bleibt offen. |
+| Wo lässt sich die Werkstatt widerlegen? | Der Vergleich des Prüfblatts mit gewöhnlicher Quellenprüfung ist geplant. Es fehlen Ergebnisse und ein unabhängiger Einspruchsweg. | Der [Projektstatus](https://alexanderr1991.github.io/Vera/de/projektstatus/) und das [Vergleichsprotokoll](evaluation-v1.md) machen diese Grenze auffindbar. Eine dokumentierte Textkorrektur zeigt die Arbeitsweise an einem Fall. Die Frage nach dem Nutzen bleibt offen. |
 
 Die technische Prüfung umfasst den Produktionsbuild beider Sprachfassungen, die internen Links und Sprungziele, die Softwaretests und Browserprüfungen. Die Fachliteratur der einzelnen Kapitel wurde in dieser Runde nicht vollständig neu begutachtet.
 
 ## Gegenstand und Grenze dieser Durchsicht
 
-Ausgangspunkt ist Commit [`0314140`](https://github.com/AlexanderR1991/Wirklich/tree/0314140ebb18c733d8d81e4cb5f133be298e860e). Die Durchsicht betrachtet die Gesamtarchitektur, öffentliche Texte und Sprachfassungen, den strukturierten Registerbestand, Beitragswege, Governance sowie die Recherche- und Kritikprototypen. Sie prüft ihre Verbindungen und sichtbaren Grenzen. Die angeführten Fachstudien wurden dabei **nicht erneut vollständig fachlich begutachtet**. Technische Prüfungen belegen die Funktionsfähigkeit des Entwurfs, nicht die Wahrheit seiner Inhalte.
+Ausgangspunkt ist Commit [`0314140`](https://github.com/AlexanderR1991/Vera/tree/0314140ebb18c733d8d81e4cb5f133be298e860e). Die Durchsicht betrachtet die Gesamtarchitektur, öffentliche Texte und Sprachfassungen, den strukturierten Registerbestand, Beitragswege, Governance sowie die Recherche- und Kritikprototypen. Sie prüft ihre Verbindungen und sichtbaren Grenzen. Die angeführten Fachstudien wurden dabei **nicht erneut vollständig fachlich begutachtet**. Technische Prüfungen belegen die Funktionsfähigkeit des Entwurfs, nicht die Wahrheit seiner Inhalte.
 
 Zum damaligen Ausgangsstand waren die Vorschläge #18, #22, #25, #26 und #27 offen. Die heutige Themenkarte führt die übernommenen Entwürfe zu Mathematik, Kunst und Esoterik auf. Der [mathematische Prüfstand](mathematischer-pruefstand.md) enthält das Gegenbeispiel M-01.
 
@@ -78,9 +78,9 @@ Die folgenden Threads wurden im Auftrag des Projektinhabers als **öffentliche I
 
 | Thread | Unangenehme Fragen | Noch offene Prüfung |
 | --- | --- | --- |
-| [B-01 · Wer fehlt im Baum?](https://github.com/AlexanderR1991/Wirklich/issues/28) | Wer fehlt? Darf eine Philosophie unseren Werten widersprechen? Darf Dissens bleiben? Wer darf die Ordnung ersetzen? | Begrenzte Leserfragen vorab auswählen; Auffindbarkeit, Fehlzuordnung und fairen Umgang mit Fremdpositionen untersuchen |
-| [B-02 · Wessen Werte und Entscheidungen?](https://github.com/AlexanderR1991/Wirklich/issues/29) | Ist dauerhafte Fürsorge gleich wertvoll? Warum unsere Werte? Wer prüft den Gründer? Wann wird Moderation zur Abwehr von Kritik? | Interessenkonflikte dokumentieren und eine unabhängige Zuständigkeit für Einsprüche klären. Die Textkorrekturen an These 05 und 09 sind veröffentlicht. |
-| [B-03 · Hilft unser Verfahren?](https://github.com/AlexanderR1991/Wirklich/issues/30) | Besser als einfache Quellenprüfung? Wer findet gemeinsame KI-Fehler? Wann begrenzen wir KI? Zählen Korrekturen oder nur Texte? | Vorab beschriebenen Vergleich mit unabhängiger Bewertung durchführen |
+| [B-01 · Wer fehlt im Baum?](https://github.com/AlexanderR1991/Vera/issues/28) | Wer fehlt? Darf eine Philosophie unseren Werten widersprechen? Darf Dissens bleiben? Wer darf die Ordnung ersetzen? | Begrenzte Leserfragen vorab auswählen; Auffindbarkeit, Fehlzuordnung und fairen Umgang mit Fremdpositionen untersuchen |
+| [B-02 · Wessen Werte und Entscheidungen?](https://github.com/AlexanderR1991/Vera/issues/29) | Ist dauerhafte Fürsorge gleich wertvoll? Warum unsere Werte? Wer prüft den Gründer? Wann wird Moderation zur Abwehr von Kritik? | Interessenkonflikte dokumentieren und eine unabhängige Zuständigkeit für Einsprüche klären. Die Textkorrekturen an These 05 und 09 sind veröffentlicht. |
+| [B-03 · Hilft unser Verfahren?](https://github.com/AlexanderR1991/Vera/issues/30) | Besser als einfache Quellenprüfung? Wer findet gemeinsame KI-Fehler? Wann begrenzen wir KI? Zählen Korrekturen oder nur Texte? | Vorab beschriebenen Vergleich mit unabhängiger Bewertung durchführen |
 
 Jeder Thread enthält Ausgangsstellen mit fixierter Revision, eine wohlwollende Lesart, den stärksten Einwand, vorläufige Einordnung und Bedingungen, unter denen die Kritik selbst revidiert würde. B-03 greift eine **offene** Hypothese an und behauptet nicht, das Werk habe bereits eine bewiesene Wirksamkeit reklamiert.
 
@@ -94,7 +94,7 @@ Dies macht eine im Register G-005 bereits benannte Grenze auch im kurzen Grundte
 
 **These 09:** Die Redaktion ersetzte „bessere Menschen“ durch „andere Menschen“. Die englische Fassung nannte bereits „other people“.
 
-Die Änderungen an Grundtext, Manifest, Prüfstand und Übersetzungszuordnung wurden am 5. November 2026 veröffentlicht. Der [Änderungsvergleich in PR #31](https://github.com/AlexanderR1991/Wirklich/pull/31/files) zeigt beide Textkorrekturen. Eine unabhängige Fachprüfung steht aus.
+Die Änderungen an Grundtext, Manifest, Prüfstand und Übersetzungszuordnung wurden am 5. November 2026 veröffentlicht. Der [Änderungsvergleich in PR #31](https://github.com/AlexanderR1991/Vera/pull/31/files) zeigt beide Textkorrekturen. Eine unabhängige Fachprüfung steht aus.
 
 ## Nächste Arbeit und mögliche Widerlegung
 

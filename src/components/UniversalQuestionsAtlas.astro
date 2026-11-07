@@ -29,8 +29,8 @@ const typeLabels={
 };
 const questionById=new Map(questions.questions.map(q=>[q.id,q]));
 const relationsFor=id=>questions.relations.filter(r=>r.from===id||r.to===id);
-const sourceLink=p=>`https://github.com/AlexanderR1991/Wirklich/blob/${questions.source_revision}/${p}`;
-const issueLink="https://github.com/AlexanderR1991/Wirklich/issues/new?template=grundfrage.yml";
+const sourceLink=p=>`https://github.com/AlexanderR1991/Vera/blob/${questions.source_revision}/${p}`;
+const issueLink="https://github.com/AlexanderR1991/Vera/issues/new?template=grundfrage.yml";
 ---
 <Layout lang={lang} slug="grundfragen" description={t("Universelle Grundfragen aus den Vera-Themenfeldern: Quellen, Gegeneinwände, offene Erkenntnisse und Rückwege in die Fachbereiche.","Universal questions across Vera's fields: source traces, counterquestions, open findings and return paths to their domains.")}>
  <div class="uq">
@@ -58,7 +58,7 @@ const issueLink="https://github.com/AlexanderR1991/Wirklich/issues/new?template=
      <li><span>04</span><strong>{t("Zurückführen","Return findings")}</strong><p>{t("Erst nach dokumentierter menschlicher Freigabe erscheint eine begrenzte Teilantwort auch auf den zugeordneten Fachseiten. Neue Einwände öffnen sie erneut.","Only after documented human review does a bounded partial finding appear on the relevant domain pages. New objections can reopen it.")}</p></li>
     </ol>
     <p class="uq-scan">{t("Der reproduzierbare Wortmuster-Scan umfasst aktuell","The reproducible lexical scan currently covers")} <strong>{scan.corpus.file_count}</strong> {t("öffentliche Textquellen. Er ist keine semantische KI-Analyse und enthält keine privaten Gespräche. Auch die Auswahl der 16 Fragen ist kritisierbar.","public text sources. It is not a semantic AI analysis and includes no private conversations. The selection of 16 questions is itself contestable.")} <a href={pathFor(lang,"forschungsstrom")}>{t("Zum Forschungsstrom","Research stream")} ↗</a></p>
-    <p><a class="uq-text-link" href="https://github.com/AlexanderR1991/Wirklich/blob/main/docs/grundfragen-kreislauf.md">{t("Technische Regeln, Aufnahme und Rückführung","Technical rules, intake and return workflow")} ↗</a> · <a class="uq-text-link" href={pathFor(lang,"forum","fragenatlas")}>{t("Bestehender Fragenatlas im Forum","Existing question atlas in the forum")} →</a></p>
+    <p><a class="uq-text-link" href="https://github.com/AlexanderR1991/Vera/blob/main/docs/grundfragen-kreislauf.md">{t("Technische Regeln, Aufnahme und Rückführung","Technical rules, intake and return workflow")} ↗</a> · <a class="uq-text-link" href={pathFor(lang,"forum","fragenatlas")}>{t("Bestehender Fragenatlas im Forum","Existing question atlas in the forum")} →</a></p>
    </div>
   </section>
 

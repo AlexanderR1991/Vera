@@ -100,7 +100,7 @@ Verwandte Forschung, ohne direkte Bestätigung unseres Modells:
 
 - **Philosophie:** [Schnittmengen finden](schnittmengen.md) bleibt das freiwillige Gesprächsverfahren, einschließlich offenem Dissens und Schutzgrenzen.
 - **Mathematik:** M-02 ist **neben** M-01 im [mathematischen Prüfstand](mathematischer-pruefstand.md) verortet. M-01 betrifft mehrkriterielle moralische Bewertungen, M-02 die Beschreibung von Verstehensgenauigkeit; die Kennzahlen dürfen nicht gleichgesetzt werden.
-- **Website:** [Die Brücke / Mathematik des Dazwischen](https://alexanderr1991.github.io/Wirklich/de/die-bruecke/) illustriert ein **Ein-Frage-Spielzeugmodell**, keine Erhebung realer Personen.
+- **Website:** [Die Brücke / Mathematik des Dazwischen](https://alexanderr1991.github.io/Vera/de/die-bruecke/) illustriert ein **Ein-Frage-Spielzeugmodell**, keine Erhebung realer Personen.
 - **Technische Prüfung:** [Rechenfunktionen](../src/lib/intersubjective.mjs) und [Tests](../tests/intersubjective.test.mjs) prüfen Modellgrenzen und die elementaren Zahlenbeispiele.
 - **Revision:** Öffentliche Kritik an Definition, Messannahmen, experimentellem Design, Sicherheitsgrenzen oder wissenschaftlicher Abgrenzung kann zum Ändern, Eingrenzen oder Zurückziehen von M-02 führen.
 

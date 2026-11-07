@@ -9,7 +9,7 @@ Die Schönheit darf zum Denken einladen; sie darf es nicht ersetzen. Gestaltung 
 
 Über allen Funktionsbereichen liegt eine **anfechtbare Verfahrensregel**: [Kein System, das recht behalten soll – ein System, das aus seinen Irrtümern lernen muss](selbstkorrektur.md). Die wiederholbaren Schritte sind **Frage → Aussageart → Einwand → Prüfung → menschliche Entscheidung → nachvollziehbare Revision → neue Frage**. Das ist kein zusätzlicher Wahrheitsrang, sondern ein Qualitätsanspruch an alle Ebenen.
 
-Die [JSON-Fassung](../public/protocol/self-correction.v1.json) beschreibt die zehn Arbeitsregeln und die Prüfschleife maschinenlesbar. Der [öffentliche Regelkreis](https://alexanderr1991.github.io/Wirklich/de/regelkreis/) vermittelt sie in DE/EN. KI kann Vorschläge und Verknüpfungen liefern; automatische Statusänderungen oder selbstlegitimierende Mehrheitsentscheidungen sind ausgeschlossen. Wie gut die Methode tatsächlich funktioniert, muss im [Vergleichsprotokoll](evaluation-v1.md) geprüft werden.
+Die [JSON-Fassung](../public/protocol/self-correction.v1.json) beschreibt die zehn Arbeitsregeln und die Prüfschleife maschinenlesbar. Der [öffentliche Regelkreis](https://alexanderr1991.github.io/Vera/de/regelkreis/) vermittelt sie in DE/EN. KI kann Vorschläge und Verknüpfungen liefern; automatische Statusänderungen oder selbstlegitimierende Mehrheitsentscheidungen sind ausgeschlossen. Wie gut die Methode tatsächlich funktioniert, muss im [Vergleichsprotokoll](evaluation-v1.md) geprüft werden.
 
 ## Neue Grundfragen-Schicht · Querprüfung und Rückweg
 
@@ -27,7 +27,7 @@ Publizierte Quellen → lexikalische Inventur (unverifizierte Hinweise)
                                              ↖ neue Gegenkritik
 ```
 
-Die erste Inventur nutzt **kein** autonomes LLM und keine personenbezogenen Daten: `npm run scan:universal` erstellt beim Build ein Protokoll über die ausgewählten öffentlichen, maschinenlesbaren Textquellen. Texttreffer sind keine Bedeutungsnachweise. `npm run plan:universal` beschreibt die Rückwege für später qualifiziert geprüfte Befunde; es veröffentlicht und schreibt nichts. Das **leere** geprüfte Befundregister wird bewusst vom offenen Fragenregister und den vorhandenen R0–R4-Aussagen getrennt. [Katalog DE](https://alexanderr1991.github.io/Wirklich/de/grundfragen/) · [EN](https://alexanderr1991.github.io/Wirklich/en/grundfragen/).
+Die erste Inventur nutzt **kein** autonomes LLM und keine personenbezogenen Daten: `npm run scan:universal` erstellt beim Build ein Protokoll über die ausgewählten öffentlichen, maschinenlesbaren Textquellen. Texttreffer sind keine Bedeutungsnachweise. `npm run plan:universal` beschreibt die Rückwege für später qualifiziert geprüfte Befunde; es veröffentlicht und schreibt nichts. Das **leere** geprüfte Befundregister wird bewusst vom offenen Fragenregister und den vorhandenen R0–R4-Aussagen getrennt. [Katalog DE](https://alexanderr1991.github.io/Vera/de/grundfragen/) · [EN](https://alexanderr1991.github.io/Vera/en/grundfragen/).
 
 ## Fünf Ebenen des öffentlichen Werks
 1. **Auftakt:** atmosphärischer, verständlicher Zugang ohne Vorwissen.
@@ -38,7 +38,7 @@ Die erste Inventur nutzt **kein** autonomes LLM und keine personenbezogenen Date
 
 ## KI als Gegenstand des Erkenntnismotors
 
-Die [KI-Charta](ki-charta.md) ist ein menschengeprägter, öffentlich angreifbarer Normenentwurf. [Versionierter JSON-Prüfkatalog](../public/ai/philosophy-engine.v0.json), [Website](https://alexanderr1991.github.io/Wirklich/de/ki-und-mensch/) und [freiwilliges KI-Regelpaket](erkenntnisprompt.md) geben denselben Ansatz in unterschiedlichen Zugangsformen wieder. Normative Vorschläge sind keine gemessenen Modellfähigkeiten. Strukturtests prüfen nur Datenkonsistenz; keine automatische KI-Aufsicht und kein fremder Modellzugriff.
+Die [KI-Charta](ki-charta.md) ist ein menschengeprägter, öffentlich angreifbarer Normenentwurf. [Versionierter JSON-Prüfkatalog](../public/ai/philosophy-engine.v0.json), [Website](https://alexanderr1991.github.io/Vera/de/ki-und-mensch/) und [freiwilliges KI-Regelpaket](erkenntnisprompt.md) geben denselben Ansatz in unterschiedlichen Zugangsformen wieder. Normative Vorschläge sind keine gemessenen Modellfähigkeiten. Strukturtests prüfen nur Datenkonsistenz; keine automatische KI-Aufsicht und kein fremder Modellzugriff.
 
 ## Gestaltung
 - Dunkle Grundflächen, warmes Elfenbein, sparsam Gold und Weinrot.

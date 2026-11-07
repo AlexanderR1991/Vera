@@ -5,14 +5,14 @@ import {contentWords, queryMatcher} from "./search-terms.mjs";
 // A connection and its application remain drafts, even after all premises are checked.
 const b = (de, en) => ({de, en});
 const revision = "9362c966e8a2f464db5aca45595a77f78518d314";
-const repo = `https://github.com/AlexanderR1991/Wirklich/blob/${revision}/`;
+const repo = `https://github.com/AlexanderR1991/Vera/blob/${revision}/`;
 const methodSource = () => ({
   label: b("Projektmethode · Herkunft des Prüfverfahrens, kein Wirksamkeitsbeleg", "Project method · origin of the review procedure, not evidence of effectiveness"),
   url: repo + "docs/methode.md", role: "provenance"
 });
 const derivationSource = (anchor, version = 1) => ({
   label: b(`Eigene Ableitung v${version} · redaktioneller Arbeitsentwurf`, `Our derivation v${version} · editorial working draft`),
-  url: `https://github.com/AlexanderR1991/Wirklich/blob/main/docs/erkenntnisnavigator.md#${anchor}`,
+  url: `https://github.com/AlexanderR1991/Vera/blob/main/docs/erkenntnisnavigator.md#${anchor}`,
   role: "derivation"
 });
 

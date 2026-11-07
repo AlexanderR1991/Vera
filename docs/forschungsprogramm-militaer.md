@@ -83,6 +83,6 @@ Die Rechtsregeln des HVR gelten auch bei neuen Technologien. Nicht jede Drohne i
 - Kein Anspruch, Staatsrecht, Völkerrecht, Militärgeschichte, Psychologie und Friedensforschung vollständig abgebildet zu haben.
 - Nächste Schritte: unabhängiges Review durch HVR-Juristinnen/-Juristen, Friedens- und Konfliktforscher sowie Fachleute für demokratische Kontrolle; systematische Evidenzsynthese; Prüfung nach unabhängigen Berichten über Zivilschäden und Schutzpraxis.
 
-**Beteiligung:** [Discussions](https://github.com/AlexanderR1991/Wirklich/discussions) · [Quellenkritik](https://github.com/AlexanderR1991/Wirklich/issues/new?template=quellenpruefung.yml)
+**Beteiligung:** [Discussions](https://github.com/AlexanderR1991/Vera/discussions) · [Quellenkritik](https://github.com/AlexanderR1991/Vera/issues/new?template=quellenpruefung.yml)
 
 **Lizenz:** Originäre Redaktionstexte CC BY-SA 4.0 nach [LICENSING.md](../LICENSING.md); externe Rechtstexte und Quellen bleiben eigene Werke.

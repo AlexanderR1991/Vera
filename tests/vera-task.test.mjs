@@ -69,7 +69,7 @@ test("Vera adds only the requested committed excerpts to the matching language c
     assert.ok(result.stdout.startsWith(context));
     const evidence = result.stdout.slice(context.length);
     assert.ok(evidence.includes(`## ${heading}`));
-    const rootUrl = `https://github.com/AlexanderR1991/Wirklich/blob/${checkout.revision}`;
+    const rootUrl = `https://github.com/AlexanderR1991/Vera/blob/${checkout.revision}`;
     assert.ok(evidence.includes(`${rootUrl}/${correction}#L2-L3`));
     assert.ok(evidence.includes(`${rootUrl}/${method}#L1-L1`));
     assert.ok(evidence.includes("> Prüfe die Gründe.\n> Halte Dissens fest."));

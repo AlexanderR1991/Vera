@@ -23,7 +23,7 @@ The [philosophical engine for AI](docs/ki-charta.md) and its [machine-readable c
 
 ## Cross-domain questions without artificial consensus
 
-The [Universal Question Loop](docs/grundfragen-kreislauf.md) maintains U-### **unreviewed editorial questions**, distinct from the small Q-### question atlas and R0–R4 reviewed claims. The lexical research scan is **not a semantic AI analysis**; word co-occurrence is not evidence of meaning. Assistants may propose bounded `ai_draft` candidates with exact passage citations, an explicit strongest counterexample and appropriate target areas, but **must not** auto-post, auto-merge, assign human endorsements, alter source claims or fill `universal-findings.v1.json` without documented human review. Do not ingest sensitive or private conversations. The [optional DE/EN reviewer prompts](public/prompts/universal-review-v0.de.txt) are nonbinding research drafts. See [bilingual atlas](https://alexanderr1991.github.io/Wirklich/en/grundfragen/).
+The [Universal Question Loop](docs/grundfragen-kreislauf.md) maintains U-### **unreviewed editorial questions**, distinct from the small Q-### question atlas and R0–R4 reviewed claims. The lexical research scan is **not a semantic AI analysis**; word co-occurrence is not evidence of meaning. Assistants may propose bounded `ai_draft` candidates with exact passage citations, an explicit strongest counterexample and appropriate target areas, but **must not** auto-post, auto-merge, assign human endorsements, alter source claims or fill `universal-findings.v1.json` without documented human review. Do not ingest sensitive or private conversations. The [optional DE/EN reviewer prompts](public/prompts/universal-review-v0.de.txt) are nonbinding research drafts. See [bilingual atlas](https://alexanderr1991.github.io/Vera/en/grundfragen/).
 
 ## Challenge protocol (DE / EN)
 
@@ -33,7 +33,7 @@ The [Universal Question Loop](docs/grundfragen-kreislauf.md) maintains U-### **u
 4. Construct the strongest counterexample, alternative explanation, missing premise, falsification test, or boundary condition. Explicitly separate an established counterexample from a hypothetical one.
 5. Cite independently inspectable primary sources where available. Never invent links, experiments, quotations or consensus.
 6. State what evidence would **change your own conclusion**. Indicate uncertainty and potential harms.
-7. Return one concise, labeled challenge draft to the requesting human for review. **Do not post autonomously** to Discussions, Issues, PRs or comments. A human may choose to submit the reviewed draft through the [adversarial challenge form](https://github.com/AlexanderR1991/Wirklich/issues/new?template=angriff.yml).
+7. Return one concise, labeled challenge draft to the requesting human for review. **Do not post autonomously** to Discussions, Issues, PRs or comments. A human may choose to submit the reviewed draft through the [adversarial challenge form](https://github.com/AlexanderR1991/Vera/issues/new?template=angriff.yml).
 
 The new [evidence-maturity rules](docs/erkenntnisreife.md) keep R0–R4 separate from abstraction and documented consensus. Do not infer truth from model counts, citations alone or popularity. AI may propose a grade change, but must never claim an independent human review or automatically promote the public register. All current example claims remain R0.
 

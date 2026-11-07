@@ -3,7 +3,7 @@ import Layout from "../layouts/SiteLayout.astro";
 import {pathFor} from "../lib/paths.mjs";
 const {lang="de"}=Astro.props;
 const de=lang==="de";
-const repo="https://github.com/AlexanderR1991/Wirklich";
+const repo="https://github.com/AlexanderR1991/Vera";
 ---
 <Layout lang={lang} slug="angriffsschwarm">
   <section class="section attack-hero">
@@ -45,7 +45,7 @@ const repo="https://github.com/AlexanderR1991/Wirklich";
         <p id="attack-meta"></p>
         <div id="attack-cards" class="attack-cards"></div>
       </div>
-      <noscript><p>{de?"Das Prüfarchiv benötigt JavaScript. Die gespeicherten Entwürfe kannst du direkt öffnen:":"The challenge archive needs JavaScript. You can open the stored drafts directly:"} <a href="https://raw.githubusercontent.com/AlexanderR1991/Wirklich/main/public/research/angriffe.json">JSON ↗</a></p></noscript>
+      <noscript><p>{de?"Das Prüfarchiv benötigt JavaScript. Die gespeicherten Entwürfe kannst du direkt öffnen:":"The challenge archive needs JavaScript. You can open the stored drafts directly:"} <a href="https://raw.githubusercontent.com/AlexanderR1991/Vera/main/public/research/angriffe.json">JSON ↗</a></p></noscript>
     </div>
   </section>
   <script is:inline>
@@ -56,7 +56,7 @@ const repo="https://github.com/AlexanderR1991/Wirklich";
       const status=document.getElementById("attack-status");
       const meta=document.getElementById("attack-meta");
       const cards=document.getElementById("attack-cards");
-      const endpoint="https://raw.githubusercontent.com/AlexanderR1991/Wirklich/main/public/research/angriffe.json";
+      const endpoint="https://raw.githubusercontent.com/AlexanderR1991/Vera/main/public/research/angriffe.json";
       const text=(tag,value,css)=>{
         const e=document.createElement(tag);
         e.textContent=String(value??"");
@@ -118,7 +118,7 @@ const repo="https://github.com/AlexanderR1991/Wirklich";
           if(/^docs\/[\w./-]+\.md$/.test(src) && !src.includes("..")){
             const revision=String(item.source_commit||"");
             const pinned=/^[0-9a-f]{40}$/i.test(revision);
-            link.href="https://github.com/AlexanderR1991/Wirklich/blob/"+(pinned?revision:"main")+"/"+src;
+            link.href="https://github.com/AlexanderR1991/Vera/blob/"+(pinned?revision:"main")+"/"+src;
             link.target="_blank"; link.rel="noopener noreferrer";
             link.textContent=pinned
               ? (de?"Untersuchte Textfassung ↗":"Examined text version ↗")

@@ -9,7 +9,7 @@ Forschung braucht Lebenszeit, Erholung und tragfähige Arbeit. Wer Vera unterst�
 | Punkt | Öffentlicher Stand |
 | --- | --- |
 | Redaktionelle Verantwortung | Repository-Eigentümer AlexanderR1991 |
-| Unterstützungsweg | Die [Mitwirkenseite](https://alexanderr1991.github.io/Wirklich/de/mitwirken/#unterstuetzen) nennt die PayPal-Adresse von Alexander Radke |
+| Unterstützungsweg | Die [Mitwirkenseite](https://alexanderr1991.github.io/Vera/de/mitwirken/#unterstuetzen) nennt die PayPal-Adresse von Alexander Radke |
 | Einnahmensumme und tatsächlich verfügbare Mittel | Hier nicht erfasst; keine Nullsumme unterstellen |
 | Laufendes Budget und tatsächliche Ausgaben | Noch nicht veröffentlicht |
 | Rechts-/Organisationsform und Vergütungsrahmen | Langfristiges Ziel ist eine eigenständige Trägerorganisation. Rechtsform und Vergütungsregeln sind offen. Keine Gemeinnützigkeit oder steuerliche Absetzbarkeit behauptet; keine Zuwendungsbestätigungen |
@@ -27,4 +27,4 @@ Diese Regeln sind ein organisatorischer Ausgangspunkt und keine Rechts- oder Ste
 
 ## English
 
-The [contribution page](https://alexanderr1991.github.io/Wirklich/en/mitwirken/#unterstuetzen) lists Alexander Radke’s PayPal address for voluntary support. The appropriate account type and tax treatment remain open. Supporters receive no charitable donation receipt or influence over editorial decisions. The repository owner currently holds editorial responsibility. Income, available funds, expenses and a running budget are not recorded here; unknown is not zero. The long-term aim is to establish an independent organization to run the project. Its legal form and independent financial oversight remain open. Future reports should distinguish actual funds and transactions from commitments, respect contributor privacy, disclose conflicts and describe compensation honestly.
+The [contribution page](https://alexanderr1991.github.io/Vera/en/mitwirken/#unterstuetzen) lists Alexander Radke’s PayPal address for voluntary support. The appropriate account type and tax treatment remain open. Supporters receive no charitable donation receipt or influence over editorial decisions. The repository owner currently holds editorial responsibility. Income, available funds, expenses and a running budget are not recorded here; unknown is not zero. The long-term aim is to establish an independent organization to run the project. Its legal form and independent financial oversight remain open. Future reports should distinguish actual funds and transactions from commitments, respect contributor privacy, disclose conflicts and describe compensation honestly.
