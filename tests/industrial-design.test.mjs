@@ -67,3 +67,41 @@ test("site and philosophy accurately present an open-source AI goal rather than 
  const build=read("scripts/build-locales.mjs");
  assert.ok(build.includes(project.visual_identity.design_stylesheet));
 });
+
+
+test("the live homepage has one visual identity rather than a legacy hero plus a second board",()=>{
+ const home=read("src/components/MissionHome.astro");
+ const board=read("src/components/IndustrialBoard.astro");
+ const art=read("src/components/VisionPortrait.astro");
+ assert.match(home,/class="vision-opening container"/);
+ assert.match(home,/<IndustrialBoard lang=\{lang\}\/>/);
+ assert.doesNotMatch(home,/class="home-opening"/);
+ assert.doesNotMatch(home,/class="home-mechanism"/);
+ assert.match(board,/class="vision-hero"/);
+ assert.match(board,/<VisionPortrait/);
+ assert.match(board,/Hallo/);
+ assert.match(board,/Menschheit/);
+ assert.match(board,/in development/);
+ assert.match(art,/<svg class="vision-portrait"/);
+ assert.match(board,/data-board-card/);
+ for(const label of ["Wissensatlas","Die Brücke","Open Source","Gemeinsame Intelligenz","Jeden Menschen abholen"]){
+  assert.ok(board.includes(label),"Missing design entry "+label);
+ }
+});
+
+test("asset fingerprints invalidate CSS/JS across deployments and filtered cards reflow",()=>{
+ const layout=read("src/layouts/SiteLayout.astro");
+ const script=read("src/client/site.js");
+ const css=read("src/styles/industrial.css");
+ assert.match(layout,/createHash/);
+ assert.match(layout,/readFileSync/);
+ assert.match(layout,/assets\/style\.css\?v=/);
+ assert.match(layout,/assets\/site\.js\?v=/);
+ assert.match(layout,/slug==="index"&&!root\?"is-home"/);
+ assert.match(script,/classList\.toggle\("is-filtered",Boolean\(query\)\)/);
+ assert.match(css,/\.vision-mosaic\.board-grid\{/);
+ assert.match(css,/\.vision-mosaic\.is-filtered/);
+ assert.match(css,/\.vision-tile\[hidden\]/);
+ assert.match(css,/@media\(max-width:600px\)/);
+ assert.match(css,/prefers-reduced-motion:reduce/);
+});
