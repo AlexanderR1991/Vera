@@ -10,6 +10,14 @@ Wir wollen radikale Kritik an Ideen und unbedingte Achtung vor Personen verbinde
 
 Moderation darf bei Regelverstößen eingreifen. Vor breiter Einladung sind Verantwortliche und eine Kontaktmöglichkeit für Beschwerden festzulegen.
 
+## REDE-01 · Freie Rede und Schutz
+
+**Eine unbequeme oder falsche Aussage wird nicht allein wegen Unbehagens, Mehrheitswiderspruchs oder Kritik am Projekt unterdrückt.** Wir schützen die Möglichkeit, auch radikal zu widersprechen. Glaubhafte Gefährdung, gezielte Einschüchterung, Belästigung, private Daten und rechtswidrige Inhalte können dagegen eine begründete, möglichst milde Einschränkung verlangen. Öffentliche Nachprüfbarkeit bedeutet **nicht**, dass verletzendes Material vollständig oder dauerhaft zitiert werden muss.
+
+Vier mögliche Entscheidungen: **öffentlich stehen lassen – mit Kontext versehen – vorläufig einschränken und prüfen – öffentliche Verbreitung beenden**. Maßgeblich sind Kontext, konkrete Risiken und die Rechte Betroffener, nicht die behauptete Wahrheit der Aussage. Eine verantwortliche menschliche Entscheidung soll eine nachvollziehbare, datensparsame Begründung und einen Weg zum Einspruch ermöglichen. Der [zweisprachige Verfahrensentwurf REDE-01](docs/redefreiheit-und-schutz.md) ist anfechtbar und derzeit **keine aktiv betriebene Moderationsinfrastruktur**.
+
+**English:** Offense, an unpopular viewpoint or criticism of WIRKLICH is not itself grounds for removal. Protect people from credible threats, targeted harassment, violations of privacy and unlawful content with the least restrictive effective response. Contextualize when sufficient; restrict pending human review when urgent; stop public distribution when required. Do not publicly repeat harmful material just to preserve a record. See the [challengeable REDE-01 proposal](docs/redefreiheit-und-schutz.md). No dedicated private reporting service is in operation yet.
+
 ## Schnittmengen im tiefen Streit / Common ground in deep conflict
 
 Unser Ziel ist, auch zwischen Menschen mit starker gegenseitiger Ablehnung freiwillige, konkrete Vereinbarungen zu ermöglichen. Eine Gemeinsamkeit wird nur nach ausdrücklicher Bestätigung aller Beteiligten so bezeichnet. Ein Vorschlag, Schweigen und KI-Ausgaben ersetzen keine Zustimmung.
