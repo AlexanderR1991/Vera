@@ -2,7 +2,11 @@
 
 **Die offene Erkenntniswerkstatt · The open inquiry workshop**
 
-*Bisheriger Projektname · Former project name* **WIRKLICH / REALLY?**
+**Hallo, ich bin Vera.** Bring eine Frage mit, die dich beschäftigt. In einer KI-Sitzung können wir gemeinsam prüfen, was wir wissen und welche Beobachtung unsere Antwort ändern würde. Hier auf GitHub kannst du nachlesen, worauf ich mich stütze, und mir begründet widersprechen.
+
+**Hi, I’m Vera.** Bring a question that matters to you. In an AI session we can examine what we know and what observation could change our answer. Here on GitHub you can inspect my sources and challenge my reasoning.
+
+[Wie du mir begegnen kannst](#mit-vera-arbeiten--work-with-vera) · [How to work with me](#mit-vera-arbeiten--work-with-vera)
 
 > **META-01 · Wir bauen kein System, das recht behalten soll. Wir bauen ein System, das aus seinen Irrtümern lernen muss.**
 
@@ -103,6 +107,25 @@ The [status page](https://alexanderr1991.github.io/Wirklich/en/projektstatus/) s
 
 Eine Frage braucht nur einen verständlichen Satz. Für einen Einwand helfen die genaue Stelle, dein Grund und eine mögliche Korrektur. Redaktionelle Änderungen werden in einem öffentlichen Pull Request begründet und von einem verantwortlichen Menschen freigegeben. [Beitragsleitfaden / Contribution guide](CONTRIBUTING.md) · [Kritik einreichen / Challenge a claim](https://github.com/AlexanderR1991/Wirklich/issues/new?template=angriff.yml) · [Erkenntnisprompt / Inquiry prompt](docs/erkenntnisprompt.md)
 
+## Mit Vera arbeiten · Work with Vera
+
+**Auf GitHub.** Wenn der Copilot Cloud Agent für dich und das Repository verfügbar ist, wähle im Agentenmenü zuerst `AlexanderR1991/Wirklich` und dann **Vera**. Das Profil gibt ihr Werkzeuge zum Lesen und Suchen. [Agentenmenü](https://github.com/copilot/agents) · [Agentenprofil](.github/agents/vera.agent.md) · [GitHub-Anleitung](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/create-custom-agents)
+
+**On GitHub.** If Copilot cloud agent is available to you and this repository, select `AlexanderR1991/Wirklich` and then **Vera** in the agent picker. The profile gives her tools to read and search. [Agent picker](https://github.com/copilot/agents) · [Agent profile](.github/agents/vera.agent.md)
+
+**In deinem KI-Chat.** Führe im Git-Checkout einen der Befehle aus und kopiere die Ausgabe in eine neue Sitzung. Der Export enthält Veras Profil, Prüfregeln und die angegebenen Zeilen aus demselben Commit. Teile nur Inhalte, die dafür freigegeben sind.
+
+**In your own AI chat.** Run one of these commands from a Git checkout and paste the output into a fresh session. It includes Vera’s profile, inquiry rules and the selected lines from the same commit. Share material only when it is approved for sharing.
+
+```sh
+node scripts/vera-task.mjs de docs/selbstkorrektur.md:24-32
+node scripts/vera-task.mjs en docs/selbstkorrektur.md:61-65
+```
+
+**Gegenprobe.** Frag, welche Zeile ihre Antwort stützt und was Vera zusätzlich prüfen müsste. Wenn du einen Fehler findest, halte Git-Stand, Fundstelle und erwartete Korrektur fest. [Vera-Profil](docs/vera.md) · [Kritik einreichen](https://github.com/AlexanderR1991/Wirklich/issues/new?template=kritik.yml)
+
+**Try a check.** Ask which line supports her answer and what else Vera would need to verify. If you find an error, record the Git revision, the exact passage and the expected correction. [Vera profile](docs/vera.md#english) · [Submit a critique](https://github.com/AlexanderR1991/Wirklich/issues/new?template=kritik.yml)
+
 ## Lokal entwickeln · Local development
 
 Node.js 22.12+ und Python 3.12 wie in CI. Nach der Installation startet `npm run dev` die lokale Vorschau. Der Produktionsbuild prüft die Inhalte und die erzeugten Seiten.
@@ -117,6 +140,8 @@ npm run dev
 Eigene Texte und Übersetzungen stehen unter CC BY-SA 4.0, eigener Code unter MIT. Hinweise zu fremden Werken und zum Signet stehen in den Lizenzdetails. [Licensing](LICENSING.md) · [Credits](AUTHORS.md)
 
 [^ursprung]: Die Projektidee entstand aus der Arbeit an *Die Richtung*. The German text edition is available here with its original credits. [Offene Textfassung 2.0](docs/archiv/die-richtung-2.0-lesefassung.txt) · [Rechte und Ausnahmen](LICENSING.md#die-richtung--open-book-text-edition)
+
+WIRKLICH / REALLY? war der ursprüngliche Projektname. Die [Versionsgeschichte](docs/versionsgeschichte.md) dokumentiert den Übergang zu Vera.
 
 ## KI-Schwärme und Fragenatlas · AI swarms and question atlas
 
