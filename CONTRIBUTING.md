@@ -6,6 +6,8 @@
 Wir möchten Fragen, Einwände, Quellenhinweise und gute Vorschläge sammeln. **Du musst nicht programmieren können.**  
 We welcome questions, objections, sources and improvements. **You do not need programming skills.**
 
+**Unser Ziel / Our goal:** Wir möchten gemeinsam eine **Open-Source-KI für Menschen** entwickeln; noch existiert kein eigenständig veröffentlichtes WIRKLICH-KI-Modell. / We aim to build **open-source AI with people, for people**; no independently released WIRKLICH AI model exists yet. Auch eine einfache Frage oder ein begründeter Widerspruch ist ein Beitrag, nicht nur Code. / Questions and objections count as contributions, not only code. [Ziel (DE)](docs/open-source-ki.md) · [Goal (EN)](docs/en/open-source-ai.md).
+
 ## 1. Der einfachste Einstieg / The easiest way
 
 Öffne ein GitHub Issue. Wähle die Vorlage, die zu deinem Anliegen passt:
