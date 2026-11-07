@@ -39,3 +39,31 @@ test("industrial palette is bundled through the existing static assets pipeline"
  assert.match(site, /data-board-filter/);
  assert.match(site, /boardFilter\.addEventListener\("input",apply\)/);
 });
+
+
+test("site and philosophy accurately present an open-source AI goal rather than a finished model",()=>{
+ const home=read("src/components/MissionHome.astro");
+ const board=read("src/components/IndustrialBoard.astro");
+ const mission=read("src/components/MissionPage.astro");
+ const ai=read("src/components/AIPhilosophy.astro");
+ const site=read("src/layouts/SiteLayout.astro");
+ const docs=read("docs/open-source-ki.md");
+ const docsEn=read("docs/en/open-source-ai.md");
+ const project=JSON.parse(read("public/project.json"));
+ assert.ok(home.includes("Unser Ziel: Eine Open-Source-KI"));
+ assert.ok(home.includes("Our goal: Build an open-source AI"));
+ assert.ok(board.includes("Open-Source-KI"));
+ assert.ok(board.includes("open-source AI"));
+ assert.ok(mission.includes("opensource-ki"));
+ assert.ok(mission.includes("Noch keine eigenständig veröffentlichte WIRKLICH-KI"));
+ assert.ok(ai.includes("kein offenes eigenes Grundmodell"));
+ assert.ok(site.includes("Unser Ziel: eine Open-Source-KI mit Menschen bauen"));
+ assert.ok(docs.includes("noch keine fertig entwickelte, selbstständig lauffähige WIRKLICH-KI"));
+ assert.ok(docsEn.includes("no completed, independently runnable WIRKLICH AI"));
+ assert.equal(project.ai_ambition.status,"in_development");
+ assert.equal(project.ai_ambition.own_open_foundation_model_released,false);
+ assert.equal(project.ai_ambition.independently_runnable_model_available,false);
+ assert.equal(project.visual_identity.design_stylesheet,"src/styles/industrial.css");
+ const build=read("scripts/build-locales.mjs");
+ assert.ok(build.includes(project.visual_identity.design_stylesheet));
+});
