@@ -81,7 +81,7 @@ test("the live homepage has one visual identity rather than a legacy hero plus a
  assert.match(board,/<VisionPortrait/);
  assert.match(board,/Hallo/);
  assert.match(board,/Menschheit/);
- assert.match(board,/in development/);
+ assert.match(board,/in development/i);
  assert.match(art,/<svg class="vision-portrait"/);
  assert.match(board,/data-board-card/);
  for(const label of ["Wissensatlas","Die Brücke","Open Source","Gemeinsame Intelligenz","Jeden Menschen abholen"]){
