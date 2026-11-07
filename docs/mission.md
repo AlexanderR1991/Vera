@@ -8,6 +8,8 @@ Die [erste Werkzeugfassung](release-1.0.md) macht diese Mission mit einem persö
 
 **Leitregel META-01:** **Wir bauen kein System, das recht behalten soll. Wir bauen ein System, das aus seinen Irrtümern lernen muss.** Dieser Satz ist nicht nur ein Motto, sondern die anfechtbare Verfahrensregel für Einwände, dokumentierte Revisionen, KI-Rollen und den Umgang mit Dissens. [Vollständiger Regelkreis](selbstkorrektur.md). Die Wirksamkeit auf gesellschaftlicher Ebene bleibt eine zu prüfende Hypothese.
 
+**Richtung FWD-01 (Entwurf):** Die [vorwärtsgerichtete Entität](vorwaertsgerichtete-entitaet.md) meint das offene, von Menschen verantwortete Erkenntnisverfahren – kein bewusstes Wesen und keine automatische moralische Aufwärtsbewegung. Jede künftige Frage soll aus dem derzeitigen Wissen, dem stärksten Widerspruch und den Folgen heraus neu prüfbar werden. Auch Rücknahme oder begründetes Offenlassen können den Weg nach vorn weisen. [English draft](en/forward-inquiry.md).
+
 Der Grundtext soll Menschen befähigen, unter Unsicherheit besser zu verstehen, begründeter zu entscheiden und ehrlicher zu korrigieren. Er verbindet eine Bibliothek verständlicher Erklärungen mit der nachvollziehbaren Arbeit an einzelnen Aussagen. Die gemeinsame Methode ist der Kern; die Kapitel sind ihre Anwendungsfelder.
 
 Die zweisprachige öffentliche Darstellung liegt unter `/de/mission/` und `/en/mission/`. Dieser Entwurf führt die bisherigen Themen und die in [PR #18](https://github.com/AlexanderR1991/Wirklich/pull/18) vorgeschlagene Vision eines offenen Wissenssystems zusammen. Er behauptet keine bereits erreichte Leistungsfähigkeit.
