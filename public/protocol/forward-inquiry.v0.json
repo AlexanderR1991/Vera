@@ -26,32 +26,56 @@
     {
       "id": "open_horizon",
       "de": "Neue Frage, Möglichkeit und Betroffene identifizieren.",
-      "en": "Identify a new question, possibility and those affected."
+      "en": "Identify a new question, possibility and those affected.",
+      "title": {
+        "de": "Horizont öffnen",
+        "en": "Open the horizon"
+      }
     },
     {
       "id": "record_current",
       "de": "Geltungsbereich, Gründe, Unsicherheit und aktuelle Fassung festhalten.",
-      "en": "Record scope, evidence, uncertainty and the present version."
+      "en": "Record scope, evidence, uncertainty and the present version.",
+      "title": {
+        "de": "Iststand sichern",
+        "en": "Record the current state"
+      }
     },
     {
       "id": "seek_objection",
       "de": "Stärkste Gegenposition sowie Minderheiten- und Betroffenenperspektiven suchen.",
-      "en": "Seek the strongest objection and affected or minority perspectives."
+      "en": "Seek the strongest objection and affected or minority perspectives.",
+      "title": {
+        "de": "Widerspruch suchen",
+        "en": "Seek objections"
+      }
     },
     {
       "id": "compare_directions",
       "de": "Mögliche Verbesserungen, Schäden, Wissenslücken und Umkehrbedingungen gegenüberstellen.",
-      "en": "Compare potential benefits, harms, unknowns and reversal conditions."
+      "en": "Compare potential benefits, harms, unknowns and reversal conditions.",
+      "title": {
+        "de": "Richtungen vergleichen",
+        "en": "Compare directions"
+      }
     },
     {
       "id": "human_decision",
       "de": "Menschen entscheiden begründet; keine automatische Wahrheits- oder Moralhochstufung.",
-      "en": "People decide with reasons; no automated promotion of truth or morality."
+      "en": "People decide with reasons; no automated promotion of truth or morality.",
+      "title": {
+        "de": "Menschlich entscheiden",
+        "en": "Keep human accountability"
+      }
     },
     {
       "id": "record_and_reopen",
       "de": "Versionen, Gegenargumente, Verantwortung und nächste Frage dokumentieren.",
-      "en": "Record versions, dissent, accountability and the next question."
+      "en": "Record versions, dissent, accountability and the next question.",
+      "title": {
+        "de": "Dokumentieren und neu öffnen",
+        "en": "Record and reopen"
+      }
     }
   ],
   "decisions": [
