@@ -20,9 +20,27 @@ const featuredQuestions=everydayQuestions.questions.slice(0,3);
       <h1 id="home-heading">{t.headline} <em>{t.headlineAccent}</em></h1>
     </div>
     <p>{de?"Gemeinsam fragen. Offen prüfen. Menschlich korrigieren.":"Ask together. Examine openly. Revise with people."}</p>
+    <a class="home-link" href="#begegnen">{t.encounter.title} <span aria-hidden="true">↓</span></a>
   </header>
 
   <IndustrialBoard lang={lang}/>
+
+  <section class="vision-context container" id="begegnen" aria-labelledby="begegnen-title">
+    <div class="vision-context__title">
+      <p class="section-kicker">/ {t.encounter.kicker}</p>
+      <h2 id="begegnen-title">{t.encounter.title}</h2>
+    </div>
+    <div class="vision-context__body">
+      <p class="vision-context__motto">{t.encounter.lead}</p>
+      <p>{t.encounter.instructions}</p>
+      <blockquote class="vision-context__rule">{t.encounter.example}</blockquote>
+      <div class="button-row">
+        <a class="button button--gold" href={pathFor(lang,"fragen-und-ki-prompt","prompt")}>{t.aiLink} <span aria-hidden="true">→</span></a>
+        <a class="button button--ghost" href={pathFor(lang,"forum")}>{t.encounter.forumLink} <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
   <section class="vision-context container" aria-label={de?"Die Idee hinter der Gestaltung":"The idea behind the design"}>
     <div class="vision-context__title">
       <p class="section-kicker">/ {de?"DIE HALTUNG":"OUR PRINCIPLE"}</p>

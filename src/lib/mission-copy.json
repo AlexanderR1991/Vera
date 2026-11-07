@@ -129,6 +129,14 @@
     "metaDescription": "Was ist wirklich? Gemeinsam klüger werden. Irrtum für Irrtum. WIRKLICH ist eine offene Erkenntniswerkstatt für Fragen, Kritik und begründete Gemeinsamkeiten.",
     "aiNote": "Du nutzt schon einen KI-Chat? Gib ihm unsere Prüfregeln und frag ihn, was gegen deine erste Vermutung spricht.",
     "aiLink": "Regeln für meinen KI-Chat öffnen",
+    "encounter": {
+      "title": "Wie du mir begegnen kannst",
+      "kicker": "DEIN ERSTER SCHRITT",
+      "lead": "Bring eine Frage mit, die dich gerade beschäftigt.",
+      "instructions": "Kopiere mein Regelwerk in deinen KI-Chat und stell deine Frage. Bitte den Chat, seine Antwort zu begründen und einen starken Einwand zu nennen.",
+      "example": "„Ein Freund sagt, ich höre ihm nicht richtig zu. Wie finde ich heraus, ob er recht hat?“",
+      "forumLink": "Im Forum mitreden"
+    },
     "metaRuleLink": "Den selbstkorrigierenden Regelkreis prüfen"
   },
   "en": {
@@ -261,6 +269,14 @@
     "metaDescription": "What is real? Learn together, one correction at a time. WIRKLICH is an open inquiry workshop for questions, criticism and reasoned common ground.",
     "aiNote": "Already use an AI chat? Give it the workshop rules and ask what might count against your first guess.",
     "aiLink": "Get the rules for my AI chat",
+    "encounter": {
+      "title": "How you can meet me",
+      "kicker": "YOUR FIRST STEP",
+      "lead": "Bring a question that’s on your mind.",
+      "instructions": "Copy my framework into your AI chat and ask your question. Ask the chat to explain its reasoning and offer a strong objection.",
+      "example": "“A friend says I don’t listen properly. How can I find out if they’re right?”",
+      "forumLink": "Join the forum discussion"
+    },
     "metaRuleLink": "Explore the self-correcting rule"
   }
 }
