@@ -368,6 +368,15 @@
       "source_commit": null,
       "review_url": null
     },
+    "fachagenten-netzwerk.md": {
+      "status": "draft",
+      "priority": "support",
+      "target": "docs/en/atlas-specialist-agents.md",
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
     "finanzierung.md": {
       "status": "unassessed",
       "priority": "support",
