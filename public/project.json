@@ -28,5 +28,24 @@
     "id": "META-01",
     "protocol": "protocol/self-correction.v1.json",
     "status": "editorial_normative_draft"
+  },
+  "ai_ambition": {
+    "kind": "open_source_ai_goal",
+    "status": "in_development",
+    "independently_runnable_model_available": false,
+    "own_open_foundation_model_released": false,
+    "description": {
+      "de": "Wir möchten mit Menschen eine Open-Source-KI für Menschen bauen. Noch sind wir eine offene Erkenntniswerkstatt mit Prototypen.",
+      "en": "We aim to build open-source AI with people, for people. Today this is an open inquiry workshop with prototypes."
+    },
+    "docs": {
+      "de": "docs/open-source-ki.md",
+      "en": "docs/en/open-source-ai.md"
+    }
+  },
+  "visual_identity": {
+    "system": "industrial-editorial",
+    "status": "implemented_in_design_branch",
+    "design_stylesheet": "src/styles/industrial.css"
   }
 }
