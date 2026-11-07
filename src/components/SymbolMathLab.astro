@@ -20,6 +20,7 @@ const sections = ['symbol-modell', 'binaerraum', 'zufallsmodell'];
       <h1>{t.title}<br/><em>{t.emphasis}</em></h1>
       <p class="lab-lead">{t.lead}</p>
       <p class="lab-principle">{t.principle}</p>
+      <p class="lab-note"><a href={pathFor(lang,"esoterik-katalog")}>{lang==="de"?"Zum vollständigen, offenen Esoterik-Wissensbaum ↗":"Explore the full open esotericism tree ↗"}</a></p>
       <nav class="lab-jumps" aria-label={lang === 'de' ? 'Werkzeuge' : 'Tools'}>
         {t.nav.map((label, i) => <a href={`#${sections[i]}`}><span>0{i+1}</span>{label}<b aria-hidden="true">↘</b></a>)}
       </nav>

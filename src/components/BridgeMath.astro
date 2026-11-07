@@ -1,0 +1,199 @@
+---
+import Layout from "../layouts/SiteLayout.astro";
+import {pathFor} from "../lib/paths.mjs";
+import {bridgeSnapshot} from "../lib/intersubjective.mjs";
+
+const {lang="de"} = Astro.props;
+const t=(de,en)=>lang==="de"?de:en;
+const example=bridgeSnapshot({a:[0],b:[4],aEstimatesB:[4],bEstimatesA:[0]});
+const fields=[
+ {key:"a", initial:0, label:t("Position A · eigene Antwort","Position A · own answer")},
+ {key:"b", initial:4, label:t("Position B · eigene Antwort","Position B · own answer")},
+ {key:"bEstimatesA", initial:0, label:t("B schätzt die Antwort von A","B estimates A's answer")},
+ {key:"aEstimatesB", initial:4, label:t("A schätzt die Antwort von B","A estimates B's answer")}
+];
+---
+<Layout lang={lang} slug="die-bruecke" description={t("Forschungsentwurf M-02: Verständigung mathematisch untersuchen, ohne sie mit Zustimmung zu verwechseln.","M-02 research proposal: mathematically explore understanding without confusing it with agreement.")}>
+  <div class="bridge-math">
+    <section class="bridge-hero" aria-labelledby="bridge-title">
+      <div class="container bridge-hero__inner">
+        <p class="section-kicker">{t("WIRKLICH · M-02 · DIE BRÜCKE","REALLY? · M-02 · THE BRIDGE")}</p>
+        <h1 id="bridge-title">{t("Die Mathematik","The mathematics")}<br/><em>{t("des Dazwischen.","between minds.")}</em></h1>
+        <p class="bridge-lead">{t("Zwei Menschen können verschiedener Meinung bleiben – und einander trotzdem präziser verstehen.","Two people can continue to disagree—and still learn to understand each other more accurately.")}</p>
+        <p class="bridge-disclaimer">{t("Forschungsentwurf · keine validierte Skala · keine unabhängige Begutachtung","Research proposal · no validated measure · no independent review")}</p>
+        <div class="button-row">
+          <a class="button button--gold" href="#experiment">{t("Das Modell erkunden","Explore the model")} ↓</a>
+          <a class="button button--ghost" href={pathFor(lang,"schnittmengen","sprachprobe")}>{t("Die Sprachprobe zu zweit","The conversation exercise")} →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section bridge-section" aria-labelledby="bridge-three">
+      <div class="container">
+        <p class="section-kicker">{t("DREI UNTERSCHIEDLICHE FRAGEN","THREE DIFFERENT QUESTIONS")}</p>
+        <h2 id="bridge-three">{t("Nicht alles ist dieselbe Größe.","Not everything is the same quantity.")}</h2>
+        <div class="bridge-grid">
+          <article><span>01 / E</span><h3>{t("Erleben","Experience")}</h3><p>{t("Was empfindet ein Mensch wirklich? Diese Erfahrung ist nicht unmittelbar von außen messbar. Seine Antwort ist nicht sein gesamtes Erleben.","What does someone actually experience? That experience is not directly measurable from the outside. Their answer is not the whole of their experience.")}</p></article>
+          <article><span>02 / V</span><h3>{t("Verstehen","Understanding")}</h3><p>{t("Wie zutreffend kann ich die ausdrücklich formulierte Position der anderen Person wiedergeben? Diese begrenzte Genauigkeit versuchen wir zu operationalisieren.","How accurately can I restate the position the other person explicitly describes? We try to operationalize this limited form of accuracy.")}</p></article>
+          <article><span>03 / K</span><h3>{t("Übereinstimmung","Agreement")}</h3><p>{t("Wie ähnlich sind unsere eigenen Positionen zu denselben Fragen? Das kann hoch oder niedrig sein – unabhängig davon, wie gut wir einander wiedergeben.","How similar are our own positions on the same questions? Agreement may be high or low independently of restatement accuracy.")}</p></article>
+        </div>
+        <p class="bridge-aside">{t("Die zentrale Unterscheidung: Verstehen ist nicht Zustimmen. Das ist zunächst eine Aussage über unsere Definitionen – keine bewiesene Gesetzmäßigkeit des Zusammenlebens.","The central distinction: understanding is not agreement. This follows from our definitions; it is not a proven law of human relationships.")}</p>
+      </div>
+    </section>
+
+    <section class="section section--paper bridge-section" id="experiment" aria-labelledby="bridge-exp-title">
+      <div class="container">
+        <p class="section-kicker">{t("M-02.1 · EIN MODELL ZUM ANFASSEN","M-02.1 · A HANDS-ON TOY MODEL")}</p>
+        <h2 id="bridge-exp-title">{t("Verschiedene Meinungen. Gemeinsame Verständlichkeit.","Different opinions. Accurate restatement.")}</h2>
+        <p class="bridge-intro">{t("Stell dir eine einzige Frage mit Antwortstufen von 0 bis 4 vor. A und B wählen ihre eigene Antwort und versuchen, die des jeweils anderen zu treffen. Verändere die Werte. Es sind erfundene Zahlen, keine Messdaten.","Imagine one question with response levels from 0 to 4. A and B each give an answer and try to predict the other's response. Change the numbers. These are invented values, not observations.")}</p>
+
+        <div class="bridge-demo" data-bridge-demo data-lang={lang}>
+          <div class="bridge-demo__controls">
+            <div class="bridge-presets" role="group" aria-label={t("Beispielfälle","Example cases")}>
+              <button type="button" data-preset="different">{t("Gegensatz, genau verstanden","Opposition, accurately restated")}</button>
+              <button type="button" data-preset="same">{t("Einigkeit, falsch verstanden","Agreement, inaccurately restated")}</button>
+            </div>
+            <div class="bridge-fields">
+              {fields.map(({key,initial,label})=>
+                <div class="bridge-field">
+                  <label for={"bridge-"+key}>{label}</label>
+                  <output for={"bridge-"+key} data-number={key}>{initial}</output>
+                  <input id={"bridge-"+key} type="range" min="0" max="4" step="1" value={initial} data-rating={key}/>
+                  <small>0 · {t("sehr niedrig","very low")} <span>4 · {t("sehr hoch","very high")}</span></small>
+                </div>)}
+            </div>
+          </div>
+          <div class="bridge-demo__results" aria-live="polite" aria-atomic="true">
+            <div><span>{t("B versteht A","B restates A")}</span><strong data-score="fromBtoA">{Math.round(example.fromBtoA*100)} %</strong></div>
+            <div><span>{t("A versteht B","A restates B")}</span><strong data-score="fromAtoB">{Math.round(example.fromAtoB*100)} %</strong></div>
+            <div class="bridge-demo__agreement"><span>{t("Inhaltliche Übereinstimmung","Content agreement")}</span><strong data-score="agreement">{Math.round(example.agreement*100)} %</strong></div>
+            <p data-demo-interpretation>{t("A und B vertreten Gegensätze und treffen trotzdem die Antwort der jeweils anderen Person.","A and B disagree completely but accurately predict each other's answers.")}</p>
+          </div>
+        </div>
+        <p class="bridge-caveat">{t("Diese Werte illustrieren ausschließlich eine vorab festgelegte Rechenregel. Eine Antwortstufe „2“ bedeutet nicht für jeden Menschen dasselbe; die Abstände zwischen den Stufen sind nicht psychologisch validiert. Alle Änderungen passieren nur in diesem Browserfenster; die Seite sendet keine Gesprächseingaben an WIRKLICH.","These values illustrate a stipulated calculation only. A response of “2” does not mean the same thing to everyone; numerical gaps are not psychometrically validated. All changes remain in this browser window; the page does not send conversation inputs to REALLY?.")}</p>
+      </div>
+    </section>
+
+    <section class="section bridge-section" aria-labelledby="bridge-formal-title">
+      <div class="container">
+        <p class="section-kicker">{t("WAS IST MATHEMATISCH GEZEIGT?","WHAT HAS BEEN SHOWN MATHEMATICALLY?")}</p>
+        <h2 id="bridge-formal-title">{t("Ein einfacher Satz. Eine wichtige Grenze.","A simple result. An important limit.")}</h2>
+        <div class="bridge-formula" role="group" aria-label={t("Definitionen","Definitions")}>
+          <code>V(B→A) = 1 − d(A, B̂(A))</code>
+          <code>V(A→B) = 1 − d(B, Â(B))</code>
+          <code>K(A,B) = 1 − d(A,B)</code>
+        </div>
+        <p>{t("Die normierte Abweichung d vergleicht Antworten auf denselben vorher festgelegten Fragen. Im Ein-Frage-Beispiel ist d(x,y) = |x−y| / 4. V misst Antwortgenauigkeit in einer Richtung, K die Nähe der eigenen Antworten. Die beiden gerichteten V-Werte werden nicht zu einem einzigen Urteil über Personen zusammengezogen.","The normalized distance d compares answers to the same pre-agreed questions. For one question, d(x,y) = |x−y| / 4. V measures prediction accuracy in one direction, K the similarity between people's own answers. The two directional V measures are not collapsed into a judgment about people.")}</p>
+        <p>{t("Mathematisch folgt: V kann 1 sein, während K 0 ist. Ebenso kann K 1 sein, während V 0 ist. Der Beleg besteht im Einsetzen passender Antworten – nicht in einer Studie an Menschen.","Mathematically, V can equal 1 while K equals 0. Likewise, K can equal 1 while V equals 0. The demonstration consists of substituting suitable numbers—not a study of people.")}</p>
+        <a class="subtle-link" href="https://github.com/AlexanderR1991/Wirklich/blob/main/docs/mathematik-des-dazwischen.md">{t("Definitionen, Beweisbeispiele und Grenzen im Forschungsentwurf lesen","Read the definitions, counterexamples and limits in the research draft")} ↗</a>
+      </div>
+    </section>
+
+    <section class="section section--paper bridge-section" id="forschungsfrage" aria-labelledby="bridge-test-title">
+      <div class="container">
+        <p class="section-kicker">{t("H-M02 · UNBEWIESENE, PRÜFBARE HYPOTHESE","H-M02 · UNTESTED, FALSIFIABLE HYPOTHESIS")}</p>
+        <h2 id="bridge-test-title">{t("Hilft Nachfragen mehr als Überreden?","Does asking help more than persuading?")}</h2>
+        <p class="bridge-intro">{t("Unsere offene Vermutung: Wer die Ansicht des Gegenübers in eigenen Worten wiedergibt und Korrektur zulässt, verbessert die Treffgenauigkeit bei dessen Antworten im Mittel stärker als in einer gleich langen neutralen Diskussion. Beide Richtungen müssen separat besser werden; die Meinungen müssen nicht zusammenrücken.","Our open hypothesis: Restating the other person's view and inviting correction improves response accuracy more than an equally long neutral discussion. We must examine both directions separately; opinions need not converge.")}</p>
+        <div class="bridge-grid bridge-grid--two">
+          <article><span>{t("VOR EINER STUDIE","BEFORE A STUDY")}</span><h3>{t("Fair prüfen","Test fairly")}</h3><p>{t("Feste Fragen, freiwillige Teilnehmende, Kontrollgruppe, Vorher-Nachher-Messung, Schutz der Privatsphäre, unabhängige Auswertung und Veröffentlichung auch negativer Ergebnisse.","Fixed questions, voluntary participants, a comparison group, before/after measures, privacy safeguards, independent evaluation, and publication of negative findings too.")}</p></article>
+          <article><span>{t("MÖGLICHE WIDERLEGUNG","POSSIBLE REFUTATION")}</span><h3>{t("Scheitern zulassen","Allow failure")}</h3><p>{t("Keine Verbesserung, schlechtere Ergebnisse als in der Kontrollgruppe, strategisch optimierte Antworten oder nachteilige Effekte in Teilgruppen würden die Hypothese erschüttern.","No improvement, worse outcomes than a control condition, strategically gamed answers, or harm to subgroups would undermine the hypothesis.")}</p></article>
+        </div>
+        <p class="bridge-caveat">{t("Wichtig: Eine hohe Zahl bestätigt weder gutes Verhalten noch Wahrheit. Bei Druck, Abhängigkeit, Drohung oder laufenden Übergriffen ist ein Gespräch kein gebotener Schritt. Niemand schuldet Kontakt oder Vergebung.","Important: A high score certifies neither good conduct nor truth. Under coercion, dependence, threats or ongoing abuse, a conversation is not an obligation. Nobody owes contact or forgiveness.")}</p>
+      </div>
+    </section>
+
+    <section class="section bridge-section bridge-last" aria-labelledby="bridge-next-title">
+      <div class="container">
+        <p class="section-kicker">{t("DIE BRÜCKE ALS FORSCHUNGSPROGRAMM","THE BRIDGE AS A RESEARCH PROGRAMME")}</p>
+        <h2 id="bridge-next-title">{t("Wir beginnen nicht bei null.","We do not start from zero.")}</h2>
+        <p>{t("Die mathematische Bewusstseinsforschung, Psychologie und mathematische Soziologie untersuchen bereits verwandte Strukturen. Wir behaupten keinen neuen Zweig der Mathematik, sondern stellen eine eng gefasste, offene Frage nach dem Verhältnis von Verstehen und Einigkeit.","Mathematical consciousness science, psychology and mathematical sociology already study related structures. We are not claiming to have invented a new branch of mathematics; we are asking a narrow, open question about understanding and agreement.")}</p>
+        <ul class="bridge-sources">
+          <li><a href="https://doi.org/10.1007/s11229-024-04503-4">Kleiner &amp; Ludwig (2024) · {t("Mathematische Strukturen bewussten Erlebens","Mathematical structures of conscious experience")} ↗</a></li>
+          <li><a href="https://doi.org/10.1037/pspa0000115">Eyal, Steffel &amp; Epley (2018) · {t("Perspektiven erfragen statt nur vorstellen","Getting perspective versus assuming it")} ↗</a></li>
+          <li><a href="https://doi.org/10.1080/0022250X.1990.9990069">Friedkin &amp; Johnsen (1990) · {t("Sozialer Einfluss und Meinungen","Social influence and opinions")} ↗</a></li>
+        </ul>
+        <div class="button-row">
+          <a class="button button--gold" href={pathFor(lang,"schnittmengen")}>{t("Die Gesprächsmethode ansehen","Explore the conversation method")} →</a>
+          <a class="button button--ghost" href={pathFor(lang,"pruefstand")}>{t("Zum mathematischen Prüfstand","Go to the mathematical crucible")} →</a>
+          <a class="button button--ghost" href="https://github.com/AlexanderR1991/Wirklich/issues/new?template=angriff.yml">{t("Das Modell angreifen","Challenge the model")} ↗</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<script>
+  import {bridgeSnapshot} from "../lib/intersubjective.mjs";
+  for(const root of document.querySelectorAll("[data-bridge-demo]")) {
+    const inputs=Object.fromEntries([...root.querySelectorAll("[data-rating]")].map(el=>[el.dataset.rating,el]));
+    const values=Object.fromEntries([...root.querySelectorAll("[data-number]")].map(el=>[el.dataset.number,el]));
+    const result=Object.fromEntries([...root.querySelectorAll("[data-score]")].map(el=>[el.dataset.score,el]));
+    const interpretation=root.querySelector("[data-demo-interpretation]");
+    const en=root.dataset.lang==="en";
+    const update=()=>{
+      const get=k=>[Number(inputs[k].value)];
+      const scores=bridgeSnapshot({a:get("a"),b:get("b"),aEstimatesB:get("aEstimatesB"),bEstimatesA:get("bEstimatesA")});
+      for(const [key,el] of Object.entries(values)) el.textContent=inputs[key].value;
+      for(const [key,el] of Object.entries(result)) el.textContent=Math.round(scores[key]*100)+" %";
+      interpretation.textContent=scores.fromAtoB===1&&scores.fromBtoA===1&&scores.agreement===0
+        ? (en?"They disagree completely and still predict each other's answers accurately.":"Sie sind vollständig uneinig und geben die Antworten dennoch richtig wieder.")
+        : scores.agreement===1&&scores.fromAtoB===0&&scores.fromBtoA===0
+        ? (en?"They agree completely but incorrectly estimate each other's answers.":"Sie sind sich vollständig einig und schätzen die Antworten dennoch falsch ein.")
+        : (en?"Notice how agreement and the two directions of restatement accuracy vary independently.":"Beobachte, wie Zustimmung und die beiden Richtungen der Wiedergabegenauigkeit getrennt variieren.");
+    };
+    for(const input of Object.values(inputs)) input.addEventListener("input",update);
+    for(const button of root.querySelectorAll("[data-preset]")) button.addEventListener("click",()=>{
+      const preset=button.dataset.preset==="different"
+        ? {a:0,b:4,bEstimatesA:0,aEstimatesB:4}
+        : {a:4,b:4,bEstimatesA:0,aEstimatesB:0};
+      for(const [key,value] of Object.entries(preset)) inputs[key].value=String(value);
+      update();
+    });
+    update();
+  }
+</script>
+
+<style>
+.bridge-math{color:var(--text)}
+.bridge-hero{padding:clamp(5rem,9vw,8rem) 0;background:radial-gradient(ellipse at 78% 15%,#3a5c5444,transparent 62%),linear-gradient(125deg,#0b0e10,#121b1b);border-bottom:1px solid var(--line)}
+.bridge-hero__inner{max-width:1050px}
+.bridge-hero h1{font:400 clamp(2.9rem,7vw,6.3rem)/1.12 var(--serif);letter-spacing:-.04em;margin:1.5rem 0;text-wrap:balance}
+.bridge-hero h1 em{font-weight:400;color:var(--gold-bright)}
+.bridge-lead{max-width:50rem;color:#eadbc4;font:clamp(1.3rem,2.4vw,1.85rem)/1.6 var(--serif)}
+.bridge-disclaimer{font-size:.82rem;letter-spacing:.02em;margin:1.5rem 0 2rem;color:#b2b7b2}
+.bridge-section{padding:clamp(3rem,6vw,5.3rem) 0;border-bottom:1px solid var(--line)}
+.bridge-section h2{font:400 clamp(2.1rem,4vw,3.6rem)/1.17 var(--serif);letter-spacing:-.025em;max-width:63rem;margin:1rem 0 2rem;text-wrap:balance}
+.bridge-section p:not(.section-kicker){max-width:70rem;line-height:1.85}
+.bridge-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin:2rem 0}
+.bridge-grid--two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.bridge-grid article{padding:1.5rem;border:1px solid var(--line);background:#ffffff03}
+.bridge-grid article span{font-size:.75rem;color:var(--gold-bright);letter-spacing:.1em}
+.bridge-grid h3{font:400 1.8rem/1.3 var(--serif);margin:.9rem 0}
+.bridge-grid article p{font-size:.97rem;margin:0}
+.bridge-aside{font:italic clamp(1.15rem,2vw,1.45rem)/1.7 var(--serif);color:var(--gold-bright)}
+.bridge-intro{font:1.08rem/1.8 var(--serif)}
+.bridge-demo{display:grid;grid-template-columns:1.3fr 1fr;gap:1.5rem;margin:2rem 0}
+.bridge-demo__controls,.bridge-demo__results{border:1px solid var(--line);padding:1.4rem}
+.bridge-presets{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:1.7rem}
+.bridge-presets button{font:inherit;font-size:.85rem;color:var(--text);padding:.55rem .85rem;border:1px solid var(--line);background:transparent;cursor:pointer}
+.bridge-presets button:hover,.bridge-presets button:focus-visible{border-color:var(--gold-bright)}
+.bridge-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem}
+.bridge-field{display:grid;gap:.45rem;min-width:0}
+.bridge-field label{font-size:.9rem;line-height:1.4}
+.bridge-field output{font:400 1.9rem var(--serif);color:var(--gold-bright)}
+.bridge-field input{width:100%;accent-color:#bca170;min-height:2rem;cursor:pointer}
+.bridge-field small{display:flex;justify-content:space-between;gap:.4rem;font-size:.73rem;color:#adb2ae}
+.bridge-demo__results{display:flex;flex-direction:column;gap:1rem;justify-content:center;background:#091314}
+.bridge-demo__results>div{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;border-bottom:1px solid var(--line);padding-bottom:1rem}
+.bridge-demo__results strong{font:400 clamp(1.7rem,3vw,2.6rem)/1.1 var(--serif);color:var(--gold-bright);white-space:nowrap}
+.bridge-demo__agreement strong{color:#f0f0ed}
+.bridge-demo__results p{font-style:italic;margin:.2rem 0;font-size:.9rem}
+.bridge-caveat{margin-top:1.5rem;padding:1.1rem 1.25rem;border-left:2px solid var(--gold);background:#ffffff04;font-size:.91rem}
+.bridge-formula{display:grid;gap:.65rem;margin:1.4rem 0 2rem;padding:1.25rem;border:1px solid var(--line);max-width:44rem}
+.bridge-formula code{display:block;color:var(--gold-bright);font-size:clamp(.88rem,1.8vw,1.1rem);overflow-wrap:anywhere}
+.bridge-sources{list-style:none;padding:0;display:grid;gap:.9rem;margin:1.5rem 0 2.5rem}
+.bridge-sources a{color:var(--gold-bright);text-decoration:underline;text-underline-offset:.25rem}
+.bridge-last .button-row{gap:.8rem}
+@media(max-width:800px){.bridge-grid{grid-template-columns:1fr}.bridge-demo{grid-template-columns:1fr}}
+@media(max-width:550px){.bridge-fields{grid-template-columns:1fr}.bridge-demo__controls,.bridge-demo__results{padding:1rem}.bridge-hero h1{hyphens:auto}}
+</style>

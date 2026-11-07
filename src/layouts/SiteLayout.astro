@@ -1,11 +1,12 @@
 ---
 import {ui,navigation} from "../lib/ui.mjs";
+import UniversalQuestionsContext from "../components/UniversalQuestionsContext.astro";
 import {pathFor,absoluteFor,base} from "../lib/paths.mjs";
 import project from "../../public/project.json" with {type: "json"};
 const {lang="de",slug="index",root=false}=Astro.props;
 const t=ui[lang];
 const footerGroups = [
-  { title: t.explore, routes: ["erkenntnisnavigator", "baum-des-wissens", "bibliothek", "aussagen", "forum", "pruefstand", "forschungsstrom"] },
+  { title: t.explore, routes: ["erkenntnisnavigator", "baum-des-wissens", "esoterik-katalog", "bibliothek", "aussagen", "forum", "pruefstand", "die-bruecke", "grundfragen", "forschungsstrom"] },
   { title: t.project, routes: ["mission", "regelkreis", "methode", "ki-und-mensch", "kollektive-moral", "projektstatus", "projektobservatorium", "mitwirken"] }
 ];
 const description = Astro.props.description ?? t.description;
@@ -54,7 +55,7 @@ const canonical=root?siteRoot:absoluteFor(lang,slug);
 </div></header>
 <div class="edition-line"><a href={pathFor(lang,"projektstatus")} data-project-version={project.version}>{t.name} / VERSION {project.version} ↗</a><span>{t.motto}</span></div>
 {lang==="en"&&!root&&<div class="translation-notice"><div class="container"><span aria-hidden="true">◇</span><span>{t.status}</span><a href={pathFor(lang,"projektstatus","sprachfassungen")}>Translation review ↗</a><a href={pathFor("de",slug)}>Deutsch →</a></div></div>}
-<main id="inhalt"><slot /></main>
+<main id="inhalt"><slot /><UniversalQuestionsContext lang={lang} slug={slug}/></main>
 <footer class="footer"><div class="container footer__grid">
 <div><img src={base+"assets/signet.svg"} width="54" height="54" alt="" /><h2>{t.footerTitle}</h2><p>{t.footerDescription}</p></div>
 <div class="footer__links">

@@ -4,15 +4,17 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "predev": "node scripts/build-locales.mjs",
+    "predev": "node scripts/scan-universal.mjs --write && node scripts/build-locales.mjs",
     "dev": "astro dev",
-    "prebuild": "node --test tests/*.test.mjs && node scripts/validate-claims.mjs && node scripts/validate-questions.mjs && node scripts/validate-release.mjs && node scripts/validate-i18n.mjs && node scripts/build-locales.mjs",
+    "prebuild": "node scripts/scan-universal.mjs --write && node scripts/validate-universal.mjs && node --test tests/*.test.mjs && node scripts/validate-claims.mjs && node scripts/validate-questions.mjs && node scripts/validate-release.mjs && node scripts/validate-i18n.mjs && node scripts/build-locales.mjs",
     "build": "astro build && node scripts/verify-dist.mjs",
     "preview": "astro preview",
     "test": "node --test tests/*.test.mjs",
     "test:claims": "node --test tests/claims.test.mjs",
     "test:symbol-math": "node --test tests/symbol-math.test.mjs",
-    "triage:questions": "node scripts/triage-questions.mjs"
+    "triage:questions": "node scripts/triage-questions.mjs",
+    "scan:universal": "node scripts/scan-universal.mjs --write && node scripts/validate-universal.mjs",
+    "plan:universal": "node scripts/plan-universal-backports.mjs"
   },
   "dependencies": {
     "astro": "^6.0.0"

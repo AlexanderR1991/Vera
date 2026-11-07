@@ -34,6 +34,12 @@ Als gemeinsamen, durchführbaren Plan kann die Gruppe den Vorschlag ausweisen, w
 
 **Gedankenbeispiel.** Beim Dorfkonzert wollen Dirigentin und Solist das ganze 30-minütige Stück spielen. Solist und Veranstalterin wollen spätestens um 22 Uhr enden. Veranstalterin und Dirigentin setzen den Beginn auf 21:45 Uhr. Das Stück würde um 22:15 Uhr enden, selbst wenn alle dem Plan zustimmen. Bei einem Beginn um 21:30 Uhr passt die Dauer ins Zeitfenster. Ob die Beteiligten diesen geänderten Plan tragen, müssen alle drei selbst beantworten. [Zur Gesprächsübung](https://alexanderr1991.github.io/Wirklich/de/schnittmengen/#teilzusagen)
 
+## Verstehen vor Einigkeit · Verbindung zu M-02
+
+Die Sprachprobe fragt schon heute, ob ein Mensch die Ansicht des anderen korrekt in eigenen Worten wiedergeben kann. [M-02 · Die Mathematik des Dazwischen](mathematik-des-dazwischen.md) macht daraus **keine Pflichtkennzahl**, sondern einen begrenzten, noch unvalidierten Forschungsentwurf: Genauigkeit der Wiedergabe (`V`) und inhaltliche Einigkeit (`K`) sind verschiedene Dinge. Man kann verständig uneinig bleiben. Die [Website-Demonstration](https://alexanderr1991.github.io/Wirklich/de/die-bruecke/) zeigt nur erfundene Zahlen und erfasst keine Gesprächsdaten.
+
+Keine Zahl ersetzt die ausdrückliche Zustimmung, die Rechte der Beteiligten, die Benennung von Machtasymmetrien oder das Recht, das Gespräch zu beenden.
+
 ## Sechs Fragen
 
 1. Ist Teilnahme freiwillig und ausreichend geschützt? Getrennte Antworten und Abbruch bleiben möglich.

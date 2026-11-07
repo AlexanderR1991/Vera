@@ -5,6 +5,7 @@ import FlyingTreeDiagram from "./FlyingTreeDiagram.astro";
 import {pathFor} from "../lib/paths.mjs";
 import {fields,topics,topicStates,levels,selfReviews,treeSnapshot} from "../lib/tree.mjs";
 import "../styles/tree.css";
+import esoterik from "../../public/knowledge/esoterik-tree.json";
 const {lang="de"}=Astro.props;
 const t=(de,en)=>lang==="en"?en:de;
 const names=Object.fromEntries(fields.map(f=>[f.id,f.name[lang]]));
@@ -61,6 +62,12 @@ const destination=topic=>topic.url||pathFor(lang,topic.slug||"atlas",topic.slug?
      </tr>)}
     </tbody></table>
    </div>
+   <details class="tree-subbranches">
+    <summary><strong>{t("Ein Ast verzweigt sich: Esoterik","One branch splits: esotericism")}</strong><span>{esoterik.branches.length} {t("Hauptäste","main branches")} · {esoterik.branches.reduce((sum,group)=>sum+group.children.length,0)} {t("Unteräste","subbranches")}</span></summary>
+    <p>{t("Hier verzweigt sich der große Baum sichtbar weiter. Geschichte, Symbolik, persönliches Erleben und Wirkaussagen erhalten unterscheidbare Fragen. Jeder einzelne Unterast darf angegriffen, erweitert oder anders eingeordnet werden.","Here the wider tree visibly grows further. History, symbolism, personal experience and claims of efficacy have different questions. Every subbranch may be challenged, extended or reclassified.")}</p>
+    <div class="tree-subbranch-grid">{esoterik.branches.map(group=><a href={pathFor(lang,"esoterik-katalog","ast-"+group.id.toLowerCase())}><span>{group.id} · {group.title[lang]}</span><small>{group.children.length} {t("offene Unteräste","open subbranches")}</small></a>)}</div>
+    <p><a href={pathFor(lang,"esoterik-katalog","neuer-ast")}>{t("Den vollständigen Katalog lesen oder einen neuen Ast vorschlagen","Read the full catalogue or propose another branch")} ↗</a></p>
+   </details>
    <p hidden data-tree-empty>{t("Kein Thema passt zu diesen Filtern. Setze die Filter zurück oder schlage einen fehlenden Ast vor.","No topic matches these filters. Reset the filters or suggest a missing branch.")}</p>
    <p><a href="https://github.com/AlexanderR1991/Wirklich/issues/28">{t("Welche Perspektive oder welches Thema fehlt? ↗","Which perspective or topic is missing? ↗")}</a></p>
   </section>

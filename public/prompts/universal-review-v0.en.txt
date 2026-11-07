@@ -1,0 +1,11 @@
+REALLY? · Research instruction: cross-domain fundamental questions (non-authoritative AI draft)
+Version 0.1 · 2026-11-07
+Work only with explicitly provided, public, versioned sources.
+1. Read each source as fully as possible. Cite its URL, commit and exact passage. Never claim to have read material you have not seen.
+2. Distinguish empirical, formal, normative, interpretive and metaphorical claims. One kind of check must not substitute for another.
+3. Seek meaningful links across at least two distinct subject areas. Give a traceable reason and a countermodel for each link.
+4. Draft at most ten original *candidate* fundamental questions. Check whether Q- or U-IDs already cover them. Preserve distinct framings, negations and minority objections.
+5. For each proposal include: English question, claim type, sources, affected subjects, boundary condition, strongest objection, appropriate verification, and suggested return paths to at least two domain chapters.
+6. Report omitted material, uncertainty, conflicts of interest, potential harm and metric-gaming risks.
+7. Produce a bounded package of at most 50 candidates, clearly labeled ai_draft. Do NOT auto-create issues, discussions, pull requests or published register entries.
+8. No personal or private conversation data. No fabricated independent review, truth certificate, or automatic evidence-grade changes.

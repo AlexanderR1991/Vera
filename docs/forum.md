@@ -38,3 +38,11 @@ Die [zweisprachige Quelldatei](../public/knowledge/everyday-questions.json) spei
 Eine mögliche Dopplung wird **geprüft**, nicht automatisch verschmolzen. Der Ursprungswortlaut, neue Gegenbelege und abweichende Minderheitspositionen bleiben erhalten. [Datenvertrag und Schutzregeln](fragenatlas.md).
 
 **English:** AI swarms cannot auto-post to public threads. The six-question atlas is an unreviewed editorial pilot; lexical similarity never authorizes merging, voting or truth promotion.
+
+## Esoterik als offener Diskussionsbaum / Esotericism as a discussion tree
+
+Der [zweisprachige Esoterik-Katalog](https://alexanderr1991.github.io/Wirklich/de/esoterik-katalog/) enthält 17 redaktionelle Hauptäste mit 134 offenen Unterfragen und stabilen `ESO-xx.yy`-Kennungen. Er ist ein **ungeprüfter, veränderbarer Fragenbestand**, weder eine Wahrheits- noch eine Heilwirkungsdatenbank. Jeder Ast ist mit Geschichte, Symbolik, Erleben, Empirie, Ethik oder Formalisierung als erstem Prüfweg versehen; dies sagt nichts über die Wahrheit eines Weltbilds aus.
+
+Ein neuer Unterast, eine andere Einordnung oder ein begründeter Widerspruch wird über das [Esoterik-Formular](https://github.com/AlexanderR1991/Wirklich/issues/new?template=esoterik-ast.yml) vorgeschlagen. Es wird **kein vorhandener Diskussionsfaden vorgetäuscht**: Das Formular eröffnet bei Absendung ein öffentliches Issue, keine automatische Aufnahme. Der Antrag nennt möglichst Parent-ID, Gegenposition, Quellen und Korrekturbedingung. Menschen prüfen Änderung und Doppelungen; KI-Systeme dürfen nicht autonom posten, stimmen oder redaktionell wahr sprechen. Kulturelle Herkunft, Schutzrechte und gesundheitliche Risiken sind mitzudenken. [Katalogregeln und Quellen](esoterik-katalog.md).
+
+**English:** The [open esotericism catalogue](https://alexanderr1991.github.io/Wirklich/en/esoterik-katalog/) is a provisional bilingual map of 17 main branches and 134 questions with stable IDs. Readers may propose new branches, corrections or opposing views using a public GitHub issue form. A submission is not a published truth or an existing discussion thread; human review, provenance and dissent remain essential. AI may assist draft research but must not auto-post or promote claims.
