@@ -4,7 +4,7 @@
     "de": "Aussagenregister · Demonstrationsbestand",
     "en": "Claim register · demonstration corpus"
   },
-  "updated_at": "2026-11-06",
+  "updated_at": "2026-11-07",
   "claims": [
     {
       "id": "G-005",
@@ -418,6 +418,131 @@
         "note": {
           "de": "Ein wissenschaftlicher Konsens wurde für diesen Eintrag nicht eigenständig erhoben.",
           "en": "No scientific consensus assessment has been independently conducted for this claim."
+        },
+        "records": []
+      }
+    },
+    {
+      "id": "P-001",
+      "type": "empirical",
+      "epistemic_status": "open_hypothesis",
+      "statement": {
+        "de": "Wer von einem Produktivitätszuwachs profitiert, hängt neben technischen und wirtschaftlichen Faktoren möglicherweise auch von Eigentumsformen, Verhandlungsmacht und staatlichen Verteilungsregeln ab.",
+        "en": "Who benefits from a productivity gain may depend not only on technological and economic factors but also on forms of ownership, bargaining power and public distribution rules."
+      },
+      "scope": {
+        "de": "Offene, vergleichend prüfbare Hypothese über die Verteilung von Löhnen, Kapitaleinkommen, Preisen und öffentlichen Erträgen. Keine universelle Aussage über jedes Unternehmen, kein moralisches Urteil darüber, was gerecht ist, und keine exakte Prognose zu KI.",
+        "en": "An open comparative hypothesis about the distribution of wages, capital income, prices and public returns. Not a universal claim about every firm, a moral verdict on fairness or a precise AI forecast."
+      },
+      "rationale": {
+        "de": "Institutionen gestalten, wer Eigentumsrechte ausübt, an Entscheidungen beteiligt wird, Ansprüche auf Erträge hat und Risiken trägt. Variierende Regeln bieten vergleichbare Mechanismen, aber noch keinen identifizierten Kausaleffekt.",
+        "en": "Institutions shape who exercises property rights, takes part in decisions, has claims on returns and bears risks. Variation in rules offers candidate mechanisms, not yet an identified causal effect."
+      },
+      "counterarguments": [
+        {
+          "de": "Unterschiede im Arbeitseinkommen und bei Gewinnen können wesentlich durch Produktivität, Qualifikation, Güternachfrage, Kapitalrisiko und weltweite Märkte erklärt werden, statt durch Verteilungsregeln allein.",
+          "en": "Differences in wages and profits may largely reflect productivity, skills, demand, capital risk and global markets rather than distribution rules alone."
+        },
+        {
+          "de": "Staatliche Eingriffe oder kollektives Eigentum können ihrerseits Macht bündeln, Informationsprobleme schaffen und Investitionen oder Versorgung erschweren.",
+          "en": "State intervention or collective ownership can itself concentrate power, create information problems and impede investment or provision."
+        },
+        {
+          "de": "Beobachtete Länderunterschiede erlauben keinen Schluss, dass eine bestimmte Regel die gemessene Verteilung verursacht hat.",
+          "en": "Observed cross-country differences do not show that one particular rule caused the measured distribution."
+        }
+      ],
+      "revision_condition": {
+        "de": "Untersuche nach vorab dokumentierter Definition von Produktivität und Teilhabe vergleichbare Betriebe, Branchen oder Regionen über Zeit und kontrolliere Technologie, Zusammensetzung der Beschäftigten, Preise, Konjunktur und Selbstselektion. Verenge oder verwerfe die Aussage, wenn der institutionelle Zusammenhang nicht trägt; bewerte normative Fairness separat.",
+        "en": "Use preregistered definitions of productivity and participation to compare similar firms, sectors or regions over time, accounting for technology, workforce composition, prices, business cycles and selection. Narrow or abandon the claim if the institutional relationship is unsupported; assess normative fairness separately."
+      },
+      "evidence_note": {
+        "de": "ILO/OECD beschreiben Veränderungen von Arbeitseinkommensanteilen und mögliche institutionelle Einflussfaktoren. Mitbestimmung, der norwegische Staatsfonds und Genossenschaften zeigen unterschiedliche institutionelle Formen. Das ist Material für die Hypothese, keine eigene kontrollierte Kausalstudie und kein unabhängiger Review durch WIRKLICH.",
+        "en": "ILO/OECD document changes in labour income shares and possible institutional factors. Co-determination, Norway's government fund and cooperatives show different arrangements. These motivate the hypothesis; they are not a controlled causal study or independent review by WIRKLICH."
+      },
+      "sources": [
+        {
+          "url": "https://www.ilo.org/publications/policy-measures-address-inequalities-and-increase-labour-income-share",
+          "role": "evidence",
+          "label": {
+            "de": "ILO/OECD (2025) · Arbeitseinkommensanteile und Politikmaßnahmen",
+            "en": "ILO/OECD (2025) · labour income share and policy measures"
+          }
+        },
+        {
+          "url": "https://www.bpb.de/kurz-knapp/lexika/lexikon-der-wirtschaft/20126/mitbestimmung/",
+          "role": "evidence",
+          "label": {
+            "de": "bpb · deutsche Mitbestimmungsformen",
+            "en": "bpb · German forms of co-determination"
+          }
+        },
+        {
+          "url": "https://www.regjeringen.no/en/topics/the-economy/the-government-pension-fund/id1441/",
+          "role": "evidence",
+          "label": {
+            "de": "Norwegisches Finanzministerium · öffentlicher Staatsfonds",
+            "en": "Norwegian Ministry of Finance · public pension fund"
+          }
+        },
+        {
+          "url": "https://plato.stanford.edu/entries/marx/",
+          "role": "provenance",
+          "label": {
+            "de": "Stanford Encyclopedia · Marx und die Arbeitswertdebatte",
+            "en": "Stanford Encyclopedia · Marx and the labour-value debate"
+          }
+        },
+        {
+          "url": "https://github.com/AlexanderR1991/Wirklich/blob/main/docs/forschungsprogramm-politik.md",
+          "role": "provenance",
+          "label": {
+            "de": "WIRKLICH · offenes politisches Forschungsprogramm",
+            "en": "WIRKLICH · open political research programme"
+          }
+        }
+      ],
+      "uncertainty": {
+        "de": "Größe, Richtung und Übertragbarkeit einzelner institutioneller Effekte sowie ihre normativen Bewertungen sind ungeklärt. Gesellschaftsvergleiche enthalten erhebliche historische und institutionelle Störfaktoren.",
+        "en": "The size, direction and generalisability of particular institutional effects, and their ethical assessment, remain unsettled. Societal comparisons contain substantial historical and institutional confounding."
+      },
+      "version": 1,
+      "updated_at": "2026-11-07",
+      "review_status": "unreviewed",
+      "human_review": null,
+      "ai_assistance": {
+        "used": true,
+        "model": null,
+        "task": {
+          "de": "Bilingualer redaktioneller Entwurf, Quellenkontext und Gegenargumente; Modellversion nicht dokumentiert.",
+          "en": "Bilingual editorial drafting, source context and counterarguments; model version not recorded."
+        }
+      },
+      "history": [
+        {
+          "version": 1,
+          "date": "2026-11-07",
+          "change": {
+            "de": "Politische Verteilungsfrage als widerlegbare Hypothese R0 mit Gegenmodellen und externen Quellen aufgenommen; keine fachliche Freigabe.",
+            "en": "Added the political distribution question as an R0 hypothesis with countermodels and external sources; no expert approval."
+          }
+        }
+      ],
+      "abstraction_level": "pattern",
+      "maturity": {
+        "level": 0,
+        "rationale": {
+          "de": "Argumentativ und quellenbezogen entworfen, aber ohne kontrollierte Prüfung oder verantwortlichen unabhängigen Fachreview.",
+          "en": "Structured with supporting sources and objections, but no controlled test or accountable independent expert review."
+        },
+        "independent_checks": [],
+        "adversarial_resolution": null
+      },
+      "consensus": {
+        "status": "not_assessed",
+        "note": {
+          "de": "Kein menschlicher Konsens erhoben. Beispiele und KI-Antworten sind keine Stimmenzählung.",
+          "en": "No human consensus assessment. Examples and AI outputs do not constitute votes."
         },
         "records": []
       }
