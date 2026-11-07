@@ -500,6 +500,15 @@
       "source_commit": null,
       "review_url": null
     },
+    "offenheit.md": {
+      "status": "draft",
+      "priority": "core",
+      "target": "docs/en/openness.md",
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
     "rechtliche-offene-punkte.md": {
       "status": "unassessed",
       "priority": "support",
