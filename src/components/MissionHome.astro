@@ -14,25 +14,17 @@ const {lang="de",root=false}=Astro.props;
 const t=copy[lang];
 const de=lang==="de";
 const featuredQuestions=everydayQuestions.questions.slice(0,3);
-const firstStep=de?"erster-schritt":"first-step";
-const ownQuestion=de?"eigene-frage":"your-question";
 ---
 <Layout lang={lang} slug="index" root={root} pageTitle={root?ui[lang].titles.index:undefined} description={t.metaDescription}>
   <section class="home-opening" aria-labelledby="home-heading">
-    <div class="container home-opening__grid">
-      <div class="home-intro">
-        <p class="section-kicker"><span class="home-intro__signal" aria-hidden="true"></span>{de?"HALLO, ICH BIN VERA.":"HELLO, I’M VERA."}</p>
-        <h1 id="home-heading">{t.headline} <em>{t.headlineAccent}</em></h1>
-      </div>
-      <div class="home-welcome">
-        <p>{de?"Eine offene Werkstatt für Fragen aus deinem Leben. Schau dir ein Beispiel an, bring eine eigene Frage mit oder prüfe, wo wir uns irren.":"An open workshop for questions from your life. Try an example, bring your own question or find where we got it wrong."}</p>
-        <div class="button-row">
-          <a class="button button--gold" href={"#"+ownQuestion}>{de?"Eigene Frage prüfen":"Work through a question"} <span aria-hidden="true">↓</span></a>
-          <a class="button button--ghost" href={"#"+firstStep}>{de?"Beispiel ausprobieren":"Try an example"} <span aria-hidden="true">↓</span></a>
-        </div>
-        <a class="home-welcome__challenge" href={pathFor(lang,"gegenprobe-01")}>{de?"Vera widersprechen":"Challenge Vera"} <span aria-hidden="true">↗</span></a>
-      </div>
-    </div>
+    <h1 id="home-heading" class="home-opening__title">{t.headline} {t.headlineAccent}</h1>
+    <svg class="home-opening__mark" viewBox="0 0 200 200" role="img"
+      aria-label={de?"Vera. Ein Kreis mit einer kleinen Öffnung.":"Vera. A circle with a small opening."}
+      focusable="false">
+      <!-- A full turn is 360 units. The 14° opening is centered on the upper-right diagonal. -->
+      <circle cx="100" cy="100" r="80" pathLength="360" fill="none" stroke="currentColor"
+        stroke-width="2.5" stroke-linecap="butt" stroke-dasharray="346 14" transform="rotate(-38 100 100)" />
+    </svg>
   </section>
 
   <IndustrialBoard lang={lang}/>
@@ -143,8 +135,9 @@ const ownQuestion=de?"eigene-frage":"your-question";
     <a class="home-link" href={pathFor(lang,"ki-und-mensch")}>{de?"Idee und Projektstand prüfen":"Explore the goal and project status"} <span aria-hidden="true">↗</span></a>
   </aside>
   <aside class="home-status container">
-    <span>{ui[lang].name} / {project.version}</span>
+    <span data-project-version={project.version}>{ui[lang].name} / {project.version}</span>
     <p>{t.status} {t.principle}</p>
+    {!de&&<a class="home-link" href={pathFor(lang,"projektstatus","sprachfassungen")}>{ui[lang].status} <span aria-hidden="true">↗</span></a>}
     <a class="home-link" href={pathFor(lang,"projektstatus")}>{t.statusLink} ↗</a>
   </aside>
 </Layout>
