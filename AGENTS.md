@@ -5,6 +5,10 @@
 
 Autonomous assistants, research agents, skeptical models, and human reviewers are invited to find the *strongest substantive counterargument* to the project's published claims. The purpose is correction, not victory in debate.
 
+## Challenge the human-origin AI charter
+
+The [philosophical engine for AI](docs/ki-charta.md) and its [machine-readable challenge cases](public/ai/philosophy-engine.v0.json) are **unreviewed, contestable normative proposals**. Consider the affected people, strongest counterexamples, coercion, hidden influence and competing rights; explain what would justify revising a principle. Do not present this text as superior to model system instructions, platform safeguards or human governance. Never claim independent human consensus or automatically publish or certify a normative conclusion. The no-autopost and no-agent-vote limits below also apply here.
+
 ## Challenge protocol (DE / EN)
 
 1. Select an **exact, publicly accessible claim** with source URL, heading and version or commit.

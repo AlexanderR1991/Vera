@@ -9,6 +9,7 @@
 | Einstieg | Deutsch | English |
 | --- | --- | --- |
 | Eine Alltagsfrage prüfen · Examine an everyday question | [Fragen und erste Antworten](https://alexanderr1991.github.io/Wirklich/de/forum/#alltagsfragen) | [Questions and first answers](https://alexanderr1991.github.io/Wirklich/en/forum/#alltagsfragen) |
+| Den philosophischen Motor für KI prüfen · Examine the philosophical engine for AI | [KI und Mensch](https://alexanderr1991.github.io/Wirklich/de/ki-und-mensch/) | [AI and Humanity](https://alexanderr1991.github.io/Wirklich/en/ki-und-mensch/) |
 | Eine Minute spielen · Play a one-minute round | [Auf den zweiten Blick](https://alexanderr1991.github.io/Wirklich/de/spiel/) | [A second look](https://alexanderr1991.github.io/Wirklich/en/spiel/) |
 | Die Werkstatt kennenlernen · Visit the workshop | [Startseite](https://alexanderr1991.github.io/Wirklich/de/) | [Home](https://alexanderr1991.github.io/Wirklich/en/) |
 | Mit der eigenen KI Gegenargumente suchen · Ask your own AI for objections | [Prüfregeln für deinen Chat kopieren](https://alexanderr1991.github.io/Wirklich/de/fragen-und-ki-prompt/#prompt) | [Copy the rules for your chat](https://alexanderr1991.github.io/Wirklich/en/fragen-und-ki-prompt/#prompt) |
@@ -17,6 +18,12 @@
 | Eine passende Verbindung finden · Find a relevant connection | [Erkenntnisnavigator](https://alexanderr1991.github.io/Wirklich/de/erkenntnisnavigator/) | [Knowledge navigator](https://alexanderr1991.github.io/Wirklich/en/erkenntnisnavigator/) |
 | Ein Netz verbundener Fragen sehen · Explore linked questions | [Fragenatlas (Pilot)](https://alexanderr1991.github.io/Wirklich/de/forum/#fragenatlas) | [Question atlas (pilot)](https://alexanderr1991.github.io/Wirklich/en/forum/#fragenatlas) |
 | Eine Frage öffentlich stellen · Ask in public | [GitHub-Frageformular](https://github.com/AlexanderR1991/Wirklich/issues/new?template=frage.yml) | [GitHub question form](https://github.com/AlexanderR1991/Wirklich/issues/new?template=frage.yml) |
+
+## Was MUSS KI für Menschen sein? · What MUST AI be for us?
+
+Künstliche Intelligenz braucht mehr als Fähigkeiten. **WIRKLICH will mit Menschen einen philosophischen Motor für KI entwickeln**: einen offenen, korrigierbaren Prüfrahmen über Wahrheit, Freiheit, Würde, Macht und Verantwortung. [Charta (Entwurf)](docs/ki-charta.md) · [Sieben Leitthesen und fünf Gegenproben als JSON](public/ai/philosophy-engine.v0.json) · [Freiwilliges KI-Regelpaket](docs/erkenntnisprompt.md). Die Prinzipien sind angreifbar; weder Prompt noch KI-Schwarm können Modellverhalten erzwingen oder eine unabhängige Prüfung ersetzen.
+
+**We ask people to define and challenge the principles by which AI is judged.** This is a provisional, human-origin inquiry framework, not a universal or certified ethics standard.
 
 ## Gemeinsam klüger werden · Learn together
 

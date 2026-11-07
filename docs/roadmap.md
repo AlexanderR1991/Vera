@@ -62,6 +62,22 @@ Die [Gesamtprüfung des fliegenden Baums](gesamtpruefung-baum.md) verknüpft die
 
 Keine Vorregistrierung oder Wirksamkeit ist bislang nachgewiesen. Ohne tragfähigen Nutzen keine Ausweitung der automatischen Entscheidungsmacht.
 
+## Querschnittsforschung · Philosophischer Motor der KI
+
+Die [KI-Charta](ki-charta.md) und der [zweisprachige Prüfkatalog](../public/ai/philosophy-engine.v0.json) sind redaktionelle Entwürfe.
+
+- [x] Sieben anfechtbare normative KI-Thesen und konkrete Gegenproben dokumentieren
+- [x] Charta mit der öffentlichen Website und dem freiwilligen KI-Regelpaket verbinden
+- [ ] Betroffene und unabhängige Fachleute aus unterschiedlichen Lebenslagen beteiligen
+- [ ] Normative Mindestgrenzen, Rechte, Zielkonflikte, legitime Ausnahmen und Dissens getrennt erfassen
+- [ ] Aufgaben, Modellversionen, Gegenproben und Bewertungskriterien vor einem Versuch festlegen
+- [ ] KI-Systeme mit und ohne Charta unter vergleichbaren Bedingungen prüfen; Fehlversuche veröffentlichen
+- [ ] Wahrhaftigkeit, irreführende Überzeugungskraft, Manipulation, Befähigung und Einspruch unabhängig bewerten
+- [ ] Versionierung, Einspruch und Verantwortung institutionell erproben
+- [ ] Freiwillige Übernahme durch externe KI-Anbieter untersuchen, keine Durchsetzung behaupten
+
+**Freigabegrenze:** Ohne unabhängige Evaluation keine Behauptung über tatsächliche Modellkonformität, Sicherheit oder universelle Gültigkeit.
+
 ## Etappe 3 · Verantwortung und Versorgung verteilen
 
 **Freigabekriterium:** Zuständigkeiten, Einspruchswege und Finanzierung sind nachvollziehbar und im Alltag erprobt.

@@ -149,6 +149,26 @@
       }
     },
     {
+      "id": "ki",
+      "topic": {
+        "de": "Künstliche Intelligenz",
+        "en": "Artificial intelligence"
+      },
+      "question": {
+        "de": "Was MUSS eine KI für uns Menschen sein?",
+        "en": "What MUST AI be for us?"
+      },
+      "answer": {
+        "de": "Eine KI, die dir sagt, was du denken und wollen sollst, kann bequem sein. Aber sie könnte dir genau die Freiheit nehmen, die sie erweitern sollte. Wir schlagen vor: KI soll ihre Gründe und Grenzen offenlegen, auch widersprechen können und dich nicht heimlich steuern. Ob das immer gilt, müssen wir an Grenzfällen prüfen.",
+        "en": "An AI that tells you what to think and want may be convenient. But it could take away the freedom it ought to expand. We propose that AI should reveal its reasons and limits, disagree when justified and not secretly steer you. Edge cases may challenge this."
+      },
+      "challenge": {
+        "de": "Wenn eine KI nachweislich die bessere Entscheidung trifft: Wann darf sie deinen ausdrücklichen Willen übergehen – und wer müsste das begründen?",
+        "en": "If AI demonstrably makes a better decision, when may it override your explicit wish, and who must justify it?"
+      },
+      "related_page": "ki-und-mensch"
+    },
+    {
       "id": "sinn",
       "topic": {"de": "Sinn", "en": "Meaning"},
       "question": {"de": "Was macht ein gewöhnliches Leben bedeutsam?", "en": "What makes an ordinary life meaningful?"},

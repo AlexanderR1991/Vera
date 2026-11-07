@@ -10,7 +10,7 @@ const t=(de,english)=>en?english:de;
 const sections = [
  ["menschen", t("Menschen", "People")], ["philosophie", t("Philosophie", "Philosophy")],
  ["forschung", t("Forschung", "Research")], ["erkenntnis", t("Aussagearten", "Kinds of claim")],
- ["entscheidungen", t("Entscheidungen", "Decisions")], ["stand", t("Verantwortung", "Accountability")]
+ ["entscheidungen", t("Entscheidungen", "Decisions")], ["ki-motor", t("KI und Mensch", "AI and humanity")], ["stand", t("Verantwortung", "Accountability")]
 ];
 ---
 <Layout lang={lang} slug="mission">
@@ -40,7 +40,11 @@ const sections = [
  <p>{t("Menschen verantworten die Veröffentlichung. Wer eine Aussage ändern möchte, benennt die Stelle und legt den Einwand offen. Die Redaktion kann sie mit Gründen beibehalten, eingrenzen, korrigieren oder zurückziehen. Die frühere Fassung bleibt nachvollziehbar. Für eine offene Frage darf das Urteil offenbleiben.", "People take responsibility for publication. To change a claim, identify the passage and give your objection. The editors can give reasons for keeping, narrowing, revising or withdrawing it. Readers can trace the earlier version. An open question can remain open.")}</p>
  <p id="vertrauen">{t("Wenn du eine Aussage aus der Werkstatt zitierst, verlinke den Eintrag. Dort kannst du die Begründung, ihren Geltungsbereich und den Stand der Prüfung nachlesen.", "When you cite a claim from the workshop, link to its record. There you can read the reasoning, see where it applies and check its review status.")}</p>
  <a class="subtle-link" href={pathFor(lang,"aussagen")}>{t("Aussagen und Änderungsgeschichte", "Claims and revision history")} →</a></section>
- <section id="stand"><h2>{t("Wie lässt sich die Werkstatt selbst prüfen?", "How can the workshop itself be tested?")}</h2>
+ <section id="ki-motor"><h2>{t("Der philosophische Motor der KI.","The philosophical engine for AI.")}</h2>
+  <p>{t("Wir erforschen, was KI für Menschen sein MUSS. Ihre Fähigkeit zu antworten beantwortet nicht, welche Ziele und Grenzen gerechtfertigt sind. Menschen formulieren und prüfen die Maßstäbe; KI kann beim Gegenangriff helfen, aber keine Moral durch Stimmenzahl erzeugen.","We ask what AI MUST be for people. The ability to answer does not establish justified goals or limits. People propose and test the standards; AI may help challenge them but cannot create ethical truth by majority vote.")}</p>
+  <p>{t("Sieben erste Leitthesen über Wahrheit, Würde, Freiheit und Verantwortung sind öffentliche, anfechtbare Vorschläge – keine fertige oder durchsetzbare KI-Ethik.","Seven initial propositions on truth, dignity, liberty and responsibility are public, contestable proposals, not a final or enforceable AI ethics standard.")}</p>
+  <a class="subtle-link" href={pathFor(lang,"ki-und-mensch")}>{t("Charta und Gegenproben lesen","Read the charter and challenge cases")} →</a></section>
+  <section id="stand"><h2>{t("Wie lässt sich die Werkstatt selbst prüfen?", "How can the workshop itself be tested?")}</h2>
  <p>{t("Hilft unser Prüfblatt Menschen, Fehler zu finden, die sie bei einer gewöhnlichen Quellenprüfung übersehen? Wenn der Vergleich keinen Vorteil zeigt, müssen wir das Werkzeug ändern oder vereinfachen. Ob es hilft, ist offen.", "Does the worksheet help people catch errors they would miss in an ordinary source check? If the comparison finds no advantage, we should change or simplify the tool. Its benefit remains an open question.")}</p>
  <p><a class="subtle-link" href={project.repository+"/blob/main/docs/methodenkritik.md"}>{t("Acht Einwände gegen WIRKLICH und was wir daraus ändern", "Eight objections to the workshop and what we are changing")} ↗</a></p>
  <dl class="mission-accountability">

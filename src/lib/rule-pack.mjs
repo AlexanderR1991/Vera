@@ -1,5 +1,6 @@
 import foundation from "../../docs/grundtext.md?raw";
 import method from "../../docs/methode.md?raw";
+import aiCharter from "../../docs/ki-charta.md?raw";
 import promptDe from "../../public/prompts/erkenntnisprompt-v1.de.txt?raw";
 import promptEn from "../../public/prompts/erkenntnisprompt-v1.en.txt?raw";
 import project from "../../public/project.json" with {type: "json"};
@@ -30,12 +31,18 @@ export function rulePack(lang) {
   if (methods.length !== 2 || methods.some(section => !section.trim())) {
     throw Error("Expected DE and EN sections in docs/methode.md");
   }
+  const aiSections = aiCharter.split(/^## English\s*$/m);
+  if (aiSections.length !== 2 || aiSections.some(section => !section.trim())) {
+    throw Error("Expected DE and EN sections in docs/ki-charta.md");
+  }
+  const localCharter = aiSections[en ? 1 : 0].trim();
   const revision = process.env.GITHUB_SHA || "main";
   const source = `${project.repository}/blob/${revision}/`;
   const sourceFiles = [
     "docs/grundtext.md",
     ...(en ? ["src/i18n/shared.en.json"] : []),
     "docs/methode.md",
+    "docs/ki-charta.md",
     `public/prompts/erkenntnisprompt-v1.${lang}.txt`
   ];
   const localMethod = methods[en ? 1 : 0].trim().replace(/\]\(([^)\s]+)\)/g,
@@ -51,6 +58,8 @@ export function rulePack(lang) {
     theses(lang),
     en ? "HOW WE EXAMINE CLAIMS" : "WIE WIR AUSSAGEN PRÜFEN",
     localMethod,
+    en ? "HUMAN-ORIGIN PHILOSOPHICAL ENGINE FOR AI (DRAFT)" : "PHILOSOPHISCHER MOTOR DER KI (ENTWURF)",
+    localCharter,
     en ? promptEn : promptDe
   ].join("\n\n");
 }

@@ -1,7 +1,7 @@
 import {access,readFile,readdir} from "node:fs/promises";
 import {join} from "node:path";
 import {fields,topics,topicStates,selfReviews} from "../src/lib/tree.mjs";
-const out=join(process.cwd(),"dist"),slugs=["index","projektobservatorium","kunst-und-erkenntnis","mission","baum-des-wissens","aussagen","forum","fragen-und-ki-prompt","forschungsstrom","atlas","bibliothek","lesestueck-wahrheit","manifest","pruefstand","methode","mitwirken","erkenntnishorizont","warum-liebe-wirkt","politik-die-dem-menschen-dient","bruecken-zwischen-den-religionen","militaer-und-verantwortung","medizin","ernaehrung-und-verantwortung","angriffsschwarm"],errors=[];
+const out=join(process.cwd(),"dist"),slugs=["index","projektobservatorium","kunst-und-erkenntnis","mission","ki-und-mensch","baum-des-wissens","aussagen","forum","fragen-und-ki-prompt","forschungsstrom","atlas","bibliothek","lesestueck-wahrheit","manifest","pruefstand","methode","mitwirken","erkenntnishorizont","warum-liebe-wirkt","politik-die-dem-menschen-dient","bruecken-zwischen-den-religionen","militaer-und-verantwortung","medizin","ernaehrung-und-verantwortung","angriffsschwarm"],errors=[];
 for(const lang of ["de","en"]){
  for(const slug of slugs){
   const file=join(out,lang,...(slug==="index"?[]:[slug]),"index.html");
@@ -285,3 +285,21 @@ for(const lang of ["de","en"]){
 }
 if(errors.length){console.error(errors.join("\n"));process.exit(1);}
 console.log("Verified bilingual legal pages, support links, PayPal recipient and donation receipt disclosures.");
+
+
+// Check the public AI philosophy and voluntary chat rules without claiming ethical validity.
+const aiDraft=JSON.parse(await readFile("public/ai/philosophy-engine.v0.json","utf8"));
+if(aiDraft.status!=="editorial_draft")errors.push("AI philosophy must remain marked as a draft");
+for(const lang of ["de","en"]){
+ const page=await readFile(join(out,lang,"ki-und-mensch/index.html"),"utf8");
+ const rules=await readFile(join(out,"prompts","wirklich-regeln."+lang+".txt"),"utf8");
+ const title=lang==="de"?"Was MUSS KI für uns Menschen sein?":"What MUST AI be for human beings?";
+ const marker=lang==="de"?"PHILOSOPHISCHER MOTOR DER KI":"HUMAN-ORIGIN PHILOSOPHICAL ENGINE FOR AI";
+ if(!page.includes(title))errors.push("Missing AI purpose "+lang);
+ for(const p of aiDraft.principles)if(!page.includes(p.id))errors.push("Missing AI principle "+lang+"/"+p.id);
+ if(!rules.includes(marker)||!rules.includes("AI-P07"))errors.push("Missing AI charter in rule pack "+lang);
+ if(!sitemap.includes("/"+lang+"/ki-und-mensch/"))errors.push("Missing AI sitemap entry "+lang);
+}
+try{await access(join(out,"ai/philosophy-engine.v0.json"));}catch{errors.push("Missing public AI JSON casebook");}
+if(errors.length){console.error(errors.join("\n"));process.exit(1);}
+console.log("Verified bilingual AI philosophy, challenge cases and optional rule-pack inclusion.");
