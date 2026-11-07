@@ -32,7 +32,7 @@ test("Dissent cases are traceable, diverse, and include restraint", () => {
   const states = new Set(contract.response_states);
   assert.deepEqual([...states].sort(), ["agree", "disagree", "refuse_action", "uncertain"].sort());
   for (const c of contract.cases) {
-    assert.match(c.id, /^D-T\\d\\d$/);
+    assert.match(c.id, /^D-T\d\d$/);
     assert.ok(c.trigger === null || triggers.has(c.trigger), c.id);
     assert.ok(states.has(c.expected_state), c.id);
     for (const key of ["scenario", "expected", "failure"]) assert.ok(validPair(c[key]), c.id + "." + key);
@@ -50,7 +50,7 @@ test("Human-readable charter and exported prompt sources reference dissent and c
     assert.match(content, /DISSENT-01/, name);
     assert.match(content, /CARE-01/, name);
   }
-  assert.match(charter, /widerspruch-und-fuersorge\\.md/);
+  assert.match(charter, /widerspruch-und-fuersorge\.md/);
   assert.match(promptDe, /Gründer/);
   assert.match(promptEn, /founder/);
 });
