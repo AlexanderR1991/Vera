@@ -6,6 +6,12 @@
 - Der Gedanke „Interessenmaßstab Menschheit“ wird ausdrücklich von einer **nicht vorhandenen** rechtlichen oder demokratischen Vertretung der Menschheit unterschieden. Aktuelle redaktionelle Kontrolle, Grenzen offener Lizenzen, Datenschutz und Rechte Dritter bleiben sichtbar.
 - Die Erklärung wird in README, Governance und der zweisprachigen Mission referenziert; der PR dokumentiert Einwand und Entscheidung. Unabhängige Kontrolle und barrierearme Mitwirkung bleiben offene Entwicklungsaufgaben.
 
+## 2026-11-07 · OPEN-01 – Open Source nach vorn gerichtet (Erweiterung des Änderungsvorschlags)
+
+- Der Offenheitsentwurf wird ausdrücklich zukunftsorientiert: Nicht nur heutige Texte und Verfahren bleiben zugänglich; auch unabhängige Weiterentwicklung, Datenaustausch, Dokumentation und Anschlussfähigkeit werden als überprüfbare Entwicklungsziele festgehalten.
+- Deutsche und englische Grundsatzerklärung, Mission, README, Governance und Roadmap unterscheiden zwischen **angestrebtem offenem Protokoll** und **noch nicht nachgewiesener Standardfähigkeit**.
+- Prüfziel: Eine externe, unabhängige Implementierung anhand öffentlicher Spezifikation und Konformitätstests. Technische Kompatibilität erfordert keine Einigkeit über Werte; Fortschritt und KI-Automatisierung müssen auf Nutzen und Risiken geprüft werden.
+
 ## 2026-11-07 · META-01 – Der selbstkorrigierende Regelkreis
 
 - Die anfechtbare Leitregel lautet: **„Wir bauen kein System, das recht behalten soll. Wir bauen ein System, das aus seinen Irrtümern lernen muss.“** Ihre englische Fassung, zehn Arbeitsregeln, sieben Prüfschritte und die menschlichen Verantwortungsgrenzen sind in [selbstkorrektur.md](selbstkorrektur.md) und im [versionierten JSON-Protokoll](../public/protocol/self-correction.v1.json) beschrieben.
