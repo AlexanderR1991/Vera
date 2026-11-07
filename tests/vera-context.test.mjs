@@ -20,6 +20,7 @@ test("Vera exports the selected language from HEAD even with staged and unstaged
     "public/prompts/erkenntnisprompt-v1.de.txt", "public/prompts/erkenntnisprompt-v1.en.txt"];
   paths.forEach(copy);
   copy("scripts/vera-context.mjs");
+  copy("src/lib/vera-context.mjs");
   const command = join(root, "scripts/vera-context.mjs");
   const run = (...args) => execFileSync(process.execPath, [command, ...args], { cwd: tmpdir(), encoding: "utf8" });
   git("init", "-q");

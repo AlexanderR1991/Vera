@@ -1,3 +1,4 @@
+import {execFileSync} from "node:child_process";
 import {access,readFile,readdir} from "node:fs/promises";
 import {join} from "node:path";
 import {fields,topics,topicStates,selfReviews} from "../src/lib/tree.mjs";
@@ -377,3 +378,26 @@ for(const lang of ["de","en"]){
 }
 if(errors.length){console.error(errors.join("\n"));process.exit(1);}
 console.log("Verified bilingual universal question atlas, public scan, citation trace and domain backlinks.");
+
+const veraRevision = process.env.GITHUB_SHA;
+for (const lang of ["de", "en"]) {
+ const file = `vera-context.${lang}.txt`;
+ const page = await readFile(join(out, lang, "fragen-und-ki-prompt", "index.html"), "utf8");
+ const context = await readFile(join(out, "prompts", file), "utf8");
+ const href = new URL(`prompts/${file}`, projectMeta.website).pathname;
+ if (!page.includes('href="#vera"') || !page.includes('id="vera"') ||
+     !page.includes(`href="${href}"`) || !page.includes(`href="${href}" download`)) {
+  errors.push("Vera starter is missing a jump link, open link or download for " + lang);
+ }
+ if (/^[a-f0-9]{40}$/.test(veraRevision)) {
+  const cli = execFileSync(process.execPath, ["scripts/vera-context.mjs", lang], {encoding: "utf8"});
+  if (!context.startsWith(`Vera · Git ${veraRevision}\n`) || context !== cli) {
+   errors.push("Vera website and CLI contexts differ at the build revision for " + lang);
+  }
+ } else {
+  const preview = lang === "de" ? "Lokale Vorschau ohne bestätigten Git-Stand" : "Local preview without a verified Git revision";
+  if (!context.startsWith(`Vera · ${preview}\n`)) errors.push("Vera context lacks a preview notice for " + lang);
+ }
+}
+if (errors.length) {console.error(errors.join("\n")); process.exit(1);}
+console.log("Verified both Vera entry points, downloads and build revision labels.");

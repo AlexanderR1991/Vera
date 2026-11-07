@@ -7,6 +7,7 @@ const en=lang==="en";
 const pack=rulePack(lang);
 const packPath=base+rulePackPath(lang);
 const packUrl=new URL(packPath, Astro.site).href;
+const veraContextPath=base+`prompts/vera-context.${lang}.txt`;
 const examples=en?[
   ["Start simply", "Why should I trust this framework?"],
   ["Challenge a claim", "Which finding would change your view about love?"],
@@ -42,6 +43,7 @@ const examples=en?[
         <li>{en?"Open a conversation in the AI chat you already use and paste the text. If your chat accepts files, you can attach the text file instead.":"Öffne einen Chat in der KI, die du schon nutzt, und füge den Text ein. Unterstützt dein Chat Dateianhänge, kannst du stattdessen die Textdatei anhängen."}</li>
         <li>{en?"Add your question and send it. If you attach the file, write “Use the rules in this file to examine my question” above your question.":"Ergänze deine Frage und sende beides ab. Bei einem Dateianhang schreib dazu „Prüfe meine Frage nach den Regeln in der Datei.“"}</li>
       </ol>
+      <p><a class="inquiry-text-link" href="#vera">{en?"How to work with Vera ↓":"Wie du Vera begegnen kannst ↓"}</a></p>
       <div class="button-row inquiry-tools">
         <button class="button button--gold" type="button" data-copy-inquiry hidden>{en?"Copy the framework":"Regelwerk kopieren"}</button>
         <a class="button button--ghost" href={packPath} download>{en?"Download text file (.txt) ↓":"Textdatei herunterladen (.txt) ↓"}</a>
@@ -70,6 +72,23 @@ const examples=en?[
       <p class="small-note">{en?"REALLY? receives no questions or answers from your chat. You decide what to send to your AI provider and whether to share an excerpt publicly with the project. Check important claims against their sources. The method’s effectiveness is still an open question.":"WIRKLICH erhält aus deinem Chat keine Fragen oder Antworten. Du entscheidest, was du deinem KI-Anbieter schickst und ob du dem Projekt einen Ausschnitt öffentlich zeigst. Prüfe wichtige Aussagen anhand ihrer Quellen. Wie gut die Methode wirkt, ist eine offene Frage."}</p>
       <p class="small-note"><a class="inquiry-text-link" href={base+"prompts/erkenntnisprompt-v1."+lang+".txt"} download>{en?"Download the inquiry prompt on its own (v1.0, TXT)":"Nur den Erkenntnisprompt herunterladen (v1.0, TXT)"}</a> · <a class="inquiry-text-link" href={pathFor(en?"de":"en","fragen-und-ki-prompt")+"#prompt"} lang={en?"de":"en"}>{en?"Deutsche Fassung":"English version"}</a></p>
       <p class="small-note">{en?"AlexanderR1991 & contributors · CC BY-SA 4.0.":"AlexanderR1991 & Mitwirkende · CC BY-SA 4.0."} <a class="inquiry-text-link" href="https://github.com/AlexanderR1991/Wirklich/blob/main/LICENSING.md">{en?"License details ↗":"Lizenzdetails ↗"}</a></p>
+    </div>
+  </section>
+
+  <section class="section" id="vera" aria-labelledby="vera-title">
+    <div class="container">
+      <p class="section-kicker">{en?"START WITH ONE QUESTION":"MIT EINER FRAGE ANFANGEN"}</p>
+      <h2 id="vera-title">{en?"How to work with Vera":"Wie du Vera begegnen kannst"}</h2>
+      <p class="inquiry-lead">{en?"Vera is a project role you can try in your own AI chat. Open the starter text, copy it into a new chat and add a question or objection. If your chat supports files, you can attach the download instead and ask the AI to use it as context.":"Vera ist eine Projektrolle, die du in deinem eigenen KI-Chat ausprobieren kannst. Öffne den Starttext, kopiere ihn in einen neuen Chat und ergänze eine Frage oder einen Einwand. Wenn dein Chat Dateien unterstützt, kannst du die Datei anhängen und die KI bitten, sie als Kontext zu verwenden."}</p>
+      <div class="button-row inquiry-tools">
+        <a class="button button--gold" href={veraContextPath}>{en?"Open Vera starter text":"Vera-Starttext öffnen"}</a>
+        <a class="button button--ghost" href={veraContextPath} download>{en?"Download TXT ↓":"TXT herunterladen ↓"}</a>
+      </div>
+      <p class="small-note">{en?"The file contains the project profile, inquiry prompt and references for the site’s build. The AI you choose provides the answers. This page sends nothing to your chat.":"Die Datei enthält das Projektprofil, den Erkenntnisprompt und die Quellen zum Stand der Website. Die Antworten liefert die KI, die du auswählst. Diese Seite sendet nichts an deinen Chat."}</p>
+      <aside class="inquiry-example" aria-labelledby="vera-question">
+        <p class="section-kicker">{en?"A QUESTION TO TRY":"EINE FRAGE ZUM AUSPROBIEREN"}</p>
+        <h3 id="vera-question">{en?"“Vera, when would you disagree with the founder?”":"„Vera, wann würdest du dem Gründer widersprechen?“"}</h3>
+      </aside>
     </div>
   </section>
 
