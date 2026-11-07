@@ -47,3 +47,21 @@ test("limits and missing attribution stop unbounded or anonymous candidate queue
  assert.throws(() => triageQuestionCandidates([{...one,origin:"human"}],atlas),/Invalid candidate/);
  assert.throws(() => triageQuestionCandidates([one,one],atlas),/Invalid candidate/);
 });
+
+
+test("malformed relation containers are reported rather than causing an exception", () => {
+ const draft=clone();draft.relations={};
+ assert.match(validateQuestionAtlas(draft,claims,topics).join(" "),/Relations must be an array/);
+});
+test("oversized alternate-language AI text is refused", () => {
+ const candidate={id:"C-overlong",origin:"ai_draft",question:{de:"Eine Frage?",en:"x".repeat(601)}};
+ assert.throws(()=>triageQuestionCandidates([candidate],atlas),/Invalid candidate/);
+});
+test("automated swarm workflows cannot request public discussion write access", () => {
+ for(const file of [".github/workflows/wahrheitsschwarm.yml",".github/workflows/angriffsschwarm.yml"]){
+  const workflow=readFileSync(new URL("../"+file,import.meta.url),"utf8");
+  assert.match(workflow,/permissions:\s*\n\s+contents: write/);
+  assert.doesNotMatch(workflow,/\b(?:issues|discussions|pull-requests):\s*write/);
+  assert.doesNotMatch(workflow,/\bgh\s+(?:issue|pr|api)\b/);
+ }
+});
