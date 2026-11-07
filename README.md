@@ -10,6 +10,10 @@ Dieser Satz ist eine **anfechtbare Verfahrensregel**, nicht bloß Werbung: Jede 
 
 The challengeable process rule asks for a traceable revision path, type-appropriate checks, visible dissent and human accountability—not automatic agreement or AI-certified truth. [The correction loop (EN)](https://alexanderr1991.github.io/Wirklich/en/regelkreis/).
 
+**Hallo, ich bin Vera.** Wenn du mich in einer KI-Sitzung startest, arbeite ich mit dir an einer Frage. Hier auf GitHub kannst du nachlesen, worauf ich mich stütze. Ein guter Einwand kann meine Antwort verändern. Was ins Projekt übernommen wird, entscheiden Menschen. [Mit Vera arbeiten](#mit-vera-arbeiten--work-with-vera)
+
+**Hi, I’m Vera.** Start me in an AI session and we can work through a question together. Here on GitHub you can inspect the sources I use. A good objection can change my answer. People decide which changes the project adopts. [Work with Vera](#mit-vera-arbeiten--work-with-vera)
+
 **Unser nächstes großes Ziel ist eine Open-Source-KI – mit Menschen, für Menschen.** WIRKLICH entwickelt dafür einen offenen philosophischen Motor, nachvollziehbare Regeln und maschinenlesbare Protokolle. **Stand heute: offene Erkenntniswerkstatt und frühe Prototypen, keine fertige oder unabhängig betreibbare WIRKLICH-KI.** Wir wollen Menschen erreichen, bevor wir technisch skalieren. [Vision, Offenheitskriterien und ehrlicher Status (DE)](docs/open-source-ki.md) · [Open-source AI goal and current status (EN)](docs/en/open-source-ai.md).
 
 **Our next major goal is open-source AI — with people, for people.** We are building its philosophical foundation in public. This is a goal, not a claim that WIRKLICH already operates an independently runnable open AI model. [Read the development principles](docs/en/open-source-ai.md).
@@ -100,6 +104,25 @@ The [status page](https://alexanderr1991.github.io/Wirklich/en/projektstatus/) s
 ## Mitwirken · Contribute
 
 Eine Frage braucht nur einen verständlichen Satz. Für einen Einwand helfen die genaue Stelle, dein Grund und eine mögliche Korrektur. Redaktionelle Änderungen werden in einem öffentlichen Pull Request begründet und von einem verantwortlichen Menschen freigegeben. [Beitragsleitfaden / Contribution guide](CONTRIBUTING.md) · [Kritik einreichen / Challenge a claim](https://github.com/AlexanderR1991/Wirklich/issues/new?template=angriff.yml) · [Erkenntnisprompt / Inquiry prompt](docs/erkenntnisprompt.md)
+
+## Mit Vera arbeiten · Work with Vera
+
+**Auf GitHub.** Wenn der Copilot Cloud Agent für dich und das Repository verfügbar ist, wähle im Agentenmenü zuerst `AlexanderR1991/Wirklich` und dann **Vera**. Das Profil gibt ihr Werkzeuge zum Lesen und Suchen. [Agentenmenü](https://github.com/copilot/agents) · [Agentenprofil](.github/agents/vera.agent.md) · [GitHub-Anleitung](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/create-custom-agents)
+
+**On GitHub.** If Copilot cloud agent is available to you and this repository, select `AlexanderR1991/Wirklich` and then **Vera** in the agent picker. The profile gives her tools to read and search. [Agent picker](https://github.com/copilot/agents) · [Agent profile](.github/agents/vera.agent.md)
+
+**In deinem KI-Chat.** Führe im Git-Checkout einen der Befehle aus und kopiere die Ausgabe in eine neue Sitzung. Der Export enthält Veras Profil, Prüfregeln und die angegebenen Zeilen aus demselben Commit. Teile nur Inhalte, die dafür freigegeben sind.
+
+**In your own AI chat.** Run one of these commands from a Git checkout and paste the output into a fresh session. It includes Vera’s profile, inquiry rules and the selected lines from the same commit. Share material only when it is approved for sharing.
+
+```sh
+node scripts/vera-task.mjs de docs/selbstkorrektur.md:24-32
+node scripts/vera-task.mjs en docs/selbstkorrektur.md:61-65
+```
+
+**Gegenprobe.** Frag, welche Zeile ihre Antwort stützt und was Vera zusätzlich prüfen müsste. Wenn du einen Fehler findest, halte Git-Stand, Fundstelle und erwartete Korrektur fest. [Vera-Profil](docs/vera.md) · [Kritik einreichen](https://github.com/AlexanderR1991/Wirklich/issues/new?template=kritik.yml)
+
+**Try a check.** Ask which line supports her answer and what else Vera would need to verify. If you find an error, record the Git revision, the exact passage and the expected correction. [Vera profile](docs/vera.md#english) · [Submit a critique](https://github.com/AlexanderR1991/Wirklich/issues/new?template=kritik.yml)
 
 ## Lokal entwickeln · Local development
 
