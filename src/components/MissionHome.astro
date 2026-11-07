@@ -59,6 +59,14 @@ const featuredQuestions = everydayQuestions.questions.slice(0, 3);
     <a class="home-link" href={pathFor(lang,"ki-und-mensch")}>{lang==="de"?"Den philosophischen Motor prüfen":"Examine the philosophical engine"} <span aria-hidden="true">→</span></a>
   </section>
 
+  <section class="home-ai container" aria-labelledby="home-bridge-title">
+    <p class="section-kicker">{lang==="de"?"DIE BRÜCKE · NEUES FORSCHUNGSPROGRAMM":"THE BRIDGE · NEW RESEARCH PROGRAMME"}</p>
+    <h2 id="home-bridge-title">{lang==="de"?"Verstehen, ohne zustimmen zu müssen.":"Understanding without having to agree."}</h2>
+    <p>{lang==="de"?"Muss Einigkeit das Ziel jedes Konflikts sein? Unsere offene Forschung trennt zwei Fragen: Wie gut können Menschen die Position des anderen wiedergeben – und wie stark stimmen sie inhaltlich überein?":"Does every conflict have to end in agreement? Our open research separates two questions: How accurately can people restate each other's position, and how much do their own views agree?"}</p>
+    <a class="home-link" href={pathFor(lang,"die-bruecke")}>{lang==="de"?"Die Mathematik des Dazwischen erkunden":"Explore Mathematics Between Minds"} →</a>
+    <p>{lang==="de"?"Forschungsentwurf M-02 · Modellbeispiele, noch keine Studie.":"M-02 research draft · model examples, not a completed study."}</p>
+  </section>
+
   <section class="home-doorways container" aria-label={t.doorwaysLabel}>
     <div class="home-play">
       <p class="section-kicker">{t.playLabel}</p>
