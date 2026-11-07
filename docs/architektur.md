@@ -36,6 +36,12 @@ Die erste Inventur nutzt **kein** autonomes LLM und keine personenbezogenen Date
 4. **Prüfstand:** Status, Aussageart, Quellen, Einwände, Alternativen und Entscheidungen.
 5. **Mitwirkung:** respektvolle Kritik und transparente Korrekturen.
 
+## Vorgeschlagenes Atlas-Fachagenten-Netzwerk · AFA-0.1 (noch inaktiv)
+
+Ein späterer Fachagent pro relevantem Themenkreis ist **als prüfende Rolle**, nicht als eigenständige Wahrheitsinstanz vorgesehen. Die sechs übergeordneten Atlasfelder werden von 23 gegenwärtigen Fachthemen unterschieden; Fachrollen werden **fragebezogen** aufgerufen, anstatt dauerhaft alle miteinander abstimmen zu lassen. Getrennte Erstbeurteilungen, Quellenledger, starke Gegenproben, Betroffenenperspektiven und eine Synthese mit explizitem Dissens sollen die vorhandene menschlich verantwortete META-01-Schleife unterstützen. Eine KI-Mehrheit kann weder Konsens beweisen noch Erkenntnisreife R0–R4 ändern.
+
+Der [ausgearbeitete DE-Entwurf](fachagenten-netzwerk.md), die [englische Fassung](en/atlas-specialist-agents.md) und das [rein inaktive Rollenregister](../public/ai/atlas-agents.v0.json) sind Vorbereitung, **keine produktive KI-Orchestrierung**. Neue Agenten, Kosten, Backend, Autoposting oder Freigaberechte werden nicht aktiviert. Empirischer Zusatznutzen und unabhängige Governance müssen erst geprüft werden.
+
 ## KI als Gegenstand des Erkenntnismotors
 
 Die [KI-Charta](ki-charta.md) ist ein menschengeprägter, öffentlich angreifbarer Normenentwurf. [Versionierter JSON-Prüfkatalog](../public/ai/philosophy-engine.v0.json), [Website](https://alexanderr1991.github.io/Wirklich/de/ki-und-mensch/) und [freiwilliges KI-Regelpaket](erkenntnisprompt.md) geben denselben Ansatz in unterschiedlichen Zugangsformen wieder. Normative Vorschläge sind keine gemessenen Modellfähigkeiten. Strukturtests prüfen nur Datenkonsistenz; keine automatische KI-Aufsicht und kein fremder Modellzugriff.
