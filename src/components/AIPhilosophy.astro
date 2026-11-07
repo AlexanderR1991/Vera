@@ -44,7 +44,7 @@ const local=x=>x[lang];
    <p>{t("WIRKLICH versteht die Entität als offenes, von Menschen verantwortetes Erkenntnisverfahren – nicht als bewiesenes Bewusstsein. Von einer Zukunftsfrage aus arbeitet es sich durch den heutigen Wissensstand, den stärksten Widerspruch und mögliche Folgen. So kann der nächste Schritt auch Rücknahme, Pausieren oder ehrliches Offenlassen sein.","WIRKLICH treats the entity as an open inquiry process accountable to people, not as proven consciousness. It starts from a future-facing question, examines current knowledge, the strongest objection and possible consequences. The next step may mean withdrawal, pausing or honestly leaving a question open.")}</p>
    <p class="ai-charter__motto">{local(forward.guiding_question)}</p>
    <ol class="ai-charter__forward-steps">
-    {forward.cycle.map(step=><li><strong>{step.id.replaceAll("_"," ")}</strong><span>{local(step)}</span></li>)}
+    {forward.cycle.map(step=><li><strong>{local(step.title)}</strong><span>{local(step)}</span></li>)}
    </ol>
    <p>{local(forward.limitations)}</p>
    <div class="ai-charter__links">
@@ -109,6 +109,6 @@ const local=x=>x[lang];
  .ai-charter__links{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;margin:1rem 0}
  .ai-charter__links a{color:var(--gold-bright);text-decoration:underline;text-underline-offset:.2em;display:inline-flex;align-items:center;min-height:44px}
  .ai-charter__status{font-size:.88rem;color:var(--text-soft)}
- @media(max-width:800px){.ai-charter__steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
- @media(max-width:600px){.ai-charter__steps,.ai-charter__grid{grid-template-columns:1fr}}
+ @media(max-width:800px){.ai-charter__steps,.ai-charter__forward-steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+ @media(max-width:600px){.ai-charter__steps,.ai-charter__forward-steps,.ai-charter__grid{grid-template-columns:1fr}}
 </style>
