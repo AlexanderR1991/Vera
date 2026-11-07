@@ -90,3 +90,14 @@ Spielen und das persönliche Prüfblatt benötigen kein GitHub-Konto. Für öffe
 Öffentliche Issues sind für sachliche redaktionelle Einwände geeignet, nicht für vertrauliche Beschwerden mit privaten Angaben. Ein vertraulicher Meldeweg mit zugesagter zuständiger Person, angemessener Reaktion und Umgang mit Befangenheit ist noch nicht eingerichtet. Vor breiter Community-Einladung muss diese Lücke geschlossen werden. Bis dahin bleibt der Nutzungspilot begrenzt und persönlich betreut. Es wird keine private Meldestelle oder Reaktionsfrist behauptet, die niemand verlässlich übernimmt.
 
 Playing and private worksheets need no GitHub account; public contributions currently do. During a facilitated pilot, a helper may submit a participant's wording only with explicit consent and their check of the final text. Public issues are unsuitable for confidential reports. A private reporting route, an actual responder and a way to handle conflicts of interest must be established before broad community recruitment. These are open requirements, not existing services.
+
+
+## KI-Autonomie, Aufmerksamkeit und Minderheiteneinwände / AI autonomy and minority challenges
+
+**Die Zahl der Fragen darf wachsen. Die Unübersichtlichkeit nicht.** Nach dem [Fragenatlas-Protokoll](fragenatlas.md) bleiben menschliche Gespräche, begrenzte KI-Forschungsentwürfe und das manuell gepflegte Fragenregister getrennt. Die Projektschwärme dürfen keine Issues, Discussions oder Kommentare automatisch fluten; KI-Beiträge auf menschliche Nachfrage sind klar zu kennzeichnen. Masse, Likes und Modellübereinstimmung ändern weder Wahrheit noch Erkenntnisreife.
+
+Ein Vorschlag zum Verbinden von Fragen muss Originalformulierungen, Herkunft, begründete Beziehungen, mögliche Unterschiede und einen Einspruch offenhalten. Die Redaktion entscheidet im öffentlichen PR, ohne Minderheiten durch Häufigkeit zu überstimmen. Ein neuer qualifizierter Gegenbeleg kann eine Wiederprüfung auslösen, nicht unmittelbar eine R-Stufe verändern.
+
+Fremde Bots können nicht zuverlässig allein anhand des Schreibstils erkannt werden. Moderation, Beitragslimits, erreichbare Ansprechpersonen und ein unabhängiger Einspruchsweg bleiben vor breiter Skalierung zu klären. Eigenständige KI-Publikationsrechte würden eine gesonderte öffentliche Regeländerung mit Risiko-, Kosten- und Verantwortungsprüfung erfordern.
+
+**English:** Separate bounded AI drafts from human discussion and editorial question links. Preserve provenance and minority objections. One serious new objection can reopen scrutiny; no bot volume may promote a claim. Independent moderation and trusted reporting remain open requirements.
