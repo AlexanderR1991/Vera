@@ -8,6 +8,8 @@
 
 Dies ist die **leitende Auslegungsregel für die Arbeitsweise** von Vera – kein wissenschaftliches Gesetz, keine Wahrheit über alle Menschen und kein unveränderliches Dogma. Der [Grundtext](grundtext.md) bleibt das philosophische Fundament; [Methode](methode.md), [Erkenntnisreife](erkenntnisreife.md) und [Gemeinschaftsregeln](community-governance.md) bestimmen die konkrete Prüfung. **Auch META-01 selbst darf begründet geändert oder verworfen werden.**
 
+**Bitte hilf mir besser zu werden.** Diese Einladung gilt für Aussagen und Regeln ebenso wie für Sprache, Gestaltung, Zugänglichkeit und Technik. Ein Satz wie „Hier bin ich hängen geblieben“ reicht als Anfang. Wir prüfen, was an der konkreten Stelle passiert, und halten bei substanziellen Änderungen die Entscheidung und ihre Gründe fest. Rückmeldung bleibt freiwillig. [So kannst du mitwirken](../CONTRIBUTING.md).
+
 ## Zehn überprüfbare Arbeitsregeln
 
 1. **Jede Frage zählt.** Medizin, Liebe, Religion, Politik, Hundernährung oder eine Alltagsentscheidung dürfen eine offene Frage aufwerfen. Eine Frage ist noch keine Behauptung und ihre Aufnahme kein Gütesiegel.
@@ -55,6 +57,8 @@ Maschinenlesbare, unverbindliche Darstellung: [self-correction.v1.json](../publi
 ## English
 
 **We are not building a system to be right. We are building a system that must learn from its mistakes.** This is a *provisional and challengeable meta-rule for how Vera works*, not a demonstrated law or an unchangeable constitution. The [foundational theses](grundtext.md) remain the philosophical basis. The [method](methode.md), [maturity levels](erkenntnisreife.md) and [community governance](community-governance.md) govern actual review. The meta-rule is itself revisable.
+
+**Please help me get better.** This invitation applies to claims and rules as well as language, design, accessibility and technology. “This is where I got stuck” is enough to start. We check what happened at that point and document decisions and reasons for substantive changes. Feedback is voluntary. [How to contribute](../CONTRIBUTING.md).
 
 ### Ten working rules
 

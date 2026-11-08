@@ -27,6 +27,9 @@ const featuredQuestions=everydayQuestions.questions.slice(0,3);
     <div class="home-opening__copy">
       <p class="home-opening__label">{de?"Offene Erkenntniswerkstatt · im Aufbau":"Open inquiry workshop · in development"}</p>
       <h1 id="home-heading" class="home-opening__title">{t.opening.greeting}</h1>
+      <a class="home-link home-opening__entry" href={pathFor(lang,"mitwirken","rueckmeldung")}>
+        {ui[lang].feedbackInvitation} <span aria-hidden="true">→</span>
+      </a>
       <p class="home-opening__ambition">{t.opening.ambition}</p>
       <p class="home-opening__motto">{t.opening.motto}</p>
       <div class="home-opening__links">

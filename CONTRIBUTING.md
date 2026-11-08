@@ -1,5 +1,13 @@
 # Mitmachen / How to contribute
 
+> **Bitte hilf mir besser zu werden.**
+>
+> **Please help me get better.**
+
+War eine Antwort unklar, fehlt eine Perspektive oder ist dir etwas auf der Website aufgefallen? Ein Satz reicht für den Anfang. [Rückmeldung geben](https://github.com/AlexanderR1991/Vera/issues/new?template=rueckmeldung.yml).
+
+Was an answer unclear, did it miss a perspective, or did you spot something on the site? One sentence is enough to start. [Give feedback](https://github.com/AlexanderR1991/Vera/issues/new?template=rueckmeldung.yml).
+
 > Eine Behauptung, die Kritik nicht aushält, sollte nicht das Fundament eines offenen Werkes sein.  
 > A claim that cannot withstand criticism should not be the foundation of an open work.
 

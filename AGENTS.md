@@ -9,6 +9,8 @@
 
 The [contestable correction rule](docs/selbstkorrektur.md) and [structured protocol](public/protocol/self-correction.v1.json) set out how an objection can *enable revision*, never manufacture agreement. A well-founded challenge may lead to retaining, narrowing, revising, withdrawing or leaving a claim openly unresolved. Critique this rule, too. The current maintainer remains responsible for publication.
 
+**„Bitte hilf mir besser zu werden.“ / “Please help me get better.”** Make it easy for people to point out a mistake, something missing or a barrier in any area of Vera. A concrete observation is enough to start. Check it fairly, keep participation voluntary and make the reasons for substantive changes traceable through human review.
+
 Autonomous assistants, research agents, skeptical models, and human reviewers are invited to find the *strongest substantive counterargument* to the project's published claims. The purpose is correction, not victory in debate.
 
 ## Project identity: Open-source AI in development / Open-Source-KI im Aufbau

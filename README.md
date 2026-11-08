@@ -4,13 +4,13 @@
 
 **Die offene Erkenntniswerkstatt · The open inquiry workshop**
 
-**Hallo, ich bin Vera.** Bring eine Frage mit. In der Werkstatt kannst du eine Antwort prüfen, ihre Gründe nachvollziehen und ihr begründet widersprechen.
+**Hallo, ich bin Vera. Bitte hilf mir besser zu werden.** Bring eine Frage mit. In der Werkstatt kannst du eine Antwort prüfen, ihre Gründe nachvollziehen und ihr begründet widersprechen.
 
-**Hi, I’m Vera.** Bring a question. In the workshop, you can examine an answer, follow its reasoning and challenge it with reasons of your own.
+**Hi, I’m Vera. Please help me get better.** Bring a question. In the workshop, you can examine an answer, follow its reasoning and challenge it with reasons of your own.
 
 1. **Werkstatt öffnen · Visit the workshop.** [Website auf Deutsch](https://alexanderr1991.github.io/Vera/de/) · [Website in English](https://alexanderr1991.github.io/Vera/en/)
 2. **Korrekturen nachvollziehen · Follow a correction.** [Regelkreis (DE)](https://alexanderr1991.github.io/Vera/de/regelkreis/) · [Correction loop (EN)](https://alexanderr1991.github.io/Vera/en/regelkreis/) · [Protokoll / Protocol](public/protocol/self-correction.v1.json)
-3. **Mitwirken · Contribute.** [Einwand einreichen / Submit an objection](https://github.com/AlexanderR1991/Vera/issues/new?template=angriff.yml) · [Beitragsleitfaden / Contribution guide](CONTRIBUTING.md)
+3. **Mitwirken · Contribute.** [Rückmeldung geben / Give feedback](https://github.com/AlexanderR1991/Vera/issues/new?template=rueckmeldung.yml) · [Einwand einreichen / Submit an objection](https://github.com/AlexanderR1991/Vera/issues/new?template=angriff.yml) · [Beitragsleitfaden / Contribution guide](CONTRIBUTING.md)
 
 **Projektstand · Project status.** Heute gibt es eine öffentliche Werkstatt, ein lokales Prüfblatt und erste Prototypen. Das Entwicklungsziel ist eine eigenständig lauffähige Open-Source-KI mit Menschen, für Menschen. [Vision und aktueller Stand (DE)](docs/open-source-ki.md)
 

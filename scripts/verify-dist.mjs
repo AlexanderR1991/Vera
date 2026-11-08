@@ -4,6 +4,8 @@ import missionCopy from "../src/lib/mission-copy.json" with {type:"json"};
 import {fields,topics,topicStates,selfReviews} from "../src/lib/tree.mjs";
 const out=join(process.cwd(),"dist"),slugs=["index","projektobservatorium","die-bruecke","grundfragen","kunst-und-erkenntnis","mission","regelkreis","ki-und-mensch","baum-des-wissens","esoterik-katalog","aussagen","forum","fragen-und-ki-prompt","forschungsstrom","atlas","bibliothek","lesestueck-wahrheit","manifest","pruefstand","methode","mitwirken","erkenntnishorizont","warum-liebe-wirkt","politik-die-dem-menschen-dient","bruecken-zwischen-den-religionen","militaer-und-verantwortung","medizin","ernaehrung-und-verantwortung","angriffsschwarm"],errors=[];
 for(const lang of ["de","en"]){
+ const invitation=lang==="de"?"Bitte hilf mir besser zu werden.":"Please help me get better.";
+ const feedbackLink=`href="/Vera/${lang}/mitwirken/#rueckmeldung"`;
  for(const slug of slugs){
   const file=join(out,lang,...(slug==="index"?[]:[slug]),"index.html");
   let html;try{html=await readFile(file,"utf8");}catch{errors.push("Missing "+file);continue;}
@@ -12,6 +14,11 @@ for(const lang of ["de","en"]){
   if(!html.includes('rel="canonical"'))errors.push("Missing canonical "+file);
   if(!html.includes('/Vera/de/')||!html.includes('/Vera/en/'))errors.push("Wrong locale URLs "+file);
   if(!html.includes("assets/style.css"))errors.push("Missing CSS reference "+file);
+  const footer=html.split('<footer class="footer">')[1]?.split("</footer>")[0] ?? "";
+  if(!footer.includes(invitation)||!footer.includes(feedbackLink))errors.push("Missing feedback invitation in footer of "+file);
+  const main=html.split("</main>")[0];
+  if(slug==="index"&&(!main.includes(invitation)||!main.includes(feedbackLink)))errors.push("Missing feedback invitation on home "+lang);
+  if(slug==="mitwirken"&&(!main.includes('id="rueckmeldung"')||!main.includes(invitation)||!main.includes('issues/new?template=rueckmeldung.yml"')))errors.push("Missing contribution entry point for feedback "+lang);
  }
 }
 for(const file of ["index.html","atlas.html","methode.html","assets/style.css","assets/site.js","assets/signet.svg","sitemap.xml"]){
@@ -334,12 +341,15 @@ for(const lang of ["de","en"]){
  const home=await readFile(join(out,lang,"index.html"),"utf8");
  const correctionPage=await readFile(join(out,lang,"regelkreis/index.html"),"utf8");
  const pack=await readFile(join(out,"prompts","wirklich-regeln."+lang+".txt"),"utf8");
+ const prompt=await readFile(join(out,"prompts",`erkenntnisprompt-v1.${lang}.txt`),"utf8");
+ const invitation=lang==="de"?"Bitte hilf mir besser zu werden.":"Please help me get better.";
  if(!home.includes(correctionProtocol.motto[lang])||!home.includes("/"+lang+"/regelkreis/"))errors.push("Missing META-01 on home "+lang);
  if(!correctionPage.includes(correctionProtocol.motto[lang]))errors.push("Missing motto on correction page "+lang);
  const readerCheck=lang==="de"?"Verständlichkeit beim ersten Lesen erproben":"Try it with a first-time reader";
  if(!correctionPage.includes('id="leseprobe"')||!pack.includes(readerCheck))errors.push("Missing first-time reader check "+lang);
  for(const p of correctionProtocol.principles)if(!correctionPage.includes(p.id))errors.push("Missing correction principle "+lang+"/"+p.id);
  if(!pack.includes("META-01")||!pack.includes(correctionProtocol.motto[lang]))errors.push("Exported rules omit META-01 "+lang);
+ if(!pack.includes(invitation)||!prompt.includes(invitation))errors.push("Exported rules or prompt omit feedback invitation "+lang);
  if(!sitemap.includes("/"+lang+"/regelkreis/"))errors.push("Correction route absent from sitemap "+lang);
 }
 try{await access(join(out,"protocol/self-correction.v1.json"));}catch{errors.push("Missing public self-correction protocol");}
