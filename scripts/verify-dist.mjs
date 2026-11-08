@@ -1,5 +1,6 @@
 import {access,readFile,readdir} from "node:fs/promises";
 import {join} from "node:path";
+import missionCopy from "../src/lib/mission-copy.json" with {type:"json"};
 import {fields,topics,topicStates,selfReviews} from "../src/lib/tree.mjs";
 const out=join(process.cwd(),"dist"),slugs=["index","projektobservatorium","die-bruecke","grundfragen","kunst-und-erkenntnis","mission","regelkreis","ki-und-mensch","baum-des-wissens","esoterik-katalog","aussagen","forum","fragen-und-ki-prompt","forschungsstrom","atlas","bibliothek","lesestueck-wahrheit","manifest","pruefstand","methode","mitwirken","erkenntnishorizont","warum-liebe-wirkt","politik-die-dem-menschen-dient","bruecken-zwischen-den-religionen","militaer-und-verantwortung","medizin","ernaehrung-und-verantwortung","angriffsschwarm"],errors=[];
 for(const lang of ["de","en"]){
@@ -190,7 +191,11 @@ for(const lang of ["de","en"]){
  const name=lang==="de"?project.name:project.english_name;
  const home=await readFile(join(out,lang,"index.html"),"utf8");
  const heading=home.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/)?.[1];
- if(heading?.replace(/<[^>]+>/g," ").replace(/\s+/g," ").trim()!==(lang==="de"?"Was ist wirklich?":"What is real?"))errors.push("Missing guiding question on "+lang+" homepage");
+ const {greeting,ambition,motto}=missionCopy[lang].opening;
+ const opening=home.match(/<section class="home-opening"[^>]*>([\s\S]*?)<\/section>\s*<section class="industrial-board"/)?.[1]??"";
+ if(heading?.trim()!==greeting||!opening.includes(ambition)||!opening.includes(motto))errors.push("Missing Vera introduction for "+lang);
+ if(!opening.includes('stroke-dasharray="346 14"')||!opening.includes('transform="rotate(-38 100 100)"'))
+   errors.push("Missing Vera circle or adjacent pinboard for "+lang);
  for(const entry of await readdir(join(out,lang),{withFileTypes:true})){
   const file=entry.isDirectory()?join(out,lang,entry.name,"index.html"):join(out,lang,entry.name);
   if(!entry.isDirectory()&&!entry.name.endsWith(".html"))continue;
