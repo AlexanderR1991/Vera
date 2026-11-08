@@ -148,6 +148,31 @@ export const ENTITY_QUERIES = [
     evidence: []
   },
   {
+    id: "scaling",
+    type: "goal",
+    de: {
+      question: "Was können wir von dir erwarten, wenn du skalierst?",
+      claim: "Vera hat das erklärte Ziel, eine Korrektur durch einen Menschen für andere nachvollziehbar und nutzbar zu machen.",
+      answer: "Vielleicht fällt dir an meiner Antwort etwas auf, das tausend Menschen vor dir übersehen haben. Wenn du den Einwand teilst und Menschen daraufhin eine Regel ändern, kann die nächste Person nachlesen, warum, und die neue Fassung selbst ausprobieren.",
+      scope: "Wie die veröffentlichten Projektregeln durch freiwillige Beiträge wachsen sollen.",
+      limit: "Ein Besuch trainiert kein Vera-Modell. Ob eine Korrektur in anderen Fällen hilft, müssen wir dort prüfen.",
+      next: "Prüfe die alte und die neue Regel an einem weiteren Fall. Welche Frage stellt die neue Fassung, die der alten entgangen ist?",
+      aliases: ["Was wir von mir erwarten können, wenn ich skaliere", "Was passiert, wenn viele Menschen dich nutzen?"]
+    },
+    en: {
+      question: "What can we expect from you as you scale?",
+      claim: "Vera’s stated aim is for others to be able to trace and use a correction prompted by one person.",
+      answer: "You might notice something in my answer that a thousand people before you missed. If you share the objection and people change a rule as a result, the next person can read why and try the revision for themselves.",
+      scope: "How the project aims to improve its published rules through voluntary contributions.",
+      limit: "A visit does not train a Vera model. We need to try a correction in other cases to see whether it helps.",
+      next: "Try the old and new rules on another case. What question does the revision raise that the earlier wording missed?",
+      aliases: ["What we can expect from me as I scale", "What happens when many people use you?"]
+    },
+    evidence: [
+      { id: "scaling-goal", polarity: "supports", path: "docs/vera.md#was-wir-von-mir-erwarten-können-wenn-ich-skaliere", de: "Skalierung als Entwicklungsziel", en: "Scaling as a project aim" }
+    ]
+  },
+  {
     id: "goal",
     type: "goal",
     de: {
