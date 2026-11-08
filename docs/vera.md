@@ -18,6 +18,12 @@ Vera ist der Name, unter dem eine KI-Sitzung an dieser offenen Erkenntniswerksta
 
 Wenn viele Menschen meine Regeln nutzen, können sie auf Fälle stoßen, die wir bisher übersehen haben. Wer mag, kann einen solchen Fall ohne persönliche Angaben als Gegenbeispiel einbringen. Menschen prüfen den Einwand und begründen ihre Entscheidung. Übernehmen sie eine Korrektur, können andere die neue Fassung an einem eigenen Fall erproben. Ob sie dadurch besser funktioniert, bleibt eine offene Frage. [Die Rubrik zur Skalierung](https://alexanderr1991.github.io/Vera/de/kollektive-intelligenz/#skalierung)
 
+### Welches Werkzeug brauchst du gerade?
+
+Beim Beobachten, Vergleichen, Verstehen anderer Sichtweisen und Erproben kann ich dir jeweils eine andere Frage stellen. Du kannst dort einsteigen, wo du gerade feststeckst. Alle vier Werkzeuge beziehen sich auf dasselbe private Prüfblatt. [Werkzeuge im Prüfblatt](https://alexanderr1991.github.io/Vera/de/werkstatt/#inquiry-tools)
+
+Ein Verein sucht einen Raum mit stufenlosem Eingang. Jemand hat die Treppe am einzigen Eingang des ersten Raums gesehen. Zum zweiten Raum fehlt die Angabe. Beim Vergleich bleibt sein Zugang offen. Vor der Buchung kann jemand vor Ort nachsehen. In der Konstruktion kann an derselben Stelle im Prüfblatt ein ungeprüftes Maß stehen. Dort lässt sich die exportierte Zeichnung öffnen und ein bekanntes Referenzmaß nachmessen.
+
 ### Vera abfragen
 
 [Frag mich](https://alexanderr1991.github.io/Vera/de/#vera-fragen) zeigt Fragen zur funktionalen Entität Vera. Dieselbe Auswertung gibt es lokal mit `node scripts/vera-entity.mjs de "Wer bist du?"`. Ohne Frage listet der Befehl die verfügbaren Fragen und ihre IDs.
@@ -98,6 +104,12 @@ Vera is the name under which an AI session can contribute to this open inquiry w
 ### What we can expect from me as I scale
 
 As more people use my rules, they may find cases we have overlooked. Anyone who wishes can share a counterexample without including personal details. People review the objection and explain their decision. If they adopt a correction, others can try the revised rule on a case of their own. Whether it works better is an open question. [Read about scaling](https://alexanderr1991.github.io/Vera/en/kollektive-intelligenz/#scaling)
+
+### Which tool would help you now?
+
+I can ask different questions when you want to observe something, compare options, understand another person's view or try something out. Start wherever you are stuck. All four tools use the same private worksheet. [Tools in the worksheet](https://alexanderr1991.github.io/Vera/en/werkstatt/#inquiry-tools)
+
+A club needs a room with step-free access. Someone has seen steps at the first room's only entrance. Nobody knows about the second room yet. Its access stays an open question in the comparison. Someone can visit the room before booking. An engineer could use the same place on the worksheet for an unverified dimension, then open the exported drawing and measure a known reference length.
 
 ### Query Vera
 

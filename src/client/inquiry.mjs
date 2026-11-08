@@ -5,7 +5,7 @@ const root = document.querySelector("[data-inquiry-workbench]");
 if (root) {
   const lang = root.dataset.lang;
   const en = lang === "en";
-  const form = root.querySelector("form");
+  const form = root.querySelector("[data-inquiry-form]");
   const status = root.querySelector("[data-inquiry-status]");
   const preview = root.querySelector("[data-inquiry-preview]");
   const curiosity = root.querySelector("[data-inquiry-curiosity]");
@@ -49,6 +49,7 @@ if (root) {
     // Reveal imported detail rather than silently hiding existing work.
     root.querySelector("[data-inquiry-deeper]").open = note.type !== "unclassified" || ["claim", "scope", "support", "positions", "revision"].some(key => note[key]);
     update();
+    root.dispatchEvent(new Event("inquiry-sheet-change"));
   };
   const report = message => { status.textContent = message; };
   const download = (contents, extension, mime, basename = "wirklich-pruefblatt") => {
@@ -94,7 +95,14 @@ if (root) {
     } catch { report(t("Dieser Entwurf konnte nicht geöffnet werden. Versuche einen JSON-Import.", "This draft could not be opened. Try importing a JSON file.")); }
   });
   root.querySelector("[data-local-clear]").addEventListener("click", () => {
-    try { localStorage.removeItem(storeKey); form.reset(); previousAction = readAction(); update(); report(t("Gespeicherten Entwurf gelöscht und Felder geleert.", "Saved draft deleted and fields cleared.")); }
+    try {
+      localStorage.removeItem(storeKey);
+      form.reset();
+      previousAction = readAction();
+      update();
+      root.dispatchEvent(new Event("inquiry-sheet-change"));
+      report(t("Gespeicherten Entwurf gelöscht und Felder geleert.", "Saved draft deleted and fields cleared."));
+    }
     catch { report(t("Browserspeicher konnte nicht gelöscht werden. Die Felder bleiben erhalten.", "Browser storage could not be cleared. Your fields are preserved.")); }
   });
   root.querySelector("[data-import]").addEventListener("change", async event => {

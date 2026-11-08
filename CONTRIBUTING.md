@@ -61,6 +61,7 @@ On GitHub, open the relevant file, click the pencil icon, edit your fork, and op
 | Was möchtest du ändern? / What do you want to edit? | Wo findest du es? / Where does it live? |
 | --- | --- |
 | Startseite / Homepage | [Seitenaufbau / Layout](src/components/MissionHome.astro) · [Texte / Copy](src/lib/mission-copy.json) |
+| Werkzeuge im privaten Prüfblatt / Tools in the private worksheet | [Werkzeugkatalog / Tool catalogue](src/lib/inquiry-tools.mjs) · [Felder und Dateiformat / Fields and file format](src/lib/inquiry.mjs) · [Tests](tests/inquiry-tools.test.mjs) |
 | Mission und Aussagenregister / Mission and claim register | [Mission](src/components/MissionPage.astro) · [Register](src/components/ClaimRegister.astro) · [Aussagen / Claims](public/knowledge/claims.json) · [Datenvertrag / Data contract](docs/aussagenregister.md) |
 
 Pflege neue Einträge auf Deutsch und Englisch. Bei älteren Unterseiten liegt der deutsche Quelltext in den HTML-Dateien im Stammverzeichnis, die englische Fassung unter [src/i18n/](src/i18n/). Neuere Kapitel findest du unter [src/components/](src/components/).
@@ -68,6 +69,10 @@ Pflege neue Einträge auf Deutsch und Englisch. Bei älteren Unterseiten liegt d
 Write new entries in both languages. For older pages, edit the German HTML files at the repository root and the English text in `src/i18n/`. Newer chapters live in `src/components/`. For complex edits, start with an issue.
 
 **Projektchronik / Project timeline.** Für einen Meilenstein ergänze in `src/lib/observatory-events.json` eine kurze Beschreibung in beiden Sprachen, die Issue- oder PR-Nummer und den belegten UTC-Zeitpunkt der Meldung oder Übernahme. Ordne ihn zeitlich ein. Die Tagesstände entstehen beim Build aus der vollständigen Git-Historie. / To add a milestone, record both descriptions, the issue or PR number and the verified UTC opening or merge time in chronological order. The build derives daily snapshots from a full Git checkout.
+
+**Ein Werkzeug vorschlagen.** Welche Tätigkeit fällt jemandem schwer? Nenne ein Beispiel, das passende Eingabefeld im Prüfblatt und das Feld, in dem jemand mit dem Ergebnis weiterarbeiten kann. Probiere es in einem zweiten Lebensbereich aus. Beschreibe einen Fall, in dem die Frage offenbleiben sollte.
+
+**Suggest a worksheet tool.** What is someone trying to do? Give an example, the worksheet field they can start from and the field where they can use the result. Try it in a second area of life. Describe one case that should stay open.
 
 ## META-01 · Bessere Einwände ermöglichen bessere Fassungen
 
