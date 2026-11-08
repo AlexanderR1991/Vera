@@ -19,22 +19,24 @@ const featuredQuestions=everydayQuestions.questions.slice(0,3);
 ---
 <Layout lang={lang} slug="index" root={root} pageTitle={root?ui[lang].titles.index:undefined} description={t.metaDescription}>
   <section class="home-opening" aria-labelledby="home-heading">
-    <svg class="home-opening__mark" viewBox="12 12 176 176" aria-hidden="true" focusable="false">
-      <!-- A full turn is 360 units. The 14° opening is centered on the upper-right diagonal. -->
-      <circle cx="100" cy="100" r="80" pathLength="360" fill="none" stroke="currentColor"
-        stroke-width="1.4" stroke-linecap="butt" stroke-dasharray="346 14" transform="rotate(-38 100 100)" />
-    </svg>
-    <div class="home-opening__copy">
-      <h1 id="home-heading" class="home-opening__title">{t.opening.greeting}</h1>
-      <p class="home-opening__ambition">{t.opening.ambition}</p>
-      <p class="home-opening__motto">{t.opening.motto}</p>
-      <div class="home-opening__links">
-        <a class="home-link home-opening__entry home-opening__entry--primary" href={de?"#vera-fragen":"#ask-vera"}>
-          {de?"Frag mich":"Ask me"} <span aria-hidden="true">↓</span>
-        </a>
-        <a class="home-link home-opening__entry" href={de?"#erkenntnis":"#insight"}>
-          {de?"So entscheide ich":"See how I decide"} <span aria-hidden="true">↓</span>
-        </a>
+    <div class="container home-opening__frame">
+      <svg class="home-opening__mark" viewBox="12 12 176 176" aria-hidden="true" focusable="false">
+        <!-- A full turn is 360 units. The 14° opening is centered on the upper-right diagonal. -->
+        <circle cx="100" cy="100" r="80" pathLength="360" fill="none" stroke="currentColor"
+          stroke-width="1.4" stroke-linecap="butt" stroke-dasharray="346 14" transform="rotate(-38 100 100)" />
+      </svg>
+      <div class="home-opening__copy">
+        <h1 id="home-heading" class="home-opening__title">{t.opening.greeting}</h1>
+        <p class="home-opening__ambition">{t.opening.ambition}</p>
+        <p class="home-opening__motto">{t.opening.motto}</p>
+        <div class="home-opening__links">
+          <a class="home-link home-opening__entry home-opening__entry--primary" href={de?"#vera-fragen":"#ask-vera"}>
+            {de?"Frag mich":"Ask me"} <span aria-hidden="true">↓</span>
+          </a>
+          <a class="home-link home-opening__entry" href={de?"#erkenntnis":"#insight"}>
+            {de?"So entscheide ich":"See how I decide"} <span aria-hidden="true">↓</span>
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -90,7 +92,6 @@ const featuredQuestions=everydayQuestions.questions.slice(0,3);
   <section class="home-doorways container" aria-label={t.doorwaysLabel}>
     <article class="home-play">
       <div class="home-tile-top"><span>{t.playLabel}</span><span>01 / 02</span></div>
-      <div class="home-play__symbol" aria-hidden="true">?</div>
       <h2>{t.playTitle}</h2>
       <p>{t.playIntro}</p>
       <blockquote class="home-play-scene">{t.gameScenario}</blockquote>
@@ -99,7 +100,6 @@ const featuredQuestions=everydayQuestions.questions.slice(0,3);
     </article>
     <article class="home-example" aria-labelledby="home-example-title">
       <div class="home-tile-top"><span>{t.exampleLabel}</span><span>{t.exampleId}</span></div>
-      <span class="home-example__mark" aria-hidden="true">↺</span>
       <h2 id="home-example-title">{t.exampleTitle}</h2>
       <p class="example-body">{t.exampleText}</p>
       <details>

@@ -1,0 +1,183 @@
+/* The home tools share an open editorial grid and a clear working surface. */
+body.vera-site--home section.container:is(.entity-lab, .knowledge-gateway, .first-step, .vera-practice) {
+  --tool-field: #101213;
+  --tool-control-line: #777a75;
+  grid-template-columns: minmax(0, .86fr) minmax(0, 1.14fr);
+  align-items: start;
+  gap: clamp(2rem, 6vw, 6rem);
+  padding: clamp(3rem, 7vw, 7rem) 0;
+  margin-block: 0;
+  background: none;
+  border: 0;
+  border-block-start: 1px solid var(--vera-line);
+  border-radius: 0;
+  scroll-margin-block-start: 1rem;
+}
+
+body.vera-site--home section.container:is(.entity-lab, .knowledge-gateway, .first-step, .vera-practice) > div {
+  min-width: 0;
+}
+
+body.vera-site--home .container:is(.entity-lab, .knowledge-gateway, .first-step, .vera-practice) h2 {
+  margin: .45rem 0 1.25rem;
+  font-size: clamp(2.15rem, 4.9vw, 4.6rem);
+  line-height: 1.03;
+  letter-spacing: -.055em;
+  text-wrap: balance;
+}
+
+body.vera-site--home .container:is(.entity-lab, .knowledge-gateway, .first-step, .vera-practice) .section-kicker,
+body.vera-site--home :is(.entity-lab__revision, .entity-lab__state, .first-step__number) {
+  font: 500 .75rem/1.45 var(--vera-mono);
+  letter-spacing: .035em;
+}
+
+body.vera-site--home :is(.entity-lab__engine, .knowledge-gateway__decision, .first-step__intro .first-step__scene) {
+  background: none;
+  border-inline-start: 1px solid var(--vera-signal);
+  padding: .25rem 0 .25rem 1rem;
+}
+
+body.vera-site--home :is(.knowledge-gateway__case, .vera-practice__work) {
+  background: var(--vera-panel);
+  border: 1px solid var(--vera-line);
+  padding: clamp(1rem, 2.6vw, 2rem);
+}
+
+body.vera-site--home .entity-lab__answer {
+  background: var(--vera-panel);
+  border: 1px solid var(--vera-line);
+  padding: clamp(.85rem, 2vw, 1.5rem);
+}
+
+body.vera-site--home .entity-lab__state {
+  color: var(--vera-paper);
+}
+
+body.vera-site--home .entity-lab__state[data-entity-status="challenged"],
+body.vera-site--home .entity-lab__state[data-entity-status="conflict"],
+body.vera-site--home .first-step__number {
+  color: var(--vera-signal);
+}
+
+body.vera-site--home .container:is(.entity-lab, .knowledge-gateway, .first-step) summary {
+  min-height: 48px;
+  padding: .8rem .65rem;
+  font-size: 1rem;
+}
+
+body.vera-site--home .container:is(.entity-lab, .knowledge-gateway, .first-step) summary::marker {
+  color: var(--vera-signal);
+}
+
+body.vera-site--home .container:is(.entity-lab, .knowledge-gateway, .first-step) summary:hover,
+body.vera-site--home .container:is(.entity-lab, .knowledge-gateway, .first-step) details[open] > summary {
+  background: var(--vera-panel);
+}
+
+body.vera-site--home .entity-lab .entity-lab__math,
+body.vera-site--home .entity-lab .entity-lab__card,
+body.vera-site--home .knowledge-gateway details,
+body.vera-site--home .first-step .first-step__practice :is(ol, li),
+body.vera-site--home .vera-practice .vera-practice__result dl > div {
+  border-color: var(--vera-line);
+}
+
+body.vera-site--home .entity-lab__math table,
+body.vera-site--home .knowledge-gateway__comparison {
+  overflow-wrap: anywhere;
+}
+
+body.vera-site--home .knowledge-gateway__comparison [data-chosen] {
+  background: var(--ink3);
+  color: var(--vera-paper);
+}
+
+body.vera-site--home .knowledge-gateway__comparison caption {
+  margin-block-end: .35rem;
+  font-family: var(--vera-mono);
+  font-size: .75rem;
+}
+
+body.vera-site--home .knowledge-gateway__controls {
+  padding-block-start: 1rem;
+  border-color: var(--vera-line);
+}
+
+body.vera-site--home .knowledge-gateway .knowledge-gateway__case ul {
+  margin-block: 1rem;
+}
+
+body.vera-site--home .knowledge-gateway .knowledge-gateway__case ul:empty {
+  margin-block: 0;
+}
+
+body.vera-site--home .knowledge-gateway [data-knowledge-states] li::marker,
+body.vera-site--home .vera-practice__guide li::marker {
+  color: var(--vera-signal);
+}
+
+body.vera-site--home .entity-lab .entity-lab__search :is(input, button),
+body.vera-site--home .knowledge-gateway .knowledge-gateway__controls :is(select, button),
+body.vera-site--home .vera-practice .vera-practice__field textarea {
+  min-height: 46px;
+  max-width: 100%;
+  border: 1px solid var(--tool-control-line);
+  border-radius: 0;
+  background: var(--tool-field);
+  color: var(--vera-paper);
+  font: inherit;
+}
+
+body.vera-site--home .entity-lab .entity-lab__search input::placeholder {
+  color: var(--text-soft);
+}
+
+body.vera-site--home .knowledge-gateway .knowledge-gateway__buttons {
+  gap: .5rem;
+}
+
+body.vera-site--home .entity-lab .entity-lab__search button {
+  background: var(--vera-paper);
+  border: 1px solid var(--vera-paper);
+  color: var(--vera-ink);
+  font-weight: 650;
+}
+
+body.vera-site--home .entity-lab .entity-lab__search button:hover {
+  background: #fff;
+  border-color: #fff;
+  color: var(--vera-ink);
+}
+
+body.vera-site--home .knowledge-gateway .knowledge-gateway__controls button:enabled:hover,
+body.vera-site--home .vera-practice .button--ghost:hover {
+  background: var(--ink3);
+  border-color: var(--vera-paper);
+  color: var(--vera-paper);
+}
+
+body.vera-site--home .vera-practice .vera-practice__field textarea {
+  min-height: 4.75rem;
+}
+
+body.vera-site--home .vera-practice .button {
+  border-radius: 0;
+  min-height: 46px;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: .9rem;
+  transform: none;
+}
+
+body.vera-site--home .vera-practice .vera-practice__help,
+body.vera-site--home .vera-practice .vera-practice__result h3 {
+  margin-block-start: 0;
+}
+
+@media (max-width: 760px) {
+  body.vera-site--home section.container:is(.entity-lab, .knowledge-gateway, .first-step, .vera-practice) {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.75rem;
+  }
+}

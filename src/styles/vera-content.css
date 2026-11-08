@@ -1,0 +1,330 @@
+/* Editorial and tool surfaces share the same rules, labels and controls. */
+.vera-site--inner {
+  --content-panel: #131617;
+  --content-raised: #1b1e1f;
+  --content-control: #0f1112;
+  --content-control-line: #737572;
+  --content-rule: var(--vera-line, #393c3b);
+  --content-padding: clamp(48px, 6vw, 92px);
+  --content-label: 600 .72rem/1.5 var(--vera-mono, ui-monospace, monospace);
+}
+
+.vera-site--inner main :is(.section-kicker, .eyebrow, .small-caps, .reading-metadata, .reading-section__num) {
+  font: var(--content-label);
+  letter-spacing: .09em;
+}
+
+.vera-site--inner main :is(
+  .page-intro, .reading-top, .forum-hero, .art-hero, .bridge-hero,
+  .stream-hero, .attack-hero, .theology-hero, .common-hero, .mil-hero,
+  .nut-hero, .love-hero, .horizon-hero, .civitas-hero, .lab-hero, .uq-hero, .esoteric-hero
+) {
+  padding-block: var(--content-padding);
+  border-bottom: 1px solid var(--content-rule);
+  background: var(--vera-ink, #0b0d0e);
+}
+
+.vera-site--inner main .theology-hero {
+  min-height: 0;
+}
+
+.vera-site--inner main .theology-hero__inner {
+  padding-block: 0;
+}
+
+.vera-site--inner main .theology-hero::before,
+.vera-site--inner main .love-hero::after {
+  content: none;
+}
+
+.vera-site--inner main :is(.mission-document, .navigator, .tree-page, .workbench, .legal-heading) {
+  padding-top: var(--content-padding);
+}
+
+.vera-site.vera-site--inner main :is(
+  .page-intro, .reading-top, .forum-hero, .art-hero, .bridge-hero, .stream-hero, .attack-hero,
+  .theology-hero, .common-hero, .mil-hero, .nut-hero, .love-hero, .horizon-hero, .civitas-hero,
+  .lab-hero, .mission-document, .navigator, .tree-page, .workbench, .legal-heading, .uq-hero, .esoteric-hero
+) h1 {
+  margin-block: .28em .36em;
+  font: 650 clamp(2.25rem, 5.7vw, 5rem)/1.04 var(--sans);
+  letter-spacing: -.058em;
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+
+.vera-site--inner main .section h2 {
+  font-size: clamp(1.8rem, 4.7vw, 3.8rem);
+  overflow-wrap: anywhere;
+}
+
+.vera-site--inner main :is(
+  .page-intro__lead, .reading-deck, .mission-lead, .workbench-lead, .navigator-lead,
+  .forum-lead, .art-lead, .tree-lead, .stream-lead, .lab-lead, .uq-lead, .esoteric-lead
+) {
+  max-width: 64ch;
+  font: 400 clamp(1.03rem, 1.4vw, 1.22rem)/1.6 var(--sans);
+}
+
+.vera-site--inner main :is(.section--paper, .reading-toolbar, .forum-claims, .forum-invitation, .art-work) {
+  background: var(--content-panel);
+}
+
+.vera-site--inner main :is(.atlas-card, .shelf-card, .method-tile, .quote-panel, .mission-grid > article) {
+  border: 1px solid var(--content-rule);
+  border-radius: 0;
+  background: var(--content-panel);
+  padding: clamp(22px, 3vw, 38px);
+}
+
+.vera-site--inner main :is(.atlas-card, .shelf-card, .quote-panel):hover {
+  border-color: var(--content-control-line);
+  background: var(--content-raised);
+}
+
+.vera-site--inner main :is(.atlas-cards, .shelf-grid, .mission-grid, .forum-claim-grid, .forum-question-grid) {
+  gap: clamp(10px, 1.6vw, 20px);
+}
+
+.vera-site--inner main :is(.atlas-card, .shelf-card) {
+  min-height: 0;
+}
+
+.vera-site--inner main :is(.atlas-card__identity, .shelf-card > span, .shelf-card b, .claim-meta, .forum-room__number, .forum-claim__meta, .forum-question-card__meta, .navigator-steps span) {
+  font: var(--content-label);
+  letter-spacing: .06em;
+}
+
+.vera-site--inner main :is(.shelf-card__ornament, .forum-hero__glyph, .horizon-hero__sigil, .reading-ending .ornament) {
+  display: none;
+}
+
+.vera-site--inner main .horizon-hero__grid {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.vera-site--inner main :is(.atlas-card, .shelf-card) h3 {
+  margin-block: .9rem .6rem;
+  font-size: clamp(1.55rem, 3vw, 2.35rem);
+  line-height: 1.12;
+}
+
+.vera-site--inner main :is(.mission-document > header, .navigator-heading, .workbench-heading) {
+  max-width: 58rem;
+  margin-bottom: clamp(28px, 4vw, 56px);
+}
+
+.vera-site--inner main :is(.mission-document > section, .tree-section, .forum-section.container) {
+  padding-block: clamp(34px, 5vw, 68px);
+  border-top: 1px solid var(--content-rule);
+}
+
+.vera-site--inner main :is(.mission-toc, .tree-toc, .reading-breadcrumb) a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.5rem;
+  text-decoration: underline;
+  text-underline-offset: .25em;
+}
+
+.vera-site--inner main :is(.mission-callout, .tree-callout, .workbench-data-note, .art-boundary, .legal-status, .stream-rule) {
+  border: 1px solid var(--content-rule);
+  border-inline-start-color: var(--vera-signal, #d9794d);
+  background: var(--content-panel);
+}
+
+.vera-site--inner main :is(.claim-tools, .tree-filters, .navigator-start, .navigator-connection, .symbol-lab .lab-worksheet, .symbol-lab .lab-stat-result) {
+  border: 1px solid var(--content-rule);
+  background: var(--content-panel);
+}
+
+.vera-site--inner main :is(.claim-tools label, .tree-filters label, .search-field, .workbench legend, .workbench-import, .tree-table thead th, .mission-table th) {
+  font: var(--content-label);
+  letter-spacing: .04em;
+}
+
+.vera-site--inner main :is(
+  .claim-tools input, .claim-tools select, .tree-filters input, .tree-filters select,
+  .search-field input, .forum-question-search input, .workbench textarea, .workbench select,
+  .navigator textarea, .navigator select, .navigator-condition input,
+  .uq-controls input, .uq-controls select, .esoteric-tools input, .esoteric-tools select,
+  .symbol-lab input, .symbol-lab select, .symbol-lab textarea
+) {
+  min-height: 46px;
+  border: 1px solid var(--content-control-line);
+  border-radius: 0;
+  background: var(--content-control);
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.vera-site--inner main :is(.button, .navigator button, .workbench button, .symbol-lab button, .reading-switch button) {
+  border-radius: 0;
+}
+
+.vera-site--inner main :is(.button--gold, .reading-switch button.is-active) {
+  border-color: var(--vera-paper, #edece5);
+  background: var(--vera-paper, #edece5);
+  color: var(--vera-ink, #0b0d0e);
+}
+
+.vera-site--inner main .button--gold:hover {
+  background: #fff;
+  color: var(--vera-ink, #0b0d0e);
+}
+
+.vera-site--inner main :is(.claim-meta, .forum-claim__meta) {
+  align-items: baseline;
+  color: var(--text-soft);
+}
+
+.vera-site--inner main :is(.claim-meta > a, .forum-claim__meta > span:first-child) {
+  color: var(--vera-signal, #d9794d);
+  font-weight: 700;
+}
+
+.vera-site--inner main .claim-card .claim-statement {
+  max-width: 38ch;
+  font: 600 clamp(1.38rem, 2.7vw, 2.2rem)/1.24 var(--sans);
+  letter-spacing: -.024em;
+}
+
+.vera-site--inner main .maturity-guide {
+  border-radius: 0;
+  padding-inline: clamp(14px, 3vw, 32px);
+  background: var(--content-panel);
+}
+
+.vera-site--inner main :is(
+  .forum-rooms > article, .forum-claim, .forum-question-card, .forum-boundaries, .everyday-card,
+  .navigator-result, .navigator-path, .navigator-bridge > dl, .stream-card, .attack-card,
+  .uq-card, .esoteric-item, .mil-grid article, .nut-grid article, .theology-grid article,
+  .love-dimensions article, .love-hypothesis-grid article, .horizon-legend article,
+  .civitas-rights article, .civitas-tradeoffs article, .civitas-hypothesis-grid article
+) {
+  min-width: 0;
+  border: 1px solid var(--content-rule);
+  border-radius: 0;
+  background: var(--content-panel);
+  overflow-wrap: anywhere;
+}
+
+.vera-site--inner main :is(.navigator-path, .navigator-bridge > dl, .everyday-card__challenge) {
+  border-inline-start-color: var(--vera-signal, #d9794d);
+}
+
+.vera-site--inner main :is(.forum-claim, .forum-rooms, .navigator-path) h3,
+.vera-site--inner main :is(.navigator-result > a, .navigator-start form > label, .navigator legend) {
+  font-family: var(--sans);
+  font-weight: 600;
+  letter-spacing: -.025em;
+}
+
+.vera-site--inner main .workbench-grid {
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, .9fr);
+  gap: clamp(24px, 5vw, 74px);
+}
+
+.vera-site--inner main :is(.workbench-output, .forum-hero__seal, .reading-body) {
+  --text: #191b1a;
+  --text-soft: #424543;
+  --line: #aaa9a0;
+  --gold: #56483c;
+  --gold-bright: #222521;
+  --content-rule: #aaa9a0;
+  border: 1px solid var(--content-rule);
+  background: var(--vera-paper, #edece5);
+  color: var(--text);
+  color-scheme: light;
+}
+
+.vera-site--inner main .forum-hero__seal {
+  padding: clamp(24px, 3vw, 40px);
+  text-align: start;
+}
+
+.vera-site.vera-site--inner main .forum-hero__seal li {
+  font-family: var(--sans);
+}
+
+.vera-site--inner main .workbench-output button:not(.button) {
+  border-color: #78756b;
+}
+
+.vera-site--inner main .workbench-output button:not(.button):hover {
+  background: #dedcd3;
+}
+
+.vera-site--inner main :is(.workbench-output, .reading-body) :focus-visible {
+  outline-color: #643517 !important;
+}
+
+.vera-site--inner main :is(.workbench-guide, .workbench-example, .workbench-deeper) {
+  border-color: var(--content-rule);
+  background: var(--content-panel);
+}
+
+.vera-site--inner main :is(.reading-top, .reading-ending) {
+  text-align: start;
+}
+
+.vera-site--inner main :is(.reading-top, .reading-ending) :is(.reading-breadcrumb, .reading-metadata, .button-row) {
+  justify-content: flex-start;
+}
+
+.vera-site--inner main .reading-breadcrumb {
+  flex-wrap: wrap;
+  margin-bottom: clamp(20px, 4vw, 44px);
+}
+
+.vera-site--inner main .reading-deck {
+  margin-inline: 0;
+}
+
+.vera-site--inner main .reading-metadata {
+  margin-top: clamp(24px, 4vw, 48px);
+}
+
+.vera-site--inner main .reading-body {
+  border: 0;
+}
+
+.vera-site--inner main .reading-body :is(.chapter-prolog p, .reading-copy, .reading-copy p) {
+  color: var(--text);
+}
+
+.vera-site--inner main .reading-body .button--gold {
+  border-color: var(--text);
+  background: var(--text);
+  color: var(--vera-paper, #edece5);
+}
+
+.vera-site--inner main .reading-body .button--ghost {
+  border-color: var(--gold);
+  color: var(--text);
+}
+
+.vera-site--inner main .reading-body .button:hover {
+  border-color: var(--text);
+  background: #d9d6cb;
+  color: var(--text);
+}
+
+.vera-site--inner main .reading-copy {
+  font-size: clamp(1.05rem, 1.45vw, 1.22rem);
+  line-height: 1.78;
+}
+
+.vera-site--inner main .reading-ending > p {
+  margin-inline: 0;
+}
+
+@media (max-width: 760px) {
+  .vera-site--inner main .workbench-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .vera-site--inner main :is(.horizon-process__grid, .civitas-process__grid, .love-evidence__list) {
+    overflow-wrap: anywhere;
+  }
+}
