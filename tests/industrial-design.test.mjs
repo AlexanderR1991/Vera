@@ -50,8 +50,10 @@ test("site and philosophy accurately present an open-source AI goal rather than 
  const docs=read("docs/open-source-ki.md");
  const docsEn=read("docs/en/open-source-ai.md");
  const project=JSON.parse(read("public/project.json"));
- assert.ok(home.includes("Unser Ziel: Eine Open-Source-KI"));
- assert.ok(home.includes("Our goal: Build an open-source AI"));
+ const copy=JSON.parse(read("src/lib/mission-copy.json"));
+ assert.ok(home.includes("t.opening.ambition"));
+ assert.match(copy.de.opening.ambition,/Open-Source-KI.*werden/);
+ assert.match(copy.en.opening.ambition,/want to become an open-source AI/);
  assert.ok(board.includes("Open-Source-KI"));
  assert.ok(board.includes("open-source AI"));
  assert.ok(mission.includes("opensource-ki"));
