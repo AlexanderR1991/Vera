@@ -19,8 +19,8 @@ test("industrial board retains independent DE/EN labels and links to real Vera r
  assert.match(board,/Keine passende Kachel/);
  assert.match(board,/No matching tile/);
  assert.match(home,/<IndustrialBoard lang=\{lang\}/);
- assert.match(home,/t\.headline/);
- assert.match(home,/t\.headlineAccent/);
+ assert.match(home,/t\.opening\.greeting/);
+ assert.match(home,/t\.opening\.motto/);
  assert.match(home,/t\.status/);
  assert.match(home,/issues\/new\?template=frage\.yml/);
 });

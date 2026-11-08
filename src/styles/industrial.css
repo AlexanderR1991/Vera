@@ -76,12 +76,19 @@ a:hover{color:#fff}
 .footer__bottom{border-color:#313739}
 .footer__donate{border-radius:5px!important}
 .home-opening{
-  position:relative;display:grid;place-items:center;min-height:clamp(170px,22vw,292px)
+  display:grid;justify-items:center;gap:clamp(10px,2vw,30px);text-align:center;
+  padding:clamp(18px,5.5vw,88px) 19px clamp(20px,5vw,80px)
 }
-.home-opening__title{
-  position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;margin:0
+.home-opening__mark{display:block;width:clamp(128px,18vw,248px);height:auto;color:var(--text)}
+.home-opening__copy{max-width:34rem}
+.home-opening__title{margin:0;font:700 clamp(25px,3vw,42px)/1.12 var(--sans)}
+.home-opening__ambition{
+  margin:5px 0 0;font-size:clamp(15px,1.4vw,19px);line-height:1.45;text-wrap:balance
 }
-.home-opening__mark{display:block;width:clamp(128px,18vw,200px);height:auto;color:#f3f4f0}
+.home-opening__motto{
+  margin:clamp(8px,1.5vw,19px) 0 0;color:var(--text);font-size:clamp(13px,1.2vw,16px);
+  font-weight:700;line-height:1.35;letter-spacing:.035em
+}
 .home-meta-rule{
   margin:0 0 22px;padding:8px 16px;border-left:2px solid #f0ae66;
   color:#e4e6e4;font-size:15px;line-height:1.55
@@ -274,8 +281,8 @@ a:hover{color:#fff}
 @media(max-width:500px){
   .vera-brand .brand__name small{display:none}
   .vera-primary{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 9px}
-  .board-heading{display:block}
-  .board-filter{width:100%;margin-top:9px}
+  .board-heading{flex-wrap:wrap;gap:9px 10px}
+  .board-filter{width:auto;flex:1 0 170px;max-width:315px;column-gap:6px}
   .board-grid{grid-template-columns:1fr;grid-auto-rows:auto}
   .board-tile{grid-row:auto;min-height:175px}
   .board-tile__instrument{max-height:185px}

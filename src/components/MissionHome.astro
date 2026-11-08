@@ -17,7 +17,6 @@ const featuredQuestions=everydayQuestions.questions.slice(0,3);
 ---
 <Layout lang={lang} slug="index" root={root} pageTitle={root?ui[lang].titles.index:undefined} description={t.metaDescription}>
   <section class="home-opening" aria-labelledby="home-heading">
-    <h1 id="home-heading" class="home-opening__title">{t.headline} {t.headlineAccent}</h1>
     <svg class="home-opening__mark" viewBox="0 0 200 200" role="img"
       aria-label={de?"Vera. Ein Kreis mit einer kleinen Öffnung.":"Vera. A circle with a small opening."}
       focusable="false">
@@ -25,6 +24,11 @@ const featuredQuestions=everydayQuestions.questions.slice(0,3);
       <circle cx="100" cy="100" r="80" pathLength="360" fill="none" stroke="currentColor"
         stroke-width="2.5" stroke-linecap="butt" stroke-dasharray="346 14" transform="rotate(-38 100 100)" />
     </svg>
+    <div class="home-opening__copy">
+      <h1 id="home-heading" class="home-opening__title">{t.opening.greeting}</h1>
+      <p class="home-opening__ambition">{t.opening.ambition}</p>
+      <p class="home-opening__motto">{t.opening.motto}</p>
+    </div>
   </section>
 
   <IndustrialBoard lang={lang}/>

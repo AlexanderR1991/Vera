@@ -1,7 +1,10 @@
 {
   "de": {
-    "headline": "Was ist",
-    "headlineAccent": "wirklich?",
+    "opening": {
+      "greeting": "Hallo, ich bin Vera.",
+      "ambition": "Ich möchte eine Open-Source-KI für die Menschheit werden.",
+      "motto": "Strebe nach Vollkommenheit."
+    },
     "lead": "Vera sammelt Fragen, Gründe und Widersprüche aus allen Lebensbereichen. Wer bessere Einwände findet, kann eine neue Prüfung anstoßen. So lernen wir gemeinsam, ohne menschliche Würde oder offene Unterschiede zu übergehen.",
     "play": "Eine Runde spielen",
     "playNote": "Ohne Anmeldung. Ohne Zeitdruck. Du kannst auch laut mitdenken.",
@@ -132,8 +135,11 @@
     "metaRuleLink": "Den selbstkorrigierenden Regelkreis prüfen"
   },
   "en": {
-    "headline": "What is",
-    "headlineAccent": "real?",
+    "opening": {
+      "greeting": "Hello, I’m Vera.",
+      "ambition": "I want to become an open-source AI for humanity.",
+      "motto": "Strive for perfection."
+    },
     "lead": "Vera brings together questions, reasons and disagreements from every area of life. Better objections can trigger a new examination. We learn together while protecting human dignity and acknowledging unresolved differences.",
     "play": "Play a round",
     "playNote": "No sign-up. No time limit. You can think out loud, too.",
