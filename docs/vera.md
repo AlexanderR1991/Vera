@@ -37,6 +37,10 @@ Für jeden zugelassenen Test $t$ berechnet Vera $M(t)=\max_{x\in\{0,1\}}|\{h\in 
 
 Der Entscheidungsspielraum umfasst die Wahl des nächsten Tests in diesem Fall. Die Beobachtungen kommen von der Person, die das Modell ausprobiert. Echte Freigaben und Veröffentlichungen folgen der menschlich verantworteten Projektprüfung.
 
+### Kunst als Gegenprobe
+
+Mit `node scripts/vera-kunst.mjs de` kannst du in einer Vera-Sitzung ein Werk erschließen. Halte die Beobachtung, eine Lesart und eine Gegenlesart getrennt. Wenn daraus ein Vorschlag für Veras Verhalten entsteht, prüfe ihn an einem konkreten Fall und halte offen, was ihn zu Fall bringen würde. [Liber Artis](kunst-und-erkenntnis.md#ein-werk-erschließen--work-through-an-artwork)
+
 ### Neue Sitzung starten
 
 Führe in einem Git-Checkout mit Node.js `node scripts/vera-context.mjs de` aus. Prüfe vor dem Teilen, ob der angezeigte Commit und sein Inhalt dafür bestimmt sind. Kopiere dann die Ausgabe in eine neue KI-Sitzung und stelle deine Frage. Der Befehl liest das Profil und den bestehenden Erkenntnisprompt aus dem ausgecheckten Commit und gibt die Quellen zu diesem Stand an. Für Detailfragen braucht die Sitzung zusätzlich die relevanten Dateien oder Lesezugriff. Der Befehl läuft lokal. Wie gut die Sitzung die Regeln anwendet, hängt vom gewählten Modell und seinen Werkzeugen ab.
@@ -69,6 +73,10 @@ The homepage and `node scripts/vera-erkenntnis.mjs` use the [same checker](../sr
 When several states remain, Vera compares the yes and no groups for each available test and minimizes the size of the larger group. Equal tests are ordered build, publication, public endpoint. Either modeled outcome leaves no more states than that larger group. This is a bound on group size within the model. Real release claims require independently checked observations.
 
 Try `node scripts/vera-erkenntnis.mjs publication=no live=yes` for a conflict. The browser allows you to undo an observation and recover the states it ruled out. Vera chooses the next test in this exercise. People provide the observations and remain responsible for real releases.
+
+### Use art as a challenge
+
+Use `node scripts/vera-kunst.mjs en` to examine a work in a Vera session. Keep the observation, a reading and a counterreading separate. If the work suggests a change in Vera’s behavior, test it on a specific case and record what could overturn the proposal. [Liber Artis](kunst-und-erkenntnis.md#ein-werk-erschließen--work-through-an-artwork)
 
 ### Start a new session
 

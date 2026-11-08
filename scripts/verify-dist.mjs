@@ -418,3 +418,23 @@ for(const lang of ["de","en"]){
 }
 if(errors.length){console.error(errors.join("\n"));process.exit(1);}
 console.log("Verified bilingual universal question atlas, public scan, citation trace and domain backlinks.");
+
+// Liber Artis: the work is accessible before opening the interpretation.
+const art = JSON.parse(await readFile(join(out, "knowledge/art-works.v1.json"), "utf8"));
+for (const lang of ["de", "en"]) {
+ const home = await readFile(join(out, lang, "index.html"), "utf8");
+ const html = await readFile(join(out, lang, "kunst-und-erkenntnis/index.html"), "utf8");
+ if (!home.includes(`href="/Vera/${lang}/kunst-und-erkenntnis/#sammlung"`)) errors.push("Art missing from pinboard " + lang);
+ for (const work of art.works) {
+  const card = html.match(new RegExp(`<article id="${work.id}"[^>]*>([\\s\\S]*?)</article>`))?.[1] ?? "";
+  const [entry, readings = ""] = card.split(/<details(?:\s[^>]*)?>/);
+  if (!html.includes(`href="#${work.id}"`) || !work.sources.every(source => entry.includes(`href="${source.url.replaceAll("&", "&amp;")}"`))) {
+   errors.push("Work missing its direct route " + lang + "/" + work.id);
+  }
+  for (const field of ["observation", "reading", "counterreading", "transfer", "test"]) {
+   if (!readings.includes(work[field][lang])) errors.push("Missing art field " + lang + "/" + work.id + "/" + field);
+  }
+ }
+}
+if (errors.length) { console.error(errors.join("\n")); process.exit(1); }
+console.log("Verified both Liber Artis pinboard links, original sources and optional interpretations.");

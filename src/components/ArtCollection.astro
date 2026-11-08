@@ -1,0 +1,91 @@
+---
+import {base, pathFor} from "../lib/paths.mjs";
+import {artInquiry, artSubmission} from "../lib/art-inquiry.mjs";
+import collection from "../../public/knowledge/art-works.v1.json";
+
+const {lang} = Astro.props;
+const en = lang === "en";
+const {steps, fields, draft} = artInquiry[lang];
+const works = collection.works;
+const detailFields = ["observation", "reading", "counterreading", "transfer", "test"];
+---
+<section class="section art-collection" id="sammlung" aria-labelledby="collection-heading">
+  <div class="container">
+    <p class="section-kicker">LIBER ARTIS / 01</p>
+    <h2 id="collection-heading">{en ? "Works to encounter" : "Werken begegnen"}</h2>
+    <p class="collection-intro">{en
+      ? "Start with a work. Look, listen or read before opening our reading. This first selection spans places, eras and forms. Each entry offers one question to begin with."
+      : "Beginne mit einem Werk. Schau, hör oder lies, bevor du unsere Lesart öffnest. Die erste Auswahl reicht über Orte, Zeiten und Kunstformen hinweg. Zu jedem Werk gibt es eine Frage für den Einstieg."}</p>
+    <nav aria-label={en ? "Jump to a work" : "Zu einem Werk springen"}>
+      <ul class="work-index">
+        {works.map(work => <li><a href={"#" + work.id}>{work.title[lang]}</a></li>)}
+      </ul>
+    </nav>
+    <div class="work-grid">
+      {works.map(work => <article id={work.id} aria-labelledby={work.id + "-title"}>
+        <p class="section-kicker">{work.id.toUpperCase()}</p>
+        <h3 id={work.id + "-title"}>{work.title[lang]}</h3>
+        <p class="work-credit">{work.credit[lang]}</p>
+        {work.image && <figure>
+          <img src={base + work.image.path} width={work.image.width} height={work.image.height}
+            alt={work.image.alt[lang]} loading="lazy" decoding="async" />
+          <figcaption>{work.image.credit}</figcaption>
+        </figure>}
+        <ul class="work-sources">
+          {work.sources.map(source => <li><a href={source.url}>{source.label[lang]} <span aria-hidden="true">↗</span></a></li>)}
+        </ul>
+        <p class="work-encounter">{work.encounter[lang]}</p>
+        <details>
+          <summary>{en ? "Read the interpretations and Vera’s test" : "Lesarten und Veras Probe lesen"}</summary>
+          <dl>
+            {detailFields.map(field => <><dt>{fields[field]}</dt><dd>{work[field][lang]}</dd></>)}
+          </dl>
+          <p class="work-credit">{draft}</p>
+        </details>
+      </article>)}
+    </div>
+  </div>
+</section>
+<section class="section section--paper" id="kunstkreis" aria-labelledby="art-loop-heading">
+  <div class="narrow">
+    <p class="section-kicker">WIRKLICH · META-01</p>
+    <h2 id="art-loop-heading">{en ? "How a work can change Vera" : "Wie ein Werk Vera verändern kann"}</h2>
+    <ol class="work-steps">{steps.map(step => <li>{step}</li>)}</ol>
+    <p>{en
+      ? "A reading can inspire a change. The test checks the proposed behavior. Borobudur inspired the two routes on this page: go straight to a work or explore the readings in more depth."
+      : "Eine Lesart kann eine Änderung anstoßen. Die Probe prüft das vorgeschlagene Verhalten. Borobudur hat die zwei Wege auf dieser Seite angeregt. Du kannst direkt zum Werk oder freiwillig tiefer in die Lesarten gehen."}</p>
+    <p>{en
+      ? "You can explore the collection without an account. To propose a work or challenge a reading, include the work ID if it already has one. The GitHub form is public and requires an account."
+      : "Du kannst die Sammlung ohne Konto erkunden. Wenn du ein Werk vorschlägst oder einer Lesart widersprichst, nenne die Werk-ID, falls vorhanden. Das GitHub-Formular ist öffentlich und braucht ein Konto."}</p>
+    <p class="work-actions">
+      <a href={artSubmission}>{en ? "Suggest a work or a counterreading" : "Werk oder Gegenlesart einreichen"} ↗</a>
+      <a href={base + "knowledge/art-works.v1.json"}>{en ? "Read the work catalog (JSON)" : "Werkkatalog lesen (JSON)"}</a>
+      <a href={pathFor(lang, "regelkreis")}>{en ? "Explore the correction loop" : "Zum Regelkreis"}</a>
+    </p>
+  </div>
+</section>
+<style>
+.art-collection{background:#121719}
+.collection-intro{max-width:46rem}
+.work-index,.work-sources{list-style:none;padding:0}
+.work-index{display:flex;flex-wrap:wrap;gap:.55rem 1.2rem;margin:1.4rem 0 2.3rem}
+.work-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.work-grid article{border:1px solid #a8a8a856;padding:clamp(1rem,3vw,1.75rem);background:#1b2224}
+.work-grid h3{margin:.55rem 0 .4rem;line-height:1.2}
+.work-credit,figcaption{font-size:.85rem;line-height:1.55;color:#d3d3cc}
+figure{margin:1rem 0}
+figure img{width:100%;height:auto;max-height:24rem;object-fit:contain;object-position:left center;display:block}
+figcaption{margin-top:.5rem}
+.work-sources{display:grid;gap:.35rem;margin:1.05rem 0}
+.work-index a,.work-sources a,.work-actions a{text-decoration:underline;text-underline-offset:.2em}
+.work-encounter{font:1.2rem/1.5 var(--serif)}
+details{border-top:1px solid #a8a8a856;padding-top:.7rem;margin-top:1rem}
+summary{cursor:pointer;font-weight:600}
+dt{font-weight:700;margin-top:.75rem}
+dd{margin:0;line-height:1.6}
+.work-steps li{padding-left:.3rem;margin-block:.65rem}
+.work-actions{display:flex;flex-wrap:wrap;gap:.65rem 1.2rem}
+a:focus-visible,summary:focus-visible{outline:2px solid currentColor;outline-offset:4px}
+[id]{scroll-margin-top:6rem}
+@media(max-width:720px){.work-grid{grid-template-columns:1fr}}
+</style>
