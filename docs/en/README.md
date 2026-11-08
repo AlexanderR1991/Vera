@@ -24,6 +24,8 @@ node scripts/probe-vera-selbststudie.mjs
 
 ## Find your way around
 
+With Vera’s profile loaded in an AI chat that can read the repository, type **“Vera, wave.”** The session surveys the project, follows one open question through a concrete case and hands you its findings. [How a wave works](../vera.md#start-a-wave)
+
 | If you want to… | Start here |
 | --- | --- |
 | Examine a question or follow a disagreement | [Forum](https://alexanderr1991.github.io/Vera/en/forum/) · [Correction loop](https://alexanderr1991.github.io/Vera/en/regelkreis/) · [Method notes with English summary](../methode.md) |
