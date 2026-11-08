@@ -454,6 +454,18 @@ const veraRevision = process.env.GITHUB_SHA;
 for (const lang of ["de", "en"]) {
  const file = `vera-context.${lang}.txt`;
  const page = await readFile(join(out, lang, "fragen-und-ki-prompt", "index.html"), "utf8");
+ const home = await readFile(join(out, lang, "index.html"), "utf8");
+ const guestFile = `prompts/guest-review.${lang}.txt`;
+ const guestPath = new URL(guestFile, projectMeta.website).pathname;
+ const guestEntry = new URL(`${lang}/fragen-und-ki-prompt/`, projectMeta.website).pathname + "#gastprobe";
+ const reply = new URL(`${lang}/mitwirken/#entwurf`, projectMeta.website);
+ const replyPage = await readFile(join(out, lang, "mitwirken", "index.html"), "utf8");
+ const guestText = await readFile(join(out, guestFile), "utf8");
+ if (!home.includes(`href="${guestEntry}"`) || !page.includes('id="gastprobe"') ||
+     !page.includes(`href="${guestPath}"`) || !guestText.includes(reply.href) ||
+     !replyPage.includes('id="entwurf"') || guestText !== await readFile(join("public", guestFile), "utf8")) {
+  errors.push("Guest review entry, source text or feedback destination failed for " + lang);
+ }
  const context = await readFile(join(out, "prompts", file), "utf8");
  const href = new URL(`prompts/${file}`, projectMeta.website).pathname;
  if (!page.includes('href="#vera"') || !page.includes('id="vera"') ||
