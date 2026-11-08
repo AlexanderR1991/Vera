@@ -272,7 +272,9 @@ if (root) {
         body.textContent = t("Mindestens eine vorgeschlagene Verteilung scheidet aus. Ob alle die Schwelle erreichen, ist so noch nicht entschieden. Prüfe die zusätzlichen Grenzen oder suche zwei andere zulässige Verteilungen mit verschiedenen Antworten.", "At least one proposed allocation is ruled out. Whether everyone meets the minimum has yet to be settled. Check the additional constraints or find two other permitted allocations with opposite answers.");
       }
       conditionIds = result.failed;
-      next.textContent = t("Nächster Schritt: Prüfe eine andere Verbindung oder untersuche deine Frage im Prüfblatt weiter.", "Next step: examine another connection or continue exploring your question in the worksheet.");
+      const alternative = connection.conditions.find(item => item.whenNo && result.failed.includes(item.id));
+      next.textContent = alternative ? text(alternative.whenNo)
+        : t("Nächster Schritt: Prüfe eine andere Verbindung oder untersuche deine Frage im Prüfblatt weiter.", "Next step: examine another connection or continue exploring your question in the worksheet.");
     } else if (result.status === "needs_context") {
       title.textContent = t("Hier fehlt noch eine Antwort", "Some context is still missing");
       body.textContent = t("Die Verbindung bleibt ein Vorschlag. Kläre zunächst diese Voraussetzungen, bevor du eine Schlussfolgerung daraus übernimmst:", "The connection remains a suggestion. Clarify these conditions before adopting a conclusion from it:");
