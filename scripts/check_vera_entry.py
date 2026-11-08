@@ -16,23 +16,64 @@ ENTRIES = {"de": "vera-fragen", "en": "ask-vera"}
 
 
 class EntryPage(Page):
+    VOID_TAGS = set("area base br col embed hr img input link meta param source track wbr".split())
+
     def __init__(self, html):
         super().__init__()
+        self.ancestors = []
+        self.first_summary = {}  # details depth -> attributes of its first summary child
         self.marked_links = {}
-        self.identity_open = False
+        self.language_links = []
+        self.first_question = None
         self.feed(html)
         self.close()
 
     def handle_starttag(self, tag, attrs):
         super().handle_starttag(tag, attrs)
         props = dict(attrs)
-        if tag == "details" and props.get("data-entity-question") == "identity":
-            self.identity_open = "open" in props and "hidden" not in props
-        if tag == "a" and "hidden" not in props:
-            for marker in ("data-vera-entry", "data-vera-correction", "data-vera-feedback", "data-vera-revision"):
-                if marker in props:
-                    key = (marker, props[marker])
-                    self.marked_links.setdefault(key, []).append(props.get("href", ""))
+        depth = len(self.ancestors)
+        if tag == "details":
+            self.first_summary[depth] = None
+        elif tag == "summary" and depth and self.ancestors[-1][0] == "details":
+            if self.first_summary[depth - 1] is None:
+                self.first_summary[depth - 1] = props
+        if tag not in self.VOID_TAGS:
+            self.ancestors.append((tag, props))
+        if tag not in ("details", "a"):
+            return
+        if any(t == "template" or "hidden" in p or "inert" in p or p.get("aria-hidden") == "true"
+               for t, p in self.ancestors):
+            return
+        for index, (ancestor, attributes) in enumerate(self.ancestors[:-1]):
+            if ancestor == "details" and "open" not in attributes:
+                if self.ancestors[index + 1][1] is not self.first_summary[index]:
+                    return
+        ids = {p["id"] for _, p in self.ancestors if "id" in p}
+        in_questions = ENTRIES.get(self.lang) in ids
+        question = props.get("data-entity-question")
+        if tag == "details" and in_questions and question and self.first_question is None:
+            self.first_question = question
+        if tag != "a":
+            return
+        href = props.get("href", "")
+        if props.get("hreflang"):
+            self.language_links.append((props["hreflang"], href))
+        for marker in ("data-vera-entry", "data-vera-correction", "data-vera-feedback", "data-vera-local-feedback", "data-vera-revision"):
+            if marker not in props:
+                continue
+            if marker == "data-vera-correction" and not (in_questions and any(
+                t == "details" and "open" in p and p.get("data-entity-question") == props[marker] for t, p in self.ancestors
+            )):
+                continue
+            if marker in ("data-vera-feedback", "data-vera-local-feedback") and "korrektur" not in ids:
+                continue
+            self.marked_links.setdefault((marker, props[marker]), []).append(href)
+
+    def handle_endtag(self, tag):
+        for index in range(len(self.ancestors) - 1, -1, -1):
+            if self.ancestors[index][0] == tag:
+                del self.ancestors[index:]
+                break
 
 
 def read_page(path, live):
@@ -63,18 +104,22 @@ def check(read, *, live=False, revision=None):
         for path, page in ((home_path, home), (guide_path, guide)):
             if page.lang != lang or page.canonical != urljoin(SITE, path) or page.h1_count != 1:
                 errors.append(f"{path}: wrong language, canonical URL or main heading")
+            other = "en" if lang == "de" else "de"
+            alternate = urljoin(SITE, path.replace(lang + "/", other + "/", 1))
+            if not any(target == other and urljoin(page.canonical or SITE, href) == alternate
+                       for target, href in page.language_links):
+                errors.append(f"{path}: missing switch to the other language")
 
-        if home.marked_links.get(("data-vera-entry", None)) != ["#" + anchor] or anchor not in home.ids:
+        if home.marked_links.get(("data-vera-entry", None)) != ["#" + anchor] or anchor not in home.ids - home.duplicates:
             errors.append(f"{lang}: missing homepage link to Vera's questions")
-        other = "en" if lang == "de" else "de"
-        if not any(tag == "a" and urljoin(home_url, href) == urljoin(SITE, other + "/")
-                   for tag, href in home.refs):
-            errors.append(f"{lang}: missing switch to the other language")
         correction = home.marked_links.get(("data-vera-correction", "identity"), [])
-        if not home.identity_open or len(correction) != 1 or urljoin(home_url, correction[0]) != guide_url + "#korrektur":
+        if home.first_question != "identity" or len(correction) != 1 or urljoin(home_url, correction[0]) != guide_url + "#korrektur":
             errors.append(f"{lang}: first answer or its correction link is missing")
-        if "korrektur" not in guide.ids or guide.marked_links.get(("data-vera-feedback", None)) != [FEEDBACK]:
+        if "korrektur" not in guide.ids - guide.duplicates or guide.marked_links.get(("data-vera-feedback", None)) != [FEEDBACK]:
             errors.append(f"{lang}: correction guide or GitHub objection link is missing")
+        draft = guide.marked_links.get(("data-vera-local-feedback", None), [])
+        if len(draft) != 1 or urljoin(guide_url, draft[0]) != urljoin(SITE, home_path + "mitwirken/#entwurf"):
+            errors.append(f"{lang}: correction guide has no local draft link")
 
         if live or revision:
             prefix = REPOSITORY + "/commit/"

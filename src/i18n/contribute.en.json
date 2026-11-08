@@ -22,7 +22,6 @@
   "ART DES BEITRAGS": "TYPE OF CONTRIBUTION",
   "DEIN GEDANKE": "YOUR THOUGHT",
   "Entwurf auf GitHub öffnen ↗": "Open draft on GitHub ↗",
-  "Du veröffentlichst erst, wenn du den Beitrag auf GitHub bestätigst.": "Nothing is published until you confirm it on GitHub.",
   "OFFENE WERKSTATT": "OPEN WORKSHOP",
   "Unsere Regeln": "Our rules",
   "für den Widerspruch.": "for disagreement.",
@@ -56,13 +55,17 @@
   "radke.a91@gmail.com": "radke.a91@gmail.com",
   "PayPal öffnen ↗": "Open PayPal ↗",
   "Beim Öffnen des Entwurfs erhält GitHub deine Eingaben. Dort kannst du sie prüfen und mit deinem GitHub-Konto veröffentlichen.": "Opening the draft sends your entries to GitHub. You can review them there and publish using your GitHub account.",
-  "Ohne JavaScript kannst du deinen Beitrag direkt auf GitHub vorbereiten.": "Without JavaScript you can prepare your contribution directly on GitHub.",
-  "Beitragsvorlage auswählen ↗": "Choose a contribution form ↗",
   "Zum Prüfstand ↗": "Go to examination ↗",
   "Impressum": "Legal notice",
   "Finanzierungsgrundsätze ↗": "Funding principles ↗",
   "Wenn du meine Arbeit an Vera unterstützen möchtest, kannst du mir über PayPal einen frei gewählten Betrag senden.": "If you’d like to support my work on Vera, you can send me an amount of your choice via PayPal.",
   "PayPal-Adresse von Alexander Radke": "Alexander Radke’s PayPal address",
   "Kopiere die Adresse und füge sie bei PayPal als Empfänger ein.": "Copy the address and paste it into the recipient field in PayPal.",
-  "Vera ist ein privat getragenes Projekt ohne anerkannte Gemeinnützigkeit. Für freiwillige Beiträge gibt es keine Spendenquittung und keine Gegenleistung. Sie haben keinen Einfluss auf redaktionelle Entscheidungen.": "Vera is a privately run project without registered charitable status. Voluntary contributions come with no charitable donation receipt or benefit in return. They have no influence on editorial decisions."
+  "Vera ist ein privat getragenes Projekt ohne anerkannte Gemeinnützigkeit. Für freiwillige Beiträge gibt es keine Spendenquittung und keine Gegenleistung. Sie haben keinen Einfluss auf redaktionelle Entscheidungen.": "Vera is a privately run project without registered charitable status. Voluntary contributions come with no charitable donation receipt or benefit in return. They have no influence on editorial decisions.",
+  "Rückmeldung ohne Konto vorbereiten": "Draft feedback without an account",
+  "Wo bist du hängen geblieben?": "Where did you get stuck?",
+  "Ein Satz und die Stelle auf der Website genügen. Du kannst deine Rückmeldung auf deinem Gerät als Textdatei speichern.": "One sentence and the place on the site are enough. You can save your feedback on your device as a text file.",
+  "Wenn du möchtest, gib den Text einer Person mit GitHub-Konto. Vereinbart, welchen Wortlaut sie öffentlich einreichen darf. Erst dann erreicht er das Projekt.": "If you like, give the text to someone with a GitHub account. Agree on the exact wording they may post publicly. Your feedback reaches the project when they submit it.",
+  "Textdatei speichern (.txt)": "Save text file (.txt)",
+  "Auf Papier oder in einer Notiz-App reichen zwei Zeilen: „Hier war ich …“ und „An dieser Stelle …“. Auch diesen Entwurf kannst du selbst weitergeben.": "On paper or in a notes app, two lines are enough. Try “I was on this page …” and “Here I noticed …”. You can share that draft yourself, too."
 }

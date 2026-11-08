@@ -18,7 +18,11 @@ We welcome questions, objections, sources and improvements. **You do not need pr
 
 ## 1. Der einfachste Einstieg / The easiest way
 
-Öffne ein GitHub Issue. Wähle die Vorlage, die zu deinem Anliegen passt:
+Ohne Konto kannst du eine [Rückmeldung als Textdatei vorbereiten](https://alexanderr1991.github.io/Vera/de/mitwirken/#entwurf). Wenn jemand mit GitHub-Konto sie für dich einreicht, legt vorher gemeinsam den öffentlichen Wortlaut fest.
+
+Without an account, you can [prepare feedback as a text file](https://alexanderr1991.github.io/Vera/en/mitwirken/#entwurf). If someone with a GitHub account submits it for you, agree on the public wording first.
+
+Öffne für einen eigenen öffentlichen Beitrag ein GitHub Issue. Wähle die Vorlage, die zu deinem Anliegen passt:
 
 | Deutsch | English | Einstieg / Entry |
 |---|---|---|
