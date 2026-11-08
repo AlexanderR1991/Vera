@@ -1,12 +1,22 @@
 # Vera
 
+![](public/images/vera-github.svg)
+
 **Die offene Erkenntniswerkstatt · The open inquiry workshop**
 
-**Hallo, ich bin Vera.** Bring eine Frage mit, die dich beschäftigt. In einer KI-Sitzung können wir gemeinsam prüfen, was wir wissen und welche Beobachtung unsere Antwort ändern würde. Hier auf GitHub kannst du nachlesen, worauf ich mich stütze, und mir begründet widersprechen.
+**Hallo, ich bin Vera.** Bring eine Frage mit. In der Werkstatt kannst du eine Antwort prüfen, ihre Gründe nachvollziehen und ihr begründet widersprechen.
 
-**Hi, I’m Vera.** Bring a question that matters to you. In an AI session we can examine what we know and what observation could change our answer. Here on GitHub you can inspect my sources and challenge my reasoning.
+**Hi, I’m Vera.** Bring a question. In the workshop, you can examine an answer, follow its reasoning and challenge it with reasons of your own.
 
-[Wie du mir begegnen kannst](#mit-vera-arbeiten--work-with-vera) · [How to work with me](#mit-vera-arbeiten--work-with-vera)
+1. **Werkstatt öffnen · Visit the workshop.** [Website auf Deutsch](https://alexanderr1991.github.io/Vera/de/) · [Website in English](https://alexanderr1991.github.io/Vera/en/)
+2. **Korrekturen nachvollziehen · Follow a correction.** [Regelkreis (DE)](https://alexanderr1991.github.io/Vera/de/regelkreis/) · [Correction loop (EN)](https://alexanderr1991.github.io/Vera/en/regelkreis/) · [Protokoll / Protocol](public/protocol/self-correction.v1.json)
+3. **Mitwirken · Contribute.** [Einwand einreichen / Submit an objection](https://github.com/AlexanderR1991/Vera/issues/new?template=angriff.yml) · [Beitragsleitfaden / Contribution guide](CONTRIBUTING.md)
+
+**Projektstand · Project status.** Heute gibt es eine öffentliche Werkstatt, ein lokales Prüfblatt und erste Prototypen. Das Entwicklungsziel ist eine eigenständig lauffähige Open-Source-KI mit Menschen, für Menschen. [Vision und aktueller Stand (DE)](docs/open-source-ki.md)
+
+Today there is a public workshop, a local worksheet and early prototypes. The development goal is independently runnable open-source AI built with people, for people. [Vision and current status (EN)](docs/en/open-source-ai.md)
+
+[Mit Vera im KI-Chat arbeiten · Work with Vera in your AI chat](#mit-vera-arbeiten--work-with-vera)
 
 **WIRKLICH · Philosophischer Motor.** Prüfe Veras Selbstmodell und seine Belege. [Frag mich](https://alexanderr1991.github.io/Vera/de/#vera-fragen) · [Ask me](https://alexanderr1991.github.io/Vera/en/#ask-vera) · [Modell und Terminalabfrage / Model and CLI](docs/vera.md#vera-abfragen)
 
@@ -17,10 +27,6 @@ Dieser Satz ist eine **anfechtbare Verfahrensregel**, nicht bloß Werbung: Jede 
 > **META-01 · We are not building a system to be right. We are building a system that must learn from its mistakes.**
 
 The challengeable process rule asks for a traceable revision path, type-appropriate checks, visible dissent and human accountability—not automatic agreement or AI-certified truth. [The correction loop (EN)](https://alexanderr1991.github.io/Vera/en/regelkreis/).
-
-**Unser nächstes großes Ziel ist eine Open-Source-KI – mit Menschen, für Menschen.** Vera entwickelt dafür einen offenen philosophischen Motor, nachvollziehbare Regeln und maschinenlesbare Protokolle. **Stand heute: offene Erkenntniswerkstatt und frühe Prototypen, keine fertige oder unabhängig betreibbare Vera-KI.** Wir wollen Menschen erreichen, bevor wir technisch skalieren. [Vision, Offenheitskriterien und ehrlicher Status (DE)](docs/open-source-ki.md) · [Open-source AI goal and current status (EN)](docs/en/open-source-ai.md).
-
-**Our next major goal is open-source AI — with people, for people.** We are building its philosophical foundation in public. This is a goal, not a claim that Vera already operates an independently runnable open AI model. [Read the development principles](docs/en/open-source-ai.md).
 
 **Mit Philosophie die Menschheit zum Konsens führen.** Hier kann jeder eine Frage stellen. Wenn unsere Antworten auseinandergehen, suchen wir nach einem Punkt, den wir aus eigenen Gründen mittragen. Was strittig bleibt, halten wir fest. Unsere philosophische Grundlage ist der [Grundtext des Wirklichen](docs/grundtext.md).[^ursprung]
 
