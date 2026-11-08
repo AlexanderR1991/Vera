@@ -44,6 +44,12 @@ if(form){
    "## Contribution\n"+kind+"\n\n## Relevant passage\n"+place+"\n\n## Question or objection\n"+thought+"\n":
    "## Art des Beitrags\n"+kind+"\n\n## Betroffene Stelle\n"+place+"\n\n## Gedanke / Einwand\n"+thought+"\n";
   if(event.submitter?.hasAttribute("data-open-issue")){
+   if(navigator.onLine===false){
+    form.querySelector("[data-form-message]").textContent=en?
+     "You’re offline. Your draft is still open here. Save it as a text file or try again when you’re back online.":
+     "Du bist offline. Dein Entwurf ist hier noch offen. Speichere ihn als Textdatei oder versuche es wieder, sobald du online bist.";
+    return;
+   }
    location.assign("https://github.com/AlexanderR1991/Vera/issues/new?title="+encodeURIComponent(title)+"&body="+encodeURIComponent(body));
    return;
   }
