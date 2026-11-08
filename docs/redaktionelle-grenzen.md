@@ -13,5 +13,7 @@
 - Quellen- und Revisionsregeln.
 - Zielgruppe und weitere Sprachen.
 
+
+Hinweis auf [REDE-01](redefreiheit-und-schutz.md): Unbequeme Kritik ist keine Rechtfertigung für Zurückhaltung; persönliche Daten, Drohungen und andere schädliche Inhalte dürfen dagegen **nicht zur Dokumentation zuerst öffentlich** in Git oder Issues gespeichert werden. Entscheidungen und Einsprüche brauchen eine geeignete vertrauliche Infrastruktur, die bislang fehlt.
 ## Transparenz
 KI-Unterstützung offenlegen. Zwischen Wissen, Hypothesen, Metaphern und persönlichen Erfahrungen unterscheiden.

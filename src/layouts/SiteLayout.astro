@@ -1,5 +1,8 @@
 ---
+import {createHash} from "node:crypto";
+import {readFileSync} from "node:fs";
 import {ui,navigation} from "../lib/ui.mjs";
+import SiteSearch from "../components/SiteSearch.astro";
 import UniversalQuestionsContext from "../components/UniversalQuestionsContext.astro";
 import {pathFor,absoluteFor,base} from "../lib/paths.mjs";
 import project from "../../public/project.json" with {type: "json"};
@@ -14,13 +17,17 @@ const primaryLinks = [
   ...navigation.map(([destination,i])=>({ href: pathFor(lang,destination), label: t.nav[i], current: slug===destination }))
 ];
 const footerGroups = [
-  { title: t.explore, routes: ["erkenntnisnavigator", "atlas", "baum-des-wissens", "esoterik-katalog", "bibliothek", "aussagen", "forum", "pruefstand", "die-bruecke", "grundfragen", "forschungsstrom"] },
-  { title: t.project, routes: ["mission", "regelkreis", "methode", "ki-und-mensch", "projektstatus", "projektobservatorium", "mitwirken"] }
+  { title: t.explore, routes: ["erkenntnisnavigator", "atlas", "baum-des-wissens", "esoterik-katalog", "bibliothek", "aussagen", "forum", "pruefstand", "die-bruecke", "philosophischer-motor", "grundfragen", "forschungsstrom"] },
+  { title: t.project, routes: ["mission", "kollektive-intelligenz", "regelkreis", "entitaet", "methode", "ki-und-mensch", "kollektive-moral", "projektstatus", "projektobservatorium", "mitwirken"] }
 ];
 const description = Astro.props.description ?? t.description;
 const title = Astro.props.pageTitle ?? (root ? "Choose your language / Sprache wählen" : t.titles[slug]);
 const siteRoot="https://alexanderr1991.github.io"+base;
 const canonical=root?siteRoot:absoluteFor(lang,slug);
+// Content-derived stamps avoid stale shared assets after a Pages deployment.
+const assetRevision=file=>createHash("sha256").update(readFileSync("public/assets/"+file)).digest("hex").slice(0,12);
+const cssRevision=assetRevision("style.css");
+const jsRevision=assetRevision("site.js");
 ---
 <!doctype html>
 <html lang={lang}>
@@ -41,9 +48,9 @@ const canonical=root?siteRoot:absoluteFor(lang,slug);
 <link rel="alternate" hreflang="en" href={absoluteFor("en",slug)} />
 <link rel="alternate" hreflang="x-default" href={siteRoot} />
 <link rel="icon" type="image/svg+xml" href={base+"assets/signet.svg"} />
-<link rel="stylesheet" href={base+"assets/style.css"} />
+<link rel="stylesheet" href={base+"assets/style.css?v="+cssRevision} />
 <title>{title} · {t.name}</title>
-<script is:inline src={base+"assets/site.js"} defer></script>
+<script is:inline src={base+"assets/site.js?v="+jsRevision} defer></script>
 </head>
 <body class:list={["vera-site",home?"vera-site--home":"vera-site--inner"]}>
 <a class="skip-link" href="#inhalt">{lang==="de"?"Zum Inhalt springen":"Skip to content"}</a>
@@ -54,13 +61,14 @@ const canonical=root?siteRoot:absoluteFor(lang,slug);
     </a>
     {[false,true].map(compact=>{
       const Navigation=compact?"details":"div";
-      return <Navigation class={compact?"vera-menu":"vera-menu-wide"}>
+      return <Navigation class={compact?"vera-menu":"vera-menu-wide"} name={compact?"vera-header-panel":undefined}>
         {compact&&<summary>{t.menu}<span class="vera-menu__symbol" aria-hidden="true"></span></summary>}
         <nav class="vera-primary" aria-label={primaryLabel}>
           {primaryLinks.map(link=><a href={link.href} aria-current={link.current?"page":undefined}>{link.label}</a>)}
         </nav>
       </Navigation>;
     })}
+    <SiteSearch lang={lang}/>
     <nav class="vera-languages" aria-label={de?"Sprache":"Language"}>
       <a href={pathFor("de",slug)} lang="de" hreflang="de" aria-label="Deutsch" aria-current={de?"true":undefined}>DE</a>
       <a href={pathFor("en",slug)} lang="en" hreflang="en" aria-label="English" aria-current={!de?"true":undefined}>EN</a>
@@ -84,6 +92,7 @@ const canonical=root?siteRoot:absoluteFor(lang,slug);
       <p class="footer__name">{t.name}</p>
       <h2>{t.footerTitle}</h2>
       <p>{t.footerDescription}</p>
+      <p><a class="subtle-link" href={pathFor(lang,"mitwirken","rueckmeldung")}>{t.feedbackInvitation} <span aria-hidden="true">→</span></a></p>
       <p class="footer__ai-goal">{de?"Unser Ziel: eine Open-Source-KI mit Menschen bauen · im Aufbau.":"Our goal: build open-source AI with people · in development."} <a href={pathFor(lang,"ki-und-mensch")}>{de?"Ziel und Grenzen prüfen":"Read the goal and its limits"} ↗</a></p>
     </div>
     <nav class="footer__links" aria-label={de?"Weitere Seiten":"More pages"}>

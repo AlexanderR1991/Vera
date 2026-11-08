@@ -12,6 +12,24 @@
 - **Prüfbarer Gegenfall:** Erhöht eine neue Funktion die Reichweite, aber Menschen können Gründe und Einspruchswege nicht mehr nachvollziehen, soll zunächst der Zugang verbessert und die Ausweitung zurückgestellt werden.
 - **Entscheidung und Verantwortung:** Aufnahme auf ausdrückliche Anweisung des Projektverantwortlichen; öffentliches Verfahren über PR #87, keine unabhängige Begutachtung. **Offene Grenze:** Nicht jeder Mensch kann sofort erreicht werden. Wirksamkeit und tatsächliche Barrierefreiheit bedürfen realer Tests; die Regel allein belegt sie nicht. Die Redaktion behält die Entscheidung nach dem bestehenden Governance-Verfahren.
 
+## 2026-11-07 · REDE-01 – freie Rede, Schutz und transparente Entscheidungen · Änderungsvorschlag
+
+- Bilingualer [REDE-01-Entwurf](redefreiheit-und-schutz.md) zur weitestmöglichen Offenheit auch bei unbequemer Kritik, mit Ausnahmen für konkrete Gefährdungen, Rechte Dritter und Privatsphäre.
+- Die vier Sichtbarkeitsentscheidungen bleiben von Wahrheitsstatus und Erkenntnisreife getrennt. Eine öffentliche Originalkopie ist nicht immer zulässig oder sinnvoll; die Abwägung verlangt ein verantwortliches menschliches Urteil, datensparsame Gründe und Einspruch.
+- Ein [versionierter, nicht ausführender JSON-Vertrag](../public/protocol/speech-and-safety.v0.json), Dokumentationslinks und Strukturtests machen die Idee überprüfbar. **Kein aktives Moderationssystem, keine automatische Regelannahme, keine unabhängige Beschwerdestelle.** Annahme nur nach dem öffentlich begründeten META-01-Regeländerungsverfahren.
+
+## 2026-11-07 · OPEN-01 – Offenheit und das Interesse der Menschheit (Änderungsvorschlag)
+
+- [OPEN-01](offenheit.md) begründet den Open-Source-Anspruch als anfechtbare Selbstbindung: öffentlich prüfbarer normativer und technischer Kern, korrigierbare Regeln, Versionierung und Möglichkeit zur unabhängigen Weiterführung. Eine [englische Entwurfsfassung](en/openness.md) liegt vor.
+- Der Gedanke „Interessenmaßstab Menschheit“ wird ausdrücklich von einer **nicht vorhandenen** rechtlichen oder demokratischen Vertretung der Menschheit unterschieden. Aktuelle redaktionelle Kontrolle, Grenzen offener Lizenzen, Datenschutz und Rechte Dritter bleiben sichtbar.
+- Die Erklärung wird in README, Governance und der zweisprachigen Mission referenziert; der PR dokumentiert Einwand und Entscheidung. Unabhängige Kontrolle und barrierearme Mitwirkung bleiben offene Entwicklungsaufgaben.
+
+## 2026-11-07 · OPEN-01 – Open Source nach vorn gerichtet (Erweiterung des Änderungsvorschlags)
+
+- Der Offenheitsentwurf wird ausdrücklich zukunftsorientiert: Nicht nur heutige Texte und Verfahren bleiben zugänglich; auch unabhängige Weiterentwicklung, Datenaustausch, Dokumentation und Anschlussfähigkeit werden als überprüfbare Entwicklungsziele festgehalten.
+- Deutsche und englische Grundsatzerklärung, Mission, README, Governance und Roadmap unterscheiden zwischen **angestrebtem offenem Protokoll** und **noch nicht nachgewiesener Standardfähigkeit**.
+- Prüfziel: Eine externe, unabhängige Implementierung anhand öffentlicher Spezifikation und Konformitätstests. Technische Kompatibilität erfordert keine Einigkeit über Werte; Fortschritt und KI-Automatisierung müssen auf Nutzen und Risiken geprüft werden.
+
 ## 2026-11-07 · META-01 – Der selbstkorrigierende Regelkreis
 
 - Die anfechtbare Leitregel lautet: **„Wir bauen kein System, das recht behalten soll. Wir bauen ein System, das aus seinen Irrtümern lernen muss.“** Ihre englische Fassung, zehn Arbeitsregeln, sieben Prüfschritte und die menschlichen Verantwortungsgrenzen sind in [selbstkorrektur.md](selbstkorrektur.md) und im [versionierten JSON-Protokoll](../public/protocol/self-correction.v1.json) beschrieben.

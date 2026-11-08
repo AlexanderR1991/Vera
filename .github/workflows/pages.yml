@@ -38,6 +38,7 @@ jobs:
         run: |
           npm run build
           python scripts/validate_site.py
+          python scripts/check_vera_entry.py --revision "$GITHUB_SHA"
       - uses: actions/configure-pages@v5
         if: github.event_name != 'pull_request'
       - uses: actions/upload-pages-artifact@v4
@@ -54,3 +55,22 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+  public-entry:
+    needs: deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Check the published path to an objection
+        run: |
+          for delay in 0 5 15 30; do
+            sleep "$delay"
+            if python3 scripts/check_vera_entry.py --live --revision "$GITHUB_SHA"; then
+              exit 0
+            fi
+          done
+          exit 1

@@ -1,0 +1,136 @@
+{
+  "schema_version": 0,
+  "model_version": "0.1.0-draft",
+  "status": "proposal_only",
+  "published_scores_allowed": false,
+  "disclaimer": {
+    "de": "Unvalidierter Forschungsentwurf. Keine berechneten Richtungswerte oder moralischen Personenbewertungen.",
+    "en": "Unvalidated research proposal. No computed direction scores or ratings of people."
+  },
+  "scale": {
+    "minimum": -1,
+    "neutral": 0,
+    "maximum": 1,
+    "not_a_probability": true
+  },
+  "dimensions": [
+    "evidence",
+    "value_profile",
+    "effects",
+    "direction",
+    "dissent",
+    "uncertainty"
+  ],
+  "process": [
+    {
+      "id": "frame",
+      "de": "Aussage, Kontext und Vergleich klären",
+      "en": "Define claim, context and comparison"
+    },
+    {
+      "id": "values",
+      "de": "Wirkungen und Wertannahmen trennen",
+      "en": "Separate effects and value commitments"
+    },
+    {
+      "id": "people",
+      "de": "Betroffene und stärkste Einwände suchen",
+      "en": "Find affected people and strongest objections"
+    },
+    {
+      "id": "evidence",
+      "de": "Belege und Folgen unabhängig prüfen",
+      "en": "Independently examine evidence and consequences"
+    },
+    {
+      "id": "robustness",
+      "de": "Unsicherheit und alternative Gewichtungen testen",
+      "en": "Test uncertainty and alternative weightings"
+    },
+    {
+      "id": "review",
+      "de": "Menschlich verantworten und korrigierbar halten",
+      "en": "Review with human accountability and revision"
+    }
+  ],
+  "release_gates": [
+    {
+      "id": "G1",
+      "de": "Präziser Fall und Vergleich",
+      "en": "Precise case and comparator"
+    },
+    {
+      "id": "G2",
+      "de": "Vorab definierte Skalen und Quellen",
+      "en": "Pre-registered scales and sources"
+    },
+    {
+      "id": "G3",
+      "de": "Offene Wertprofile, Betroffene und Minderheiteneinwände",
+      "en": "Open value profiles, stakeholders and minority objections"
+    },
+    {
+      "id": "G4",
+      "de": "Wirkungsannahmen mit mindestens unabhängiger R3-Prüfung",
+      "en": "Effect assumptions independently reviewed to at least R3"
+    },
+    {
+      "id": "G5",
+      "de": "Extern kalibrierte Unsicherheit und Datenabhängigkeiten",
+      "en": "Externally calibrated uncertainty and data dependencies"
+    },
+    {
+      "id": "G6",
+      "de": "Robuste Richtung bei plausiblen Alternativen",
+      "en": "Robust direction under plausible alternatives"
+    },
+    {
+      "id": "G7",
+      "de": "Rechteprüfung, menschliche Freigabe und Einspruchsweg",
+      "en": "Rights examination, human approval and appeal"
+    }
+  ],
+  "samples": [
+    {
+      "id": "KM-EX-001",
+      "claim": {
+        "de": "Vegetarische Ernährung ist gut.",
+        "en": "Vegetarian diets are good."
+      },
+      "score": null,
+      "status": "not_scored",
+      "reason": {
+        "de": "Ohne Person, Vergleichsernährung, Wirkungen und Wertprofil zu allgemein.",
+        "en": "Too broad without a person, comparator, assessed effects and value profile."
+      }
+    },
+    {
+      "id": "KM-EX-002",
+      "claim": {
+        "de": "Gut & Günstig Hundefutter kaufen.",
+        "en": "Buying Gut & Günstig dog food."
+      },
+      "score": null,
+      "status": "not_scored",
+      "reason": {
+        "de": "Tierbedarf, genaue Sorte, Alternativen und Folgen unbekannt.",
+        "en": "Nutritional needs, product, alternatives and impacts unknown."
+      }
+    }
+  ],
+  "prohibited_uses": [
+    "ranking_people",
+    "social_credit",
+    "automatic_sanctions",
+    "autonomous_maturity_promotion",
+    "bot_votes",
+    "unsupported_high_stakes_decisions"
+  ],
+  "governance": {
+    "human_release_required": true,
+    "automatic_publication": false,
+    "minority_objections_preserved": true,
+    "change_rules": "docs/community-governance.md",
+    "revision_rules": "docs/selbstkorrektur.md"
+  }
+}

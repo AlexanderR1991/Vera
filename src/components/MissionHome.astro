@@ -30,13 +30,16 @@ const featuredQuestions=everydayQuestions.questions.slice(0,3);
         <p class="home-opening__ambition">{t.opening.ambition}</p>
         <p class="home-opening__motto">{t.opening.motto}</p>
         <div class="home-opening__links">
-          <a class="home-link home-opening__entry home-opening__entry--primary" href={de?"#vera-fragen":"#ask-vera"}>
+          <a class="home-link home-opening__entry home-opening__entry--primary" data-vera-entry href={de?"#vera-fragen":"#ask-vera"}>
             {de?"Frag mich":"Ask me"} <span aria-hidden="true">↓</span>
           </a>
           <a class="home-link home-opening__entry" href={de?"#erkenntnis":"#insight"}>
             {de?"So entscheide ich":"See how I decide"} <span aria-hidden="true">↓</span>
           </a>
         </div>
+        <a class="home-link home-opening__feedback" href={pathFor(lang,"mitwirken","rueckmeldung")}>
+          {ui[lang].feedbackInvitation} <span aria-hidden="true">→</span>
+        </a>
       </div>
     </div>
   </section>
@@ -71,8 +74,8 @@ const featuredQuestions=everydayQuestions.questions.slice(0,3);
 
   <section class="home-method section-shell" aria-labelledby="practice-title">
     <div class="container">
-      <div class="home-section-title"><div><p class="section-kicker">/ {de?"DIE METHODE":"THE METHOD"}</p><h2 id="practice-title" tabindex="-1">{de?"Warum ich glaube, dass ich funktioniere":"Why I think I work"}</h2></div>
-      <p>{de?"Wenn du deine Beobachtung, deine Vermutung und deinen nächsten Schritt getrennt anschaust, wird sichtbar, wo ein Einwand etwas ändern kann. Ob das im Alltag hilft, lässt sich an konkreten Fällen prüfen.":"Looking at your observation, your guess and your next step separately shows where an objection might change something. Everyday cases let us test whether that helps."}</p></div>
+      <div class="home-section-title"><div><p class="section-kicker">/ {de?"DIE METHODE":"THE METHOD"}</p><h2 id="practice-title" tabindex="-1">{t.howTitle}</h2></div>
+      <p>{t.howReason}</p></div>
       <ol class="home-method__steps">
         {t.practiceSteps.map(([title,text],i)=><li>
           <span class="home-method__number">0{i+1}</span>
@@ -81,11 +84,29 @@ const featuredQuestions=everydayQuestions.questions.slice(0,3);
         </li>)}
       </ol>
       <blockquote class="home-meta-rule">{protocol.motto[lang]}</blockquote>
+      <details class="home-correction-example">
+        <summary>{t.tryLabel} · {t.tryAction}</summary>
+        <blockquote>{t.tryClaim}</blockquote>
+        <dl>
+          {t.trySteps.map(([label,body])=><div><dt>{label}</dt><dd>{body}</dd></div>)}
+        </dl>
+        <a class="home-link" href={pathFor(lang,"methode","g-005")}>{t.realExampleLink} <span aria-hidden="true">↗</span></a>
+      </details>
       <div class="home-method__links">
         <a class="home-link" href={pathFor(lang,"methode","erkenntnismotor")}>{de?"Den Regelweg verstehen":"See the examination process"} ↗</a>
         <a class="home-link" href={pathFor(lang,"werkstatt")}>{t.worksheet} ↗</a>
         <a class="home-link" href={pathFor(lang,"fragen-und-ki-prompt","prompt")}>{t.aiLink} ↗</a>
       </div>
+    </div>
+  </section>
+
+  <section class="home-method section-shell" aria-labelledby="collective-home-title">
+    <div class="container">
+      <p class="section-kicker">{lang==="de"?"GRUNDIDEE · KOLLEKTIVE INTELLIGENZ":"FOUNDING IDEA · COLLECTIVE INTELLIGENCE"}</p>
+      <div class="home-section-title"><h2 id="collective-home-title">{de?"Können wir gemeinsam besser denken als allein?":"Can we think better together than alone?"}</h2></div>
+      <p>{lang==="de"?"Unser Atlas verbindet Fragen. Menschen bringen Erfahrungen und Widersprüche ein, das versionierte Werk bewahrt Änderungen, der philosophische Motor prüft Gründe. KI kann Muster und Gegenargumente vorschlagen. Daraus könnte eine neue Form gemeinsamen Lernens entstehen.":"Our atlas connects questions. People bring experience and objections, the versioned work preserves revisions, the philosophical engine examines reasons and AI may suggest patterns and counterarguments. This might enable a new form of collective learning."}</p>
+      <p class="home-collective__limit">{lang==="de"?"Eine prüfbare Architekturhypothese – keine bereits bewiesene kollektive Intelligenz.":"A testable architecture hypothesis – not yet demonstrated collective intelligence."}</p>
+      <a class="home-link" href={pathFor(lang,"kollektive-intelligenz")}>{lang==="de"?"Unsere Grundidee und Gegenproben verstehen":"Explore our founding idea and its challenges"} →</a>
     </div>
   </section>
 
@@ -136,6 +157,15 @@ const featuredQuestions=everydayQuestions.questions.slice(0,3);
             <li><a href={project.repository+"/issues/new?template=frage.yml"}>{t.publicQuestion} ↗</a></li>
           </ul>
         </details>
+        <details>
+          <summary>{t.encounter.title}</summary>
+          <p>{t.encounter.lead} {t.encounter.instructions}</p>
+          <p>{t.encounter.example}</p>
+          <ul>
+            <li><a href={pathFor(lang,"fragen-und-ki-prompt","prompt")}>{t.aiLink} ↗</a></li>
+            <li><a href={pathFor(lang,"forum")}>{t.encounter.forumLink} ↗</a></li>
+          </ul>
+        </details>
         {t.groups.map(group=><details>
           <summary>{group.title}</summary>
           <p>{group.text}</p>
@@ -149,6 +179,7 @@ const featuredQuestions=everydayQuestions.questions.slice(0,3);
     <strong>{de?"Unser Ziel: Eine Open-Source-KI für Menschen bauen.":"Our goal: Build an open-source AI for people."}</strong>
     <p>{de?"Heute kannst du in der Werkstatt Fragen prüfen, Beispiele ausprobieren und die Regeln in deinem eigenen KI-Chat nutzen. Ein eigenständig veröffentlichtes Vera-Modell steht noch aus.":"Today you can examine questions, try examples and use the workshop rules in your own AI chat. An independently released Vera model is still to come."}</p>
     <a class="home-link" href={pathFor(lang,"ki-und-mensch")}>{de?"Idee und Projektstand prüfen":"Explore the goal and project status"} <span aria-hidden="true">↗</span></a>
+    <p>{de?"Forschungsfrage: Kann kollektive Moral wachsen, ohne Menschen in Zahlen zu bewerten?":"Research question: Can collective morality grow without rating people numerically?"} <a class="home-link" href={pathFor(lang,"kollektive-moral")}>{de?"Den Richtungsindex erkunden":"Explore the direction index"} <span aria-hidden="true">↗</span></a></p>
   </aside>
   <aside class="home-status container">
     <span data-project-version={project.version}>{ui[lang].name} / {project.version}</span>

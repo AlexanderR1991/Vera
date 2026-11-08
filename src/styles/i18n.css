@@ -248,6 +248,30 @@
 .civitas-tradeoffs__sides{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .civitas-tradeoffs__sides p{border-top:1px solid #b79b744c;padding-top:13px;font:14px/1.75 var(--serif);margin:0}
 .civitas-tradeoffs__question{font-size:13px;line-height:1.8;color:#b8ae9b;margin:23px 0 0}
+
+.civitas-perspectives{background:radial-gradient(ellipse at 10% 10%,#5145331b,transparent 55%),#101719}
+.civitas-perspectives .civitas-section-lead{max-width:970px;margin:18px 0 35px}
+.civitas-perspectives__list{border-top:1px solid var(--line)}
+.civitas-perspectives__list article{padding:30px 0 34px;border-bottom:1px solid var(--line)}
+.civitas-perspectives__heading{display:flex;align-items:baseline;gap:25px;margin-bottom:22px}
+.civitas-perspectives__heading span{flex:0 0 65px;font-size:10px;letter-spacing:.13em;color:var(--gold)}
+.civitas-perspectives__heading h3{font:clamp(25px,3vw,37px)/1.22 var(--serif);margin:0}
+.civitas-perspectives__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.civitas-perspectives__grid>div{border:1px solid var(--line);padding:21px 24px;background:#151c1d}
+.civitas-perspectives__grid h4{margin:0 0 14px;font-size:11px;line-height:1.6;letter-spacing:.07em;color:var(--gold-bright)}
+.civitas-perspectives__grid p{font-size:14px;line-height:1.8;margin:0}
+.civitas-perspectives__test{font-size:13px;line-height:1.85;margin:21px 0 0;max-width:1040px}
+.civitas-perspectives__test strong{color:var(--gold);display:block;font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+.civitas-perspectives__sources{margin-top:35px}
+.civitas-perspectives__sources h3{font:24px/1.4 var(--serif);margin:0 0 16px}
+.civitas-perspectives__sources ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 28px}
+.civitas-perspectives__sources a{color:var(--gold-bright);font-size:13px;line-height:1.6;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:660px){
+.civitas-perspectives__heading{display:block}
+.civitas-perspectives__heading span{display:block;margin-bottom:10px}
+.civitas-perspectives__grid,.civitas-perspectives__sources ul{grid-template-columns:minmax(0,1fr)}
+.civitas-perspectives__grid>div{padding:19px}
+}
 .civitas-hypotheses{background:radial-gradient(ellipse at 80% 10%,#765d3423,transparent 60%),var(--ink)}
 .civitas-hypothesis-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
 .civitas-hypothesis-grid article{border:1px solid var(--line);padding:31px;background:#14191a;scroll-margin-top:110px}

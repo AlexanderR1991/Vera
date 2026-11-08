@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "protocol_version": "0.1.0",
+  "id": "ENT-00",
+  "status": "experimental_proposal",
+  "runtime_enabled": false,
+  "date": "2026-11-07",
+  "title": {
+    "de": "WIRKLICH · ENTITÄT – offener Erkenntniskreislauf",
+    "en": "WIRKLICH · ENTITY – open inquiry loop"
+  },
+  "definition": {
+    "de": "Eine vorgeschlagene technische Architektur für menschlich verantwortete, kollektive und revidierbare Erkenntnis; keine Behauptung über Bewusstsein oder lebende KI.",
+    "en": "A proposed technical architecture for human-accountable, collective, revisable inquiry; not a claim about consciousness or living AI."
+  },
+  "parts": [
+    {
+      "id": "people",
+      "de": "Menschen und betroffene Personen",
+      "en": "People and affected communities"
+    },
+    {
+      "id": "atlas",
+      "de": "Atlas und thematische Verknüpfungen",
+      "en": "Atlas and topical links"
+    },
+    {
+      "id": "forum",
+      "de": "Forum und begründeter Dissens",
+      "en": "Forum and reasoned disagreement"
+    },
+    {
+      "id": "engine",
+      "de": "Typisierter philosophischer Prüfprozess",
+      "en": "Typed philosophical examination"
+    },
+    {
+      "id": "agents",
+      "de": "Optionale, voneinander unterschiedene Prüfhilfen",
+      "en": "Optional, distinct reviewing aids"
+    },
+    {
+      "id": "math",
+      "de": "Begrenzte mathematische Forschungsmodelle",
+      "en": "Bounded mathematical research models"
+    },
+    {
+      "id": "memory",
+      "de": "Versionierte Aussagen und Änderungsgründe",
+      "en": "Versioned claims and revision reasons"
+    },
+    {
+      "id": "critique",
+      "de": "Angriff auf Ergebnisse und Regeln",
+      "en": "Challenges to results and rules"
+    }
+  ],
+  "cycle": [
+    "question",
+    "classify",
+    "perspectives",
+    "strongest_objection",
+    "evidence_check",
+    "draft_revision",
+    "human_review",
+    "preserve_history",
+    "new_question"
+  ],
+  "draft_kinds": [
+    "perspective",
+    "evidence_hint",
+    "objection",
+    "revision_proposal"
+  ],
+  "draft_origins": [
+    "human_submission",
+    "editorial_draft",
+    "ai_draft"
+  ],
+  "human_decisions": [
+    "retain",
+    "narrow",
+    "revise",
+    "withdraw",
+    "leave_open"
+  ],
+  "knowledge_types": [
+    "unclassified",
+    "empirical",
+    "formal",
+    "normative",
+    "interpretive",
+    "metaphor"
+  ],
+  "direction_index": {
+    "value": null,
+    "public_score_allowed": false,
+    "note": {
+      "de": "Keine kalibrierte Zahl; Wertprofile, Vergleichsoptionen und Unsicherheit bleiben offen.",
+      "en": "No calibrated number; value profiles, comparators and uncertainty remain unresolved."
+    }
+  },
+  "epistemic_limits": {
+    "human_consensus": "not_assessed",
+    "independent_evaluation": false,
+    "model_majority_counts_as_evidence": false,
+    "ai_can_grant_review_or_maturity": false,
+    "agent_autonomy_enabled": false,
+    "public_auto_publish": false
+  },
+  "forward_principle": {
+    "de": "Die nächste bessere Frage oder begründete Korrektur ist ein möglicher Schritt nach vorn; auch Rücknahme, Pause und offenbleibender Dissens sind zulässige Ergebnisse.",
+    "en": "A better next question or justified correction may be a step forward; withdrawal, pausing and unresolved dissent are valid outcomes too."
+  },
+  "links": {
+    "meta_rule": "docs/selbstkorrektur.md",
+    "architecture": "docs/architektur.md",
+    "detail": "docs/entitaet.md",
+    "ai_charter": "docs/ki-charta.md",
+    "review_levels": "docs/erkenntnisreife.md",
+    "questions": "docs/fragenatlas.md"
+  }
+}

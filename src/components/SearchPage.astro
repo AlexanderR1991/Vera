@@ -1,0 +1,34 @@
+---
+import Layout from "../layouts/SiteLayout.astro";
+import {pathFor} from "../lib/paths.mjs";
+const {lang="de"} = Astro.props;
+const en = lang === "en";
+const t = (de, english) => en ? english : de;
+---
+<Layout lang={lang} slug="suche" pageTitle={t("Suche", "Search")}
+  description={t("Suche in den veröffentlichten Seiten, Atlas-Themen, Aussagen und Fragen von Vera.",
+    "Search published pages, atlas topics, claims and questions on VERA.")}>
+  <section class="container site-search-page" data-search-page>
+    <p class="section-kicker">{t("Vera · WISSEN FINDEN", "VERA · FIND KNOWLEDGE")}</p>
+    <h1>{t("Wonach suchst du?", "What are you looking for?")}</h1>
+    <p class="site-search-page__intro">{t(
+      "Suche in unseren veröffentlichten Seiten, Themen, Aussagen, Fragen und Katalogeinträgen. Treffer sind Wegweiser, keine Bewertung ihrer Wahrheit.",
+      "Search our published pages, topics, claims, questions and catalogue entries. Matches are signposts, not truth assessments."
+    )}</p>
+    <form class="site-search-page__form" role="search" action={pathFor(lang,"suche")} method="get">
+      <label for="full-site-search">{t("Suchbegriff", "Search terms")}</label>
+      <input id="full-site-search" type="search" name="q" data-search-page-input
+        placeholder={t("z. B. Liebe, Konsens, Tarot", "e.g. love, consensus, tarot")} maxlength="120" />
+      <button type="submit">{t("Suchen", "Search")}</button>
+    </form>
+    <p class="site-search-page__status" role="status" data-search-page-status>
+      {t("Suchbegriff eingeben…", "Enter a search term…")}
+    </p>
+    <ol class="site-search-page__results" data-search-page-results></ol>
+    <p class="site-search-page__foot">{t(
+      "Diese Suche vergleicht Begriffe im Browser; sie ist keine KI-Analyse. Nicht fündig geworden?",
+      "This browser search matches words; it is not an AI analysis. Didn't find what you need?"
+    )} <a href={pathFor(lang,"erkenntnisnavigator")}>{t("Frage im Erkenntnisnavigator erkunden", "Explore your question in the Knowledge Navigator")} →</a></p>
+    <noscript><p>{t("Zum Suchen muss JavaScript aktiviert sein.", "Enable JavaScript to search.")}</p></noscript>
+  </section>
+</Layout>

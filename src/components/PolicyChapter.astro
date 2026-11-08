@@ -42,6 +42,37 @@ const github="https://github.com/AlexanderR1991/Vera";
 <div class="civitas-tradeoffs__question">{x.question}</div>
 </article>)}</div>
 </div></section>
+<section class="section civitas-evidence" id="eigentum-und-macht"><div class="container">
+<p class="section-kicker">{t.systemLabel}</p><h2 class="civitas-section-title">{t.systemTitle}</h2>
+<p class="civitas-section-lead">{t.systemIntro}</p>
+<div class="civitas-thesis"><span class="section-kicker">{t.systemThesisLabel}</span><blockquote>{t.systemThesis}</blockquote><p>{t.systemThesisNote}</p><p><a class="subtle-link" href={t.systemMarxUrl} target="_blank" rel="noopener noreferrer">{t.systemMarxSource} ↗</a></p></div>
+<p class="section-kicker">{t.systemCasesLabel}</p><h3 class="civitas-section-title">{t.systemCasesTitle}</h3><p class="civitas-section-lead">{t.systemCasesIntro}</p>
+<div class="civitas-evidence__list">{t.systemCases.map((example,i)=><article>
+<div class="civitas-evidence__number">{String(i+1).padStart(2,"0")} / {String(t.systemCases.length).padStart(2,"0")}</div>
+<div><span class="civitas-type">{example.kind}</span><h3>{example.title}</h3><p>{example.text}</p>
+<div class="civitas-limit"><b>{t.systemCounterLabel}</b><p>{example.counter}</p></div>
+<div class="civitas-limit"><b>{t.systemLimitLabel}</b><p>{example.limit}</p></div>
+<a href={example.url} target="_blank" rel="noopener noreferrer">{example.source} ↗</a></div>
+</article>)}</div>
+<p class="civitas-warning">{t.systemChallenge}</p>
+<div class="button-row"><a class="button button--ghost" href={pathFor(lang,"forum")+"#alltag-verteilung"}>{t.systemForum}</a></div>
+</div></section>
+<section class="section civitas-perspectives" id="perspektiven"><div class="container">
+<p class="section-kicker">{t.perspectivesLabel}</p>
+<h2 class="civitas-section-title">{t.perspectivesTitle}</h2>
+<p class="civitas-section-lead">{t.perspectivesIntro}</p>
+<div class="civitas-perspectives__list">{t.perspectives.map((x,i)=><article>
+<div class="civitas-perspectives__heading"><span>{String(i+1).padStart(2,"0")} / {String(t.perspectives.length).padStart(2,"0")}</span><h3>{x.topic}</h3></div>
+<div class="civitas-perspectives__grid">
+<div><h4>{t.perspectivesRightLabel}</h4><p>{x.right}</p></div>
+<div><h4>{t.perspectivesOtherLabel}</h4><p>{x.other}</p></div>
+</div>
+<p class="civitas-perspectives__test"><strong>{t.perspectivesTestLabel}</strong>{x.test}</p>
+</article>)}</div>
+<p class="civitas-warning">{t.perspectivesBoundary}</p>
+<div class="civitas-perspectives__sources"><h3>{t.perspectivesSourcesLabel}</h3>
+<ul>{t.perspectivesSources.map(s=><li><a href={s.url} target="_blank" rel="noopener noreferrer">{s.label} ↗</a></li>)}</ul></div>
+</div></section>
 <section class="section civitas-hypotheses" id="hypothesen"><div class="container">
 <p class="section-kicker">{t.hypLabel}</p><h2 class="civitas-section-title">{t.hypTitle}</h2><p class="civitas-section-lead">{t.hypIntro}</p>
 <div class="civitas-hypothesis-grid">{t.hypotheses.map(h=><article id={h.code.toLowerCase()}>

@@ -1,0 +1,194 @@
+---
+import Layout from "../layouts/SiteLayout.astro";
+import {base,pathFor} from "../lib/paths.mjs";
+import project from "../../public/project.json";
+import fixtures from "../../public/research/philosophical-motor-examples.v0.json";
+import claimsData from "../../public/knowledge/claims.json";
+import {maturityLabels,consensusLabels} from "../lib/maturity.mjs";
+import {examineDirection,describePublishedClaim} from "../lib/philosophical-motor.mjs";
+
+const {lang="de"}=Astro.props;
+const en=lang==="en";
+const t=(de,english)=>en?english:de;
+const examples=fixtures.cases.map(scenario=>({scenario,result:examineDirection(scenario)}));
+const publishedClaims=claimsData.claims.map(claim=>({claim,snapshot:describePublishedClaim(claim)}));
+const signed=value=>typeof value==="number"?(value>0?"+":"")+value.toFixed(3):"—";
+const labels={
+ profile_sensitive:t("Profilabhängig: kein allgemeiner Einzelwert","Profile-sensitive: no universal score"),
+ positive_across_profiles:t("Im Modell durchgehend positiv","Positive across chosen profiles in this model"),
+ negative_across_profiles:t("Im Modell durchgehend negativ","Negative across chosen profiles in this model"),
+ undetermined:t("Offen / nicht entscheidbar","Open / indeterminate")
+};
+const safeguards={
+ blocked:t("Schutzgrenze verletzt – keine Handlungsempfehlung","Hard safeguard failed – no recommendation"),
+ pending:t("Schutzlage unklar","Safeguard status uncertain"),
+ declared_pass:t("Schutzlage nur im fiktiven Beispiel als erfüllt gesetzt","Safeguards assumed to pass in this fictional example"),
+ not_assessed:t("Nicht geprüft","Not assessed")
+};
+---
+<Layout lang={lang} slug="philosophischer-motor" pageTitle={t("Mathematik des philosophischen Motors","Mathematics of the Philosophical Engine")} description={t("M-03: Der mathematische Forschungsentwurf von WIRKLICH mit nachvollziehbaren fiktiven Rechenbeispielen.","M-03: The mathematical research design behind WIRKLICH, with auditable fictional worked examples.")}>
+ <article class="motor-page">
+  <header class="motor-hero">
+   <div class="container">
+    <p class="section-kicker">{t("WIRKLICH · M-01 + M-02 + M-03","WIRKLICH · M-01 + M-02 + M-03")}</p>
+    <h1>{t("Die Mathematik","The mathematics")}<br /><em>{t("des philosophischen Motors.","of the philosophical engine.")}</em></h1>
+    <p class="motor-lead">{t("Nicht jede Frage hat eine Zahl als Antwort. Unser Motor soll nachvollziehbar erklären, was wir wissen, worüber wir streiten und wann eine Richtung begründbar ist.","Not every question has a numerical answer. Our engine aims to show what we know, where we disagree, and when a direction could be justified.")}</p>
+    <p class="motor-status">{t("FORMALER FORSCHUNGSENTWURF · NICHT EMPIRISCH VALIDIERT · KEIN LIVE-KI-SYSTEM","FORMAL RESEARCH DRAFT · NOT EMPIRICALLY VALIDATED · NO LIVE AI SYSTEM")}</p>
+    <div class="button-row">
+     <a class="button button--gold" href="#rechenbeispiele">{t("Fiktive Rechenbeispiele ansehen","Explore fictional examples")} ↓</a>
+     <a class="button button--ghost" href={pathFor(lang,"die-bruecke")}>{t("M-02: Die Brücke","M-02: The Bridge")} ↗</a>
+    </div>
+   </div>
+  </header>
+
+  <section class="section motor-section">
+   <div class="container">
+    <p class="section-kicker">{t("TATSÄCHLICHE AUSSAGEN · NUR LESEN","EXISTING CLAIMS · READ ONLY")}</p>
+    <h2>{t("Was der Motor heute wirklich weiß.","What the engine actually knows today.")}</h2>
+    <p>{t("Die Einträge stammen aus dem öffentlichen Aussagenregister. Ihr Prüfstatus wird unverändert gelesen: keine automatische Aufstufung, keine gesellschaftliche Konsensbehauptung, keine moralische Punktzahl.","These entries come from the public claim register. Their review status is read unchanged: no automatic promotion, no claim of social consensus, and no moral score.")}</p>
+    <div class="motor-claims">
+      {publishedClaims.map(({claim,snapshot})=><article class="motor-claim">
+        <small>{snapshot.id} · v{snapshot.version} · {snapshot.claim_type}</small>
+        <h3>{claim.statement[lang]}</h3>
+        <p>{maturityLabels[lang][snapshot.maturity_level]} · {consensusLabels[lang][snapshot.consensus_status]}</p>
+        <span>{t("Richtungsindex: nicht berechnet","Directional index: not computed")}</span>
+      </article>)}
+    </div>
+    <p><a href={pathFor(lang,"aussagen")}>{t("Zum vollständigen Aussagenregister","Explore the full claim register")} →</a></p>
+   </div>
+  </section>
+
+  <section class="section motor-section">
+   <div class="container">
+    <p class="section-kicker">{t("DIE GRUNDIDEE","THE CENTRAL DESIGN")}</p>
+    <h2>{t("Sechs getrennte Ebenen. Eine nachvollziehbare Antwort.","Six distinct layers. One auditable response.")}</h2>
+    <div class="motor-grid">
+     {[
+       {id:"01",de:"Wissen",en:"Evidence",detailDe:"Empirische Befunde, Quellabhängigkeit, Unsicherheit.",detailEn:"Empirical findings, source dependence, uncertainty."},
+       {id:"02",de:"Logik",en:"Logic",detailDe:"Definitionen, Beweise, Gegenmodelle.",detailEn:"Definitions, proofs and countermodels."},
+       {id:"03",de:"Werte",en:"Values",detailDe:"Offengelegte Ziele, Rechte und Wertprofile.",detailEn:"Explicit goals, rights and value profiles."},
+       {id:"04",de:"Verstehen",en:"Understanding",detailDe:"M-02 trennt präzise Wiedergabe und Zustimmung.",detailEn:"M-02 separates accurate restatement and agreement."},
+       {id:"05",de:"Dissens",en:"Dissent",detailDe:"Der stärkste Einwand darf sichtbar bleiben.",detailEn:"The strongest objection must remain visible."},
+       {id:"06",de:"Korrektur",en:"Revision",detailDe:"Versionen, Abhängigkeiten, neue Gegenprüfungen.",detailEn:"Versions, dependencies and renewed challenges."}
+     ].map(item=><article class="motor-card">
+      <small>{item.id}</small><h3>{en?item.en:item.de}</h3><p>{en?item.detailEn:item.detailDe}</p>
+     </article>)}
+    </div>
+    <div class="motor-formula">
+      <p>{t("M-03 · BEDINGTE RICHTUNG", "M-03 · CONDITIONAL DIRECTION")}</p>
+      <div class="motor-formula__main" aria-label={t("Richtung ist die gewichtete Summe angenommener Wirkungen","Direction is the weighted sum of assumed effects")}>
+       <span>I<sub>z</sub> = Σ w<sub>j</sub>(z) · d<sub>j</sub></span>
+      </div>
+      <p>{t("Wirkungen und Gewichte sind Modellannahmen. Ohne Kontext, Vergleich, überprüfte Evidenz und offengelegte Werte ist das kein moralisches Urteil.","Effects and weights are model assumptions. Without context, a baseline, examined evidence and declared values, this is not a moral verdict.")}</p>
+    </div>
+   </div>
+  </section>
+
+  <section class="section section--paper motor-section" id="rechenbeispiele">
+   <div class="container">
+    <p class="section-kicker">{t("AUSFÜHRBARER PROTOTYP · NUR ERFUNDENE DATEN","EXECUTABLE PROTOTYPE · INVENTED DATA ONLY")}</p>
+    <h2>{t("Drei Fälle, die einem Zahlensystem Grenzen setzen.","Three cases that expose the limits of a scoring system.")}</h2>
+    <p class="motor-caption">{t("Die Zahlen entstehen durch einen offenen JavaScript-Kern aus künstlichen Wirkungsannahmen. Sie beschreiben keine Menschen, keine realen Folgen und keine statistischen Konfidenzintervalle. Die Software erlaubt keine Freigabe realer Richtungswerte.","These numbers come from a transparent JavaScript core applied to invented effect assumptions. They describe no real people or outcomes and are not statistical confidence intervals. The software cannot publish real direction scores.")}</p>
+    <div class="motor-examples">
+     {examples.map(({scenario,result})=><article class="motor-example">
+      <div class="motor-example__heading">
+       <span>{scenario.id} · {t("SYNTHETISCH","SYNTHETIC")}</span>
+       <h3>{scenario.title[lang]}</h3>
+      </div>
+      {result.profile_results.length>0?
+       <div class="motor-table-wrap" tabindex="0" role="region" aria-label={t("Intervallwerte","Interval values")}>
+        <table>
+         <caption>{t("Erfundene Intervallwerte nach Wertprofil","Invented interval outcomes by value profile")}</caption>
+         <thead><tr><th scope="col">{t("Wertprofil","Value profile")}</th><th scope="col">{t("Untere Grenze","Lower bound")}</th><th scope="col">{t("Mitte","Centre")}</th><th scope="col">{t("Obere Grenze","Upper bound")}</th></tr></thead>
+         <tbody>{result.profile_results.map(profile=>{
+          const source=scenario.value_profiles.find(item=>item.id===profile.id);
+          return <tr><th scope="row">{source?.label[lang]||profile.id}</th><td>{signed(profile.lower)}</td><td><strong>{signed(profile.estimate)}</strong></td><td>{signed(profile.upper)}</td></tr>;
+         })}</tbody>
+        </table>
+       </div>
+       :<p class="motor-empty">{t("Keine Berechnung: Die Wirkung einer relevanten Dimension ist unbekannt.","No calculation: an important effect dimension is missing.")}</p>}
+      <p class="motor-interpret"><strong>{labels[result.direction]||t("Keine Auswertung","No evaluation")}.</strong> {safeguards[result.safeguard_status]}</p>
+      <p class="motor-no-publish">{t("Keine reale Bewertung oder Veröffentlichung zulässig.","Real-world scoring and publication are disabled.")}</p>
+     </article>)}
+    </div>
+   </div>
+  </section>
+
+  <section class="section motor-section">
+   <div class="container">
+    <p class="section-kicker">{t("NICHTVERRECHENBARE REGELN","NON-COMPENSATORY SAFEGUARDS")}</p>
+    <h2>{t("Ein hoher Wert kann Unrecht nicht wegaddieren.","A positive number cannot cancel a rights violation.")}</h2>
+    <div class="motor-principles">
+     <div><strong>∅</strong><p>{t("Keine Daten heißt nicht null. Fehlende Wirkungen müssen offenbleiben.","Missing data does not mean zero. Unknown effects stay unknown.")}</p></div>
+     <div><strong>≠</strong><p>{t("Verstehen ist nicht Einigkeit; Zustimmung ist kein Wahrheitsbeweis.","Understanding is not agreement; agreement does not prove truth.")}</p></div>
+     <div><strong>↺</strong><p>{t("Eine Korrektur markiert Folgeprüfungen. Sie verbessert nicht automatisch die Wahrheit.","A correction triggers dependent reviews. Improvement is never automatic.")}</p></div>
+    </div>
+   </div>
+  </section>
+
+  <section class="section motor-section motor-end">
+   <div class="container">
+    <p class="section-kicker">{t("OPEN SOURCE · PRÜFBAR · ANFECHTBAR","OPEN SOURCE · INSPECTABLE · CHALLENGEABLE")}</p>
+    <h2>{t("Widerlege die Voraussetzungen – nicht nur das Ergebnis.","Challenge the assumptions, not just the result.")}</h2>
+    <p>{t("Diese Mathematik ist ein Forschungsrahmen, keine neue bewiesene Gesellschaftstheorie. Auch Kriterien, Skalen, Gewichtungen und Regeln dürfen begründet geändert oder verworfen werden. Die aktuellen KI-Fachagenten und der Richtungsindex sind separate, noch ungeprüfte Vorhaben.","This mathematics is a research framework, not a proven new theory of society. Criteria, scales, weights and rules are all open to challenge or withdrawal. Expert AI roles and a public direction index remain separate unreviewed proposals.")}</p>
+    <div class="motor-links">
+     <a href={project.repository+"/blob/main/docs/"+(en?"en/philosophical-motor-mathematics.md":"philosophischer-motor-mathematik.md")}>{t("Vollständige mathematische Spezifikation","Complete mathematical specification")} ↗</a>
+     <a href={base+"research/philosophical-motor-examples.v0.json"}>{t("Fiktive Fälle als JSON","Fictional cases as JSON")} ↗</a>
+     <a href={project.repository+"/blob/main/src/lib/philosophical-motor.mjs"}>{t("Berechnung und Schutzregeln als Quellcode","Calculation and safeguards in source code")} ↗</a>
+     <a href={project.repository+"/issues/new?template=angriff.yml"}>{t("Einen formalen Gegenfall einreichen","Submit a countermodel")} ↗</a>
+    </div>
+    <p class="motor-last">{t("Es ist ein Fortschritt, wenn eine Maschine sagen kann: „Unter diesen Voraussetzungen weiß ich es nicht.“","It is progress when a machine can say: 'Under these assumptions, I do not know.'")}</p>
+   </div>
+  </section>
+ </article>
+</Layout>
+<style>
+.motor-page{--motor-accent:#cfab79}
+.motor-hero{padding:clamp(4rem,9vw,8rem) 0 4.5rem;background:radial-gradient(ellipse at 82% 0%,rgba(207,171,121,.12),transparent 52%)}
+.motor-hero .container{max-width:80rem}
+.motor-hero h1{max-width:62rem;font-size:clamp(2.5rem,6vw,5.6rem);line-height:1.08;letter-spacing:-.045em;margin:.75rem 0 1.5rem}
+.motor-hero em{color:var(--motor-accent);font-weight:400}
+.motor-lead{font-size:clamp(1.1rem,2.2vw,1.55rem);max-width:57rem;line-height:1.6}
+.motor-status{font-size:.76rem;letter-spacing:.09em;opacity:.7;margin-top:1.6rem;margin-bottom:1.6rem}
+.motor-section{padding-block:clamp(3rem,6vw,5rem)}
+.motor-section h2{max-width:54rem;font-size:clamp(1.65rem,3vw,2.65rem);line-height:1.2;margin:.7rem 0 1.7rem}
+.motor-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.motor-claims{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin:2rem 0}
+.motor-claim{border:1px solid var(--line);border-radius:12px;padding:1.2rem}
+.motor-claim small{font-size:.72rem;color:var(--motor-accent)}
+.motor-claim h3{font-size:1rem;line-height:1.4;margin:.55rem 0 .8rem}
+.motor-claim p{font-size:.85rem;opacity:.72}
+.motor-claim span{display:inline-block;font-size:.78rem;border:1px solid var(--line);border-radius:30px;padding:.3rem .7rem}
+@media(max-width:760px){.motor-claims{grid-template-columns:1fr}}
+.motor-card{padding:1.4rem;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.025)}
+.motor-card small{color:var(--motor-accent)}
+.motor-card h3{margin:.7rem 0 .4rem;font-size:1.25rem}
+.motor-card p{margin:0;color:var(--muted,#b5b7bb)}
+.motor-formula{border-top:1px solid var(--line);margin-top:2.5rem;padding-top:2rem;max-width:58rem}
+.motor-formula>p:first-child{letter-spacing:.12em;font-size:.78rem;color:var(--motor-accent)}
+.motor-formula__main{font-family:ui-serif,Georgia,serif;font-size:clamp(1.8rem,4vw,3.4rem);padding-block:.75rem}
+.motor-formula__main sub{font-size:.5em}
+.motor-formula>p:last-child{max-width:55rem}
+.motor-caption{max-width:65rem;margin-bottom:1.5rem}
+.motor-examples{display:grid;grid-template-columns:minmax(0,1fr);gap:1.2rem}
+.motor-example{padding:clamp(1rem,3vw,2rem);border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.018)}
+.motor-example__heading>span{font-size:.74rem;color:var(--motor-accent);letter-spacing:.12em}
+.motor-example__heading h3{font-size:1.4rem;margin:.45rem 0 1.2rem}
+.motor-table-wrap{overflow-x:auto}
+.motor-example table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}
+.motor-example caption{text-align:left;font-size:.8rem;opacity:.7;padding-bottom:.7rem}
+.motor-example th,.motor-example td{text-align:left;padding:.8rem .7rem;border-top:1px solid var(--line);white-space:nowrap;font-size:.88rem}
+.motor-example th:first-child{white-space:normal}
+.motor-example td strong{color:var(--motor-accent)}
+.motor-interpret{padding-top:.9rem;margin:.5rem 0 0}
+.motor-no-publish{font-size:.8rem;opacity:.7}
+.motor-empty{padding:1.2rem;border:1px dashed var(--line);border-radius:8px}
+.motor-principles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.motor-principles>div{padding:1.2rem;border-top:2px solid var(--motor-accent)}
+.motor-principles strong{font-size:2rem;color:var(--motor-accent)}
+.motor-end{border-top:1px solid var(--line)}
+.motor-links{display:flex;flex-wrap:wrap;gap:1rem 1.8rem;margin:2rem 0}
+.motor-links a{color:var(--motor-accent);text-underline-offset:.2em}
+.motor-last{font-style:italic;font-size:1.3rem;max-width:45rem}
+@media(max-width:760px){.motor-grid,.motor-principles{grid-template-columns:1fr}.motor-hero{padding-top:3.5rem}.motor-hero h1{letter-spacing:-.03em;overflow-wrap:anywhere}}
+</style>

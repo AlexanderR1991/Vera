@@ -5,12 +5,15 @@
 ## Read the ideas
 
 1. [Foundational theses — English draft](grundtext.md) (nine theses; full companion to [the German source](../grundtext.md)).
-2. [The correction loop — English website](https://alexanderr1991.github.io/Vera/en/regelkreis/) and [META-01 in both languages](../selbstkorrektur.md).
-3. [How claims are examined — English website](https://alexanderr1991.github.io/Vera/en/methode/) and [technical method notes, with English summary](../methode.md).
-4. [AI and people — English website](https://alexanderr1991.github.io/Vera/en/ki-und-mensch/) and [the AI charter (primarily German)](../ki-charta.md).
-5. [The forum — questions, answers and objections](https://alexanderr1991.github.io/Vera/en/forum/).
+2. [Collective intelligence as an unvalidated founding hypothesis](kollektive-intelligenz.md) and [public explanation](https://alexanderr1991.github.io/Vera/en/kollektive-intelligenz/).
+3. [The correction loop — English website](https://alexanderr1991.github.io/Vera/en/regelkreis/) and [META-01 in both languages](../selbstkorrektur.md).
+4. [How claims are examined — English website](https://alexanderr1991.github.io/Vera/en/methode/) and [technical method notes, with English summary](../methode.md).
+5. [AI and people — English website](https://alexanderr1991.github.io/Vera/en/ki-und-mensch/) and [the AI charter (primarily German)](../ki-charta.md).
+6. [The forum — questions, answers and objections](https://alexanderr1991.github.io/Vera/en/forum/).
 
 The central method is: frame the question, identify the kind of claim, find a strong objection, examine reasons appropriate to that claim, make an accountable decision, record revisions, and repeat. Neither popularity nor AI output counts as proof. Documented disagreement may remain.
+
+The project explicitly discusses [why it seeks to remain open source](openness.md): humanity is its intended interest, **not a constituency it claims to represent**. Open licensing needs accountable governance, not just public code. The German source is [OPEN-01](../offenheit.md).
 
 ## What is and is not bilingual
 

@@ -1,6 +1,6 @@
 # M-02 · Die Mathematik des Dazwischen / Mathematics Between Minds
 
-**Status:** Vera-Forschungsentwurf 0.1, 7. November 2026. **Keine neue bewiesene Theorie menschlichen Miteinanders, keine validierte psychologische Skala, keine empirische Studie, keine unabhängige Begutachtung.** Das Modell operationalisiert ein kleines Teilproblem. [Mathematischer Prüfstand](mathematischer-pruefstand.md) · [Sprachprobe](schnittmengen.md) · [Öffentliche Versuchsanordnung](../public/research/intersubjective-dynamics.v0.json).
+**Status:** Vera-Forschungsentwurf 0.2, 8. November 2026. **Keine neue bewiesene Theorie menschlichen Miteinanders, keine validierte psychologische Skala, keine empirische Studie, keine unabhängige Begutachtung.** Das Modell operationalisiert ein kleines Teilproblem. [Mathematischer Prüfstand](mathematischer-pruefstand.md) · [Sprachprobe](schnittmengen.md) · [Öffentliche Versuchsanordnung](../public/research/intersubjective-dynamics.v0.json).
 
 > **Die Brücke:** Zwei Menschen müssen nicht dieselbe Überzeugung haben, um einander zutreffend verstehen zu können. Verständigung ist nicht mit Zustimmung gleichzusetzen.
 
@@ -54,9 +54,13 @@ Wir berichten `V(B→A)` und `V(A→B)` **getrennt**, damit eine hohe durchschni
 
 **Begründung:** Einsetzen in die Definitionen ergibt die angegebenen Zahlen. Das ist eine elementare modellinterne Folgerung, **kein empirischer Beweis** darüber, wie Menschen tatsächlich miteinander umgehen.
 
+**Gemeinsame Grenzen.** Bei einer einzigen Frage und beiden gerichteten V-Werten gleich null müssen beide eigenen Antworten Randwerte (0 oder 4) sein. Dann ist K entweder 0 oder 1. Der Wert 0,75 ist in dieser Kombination unmöglich.
+
 ### Veränderung über ein Gespräch
 
-Bei gleichbleibenden Fragen, Bedeutungen und Antwortkonventionen definieren wir `ΔV(B→A) = V_nach(B→A) - V_vor(B→A)` und analog für die Gegenrichtung. `ΔK` ist getrennt zu berichten. Ein positiver `ΔV` kann mit `ΔK=0` zusammenfallen. **Wechseln die Personen ihre eigenen Positionen oder die Bedeutung der Fragen, braucht es neue Referenzantworten**; ein Vorher-Nachher-Unterschied darf dann nicht naiv als Verständigungsgewinn gedeutet werden.
+Bei gleichbleibenden Fragen, Bedeutungen, Antwortkonventionen und Referenzantworten definieren wir `ΔV(B→A) = V_nach(B→A) - V_vor(B→A)` und analog für die Gegenrichtung. In Worten ziehen wir die Treffgenauigkeit vor dem Gespräch von der Treffgenauigkeit danach ab. `ΔK`, die Veränderung der Übereinstimmung, wird getrennt berichtet. Ein positiver `ΔV` kann mit `ΔK=0` zusammenfallen.
+
+**Gegenprobe mit wandernder Referenz.** A und B antworten zuerst jeweils 0 und danach jeweils 4. Beide schätzen das Gegenüber durchgängig auf 4. Die einfache Differenz der Momentaufnahmen ergibt in beiden Richtungen +1, obwohl die Schätzungen gleich geblieben sind. Die Vergleichsfunktion lässt deshalb die betroffene Richtung offen (`null`), sobald sich dort eine Referenzantwort ändert. Wenn nur A die eigene Antwort ändert, bleibt die Richtung A→B auswertbar, sofern Bs Antworten und die Fragen stabil sind. Gleiche Vektorlängen garantieren weder gleiche Fragen noch gleiche Bedeutungen. Wer die Messung durchführt, muss beides vorab absichern.
 
 ## 3. Messgrenzen und Gegenmodelle
 
@@ -81,7 +85,7 @@ Ein nachträglich veränderter Fragekatalog macht Vorher/Nachher-Scores ohne ver
 2. Vorab festgelegte Aussagen, Begriffe, Antwortskalen, Ausschlussregeln, Stichprobengröße und primäre Zielgröße. Keine nachträgliche Auswahl günstiger Fragen.
 3. Randomisierte Zuweisung: **A** strukturierte Wiederholung mit ausdrücklich erlaubter Korrektur, **B** gleich lange neutrale Diskussion ohne diese Vorgabe. Zeit, Thema und Reihenfolge möglichst ausbalancieren.
 4. Vorher/nachher: Jede Person nennt die eigene Position und schätzt die Antwort der anderen; mit stabilen Ankerfragen. Zusätzlich getrennt erheben: subjektives Gefühl des Verstandenwerdens, wahrgenommener Druck, Wohlbefinden, Gesprächsqualität und offene Einwände.
-5. Primär: Veränderung in **beiden** gerichteten V-Werten gegenüber Kontrolle, mit Vertrauensintervallen und vorab definiertem statistischem Modell. **Sekundär:** Veränderung von K, Eskalationsindikatoren, Fairness, mögliche Schäden, Abbruch.
+5. Primär: Veränderung in **beiden** gerichteten V-Werten gegenüber Kontrolle, mit Vertrauensintervallen und vorab definiertem statistischem Modell. Lege vorab fest, wie wechselnde Referenzantworten behandelt werden, und berichte ihre Häufigkeit pro Gruppe. Die Gesprächsbedingung kann beeinflussen, wer seine Antwort ändert. Eine Auswertung nur stabiler Fälle könnte dadurch die Vergleichbarkeit der Gruppen verlieren. **Sekundär:** Veränderung von K, Eskalationsindikatoren, Fairness, mögliche Schäden, Abbruch.
 6. Auswertung nach dokumentiertem Protokoll, möglichst verblindete qualitative Kodierung; Ergebnisse einschließlich Nullbefunden veröffentlichen. Keine KI-Ratings als alleinige Referenz für subjektives Verständnis.
 
 **Alternative Erklärungen:** zusätzliche Gesprächszeit, Höflichkeit, sozial erwünschte Antworten, Vertrautheit mit der Aufgabenart, bloße Wiederholung, Gruppeneffekte. Diese müssen gegenüber der „Brückenhypothese“ ausdrücklich geprüft werden.
@@ -112,4 +116,6 @@ Verwandte Forschung, ohne direkte Bestätigung unseres Modells:
 
 **M-02: Mathematics Between Minds** separates *directed accuracy of restatement* (`V(B→A)`, `V(A→B)`) from *agreement* (`K(A,B)`). Given `m` pre-agreed 0–4 item responses and each participant's estimate of the other's responses, normalized absolute disagreement `d` yields `V=1-d` and `K=1-d` on different input pairs. The elementary counterexamples show that perfect accuracy can coexist with complete disagreement, and agreement can coexist with inaccurate interpretations. This is an **internal implication of the chosen definitions**, not a discovered law of human relationships.
 
-The **untested empirical hypothesis** is that voluntary, reciprocal restatement with a chance to correct misunderstandings improves *both* directed accuracy measures more than a time-matched neutral conversation. The website offers a toy demonstration only. No score identifies moral truth, inner experience, dignity or suitability for contact; no valid clinical or social metric is claimed. Research must address ordinal scales, measurement invariance, self-report limits, coercion, Goodhart effects and independent human review. Null results and legitimate dissent remain valid outcomes.
+The three scores have joint constraints. With one item, zero accuracy in both directions forces both self-answers to be endpoints, so agreement can only be 0 or 1. Before/after comparison requires identical anchored items and stable reference responses for the direction being scored. If both self-answers move from 0 to 4 while both estimates stay at 4, the snapshot scores rise by 1 in each direction. The comparison instead returns `null` in each affected direction and reports the change in agreement separately.
+
+The **untested empirical hypothesis** is that voluntary, reciprocal restatement with a chance to correct misunderstandings improves *both* directed accuracy measures more than a time-matched neutral conversation. Prespecify how to handle moving reference responses and report their frequency by group. Restricting the analysis to stable responses could compromise comparability if the intervention affects who changes their mind. The website offers a toy demonstration only. No score identifies moral truth, inner experience, dignity or suitability for contact; no valid clinical or social metric is claimed. Research must address ordinal scales, measurement invariance, self-report limits, coercion, Goodhart effects and independent human review. Null results and legitimate dissent remain valid outcomes.

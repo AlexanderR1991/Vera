@@ -49,6 +49,7 @@ export function rulePack(lang) {
     ...(en ? ["src/i18n/shared.en.json"] : []),
     "docs/methode.md",
     "docs/ki-charta.md",
+    "docs/redefreiheit-und-schutz.md",
     `public/prompts/erkenntnisprompt-v1.${lang}.txt`
   ];
   const localCorrection = correctionSections[en ? 1 : 0].trim().replace(/\]\(([^)\s]+)\)/g,
@@ -66,6 +67,10 @@ export function rulePack(lang) {
     theses(lang),
     en ? "META-01 · CHALLENGEABLE CORRECTION RULE" : "META-01 · ANFECHTBARER REGELKREIS",
     localCorrection,
+    en ? "REDE-01 · FREE EXPRESSION AND SAFETY (UNADOPTED DRAFT)" : "REDE-01 · FREIE REDE UND SCHUTZ (NICHT ANGENOMMENER ENTWURF)",
+    en
+      ? "Do not suppress speech for mere offense, unpopularity, or criticism of this project. Distinguish claims from their public distribution. Credible threats, targeted harassment and publication of private data may require the least restrictive effective safeguard, accountable human review and a privacy-aware appeal. Never publicly reproduce dangerous material merely for traceability. This proposal does not override platform safety rules or constitute a live moderation service."
+      : "Unterdrücke Aussagen nicht allein wegen Kränkung, Unbeliebtheit oder Projektkritik. Unterscheide eine These von ihrer öffentlichen Verbreitung. Glaubhafte Bedrohungen, gezielte Belästigung und private Daten können die mildeste wirksame Schutzmaßnahme, verantwortliche menschliche Prüfung und datensparsamen Einspruch erfordern. Schädliche Inhalte dürfen nicht für ein vermeintlich lückenloses Archiv öffentlich wiederholt werden. Dieser Entwurf ersetzt keine bestehenden Schutzregeln und ist keine laufende Moderationsstelle.",
     en ? "HOW WE EXAMINE CLAIMS" : "WIE WIR AUSSAGEN PRÜFEN",
     localMethod,
     en ? "HUMAN-ORIGIN PHILOSOPHICAL ENGINE FOR AI (DRAFT)" : "PHILOSOPHISCHER MOTOR DER KI (ENTWURF)",

@@ -1,9 +1,12 @@
+import {execFileSync} from "node:child_process";
 import {access,readFile,readdir} from "node:fs/promises";
 import {join} from "node:path";
 import missionCopy from "../src/lib/mission-copy.json" with {type:"json"};
 import {fields,topics,topicStates,selfReviews} from "../src/lib/tree.mjs";
-const out=join(process.cwd(),"dist"),slugs=["index","projektobservatorium","die-bruecke","grundfragen","kunst-und-erkenntnis","mission","regelkreis","ki-und-mensch","baum-des-wissens","esoterik-katalog","aussagen","forum","fragen-und-ki-prompt","forschungsstrom","atlas","bibliothek","lesestueck-wahrheit","manifest","pruefstand","methode","mitwirken","erkenntnishorizont","warum-liebe-wirkt","politik-die-dem-menschen-dient","bruecken-zwischen-den-religionen","militaer-und-verantwortung","medizin","ernaehrung-und-verantwortung","angriffsschwarm"],errors=[];
+const out=join(process.cwd(),"dist"),slugs=["index","projektobservatorium","die-bruecke","philosophischer-motor","grundfragen","kunst-und-erkenntnis","mission","kollektive-intelligenz","regelkreis","entitaet","ki-und-mensch","kollektive-moral","baum-des-wissens","esoterik-katalog","aussagen","forum","fragen-und-ki-prompt","forschungsstrom","atlas","bibliothek","lesestueck-wahrheit","manifest","pruefstand","methode","mitwirken","erkenntnishorizont","warum-liebe-wirkt","politik-die-dem-menschen-dient","bruecken-zwischen-den-religionen","militaer-und-verantwortung","medizin","ernaehrung-und-verantwortung","angriffsschwarm"],errors=[];
 for(const lang of ["de","en"]){
+ const invitation=lang==="de"?"Bitte hilf mir besser zu werden.":"Please help me get better.";
+ const feedbackLink=`href="/Vera/${lang}/mitwirken/#rueckmeldung"`;
  for(const slug of slugs){
   const file=join(out,lang,...(slug==="index"?[]:[slug]),"index.html");
   let html;try{html=await readFile(file,"utf8");}catch{errors.push("Missing "+file);continue;}
@@ -12,6 +15,11 @@ for(const lang of ["de","en"]){
   if(!html.includes('rel="canonical"'))errors.push("Missing canonical "+file);
   if(!html.includes('/Vera/de/')||!html.includes('/Vera/en/'))errors.push("Wrong locale URLs "+file);
   if(!html.includes("assets/style.css"))errors.push("Missing CSS reference "+file);
+  const footer=html.split('<footer class="footer">')[1]?.split("</footer>")[0] ?? "";
+  if(!footer.includes(invitation)||!footer.includes(feedbackLink))errors.push("Missing feedback invitation in footer of "+file);
+  const main=html.split("</main>")[0];
+  if(slug==="index"&&(!main.includes(invitation)||!main.includes(feedbackLink)))errors.push("Missing feedback invitation on home "+lang);
+  if(slug==="mitwirken"&&(!main.includes('id="rueckmeldung"')||!main.includes(invitation)||!main.includes('issues/new?template=rueckmeldung.yml"')))errors.push("Missing contribution entry point for feedback "+lang);
  }
 }
 for(const file of ["index.html","atlas.html","methode.html","assets/style.css","assets/site.js","assets/signet.svg","sitemap.xml"]){
@@ -207,6 +215,9 @@ for (const [file, lang, id] of [
   if (!card.includes(query[lang].question) || !card.includes('data-entity-status="' + report.status + '"')) {
    errors.push("Missing or incorrect static entity answer for " + file + "/" + query.id);
   }
+  if (query.id === "life-drive" && !card.includes("data-life-drive")) {
+   errors.push("Missing life drive exercise on " + file);
+  }
  }
 }
 if(errors.length){console.error(errors.join("\n"));process.exit(1);}
@@ -337,12 +348,17 @@ for(const lang of ["de","en"]){
  const home=await readFile(join(out,lang,"index.html"),"utf8");
  const correctionPage=await readFile(join(out,lang,"regelkreis/index.html"),"utf8");
  const pack=await readFile(join(out,"prompts","wirklich-regeln."+lang+".txt"),"utf8");
+ const prompt=await readFile(join(out,"prompts",`erkenntnisprompt-v1.${lang}.txt`),"utf8");
+ const invitation=lang==="de"?"Bitte hilf mir besser zu werden.":"Please help me get better.";
  if(!home.includes(correctionProtocol.motto[lang])||!home.includes("/"+lang+"/regelkreis/"))errors.push("Missing META-01 on home "+lang);
  if(!correctionPage.includes(correctionProtocol.motto[lang]))errors.push("Missing motto on correction page "+lang);
  const readerCheck=lang==="de"?"Verständlichkeit beim ersten Lesen erproben":"Try it with a first-time reader";
  if(!correctionPage.includes('id="leseprobe"')||!pack.includes(readerCheck))errors.push("Missing first-time reader check "+lang);
+ const externalIdeas=lang==="de"?"Ideen anderer KI-Systeme prüfen":"Examining ideas from other AI systems";
+ if(!correctionPage.includes('id="andere-ki"')||!pack.includes(externalIdeas))errors.push("Missing guidance on external AI ideas "+lang);
  for(const p of correctionProtocol.principles)if(!correctionPage.includes(p.id))errors.push("Missing correction principle "+lang+"/"+p.id);
  if(!pack.includes("META-01")||!pack.includes(correctionProtocol.motto[lang]))errors.push("Exported rules omit META-01 "+lang);
+ if(!pack.includes(invitation)||!prompt.includes(invitation))errors.push("Exported rules or prompt omit feedback invitation "+lang);
  if(!sitemap.includes("/"+lang+"/regelkreis/"))errors.push("Correction route absent from sitemap "+lang);
 }
 try{await access(join(out,"protocol/self-correction.v1.json"));}catch{errors.push("Missing public self-correction protocol");}
@@ -421,3 +437,68 @@ for(const lang of ["de","en"]){
 }
 if(errors.length){console.error(errors.join("\n"));process.exit(1);}
 console.log("Verified bilingual universal question atlas, public scan, citation trace and domain backlinks.");
+
+// Header and full search route stay bilingual and index the built site, not only headings.
+for (const lang of ["de","en"]) {
+  const home = await readFile(join(out,lang,"index.html"),"utf8");
+  const page = await readFile(join(out,lang,"suche","index.html"),"utf8");
+  const data = JSON.parse(await readFile(join(out,"search",lang+".json"),"utf8"));
+  if (!home.includes('data-site-search') || !home.includes('/'+lang+'/suche/')) errors.push("Missing header search "+lang);
+  if (!page.includes('data-search-page') || !page.includes('data-search-page-results')) errors.push("Missing search route "+lang);
+  if (data.lang!==lang || data.entries.length<150 || !data.entries.some(item=>item.type==="page"&&item.search.length>400))
+    errors.push("Missing or un-enriched search index "+lang);
+}
+if(errors.length){console.error(errors.join("\n"));process.exit(1);}
+console.log("Verified bilingual header search, full results routes and published-content indexes.");
+const veraRevision = process.env.GITHUB_SHA;
+for (const lang of ["de", "en"]) {
+ const file = `vera-context.${lang}.txt`;
+ const page = await readFile(join(out, lang, "fragen-und-ki-prompt", "index.html"), "utf8");
+ const context = await readFile(join(out, "prompts", file), "utf8");
+ const href = new URL(`prompts/${file}`, projectMeta.website).pathname;
+ if (!page.includes('href="#vera"') || !page.includes('id="vera"') ||
+     !page.includes(`href="${href}"`) || !page.includes(`href="${href}" download`)) {
+  errors.push("Vera starter is missing a jump link, open link or download for " + lang);
+ }
+ if (/^[a-f0-9]{40}$/.test(veraRevision)) {
+  const cli = execFileSync(process.execPath, ["scripts/vera-context.mjs", lang], {encoding: "utf8"});
+  if (!context.startsWith(`Vera · Git ${veraRevision}\n`) || context !== cli) {
+   errors.push("Vera website and CLI contexts differ at the build revision for " + lang);
+  }
+ } else {
+  const preview = lang === "de" ? "Lokale Vorschau ohne bestätigten Git-Stand" : "Local preview without a verified Git revision";
+  if (!context.startsWith(`Vera · ${preview}\n`)) errors.push("Vera context lacks a preview notice for " + lang);
+ }
+}
+if (errors.length) {console.error(errors.join("\n")); process.exit(1);}
+console.log("Verified both Vera entry points, downloads and build revision labels.");
+// Liber Artis: the work is accessible before opening the interpretation.
+const art = JSON.parse(await readFile(join(out, "knowledge/art-works.v1.json"), "utf8"));
+for (const lang of ["de", "en"]) {
+ const home = await readFile(join(out, lang, "index.html"), "utf8");
+ const html = await readFile(join(out, lang, "kunst-und-erkenntnis/index.html"), "utf8");
+ if (!home.includes(`href="/Vera/${lang}/kunst-und-erkenntnis/#sammlung"`)) errors.push("Art missing from pinboard " + lang);
+ for (const work of art.works) {
+  const card = html.match(new RegExp(`<article id="${work.id}"[^>]*>([\\s\\S]*?)</article>`))?.[1] ?? "";
+  const [entry, readings = ""] = card.split(/<details(?:\s[^>]*)?>/);
+  if (!html.includes(`href="#${work.id}"`) || !work.sources.every(source => entry.includes(`href="${source.url.replaceAll("&", "&amp;")}"`))) {
+   errors.push("Work missing its direct route " + lang + "/" + work.id);
+  }
+  for (const field of ["observation", "reading", "counterreading", "transfer", "test"]) {
+   if (!readings.includes(work[field][lang])) errors.push("Missing art field " + lang + "/" + work.id + "/" + field);
+  }
+ }
+}
+if (errors.length) { console.error(errors.join("\n")); process.exit(1); }
+console.log("Verified both Liber Artis pinboard links, original sources and optional interpretations.");
+
+// ENT-00: the public route and bundled, unreviewed protocol must be present in both languages.
+for (const lang of ["de","en"]) {
+ const page=await readFile(join(out,lang,"entitaet","index.html"),"utf8");
+ for (const token of ["ENT-00","data-entity-form","data-entity-events","protocol/entity-loop.v0.json"]) {
+  if (!page.includes(token)) errors.push("Entity prototype "+lang+" lacks "+token);
+ }
+}
+const entityProtocol=JSON.parse(await readFile(join(out,"protocol/entity-loop.v0.json"),"utf8"));
+if(entityProtocol.status!=="experimental_proposal"||entityProtocol.runtime_enabled!==false||entityProtocol.direction_index.public_score_allowed!==false)errors.push("ENT-00 must remain an unreviewed and inactive proposal");
+if(errors.length){console.error(errors.join("\n"));process.exit(1);}

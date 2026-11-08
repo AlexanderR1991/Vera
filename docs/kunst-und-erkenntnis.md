@@ -14,6 +14,32 @@ Werkbeschreibung, persönliches Erleben, Interpretation, empirische Behauptung u
 
 Distinguish description, experience, interpretation, empirical claim and value judgement. A strong experience does not establish a general effect. Meaning that cannot be measured does not make a work worthless. Claims about effects remain open to testing; different defensible readings may coexist.
 
+## Ein Werk erschließen / Work through an artwork
+
+[Sammlung öffnen](https://alexanderr1991.github.io/Vera/de/kunst-und-erkenntnis/#sammlung) · [Open the collection](https://alexanderr1991.github.io/Vera/en/kunst-und-erkenntnis/#sammlung)
+
+Die [zweisprachige Sammlung](../public/knowledge/art-works.v1.json) beginnt mit sieben Werken und unterschiedlichen Formen, Zeiten und kulturellen Kontexten. Für die Auswahl zählen nachvollziehbare Herkunft, ein möglichst direkter Zugang und eine eigenständige Frage. Lücken in der Auswahl sind ein Grund, gezielt weitere Traditionen und Werkformen einzuladen. Lesarten und Transferproben bleiben redaktionelle Entwürfe.
+
+The [bilingual collection](../public/knowledge/art-works.v1.json) begins with seven works across forms, periods and cultural contexts. Selection favors traceable provenance, direct access where possible and a distinctive question. Gaps in the selection give us a reason to seek out further traditions and art forms. Readings and proposed tests remain editorial drafts.
+
+1. **Begegnen / Encounter.** Quelle, Fassung und konkrete Stelle festhalten. / Record the source, version and exact part encountered.
+2. **Beschreiben / Describe.** Wahrnehmbares Detail und eigenes Erleben trennen. / Separate an observable detail from your own experience.
+3. **Deuten / Interpret.** Eine Kernfrage oder Lesart und eine begründete Gegenlesart formulieren. Absicht oder Bedeutung offenlassen, wenn sie unklar sind. / Write a core question or reading and a grounded counterreading. Leave intent or meaning open when uncertain.
+4. **Übertragen / Transfer.** Eine mögliche Verhaltensänderung und einen Fall benennen, an dem sie scheitern kann. / Name a possible change in behavior and a case where it could fail.
+5. **Korrigieren / Revise.** Einwände, Ergebnis und Gründe festhalten. Begründete Übernahmen gehören mit einem Prüffall in einen menschlich geprüften Pull Request. / Record objections, outcome and reasons. Proposed adoptions go through human review in a pull request with a test case.
+
+Im Git-Checkout gibt `node scripts/vera-kunst.mjs de` ein leeres Prüfblatt aus. `node scripts/vera-kunst.mjs de --list` zeigt die IDs. `node scripts/vera-kunst.mjs de art-05` gibt das Blatt zum Schmetterlingstraum aus. Mit `en` erhältst du die englische Fassung. Du kannst das Blatt privat ausfüllen oder in einer neuen Vera-Sitzung verwenden. Die Ausgabe liest den versionierten Katalog. Beobachtung, Deutung und Prüfung leistest du im jeweiligen Fall mit den verfügbaren Quellen.
+
+In a Git checkout, `node scripts/vera-kunst.mjs en` prints a blank worksheet, `node scripts/vera-kunst.mjs en --list` lists IDs, and `node scripts/vera-kunst.mjs en art-05` prints the Butterfly Dream worksheet. Use `de` for German. Fill it in privately or bring it into a new Vera session. The command reads the versioned catalog. Observation, interpretation and testing use the sources available for each case.
+
+**Erste Anwendung / First application.** Borobudur regt eine Prüfung der Zugangswege an. Auf der Kunstseite führt ein Sprung direkt zum Werk, und die Vertiefung öffnet sich auf Wunsch. Die Startseite führt in beiden Sprachen zur Sammlung. Der Website-Build prüft diesen Weg, die Quellenlinks und die getrennte Darstellung von Lesarten. Ob Besucherinnen und Besucher den Einstieg in der Praxis leicht finden, bleibt eine Frage für eine menschliche Probe.
+
+Borobudur suggests checking how people reach a work. The art page offers a shortcut to each work and optional deeper reading. The homepage leads to the collection in both languages. The website build checks the route, source links and distinct presentation of the readings. How easily people find their way in practice remains a question for people trying it.
+
+Die zwei als gemeinfrei gekennzeichneten Met-Abbildungen sind für die Seite verkleinert und als WebP gespeichert. Ihre Objektseiten und Credits stehen beim Werk. Die übrigen Werke, Ausgaben, Rundgänge und Aufnahmen sind bei den jeweiligen Anbietern verlinkt.
+
+The two Met images marked Public Domain are resized and stored as WebP. The corresponding object pages and credits appear alongside each work. The remaining works, editions, tours and recordings link to their providers.
+
 ## Erste offene Fragen / First open questions
 
 | ID | Frage / Question | Vergleich und Gegenmodell / Comparison and alternative |

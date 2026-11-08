@@ -13,7 +13,7 @@ body:
     id: werk
     attributes:
       label: "Werk, Herkunft und Kontext / Work, provenance and context"
-      description: "Original-Link, Titel, Urheberschaft, Datum/Version; eigenen Entwurf kennzeichnen. Original link, title, creator, date/version; label your own draft."
+      description: "Original-Link, Titel, Urheberschaft, Datum oder Fassung und genaue Stelle. Werk-ID angeben, falls vorhanden. Original link, title, creator, date or version and exact location. Include a work ID if available."
     validations:
       required: true
   - type: textarea
@@ -31,7 +31,7 @@ body:
     id: bezug
     attributes:
       label: "Bezug zum Projekt / Connection to the project (optional)"
-      description: "Welche konkrete These oder Leerstelle berührt das Werk? Welche neue Frage öffnet es? Which claim or omission does it address? What question does it open?"
+      description: "Welche Frage öffnet das Werk? Wenn Vera etwas anders machen könnte, nenne einen Fall, an dem der Vorschlag scheitern kann. What question does the work open? If Vera could do something differently, name a case where the proposal could fail."
   - type: textarea
     id: rechte
     attributes:

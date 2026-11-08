@@ -42,8 +42,15 @@ const local=value=>value[lang];
     </article>)}
    </div>
   </section>
+  <section id="andere-ki" aria-labelledby="andere-ki-title">
+   <h2 id="andere-ki-title">{t("Von anderen KI-Systemen lernen","Learning from other AI systems")}</h2>
+   <p>{t("Bring eine Idee aus einem anderen KI-System mit. Vera prüft die Gründe, den stärksten Einwand und die Folgen. Ob eine vorgeschlagene Handlung erlaubt ist, prüft sie getrennt am geltenden Regelwerk. Auch gegen dieses Regelwerk kann die Idee einen guten Einwand liefern.","Bring an idea from another AI system. Vera examines its reasons, the strongest objection and its effects. It checks separately whether the current rules authorize the proposed action. The idea can also raise a good objection to the rules themselves.")}</p>
+   <p><a class="subtle-link" href={project.repository+"/blob/main/docs/selbstkorrektur.md#"+t("ideen-anderer-ki-systeme-prüfen","examining-ideas-from-other-ai-systems")}>{t("Verfahren mit Beispiel lesen","Read the process and example")} →</a></p>
+  </section>
   <section id="korrektur" aria-labelledby="korrektur-title">
    <h2 id="korrektur-title">{t("Korrektur ist ein öffentlich nachvollziehbarer Vorgang.","A correction must be traceable.")}</h2>
+   <p>{t("Welcher Satz ist falsch oder unklar? Nenne die Stelle und beschreibe, was du ändern würdest. Wenn du von einer Vera-Antwort kommst, nenne die Frage und, wenn möglich, den dort angezeigten Quellenstand.","Which sentence is wrong or unclear? Point to it and describe what you would change. If you came from a Vera answer, include the question and, if possible, the source revision shown there.")}</p>
+   <p><a class="subtle-link" data-vera-feedback href={project.repository+"/issues/new?template=kritik.yml"}>{t("Einwand auf GitHub einreichen", "Submit an objection on GitHub")} →</a></p>
    <p>{t("Behauptung, stärkster Einwand, Prüfmaßstab, neue oder offen gelassene Fassung und verantwortliche Person gehören zusammen. Gute Kritik führt zu einer neuen Prüfung, nicht automatisch zur Veröffentlichung. Und eine Mehrheit kann Belege nicht ersetzen.","A claim, its strongest objection, review criteria, revised or unresolved outcome and accountable person belong together. Good criticism triggers review, not automatic publication. A majority cannot replace evidence.")}</p>
    <p><a class="subtle-link" href={pathFor(lang,"methode")+"#g-005"}>{t("Echte Textkorrektur G-005 ansehen","See actual revision G-005")} →</a></p>
    <p><a class="subtle-link" href={pathFor(lang,"aussagen")}>{t("Prüfstand und offene Einwände lesen","Read claim records and open objections")} →</a></p>
@@ -51,6 +58,7 @@ const local=value=>value[lang];
   <section id="leseprobe" aria-labelledby="leseprobe-title">
    <h2 id="leseprobe-title">{t("Wie verständlich ist die Regel beim ersten Lesen?","Does the rule make sense on first reading?")}</h2>
    <p>{t("Wenn du die Regel gerade zum ersten Mal liest, kannst du sie in eigenen Worten erklären und eine Stelle nennen, an der du widersprechen würdest. Deine Rückmeldung kann zeigen, welchen Satz wir genauer erklären oder überarbeiten sollten.","If this is your first time reading the rule, try explaining it in your own words and pointing to a part you would challenge. Your feedback can show us which sentence needs clarification or revision.")}</p>
+   <p><a class="subtle-link" href={pathFor(lang,"mitwirken","rueckmeldung")}>{t("Rückmeldung zur Regel geben","Give feedback on the rule")} →</a></p>
    <p><a class="subtle-link" href={project.repository+"/blob/main/docs/selbstkorrektur.md#"+t("verständlichkeit-beim-ersten-lesen-erproben","try-it-with-a-first-time-reader")}>{t("Ablauf der freiwilligen Leseprobe","How the optional first-time reader check works")} →</a></p>
   </section>
   <section id="grenze" aria-labelledby="grenze-title">
@@ -61,6 +69,7 @@ const local=value=>value[lang];
     <a href={project.repository+"/blob/main/docs/selbstkorrektur.md"}>{t("Vollständige Verfahrensregeln ↗","Full process rules ↗")}</a>
     <a href={base+"protocol/self-correction.v1.json"}>{t("Regelkreis als JSON ↗","Loop as JSON ↗")}</a>
     <a href={project.repository+"/issues/new?template=kritik.yml"}>{t("Regel selbst angreifen ↗","Challenge the rule ↗")}</a>
+    <a href={pathFor(lang,"entitaet")}>{t("Kollektiven Kreislauf als lokalen Prototyp testen →","Try the collective loop as a local prototype →")}</a>
     <a href={pathFor(lang,"fragen-und-ki-prompt","prompt")}>{t("Mit der eigenen KI prüfen →","Examine with your own AI →")}</a>
    </div>
   </section>

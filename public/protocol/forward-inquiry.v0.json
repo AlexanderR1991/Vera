@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "protocol_version": "0.1.0",
+  "id": "FWD-01",
+  "status": "proposed_not_implemented",
+  "updated_at": "2026-11-07",
+  "source": "https://github.com/AlexanderR1991/Wirklich/blob/main/docs/vorwaertsgerichtete-entitaet.md",
+  "translation": "https://github.com/AlexanderR1991/Wirklich/blob/main/docs/en/forward-inquiry.md",
+  "builds_on": [
+    "META-01",
+    "AI-P08"
+  ],
+  "scope": {
+    "de": "Zukunftsoffene, von Menschen verantwortete Weiterentwicklung des Erkenntnisverfahrens; keine autonome Entität.",
+    "en": "Future-facing human-accountable development of the inquiry process; not an autonomous entity."
+  },
+  "guiding_question": {
+    "de": "Was lässt sich heute prüfen oder korrigieren, damit morgen ein besser begründetes und weiterhin korrigierbares Urteil möglich ist?",
+    "en": "What can we test or correct today so that tomorrow's judgment is better justified and remains open to revision?"
+  },
+  "forward_definition": {
+    "de": "Vorwärts heißt begründete, verantwortbare und korrigierbare Bewegung in Bezug auf offengelegte Ziele; nicht garantierter moralischer Aufstieg.",
+    "en": "Forward means justified, accountable and revisable movement relative to declared goals, not guaranteed moral ascent."
+  },
+  "cycle": [
+    {
+      "id": "open_horizon",
+      "de": "Neue Frage, Möglichkeit und Betroffene identifizieren.",
+      "en": "Identify a new question, possibility and those affected.",
+      "title": {
+        "de": "Horizont öffnen",
+        "en": "Open the horizon"
+      }
+    },
+    {
+      "id": "record_current",
+      "de": "Geltungsbereich, Gründe, Unsicherheit und aktuelle Fassung festhalten.",
+      "en": "Record scope, evidence, uncertainty and the present version.",
+      "title": {
+        "de": "Iststand sichern",
+        "en": "Record the current state"
+      }
+    },
+    {
+      "id": "seek_objection",
+      "de": "Stärkste Gegenposition sowie Minderheiten- und Betroffenenperspektiven suchen.",
+      "en": "Seek the strongest objection and affected or minority perspectives.",
+      "title": {
+        "de": "Widerspruch suchen",
+        "en": "Seek objections"
+      }
+    },
+    {
+      "id": "compare_directions",
+      "de": "Mögliche Verbesserungen, Schäden, Wissenslücken und Umkehrbedingungen gegenüberstellen.",
+      "en": "Compare potential benefits, harms, unknowns and reversal conditions.",
+      "title": {
+        "de": "Richtungen vergleichen",
+        "en": "Compare directions"
+      }
+    },
+    {
+      "id": "human_decision",
+      "de": "Menschen entscheiden begründet; keine automatische Wahrheits- oder Moralhochstufung.",
+      "en": "People decide with reasons; no automated promotion of truth or morality.",
+      "title": {
+        "de": "Menschlich entscheiden",
+        "en": "Keep human accountability"
+      }
+    },
+    {
+      "id": "record_and_reopen",
+      "de": "Versionen, Gegenargumente, Verantwortung und nächste Frage dokumentieren.",
+      "en": "Record versions, dissent, accountability and the next question.",
+      "title": {
+        "de": "Dokumentieren und neu öffnen",
+        "en": "Record and reopen"
+      }
+    }
+  ],
+  "decisions": [
+    "retain",
+    "narrow",
+    "revise",
+    "withdraw",
+    "pause",
+    "open"
+  ],
+  "comparison_criteria": [
+    {
+      "id": "justification",
+      "de": "Sind Gründe und Gegenbelege nachvollziehbarer?",
+      "en": "Are reasons and counterevidence more inspectable?"
+    },
+    {
+      "id": "affected_agency",
+      "de": "Werden betroffene Menschen handlungsfähiger, ohne andere abzuwerten?",
+      "en": "Is affected people's agency strengthened without devaluing others?"
+    },
+    {
+      "id": "detect_harm",
+      "de": "Sind Schäden und Unsicherheit früher und klarer sichtbar?",
+      "en": "Are harms and uncertainty detected earlier and more clearly?"
+    },
+    {
+      "id": "reversibility",
+      "de": "Kann die Entscheidung mit öffentlichem Grund korrigiert oder zurückgenommen werden?",
+      "en": "Can the decision be corrected or reversed with public reasons?"
+    }
+  ],
+  "rules": {
+    "no_automatic_optimization": true,
+    "no_numeric_universal_progress_score": true,
+    "human_editor_required": true,
+    "model_votes_are_not_human_consensus": true,
+    "protect_human_dignity_and_rights": true,
+    "allow_pause_and_rollback": true,
+    "no_agent_activation": true
+  },
+  "limitations": {
+    "de": "Normativer Entwurf ohne unabhängigen Wirksamkeitsnachweis. Verbesserungen sind kontextabhängig, können sich widersprechen und dürfen nicht ohne menschliche Prüfung behauptet werden.",
+    "en": "Normative proposal without independently established effectiveness. Improvements are context-dependent, can conflict and must not be asserted without human review."
+  }
+}

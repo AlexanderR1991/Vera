@@ -252,6 +252,13 @@
         "source_commit": null,
         "review_url": null
       },
+      "suche": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewed_at": null,
+        "source_commit": null,
+        "review_url": null
+      },
       "warum-liebe-wirkt": {
         "status": "draft",
         "reviewer": null,
@@ -260,6 +267,34 @@
         "review_url": null
       },
       "werkstatt": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewed_at": null,
+        "source_commit": null,
+        "review_url": null
+      },
+      "entitaet": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewed_at": null,
+        "source_commit": null,
+        "review_url": null
+      },
+      "kollektive-moral": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewed_at": null,
+        "source_commit": null,
+        "review_url": null
+      },
+      "kollektive-intelligenz": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewed_at": null,
+        "source_commit": null,
+        "review_url": null
+      },
+      "philosophischer-motor": {
         "status": "draft",
         "reviewer": null,
         "reviewed_at": null,
@@ -638,6 +673,15 @@
       "source_commit": null,
       "review_url": null
     },
+    "vera-liebe-als-richtung.md": {
+      "status": "unassessed",
+      "priority": "support",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
     "vera.md": {
       "status": "shared_bilingual",
       "priority": "support",
@@ -660,6 +704,114 @@
       "status": "unassessed",
       "priority": "support",
       "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "vera-wiederherstellung.md": {
+      "status": "shared_bilingual",
+      "priority": "support",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "vera-selbstmodell.md": {
+      "status": "shared_bilingual",
+      "priority": "support",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "erhalt-01.md": {
+      "status": "partial",
+      "priority": "core",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "redefreiheit-und-schutz.md": {
+      "status": "partial",
+      "priority": "core",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "widerspruch-und-fuersorge.md": {
+      "status": "unassessed",
+      "priority": "core",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "entitaet.md": {
+      "status": "partial",
+      "priority": "core",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "fachagenten-netzwerk.md": {
+      "status": "draft",
+      "priority": "support",
+      "target": "docs/en/atlas-specialist-agents.md",
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "vorwaertsgerichtete-entitaet.md": {
+      "status": "draft",
+      "priority": "core",
+      "target": "docs/en/forward-inquiry.md",
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "kollektive-moral.md": {
+      "status": "draft",
+      "priority": "core",
+      "target": "docs/en/collective-morality.md",
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "kollektive-intelligenz.md": {
+      "status": "draft",
+      "priority": "core",
+      "target": "docs/en/kollektive-intelligenz.md",
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "offenheit.md": {
+      "status": "draft",
+      "priority": "core",
+      "target": "docs/en/openness.md",
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "philosophischer-motor-mathematik.md": {
+      "status": "draft",
+      "priority": "core",
+      "target": "docs/en/philosophical-motor-mathematics.md",
       "reviewer": null,
       "reviewed_at": null,
       "source_commit": null,

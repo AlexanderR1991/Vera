@@ -13,8 +13,9 @@ test("published example questions are traceable, typed and bilingual", () => {
 });
 test("question relationships include rationale and both endpoints", () => {
  const links = connectionsForQuestion(atlas,"Q-005");
- assert.equal(links.length,2);
  assert.ok(links.some(l => l.question.id === "Q-001" && l.type === "depends_on"));
+ assert.ok(links.some(l => l.question.id === "Q-003" && l.type === "depends_on"));
+ assert.ok(links.some(l => l.question.id === "Q-007" && l.type === "related_to"));
  assert.ok(connectionsForQuestion(atlas,"Q-006").some(l => l.question.id === "Q-004" && l.direction === "incoming"));
 });
 test("no AI-generated entry may be silently committed as a curated question", () => {

@@ -16,6 +16,11 @@ Vera möchte zur **offenen, überprüfbaren und unabhängig weiterentwickelbaren
 
 Die verbindliche Unterscheidung von **Vision, Prototypen und überprüfbar vorhandenen Fähigkeiten** steht in [Unsere Open-Source-KI im Aufbau](open-source-ki.md) und [Open-source AI in development](en/open-source-ai.md). Die Webseite soll diesen Auftrag im industriell-minimalistischen Design sichtbar machen, ohne Fähigkeiten vorzutäuschen.
 
+**Kollektive Intelligenz als neue Grundidee (CI-0.1):** Der Atlas ordnet Fragen, Menschen bringen unterschiedliche Erfahrungen und Einwände ein, Git bewahrt Begründungen, der Navigator schlägt Beziehungen vor, und META-01 macht begründete menschliche Revisionen möglich. Die sechs Atlasfelder sind Themenräume und keine neuronalen Denkorgane. Derzeit ist dies eine **Architekturhypothese**, kein erwiesenes kollektives Bewusstsein oder autonom lernender Motor. Ob koordinierte Prüfung bessere Urteile und Wissenstransfer schafft als brauchbare Alternativen, muss erst untersucht werden. [Konzept, Gegenproben und Grenzen](kollektive-intelligenz.md) · [DE/EN-Seite](https://alexanderr1991.github.io/Vera/de/kollektive-intelligenz/).
+
+**Richtung FWD-01 (Entwurf):** Die [vorwärtsgerichtete Entität](vorwaertsgerichtete-entitaet.md) meint das offene, von Menschen verantwortete Erkenntnisverfahren – kein bewusstes Wesen und keine automatische moralische Aufwärtsbewegung. Jede künftige Frage soll aus dem derzeitigen Wissen, dem stärksten Widerspruch und den Folgen heraus neu prüfbar werden. Auch Rücknahme oder begründetes Offenlassen können den Weg nach vorn weisen. [English draft](en/forward-inquiry.md).
+
+
 Der Grundtext soll Menschen befähigen, unter Unsicherheit besser zu verstehen, begründeter zu entscheiden und ehrlicher zu korrigieren. Er verbindet eine Bibliothek verständlicher Erklärungen mit der nachvollziehbaren Arbeit an einzelnen Aussagen. Die gemeinsame Methode ist der Kern; die Kapitel sind ihre Anwendungsfelder.
 
 Die zweisprachige öffentliche Darstellung liegt unter `/de/mission/` und `/en/mission/`. Dieser Entwurf führt die bisherigen Themen und die in [PR #18](https://github.com/AlexanderR1991/Vera/pull/18) vorgeschlagene Vision eines offenen Wissenssystems zusammen. Er behauptet keine bereits erreichte Leistungsfähigkeit.

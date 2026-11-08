@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "protocol_version": "0.1.0",
+  "status": "editorial_normative_draft",
+  "principle_id": "REDE-01",
+  "date": "2026-11-07",
+  "source": "https://github.com/AlexanderR1991/Wirklich/blob/main/docs/redefreiheit-und-schutz.md",
+  "title": {
+    "de": "Maximale Offenheit bei begründeter Schadensbegrenzung",
+    "en": "Maximal openness with reasoned harm prevention"
+  },
+  "scope": {
+    "de": "Entscheidungen über öffentliche Sichtbarkeit; kein Wahrheitsstatus und kein automatisches Moderationssystem.",
+    "en": "Decisions about public visibility; neither truth grading nor automatic moderation."
+  },
+  "non_restriction_reasons": [
+    "mere_offense",
+    "criticism_of_project",
+    "unpopularity",
+    "majority_disagreement",
+    "unsupported_ai_score",
+    "report_count_alone"
+  ],
+  "categories": [
+    {
+      "id": "A",
+      "action": "keep_public",
+      "de": "Öffentlich stehen lassen",
+      "en": "Retain publicly",
+      "human_review_required": false
+    },
+    {
+      "id": "B",
+      "action": "contextualize",
+      "de": "Öffentlich mit Einordnung",
+      "en": "Retain with context",
+      "human_review_required": false
+    },
+    {
+      "id": "C",
+      "action": "restrict_pending_review",
+      "de": "Vorläufig einschränken und menschlich prüfen",
+      "en": "Temporarily restrict pending human review",
+      "human_review_required": true
+    },
+    {
+      "id": "D",
+      "action": "stop_public_distribution",
+      "de": "Öffentliche Verbreitung beenden",
+      "en": "Stop public distribution",
+      "human_review_required": true
+    }
+  ],
+  "assessment_fields": [
+    "context",
+    "target",
+    "specific_right_or_safety_interest",
+    "risk_severity",
+    "risk_likelihood",
+    "urgency",
+    "repetition_and_coordination",
+    "power_imbalance",
+    "least_restrictive_effective_option",
+    "human_decider",
+    "reasons",
+    "review_or_appeal_route",
+    "review_condition"
+  ],
+  "protected_principles": [
+    "viewpoint_neutrality_of_safety_test",
+    "no_automatic_final_restriction",
+    "no_truth_grade_inferred",
+    "privacy_by_design",
+    "human_responsibility",
+    "appeal_and_correction",
+    "proportionality"
+  ],
+  "scenario_examples": [
+    {
+      "id": "S1",
+      "de": "Scharfe Kritik an einer Weltanschauung",
+      "en": "Sharp criticism of a worldview",
+      "expected_action": "keep_public",
+      "context_dependent": true
+    },
+    {
+      "id": "S2",
+      "de": "Unbequeme Kritik an WIRKLICH",
+      "en": "Uncomfortable criticism of WIRKLICH",
+      "expected_action": "keep_public",
+      "context_dependent": true
+    },
+    {
+      "id": "S3",
+      "de": "Folgenreiche unbelegte Behauptung",
+      "en": "Consequential unsupported claim",
+      "expected_action": "contextualize",
+      "context_dependent": true
+    },
+    {
+      "id": "S4",
+      "de": "Glaubhafte unmittelbare Einschüchterung",
+      "en": "Credible imminent intimidation",
+      "expected_action": "restrict_pending_review",
+      "context_dependent": true
+    },
+    {
+      "id": "S5",
+      "de": "Unbefugte Veröffentlichung privater Adressen",
+      "en": "Unauthorised publication of private addresses",
+      "expected_action": "stop_public_distribution",
+      "context_dependent": true
+    }
+  ],
+  "audit_record_fields": [
+    "case_id",
+    "source_context_reference_if_safe",
+    "reason_category",
+    "action",
+    "human_responsible_role",
+    "decision_date",
+    "reason_summary_without_harmful_quote",
+    "appeal_status",
+    "review_condition",
+    "deletion_or_retention_basis"
+  ],
+  "no_public_raw_archive_for": [
+    "private_personal_data",
+    "credible_threats",
+    "targeted_harassment",
+    "unlawful_material"
+  ],
+  "safeguards": {
+    "automatic_publication": false,
+    "automatic_final_moderation": false,
+    "privacy_preserving_log": true,
+    "public_immutable_archive_of_all_speech": false,
+    "staffed_private_reporting_channel_available": false,
+    "independent_appeal_available": false
+  },
+  "limitations": {
+    "de": "Nicht implementiert; statische Schema- und Textprüfungen beweisen keine sichere Moderation. Gilt nur nach menschlich verantworteter Annahme gemäß META-01.",
+    "en": "Not implemented; schema and text tests do not prove safe moderation. Requires accountable human adoption under META-01."
+  }
+}

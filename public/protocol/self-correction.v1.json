@@ -199,8 +199,8 @@
         "en": "Review again"
       },
       "question": {
-        "de": "Welche neue Frage, Folge oder Beobachtung beginnt den nächsten Durchlauf?",
-        "en": "Which new objection, consequence or observation starts the next pass?"
+        "de": "Welche neue Frage, Folge oder Beobachtung beginnt den nächsten Durchlauf? Falls etwas offenbleibt, was ermöglicht den nächsten Schritt?",
+        "en": "Which new objection, consequence or observation starts the next pass? If something remains unresolved, what enables the next step?"
       }
     }
   ],

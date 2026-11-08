@@ -1,5 +1,13 @@
 # Mitmachen / How to contribute
 
+> **Bitte hilf mir besser zu werden.**
+>
+> **Please help me get better.**
+
+War eine Antwort unklar, fehlt eine Perspektive oder ist dir etwas auf der Website aufgefallen? Ein Satz reicht für den Anfang. [Rückmeldung geben](https://github.com/AlexanderR1991/Vera/issues/new?template=rueckmeldung.yml).
+
+Was an answer unclear, did it miss a perspective, or did you spot something on the site? One sentence is enough to start. [Give feedback](https://github.com/AlexanderR1991/Vera/issues/new?template=rueckmeldung.yml).
+
 > Eine Behauptung, die Kritik nicht aushält, sollte nicht das Fundament eines offenen Werkes sein.  
 > A claim that cannot withstand criticism should not be the foundation of an open work.
 
@@ -55,6 +63,8 @@ On GitHub, open the relevant file, click the pencil icon, edit your fork, and op
 Dieser [anfechtbare Grundsatz](docs/selbstkorrektur.md) verlangt bei **substanziellen** Änderungsvorschlägen ein kleines Korrekturprotokoll: bisherige Stelle und Version, Aussageart und Geltungsbereich, stärkster bekannter Einwand, Maßstab und Revisionsbedingung, vorgeschlagene Entscheidung (beibehalten, eingrenzen, korrigieren, zurückziehen oder offenlassen), neue Fassung oder offene Frage, Gründe und menschliche Verantwortung. Ein Tippfehler braucht keinen Forschungsbericht. Auch die Leitregel selbst darf kritisiert werden. Die Entscheidung bleibt bis zum Aufbau einer gemeinsamen Governance beim benannten Maintainer.
 
 **English:** The [contestable META-01 correction loop](docs/selbstkorrektur.md) asks substantive PRs to trace the old version, claim kind and scope, strongest fair objection, revision test, proposed outcome and accountable editor. Corrections are not guaranteed by objections, votes or AI agreement. Minor copy edits may use a lighter record.
+
+[Einen Git-Stand lokal auf Wiederherstellbarkeit prüfen](docs/vera-wiederherstellung.md) · [Run a local Git recovery drill](docs/vera-wiederherstellung.md#english)
 
 ## 3. So prüfen wir Beiträge / How contributions are evaluated
 

@@ -1,5 +1,7 @@
 ---
 import Layout from "../layouts/SiteLayout.astro";
+import ArtCollection from "./ArtCollection.astro";
+import {artSubmission} from "../lib/art-inquiry.mjs";
 import {pathFor} from "../lib/paths.mjs";
 const {lang="de"}=Astro.props;
 const en=lang==="en";
@@ -100,10 +102,12 @@ en:{
       <p class="art-lead">{t.lead}</p>
       <p class="art-status">{t.status}</p>
       <nav class="art-jumps" aria-label={en?"Chapter sections":"Kapitelabschnitte"}>
+        <a href="#sammlung">{en?"Explore the works":"Zur Sammlung"}</a><a href="#kunstkreis">{en?"How we learn":"Wie wir lernen"}</a>
         <a href="#werk">{en?"A work":"Ein Werk"}</a><a href="#netz">{en?"Sources":"Quellen"}</a><a href="#forschung">{en?"Questions":"Forschungsfragen"}</a><a href="#mitmachen">{en?"Contribute":"Mitmachen"}</a>
       </nav>
     </div>
   </section>
+  <ArtCollection lang={lang} />
   <section class="section section--paper">
     <div class="narrow">
       <h2>{t.why}</h2><p>{t.whyText}</p>
@@ -135,7 +139,7 @@ en:{
   </section>
   <section class="section" id="mitmachen">
     <div class="narrow"><h2>{t.contribute}</h2><p>{t.contributeText}</p>
-      <div class="art-actions"><a class="button" href="https://github.com/AlexanderR1991/Vera/issues/new?template=kunst.yml">{t.artAction}</a><a class="button button--ghost" href={pathFor(lang,"forschungsstrom")}>{t.streamAction}</a><a class="subtle-link" href={pathFor(lang,"angriffsschwarm")}>{t.proofAction}</a></div>
+      <div class="art-actions"><a class="button" href={artSubmission}>{t.artAction}</a><a class="button button--ghost" href={pathFor(lang,"forschungsstrom")}>{t.streamAction}</a><a class="subtle-link" href={pathFor(lang,"angriffsschwarm")}>{t.proofAction}</a></div>
       <p class="art-caption">{t.publicNote}</p>
     </div>
   </section>

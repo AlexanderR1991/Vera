@@ -11,6 +11,18 @@ Die Schönheit darf zum Denken einladen; sie darf es nicht ersetzen. Gestaltung 
 
 Die [JSON-Fassung](../public/protocol/self-correction.v1.json) beschreibt die zehn Arbeitsregeln und die Prüfschleife maschinenlesbar. Der [öffentliche Regelkreis](https://alexanderr1991.github.io/Vera/de/regelkreis/) vermittelt sie in DE/EN. KI kann Vorschläge und Verknüpfungen liefern; automatische Statusänderungen oder selbstlegitimierende Mehrheitsentscheidungen sind ausgeschlossen. Wie gut die Methode tatsächlich funktioniert, muss im [Vergleichsprotokoll](evaluation-v1.md) geprüft werden.
 
+## M-03 · Mathematik des philosophischen Motors (Entwurf 7. November 2026)
+
+Die [formale Spezifikation](philosophischer-motor-mathematik.md) verbindet M-01 (partielle Mehrzielordnung), M-02 (Verstehen vs. Zustimmung), die R0–R4-Prüfung, das Aussagen-/Fragenregister, META-01 und die noch offenen Vorschläge für einen pluralen Richtungsindex und KI-Fachrollen. Das Modell liefert **typisierte Ergebnisse** statt einer universellen Wahrheitszahl. Rechte-/Schutzgrenzen und exakte menschliche Zustimmung dürfen nicht durch Mittelwerte ersetzt werden. Eine behauptete Quelle oder wiederholte KI-Antwort ist kein unabhängiger Beweis.
+
+Ein erster [deterministischer Testkern](../src/lib/philosophical-motor.mjs) und [fiktive Fälle](../public/research/philosophical-motor-examples.v0.json) demonstrieren nur Intervallrechnung, Wertesensitivität, Datenlücken, Quellenprovenienz, Versionszustimmung und abhängige Folgeprüfungen; der **reale Richtungsindex bleibt gesperrt**. Zwei öffentliche Lesefassungen: [Deutsch](https://alexanderr1991.github.io/Vera/de/philosophischer-motor/) · [English](https://alexanderr1991.github.io/Vera/en/philosophischer-motor/). Kein neuer aktiver Agent, keine selbstständige Wahrheitssynthese oder normative Freigabe.
+
+## FWD-01 · Zukunftsoffene Selbstrevision (normativer Entwurf)
+
+Die [vorwärtsgerichtete Entität](vorwaertsgerichtete-entitaet.md) bezeichnet **keinen autonomen Akteur**, sondern die weiterführbare Arbeitsweise dieses Systems: **Zukunftsfrage → jetziger Erkenntnisstand → stärkster Einwand → Folgen- und Wertevergleich → verantwortliche Entscheidung → dokumentierte Revision → neue Frage**. FWD-01 orientiert die nächste Prüfung, während META-01 deren Korrigierbarkeit sichert. Ein Rückzug, das Pausieren oder ein offenes Urteil kann der bessere Schritt sein. Fortschritt ist nicht garantiert, nicht auf eine universelle Zahl reduzierbar und muss stets am Geltungsbereich und an den Betroffenen geprüft werden.
+
+[Maschinenlesbarer FWD-01-Entwurf](../public/protocol/forward-inquiry.v0.json) · [Gegenproben im philosophischen KI-Motor](ki-charta.md) · [English draft](en/forward-inquiry.md).
+
 ## Neue Grundfragen-Schicht · Querprüfung und Rückweg
 
 [Die Grundfragen](grundfragen-kreislauf.md) ergänzen Themenbaum, Fragenatlas und Erkenntnisnavigator um eine **separate, öffentlich angreifbare Forschungsagenda**. 16 U-IDs sind von bisherigen Projektfeldern abgeleitete **ungeprüfte Vorschläge**; sie stehen nicht über den Fachkapiteln. Ihre Herkunft und vorgeschlagenen Rückwege stehen in [universal-questions.v1.json](../public/knowledge/universal-questions.v1.json).
@@ -29,6 +41,14 @@ Publizierte Quellen → lexikalische Inventur (unverifizierte Hinweise)
 
 Die erste Inventur nutzt **kein** autonomes LLM und keine personenbezogenen Daten: `npm run scan:universal` erstellt beim Build ein Protokoll über die ausgewählten öffentlichen, maschinenlesbaren Textquellen. Texttreffer sind keine Bedeutungsnachweise. `npm run plan:universal` beschreibt die Rückwege für später qualifiziert geprüfte Befunde; es veröffentlicht und schreibt nichts. Das **leere** geprüfte Befundregister wird bewusst vom offenen Fragenregister und den vorhandenen R0–R4-Aussagen getrennt. [Katalog DE](https://alexanderr1991.github.io/Vera/de/grundfragen/) · [EN](https://alexanderr1991.github.io/Vera/en/grundfragen/).
 
+## CI-0.1 · Kollektive Intelligenz (Architekturhypothese, 7. November 2026)
+
+**Das grundlegende Systembild:** Atlasfelder ordnen Themen; Menschen bringen Fragen, Perspektiven und Gegenbeispiele ein; versionierte Aussagen bilden ein externes Gedächtnis; Navigator und Fragenatlas schlagen Beziehungen vor; META-01 verlangt passende Prüfung; Menschen entscheiden verantwortlich; Folgen und Fehler können spätere Revisionen auslösen. Das ist ein **Rückkopplungsprozess, kein Wahrheitsrang und keine nachgewiesene künstliche Superintelligenz**.
+
+Die sechs Atlasfelder (Wirklichkeit, Leben, Bewusstsein, Mensch, Gesellschaft, Handeln) sind von den **sechs Prozessfunktionen** Aufnehmen, Erinnern, Verbinden, Prüfen, Entscheiden und Rückkoppeln zu unterscheiden. Der Prototyp ist statisch und redaktionell gepflegt; ein verifizierter Live-Beleggraph, autonome Lernfähigkeit, repräsentative Governance und unabhängiger Wirksamkeitsnachweis fehlen. Die im [PR #73](https://github.com/AlexanderR1991/Vera/pull/73) vorgeschlagene Moralrichtung ist gesondert und ungeprüft; keine automatische Ausgabe des Lernprozesses.
+
+[Ausgearbeitete Grundidee](kollektive-intelligenz.md) · [Öffentliche DE/EN-Seite](https://alexanderr1991.github.io/Vera/de/kollektive-intelligenz/) · [Versionierter Datenvertrag](../public/protocol/collective-intelligence.v0.json). Eine spätere Evaluation muss Fehlererkennung, falsche Analogien, Inklusion und Kosten gegen brauchbare Alternativen prüfen. Auch CI-0.1 bleibt widerlegbar.
+
 ## Fünf Ebenen des öffentlichen Werks
 1. **Auftakt:** atmosphärischer, verständlicher Zugang ohne Vorwissen.
 2. **Atlas:** sechs Felder: Wirklichkeit, Leben, Bewusstsein, Mensch, Gesellschaft, Handeln.
@@ -36,9 +56,19 @@ Die erste Inventur nutzt **kein** autonomes LLM und keine personenbezogenen Date
 4. **Prüfstand:** Status, Aussageart, Quellen, Einwände, Alternativen und Entscheidungen.
 5. **Mitwirkung:** respektvolle Kritik und transparente Korrekturen.
 
+## Vorgeschlagenes Atlas-Fachagenten-Netzwerk · AFA-0.1 (noch inaktiv)
+
+Ein späterer Fachagent pro relevantem Themenkreis ist **als prüfende Rolle**, nicht als eigenständige Wahrheitsinstanz vorgesehen. Die sechs übergeordneten Atlasfelder werden von 23 gegenwärtigen Fachthemen unterschieden; Fachrollen werden **fragebezogen** aufgerufen, anstatt dauerhaft alle miteinander abstimmen zu lassen. Getrennte Erstbeurteilungen, Quellenledger, starke Gegenproben, Betroffenenperspektiven und eine Synthese mit explizitem Dissens sollen die vorhandene menschlich verantwortete META-01-Schleife unterstützen. Eine KI-Mehrheit kann weder Konsens beweisen noch Erkenntnisreife R0–R4 ändern.
+
+Der [ausgearbeitete DE-Entwurf](fachagenten-netzwerk.md), die [englische Fassung](en/atlas-specialist-agents.md) und das [rein inaktive Rollenregister](../public/ai/atlas-agents.v0.json) sind Vorbereitung, **keine produktive KI-Orchestrierung**. Neue Agenten, Kosten, Backend, Autoposting oder Freigaberechte werden nicht aktiviert. Empirischer Zusatznutzen und unabhängige Governance müssen erst geprüft werden.
+
 ## KI als Gegenstand des Erkenntnismotors
 
 Die [KI-Charta](ki-charta.md) ist ein menschengeprägter, öffentlich angreifbarer Normenentwurf. [Versionierter JSON-Prüfkatalog](../public/ai/philosophy-engine.v0.json), [Website](https://alexanderr1991.github.io/Vera/de/ki-und-mensch/) und [freiwilliges KI-Regelpaket](erkenntnisprompt.md) geben denselben Ansatz in unterschiedlichen Zugangsformen wieder. Normative Vorschläge sind keine gemessenen Modellfähigkeiten. Strukturtests prüfen nur Datenkonsistenz; keine automatische KI-Aufsicht und kein fremder Modellzugriff.
+
+## Kollektive Moral · Richtung als zusätzliche, reversible Ebene (Entwurf 7. November 2026)
+
+Der [Forschungsentwurf](kollektive-moral.md) ergänzt den Erkenntnismotor um eine **bedingte Richtungslandkarte** mit optionalem späterem Index von −1 bis +1. Die Ebene trennt **Evidenz, Wertprofil, Wirkung, Richtung, Unsicherheit und Dissens**. Sie ersetzt weder Aussagearten, R0–R4 noch Konsens oder menschliche Entscheidung. Die Zahl setzt einen definierten Kontext und Vergleich, unabhängig geprüfte Wirkungsannahmen, offen gelegte Wertgewichte, kalibrierte Unsicherheit, Sensitivitäts- und Rechteprüfung voraus. Wenn plausible Wertprofile die Richtung umkehren, ist **kein allgemeiner Einzelwert** vertretbar. Der mögliche Konvergenzmotor sucht über Themen hinweg stabile **bedingte** Gemeinsamkeiten statt universeller Moralgesetze. Aktuell gibt es **keine tatsächlichen Zahlenwerte**; [DE/EN-Seite](https://alexanderr1991.github.io/Vera/de/kollektive-moral/) und [JSON-Entwurf](../public/knowledge/direction-index.v0.json) zeigen nur das Forschungsprogramm. Der Maßstab selbst bleibt gemäß META-01 korrigierbar.
 
 ## Gestaltung
 - Dunkle Grundflächen, warmes Elfenbein, sparsam Gold und Weinrot.
@@ -74,9 +104,9 @@ Das Modell mit Mensch M, älterem Horizont a, gegenwärtigem Horizont b und offe
 
 Ein zweisprachiger Bereich behandelt Liebe als heterogenes Phänomen. Anziehung, Bindung und Fürsorge werden unterschieden; philosophische Arbeitsdefinitionen sind **keine** empirischen Ergebnisse. Studien über soziale Beziehungen, stressbezogene Co-Regulation und theoretische Unterstützungsmodelle dürfen nicht als allgemeiner Kausalbeweis für Liebe ausgegeben werden. Vier Hypothesen enthalten Messideen, Gegenmodelle und einen ausdrücklich vorläufigen Status. Rechte, Autonomie und Gewaltprävention bleiben unaufhebbare ethische Grenzen.
 
-## Liber Civitatis – Politik als überprüfbarer Entwurf (Version 0.6)
+## Liber Civitatis – Politik als überprüfbarer Entwurf (Version 0.7)
 
-Der politische Forschungsbereich ist **kein Wahlprogramm und keine vollständig beweisbare Staatslehre**. Menschenwürde, Grundrechte, Rechtsstaat und demokratische Verantwortung bilden eine offen benannte normative Ausgangsposition; die empirische Wirkung konkreter Institutionen und Sozialmaßnahmen bleibt zu prüfen. Das Kapitel unterscheidet geltendes deutsches Verfassungsrecht von internationaler empirischer Forschung, zeigt legitime Zielkonflikte (Freiheit/Sicherheit, Markt/Sicherung, Mehrheit/Rechte, Gegenwart/Zukunft, Experten/Bürger) und dokumentiert fünf angreifbare Hypothesen (P-A–P-E). KI dient der Forschung, nicht als Ersatz demokratischer Entscheidungsverantwortung.
+Der politische Forschungsbereich ist **kein Wahlprogramm und keine vollständig beweisbare Staatslehre**. Menschenwürde, Grundrechte, Rechtsstaat und demokratische Verantwortung bilden eine offen benannte normative Ausgangsposition; die empirische Wirkung konkreter Institutionen und Sozialmaßnahmen bleibt zu prüfen. Das Kapitel unterscheidet geltendes deutsches Verfassungsrecht von internationaler empirischer Forschung, zeigt legitime Zielkonflikte (Freiheit/Sicherheit, Markt/Sicherung, Mehrheit/Rechte, Gegenwart/Zukunft, Experten/Bürger) und dokumentiert sechs angreifbare Hypothesen (P-A–P-F). Zusätzlich stehen acht explizite konservative/rechte und soziale/progressive **Steelman-Gegenüberstellungen** samt Prüffragen, Quellen und Grenzen online und im Forschungsprogramm. Die Kategorien rechts/links sind keine homogenen Lager; Aufnahme bedeutet keine Zustimmung oder Evidenzgleichheit. Bei Klima und Grundrechten trennt das Projekt gesicherte Befunde sowie rechtliche Grenzen von den offenen Debatten über politische Mittel. KI dient der Forschung, nicht als Ersatz demokratischer Entscheidungsverantwortung.
 
 ## Liber Custodiae – Militärische Macht und Friedensverantwortung (Version 0.7)
 
@@ -118,3 +148,9 @@ Das Forum nutzt weiterhin GitHub Discussions (Agora), aussagegebundene Issues (S
 Die Offline-Triage (max. 50 `ai_draft`-Kandidaten je Lauf) schlägt nur mögliche Dopplungen oder lexikalische Nachbarn vor; sie ruft keine KI auf und veröffentlicht nichts. Die vorhandenen Schwarm-Workflows schreiben weiterhin ausschließlich in begrenzte, ungeprüfte Forschungsdateien. Ein vollständig semantischer oder automatisch aktualisierter Wissensgraph ist **nicht** vorhanden. [Vertrag, Grenzen und Eskalationsregeln](fragenatlas.md).
 
 **English:** The new question graph is an editorial pilot, not a live Discussion/Issue index or automated semantic engine. AI drafts stay separate; the local triage never publishes or promotes claims.
+
+## ENT-00 · Entität als offener, überprüfbarer Integrationskern (7. November 2026)
+
+Die [Entität](entitaet.md) bezeichnet einen **experimentellen, kollektiven Erkenntniskreislauf**, keine lebende oder bewusste KI: **Frage → Typ → Perspektiven → starker Einwand → Prüfung → Revisionsentwurf → menschliche Entscheidung → Versionierung → neue Frage.** Das [maschinenlesbare ENT-00-Protokoll](../public/protocol/entity-loop.v0.json), das deterministische [JS-Modul](../src/lib/entity-core.mjs) und die [bilinguale lokale Demo](https://alexanderr1991.github.io/Vera/de/entitaet/) binden vorhandene Grundsätze zusammen, statt konkurrierende Prüfgrade einzuführen.
+
+Die Demo kann ungeprüfte Einwände nur **privat im Browser** hinzufügen und als JSON exportieren; sie besitzt keinen verifizierten menschlichen Review, keinen aktiven Agentenschwarm und keinen Richtungsindex. Entwürfe und Hinweise ändern weder öffentliche Thesen noch R0–R4 oder Konsens. Ein menschlicher Statuswechsel benötigt einen **extern authentifizierten** Freigabepfad, der hier nicht implementiert ist. Die PRs zu kollektiver Intelligenz, vorwärtsgerichteter Entität, Agenten, Richtungsindex und Mathematik bleiben separate, offen zu prüfende Vorschläge. „Fortschritt“ ist keine garantierte Eigenschaft einer Änderung; auch Rückzug, Pause und Dissens sind zulässig. [META-01](selbstkorrektur.md) bleibt selbst anfechtbar.
