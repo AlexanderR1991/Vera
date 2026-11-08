@@ -1,5 +1,7 @@
 // Deterministic, advisory question graph. No model calls or publishing rights.
 // Similarity is lexical only: a suggestion is never evidence of identity.
+import {impactPaths} from "./impact-paths.mjs";
+
 export const relationTypes = Object.freeze(["subquestion_of","depends_on","related_to","alternative_framing","possible_duplicate"]);
 const questionTypes = new Set(["empirical","formal","normative","interpretive","conceptual","methodological"]);
 const bilingual = x => x && ["de","en"].every(lang => typeof x[lang] === "string" && x[lang].trim().length > 0);
@@ -54,6 +56,20 @@ export function validateQuestionAtlas(data, claims = [], knownTopics = []) {
  };
  if ([...ids].some(visit)) errors.push("Cycle in subquestion hierarchy");
  return errors;
+}
+
+// From a changed claim, follow direct citations and the reverse of depends_on.
+// The published atlas is validated by validateQuestionAtlas. An unreferenced
+// claim yields no candidates. Equal-length paths are resolved by ID order.
+export function questionReviewImpact(atlas, claimId) {
+ const dependents = new Map(atlas.questions.map(q => [q.id, []]));
+ for (const {from, to, type} of atlas.relations) {
+  if (type === "depends_on") dependents.get(to).push(from);
+ }
+
+ const root = Symbol("changed claim");
+ dependents.set(root, atlas.questions.filter(q => q.claim_ids.includes(claimId)).map(q => q.id));
+ return impactPaths(dependents, root, claimId);
 }
 
 export function connectionsForQuestion(atlas, id) {

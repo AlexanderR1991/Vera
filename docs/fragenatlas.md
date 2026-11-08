@@ -40,6 +40,32 @@ Die zulässigen Beziehungen zwischen Fragen sind:
 
 Frage-zu-Aussage-Links besagen **nur**, dass der öffentliche Eintrag relevant sein könnte. Aussagen, Quellen, Belege, Gegenbelege, Geltungsbedingungen und Konsens sind verschiedene Objekte. Für einen künftigen Beleggraphen wären gesonderte geprüfte `supports`-, `refutes`- und `boundary_condition`-Beziehungen nötig.
 
+## Welche Fragen berührt eine Korrektur?
+
+Im [Aussagenregister](https://alexanderr1991.github.io/Vera/de/aussagen/#pruefpfad-G-005) zeigt jede Aussage die Fragen, die bei einer Änderung erneut anzusehen sind. Für den Fürsorgegrundsatz G-005 sind das Q-001 (Hilfe und Selbstbestimmung) und Q-005 (KI bei menschlichen Entscheidungen). Q-005 verweist direkt auf G-005 und hängt auch von Q-001 ab. Sie erscheint einmal. Die bloße thematische Nähe der Verteilungsfrage Q-007 zu Q-005 löst keine Wiedervorlage aus.
+
+Für eine Fassung des Atlas und eine Aussage $c$ sei $R_0(c)$ die Menge der Fragen, die $c$ in `claim_ids` nennen. Der nächste Schritt lautet
+
+$$
+R_{k+1}(c)=R_k(c)\cup\{q\mid \exists p\in R_k(c):\ (q,\mathrm{depends\_on},p)\}.
+$$
+
+Zur bisherigen Menge kommen die Fragen hinzu, die von einer bereits erreichten Frage abhängen. Sobald die Menge gleich bleibt, ist das Ergebnis $R(c)$ erreicht. Jede aufgenommene Frage hat einen Weg zurück zur Aussage. Umgekehrt erreicht die Vorschrift jede Frage auf einem solchen Weg, Schritt für Schritt entlang seiner Länge. In einem endlichen Atlas endet die Suche auch bei Kreisen, weil jede Frage höchstens einmal hinzukommt. Das Prüfblatt zeigt einen kürzesten Weg. Bei gleicher Länge entscheidet die Reihenfolge der Kennungen. Die Weglänge misst Schritte im Register. Ob eine Antwort revidiert werden muss, prüfen Menschen.
+
+**Zwei Fassungen vergleichen.** Im lokalen Git-Checkout berechnet
+
+```sh
+node scripts/vera-review-impact.mjs HEAD^ HEAD
+```
+
+für jede hinzugefügte, entfernte oder inhaltlich geänderte Aussage sowie bei Wechsel in, aus oder zwischen `disputed` und `withdrawn` die Menge $R_{\rm alt}(c)\cup R_{\rm neu}(c)$. Jeder Weg muss vollständig in einer der beiden Fassungen existieren. Wird zugleich ein Verweis entfernt, bleibt der frühere Weg im Bericht sichtbar. Eine Frage erhält eine Zeile mit den Gründen aller betroffenen Aussagen. Bei einer bloßen Änderung am Prüfvermerk bleibt die Liste leer. Ändern sich ausschließlich Atlasbeziehungen, zeigt das Online-Register den neuen Stand. Der Versionsvergleich betrachtet Änderungen an Aussagen. Im Build-Protokoll eines Pull Requests erscheint der Bericht beim Schritt „Show questions affected by this claim revision“. Das Verfahren kann Folgen übersehen, wenn im Atlas eine Abhängigkeit fehlt.
+
+**Den Nutzen prüfen.** Vor einer Ausweitung stellen unabhängige Prüfende an neuen Fällen fest, welche Fragen wirklich neu zu sichten sind. Bei gleichem Zeitbudget vergleichen wir Suche und Prüfblatt. Für die vorab festgelegte Referenzmenge $H$ zählen wir $|H\setminus R|$ übersehene und $|R\setminus H|$ unnötig vorgelegte Fragen sowie die benötigten Minuten. Unterschiedliche begründete Einschätzungen werden gesondert ausgewiesen. Die Testfälle im Code prüfen die Rechenregel. Für ein gelerntes Gewicht, das Hinweise nach ihrem späteren Nutzen sortiert, fehlen unabhängig beurteilte Fälle. [Evaluationsentwurf](evaluation-v1.md)
+
+### Which questions does a revision affect?
+
+The [claim register](https://alexanderr1991.github.io/Vera/en/aussagen/#pruefpfad-G-005) starts with questions citing the changed claim and follows `depends_on` back to questions relying on them. It shows one shortest path per question, breaking ties by ID. For the care principle G-005 this yields Q-001 and Q-005. The thematic link to Q-007 adds no review task. The offline command above compares two Git revisions and preserves witnesses from each snapshot separately, including a path that has since disappeared. It flags changes to the claim fingerprint and transitions involving a disputed or withdrawn claim. Each question appears once with all triggering claims. The pull request build log includes the report in the “Show questions affected by this claim revision” step. Missing dependencies can hide relevant questions. Compare missed questions, unnecessary referrals and review time on independently assessed cases before introducing learned priorities.
+
 ## Aufnahme, Verdichtung und Einspruch
 
 1. **Herkunft dokumentieren:** Eingang durch Menschen im Forum/Issue oder als `ai_draft` im separaten Labor. Keine vertraulichen Daten in öffentliche Warteschlangen übertragen.

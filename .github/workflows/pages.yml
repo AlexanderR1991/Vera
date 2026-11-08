@@ -34,6 +34,13 @@ jobs:
           python -m json.tool public/research/angriffe.json > /dev/null
       - name: Verify project memory against Git history
         run: node scripts/verify-memory.mjs
+      - name: Show questions affected by this claim revision
+        if: github.event_name == 'pull_request'
+        continue-on-error: true # Older registers may predate the schema this reader understands.
+        env:
+          BASE_REV: ${{ github.event.pull_request.base.sha }}
+          HEAD_REV: ${{ github.event.pull_request.head.sha }}
+        run: node scripts/vera-review-impact.mjs "$BASE_REV" "$HEAD_REV"
       - name: Install dependencies
         run: npm ci --no-audit --no-fund
       - name: Build and validate

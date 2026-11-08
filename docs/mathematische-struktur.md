@@ -8,7 +8,7 @@ Eine Person entdeckt einen Fehler in einem Satz, den alle anderen akzeptiert hab
 
 | Bereich | Mathematisches Objekt und Lesart | Stand und Fundstelle |
 | --- | --- | --- |
-| Architektur und Themenatlas | $Q(v)=D^+(v)\setminus\{v\}$. Folge vom geänderten Satz $v$ den Abhängigkeitskanten zu allen erreichbaren Folgesätzen. Sie kommen auf die Prüfliste. Eine bloße Analogie erzeugt keine solche Kante. | Code für vorgegebene Graphen. Die Vollständigkeit der eingetragenen Abhängigkeiten bleibt offen. [M-03 und Tests][motor] · [Fragenatlas][atlas] |
+| Architektur und Themenatlas | $Q(v)=D^+(v)\setminus\{v\}$. Folge vom geänderten Satz $v$ den Abhängigkeitskanten zu allen erreichbaren Folgesätzen. Sie kommen auf die Prüfliste. Eine bloße Analogie erzeugt keine solche Kante. | Im öffentlichen Fragenatlas berechnet Vera pro erreichter Frage einen kürzesten Prüfweg. Beim Vergleich zweier Fassungen zählt jeder Weg in seiner eigenen Fassung. Fehlende Verbindungen bleiben eine Grenze. [Prüfregel und Gegenprobe][atlas] · [M-03][motor] |
 | Sprache, Bilder und Kunst | $r=(h(b),o,d,t)$ beschreibt vier Felder einer Lesung des Bildes $b$. $h(b)$ ist der SHA-256 der Bildbytes, $o$ die Beobachtung, $d$ die Deutung, $t$ ihre Gegenprobe. Zum selben Bild können mehrere Lesungen entstehen. | Code für Bildentwürfe und ein Prüfblatt für Kunst. Die Felder machen Zuschreibungen überprüfbar. [Bildeingang][bild] · [Kunst][kunst] |
 | Metapher und Transfer | $H'=\{h\in H:h(x)=y\}$. Von den möglichen Regeln $H$ bleiben nach einer Beobachtung $(x,y)$ alle mit passender Vorhersage. Zwei Buslinien über dieselbe gesperrte Brücke widerlegen „zwei Wege reichen“. | Simulation mit getrennten Lern- und Transferfällen und expliziten Ausfällen. [Versuch][metapher] |
 | Belege und Gegenbelege | $(s,a)\in\{0,1\}^2$. Das erste Bit zeigt, ob mindestens ein Beleg die Aussage stützt, das zweite, ob einer sie angreift. $(1,1)$ hält den Konflikt fest. Eine Kopie ändert keines der Bits. | Code für Veras Selbstauskunft. Die Qualität und Unabhängigkeit einer Quelle sind eigene Fragen. [Selbstauskunft][pol] · [Quellenprüfung][motor] |
@@ -20,6 +20,10 @@ Eine Person entdeckt einen Fehler in einem Satz, den alle anderen akzeptiert hab
 | Gedächtnis und Zeit | $v\preceq w$ bedeutet, dass $v=w$ oder $v$ ein Vorfahr von $w$ ist. Das Observatorium wählt pro vertretenem UTC-Tag den letzten Stand entlang des ersten Elternteils. Gedächtniseinträge nennen Beobachtungen und Grenzen. Auch ein späterer Stand kann Fähigkeiten verlieren. | Code für historische Stände und Einträge. Eine Änderung an einem Tag kann auch eine frühere Fähigkeit zurücknehmen. [Zeitreihe][zeit] · [Gedächtnis][memory] |
 | Fortsetzung, Stopp und Erhalt | $\delta(a,c,1)=\mathrm{pause}$ für alle zulässigen Angaben zu Zugang $a$ und Korrektur $c$. Ein Stopp hat Vorrang. Separat vergleicht die Wiederherstellungsprobe die Commit-IDs und prüft die Git-Objekte der Kopie. | Code für die Auswahl einer Handlung und eine lokale, vorübergehende Wiederherstellungsprobe. [Stoppregel][stopp] · [Wiederherstellung][recovery] |
 | Zugang und Veröffentlichung | $s_\ell\leadsto k_\ell$ und $s_\ell\leadsto d_\ell$, für $\ell\in\{\mathrm{de},\mathrm{en}\}$. Von der Startseite führen vorgegebene Verweise zum Kritiklink und zum lokalen Entwurf. Die öffentliche Prüfung vergleicht zusätzlich die ausgelieferte Revision. | Code für erzeugte HTML-Seiten und einen öffentlichen Abruf mit Revisionsvergleich. Menschliche Verständlichkeit und tatsächlicher Eingang eines Beitrags bleiben gesondert zu prüfen. [Zugangsprüfung][access] · [Veröffentlichung][pages] |
+
+### Welche Programme verwenden eine Datei?
+
+Im lokalen Vera-Checkout nach `npm ci` zeigt `node scripts/vera-import-impact.mjs src/lib/erkenntnis.mjs` für den Stand `HEAD`, welche Dateien das Modul direkt oder über andere Dateien verwenden. Dazu kehrt der Prüfer statische Importkanten um. Importiert B die Datei A und C die Datei B, führt der Prüfweg von A über B nach C. Das erklärt, warum eine Änderung an A für C interessant ist. Ob C tatsächlich ausfällt, lässt sich anschließend ausprobieren. Beim Erkenntnismodul gibt es einen [dokumentierten Ausfallversuch](metaphern-lernen.md#eine-gegenprobe-an-vera-selbst). Der Prüfer durchsucht JavaScript und die Skriptbereiche von Astro-Dateien. Dynamische Ladevorgänge, externe Pakete und erst beim Build erzeugte Dateien liegen außerhalb dieser Karte.
 
 ### Wo das Korrekturversprechen scheitern kann
 
@@ -50,7 +54,7 @@ One person finds a mistake in a claim that everybody else accepts. Which parts o
 
 | Area | Object, interpretation and scope |
 | --- | --- |
-| Architecture and topics | $Q(v)=D^+(v)\setminus\{v\}$. From a changed premise $v$, follow dependency edges to all reachable consequences and queue them for review. An analogy alone creates no such edge. The code takes a supplied graph whose completeness remains open. [M-03 tests][motor] · [Question atlas][atlas] |
+| Architecture and topics | $Q(v)=D^+(v)\setminus\{v\}$. From a changed premise $v$, follow dependency edges to all reachable consequences and queue them for review. An analogy alone creates no such edge. The public atlas shows one shortest review path per reachable question. Revision comparisons retain paths from each snapshot. Missing links can hide affected questions. [Review rule and example][atlas] · [M-03][motor] |
 | Language, images and art | $r=(h(b),o,d,t)$ describes four fields of a reading of image $b$. The SHA-256 hash identifies the image bytes, $o$ is an observation, $d$ an interpretation and $t$ a countertest. The same image can sustain several readings. [Image intake][bild] · [Art worksheet][kunst] |
 | Metaphor and transfer | $H'=\{h\in H:h(x)=y\}$. After observation $(x,y)$, keep all candidate rules whose prediction matches it. Two bus routes sharing a closed bridge defeat “two routes suffice”. The simulation tries the remaining rules on new networks. [Transfer experiment][metapher] |
 | Competing evidence | $(s,a)\in\{0,1\}^2$. The first bit tracks whether any record supports a claim, the second whether any record challenges it. $(1,1)$ retains both. Duplicating a record changes neither bit. Quality and independence require separate checks. [Entity queries][pol] · [Provenance tests][motor] |
@@ -68,6 +72,10 @@ One person finds a mistake in a claim that everybody else accepts. Which parts o
 **Counterexample.** An objection can remain visible indefinitely without anyone deciding it. Every finite prefix of that history preserves the record. The objection still never receives an answer. A fork count cannot distinguish this failure from someone forking a project to translate or experiment.
 
 **Proposed test, still open.** Invite first-time readers to tackle two matched cases in random order. Compare a chronological event list with the same information plus explicit objection-to-decision links. Each case contains two objections and one decision addressing only one of them. Fix the answer key and time limit in advance. Count correct matches, false reports that the other objection was settled, and abandoned tasks separately. The hypothesis predicts better matching without more false closures. A sufficiently precise finding of no improvement or more false closures would count against it. Imprecise results remain open. A separate field test must follow a submitted objection through to a reasoned response. [Evaluation proposal][eval]
+
+### Which programs use a file?
+
+After `npm ci`, run `node scripts/vera-import-impact.mjs src/lib/erkenntnis.mjs` in the checkout. For committed `HEAD`, it follows static local imports in reverse and shows a shortest path from the selected file to each direct or indirect consumer. The scanner reads JavaScript and the script regions of Astro files. A path identifies a candidate for a failure test. Dynamic loading, external packages and generated files are outside its scope.
 
 ### Public case audit · 8 November 2026
 

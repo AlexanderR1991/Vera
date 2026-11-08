@@ -14,9 +14,9 @@ Provide sources for factual claims and reasons for philosophical positions.
 
 ### Nur bei Regeländerungen / For rule changes only
 
-Verlinke die geltende Regel mit Commit und Abschnitt. Nenne den neuen Wortlaut, einen Fall mit anderer Entscheidung und wessen Befugnisse sich ändern. Vor der Entscheidung ergänzt der Maintainer die Frist für Einwände oder dokumentiert die begründete Sofortentscheidung in der Gründungsphase. Bei externer Beteiligung gelten die erneuten Beratungs- und Fristregeln. Gründe, Befangenheit und stärkster offener Einwand bleiben zu dokumentieren. [Verfahren / Procedure](../docs/community-governance.md)
+Verlinke die geltende Regel mit Commit und Abschnitt. Nenne den neuen Wortlaut, einen Fall mit anderer Entscheidung und wessen Befugnisse sich ändern. In der Gründungsphase kündigt der Maintainer eine Einwandsfrist an oder begründet ausdrücklich die Sofortentscheidung. Ab der ersten externen inhaltlichen Mitarbeit bei Grundsatzänderungen das gemeinsam vereinbarte Verfahren und die konkrete Entscheidung verlinken. Bis zur Vereinbarung bleibt die Änderung offen. Gründe, Befangenheit und stärkster offener Einwand bleiben zu dokumentieren. [Verfahren / Procedure](../docs/community-governance.md)
 
-Link the current rule at a specific commit and section. Give the proposed wording, a case that would be decided differently and whose authority changes. The maintainer announces an objection window, or explicitly justifies immediate founding-phase approval without external contributors. With external participation, the public review and deadline rules apply. Always record reasons, conflicts of interest and the strongest outstanding objection.
+Link the current rule at a specific commit and section. Give the proposed wording, a case that would be decided differently and whose authority changes. During the founding phase, the maintainer announces an objection window or explicitly justifies immediate approval. Once an external person contributes substantively, link the jointly agreed procedure and actual decision for fundamental changes. Until there is agreement, leave the change open. Always record reasons, conflicts of interest and the strongest outstanding objection.
 
 ## META-01 · Korrekturprotokoll / Correction record
 

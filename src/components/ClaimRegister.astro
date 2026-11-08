@@ -3,11 +3,14 @@ import Layout from "../layouts/SiteLayout.astro";
 import {absoluteFor,pathFor,base} from "../lib/paths.mjs";
 import project from "../../public/project.json" with {type: "json"};
 import register from "../../public/knowledge/claims.json";
+import questionAtlas from "../../public/knowledge/questions.json";
+import {questionReviewImpact} from "../lib/questions.mjs";
 import forum from "../../public/knowledge/forum-threads.json";
 import {maturityLabels,abstractionLabels,consensusLabels} from "../lib/maturity.mjs";
 import "../styles/mission.css";
 const {lang="de"}=Astro.props;
 const threads=new Map(forum.threads.map(thread=>[thread.claim_id,thread.issue_number]));
+const questionById=new Map(questionAtlas.questions.map(q=>[q.id,q]));
 const en=lang==="en";
 const t=(de,english)=>en?english:de;
 const types={normative:t("Normatives Urteil","Normative judgment"),metaphor:t("Metapher","Metaphor"),empirical:t("Empirische Aussage","Empirical claim"),formal:t("Formale Aussage","Formal claim"),interpretive:t("Interpretation","Interpretation")};
@@ -24,7 +27,7 @@ const support={value_commitment:t("Wertentscheidung","Value commitment"),concept
    <h2 id="maturity-heading">{t("Wann darf eine Erkenntnis aufsteigen?", "When may a claim advance?")}</h2>
    <p>{t("Erkenntnisreife, Abstraktion und dokumentierte Übereinstimmung sind drei verschiedene Angaben. Eine allgemeine Aussage ist nicht automatisch wahrer. Keine Mehrheit und kein KI-Schwarm kann eine Prüfung ersetzen.", "Maturity, abstraction and documented agreement are three different dimensions. A more general statement is not automatically truer. Neither majorities nor AI swarms replace review.")}</p>
    <ol class="maturity-scale">{maturityLabels[lang].map((label,i)=><li><strong>R{i}</strong><span>{label}</span></li>)}</ol>
-   <p>{t("Aufstiege benötigen dokumentierte fachgerechte Prüfung; R3 und R4 zusätzlich unabhängige Gegenprüfungen. Gegenbelege können zu Rückstufung oder Korrektur führen. Alle vier Beispiele stehen weiterhin auf R0.", "Advancement requires a documented, claim-appropriate review; R3 and R4 also need independent checks. Counterevidence can lead to demotion or correction. All four examples remain at R0.")} <a href={project.repository+"/blob/main/docs/erkenntnisreife.md"}>{t("Die Regeln lesen", "Read the rules")}</a>.</p>
+   <p>{t("Aufstiege benötigen dokumentierte fachgerechte Prüfung; R3 und R4 zusätzlich unabhängige Gegenprüfungen. Gegenbelege können zu Rückstufung oder Korrektur führen.", "Advancement requires a documented, claim-appropriate review; R3 and R4 also need independent checks. Counterevidence can lead to demotion or correction.")} <a href={project.repository+"/blob/main/docs/erkenntnisreife.md"}>{t("Die Regeln lesen", "Read the rules")}</a>.</p>
   </section>
   <div class="claim-tools" data-claim-tools hidden>
    <label>{t("Aussagen durchsuchen","Search claims")}<input type="search" data-claim-search placeholder={t("Begriff oder Kennung, z. B. KI-001","Term or identifier, e.g. KI-001")}/></label>
@@ -32,9 +35,23 @@ const support={value_commitment:t("Wertentscheidung","Value commitment"),concept
    <p role="status" aria-live="polite" data-claim-count>{register.claims.length} {t("Einträge","entries")}</p>
   </div>
   <p data-claim-empty hidden>{t("Kein Eintrag passt zu dieser Suche. Ändere den Suchbegriff oder die Aussageart.","No entry matches this search. Change the search term or claim type.")}</p>
-  {register.claims.map(c=><section id={c.id} class="claim-card" data-claim-card data-kind={c.type}>
+  {register.claims.map(c=>{
+   const affected=questionReviewImpact(questionAtlas,c.id);
+   return <section id={c.id} class="claim-card" data-claim-card data-kind={c.type}>
    <div class="claim-meta"><a href={"#"+c.id}>{c.id} · v{c.version}</a><span>{types[c.type]}</span><span>{support[c.epistemic_status]}</span><span>{statuses[c.review_status]}</span><span>{`R${c.maturity.level} · ${maturityLabels[lang][c.maturity.level]}`}</span></div>
    <h2 class="claim-statement">{c.statement[lang]}</h2>
+   <details class="review-impact" id={"pruefpfad-"+c.id} open={c.id==="G-005"}>
+    <summary>{t("Welche Fragen sollten wir bei einer Änderung erneut prüfen?","Which questions should we revisit if this claim changes?")} ({affected.length})</summary>
+    {affected.length>0 ? <>
+     <p>{t("Der Atlas zeigt für jede Frage einen kürzesten Weg. Menschen prüfen, ob eine Änderung der Aussage auch die Antwort auf die Frage verändert.","The atlas shows one shortest path to each question. People check whether changing the claim changes their answer to that question.")}</p>
+     <ul>{affected.map(({id,path})=><li>
+      <a href={pathFor(lang,"forum","frage-"+id)}>{id} · {questionById.get(id).question[lang]}</a>
+      <p>{path.slice(1).map((step,i)=>i===0
+       ? t(`${step} verweist auf die Aussage ${path[0]}.`,`${step} refers to claim ${path[0]}.`)
+       : t(`${step} hängt von ${path[i]} ab.`,`${step} depends on ${path[i]}.`)).join(" ")}</p>
+     </li>)}</ul>
+    </> : <p>{t("Im Fragenatlas ist bisher kein Prüfweg für diese Aussage eingetragen.","The question atlas currently records no review path for this claim.")}</p>}
+   </details>
    <dl>
     <dt>{t("Abstraktionsstufe","Abstraction")}</dt><dd>{abstractionLabels[lang][c.abstraction_level]} · {t("keine Wahrheitsstufe","not a truth grade")}</dd>
     <dt>{t("Erkenntnisreife","Maturity")}</dt><dd>R{c.maturity.level} · {maturityLabels[lang][c.maturity.level]}. {c.maturity.rationale[lang]}</dd>
@@ -64,7 +81,7 @@ const support={value_commitment:t("Wertentscheidung","Value commitment"),concept
     title: `[${c.id} v${c.version}] ${t("Begründeter Einwand", "Reasoned objection")}`,
     source: `${absoluteFor(lang, "aussagen")}#${c.id} · ${c.id} v${c.version} · ${c.statement[lang]}`
    })}>{t("Gezielten Einwand einreichen ↗","Submit a focused objection ↗")}</a></div>
-  </section>)}
+  </section>})}
  </article>
 </Layout>
 <script>
@@ -82,11 +99,20 @@ const support={value_commitment:t("Wertentscheidung","Value commitment"),concept
   if(result)result.textContent=en?`${count} ${count===1?"entry":"entries"}`:`${count} ${count===1?"Eintrag":"Einträge"}`;
   if(empty)empty.hidden=count!==0;
  };
- const revealHash=()=>{const id=location.hash.slice(1);if(cards.some(c=>c.id===id)){if(search)search.value="";if(filter)filter.value="all";update();document.getElementById(id)?.scrollIntoView();}};
+ const revealHash=()=>{
+  const target=document.getElementById(location.hash.slice(1));
+  if(!target?.closest("[data-claim-card]"))return;
+  if(search)search.value="";
+  if(filter)filter.value="all";
+  update();
+  if(target instanceof HTMLDetailsElement)target.open=true;
+  target.scrollIntoView();
+ };
  if(controls&&search&&filter){controls.hidden=false;search.addEventListener("input",update);filter.addEventListener("change",update);window.addEventListener("hashchange",revealHash);update();revealHash();}
 </script>
 
 <style>
+  .review-impact { scroll-margin-top: 8rem; }
   .maturity-guide { margin: 1.5rem 0 2rem; padding: 1.2rem 1.4rem; border: 1px solid var(--line); border-radius: .35rem; }
   .maturity-guide h2 { margin-top: 0; }
   .maturity-scale { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: .45rem; padding: 0; list-style: none; margin: 1rem 0; }
