@@ -31,9 +31,9 @@ test("industrial palette is bundled through the existing static assets pipeline"
  const site=read("src/client/site.js");
  assert.match(build,/src\/styles\/industrial\.css/);
  assert.match(build,/public\/assets\/style\.css/);
- assert.match(css,/\.board-grid\{/);
- assert.match(css,/@media\(max-width:500px\)/);
- assert.match(css, /prefers-reduced-motion:reduce/);
+ assert.match(css,/\.board-grid\s*\{[^}]*display:\s*grid/);
+ assert.match(css,/\.board-grid\b[^{}]*\{[^}]*grid-template-columns:\s*1fr\b/);
+ assert.match(css, /prefers-reduced-motion:\s*reduce/);
  assert.match(css, /\.board-tile\[hidden\]/);
  assert.match(css, /:focus-visible/);
  assert.match(site, /data-board-filter/);

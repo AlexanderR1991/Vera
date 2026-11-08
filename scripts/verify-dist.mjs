@@ -226,6 +226,9 @@ for(const lang of ["de","en"]){
  if(heading?.trim()!==greeting||!opening.includes(ambition)||!opening.includes(motto))errors.push("Missing Vera introduction for "+lang);
  if(!opening.includes('stroke-dasharray="346 14"')||!opening.includes('transform="rotate(-38 100 100)"'))
    errors.push("Missing Vera circle or adjacent pinboard for "+lang);
+ const board=home.match(/<section class="industrial-board"[^>]*>([\s\S]*?)<\/section>/)?.[1]??"";
+ if(!board.includes("data-board-card")||/<(?:img|svg)\b/.test(board))
+   errors.push("Missing text-only pinboard for "+lang);
  const insight=lang==="de"?"erkenntnis":"insight";
  if(!opening.includes('href="#'+insight+'"')||!home.includes('id="'+insight+'"')||
     !home.includes('data-knowledge-result')||!home.includes('data-knowledge-controls hidden'))

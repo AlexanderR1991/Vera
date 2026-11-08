@@ -62,7 +62,8 @@ for(const name of names){
 }
 await mkdir("public/assets",{recursive:true});
 await copyFile("assets/signet.svg","public/assets/signet.svg");
-await writeFile("public/assets/style.css",(await get("assets/style.css"))+"\n"+(await get("src/styles/i18n.css"))+"\n"+(await get("src/styles/industrial.css")),"utf8");
+const styles=["assets/style.css","src/styles/i18n.css","src/styles/industrial.css","src/styles/vera-content.css","src/styles/vera-home-tools.css"];
+await writeFile("public/assets/style.css",(await Promise.all(styles.map(get))).join("\n"),"utf8");
 await copyFile("src/client/site.js","public/assets/site.js");
 await writeFile("public/.nojekyll","","utf8");
 for(const name of names.filter(n=>n!=="index")){

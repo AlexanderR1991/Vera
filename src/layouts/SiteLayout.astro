@@ -3,10 +3,16 @@ import {ui,navigation} from "../lib/ui.mjs";
 import UniversalQuestionsContext from "../components/UniversalQuestionsContext.astro";
 import {pathFor,absoluteFor,base} from "../lib/paths.mjs";
 import project from "../../public/project.json" with {type: "json"};
+import "../styles/vera-shell.css";
 const {lang="de",slug="index",root=false}=Astro.props;
 const t=ui[lang];
 const de=lang==="de";
 const home=slug==="index";
+const primaryLabel=de?"Hauptnavigation":"Main navigation";
+const primaryLinks = [
+  { href: pathFor(lang,"methode","erkenntnismotor"), label: de?"WIRKLICH · Philosophischer Motor":"WIRKLICH · Philosophical engine" },
+  ...navigation.map(([destination,i])=>({ href: pathFor(lang,destination), label: t.nav[i], current: slug===destination }))
+];
 const footerGroups = [
   { title: t.explore, routes: ["erkenntnisnavigator", "atlas", "baum-des-wissens", "esoterik-katalog", "bibliothek", "aussagen", "forum", "pruefstand", "die-bruecke", "grundfragen", "forschungsstrom"] },
   { title: t.project, routes: ["mission", "regelkreis", "methode", "ki-und-mensch", "projektstatus", "projektobservatorium", "mitwirken"] }
@@ -21,7 +27,7 @@ const canonical=root?siteRoot:absoluteFor(lang,slug);
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<meta name="theme-color" content="#0b0d0f" />
+<meta name="theme-color" content="#0b0d0e" />
 <meta name="color-scheme" content="dark" />
 <meta name="description" content={description} />
 <meta property="og:type" content="website" />
@@ -39,44 +45,62 @@ const canonical=root?siteRoot:absoluteFor(lang,slug);
 <title>{title} · {t.name}</title>
 <script is:inline src={base+"assets/site.js"} defer></script>
 </head>
-<body>
+<body class:list={["vera-site",home?"vera-site--home":"vera-site--inner"]}>
 <a class="skip-link" href="#inhalt">{lang==="de"?"Zum Inhalt springen":"Skip to content"}</a>
 <header class="vera-header">
   <div class="container vera-header__inner">
     <a class="vera-brand" href={pathFor(lang)} aria-label={de?"Vera – Startseite":"Vera – homepage"} aria-current={home&&!root?"page":undefined}>
-      {!home&&<img src={base+"assets/signet.svg"} alt="" width="34" height="34" />}
-      <span class="brand__name">{t.name}{!home&&<small>{t.subtitle}</small>}</span>
+      <span class="brand__name">{t.name}</span>
     </a>
+    {[false,true].map(compact=>{
+      const Navigation=compact?"details":"div";
+      return <Navigation class={compact?"vera-menu":"vera-menu-wide"}>
+        {compact&&<summary>{t.menu}<span class="vera-menu__symbol" aria-hidden="true"></span></summary>}
+        <nav class="vera-primary" aria-label={primaryLabel}>
+          {primaryLinks.map(link=><a href={link.href} aria-current={link.current?"page":undefined}>{link.label}</a>)}
+        </nav>
+      </Navigation>;
+    })}
     <nav class="vera-languages" aria-label={de?"Sprache":"Language"}>
       <a href={pathFor("de",slug)} lang="de" hreflang="de" aria-label="Deutsch" aria-current={de?"true":undefined}>DE</a>
       <a href={pathFor("en",slug)} lang="en" hreflang="en" aria-label="English" aria-current={!de?"true":undefined}>EN</a>
     </nav>
-    <nav class="vera-primary" aria-label={de?"Hauptnavigation":"Main navigation"}>
-      <a href={pathFor(lang,"methode","erkenntnismotor")}>{de?"WIRKLICH · Philosophischer Motor":"WIRKLICH · Philosophical engine"}</a>
-      {navigation.map(([destination,i])=><a href={pathFor(lang,destination)} aria-current={slug===destination?"page":undefined}>{t.nav[i]}</a>)}
-    </nav>
   </div>
 </header>
-{!home&&<div class="edition-line"><a href={pathFor(lang,"projektstatus")} data-project-version={project.version}>{t.name} / VERSION {project.version} ↗</a><span>{t.motto}</span></div>}
-{!de&&!home&&<div class="translation-notice"><div class="container"><span aria-hidden="true">◇</span><span>{t.status}</span><a href={pathFor(lang,"projektstatus","sprachfassungen")}>Translation review ↗</a><a href={pathFor("de",slug)}>Deutsch →</a></div></div>}
+{!home&&<div class="edition-line"><div class="container edition-line__inner">
+  <a href={pathFor(lang,"projektstatus")} data-project-version={project.version}>{t.name} / VERSION {project.version} ↗</a>
+  <p class="edition-line__descriptor">{t.subtitle}</p>
+  <p class="edition-line__motto">{t.motto}</p>
+</div></div>}
+{!de&&!home&&<div class="translation-notice"><div class="container">
+  <span class="translation-notice__label">{t.status}</span>
+  <a href={pathFor(lang,"projektstatus","sprachfassungen")}>Translation review ↗</a>
+  <a href={pathFor("de",slug)}>Deutsch →</a>
+</div></div>}
 <main id="inhalt" tabindex="-1"><slot /><UniversalQuestionsContext lang={lang} slug={slug}/></main>
-<footer class="footer"><div class="container footer__grid">
-<div><img src={base+"assets/signet.svg"} width="54" height="54" alt="" /><h2>{t.footerTitle}</h2><p>{t.footerDescription}</p><p class="footer__ai-goal">{lang==="de"?"Unser Ziel: eine Open-Source-KI mit Menschen bauen · im Aufbau.":"Our goal: build open-source AI with people · in development."} <a href={pathFor(lang,"ki-und-mensch")}>{lang==="de"?"Ziel und Grenzen prüfen":"Read the goal and its limits"} ↗</a></p></div>
-<div class="footer__links">
-  {footerGroups.map(group => <div><strong>{group.title}</strong>
-    {group.routes.map(route => <a href={pathFor(lang,route)}>{t.titles[route]}</a>)}
-    {group.title === t.project && <a href={project.repository}>{t.source} ↗</a>}
-  </div>)}
-</div>
-</div><div class="container footer__bottom"><span>{t.copyright}</span><span>{t.disclosure}</span><a class="footer__donate" href={pathFor(lang,"mitwirken","unterstuetzen")}>{lang==="de"?"Spenden":"Donate"} <span aria-hidden="true">🤍</span></a><a href={pathFor(lang,"impressum")}>{lang==="de"?"Impressum":"Legal notice"}</a><a href={pathFor(lang,"datenschutz")}>{lang==="de"?"Datenschutz":"Privacy"}</a><a href={project.repository+"/blob/main/LICENSING.md"} target="_blank" rel="noopener noreferrer">{lang==="de"?"Lizenzdetails & Ausnahmen ↗":"License details & exceptions ↗"}</a></div></footer>
+<footer class="footer">
+  <div class="container footer__grid">
+    <div class="footer__identity">
+      <p class="footer__name">{t.name}</p>
+      <h2>{t.footerTitle}</h2>
+      <p>{t.footerDescription}</p>
+      <p class="footer__ai-goal">{de?"Unser Ziel: eine Open-Source-KI mit Menschen bauen · im Aufbau.":"Our goal: build open-source AI with people · in development."} <a href={pathFor(lang,"ki-und-mensch")}>{de?"Ziel und Grenzen prüfen":"Read the goal and its limits"} ↗</a></p>
+    </div>
+    <nav class="footer__links" aria-label={de?"Weitere Seiten":"More pages"}>
+      {footerGroups.map(group=><div><strong>{group.title}</strong>
+        {group.routes.map(route=><a href={pathFor(lang,route)}>{t.titles[route]}</a>)}
+        {group.title===t.project&&<a href={project.repository}>{t.source} ↗</a>}
+      </div>)}
+    </nav>
+  </div>
+  <div class="container footer__bottom">
+    <div class="footer__credits"><span>{t.copyright}</span><span>{t.disclosure}</span></div>
+    <div class="footer__utility">
+      <a class="footer__donate" href={pathFor(lang,"mitwirken","unterstuetzen")}>{de?"Spenden":"Donate"} <span aria-hidden="true">↗</span></a>
+      <a href={pathFor(lang,"impressum")}>{de?"Impressum":"Legal notice"}</a>
+      <a href={pathFor(lang,"datenschutz")}>{de?"Datenschutz":"Privacy"}</a>
+      <a href={project.repository+"/blob/main/LICENSING.md"} target="_blank" rel="noopener noreferrer">{de?"Lizenzdetails & Ausnahmen ↗":"License details & exceptions ↗"}</a>
+    </div>
+  </div>
+</footer>
 </body></html>
-
-<style is:global>
-:focus-visible{outline:2px solid var(--gold-bright);outline-offset:3px}
-.footer__bottom{color:#a1a49a}
-.footer__donate{display:inline-flex;align-items:center;justify-content:center;gap:.45em;min-height:38px;padding:8px 13px;border:1px solid rgba(255,255,255,.24);border-radius:999px;color:#f2f2ef;font-size:11px;line-height:1.2;letter-spacing:.04em;text-decoration:none;white-space:nowrap;transition:border-color .2s ease,background-color .2s ease}
-.footer__donate span{font-size:14px;line-height:1}
-.footer__donate:hover{border-color:rgba(255,255,255,.6);background:rgba(255,255,255,.06)}
-@media(prefers-reduced-motion:reduce){.footer__donate{transition:none}}
-@media(max-width:420px){.footer__links{column-gap:1.5rem}}
-</style>
