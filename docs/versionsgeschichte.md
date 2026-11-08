@@ -1,5 +1,9 @@
 # Versionsgeschichte
 
+## 2026-11-08 · Wer über Veras Grundregeln entscheidet
+
+In der Gründungsphase kann der Gründer eine Änderung im öffentlichen PR begründet freigeben. Nach der [bisherigen Regel](https://github.com/AlexanderR1991/Vera/blob/394784e4ed8d59b6e3fc3a8957a245104bcd181a/docs/community-governance.md#L66-L76) war nach dem ersten externen inhaltlichen Beitrag eine erneute Beratung vorgesehen. Künftig entscheiden die menschlichen Mitwirkenden ab diesem Beitrag gemeinsam über Grundregeln, Ausrichtung und Entscheidungsrechte. Fehlt das gemeinsam vereinbarte Verfahren, bleibt die Grundsatzfrage offen. Ein Beispiel ist die künftige Regel dafür, wer Quellenprüfungen freigeben darf. [Entscheidungsweg und Einspruch](community-governance.md#wer-darf-die-regeln-ändern--who-can-change-the-rules)
+
 ## 2026-11-07 · Vera
 
 - Die Werkstatt trägt in beiden Sprachen den Namen **Vera**. WIRKLICH und REALLY? sind frühere Namen. Der Grundtext des Wirklichen ist das philosophische Fundament.
