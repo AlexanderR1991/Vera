@@ -11,6 +11,10 @@ const t=copy[lang];
 <p class="section-kicker">{t.tag}</p>
 <h1>{t.title}<br/><em>{t.subtitle}</em></h1>
 <p class="common-lead">{t.lead}</p><p class="common-note">{t.status}</p>
+<details class="common-solo">
+<summary>{t.soloTitle}</summary>
+<p>{t.solo}</p>
+</details>
 <div class="button-row">
 <a class="button button--gold" href="#sprachprobe">{lang==="de"?"Sprachprobe zu zweit":"Try the conversation exercise"} ↓</a>
 <a class="button button--ghost" href="#teilzusagen">{lang==="de"?"Teilzusagen zusammenführen":"Combine separate commitments"} ↓</a>
@@ -65,6 +69,8 @@ const t=copy[lang];
 <style>
 .common-hero{padding:100px 0;background:radial-gradient(ellipse at 50% 0%,#a17d4430,transparent 65%),#0c1214;text-align:center;border-bottom:1px solid var(--line)}
 .common-hero .button-row{justify-content:center}
+.common-solo{max-width:56ch;margin:0 auto 24px;text-align:start}
+.common-solo summary{width:fit-content;margin-inline:auto;padding:12px 0;cursor:pointer}
 .common-hero h1{font:400 clamp(42px,6.5vw,85px)/1.12 var(--serif);letter-spacing:-.04em;text-wrap:balance;margin:25px 0}
 .common-hero h1 em{color:var(--gold-bright);font-weight:400}
 .common-lead{font:clamp(22px,2.6vw,29px)/1.6 var(--serif);color:#e0d3be}
