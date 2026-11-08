@@ -1,20 +1,17 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-07T21:51:44+00:00",
+  "updated_at": "2026-11-08T06:02:11+00:00",
   "status": "automatic_discovery_not_fact_checked",
   "analysis": "metadata_only",
   "source": "Crossref + arXiv",
   "source_queries": {
-    "Crossref": 5,
+    "Crossref": 7,
     "arXiv": 3
   },
-  "source_queries_succeeded": 8,
+  "source_queries_succeeded": 10,
   "new_items": 0,
   "agents_enabled": false,
-  "errors": [
-    "Crossref/liebe: HTTPError: HTTP Error 429: Too Many Requests",
-    "Crossref/ki: HTTPError: HTTP Error 429: Too Many Requests"
-  ],
+  "errors": [],
   "items": [
     {
       "id": "arxiv:2611.07529v1",
