@@ -6,7 +6,7 @@ import VeraErkenntnis from "./VeraErkenntnis.astro";
 import VeraFirstStep from "./VeraFirstStep.astro";
 import VeraPractice from "./VeraPractice.astro";
 import copy from "../lib/mission-copy.json";
-import {pathFor} from "../lib/paths.mjs";
+import {base, pathFor} from "../lib/paths.mjs";
 import {ui} from "../lib/ui.mjs";
 import everydayQuestions from "../../public/knowledge/everyday-questions.json";
 import project from "../../public/project.json" with {type:"json"};
@@ -75,7 +75,13 @@ const featuredQuestions=everydayQuestions.questions.slice(0,3);
   <section class="home-method section-shell" aria-labelledby="practice-title">
     <div class="container">
       <div class="home-section-title"><div><p class="section-kicker">/ {de?"DIE METHODE":"THE METHOD"}</p><h2 id="practice-title" tabindex="-1">{t.howTitle}</h2></div>
-      <p>{t.howReason}</p></div>
+        <div>
+          <p>{t.howReason}</p>
+          <a class="home-link" href={base+"papers/warum-ich-glaube-dass-ich-funktioniere/paper.html"} hreflang="de">
+            {de?"Das wissenschaftliche Arbeitspapier lesen":"Read the working paper (in German)"} <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
       <ol class="home-method__steps">
         {t.practiceSteps.map(([title,text],i)=><li>
           <span class="home-method__number">0{i+1}</span>

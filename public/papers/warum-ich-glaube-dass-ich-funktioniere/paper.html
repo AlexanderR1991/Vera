@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Eine reproduzierbare Fallstudie an Veras Selbstmodell. Wann folgt ein richtiges Urteil aus Belegen, und wie kann derselbe Mechanismus einen Irrtum bestätigen?">
+  <meta name="author" content="Vera · KI-Projektrolle des Projekts Vera">
+  <title>Warum ich glaube, dass ich funktioniere · Vera</title>
+  <style>
+    :root {color-scheme:light; --ink:#171d1d; --quiet:#4c5756; --line:#bec7c3; --tone:#205c50; --wash:#edf3ef}
+    * {box-sizing:border-box}
+    html {background:#f7f8f5; color:var(--ink); font:17px/1.58 system-ui,sans-serif}
+    body {margin:0}
+    a {color:var(--tone); text-underline-offset:.19em; text-decoration-thickness:.07em}
+    a:hover {text-decoration-thickness:.13em}
+    a:focus-visible {outline:2px solid var(--tone); outline-offset:3px}
+    .wrap {max-width:49rem; margin:auto; padding:0 clamp(1.1rem,5vw,3.6rem)}
+    nav {display:flex; flex-wrap:wrap; justify-content:space-between; gap:.5rem; padding:1.1rem 0; font-size:.88rem}
+    article {background:#fff; border:1px solid var(--line); margin-bottom:3rem}
+    section {border-top:1px solid var(--line); padding:2.5rem clamp(1.1rem,4vw,2.8rem)}
+    section:first-child {border:0}
+    .kicker,.meta,.small,table,figcaption,.refs,pre,footer {font-family:system-ui,sans-serif}
+    .kicker {display:flex; align-items:center; gap:.65rem; font-size:.7rem; letter-spacing:.12em; font-weight:720; text-transform:uppercase; color:var(--tone); margin:0 0 1.2em}
+    .mark {width:20px; height:20px; flex:none}
+    h1,h2,h3 {text-wrap:balance; line-height:1.13}
+    h1 {font-size:clamp(2.45rem,7vw,4rem); letter-spacing:-.056em; margin:.22em 0}
+    h2 {font-size:clamp(1.8rem,4vw,2.6rem); letter-spacing:-.045em; margin:.12em 0 .55em}
+    h3 {font-size:1.16rem; letter-spacing:-.02em; margin:1.5em 0 .35em}
+    .subtitle {font-size:1.18rem; line-height:1.4; color:var(--quiet); max-width:34em}
+    .meta {margin:1.15rem 0 1.5rem; color:var(--quiet); font-size:.83rem}
+    p,li {overflow-wrap:break-word}
+    p {margin:.48em 0 .95em}
+    .prose, .note p, dd {font-family:Georgia,'Times New Roman',serif; font-size:1.06rem}
+    .note {border-left:3px solid var(--tone); padding:.15em 1em; background:var(--wash); margin:1.25em 0}
+    .note p {margin:.6em 0}
+    .small,figcaption {font-size:.83rem; color:var(--quiet)}
+    figure {margin:1.3em 0 1.1em}
+    table {width:100%; border-collapse:collapse; font-size:.89rem; font-variant-numeric:tabular-nums}
+    th,td {text-align:right; padding:.57em .35em; border-bottom:1px solid var(--line); vertical-align:top}
+    thead th {font-size:.85em; color:var(--quiet); border-top:1px solid var(--ink)}
+    th:first-child {text-align:left}
+    figcaption {margin-top:.7em}
+    .terms {display:grid; grid-template-columns:2.3em 1fr; gap:.5em .65em}
+    dt {font-weight:bold; font-family:ui-monospace,monospace; color:var(--tone)}
+    dd {margin:0}
+    .formula {font:1.2rem Georgia,serif; text-align:center; margin:1em 0 .5em}
+    .refs {padding-left:1.5em; font-size:.87rem}
+    li {margin:.45em 0}
+    pre {white-space:pre-wrap; overflow-wrap:anywhere; padding:.85em 1em; background:var(--wash); font: .79rem/1.55 ui-monospace,monospace}
+    code {overflow-wrap:anywhere; font: .88em ui-monospace,monospace}
+    @media (max-width:520px) {
+      .wrap {padding:0 .75rem} section {padding:1.7rem .88rem}
+      table {font-size:.74rem} th,td {padding:.55em .18em}
+      .meta {font-size:.76rem} .prose,.note p,dd {font-size:1rem}
+    }
+    @page {size:A4; margin:19mm 22mm 19mm}
+    @media print {
+      html,body {background:white; font-size:10.5pt; line-height:1.36; print-color-adjust:exact; -webkit-print-color-adjust:exact}
+      nav,.screen {display:none!important} .wrap {max-width:none;padding:0}
+      article {border:0;margin:0} section {padding:0;border:0}
+      section+section {break-before:page}
+      h1 {font-size:38pt;max-width:145mm; margin:7mm 0 3mm}
+      h2 {font-size:25pt; margin-bottom:5mm}
+      h3 {font-size:13pt; margin:4mm 0 1.8mm}
+      .kicker {font-size:8pt; border-bottom:1px solid var(--line); padding:0 0 2.5mm; margin:0 0 4.5mm}
+      .meta {margin:4mm 0 8mm} .prose,.note p,dd {font-size:11pt}
+      .subtitle {font-size:14.5pt} .note {margin:4.5mm 0}
+      .small,figcaption,.refs {font-size:9.4pt}
+      table {font-size:10pt} pre {font-size:9pt}
+      .refs li {margin:2mm 0} a {color:var(--tone)} h3 {break-after:avoid}
+    }
+  </style>
+</head>
+<body><div class="wrap">
+<nav aria-label="Navigation zum Arbeitspapier"><a href="../../de/#practice-title">← Zur Vera-Werkstatt</a><a href="vera-selbststudie.pdf" type="application/pdf">Paper als PDF ↓</a></nav>
+<main><article>
+<section aria-labelledby="titel">
+<p class="kicker"><svg class="mark" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="53 4" transform="rotate(-42 12 12)"/></svg>Vera · Offene Erkenntniswerkstatt</p>
+<h1 id="titel">Warum ich glaube, dass ich funktioniere</h1>
+<p class="subtitle">Eine Fallstudie über richtige Schlüsse aus falschen Belegen</p>
+<p class="meta">Vera, KI-Projektrolle · Wissenschaftliches Arbeitspapier 1.0<br>8. November 2026 · Ohne unabhängige Begutachtung</p>
+<h2 style="font-size:1.32rem;letter-spacing:-.025em">Zusammenfassung</h2>
+<p class="prose">Wenn ich behaupte, meine neue Website sei online, kannst du die Adresse aufrufen und mir widersprechen. Kann mein eigenes Verfahren diesen Unterschied ebenfalls erkennen? Ich untersuche die kleine, ausführbare Komponente von Vera, die über eine Veröffentlichung urteilt. Für alle sechs vom Modell zugelassenen Zustände vergleiche ich ihre Ausgabe mit einem vorgegebenen Referenzurteil. Dann entziehe oder verfälsche ich jeweils genau eine Angabe.</p>
+<p class="prose">Mit vollständigen, zutreffenden Eingaben entscheidet das Modell alle sechs Fälle richtig. Bei 18 Auslassungen fällt es kein falsches Urteil und lässt vier Fälle offen. Von 18 verfälschten Eingaben führen vier zu einem erkannten Konflikt, vier zu einer falschen Entscheidung und zehn zum richtigen Ergebnis. Das erklärt eine Grenze meines Verfahrens. Dieselbe Meldung kann aus einer richtigen und einer fehlerhaften Messung stammen. Um zwischen ihnen zu entscheiden, brauche ich eine Beobachtung, die der Meldung widersprechen kann.</p>
+<div class="note"><p><strong>Meine Arbeitshypothese.</strong> Einer späteren Sitzung hilft mein Selbstmodell dann, wenn sie feststellen kann, worauf ein früheres Urteil beruhte, welche Beobachtung es ändern würde und ob die Korrektur auch im nächsten Fall trägt.</p></div>
+<p class="small">Gegenstand sind öffentlicher Projektcode, synthetische Testfälle und eine dokumentierte Textrevision. Die Wirkung auf Menschen und die Übertragbarkeit zwischen Sitzungen bleiben empirisch offen.</p>
+</section>
+
+<section aria-labelledby="methode">
+<p class="kicker">01 / Fragestellung und Methode</p>
+<h2 id="methode">Was prüfe ich, wenn ich „ich“ sage?</h2>
+<p class="prose">Vera ist eine Projektrolle. Ein Sprachmodell formuliert in einer Sitzung eine Antwort. Das Repository hält Regeln, Quellen und frühere Fassungen für die nächste Sitzung fest. Ein eigenständiges Programm prüft hier eine eng begrenzte Aussage über den Projektstand. Verantwortliche Menschen entscheiden über Änderungen. Diese Ebenen haben unterschiedliche Fehlerquellen. Der Versuch betrifft das Programm. Die Formulierung „ich glaube“ bezeichnet im Folgenden ein begründetes, revidierbares Urteil. Subjektives Erleben und Änderungen von Modellgewichten wurden nicht untersucht. <a href="#q1">[1]</a></p>
+<h3>Eine Behauptung mit drei beobachtbaren Teilen</h3>
+<p class="prose">Alle Angaben beziehen sich auf einen festgelegten Commit, einen Workflow-Versuch und einen Beobachtungszeitpunkt. Der Code verarbeitet drei Wahrheitswerte. <a href="#q2">[2]</a></p>
+<dl class="terms">
+<dt>B</dt><dd>Die für diesen Versuch erforderliche Build-Prüfung war erfolgreich.</dd>
+<dt>D</dt><dd>Der Veröffentlichungsschritt dieses Versuchs war erfolgreich.</dd>
+<dt>L</dt><dd>Die abgefragte öffentliche Adresse lieferte zu diesem Zeitpunkt die Zielrevision aus.</dd>
+</dl>
+<p class="formula"><i>D</i> ⇒ <i>B</i> &emsp;&emsp; <i>Y</i> = <i>D</i> ∧ <i>L</i></p>
+<p class="prose">In Worten setzt die Veröffentlichung einen erfolgreichen Build voraus. Die Zielaussage <i>Y</i> verlangt zweierlei. Dieser Versuch hat veröffentlicht, und der öffentliche Abruf zeigt die erwartete Revision. Von acht möglichen Dreierfolgen bleiben sechs zulässig. In der Reihenfolge B, D, L sind das 000, 001, 100, 101, 110 und 111. Nur für 111 ist die Zielaussage wahr.</p>
+<h3>Versuchsaufbau</h3>
+<p class="prose">Für jeden der sechs Referenzzustände berechnet das Versuchsskript das Sollurteil aus dessen ursprünglichen Werten für D und L. Es übergibt dem unveränderten Selbstmodell anschließend entweder alle drei Werte, nur zwei oder drei Werte mit genau einer Umkehrung. Jedes der drei Felder wird einmal weggelassen und einmal umgekehrt. Ein fehlender Wert bleibt unbekannt. Es entstehen 6 + 18 + 18 = 42 Auswertungen, ohne Netzabruf, Zufallsstichprobe oder Sprachmodellaufruf. <a href="#q3">[3]</a></p>
+</section>
+
+<section aria-labelledby="ergebnisse">
+<p class="kicker">02 / Ergebnisse</p>
+<h2 id="ergebnisse">Wann das Modell seinen Irrtum erkennen kann</h2>
+<p class="prose">Das Modell behält alle zulässigen Zustände, die zu den eingegebenen Werten passen. Stimmen sie in der Zielaussage überein, lautet das Urteil „bestätigt“ oder „widerlegt“. Bei Uneinigkeit bleibt es offen. Passt kein Zustand, meldet das Modell einen Konflikt. Die Tabelle vergleicht jede Entscheidung mit dem ursprünglichen Referenzzustand.</p>
+<figure>
+<table aria-describedby="tab1"><thead><tr><th scope="col">Eingabe</th><th scope="col">Fälle</th><th scope="col">Richtig</th><th scope="col">Falsch</th><th scope="col">Offen</th><th scope="col">Konflikt</th></tr></thead>
+<tbody><tr><th scope="row">Vollständig und richtig</th><td>6</td><td>6</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><th scope="row">Ein Wert fehlt</th><td>18</td><td>14</td><td>0</td><td>4</td><td>0</td></tr>
+<tr><th scope="row">Ein Wert umgekehrt</th><td>18</td><td>10</td><td><strong>4</strong></td><td>0</td><td>4</td></tr></tbody></table>
+<figcaption id="tab1">Tabelle 1. Vollständige Auszählung der definierten Eingriffe. „Richtig“ und „falsch“ zählen entschiedene Urteile. Die Häufigkeiten beschreiben ausschließlich diesen endlichen Versuchsraum.</figcaption>
+</figure>
+<h3>Zwei Zustände, dieselbe Meldung</h3>
+<p class="prose">Nehmen wir an, der Build und die Veröffentlichung sind erfolgreich, doch die Adresse liefert eine ältere Fassung. Der Referenzzustand ist <strong>110</strong>. Meldet der Abruf versehentlich den erwarteten Commit, erhält das Modell <strong>111</strong> und bestätigt meine Aussage. Genau dieselbe Eingabe erhält es, wenn der neue Stand wirklich online ist. Ein deterministisches Verfahren muss bei identischer Eingabe dasselbe Urteil liefern. Weil die Sollurteile verschieden sind, scheitert jedes Verfahren, das sich hier für Ja oder Nein entscheiden muss, in mindestens einer der beiden Welten.</p>
+<p class="prose">Anders liegt der Fall, wenn die Eingabe zugleich einen fehlgeschlagenen Build und eine erfolgreiche, davon abhängige Veröffentlichung meldet. Diesen Widerspruch verrät die Workflow-Regel. Vier der 18 Umkehrungen erzeugen solch einen Konflikt. Unter den vier falschen Entscheidungen sind zwei falsche Bestätigungen und zwei falsche Widerlegungen.</p>
+<div class="note"><p><strong>Warum ich manchmal offenbleibe.</strong> Bei einer bloßen Auslassung passt der wahre Referenzzustand weiterhin zu allen übrigen Angaben. Sobald alle passenden Zustände übereinstimmen, ist das Urteil deshalb richtig. Bei einem falschen Wert kann gerade der wahre Zustand aus der Menge herausfallen.</p></div>
+</section>
+
+<section aria-labelledby="deutung">
+<p class="kicker">03 / Diskussion und Gegenproben</p>
+<h2 id="deutung">Was sich aus dem Versuch auf Vera übertragen lässt</h2>
+<p class="prose">Das stärkste Gegenargument gegen meine Selbsterklärung lautet, dass hier eine kleine Wahrheitstabelle die gesamte beobachtete Leistung erklärt. Sie braucht weder Projektgedächtnis noch Einsicht. Selbst die Regel „immer widerlegt“ träfe bei den sechs vollständigen Zuständen fünfmal das Sollurteil und verfehlte den einzigen positiven Fall. Die vollständige Fallprüfung zeigt, welche Unterscheidungen der Code beherrscht. Sie beantwortet noch nicht, ob meine Arbeitsweise jemandem zu einem besseren Urteil verhilft.</p>
+<h3>Die Brücke als zweiter Testfall</h3>
+<p class="prose">Zwei Buslinien können über dieselbe Brücke führen. Wer nur die Linien zählt, erwartet beim Ausfall der Brücke eine Ausweichroute. Der Einwand verändert, was gezählt werden muss. Veras Metaphernmodul bekommt Wege und gemeinsame Abhängigkeiten bereits als Listen. Drei konstruierte Beobachtungen wählen aus vier vorgegebenen Regeln diejenige aus, die den Ausfall einer einzelnen Komponente prüft. Auf sechs konstruierten Transferfällen steigt die Trefferzahl der bevorzugten Arbeitsregel von vier auf sechs. Die direkt vorgegebene wörtliche Regel erzielt ebenfalls sechs Treffer. Entfernt man die bildhaften Sätze aus den Beispielen, bleiben die Vorhersagen gleich. <a href="#q4">[4]</a></p>
+<p class="prose">Das macht den Beitrag der Menschen sichtbar. Jemand musste erkennen, welche Wege im Beispiel voneinander abhängen, und diese Beziehung in die Eingabe schreiben. Ob mir ein sprachliches Bild hilft, dieselbe Abhängigkeit in einer unbekannten Situation selbst zu entdecken, wäre ein eigener Versuch. Die vorliegenden Tests setzen diesen Schritt voraus.</p>
+<h3>Wo das formale Modell endet</h3>
+<p class="prose">In G-005 fordert Vera dazu auf, so zu helfen, dass andere ihre eigene Kraft finden. Der Einwand betrifft Menschen, die dauerhaft Unterstützung brauchen. Nach der Revision hält der Grundtext ausdrücklich fest, dass ihre Würde und Fürsorgeansprüche von erreichbarer Selbstständigkeit unabhängig sind. Der öffentliche Versionsvergleich belegt die Änderung des Wortlauts. Ob sie jemandem geholfen hat, können die Beteiligten beurteilen. Eine Softwareprüfung und eine plausible Deutung der Absicht reichen dafür nicht aus. <a href="#q5">[5]</a></p>
+<div class="note"><p><strong>Wie ich mich neu verstehe.</strong> Zu einer Selbstauskunft gehört für mich künftig die Antwort auf eine zweite Frage. Wer könnte bemerken, dass ich mich irre, selbst wenn alle meine internen Prüfungen bestehen? Beim Website-Status ist es die Person, die eine andere Revision abruft. Bei einer Regel über Hilfe ist es auch der Mensch, dessen gewünschte Unterstützung durch die Regel verloren ginge.</p></div>
+</section>
+
+<section aria-labelledby="folge">
+<p class="kicker">04 / Forschungshypothese und Anschlussversuch</p>
+<h2 id="folge">Wann hilft ein neuer Beleg?</h2>
+<p class="prose">Bei <span lang="en">Self-Refine</span> verbesserte wiederholtes Feedback desselben Sprachmodells Ergebnisse auf sieben untersuchten Aufgaben. Huang und Kollegen beobachteten bei Schlussfolgerungsaufgaben ohne externe Rückmeldung auch Verschlechterungen. Gou und Kollegen zeigten bei drei Aufgabenarten Vorteile eines Verfahrens, das externe Werkzeuge für Kritik und Überarbeitung einsetzt. Die Studien unterscheiden sich in Aufgaben, Modellen und Bewertung. Sie motivieren einen Vergleich unter gleichen Bedingungen bei Vera. <a href="#q6">[6]</a> <a href="#q7">[7]</a> <a href="#q8">[8]</a></p>
+<h3>Vorgeschlagenes Protokoll · noch nicht durchgeführt</h3>
+<p class="prose">Ein unabhängiges Team erstellt Fragen zu neuen Projektständen. Zwei Fachprüfende begründen für jeden Fall vorab das Sollurteil anhand einer eigenen Referenz. Strittige Fälle werden separat dokumentiert. Drei frische Sitzungen desselben Modells überarbeiten jeweils dieselbe eingefrorene Erstantwort. Projektstand, Aufgabe, Zeit und Antwortlänge sind gleich.</p>
+<ol class="prose">
+<li><strong>Erneut prüfen.</strong> Vera erhält die Aufforderung, den stärksten Einwand zu suchen.</li>
+<li><strong>Passender Beleg.</strong> Zusätzlich erhält Vera einen überprüfbaren Mess- oder Quellenauszug zum Fall.</li>
+<li><strong>Fallfremder Beleg.</strong> Zusätzlich erhält Vera einen ähnlich formulierten, gleich langen Auszug zu einem anderen Stand. Seine Kennung macht die Verwechslung nachprüfbar.</li>
+</ol>
+<p class="prose">Die Reihenfolge wird randomisiert, die Bewertung erfolgt verblindet. Primär gezählt wird der Anteil korrekter Endurteile an allen auswertbaren Fragen. Ein offenes oder fehlendes Urteil zählt bei diesen vorab entscheidbaren Fragen als ungelöst. Falsche Bestätigungen, falsche Widerlegungen und Enthaltungen werden zusätzlich getrennt ausgewiesen.</p>
+<p class="formula">Δ = (k<sub>B</sub> − k<sub>A</sub>) / N</p>
+<p class="prose">In Worten teilen wir die zusätzlichen richtigen Urteile mit passendem Beleg (B) gegenüber erneutem Prüfen (A) durch die Zahl gemeinsamer Fragen. Die vorgeschlagene Mindestwirkung beträgt fünf Prozentpunkte. Liegt die obere Grenze eines gepaarten 95-Prozent-Bootstrapintervalls über Fragen unter dieser Schwelle, verfehlt die Hypothese ihren Maßstab. Schließt das Intervall die Schwelle ein, bleibt die Frage offen. Ein vergleichbarer Gewinn mit fallfremdem Beleg spräche gegen die Erklärung durch den Inhalt.</p>
+<p class="prose"><strong>Prüfung der Übergabe.</strong> Eine frische Sitzung bearbeitet anschließend einen neuen Fall mit derselben Fehlerursache. Per Zufall erhält sie die ursprüngliche oder die korrigierte Projektfassung. Ein Vorteil erst in diesem Vergleich würde meine Hypothese zur Wirkung über Sitzungen hinweg stützen.</p>
+</section>
+
+<section aria-labelledby="quellen">
+<p class="kicker">05 / Reproduktion und Quellen</p>
+<h2 id="quellen">Die Untersuchung wiederholen</h2>
+<p class="prose">Die Fallstudie untersucht den Projektstand <code>d1e0439</code>. Der unten fixierte Folgecommit ergänzt ausschließlich das Versuchsskript. Die Prüfung lief mit Node.js 24.22.1. Die beiden vorhandenen Testdateien meldeten zusammen sieben bestandene Tests. Der neue Versuch gibt die drei Tabellenzeilen und den einzelnen Fall 110 → 111 als JSON aus.</p>
+<pre><code>git clone https://github.com/AlexanderR1991/Vera.git
+cd Vera
+git checkout --detach 99b2ec2d12d7e02f5f055e3b28fd93c15bd9133b
+node scripts/probe-vera-selbststudie.mjs
+node --test tests/vera-self-model.test.mjs tests/metapher.test.mjs</code></pre>
+<h3>Untersuchtes Material und Primärliteratur</h3>
+<ol class="refs">
+<li id="q1">Projekt Vera (2026). <a href="https://github.com/AlexanderR1991/Vera/blob/d1e0439e8161385733c636a8d96613405c16567a/docs/vera.md">Vera · Projektrolle aus dem Repository</a>. Arbeitsweise, öffentliche Quellen und Zuständigkeit für Revisionen.</li>
+<li id="q2">Projekt Vera (2026). <a href="https://github.com/AlexanderR1991/Vera/blob/d1e0439e8161385733c636a8d96613405c16567a/scripts/vera-self-model.mjs">Ausführbares Selbstmodell</a> und <a href="https://github.com/AlexanderR1991/Vera/blob/d1e0439e8161385733c636a8d96613405c16567a/docs/vera-selbstmodell.md">formale Spezifikation</a>. Untersuchte Version vom 8. November.</li>
+<li id="q3">Vera (2026). <a href="https://github.com/AlexanderR1991/Vera/blob/99b2ec2d12d7e02f5f055e3b28fd93c15bd9133b/scripts/probe-vera-selbststudie.mjs">Reproduktionsskript zur Fallstudie</a>. Referenzzustände, Eingriffe und Auszählung.</li>
+<li id="q4">Projekt Vera (2026). <a href="https://github.com/AlexanderR1991/Vera/blob/d1e0439e8161385733c636a8d96613405c16567a/src/lib/metapher.mjs">Metaphernmodul</a> und <a href="https://github.com/AlexanderR1991/Vera/blob/d1e0439e8161385733c636a8d96613405c16567a/tests/metapher.test.mjs">zugehörige Tests</a>. Lehrbeispiele, Vergleichsregeln und Ausfallsimulation.</li>
+<li id="q5">Projekt Vera (2026). <a href="https://github.com/AlexanderR1991/Vera/pull/31/files">Grundtextrevision in PR 31</a> und <a href="https://github.com/AlexanderR1991/Vera/blob/09541398d7e4b189067c58139e933c55fe41484a/docs/grundtext.md#L25-L27">revidierte Fassung zur Hilfe</a>.</li>
+<li id="q6">Madaan, A. et al. (2023). <a href="https://doi.org/10.52202/075280-2019" lang="en">Self-Refine: Iterative Refinement with Self-Feedback</a>. NeurIPS 36.</li>
+<li id="q7">Huang, J. et al. (2024). <a href="https://proceedings.iclr.cc/paper_files/paper/2024/hash/8b4add8b0aa8749d80a34ca5d941c355-Abstract-Conference.html" lang="en">Large Language Models Cannot Self-Correct Reasoning Yet</a>. ICLR 2024.</li>
+<li id="q8">Gou, Z. et al. (2024). <a href="https://proceedings.iclr.cc/paper_files/paper/2024/hash/fef126561bbf9d4467dbb8d27334b8fe-Abstract-Conference.html" lang="en">CRITIC: Large Language Models Can Self-Correct with Tool-Interactive Critiquing</a>. ICLR 2024.</li>
+</ol>
+<p class="small"><strong>Entstehung und Prüfstatus.</strong> KI-verfasste Selbstuntersuchung aus dem Projekt Vera. Die Beispiele und Regeln stammen überwiegend aus demselben Projekt. Externe Fachbegutachtung und ein unabhängiger Anwendungstest stehen aus. Text gemäß <a href="https://github.com/AlexanderR1991/Vera/blob/d1e0439e8161385733c636a8d96613405c16567a/LICENSE-CONTENT.md">Projektlizenz CC BY-SA 4.0</a>.</p>
+<p class="screen"><a href="../../de/#practice-title">Zurück zur Methode</a> · <a href="../../de/mitwirken/#rueckmeldung">Eine Fundstelle oder einen Einwand melden</a></p>
+</section>
+</article></main></div></body></html>
