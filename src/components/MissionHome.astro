@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/SiteLayout.astro";
 import IndustrialBoard from "./IndustrialBoard.astro";
+import VeraErkenntnis from "./VeraErkenntnis.astro";
 import VeraFirstStep from "./VeraFirstStep.astro";
 import VeraPractice from "./VeraPractice.astro";
 import copy from "../lib/mission-copy.json";
@@ -28,10 +29,15 @@ const featuredQuestions=everydayQuestions.questions.slice(0,3);
       <h1 id="home-heading" class="home-opening__title">{t.opening.greeting}</h1>
       <p class="home-opening__ambition">{t.opening.ambition}</p>
       <p class="home-opening__motto">{t.opening.motto}</p>
+      <a class="home-link home-opening__entry" href={de?"#erkenntnis":"#insight"}>
+        {de?"So entscheide ich":"See how I decide"} <span aria-hidden="true">↓</span>
+      </a>
     </div>
   </section>
 
   <IndustrialBoard lang={lang}/>
+
+  <VeraErkenntnis lang={lang}/>
 
   <VeraFirstStep lang={lang}/>
 

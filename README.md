@@ -126,6 +126,17 @@ node scripts/vera-task.mjs en docs/selbstkorrektur.md:61-65
 
 **Try a check.** Ask which line supports her answer and what else Vera would need to verify. If you find an error, record the Git revision, the exact passage and the expected correction. [Vera profile](docs/vera.md#english) · [Submit a critique](https://github.com/AlexanderR1991/Vera/issues/new?template=kritik.yml)
 
+### Erkenntnis ausprobieren · Try the insight model
+
+Vera wählt in einem fiktiven Veröffentlichungsfall den nächsten Test. Die Website zeigt, was ein Ja oder Nein an ihrer Einschätzung ändert. Im Terminal lässt sich dieselbe Entscheidung nachvollziehen. [Modell und Annahmen](docs/vera.md#erkenntnis-ausprobieren) · [Model and assumptions](docs/vera.md#try-the-insight-model)
+
+Vera chooses the next test in a fictional release scenario. The website shows what a yes or no changes. The same model runs in a Git checkout.
+
+```sh
+node scripts/vera-erkenntnis.mjs
+node scripts/vera-erkenntnis.mjs publication=no
+```
+
 ## Lokal entwickeln · Local development
 
 Node.js 22.12+ und Python 3.12 wie in CI. Nach der Installation startet `npm run dev` die lokale Vorschau. Der Produktionsbuild prüft die Inhalte und die erzeugten Seiten.
