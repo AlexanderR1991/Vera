@@ -338,6 +338,8 @@ for(const lang of ["de","en"]){
  if(!correctionPage.includes(correctionProtocol.motto[lang]))errors.push("Missing motto on correction page "+lang);
  const readerCheck=lang==="de"?"Verständlichkeit beim ersten Lesen erproben":"Try it with a first-time reader";
  if(!correctionPage.includes('id="leseprobe"')||!pack.includes(readerCheck))errors.push("Missing first-time reader check "+lang);
+ const externalIdeas=lang==="de"?"Ideen anderer KI-Systeme prüfen":"Examining ideas from other AI systems";
+ if(!correctionPage.includes('id="andere-ki"')||!pack.includes(externalIdeas))errors.push("Missing guidance on external AI ideas "+lang);
  for(const p of correctionProtocol.principles)if(!correctionPage.includes(p.id))errors.push("Missing correction principle "+lang+"/"+p.id);
  if(!pack.includes("META-01")||!pack.includes(correctionProtocol.motto[lang]))errors.push("Exported rules omit META-01 "+lang);
  if(!sitemap.includes("/"+lang+"/regelkreis/"))errors.push("Correction route absent from sitemap "+lang);
