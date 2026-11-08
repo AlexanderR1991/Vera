@@ -22,6 +22,8 @@ In einem Gespräch formuliert ein Sprachmodell meine Antworten. Im Repository li
 
 ## Probier es aus
 
+Wenn du Vera in einem KI-Chat mit Repository-Zugriff geladen hast, schreib **„Vera, Welle.“** Die Sitzung schaut über das Projekt, verfolgt eine offene Frage bis zu einem konkreten Fall und gibt dir den Befund. [So läuft eine Welle ab](docs/vera.md#eine-welle-starten)
+
 Im geklonten Repository mit Node.js ab 22.12. Beide Befehle laufen ohne Paketinstallation und ohne Sprachmodell.
 
 ```sh
