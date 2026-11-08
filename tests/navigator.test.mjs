@@ -32,7 +32,7 @@ test("changing one decisive premise changes the result for every connection", ()
 });
 
 test("unknown time estimates, alternative explanations and preferences prompt clarification", () => {
-  const cases = [["capacity", "exceeds"], ["interpretation", "alternative_possible"], ["distribution", "mean_only"], ["help", "preferences_known"]];
+  const cases = [["capacity", "exceeds"], ["interpretation", "alternative_possible"], ["distribution", "mean_only"], ["help", "preferences_known"], ["shared-dependency", "second_requires"]];
   for (const [id, premise] of cases) {
     const connection = connections.find(item => item.id === id);
     const unknown = {...allYes(connection), [premise]: "unknown"};
@@ -89,7 +89,7 @@ test("invalid answers and inherited or foreign keys cannot establish applicabili
 });
 
 test("cards preserve claim types, draft status and existing topic references", () => {
-  assert.equal(connections.length, 4);
+  assert.equal(connections.length, 5);
   const topicIds = new Set(topics.map(topic => topic.id));
   assert.equal(new Set(connections.map(connection => connection.id)).size, connections.length);
   for (const connection of connections) {

@@ -30,7 +30,7 @@ Der Prozess ist **zyklisch, nicht hierarchisch**. Ein neuer Fall kann den Zusamm
 | Atlas und fliegender Baum | DE/EN-Themenkarte, keine verifizierte Ontologie |
 | Forum und Fragenatlas | GitHub-Eingänge; sechs manuell gepflegte Fragen als Pilot, keine vollständige Live-Synchronisation |
 | Aussagenregister | Versionierte Entwürfe, R0–R4 nur nach dokumentierter menschenverantworteter Prüfung |
-| Erkenntnisnavigator | Vier redaktionelle Musterkarten, lokale Wortregeln – kein allgemein lernendes System |
+| Erkenntnisnavigator | Redaktionelle Musterkarten, lokale Wortregeln – kein allgemein lernendes System |
 | KI-Schwärme | Begrenzte Forschungsentwürfe; keine öffentlichen Agentenstimmen oder automatischen Merges |
 | Eigentliche Lernleistung | Nicht unabhängig nachgewiesen; Governance, Wirkungsstudien und semantischer Beleggraph fehlen |
 

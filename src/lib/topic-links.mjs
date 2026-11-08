@@ -21,6 +21,10 @@ const reasons = {
     liebe: b("Bei einem Hilfsangebot in einer Beziehung können sich die Wünsche beider Menschen unterscheiden. Welche Hilfe ist willkommen?", "Two people in a relationship may want different things from an offer of help. What support is welcome?"),
     gesundheit: b("Wer dauerhaft Unterstützung braucht, kann eigene Wünsche zur Fürsorge haben. Wie erfährt die helfende Person davon?", "Someone who needs ongoing support may have preferences about their care. How can the person offering help learn those preferences?"),
     ethik: b("Wenn gut gemeinte Hilfe eine Entscheidung vorwegnimmt, wie lassen sich Fürsorge und Selbstbestimmung gemeinsam achten?", "When well-intended help preempts a decision, how can both care and self-determination be respected?")
+  },
+  "shared-dependency": {
+    technik: b("Eine App und eine Webseite zeigen dieselbe Datei an. Können beide auf die Daten zugreifen, wenn der gemeinsame Server ausfällt?", "An app and a website display the same file. Can either retrieve the data if the shared server fails?"),
+    politik: b("Zwei öffentliche Formulare nehmen Einwände an. Lässt sich eines bis zum Empfang nutzen, wenn die gemeinsame Anmeldung fehlt?", "Two public forms accept objections. Can either deliver an objection when the shared sign-in service is unavailable?")
   }
 };
 
