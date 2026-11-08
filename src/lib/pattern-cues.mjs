@@ -23,6 +23,10 @@ const rules = {
     help: [
       phrase(/für (?:sie|ihn|dich) entscheiden|ich übernehme das|das für (?:sie|ihn|dich) erledigen|soll ich das übernehmen/),
       phrase(/selbst entscheiden|selber machen|selbst machen|was (?:er|sie) möchte|ob (?:er|sie) das will/)
+    ],
+    "shared-dependency": [
+      phrase(/zwei (?:Formulare|Zugänge|Wege)|beide Formulare/),
+      phrase(/dieselbe Anmeldung|denselben Server|dasselbe Konto/)
     ]
   },
   en: {
@@ -41,6 +45,10 @@ const rules = {
     help: [
       phrase(/decide for (?:her|him|them|you)|do (?:it|this) for (?:her|him|them|you)|take (?:it|this) off (?:her|his|their|your) hands/),
       phrase(/(?:decide|choose) for (?:herself|himself|themselves|yourself)|do it (?:herself|himself|themselves|yourself)|what (?:he wants|she wants|they want)|ask (?:her|him|them) first/)
+    ],
+    "shared-dependency": [
+      phrase(/two (?:forms|routes)|both forms/),
+      phrase(/the same login|the same server|the same account/)
     ]
   }
 };

@@ -23,7 +23,7 @@ Davon unabhängig beschreibt der Navigator Abstraktionsstufen:
 
 ## Was der erste Pilot tatsächlich leistet
 
-Die statische DE/EN-Seite arbeitet mit vier redaktionellen Entwurfskarten aus `src/lib/navigator.mjs`: Kapazität, Beobachtung und Deutung, Durchschnitt und Verteilung sowie Hilfe und Selbstbestimmung. Die ersten drei prüfen formale Beziehungen; die vierte begründet einen normativen Leitgedanken einschließlich dauerhafter Fürsorge. Quellenhinweise unterscheiden Herkunft und Ableitung. Der Bestand ersetzt weder das Aussagenregister noch dessen Reviewverfahren.
+Die statische DE/EN-Seite verwendet Entwurfskarten aus `src/lib/navigator.mjs`. Vier Karten prüfen formale Beziehungen bei Kapazität, Deutung einer Beobachtung, Verteilung von Mengen und zwei Wegen mit gemeinsamer Abhängigkeit. Die Karte zur Hilfe begründet einen normativen Leitgedanken einschließlich dauerhafter Fürsorge. Quellenhinweise unterscheiden Herkunft und Ableitung. Der Bestand ersetzt weder das Aussagenregister noch dessen Reviewverfahren.
 
 Du kannst mit einem Begriff oder einer Frage beginnen. Die Suche durchsieht die Namen und Leitfragen der Äste sowie hinterlegte Suchbegriffe. Bei einer Musterkarte zeigt sie die gefundenen Wörter. Manche Fragen enthalten zwei Hinweise auf denselben Gedankengang, etwa eine Aussage über eine Gruppe und eine Frage nach jedem Einzelnen. Eine lokale Regel kann dann die Karte zur Verteilung vorschlagen und beide Textstellen zeigen. Ob der Schluss tatsächlich gemeint ist und ob seine Voraussetzungen gelten, prüfen die Lesenden. Die Regeln erkennen nur hinterlegte Formulierungen.
 
@@ -45,7 +45,7 @@ Der Status „Entwurf“ bleibt auch bei einer bedingt passenden Anwendung beste
 
 Der freiwillige Reflexionszettel hält Ziel, Beobachtung, Deutung, Gefühl, Wunsch oder Angst, nächsten Schritt, erwartete und beobachtete Folgen sowie einen Änderungsgrund auseinander. Er bewertet Entscheidungen im Verhältnis zu selbst benannten Zielen; er vergibt keine Gesamtpunktzahl für einen Menschen. Eingaben werden vom Navigator nicht gesendet oder automatisch gespeichert. Ein TXT-Export wird ausdrücklich gestartet; die Datei bleibt in der Verantwortung der Person, die sie herunterlädt. Eine öffentliche Einreichung wäre ein eigener, bewusster Schritt.
 
-## Ableitungen und Begründungen der vier Karten
+## Ableitungen und Begründungen der Karten
 
 Die folgenden Stellen legen die projektinternen Gründe offen. Sie sind keine unabhängige Begutachtung. Die Fallzahlen sind erfundene Rechenbeispiele.
 
@@ -79,6 +79,15 @@ Der Rechner vergleicht die eingegebenen Dezimalzahlen exakt. Für seine Gegenbei
 ### Hilfe und Selbstbestimmung
 
 Die Hilfe-Karte greift den normativen Leitgedanken [G-005 v3](../public/knowledge/claims.json) auf: Bedürfnisse und Handlungsmöglichkeiten der betroffenen Person ernst nehmen und ihre Perspektive einbeziehen. Dauerhafte Fürsorge bleibt wertvoll; erreichbare Selbstständigkeit ist keine Bedingung für Würde oder Unterstützung. Aus diesem Wert folgt kein empirischer Wirksamkeitsbeleg für eine konkrete Hilfe. Ob sie gewünscht ist, welche Folgen sie hat und ob Schutzpflichten oder andere Zielkonflikte berührt sind, muss im konkreten Fall geklärt werden. Die Karte legt niemandem Motive oder Zustimmung in den Mund. Eine verneinte Voraussetzung blockiert diese Anwendung; sie begründet weder ein Verbot noch den Entzug notwendiger Fürsorge.
+
+<a id="shared-dependency"></a>
+### Zwei Wege mit einer gemeinsamen Abhängigkeit
+
+Stell dir zwei Fußbrücken vor, deren einzige Zufahrt durch dasselbe Tor führt. Ist das Tor geschlossen, erreichst du von deiner Seite aus keine der Brücken. Eine Webansicht und eine App können dieselbe Struktur haben. Müssen beide die gewünschte Datei im Moment der Anfrage von demselben Server laden, sperrt dessen Ausfall beide Zugänge. Hat die App eine lesbare lokale Kopie der benötigten Fassung, ändert sich die Antwort.
+
+Die Übertragung auf einen öffentlichen Korrekturweg verlangt ein genaues Ziel. Zwei Formulare, die beide eine Anmeldung voraussetzen, können bei ihrem Ausfall keinen Einwand zustellen. Eine Textdatei kann den Einwand auch dann sichern. Für die Frage, ob er beim Empfänger ankommt, bräuchte es zusätzlich einen Zustellweg.
+
+**Ableitung.** Nenne den gemeinsamen notwendigen Schritt S und den erfolgreichen Abschluss über die beiden Wege A und B. Aus „A erfordert S“ und „B erfordert S“ folgt „Fehlt S, sind A und B ausgeschlossen“. Ob beide Wege S tatsächlich erfordern, ist eine Frage an den konkreten Fall. Wie wahrscheinlich der Ausfall ist, bleibt offen. [Lernversuch mit Gegenfällen](metaphern-lernen.md) · [English](en/metaphor-learning.md)
 
 ## Vertrag für spätere Verbindungen im Wissensnetz
 
@@ -127,7 +136,7 @@ Beide Bezüge begründen Architekturfragen. Sie belegen weder die Wirksamkeit vo
 
 The knowledge navigator connects an everyday question with a possible insight, then asks whether its prerequisites apply. The existing six stages of work remain intact. Case, pattern, disciplinary knowledge and general principle are separate levels of abstraction: **more general does not mean more certain**. Claim type, grounds and review status remain distinct at every level.
 
-The first bilingual pilot uses four editorial draft cards: capacity, observation and interpretation, averages and distribution, and help and self-determination. The first three address formal relationships; the fourth is a normative principle that explicitly includes lasting care. A term or question can lead to a topic, a matching card, or both. Local rules can also suggest a card when two distinct clues appear together. Readers see the matching text and check the premises themselves. From a topic they can follow a shared card to another topic and read the specific reason for each link. For example, averages allow different individual values in mathematics, while the choice of a fair distribution remains an ethical question. Sharing an atlas field alone creates no link. If the framing is disputed, a reader can explore an alternative wording separately and keep both questions in the local note. A card opened from search results identifies the wording whose hits it came from. A card opened directly has no assigned wording. Different search hits can reveal the effect of wording. Readers decide whether the questions address the same issue. The public data includes these bilingual editorial reasons in `topicReasons`.
+The bilingual navigator includes cards on capacity, observation and interpretation, averages and distribution, and shared dependencies. These cards test formal relationships. The card on help and self-determination introduces a guiding value that includes lasting care. A term or question can lead to a topic, a matching card, or both. Local rules can also suggest a card when two distinct clues appear together. Readers see the matching text and check the premises themselves. From a topic they can follow a shared card to another topic and read the specific reason for each link. For example, averages allow different individual values in mathematics, while the choice of a fair distribution remains an ethical question. Sharing an atlas field alone creates no link. If the framing is disputed, a reader can explore an alternative wording separately and keep both questions in the local note. A card opened from search results identifies the wording whose hits it came from. A card opened directly has no assigned wording. Different search hits can reveal the effect of wording. Readers decide whether the questions address the same issue. The public data includes these bilingual editorial reasons in `topicReasons`.
 
 The public `/knowledge/connections.json` export contains the editorial draft collection (`schema_version: 1`), not personal entries. The help card's `sourceClaim` points to G-005 v3 as provenance; it does not confer a new review status on either record.
 
@@ -137,6 +146,8 @@ Version 2 of the averages card checks two or more nonnegative amounts in the sam
 
 A failed prerequisite on the help card does not justify withholding necessary care. It only blocks that particular transfer and leaves the need for appropriate support and clarification open.
 
+The shared dependency card compares two routes to the same goal. Picture two footbridges behind one locked gate. A website and an app that both have to retrieve a file from the same server face a similar constraint. An accessible offline copy of the required version changes the answer. For a public objection, distinguish saving the text from delivering it. A file can preserve an objection during a sign-in outage even when neither of two forms can deliver it.
+
 A voluntary reflection note separates goals, observations, interpretations, feelings, wishes or fears, action, expected and observed outcomes, and reasons for revision. The navigator does not send or automatically save entries. TXT export requires a deliberate action. There is no overall score for a person and no automatic public contribution.
 
 A future knowledge graph would make each connection a versioned object with typed relations, source and target revisions, grounds, applicability conditions, counterexamples, review decisions and dependencies. Changed premises would trigger re-examination of dependent connections. AI might search across the tree and suggest such connections; it must not invent confirmed premises or promote its own review status. This service and automated dependency tracking are not implemented in the pilot. No model API or automated research is invoked.
@@ -145,6 +156,6 @@ Feedback can challenge general insights, but a reported outcome is a lead for ex
 
 ## Ergänzender Fragenatlas-Pilot · 7. November 2026
 
-Der Navigator bleibt eine lokale, begrenzte Suche über vier redaktionelle Musterkarten. Daneben zeigt das [Forum einen kleinen Fragenatlas](https://alexanderr1991.github.io/Vera/de/forum/#fragenatlas): sechs ungeprüfte Beispielfragen, die über stabile IDs, explizite Aussage-Links und begründete Beziehungen verbunden sind. Die Wortsuche und die Offline-Triage verstehen keine allgemeine Semantik. Es gibt weder eine automatische Synchronisation aus GitHub Discussions noch eine Übertragung von Antworten, Konsens oder Erkenntnisreife. [Regel- und Datenvertrag](fragenatlas.md).
+Der Navigator bleibt eine lokale, begrenzte Suche über redaktionelle Musterkarten. Daneben zeigt das [Forum einen kleinen Fragenatlas](https://alexanderr1991.github.io/Vera/de/forum/#fragenatlas): sechs ungeprüfte Beispielfragen, die über stabile IDs, explizite Aussage-Links und begründete Beziehungen verbunden sind. Die Wortsuche und die Offline-Triage verstehen keine allgemeine Semantik. Es gibt weder eine automatische Synchronisation aus GitHub Discussions noch eine Übertragung von Antworten, Konsens oder Erkenntnisreife. [Regel- und Datenvertrag](fragenatlas.md).
 
-**English:** The question atlas supplements the navigator's four pattern cards with six editorial examples and traceable links. It does not automatically merge threads or verify claims.
+**English:** The question atlas supplements the navigator's pattern cards with six editorial examples and traceable links. It does not automatically merge threads or verify claims.

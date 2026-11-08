@@ -102,6 +102,26 @@ export const connections = [
     sources: [{label: b("G-005 v3 · normativer Leitgedanke, fachliche Prüfung offen", "G-005 v3 · guiding value, expert review pending"), url: repo + "public/knowledge/claims.json", role: "provenance"}, derivationSource("help")],
     ...topicFields("help"),
     keywords: {de: ["helfe", "helfen", "hilft", "Hilfe", "Fürsorge", "unterstütze", "unterstützen", "Unterstützung", "selbstständig", "Selbstständigkeit", "selbstbestimmt", "Selbstbestimmung", "alles abnehmen", "Pflege"], en: ["help", "helps", "helping", "care", "caregiving", "support", "independent", "independence", "autonomy", "take over", "assistance"]}
+  },
+  {
+    id: "shared-dependency", version: 1, type: "formal", reviewStatus: "draft",
+    title: b("Gibt es einen gemeinsamen Engpass?", "Is there a shared dependency?"),
+    question: b("Ein Verein nimmt Einwände über zwei Formulare an. Kann ich eines davon absenden, wenn die Anmeldung ausfällt?", "A club takes objections through two forms. Can I submit either one if the sign-in service goes down?"),
+    pattern: b("Zwei Zugänge können denselben Schritt voraussetzen.", "Two routes may require the same step."),
+    principle: b("Brauchen beide Wege denselben Schritt, schließt sein Wegfall beide Wege für dieses Ziel aus.", "If both routes require the same step, losing that step rules out both routes to this goal."),
+    scope: b("Die Folgerung betrifft zwei benannte Wege, ein bestimmtes Ziel und den Zeitraum, in dem der Schritt fehlt.", "The conclusion covers two named routes to a specific goal during the period when the step is unavailable."),
+    rationale: b("Ein Formular lässt sich nur nach der Anmeldung absenden. Gilt das auch für das zweite Formular, bleibt beim Ausfall der Anmeldung auf beiden der letzte Klick versperrt.", "One form requires sign-in to submit. If the second form also requires sign-in, losing that service blocks submission through both."),
+    counterargument: b("Das zweite Formular nimmt auch ohne Konto Einwände an. Dann kann dieser Weg beim Ausfall der Anmeldung offenbleiben.", "The second form also accepts objections from guests. That route may still work when sign-in is unavailable."),
+    revision: b("Prüfe die Folgerung erneut, wenn ein Weg den Schritt umgehen kann oder sich das Ziel ändert.", "Reassess the conclusion if either route can bypass the step or the goal changes."),
+    conditions: [
+      {id: "same_goal", label: b("Ich vergleiche zwei Wege zur selben Aufgabe im selben Zeitraum.", "I am comparing two routes to the same task during the same period.")},
+      {id: "first_requires", label: b("Der erste Weg braucht den benannten Schritt zwingend, um die Aufgabe abzuschließen.", "The first route requires the named step to complete the task.")},
+      {id: "second_requires", label: b("Auch der zweite Weg braucht genau diesen Schritt, um die Aufgabe abzuschließen.", "The second route requires that same step to complete the task.")}
+    ],
+    conclusion: b("Solange der gemeinsame Schritt fehlt, lässt sich die Aufgabe über keinen der beiden Wege abschließen. Weitere Wege kannst du gesondert prüfen.", "While the shared step is unavailable, neither route can complete the task. Other routes can be assessed separately."),
+    nextStep: b("Teste am Beispiel, ob der zweite Weg beim Wegfall des Schritts bis zum Ziel führt. Bei einem Einwand zählt der Empfang. Ein gespeicherter Entwurf belegt nur das Speichern.", "Test whether the second route reaches the goal when the step is unavailable. For an objection, check receipt. Saving a draft establishes only that it was saved."),
+    sources: [derivationSource("shared-dependency"), methodSource()], ...topicFields("shared-dependency"),
+    keywords: {de: ["gemeinsamer Engpass", "gemeinsame Abhängigkeit", "Ersatzweg", "Ausweichweg"], en: ["shared dependency", "common point of failure", "fallback route", "backup route"]}
   }
 ];
 

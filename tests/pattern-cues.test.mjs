@@ -8,10 +8,12 @@ const examples = [
   ["de", "interpretation", "Sie schweigt. Also muss sie sauer sein?", ["Sie schweigt", "muss sie sauer sein"]],
   ["de", "distribution", "Zusammen reicht es. Bekommt deshalb jeder genug?", ["Zusammen reicht es", "jeder genug"]],
   ["de", "help", "Soll ich das übernehmen? Sie möchte es lieber selber machen.", ["Soll ich das übernehmen", "selber machen"]],
+  ["de", "shared-dependency", "Zwei Formulare brauchen dieselbe Anmeldung.", ["Zwei Formulare", "dieselbe Anmeldung"]],
   ["en", "capacity", "I can only attend one. The meetings overlap.", ["meetings overlap", "can only attend one"]],
   ["en", "interpretation", "He looked away. He must be upset, right?", ["looked away", "must be upset"]],
   ["en", "distribution", "Does everyone get enough if there is enough in total?", ["enough in total", "everyone get enough"]],
-  ["en", "help", "Should I do this for them? I could ask them first.", ["do this for them", "ask them first"]]
+  ["en", "help", "Should I do this for them? I could ask them first.", ["do this for them", "ask them first"]],
+  ["en", "shared-dependency", "Two routes require the same server.", ["Two routes", "the same server"]]
 ];
 
 test("each editorial card has two distinct, verbatim cues in each language", () => {

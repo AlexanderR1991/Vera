@@ -808,6 +808,24 @@
       "source_commit": null,
       "review_url": null
     },
+    "metaphern-atlas.md": {
+      "status": "draft",
+      "priority": "support",
+      "target": "docs/en/metaphor-atlas.md",
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "metaphern-lernen.md": {
+      "status": "draft",
+      "priority": "support",
+      "target": "docs/en/metaphor-learning.md",
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
     "philosophischer-motor-mathematik.md": {
       "status": "draft",
       "priority": "core",

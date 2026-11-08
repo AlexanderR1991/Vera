@@ -21,7 +21,7 @@ It is a revisable **loop**, not a hierarchy of human value or a mechanism for co
 
 ## What exists today
 
-The atlas and topic tree are bilingual static maps; the question atlas has six manually curated examples and no full live sync; the claims register tracks early drafts; the navigator offers four human-authored pattern cards and local text matching; bounded AI swarms produce research drafts without automatic editorial authority. **No independent evidence of collective learning, autonomous knowledge graph or representative governance exists yet.**
+The atlas and topic tree are bilingual static maps; the question atlas has six manually curated examples and no full live sync; the claims register tracks early drafts; the navigator offers editorial pattern cards and local text matching; bounded AI swarms produce research drafts without automatic editorial authority. **No independent evidence of collective learning, autonomous knowledge graph or representative governance exists yet.**
 
 ## Risks and tests
 
