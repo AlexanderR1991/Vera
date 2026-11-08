@@ -75,27 +75,13 @@ a:hover{color:#fff}
 .footer__grid h2{font-family:var(--sans);font-weight:800;letter-spacing:-.05em}
 .footer__bottom{border-color:#313739}
 .footer__donate{border-radius:5px!important}
-/* Start with a short invitation. The pinboard is the first room. */
-.home-opening{background:#080a0b}
-.home-opening__grid{
-  display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);
-  gap:22px clamp(25px,5vw,90px);align-items:center;
-  padding-block:clamp(32px,3.8vw,56px) clamp(24px,3vw,42px)
+.home-opening{
+  position:relative;display:grid;place-items:center;min-height:clamp(170px,22vw,292px)
 }
-.home-intro .section-kicker{display:flex;align-items:center;gap:10px;color:#c7ccca;margin-bottom:15px}
-.home-intro__signal{width:8px;height:8px;border-radius:50%;background:#f0ae66;box-shadow:0 0 14px #f0ae6650}
-.home-intro h1{
-  font:800 clamp(50px,5.65vw,94px)/.96 var(--sans);letter-spacing:-.075em;margin:0
+.home-opening__title{
+  position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;margin:0
 }
-.home-intro h1 em{font-style:normal}
-.home-welcome{padding-bottom:3px;max-width:510px}
-.home-welcome p{font-size:clamp(16px,1.55vw,20px);line-height:1.5;margin:0 0 15px}
-.home-welcome .button-row{gap:8px;margin:0}
-.home-welcome__challenge{
-  display:inline-flex;align-items:center;gap:8px;min-height:44px;margin-top:4px;
-  color:#e2e6e3;font-size:13px;text-decoration:underline;text-underline-offset:4px
-}
-.home-welcome .button{gap:13px;padding-inline:15px;letter-spacing:.025em;text-transform:none;font-size:13px}
+.home-opening__mark{display:block;width:clamp(128px,18vw,200px);height:auto;color:#f3f4f0}
 .home-meta-rule{
   margin:0 0 22px;padding:8px 16px;border-left:2px solid #f0ae66;
   color:#e4e6e4;font-size:15px;line-height:1.55
@@ -108,12 +94,10 @@ a:hover{color:#fff}
 /* Small height increments create a staggered board in source and tab order. */
 .industrial-board{padding:0 0 clamp(36px,6vw,76px);border-bottom:1px solid #363d3e}
 .board-heading{
-  display:flex;justify-content:space-between;gap:25px;align-items:end;
-  padding-top:20px;margin-bottom:17px;border-top:1px solid #414747
+  display:flex;justify-content:space-between;gap:18px;align-items:end;
+  padding-top:13px;margin-bottom:13px;border-top:1px solid #414747
 }
-.board-heading h2{font:800 clamp(27px,3vw,44px)/1.06 var(--sans);letter-spacing:-.05em;margin:4px 0 5px}
-.board-heading p{margin:0;font-size:14px}
-.board-kicker{font:800 10px/1.5 var(--sans)!important;letter-spacing:.16em;color:#b7bfbb!important}
+.board-heading h2{font:700 clamp(18px,2vw,24px)/1.2 var(--sans);letter-spacing:-.025em;margin:0}
 .board-filter{display:none;grid-template-columns:1fr auto;gap:5px 12px;width:min(315px,100%)}
 .has-js .board-filter{display:grid}
 .board-filter label,.board-counter{font:800 10px/1.4 var(--sans);letter-spacing:.1em;color:#c2c8c5;text-transform:uppercase}
@@ -269,7 +253,6 @@ a:hover{color:#fff}
     grid-column:1/-1;justify-content:flex-start;gap:0 11px;border-top:1px solid #353a3a
   }
   .vera-primary a{font-size:13px}
-  .home-opening__grid{grid-template-columns:1fr}
   .home-section-title{grid-template-columns:1fr;gap:8px}
   .home-pair{grid-template-columns:1fr}
 }
@@ -281,7 +264,6 @@ a:hover{color:#fff}
   .translation-notice .container{flex-wrap:wrap;gap:4px 12px;padding-block:5px}
   .translation-notice a{margin-left:0}
   .edition-line{padding-inline:19px}
-  .board-heading{align-items:start}
   .home-forum__questions{grid-template-columns:1fr}
   .home-forum__questions a{min-height:190px}
   .home-method__steps{grid-template-columns:1fr}
@@ -292,10 +274,8 @@ a:hover{color:#fff}
 @media(max-width:500px){
   .vera-brand .brand__name small{display:none}
   .vera-primary{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 9px}
-  .home-opening__grid{padding-top:29px}
-  .home-intro h1{font-size:clamp(42px,11vw,59px)}
   .board-heading{display:block}
-  .board-filter{width:100%;margin-top:15px}
+  .board-filter{width:100%;margin-top:9px}
   .board-grid{grid-template-columns:1fr;grid-auto-rows:auto}
   .board-tile{grid-row:auto;min-height:175px}
   .board-tile__instrument{max-height:185px}

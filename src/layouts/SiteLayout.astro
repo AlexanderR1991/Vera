@@ -6,6 +6,7 @@ import project from "../../public/project.json" with {type: "json"};
 const {lang="de",slug="index",root=false}=Astro.props;
 const t=ui[lang];
 const de=lang==="de";
+const home=slug==="index";
 const footerGroups = [
   { title: t.explore, routes: ["erkenntnisnavigator", "atlas", "baum-des-wissens", "esoterik-katalog", "bibliothek", "aussagen", "forum", "pruefstand", "die-bruecke", "grundfragen", "forschungsstrom"] },
   { title: t.project, routes: ["mission", "regelkreis", "methode", "ki-und-mensch", "projektstatus", "projektobservatorium", "mitwirken"] }
@@ -42,9 +43,9 @@ const canonical=root?siteRoot:absoluteFor(lang,slug);
 <a class="skip-link" href="#inhalt">{lang==="de"?"Zum Inhalt springen":"Skip to content"}</a>
 <header class="vera-header">
   <div class="container vera-header__inner">
-    <a class="vera-brand" href={pathFor(lang)} aria-label={de?"Vera – Startseite":"Vera – homepage"} aria-current={slug==="index"&&!root?"page":undefined}>
-      <img src={base+"assets/signet.svg"} alt="" width="34" height="34" />
-      <span class="brand__name">{t.name}<small>{t.subtitle}</small></span>
+    <a class="vera-brand" href={pathFor(lang)} aria-label={de?"Vera – Startseite":"Vera – homepage"} aria-current={home&&!root?"page":undefined}>
+      {!home&&<img src={base+"assets/signet.svg"} alt="" width="34" height="34" />}
+      <span class="brand__name">{t.name}{!home&&<small>{t.subtitle}</small>}</span>
     </a>
     <nav class="vera-languages" aria-label={de?"Sprache":"Language"}>
       <a href={pathFor("de",slug)} lang="de" hreflang="de" aria-label="Deutsch" aria-current={de?"true":undefined}>DE</a>
@@ -55,8 +56,8 @@ const canonical=root?siteRoot:absoluteFor(lang,slug);
     </nav>
   </div>
 </header>
-<div class="edition-line"><a href={pathFor(lang,"projektstatus")} data-project-version={project.version}>{t.name} / VERSION {project.version} ↗</a><span>{t.motto}</span></div>
-{lang==="en"&&!root&&<div class="translation-notice"><div class="container"><span aria-hidden="true">◇</span><span>{t.status}</span><a href={pathFor(lang,"projektstatus","sprachfassungen")}>Translation review ↗</a><a href={pathFor("de",slug)}>Deutsch →</a></div></div>}
+{!home&&<div class="edition-line"><a href={pathFor(lang,"projektstatus")} data-project-version={project.version}>{t.name} / VERSION {project.version} ↗</a><span>{t.motto}</span></div>}
+{!de&&!home&&<div class="translation-notice"><div class="container"><span aria-hidden="true">◇</span><span>{t.status}</span><a href={pathFor(lang,"projektstatus","sprachfassungen")}>Translation review ↗</a><a href={pathFor("de",slug)}>Deutsch →</a></div></div>}
 <main id="inhalt" tabindex="-1"><slot /><UniversalQuestionsContext lang={lang} slug={slug}/></main>
 <footer class="footer"><div class="container footer__grid">
 <div><img src={base+"assets/signet.svg"} width="54" height="54" alt="" /><h2>{t.footerTitle}</h2><p>{t.footerDescription}</p><p class="footer__ai-goal">{lang==="de"?"Unser Ziel: eine Open-Source-KI mit Menschen bauen · im Aufbau.":"Our goal: build open-source AI with people · in development."} <a href={pathFor(lang,"ki-und-mensch")}>{lang==="de"?"Ziel und Grenzen prüfen":"Read the goal and its limits"} ↗</a></p></div>
