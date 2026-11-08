@@ -155,4 +155,93 @@
     <path d="m189 64 4-5" stroke="#e3a25d" stroke-width="1.8" stroke-linecap="round"/>
     <circle cx="246" cy="43" r="1.5" fill="#e3a25d"/>
   </symbol>
+
+  <symbol id="worksheet" viewBox="0 0 320 190">
+    <defs>
+      <linearGradient id="vera-worksheet-field" x2="1" y2="1">
+        <stop stop-color="#f4f2ec"/><stop offset="1" stop-color="#b8bab6"/>
+      </linearGradient>
+      <linearGradient id="vera-worksheet-face" x2=".75" y2="1">
+        <stop stop-color="#faf9f3"/><stop offset="1" stop-color="#d0d0ca"/>
+      </linearGradient>
+    </defs>
+    <rect width="320" height="190" fill="url(#vera-worksheet-field)"/>
+    <g fill="none" stroke="#626662" stroke-width=".65">
+      <path d="M18 34V18h16m252 0h16v16m0 122v16h-16m-252 0H18v-16"/>
+      <path d="M19 58h38l37 14m175 53h19v21m-81 23h58m-49-3v6m39-6v6"/>
+      <path d="M90 59v79m65-111v103m65-80v88m45-65v75" stroke-dasharray="2 4" opacity=".66"/>
+    </g>
+    <path d="m58 129 137 41 82-43-137-40Z" fill="#30332f" opacity=".13"/>
+
+    <g transform="matrix(1 .29 -.8 .43 135 86)">
+      <path d="M0 6 6 0h120l12 12v76l-5 5H0Z" transform="translate(0 7)" fill="#737873"/>
+      <path d="M0 6 6 0h120l12 12v76l-5 5H0Z" fill="#aaaea7" stroke="#565b56"/>
+      <path d="M15 74h48m-48 7h65m12 0h24m-24-7h31" fill="none" stroke="#424843" stroke-width="1.4"/>
+      <circle cx="126" cy="78" r="3" fill="#ed9d57" stroke="#5a4a3b"/>
+    </g>
+    <g transform="matrix(1 .29 -.8 .43 135 55)">
+      <path d="M0 6 6 0h120l12 12v76l-5 5H0Z" transform="translate(0 6)" fill="#999d96"/>
+      <path d="M0 6 6 0h120l12 12v76l-5 5H0Z" fill="#d3d5ce" stroke="#6c726b"/>
+      <g fill="none" stroke="#515950" stroke-width="1.2">
+        <path d="M12 73h26l9 8h23l11-12h36m-105 14h22l11 7h28l9-9h35"/>
+        <circle cx="121" cy="70" r="3"/><circle cx="121" cy="81" r="3"/>
+      </g>
+    </g>
+    <g transform="matrix(1 .29 -.8 .43 135 24)">
+      <path d="M0 6 6 0h120l12 12v76l-5 5H0Z" transform="translate(0 5)" fill="#a4a7a0"/>
+      <path d="M0 6 6 0h120l12 12v76l-5 5H0Z" fill="url(#vera-worksheet-face)" stroke="#777e75"/>
+      <path d="M11 11h111v70H11Z" fill="none" stroke="#999d95" stroke-width=".8"/>
+      <path d="M21 68h31m-31 7h57m13-7h18m-18 7h18" fill="none" stroke="#555e56" stroke-width="1.5"/>
+      <path d="M25 20h25v34H25Z" fill="#dfdfd8" stroke="#858b82"/>
+      <circle cx="38" cy="37" r="8" fill="none" stroke="#666d63"/>
+      <path d="M38 25v24m-12-12h24M61 25h42m-42 9h48m-48 9h30m-30 9h39" stroke="#777e75" stroke-width="1.2"/>
+      <path d="M90 43h19" stroke="#b4642f" stroke-width="2"/>
+      <g fill="#70776e" stroke="#f3f3ea" stroke-width=".9">
+        <circle cx="7" cy="12" r="3"/><circle cx="7" cy="81" r="3"/>
+        <circle cx="130" cy="17" r="3"/><circle cx="130" cy="81" r="3"/>
+      </g>
+    </g>
+    <circle cx="57" cy="58" r="2" fill="#b4642f"/>
+  </symbol>
+
+  <symbol id="correction" viewBox="0 0 320 190">
+    <defs>
+      <linearGradient id="vera-correction-field" x2="1" y2="1">
+        <stop stop-color="#2a2d2d"/><stop offset="1" stop-color="#171919"/>
+      </linearGradient>
+      <linearGradient id="vera-correction-plate" x2=".75" y2="1">
+        <stop stop-color="#4d5150"/><stop offset="1" stop-color="#303332"/>
+      </linearGradient>
+    </defs>
+    <rect width="320" height="190" fill="url(#vera-correction-field)"/>
+    <g fill="none" stroke="#8f9692" stroke-width=".7">
+      <path d="M17 33V17h16m254 0h16v16m0 124v16h-16m-254 0H17v-16"/>
+      <path d="M30 143h73l19-15m76-70 19-15h73"/>
+      <path d="M23 95h274M77 29v132m166-132v132" stroke-dasharray="2 4" opacity=".64"/>
+    </g>
+    <g fill="#151717" stroke="#1e2020" stroke-width="1.25">
+      <path d="M32 57h90l13 13v54l-11 13H35l-13-13V70Z" transform="translate(0 4)"/>
+      <path d="M199 57h90l13 13v54l-11 13h-89l-13-13V70Z" transform="translate(0 4)"/>
+    </g>
+    <g fill="url(#vera-correction-plate)" stroke="#8e9691" stroke-width="1">
+      <path d="M32 57h90l13 13v54l-11 13H35l-13-13V70Z"/>
+      <path d="M199 57h90l13 13v54l-11 13h-89l-13-13V70Z"/>
+    </g>
+    <g fill="none" stroke="#aeb5b1" stroke-width=".9" opacity=".64">
+      <path d="M42 70h73l7 7v41l-7 7H42l-7-7V77Z"/>
+      <path d="M209 70h73l7 7v41l-7 7h-73l-7-7V77Z"/>
+      <path d="M30 74h5m87 0h5m-97 47h5m87 0h5m70-47h5m87 0h5m-97 47h5m87 0h5"/>
+    </g>
+    <g fill="#252827" stroke="#bfc4c0" stroke-width="1.25">
+      <circle cx="78" cy="97" r="11"/><circle cx="245" cy="97" r="11"/>
+      <circle cx="45" cy="97" r="3.5"/><circle cx="112" cy="97" r="3.5"/>
+      <circle cx="212" cy="97" r="3.5"/><circle cx="279" cy="97" r="3.5"/>
+    </g>
+    <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M50 97h16m24 0h17" stroke="#d3d7d4" stroke-width="2.25"/>
+      <path d="m74 93 8 8m0-8-8 8" stroke="#ed9d57" stroke-width="1.6"/>
+      <path d="M217 97h8l10-16h20l10 16h9" stroke="#ed9d57" stroke-width="2.25"/>
+      <path d="M148 97h24m-6-6 6 6-6 6" stroke="#d7dcd7" stroke-width="1.5"/>
+    </g>
+  </symbol>
 </svg>
