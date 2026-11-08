@@ -131,6 +131,59 @@ test("Vera rejects multiple tool requests without a follow-up", async (t) => {
   assert.equal(calls, 1);
 });
 
+test("The operator can disable search and the model cannot enable it", async (t) => {
+  const requests = [];
+  const options = await serve(t, async (req, res) => {
+    const chunks = [];
+    for await (const chunk of req) chunks.push(chunk);
+    requests.push(JSON.parse(Buffer.concat(chunks)));
+    const message = requests.length === 1
+      ? { content: "A draft from the supplied context." }
+      : { content: "I searched.", tool_calls: [searchCall("test")] };
+    res.end(JSON.stringify({ message, done: true }));
+  });
+  const args = [ask, "en", "test-model", "What is open?", "--no-search"];
+
+  assert.equal((await run(process.execPath, args, options)).stdout, "A draft from the supplied context.\n");
+  await assert.rejects(run(process.execPath, args, options), {
+    code: 1,
+    stdout: "",
+    stderr: "Vera: Project search is disabled for this run.\n"
+  });
+  await assert.rejects(run(process.execPath, [ask, "en", "test-model", "--explore", "--no-search"], options), {
+    code: 2, stdout: ""
+  });
+  assert.equal(requests.length, 2);
+  for (const payload of requests) {
+    assert.equal(payload.tools, undefined);
+    assert.match(payload.messages[0].content, /operator disabled project search/);
+  }
+});
+
+test("Vera rejects malformed or unauthorized tool calls after the one project search", async (t) => {
+  let calls = 0;
+  const unauthorized = { function: { name: "publish" } };
+  const options = await serve(t, (req, res) => {
+    req.resume();
+    calls += 1;
+    const message = calls % 2 === 1
+      ? { tool_calls: [searchCall("test")] }
+      : { content: "I published.", tool_calls: calls === 2 ? unauthorized : [unauthorized] };
+    res.end(JSON.stringify({ message, done: true }));
+  });
+  const args = [ask, "en", "test-model", "What is open?"];
+
+  for (const expectedCalls of [2, 4]) {
+    await assert.rejects(run(process.execPath, args, options), (error) => {
+      assert.equal(error.code, 1);
+      assert.equal(error.stdout, "");
+      assert.match(error.stderr, /Vera: Ollama returned no complete text answer\.\n$/);
+      return true;
+    });
+    assert.equal(calls, expectedCalls);
+  }
+});
+
 test("Vera fails without printing an answer if the endpoint redirects or returns an incomplete reply", async (t) => {
   let calls = 0;
   const options = await serve(t, (req, res) => {
@@ -139,8 +192,10 @@ test("Vera fails without printing an answer if the endpoint redirects or returns
     if (calls === 1) {
       res.writeHead(307, { Location: "/redirect-target" });
       res.end();
-    } else {
+    } else if (calls === 2) {
       res.end(JSON.stringify({ message: { content: "Partial" }, done: false }));
+    } else {
+      res.end(JSON.stringify({ message: { content: "Truncated" }, done: true, done_reason: "length" }));
     }
   });
   const args = [ask, "de", "test-model", "Meine Frage"];
@@ -153,12 +208,12 @@ test("Vera fails without printing an answer if the endpoint redirects or returns
   });
   assert.equal(calls, 1);
 
-  await assert.rejects(run(process.execPath, args, options), (error) => {
-    assert.equal(error.code, 1);
-    assert.equal(error.stdout, "");
-    assert.match(error.stderr, /no complete text answer/);
-    return true;
-  });
+  for (const expectedCalls of [2, 3]) {
+    await assert.rejects(run(process.execPath, args, options), {
+      code: 1, stdout: "", stderr: "Vera: Ollama returned no complete text answer.\n"
+    });
+    assert.equal(calls, expectedCalls);
+  }
 });
 
 test("Vera rejects invalid input without printing an answer", async () => {

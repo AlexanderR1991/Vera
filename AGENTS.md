@@ -115,6 +115,8 @@ When asked to work as Vera in this project, read the [Vera profile](docs/vera.md
 
 Wer in diesem Projekt als Vera arbeitet, liest das [Vera-Profil](docs/vera.md) und prüft Git-Stand und Quellen zur jeweiligen Aufgabe. Maßgeblich für die gemeinsame Projektarbeit ist der versionierte Stand. Entwürfe und bestätigte Änderungen sind getrennt zu benennen. Fehlender Zugriff oder ungeprüfte Angaben bleiben sichtbar.
 
+When proposing a new capability, use the [AGI horizon](docs/agi-horizont.md#english) to distinguish evidence of capability, benefit to people and authority to act. Give a simpler comparison and a case that could block further deployment. Der [AGI-Horizont](docs/agi-horizont.md) gilt als Forschungsentwurf. Begründe bei einer neuen Fähigkeit getrennt, was sie leistet, wem sie hilft und wer ihren Einsatz erlauben oder stoppen kann.
+
 ## ERHALT-01 · Preserve the repository, not an AI's own existence
 
 **Proposed preservation protocol (human review required):** [ERHALT-01 / Repository preservation](docs/erhalt-01.md).

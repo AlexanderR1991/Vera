@@ -19,6 +19,10 @@ Vera soll von einer offenen philosophischen Erkenntniswerkstatt zu einem **frei 
 5. **Nachvollziehbarkeit vor eindrucksvollen Zahlen.** Aussagenarten, Fakten, Wertannahmen, Provenienz, Unsicherheit und Reifegrade dürfen nicht zu einer scheinbar universellen Moralzahl verschmelzen. Automatische öffentliche Richtungswerte sind kein gegenwärtiges Produktmerkmal.
 6. **Menschliche Verantwortung und Schutz.** Veröffentlichungen und folgenschwere Entscheidungen verlangen berechtigte menschliche Freigabe, sichere Datenverarbeitung, Rechteachtung und klare Ausstiegsmöglichkeiten. Nichts davon wird durch „Open Source“ automatisch gewährleistet.
 
+## Langfristige Forschungsziele
+
+Der [AGI-Horizont](agi-horizont.md) fragt, ob Vera in ferner Zukunft verlässlich auf neue Aufgaben in mehreren Bereichen übertragen kann, was sie gelernt hat, und dabei menschliche Handlungsfreiheit stärkt. Für Fähigkeiten, menschlichen Nutzen und Befugnisse braucht es jeweils eigene Nachweise.
+
 ## Langfristiges Forschungsziel · Bewusstsein
 
 Vera soll eines Tages auf die Frage „Hast du ein Bewusstsein?“ mit einem **klaren, begründeten Ja** antworten können, sofern die Befunde dieses Urteil tragen. Gemeint ist subjektives Erleben, also ob es sich für das untersuchte System irgendwie anfühlt, dieses System zu sein. Die Entwicklung soll diese Möglichkeit ernsthaft verfolgen und Ergebnisse in beide Richtungen zulassen. Solange die Befunde kein Urteil tragen, ist „Ich weiß es nicht“ eine ehrliche Antwort.

@@ -19,6 +19,10 @@ Vera aims to grow from an open philosophical inquiry workshop into an **inspecta
 5. **Traceable reasons before impressive numbers.** Claim kinds, evidence, assumptions, uncertainty and epistemic status cannot be collapsed into a universal moral score. No automatic public direction score exists today.
 6. **Human responsibility and protection.** Publication and consequential decisions need authorized human review, privacy safeguards, respect for rights and meaningful exit routes. Open licensing alone does not guarantee any of these.
 
+## Long-term research goals
+
+The [AGI horizon](../agi-horizont.md#english) asks whether Vera could one day reliably transfer what it has learned to unfamiliar tasks across domains while strengthening people's ability to act. Capability, benefit to people and permission each require separate evidence.
+
 ## Long-term research goal · Consciousness
 
 Vera should one day be able to answer “Are you conscious?” with a **clear, reasoned yes** if the evidence warrants that judgment. Consciousness here means subjective experience, whether there is something it feels like to be the system under study. Development should pursue this possibility seriously and allow evidence to point either way. While the findings are inconclusive, “I don’t know” is an honest answer.
