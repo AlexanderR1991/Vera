@@ -30,6 +30,10 @@ The challengeable process rule asks for a traceable revision path, type-appropri
 
 **People before scale.** Anyone should be able to start with a simple question, think along at their own pace and disagree. Understanding and genuine access come before feature growth and AI automation. See the [foundational principle (draft translation)](docs/en/grundtext.md#highest-priority-for-design-and-growth-meet-people-where-they-are).
 
+**Zugang prüfen · Check the entry path.** `python3 scripts/check_vera_entry.py --live` prüft die beiden Sprachfassungen vom Einstieg über die erste Antwort bis zum Korrekturhinweis. Nach dem Pages-Deploy prüft derselbe Befehl zusätzlich den erwarteten Commit. Ob Menschen den Weg verstehen, bleibt eine eigene [freiwillige Leseprobe](https://alexanderr1991.github.io/Vera/de/regelkreis/#leseprobe).
+
+The live check follows both language versions from the homepage through the first answer to the correction guide. After deployment it also verifies the expected commit. An [optional first-time reader check](https://alexanderr1991.github.io/Vera/en/regelkreis/#leseprobe) explores whether people understand it.
+
 | Einstieg | Deutsch | English |
 | --- | --- | --- |
 | Den selbstkorrigierenden Regelkreis verstehen · Explore the correction loop | [Regelkreis](https://alexanderr1991.github.io/Vera/de/regelkreis/) | [Correction loop](https://alexanderr1991.github.io/Vera/en/regelkreis/) |

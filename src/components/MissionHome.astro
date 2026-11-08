@@ -31,7 +31,7 @@ const featuredQuestions=everydayQuestions.questions.slice(0,3);
       <p class="home-opening__ambition">{t.opening.ambition}</p>
       <p class="home-opening__motto">{t.opening.motto}</p>
       <div class="home-opening__links">
-        <a class="home-link home-opening__entry" href={de?"#vera-fragen":"#ask-vera"}>
+        <a class="home-link home-opening__entry" data-vera-entry href={de?"#vera-fragen":"#ask-vera"}>
           {de?"Frag mich":"Ask me"} <span aria-hidden="true">↓</span>
         </a>
         <a class="home-link home-opening__entry" href={de?"#erkenntnis":"#insight"}>

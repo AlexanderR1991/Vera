@@ -44,6 +44,8 @@ const local=value=>value[lang];
   </section>
   <section id="korrektur" aria-labelledby="korrektur-title">
    <h2 id="korrektur-title">{t("Korrektur ist ein öffentlich nachvollziehbarer Vorgang.","A correction must be traceable.")}</h2>
+   <p>{t("Welcher Satz ist falsch oder unklar? Nenne die Stelle und beschreibe, was du ändern würdest. Wenn du von einer Vera-Antwort kommst, nenne die Frage und, wenn möglich, den dort angezeigten Quellenstand.","Which sentence is wrong or unclear? Point to it and describe what you would change. If you came from a Vera answer, include the question and, if possible, the source revision shown there.")}</p>
+   <p><a class="subtle-link" data-vera-feedback href={project.repository+"/issues/new?template=kritik.yml"}>{t("Einwand auf GitHub einreichen", "Submit an objection on GitHub")} →</a></p>
    <p>{t("Behauptung, stärkster Einwand, Prüfmaßstab, neue oder offen gelassene Fassung und verantwortliche Person gehören zusammen. Gute Kritik führt zu einer neuen Prüfung, nicht automatisch zur Veröffentlichung. Und eine Mehrheit kann Belege nicht ersetzen.","A claim, its strongest objection, review criteria, revised or unresolved outcome and accountable person belong together. Good criticism triggers review, not automatic publication. A majority cannot replace evidence.")}</p>
    <p><a class="subtle-link" href={pathFor(lang,"methode")+"#g-005"}>{t("Echte Textkorrektur G-005 ansehen","See actual revision G-005")} →</a></p>
    <p><a class="subtle-link" href={pathFor(lang,"aussagen")}>{t("Prüfstand und offene Einwände lesen","Read claim records and open objections")} →</a></p>
