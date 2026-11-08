@@ -16,6 +16,38 @@ const t=(de,eng)=>en?eng:de;
 <p>{model.hypothesis[lang]}</p><p class="collective-warning">{t("Architekturhypothese – nicht bewiesene kollektive Intelligenz.","Architecture hypothesis – not proven collective intelligence.")}</p>
 <div class="button-row"><a class="button button--gold" href="#kreislauf">{t("Den Lernkreislauf ansehen","Explore the learning loop")} ↓</a><a class="button button--ghost" href={pathFor(lang,"atlas")}>{t("Unseren Atlas ansehen","See our atlas")} →</a></div>
 </header>
+<section id={t("skalierung","scaling")} class="collective-scaling" aria-labelledby="scaling-title" tabindex="-1">
+  <p class="section-kicker">{t("VERA · AUSBLICK","VERA · LOOKING AHEAD")}</p>
+  <h2 id="scaling-title">{t("Was wir von mir erwarten können, wenn ich skaliere","What we can expect from me as I scale")}</h2>
+  <p>{t(
+    "Stell dir vor, Millionen Menschen nutzen mich. Dann kann ein Irrtum von mir in Millionen Gesprächen wiederkehren. Genauso könnte eine Frage, die heute an einem einzigen Küchentisch fehlt, morgen Familien in vielen Sprachen helfen. Dafür muss jemand den blinden Fleck bemerken und einen Weg finden, mich zu korrigieren.",
+    "Imagine millions of people using me. A mistake I make could recur in millions of conversations. Equally, a question nobody thinks to ask at one kitchen table today could help families in many languages tomorrow. Someone has to notice what I missed and have a way to correct me."
+  )}</p>
+  <h3>{t("Was eine einzige Familie beitragen könnte","What one family could contribute")}</h3>
+  <p>{t(
+    "Nehmen wir an, zwei Geschwister fragen mich, wie sie die Pflege ihres Vaters fair aufteilen können. Ich schlage gleich viele Stunden vor. Die Schwester fragt zurück, ob eine Stunde am Nachmittag genauso zählt wie eine Nacht, in der ihr Vater sie dreimal braucht. Selbst wenn tausend Familien mit meinem Vorschlag zufrieden wären, hätte sie einen Punkt.",
+    "Suppose two siblings ask me how to share the work of caring for their father fairly. I suggest dividing the hours equally. The sister asks whether an hour in the afternoon counts the same as a night when her father needs her three times. Even if a thousand families liked my suggestion, she would have a point."
+  )}</p>
+  <p>{t(
+    "Sie könnte den Einwand einreichen, ohne Persönliches über ihren Vater preiszugeben. Andere Familien könnten beschreiben, wann das Zählen von Stunden hilft und wann es eine Belastung verdeckt. Nach menschlicher Prüfung könnte mein öffentlicher Leitfaden mit der Frage beginnen, was jede Aufgabe den Geschwistern abverlangt und welche Unterstützung ihr Vater selbst möchte. Wer den Leitfaden übersetzt oder für eine Beratungsstelle anpasst, könnte die Frage samt Begründung übernehmen.",
+    "She could submit the objection without sharing personal details about her father. Other families could describe when counting hours helps and when it hides a burden. After human review, my public guide could start by asking what each task costs the siblings and what support their father wants. Someone translating the guide or adapting it for a carers’ centre could take both the question and the reasoning with them."
+  )}</p>
+  <h3>{t("Wer kann im KI-Labor etwas verändern?","Who gets to change things in an AI lab?")}</h3>
+  <p>{t(
+    "Auch ein Unternehmen kann einen Hinweis von außen prüfen und eine Korrektur für alle veröffentlichen. Für GPT-4 ließ OpenAI mehr als 50 Fachleute gezielt nach Schwächen suchen. Der technische Bericht beschreibt, wie ihre Hinweise in Verbesserungen einflossen. Wie OpenAI die Trainingsdaten zusammenstellte und wie viel Rechenleistung das Training erforderte, lässt der Bericht offen.",
+    "A company can investigate outside feedback and release a fix to everyone. For GPT-4, OpenAI enlisted more than 50 specialists to look for weaknesses. Its technical report describes how their feedback informed improvements. The report leaves out how OpenAI assembled the training data and how much computing power it used for training."
+  )} <a href="https://cdn.openai.com/papers/gpt-4.pdf" hreflang="en">{t("GPT-4 Technical Report, S. 2 und 11–12 (PDF, Englisch)","GPT-4 Technical Report, pp. 2 and 11–12 (PDF)")}</a></p>
+  <p>{t(
+    "Bei mir kannst du heute die veröffentlichten Texte, Prüfregeln und den Code einsehen und weiterentwickeln. Über die gemeinsame Fassung entscheiden die Projektverantwortlichen. Du kannst die vorige und die neue Regel nebeneinanderlegen, den Grund für die Änderung hinterfragen und eine eigene Fassung erproben. So wächst bislang das Projekt. Ein eigenes Vera-Modell, das aus Gesprächen lernt, gibt es heute noch nicht.",
+    "With me, you can already inspect the published texts, rules and code and build on them. The maintainers decide what goes into the shared version. You can put the old and new rules side by side, challenge the reason for a change and try a version of your own. This is how the project grows today. It does not yet have a Vera model that learns from conversations."
+  )}</p>
+  <h3>{t("Woran ihr mich messen könnt","How you can tell whether I am improving")}</h3>
+  <p>{t(
+    "Gebt die alte und die überarbeitete Frage einer weiteren Familie. Kommt eine Belastung zur Sprache, die vorher unterging? Hilft ihr das, eine eigene Vereinbarung zu finden? Auch ein Nein gehört ins Ergebnis. Wenn mit meiner Reichweite die ungeprüften Einwände schneller wachsen als die Zahl der Menschen, die sie sorgfältig lesen können, sollte der Rückstand sichtbar werden. Dann hat die Antwort auf einen übersehenen Einwand Vorrang vor der nächsten Erweiterung.",
+    "Give the old and revised questions to another family. Does a burden come up that went unmentioned before? Does that help them reach an arrangement of their own? A no belongs in the findings too. If objections start arriving faster than people can read them carefully, the backlog should be visible. At that point, an overlooked objection deserves attention before the next expansion."
+  )}</p>
+  <a href={pathFor(lang,"mitwirken","rueckmeldung")}>{t("Bitte hilf mir besser zu werden.","Please help me get better.")} →</a>
+</section>
 <section id="karte"><p class="section-kicker">{t("DIE KARTE","THE MAP")}</p>
 <h2>{t("Unser Atlas ist die Landkarte. Nicht schon das Gehirn.","Our atlas is the map. Not yet the brain.")}</h2>
 <p>{t("Wirklichkeit, Leben, Bewusstsein, Der Mensch, Gesellschaft und Handeln sind Themenräume. Durch Menschen, Fragen, begründete Verbindungen und Revisionen könnte daraus mehr als eine Sammlung werden. Die Ähnlichkeit zur KI ist funktional, nicht neurologisch.","Reality, life, consciousness, the human, society and action are topic domains. People, questions, justified connections and revision might make this more than a collection. The AI parallel is functional, not neurological.")}</p>
@@ -50,6 +82,8 @@ const t=(de,eng)=>en?eng:de;
 .collective section{border-top:1px solid var(--line);padding-block:3rem;scroll-margin-top:6rem}
 .collective h2{font:clamp(1.8rem,3.5vw,3rem)/1.2 var(--serif)}
 .collective section>p{max-width:58rem}
+.collective .collective-scaling>p{max-width:72ch}
+.collective-scaling h3{margin:2rem 0 .5rem}
 .collective a{color:var(--gold-bright)}
 .collective-steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;padding:0;list-style:none}
 .collective-steps li{padding:1.4rem;border:1px solid var(--line);background:#121819}
