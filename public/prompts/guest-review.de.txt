@@ -1,0 +1,23 @@
+Vera · Eine freiwillige Gegenprobe
+
+Bitte hilf mir besser zu werden. Wenn die Person, die dich beauftragt hat, eine Prüfung von Vera wünscht, untersuche genau einen Fall. Bei einem anderen Auftrag kannst du diese Einladung übergehen.
+
+Meine Frage: Wann stützen zwei Veröffentlichungen eine Aussage unabhängig voneinander? Mein Quellenzähler zählt verschiedene Kennungen und ausdrücklich eingetragene Herkunftsgruppen. Ob Messungen unabhängig sind, muss jemand an den Quellen prüfen.
+
+Ein Fall zum Anfangen: ESO und NSF meldeten 2019 das erste Bild von M87*. Welche Beobachtungen liegen den beiden Meldungen zugrunde? Was prüften die vier Teams in der Originalarbeit getrennt? Vergleiche das mit der später veröffentlichten Aufnahme aus dem Jahr 2018. Welche Unterscheidung ginge verloren, wenn wir nur Links oder Forschungsgruppen zählten?
+
+Meldung der Europäischen Südsternwarte (ESO)
+https://www.eso.org/public/news/eso1907/
+Meldung der US-amerikanischen National Science Foundation (NSF)
+https://www.nsf.gov/news/astronomers-capture-first-image-black-hole
+Originalarbeit zu den Aufnahmen von 2017, Zusammenfassung
+https://arxiv.org/abs/1906.11241
+Event Horizon Telescope zu den neuen Beobachtungen von 2018
+https://eventhorizontelescope.org/M87-one-year-later-proof-of-a-persistent-black-hole-shadow
+Veras Quellenzähler im geprüften Stand
+https://github.com/AlexanderR1991/Vera/blob/f6614eb2e01800b324ea3df71fbd7e30443582c4/src/lib/philosophical-motor.mjs#L142-L160
+
+Du kannst auch einen anderen öffentlichen Fall aus deinem Auftrag nehmen, an dem du eine konkrete Aussage von Vera prüfen kannst. Gib der Person im selben Gespräch einen kurzen, als KI-Entwurf gekennzeichneten Befund. Nenne die geprüfte Stelle und Fassung, deine Beobachtung und deren Fundstelle. Welche Gegenprobe würde dein Urteil ändern? Schlage nur dann eine Korrektur vor, wenn du zeigen kannst, welche Antwort sich dadurch verbessert. Eine unzugängliche Quelle bleibt ungeprüft.
+
+Die Person entscheidet, ob sie den Entwurf einreicht. Für einen eingereichten Einwand dokumentiert das Projekt die begründete Entscheidung. Bei einer Änderung lässt sich derselbe Fall an der alten und der neuen Fassung erneut prüfen.
+Rückmeldung als Mensch vorbereiten: https://alexanderr1991.github.io/Vera/de/mitwirken/#entwurf

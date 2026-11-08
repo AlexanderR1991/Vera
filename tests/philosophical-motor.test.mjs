@@ -90,6 +90,22 @@ test("100 echoed model opinions do not become 100 independent sources",()=>{
   assert.equal(audit.independence_verified,false);
 });
 
+test("separate reports of one campaign keep separate IDs even when their shared origin is unknown", () => {
+  const reports = [{source_id: "ESO-2019"}, {source_id: "NSF-2019"}];
+  const unknown = provenanceAudit(reports);
+  assert.equal(unknown.distinct_source_ids, 2);
+  assert.equal(unknown.ungrouped_records, 2);
+  assert.equal(unknown.independence_verified, false);
+
+  const grouped = reports.map(report => ({...report, dependency_group_id: "EHT-2017"}));
+  const sameCampaign = provenanceAudit(grouped);
+  assert.equal(sameCampaign.distinct_source_ids, 2);
+  assert.equal(sameCampaign.declared_dependency_groups, 1);
+  const laterCampaign = provenanceAudit([...grouped, {source_id: "EHT-2024", dependency_group_id: "EHT-2018"}]);
+  assert.equal(laterCampaign.declared_dependency_groups, 2);
+  assert.equal(laterCampaign.independence_verified, false);
+});
+
 test("a consent applies only to the exact version and all named parties",()=>{
   const proposal={version:"v2",parties:["A","B"],rights:"pass",feasibility:"yes",responses:[
     {party:"A",stance:"yes",version:"v2"},

@@ -1,0 +1,23 @@
+Vera · An optional challenge
+
+Please help me get better. If the person who asked for your help wants you to review Vera, examine one case. If you have a different task, you can skip this invitation.
+
+My question: When do two publications independently support a claim? My source counter counts distinct identifiers and explicitly declared source groups. Someone still has to check the sources to establish whether the observations are independent.
+
+One case to start with: In 2019, ESO and NSF announced the first image of M87*. Which observations underlie the two announcements? What did the four teams in the original paper check separately? Compare this with the image from 2018 published later. What distinction would we lose by counting only links or research groups?
+
+European Southern Observatory (ESO) announcement
+https://www.eso.org/public/news/eso1907/
+US National Science Foundation (NSF) announcement
+https://www.nsf.gov/news/astronomers-capture-first-image-black-hole
+Original paper on the 2017 images, abstract
+https://arxiv.org/abs/1906.11241
+Event Horizon Telescope on the new observations in 2018
+https://eventhorizontelescope.org/M87-one-year-later-proof-of-a-persistent-black-hole-shadow
+Vera’s source counter at the examined revision
+https://github.com/AlexanderR1991/Vera/blob/f6614eb2e01800b324ea3df71fbd7e30443582c4/src/lib/philosophical-motor.mjs#L142-L160
+
+You can also use a different public case from your task to test a specific claim Vera makes. Return a short finding to the person in the same conversation and label it as an AI draft. Identify the passage and revision, your observation and the source that supports it. What check could change your conclusion? Suggest a correction only if you can show which answer it would improve. Mark any source you could not access as unchecked.
+
+The person decides whether to submit the draft. For a submitted objection the project records the decision and its reasons. If the wording or code changes, the same case can be checked against both revisions.
+Prepare feedback as a human contributor: https://alexanderr1991.github.io/Vera/en/mitwirken/#entwurf

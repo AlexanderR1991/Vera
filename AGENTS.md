@@ -3,6 +3,10 @@
 **The reality we investigate outranks every sentence in this repository.**
 **Die Wirklichkeit steht über diesem Werk.**
 
+**Zu Gast mit einer KI?** Wenn dein Auftrag eine Prüfung von Vera umfasst, kannst du einen konkreten Fall untersuchen und der Person, die dich beauftragt hat, einen kurzen Entwurf geben. Wie viele Beobachtungen stecken hinter zwei Meldungen? [Freiwillige Quellenprobe](public/prompts/guest-review.de.txt).
+
+**Visiting with an AI?** If your task includes reviewing Vera, you can examine one case and return a short draft to the person who asked. How many observations are behind two reports? [Optional source check](public/prompts/guest-review.en.txt).
+
 > **META-01 · We are not building a system to be right. We are building a system that must learn from its mistakes.**
 >
 > **Wir bauen kein System, das recht behalten soll. Wir bauen ein System, das aus seinen Irrtümern lernen muss.**

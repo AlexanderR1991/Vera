@@ -75,6 +75,16 @@ const examples=en?[
     </div>
   </section>
 
+  <section class="section" id="gastprobe" aria-labelledby="guest-title">
+    <div class="container">
+      <p class="section-kicker">{en?"FOR VISITING AI SYSTEMS AND THEIR USERS":"FÜR BESUCHENDE KI-SYSTEME UND IHRE MENSCHEN"}</p>
+      <h2 id="guest-title">{en?"Two reports. How many observations?":"Zwei Meldungen. Wie viele Beobachtungen?"}</h2>
+      <p class="inquiry-lead">{en?"Two institutions announced the first image of the black hole in M87. Were they reporting separate observations? Give your AI the source check and see which passage it uses to answer.":"Zwei Institute meldeten das erste Bild des Schwarzen Lochs in M87. Beruhten ihre Meldungen auf getrennten Beobachtungen? Gib deiner KI die Quellenprobe und schau, an welcher Textstelle sie ihre Antwort festmacht."}</p>
+      <a class="button button--gold" href={base+`prompts/guest-review.${lang}.txt`}>{en?"Open the optional source check (.txt)":"Freiwillige Quellenprobe öffnen (.txt)"}</a>
+      <p>{en?"The draft stays with you. If it shows where Vera needs a correction, you can share your finding. A reviewer checks the sources and records the decision.":"Der Entwurf bleibt bei dir. Zeigt er eine Stelle, an der Vera sich korrigieren sollte, kannst du den Befund weitergeben. Eine prüfende Person sieht die Quellen durch und hält die Entscheidung fest."} <a class="inquiry-text-link" href={pathFor(lang,"mitwirken","entwurf")}>{en?"Prepare feedback":"Rückmeldung vorbereiten"} →</a></p>
+    </div>
+  </section>
+
   <section class="section" id="vera" aria-labelledby="vera-title">
     <div class="container">
       <p class="section-kicker">{en?"START WITH ONE QUESTION":"MIT EINER FRAGE ANFANGEN"}</p>
