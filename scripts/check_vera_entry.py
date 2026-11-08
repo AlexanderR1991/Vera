@@ -25,6 +25,7 @@ class EntryPage(Page):
         self.marked_links = {}
         self.language_links = []
         self.first_question = None
+        self.has_draft_heading = False
         self.feed(html)
         self.close()
 
@@ -39,7 +40,7 @@ class EntryPage(Page):
                 self.first_summary[depth - 1] = props
         if tag not in self.VOID_TAGS:
             self.ancestors.append((tag, props))
-        if tag not in ("details", "a"):
+        if tag not in ("details", "a", "h2"):
             return
         if any(t == "template" or "hidden" in p or "inert" in p or p.get("aria-hidden") == "true"
                for t, p in self.ancestors):
@@ -49,6 +50,8 @@ class EntryPage(Page):
                 if self.ancestors[index + 1][1] is not self.first_summary[index]:
                     return
         ids = {p["id"] for _, p in self.ancestors if "id" in p}
+        if tag == "h2" and "entwurf" in ids:
+            self.has_draft_heading = True
         in_questions = ENTRIES.get(self.lang) in ids
         question = props.get("data-entity-question")
         if tag == "details" and in_questions and question and self.first_question is None:
@@ -93,15 +96,16 @@ def check(read, *, live=False, revision=None):
     for lang, anchor in ENTRIES.items():
         home_path = lang + "/"
         guide_path = home_path + "regelkreis/"
+        draft_path = home_path + "mitwirken/"
         home_url = urljoin(SITE, home_path)
         guide_url = urljoin(SITE, guide_path)
         try:
-            home, guide = read(home_path), read(guide_path)
+            home, guide, participation = read(home_path), read(guide_path), read(draft_path)
         except (OSError, ValueError) as error:
             errors.append(f"{lang}: could not verify public entry: {error}")
             continue
 
-        for path, page in ((home_path, home), (guide_path, guide)):
+        for path, page in ((home_path, home), (guide_path, guide), (draft_path, participation)):
             if page.lang != lang or page.canonical != urljoin(SITE, path) or page.h1_count != 1:
                 errors.append(f"{path}: wrong language, canonical URL or main heading")
             other = "en" if lang == "de" else "de"
@@ -118,8 +122,10 @@ def check(read, *, live=False, revision=None):
         if "korrektur" not in guide.ids - guide.duplicates or guide.marked_links.get(("data-vera-feedback", None)) != [FEEDBACK]:
             errors.append(f"{lang}: correction guide or GitHub objection link is missing")
         draft = guide.marked_links.get(("data-vera-local-feedback", None), [])
-        if len(draft) != 1 or urljoin(guide_url, draft[0]) != urljoin(SITE, home_path + "mitwirken/#entwurf"):
+        if len(draft) != 1 or urljoin(guide_url, draft[0]) != urljoin(SITE, draft_path + "#entwurf"):
             errors.append(f"{lang}: correction guide has no local draft link")
+        if not participation.has_draft_heading or "entwurf" in participation.duplicates:
+            errors.append(f"{draft_path}: missing or ambiguous visible draft section")
 
         if live or revision:
             prefix = REPOSITORY + "/commit/"
@@ -148,7 +154,7 @@ def main():
         print(f"{lang}: source revision {sha}")
     if errors:
         sys.exit("\n".join(errors))
-    print("DE and EN: verified homepage, language switch, first answer and route to an objection.")
+    print("DE and EN: verified homepage, language switch, first answer, objection link and local draft section.")
 
 
 if __name__ == "__main__":

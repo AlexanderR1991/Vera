@@ -27,19 +27,62 @@ export function createEntityRecord({id, lang = "de", question, statement, claim_
   };
 }
 
-function assertRecord(record) {
+function checkObjectionIds(ids, objections) {
+  if (!Array.isArray(ids) || ids.length > entityLimits.events || new Set(ids).size !== ids.length) reject("invalid objection ids");
+  for (const id of ids) if (!objections.has(id)) reject("objection reference must name an earlier objection in this record");
+}
+
+function checkDecision(outcome, reviewer, rationale, newStatement, priorStatement) {
+  if (!entityDecisions.includes(outcome) || !words(reviewer, 200) || !words(rationale)) reject("invalid human decision");
+  if (["narrow", "revise"].includes(outcome)) {
+    if (!words(newStatement) || clean(newStatement) === priorStatement) reject("revision requires changed wording");
+  } else if (newStatement) reject("new wording is only allowed for narrow or revise");
+}
+
+function copyEvent(event) {
+  return event.objection_ids === undefined ? {...event} : {...event, objection_ids: [...event.objection_ids]};
+}
+
+// Replay in append order. Inspection can check consistency, not the authenticity of imported JSON.
+function readObjectionStates(record) {
   if (record?.schema_version !== entitySchemaVersion || record?.kind !== "entity_inquiry" || !validId(record.id)) reject("invalid record");
   if (!Array.isArray(record.versions) || !record.versions.length || !Array.isArray(record.events) || record.events.length > entityLimits.events) reject("invalid history");
   if (!Number.isSafeInteger(record.current_version) || record.current_version !== record.versions.at(-1)?.version) reject("invalid version");
   if (record.versions.some((v, i) => v.version !== i + 1 || !words(v.statement))) reject("invalid statement history");
+  const objections = new Map();
+  const seen = new Set();
+  let version = 1;
+  for (const event of record.events) {
+    if (!validId(event?.id) || seen.has(event.id) || !timestamp(event.at) || event.based_on_version !== version) reject("invalid event history");
+    seen.add(event.id);
+    if (event.kind === "human_decision") {
+      const statement = record.versions[version - 1].statement;
+      checkDecision(event.outcome, event.reviewer, event.rationale, event.new_statement, statement);
+      const ids = event.objection_ids === undefined ? [] : event.objection_ids;
+      checkObjectionIds(ids, objections);
+      if ((event.record_id !== undefined || ids.length) && event.record_id !== record.id) reject("decision record id mismatch");
+      for (const id of ids) objections.set(id, event.outcome === "leave_open");
+      if (["narrow", "revise", "withdraw"].includes(event.outcome)) {
+        const next = record.versions[version];
+        if (next?.change !== event.outcome || next.statement !== (event.new_statement || statement)) reject("decision does not match revision history");
+        version++;
+      }
+    } else {
+      if (!entityDraftKinds.includes(event.kind) || !entityDraftOrigins.includes(event.origin) || !words(event.text) || event.objection_ids !== undefined) reject("invalid draft history");
+      if (event.kind === "objection") objections.set(event.id, true);
+    }
+  }
+  if (version !== record.current_version) reject("decision does not match revision history");
+  return objections;
 }
 
 function assertNewEvent(record, id, at, basedOnVersion) {
-  assertRecord(record);
+  const objections = readObjectionStates(record);
   if (!validId(id) || record.events.some(e => e.id === id)) reject("duplicate or invalid event id");
   if (!timestamp(at)) reject("invalid UTC timestamp");
   if (basedOnVersion !== record.current_version) reject("stale version: refresh before proposing a change");
   if (record.events.length >= entityLimits.events) reject("event limit reached");
+  return objections;
 }
 
 export function addEntityDraft(record, {id, kind, origin, text, at, based_on_version, source_url = "", domain = ""} = {}) {
@@ -51,30 +94,29 @@ export function addEntityDraft(record, {id, kind, origin, text, at, based_on_ver
     id, kind, origin, text: clean(text), at, based_on_version,
     source_url: source_url || "", domain: domain ? clean(domain) : ""
   };
-  return {...record, versions: record.versions.map(v => ({...v})), events: [...record.events.map(e => ({...e})), event]};
+  return {...record, versions: record.versions.map(v => ({...v})), events: [...record.events.map(copyEvent), event]};
 }
 
 export function recordEntityDecision(record, {
-  id, at, based_on_version, outcome, reviewer, rationale, new_statement = ""
+  id, record_id = record?.id, at, based_on_version, outcome, reviewer, rationale, new_statement = "", objection_ids = []
 } = {}, verifyHumanReview) {
-  assertNewEvent(record, id, at, based_on_version);
+  const objections = assertNewEvent(record, id, at, based_on_version);
+  if (record_id !== record.id) reject("decision record id mismatch");
+  checkDecision(outcome, reviewer, rationale, new_statement, record.versions.at(-1).statement);
+  checkObjectionIds(objection_ids, objections);
+  const event = {id, kind: "human_decision", record_id, at, based_on_version, reviewer: clean(reviewer), rationale: clean(rationale), outcome, new_statement: new_statement ? clean(new_statement) : "", objection_ids: [...objection_ids]};
   // FAIL CLOSED: calling this function without an external, trusted authorization check is impossible.
   // A string such as "human_review" inside the submitted JSON is not an authentication mechanism.
-  if (typeof verifyHumanReview !== "function" || verifyHumanReview({id, reviewer, at, based_on_version, outcome, rationale}) !== true) reject("trusted human-review authorization required");
-  if (!entityDecisions.includes(outcome) || !words(reviewer, 200) || !words(rationale)) reject("invalid human decision");
-  if (["narrow", "revise"].includes(outcome)) {
-    if (!words(new_statement) || clean(new_statement) === record.versions.at(-1).statement) reject("revision requires changed wording");
-  } else if (new_statement) reject("new wording is only allowed for narrow or revise");
-  const event = {id, kind: "human_decision", at, based_on_version, reviewer: clean(reviewer), rationale: clean(rationale), outcome, new_statement: new_statement ? clean(new_statement) : ""};
+  if (typeof verifyHumanReview !== "function" || verifyHumanReview(copyEvent(event)) !== true) reject("trusted human-review authorization required");
   const versions = record.versions.map(v => ({...v}));
   if (["narrow", "revise", "withdraw"].includes(outcome)) {
     versions.push({version: record.current_version + 1, statement: new_statement ? clean(new_statement) : versions.at(-1).statement, change: outcome});
   }
-  return {...record, current_version: versions.at(-1).version, versions, events: [...record.events.map(e => ({...e})), event]};
+  return {...record, current_version: versions.at(-1).version, versions, events: [...record.events.map(copyEvent), event]};
 }
 
 export function inspectEntityRecord(record) {
-  assertRecord(record);
+  const objections = readObjectionStates(record);
   const draftKinds = Object.fromEntries(entityDraftKinds.map(kind => [kind, record.events.filter(e => e.kind === kind).length]));
   const lastDecision = [...record.events].reverse().find(e => e.kind === "human_decision") || null;
   return {
@@ -82,7 +124,8 @@ export function inspectEntityRecord(record) {
     current_version: record.current_version,
     current_statement: record.versions.at(-1).statement,
     draft_counts: draftKinds,
-    last_decision: lastDecision ? {outcome: lastDecision.outcome, at: lastDecision.at, based_on_version: lastDecision.based_on_version} : null,
+    open_objection_ids: [...objections.keys()].filter(id => objections.get(id)),
+    last_decision: lastDecision ? {outcome: lastDecision.outcome, at: lastDecision.at, based_on_version: lastDecision.based_on_version, objection_ids: [...(lastDecision.objection_ids ?? [])]} : null,
     review_state: lastDecision ? "human_decision_recorded" : "unreviewed_draft",
     human_consensus: "not_assessed",
     direction_index: null,

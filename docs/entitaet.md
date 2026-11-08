@@ -46,6 +46,25 @@ In der [deutschen](https://alexanderr1991.github.io/Vera/de/entitaet/) und [engl
 
 [Maschinenlesbares Protokoll](../public/protocol/entity-loop.v0.json) · [Synthetische Beispieldaten](../public/knowledge/entity-demo.v0.json) · [Node-Tests](../tests/entity-core.test.mjs).
 
+### Einwände über Fassungen verfolgen
+
+Zwei Menschen benennen verschiedene Fehler an derselben Regel. Eine Entscheidung ändert den Satz wegen des ersten Einwands. Was schulden wir der zweiten Person? Ihr Einwand muss mit seiner ursprünglichen Fassung und Kennung auffindbar bleiben. Das lokale Protokoll führt dafür die Menge $O$ der noch offenen Einwände je Vorgang.
+
+| Ereignis | Neue offene Menge | In Worten |
+| --- | --- | --- |
+| Einwand mit neuer Kennung $i$ | $O \cup \{i\}$ | Dieser Einwand wartet auf eine Entscheidung. |
+| Entscheidung mit `leave_open` zu den Kennungen $J$ | $O \cup J$ | Diese Einwände bleiben offen oder werden wieder geöffnet. |
+| Begründete Entscheidung mit anderem Ausgang zu $J$ | $O \setminus J$ | Nur die ausdrücklich behandelten Einwände verlassen die offene Menge. |
+| Anderer Entwurf oder Entscheidung ohne zugeordnete Kennungen | $O$ | Alle bisherigen Einwände behalten ihren Status. |
+
+$J$ darf nur frühere Einwände desselben Vorgangs enthalten. Eine Entscheidung bezieht sich auf die aktuelle Fassung. Sie darf einen Einwand zu einer älteren Fassung ausdrücklich aufgreifen. Die Reihenfolge ergibt sich aus der Position im Protokoll. In `recordEntityDecision` bezeichnet `objection_ids` die Zuordnung. `inspectEntityRecord` liefert mit `open_objection_ids` die offenen Kennungen. `review_state` gibt weiterhin an, ob jemals eine Entscheidung protokolliert wurde. Ob eine Änderung geholfen hat, muss ein weiterer Fall zeigen.
+
+**Gegenprobe.** Der Test spielt für bis zu vier Schritte jeden Verlauf des folgenden Modells durch. Jeder Schritt ist ein Einwand, eine Perspektive oder eine der fünf Entscheidungen zu einer beliebigen Teilmenge aller bisherigen Einwände. Für jede Kennung sucht eine unabhängige Vergleichsrechnung rückwärts nach der jüngsten zugehörigen Entscheidung. So lassen sich auch Wiederöffnung und Änderungen der Fassung prüfen. Die Autorisierung im Test ist simuliert. [Ausführbarer Vergleich](../tests/objection-histories.test.mjs) · [Modelle der anderen Bereiche](mathematische-struktur.md)
+
+```sh
+node --test tests/objection-histories.test.mjs
+```
+
 ## Fünf zentrale Gegenangriffe
 
 | Angriff | Konsequenz | Prüfidee |
@@ -73,6 +92,12 @@ Die Grundregel bleibt [META-01](selbstkorrektur.md): Auch ENT-00 darf begründet
 The loop is **question → classify → perspectives → strongest objection → evidence check → revision draft → accountable human decision → history → next question**. Withdrawal, uncertainty, a pause or justified dissent may be better than false agreement.
 
 The deterministic [entity-core module](../src/lib/entity-core.mjs) stores provenance-labelled drafts against explicit revisions. It refuses AI-based status upgrades and requires a trusted **external** authorization function for accountable human decisions. The static site **does not** have such a function: the public example is synthetic and all visitor additions remain private to the browser session, with an optional local JSON export.
+
+### Tracking objections across revisions
+
+Within a case, each new objection enters the open set under its own ID. An externally authorized decision references earlier objections using `objection_ids`. A `leave_open` decision keeps or reopens the named objections. Other decisions remove exactly the named IDs from the open set. A decision without links, including a legacy decision, preserves every objection’s state. Decisions must refer to the current version and can explicitly address an objection from an earlier version. The ledger uses append order.
+
+`inspectEntityRecord` returns the open IDs in `open_objection_ids`. The historical `review_state` reports whether any decision has been recorded. Human benefit needs a separate observation. Run `node --test tests/objection-histories.test.mjs` for a bounded comparison against the latest decision referring to each individual objection. It covers every sequence up to four steps drawn from two draft types and five decisions, including every subset of prior objections. Authorization in this test is synthetic. [Other mathematical models](mathematische-struktur.md#english)
 
 It produces **no calibrated direction score**, verifies no human consensus, runs no agent swarm and does not automatically publish. External sources, contributor identities, source independence, governance and model evaluation remain open work. The companion JSON [protocol](../public/protocol/entity-loop.v0.json) and [synthetic fixture](../public/knowledge/entity-demo.v0.json) are available for inspection.
 

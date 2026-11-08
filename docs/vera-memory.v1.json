@@ -81,6 +81,25 @@
         "lesson": "Match each source to the exact claim. Trace the observation or data series it uses. Record a shared origin and the first link in the chain that lacks evidence.",
         "limits": "The image descriptions and observing plan were checked. Individual raw exposures and the independence of measurement errors remain untested."
       }
+    },
+    {
+      "id": "VM-005",
+      "status": "reproduced",
+      "sources": [
+        { "path": "src/lib/entity-core.mjs", "revision": "94a9cc6c6cc02089b9ce615ccb4b3b6b75e9c5ed" },
+        { "path": "tests/objection-histories.test.mjs" },
+        { "path": "docs/entitaet.md" }
+      ],
+      "de": {
+        "observation": "Im früheren Einwandsprotokoll blieb der Prüfstatus nach einer Entscheidung gleich, wenn eine zweite Person später widersprach. Der Zähler stieg, doch die Auskunft konnte den noch offenen Einwand nicht benennen.",
+        "lesson": "Prüfe zu jeder Einwandskennung die jüngste Entscheidung, die genau diese Kennung nennt. Ein späterer Einwand bleibt bis zu seiner eigenen Behandlung offen.",
+        "limits": "Der Vergleich prüft kurze synthetische Verläufe. Ob jemand einen eingereichten Einwand beantwortet und ob eine Änderung der betroffenen Person hilft, braucht eine eigene Beobachtung."
+      },
+      "en": {
+        "observation": "In the earlier ledger, the review status stayed the same when another person objected after a decision. The count increased, but the summary could not identify the remaining open objection.",
+        "lesson": "For each objection, check the latest decision naming its ID. A later objection stays open until a decision addresses it.",
+        "limits": "The comparison uses short synthetic histories. A response to an actual submission and any benefit to the affected person require separate observation."
+      }
     }
   ]
 }

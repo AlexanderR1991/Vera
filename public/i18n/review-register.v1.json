@@ -826,6 +826,15 @@
       "source_commit": null,
       "review_url": null
     },
+    "mathematische-struktur.md": {
+      "status": "draft",
+      "priority": "core",
+      "target": "docs/mathematische-struktur.md",
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
     "metaphern-atlas.md": {
       "status": "draft",
       "priority": "support",

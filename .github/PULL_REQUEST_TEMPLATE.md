@@ -25,6 +25,7 @@ Für **inhaltliche** Änderungen (nicht für einfache Tippfehler): Ziel ist nich
 - **Bisherige Stelle, Version und Geltungsbereich / Old claim, revision and scope:**
 - **Aussageart und angemessene Prüfung / Claim type and fitting review:**
 - **Stärkster fairer Einwand / Strongest fair objection:**
+- **Bei eingereichten Einwänden / For submitted objections** · Welche konkreten Punkte behandelt diese Änderung, welche bleiben offen? Verlinke nach Möglichkeit das Issue oder den Kommentar zu jedem Punkt. / Which specific points does this change address and which are still open? Link the issue or comment for each point where available.
 - **Was würde das Urteil ändern? / Revision condition:**
 - **Vorgeschlagenes Ergebnis / Proposed outcome:** beibehalten / retain · eingrenzen / narrow · korrigieren / correct · zurückziehen / withdraw · offenlassen / leave open
 - **Neue Fassung oder offene Frage / New wording or open question:**

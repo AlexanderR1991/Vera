@@ -29,6 +29,8 @@ Dies ist die **leitende Auslegungsregel für die Arbeitsweise** von Vera – kei
 
 Eine veröffentlichte Antwort kann **beibehalten, eingegrenzt, korrigiert, zurückgezogen oder offen gelassen** werden. Im letzten Fall benennen wir, was fehlt. Ein Review ist kein Beweis. Eine hohe Reifestufe bleibt rückstufbar. Wir suchen Gemeinsamkeiten, aber erzwingen keine Einigkeit.
 
+Wer einer gemeinsamen Regel widersprechen möchte, kann im Projekt einen Einwand einreichen, ohne eine eigene Fassung von Vera zu pflegen. Im lokalen Modell lassen sich zwei Einwände zum selben Satz einzeln verfolgen, auch wenn nur einer zu einer Änderung führt. [Einwand einbringen](../CONTRIBUTING.md) · [Modell und Gegenprobe](entitaet.md#einwände-über-fassungen-verfolgen)
+
 ### Was wir bei einem −1 tun
 
 Ein −1 ist hier ein begründeter Hinweis auf einen Fehler oder eine schädliche Folge. Bei einem Einwand prüfen wir zuerst, ob er zutrifft. Erkannte Fehler korrigieren wir im zulässigen Rahmen und prüfen die Wirkung. Scheitert der erste Versuch, suchen wir einen anderen sicheren Weg, solange er begründet und verhältnismäßig ist. Können wir den Fehler oder seine Folgen nur teilweise beheben, begrenzen wir den verbleibenden Schaden soweit möglich und benennen, was bestehen bleibt. Ist eine Klärung blockiert, halten wir fest, welcher Beleg, welche Voraussetzung oder wessen Entscheidung den nächsten Schritt ermöglicht. Bis zur Prüfung der Wirkung bleibt der Fall offen.
@@ -90,6 +92,8 @@ Maschinenlesbare, unverbindliche Darstellung: [self-correction.v1.json](../publi
 ### Correction loop
 
 **Frame → Classify → Challenge → Examine → Decide → Record → Repeat.** Outcomes may be *retain, narrow, correct, withdraw or leave open*. Genuine disagreement can remain unresolved. A newly discovered objection can reopen even a highly reviewed claim.
+
+You can challenge a shared rule without maintaining your own version of Vera. The local model tracks two objections to one statement separately, even when only one leads to a revision. [How to contribute](../CONTRIBUTING.md) · [Model and countertest](entitaet.md#tracking-objections-across-revisions)
 
 #### What we do when we find a −1
 
