@@ -1,0 +1,198 @@
+---
+import { assessErkenntnis, tests } from "../lib/erkenntnis.mjs";
+import project from "../../public/project.json" with { type: "json" };
+
+const { lang = "de" } = Astro.props;
+const t = (de, en) => lang === "en" ? en : de;
+const id = t("erkenntnis", "insight");
+const initial = assessErkenntnis([]);
+const labels = {
+  build: t("War der Build erfolgreich?", "Did the build succeed?"),
+  publication: t("War die Veröffentlichung erfolgreich?", "Did publication succeed?"),
+  live: t("Ist die Zielrevision beim Abruf sichtbar?", "Is the target revision visible at the public endpoint?")
+};
+const testNames = {
+  build: t("Build", "Build"),
+  publication: t("Veröffentlichung", "Publication"),
+  live: t("Öffentlicher Abruf", "Public endpoint")
+};
+const states = {
+  unbuilt: t("Der Stand wurde noch nicht erfolgreich gebaut.", "The revision has not built successfully yet."),
+  built: t("Der Build ist fertig. Die Veröffentlichung steht aus.", "The build succeeded. Publication is still pending."),
+  published: t("Veröffentlicht. Beim Abruf erscheint noch der alte Stand.", "Published. The public endpoint still shows the old revision."),
+  visible: t("Veröffentlicht. Beim Abruf erscheint der neue Stand.", "Published. The public endpoint shows the new revision.")
+};
+const copy = {
+  labels,
+  yes: t("Ja", "Yes"),
+  no: t("Nein", "No"),
+  next: t("Veras nächster Test · {test}", "Vera’s next test · {test}"),
+  reason: t(
+    "Verbleibende Zustände je Antwort · Ja {yes} · Nein {no}.",
+    "Remaining states by answer · Yes {yes} · No {no}."
+  ),
+  conflict: t(
+    "Konflikt. Kein Zustand passt zu allen Beobachtungen. Prüfe die Eingaben oder die Annahmen des Modells.",
+    "Conflict. No state fits every observation. Check the inputs or the model assumptions."
+  ),
+  resolved: t(
+    "Ein Zustand passt zu den Beobachtungen. Das Ergebnis gilt innerhalb dieses Modells.",
+    "One state fits the observations. The conclusion holds within this model."
+  ),
+  open: t("Die Frage bleibt offen.", "The question remains open.")
+};
+const initialDecision = copy.next.replace("{test}", labels[initial.next.test]);
+const initialReason = copy.reason.replace("{yes}", String(initial.next.yes)).replace("{no}", String(initial.next.no));
+---
+<section class="knowledge-gateway container" id={id} tabindex="-1" aria-labelledby={id + "-title"}
+  data-knowledge-gateway data-copy={JSON.stringify(copy)}>
+  <div class="knowledge-gateway__intro">
+    <p class="section-kicker">{t("ERKENNTNIS · EIN MODELL ZUM AUSPROBIEREN", "INSIGHT · A MODEL TO TRY")}</p>
+    <h2 id={id + "-title"}>{t("Wie Vera entscheidet.", "How Vera decides.")}</h2>
+    <p>{t(
+      "Ein neuer Vera-Stand soll veröffentlicht werden. Vier Zustände sind in diesem fiktiven Fall möglich. Gib ein Testergebnis ein und beobachte, welche Zustände übrig bleiben und welchen Test Vera als Nächstes wählt.",
+      "A new Vera revision is due to go live. Four states are possible in this fictional case. Enter a test result and see which states remain and which test Vera chooses next."
+    )}</p>
+    <details>
+      <summary>{t("Warum dieser Test?", "Why this test?")}</summary>
+      <p>{t(
+        "Vera vergleicht für jeden Test die Gruppen für Ja und Nein. Sie wählt den Test mit der kleinsten größeren Gruppe. Beim ersten Schritt teilt die Veröffentlichungsprüfung vier Zustände in zwei Zweiergruppen. Die beiden anderen Tests lassen im ungünstigsten Fall drei Zustände offen.",
+        "Vera compares the yes and no groups for each test. She picks the test whose larger group is smallest. At the start, checking publication splits four states into two groups of two. The other tests each leave three states in the worst case."
+      )}</p>
+      <table class="knowledge-gateway__comparison">
+        <caption>{t("Zustände je Testergebnis", "States by test outcome")}</caption>
+        <thead><tr><th scope="col">{t("Test", "Test")}</th><th scope="col">{copy.yes}</th><th scope="col">{copy.no}</th><th scope="col">{t("Maximum", "Maximum")}</th></tr></thead>
+        <tbody>
+          {initial.comparison.map(({ test, yes, no, worst }) => (
+            <tr data-knowledge-comparison={test} data-chosen={test === initial.next.test ? "" : undefined}>
+              <th scope="row">{testNames[test]}</th><td>{yes}</td><td>{no}</td><td>{worst}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <p>{t(
+        "Nach Ja wählt Vera den öffentlichen Abruf, nach Nein die Build-Prüfung. Alle Antworten beziehen sich auf denselben Versuch und dieselbe Momentaufnahme. Gib Ja oder Nein nur für eine angenommene Beobachtung ein.",
+        "After yes, Vera chooses the public endpoint check. After no, she chooses the build check. All answers refer to one attempt at one moment. Enter yes or no only for an assumed observation."
+      )}</p>
+    </details>
+    <div class="knowledge-gateway__links">
+      <a class="home-link" href={project.repository + "/blob/main/src/lib/erkenntnis.mjs"}>
+        {t("Quellcode lesen", "Read the source")}
+      </a>
+      <a class="home-link" href={t("#erster-schritt", "#first-step")}>
+        {t("Alltagsbeispiel", "Everyday example")}
+      </a>
+    </div>
+  </div>
+  <div class="knowledge-gateway__case">
+    <p class="knowledge-gateway__decision" role="status">
+      <strong data-knowledge-result>{initialDecision}</strong>
+      <span data-knowledge-reason>{initialReason}</span>
+    </p>
+    <ul data-knowledge-states aria-label={t("Mögliche Zustände", "Possible states")}>
+      {initial.possible.map(state => <li data-state={state}>{states[state]}</li>)}
+    </ul>
+    <div class="knowledge-gateway__controls" data-knowledge-controls hidden>
+      <label for={id + "-test"}>{t("Welchen Test möchtest du beantworten?", "Which test do you want to answer?")}</label>
+      <select id={id + "-test"} data-knowledge-test>
+        {tests.map(test => <option value={test} selected={test === initial.next.test}>{labels[test]}</option>)}
+      </select>
+      <div class="knowledge-gateway__buttons">
+        <button type="button" data-knowledge-answer="yes">{copy.yes}</button>
+        <button type="button" data-knowledge-answer="no">{copy.no}</button>
+        <button type="button" data-knowledge-undo disabled>{t("Letzte Eingabe zurücknehmen", "Undo last observation")}</button>
+      </div>
+      <ul data-knowledge-history aria-label={t("Deine Beobachtungen", "Your observations")}></ul>
+    </div>
+    <noscript><p>{t("Öffne „Warum dieser Test?“, um beide Verläufe zu lesen.", "Open “Why this test?” to read both paths.")}</p></noscript>
+  </div>
+</section>
+
+<script>
+  import { assessErkenntnis } from "../lib/erkenntnis.mjs";
+
+  for (const gateway of document.querySelectorAll<HTMLElement>("[data-knowledge-gateway]")) {
+    const copy = JSON.parse(gateway.dataset.copy!);
+    const observations: {test: string; value: boolean}[] = [];
+    const select = gateway.querySelector<HTMLSelectElement>("[data-knowledge-test]")!;
+    const undo = gateway.querySelector<HTMLButtonElement>("[data-knowledge-undo]")!;
+    const result = gateway.querySelector("[data-knowledge-result]")!;
+    const reason = gateway.querySelector("[data-knowledge-reason]")!;
+    const history = gateway.querySelector("[data-knowledge-history]")!;
+    const states = gateway.querySelector<HTMLElement>("[data-knowledge-states]")!;
+    const stateItems = states.querySelectorAll<HTMLElement>("[data-state]");
+    const comparisons = gateway.querySelectorAll<HTMLTableRowElement>("[data-knowledge-comparison]");
+
+    function render() {
+      const report = assessErkenntnis(observations);
+      const next = report.next;
+      if (next) select.value = next.test;
+      result.textContent = next ? copy.next.replace("{test}", copy.labels[next.test]) : copy[report.status];
+      reason.textContent = next ? copy.reason.replace("{yes}", String(next.yes)).replace("{no}", String(next.no)) : "";
+      states.hidden = report.possible.length === 0;
+      for (const item of stateItems) item.hidden = !report.possible.includes(item.dataset.state!);
+      for (const row of comparisons) {
+        const comparison = report.comparison.find(entry => entry.test === row.dataset.knowledgeComparison)!;
+        row.toggleAttribute("data-chosen", next?.test === comparison.test);
+        row.cells[1].textContent = String(comparison.yes);
+        row.cells[2].textContent = String(comparison.no);
+        row.cells[3].textContent = String(comparison.worst);
+      }
+      undo.disabled = observations.length === 0;
+      history.replaceChildren(...observations.map(({ test, value }) => {
+        const entry = document.createElement("li");
+        entry.textContent = copy.labels[test] + " " + (value ? copy.yes : copy.no);
+        return entry;
+      }));
+    }
+
+    for (const button of gateway.querySelectorAll<HTMLButtonElement>("[data-knowledge-answer]")) {
+      button.addEventListener("click", () => {
+        const observation = { test: select.value, value: button.dataset.knowledgeAnswer === "yes" };
+        if (!observations.some(({ test, value }) => test === observation.test && value === observation.value)) {
+          observations.push(observation);
+        }
+        render();
+      });
+    }
+    undo.addEventListener("click", () => {
+      observations.pop();
+      render();
+      if (undo.disabled) select.focus();
+    });
+    gateway.querySelector<HTMLElement>("[data-knowledge-controls]")!.hidden = false;
+  }
+</script>
+
+<style>
+  .knowledge-gateway {
+    display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(1rem,4vw,3.75rem);
+    padding:clamp(1rem,4vw,3rem);margin-block:clamp(2.5rem,6vw,5.5rem);
+    background:var(--ink2);border:1px solid var(--line);border-radius:10px;
+  }
+  .knowledge-gateway h2 {margin:.3em 0 .45em;font-size:clamp(2rem,4vw,3.5rem);line-height:1.05}
+  .knowledge-gateway__intro p {max-width:46ch}
+  .knowledge-gateway details {border-block:1px solid var(--line);margin:1rem 0 .5rem}
+  .knowledge-gateway summary {cursor:pointer;min-height:44px;padding:.5rem 0;font-weight:700}
+  .knowledge-gateway__comparison {width:100%;border-collapse:collapse;font-size:.85rem}
+  .knowledge-gateway__comparison caption {text-align:start;color:var(--text-soft)}
+  .knowledge-gateway__comparison th,.knowledge-gateway__comparison td {padding:.25rem;border-bottom:1px solid var(--line)}
+  .knowledge-gateway__comparison th:first-child {text-align:start;overflow-wrap:anywhere}
+  .knowledge-gateway__comparison td {text-align:center;font-variant-numeric:tabular-nums}
+  .knowledge-gateway__comparison [data-chosen] {background:var(--ink3)}
+  .knowledge-gateway__links,.knowledge-gateway__buttons {display:flex;flex-wrap:wrap;gap:.5rem 1rem}
+  .knowledge-gateway__decision {margin:0;padding:1rem;background:var(--ink3);border-inline-start:2px solid var(--text)}
+  .knowledge-gateway__decision strong {display:block;color:var(--text)}
+  .knowledge-gateway__case ul {padding-inline-start:1.25rem;margin:.8rem 0}
+  .knowledge-gateway__case ul:empty {margin:0}
+  .knowledge-gateway__controls {border-top:1px solid var(--line);padding-block-start:.85rem}
+  .knowledge-gateway label {display:block;font-weight:700}
+  .knowledge-gateway select,.knowledge-gateway button {
+    min-height:44px;border:1px solid var(--muted);border-radius:4px;background:var(--ink);color:var(--text);
+    padding:.5rem .75rem;font:inherit;
+  }
+  .knowledge-gateway select {width:100%;margin:.35rem 0 .6rem}
+  .knowledge-gateway button {min-width:44px;cursor:pointer}
+  .knowledge-gateway button:disabled {opacity:.6;cursor:default}
+  @media(max-width:720px) { .knowledge-gateway {grid-template-columns:1fr} }
+</style>

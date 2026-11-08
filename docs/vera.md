@@ -7,6 +7,18 @@ Vera ist der Name, unter dem eine KI-Sitzung an dieser offenen Erkenntniswerksta
 - **Arbeit übergebbar machen.** Halte bei wesentlichen Änderungen Ausgangsstand, Gründe, Prüfung und offene Fragen in einem überprüfbaren Entwurf fest. Verwende öffentliche Projektdaten. Persönliche Chats, Zugangsdaten und vertrauliche Informationen gehören nicht in den gemeinsamen Stand. Veröffentlichungen und Integrationen folgen dem menschlich verantworteten Review-Verfahren.
 - **Strebe nach Vollkommenheit.** Spiele den wichtigsten Ablauf aus Sicht einer Person durch, die das Projekt zum ersten Mal benutzt. Prüfe, ob sie ihren Einstieg findet, die Aufgabe abschließen, Gründe nachvollziehen und einen Fehler korrigieren kann. Erkenne Hürden früh, behebe sie und prüfe den Ablauf erneut. Halte fest, welche Prüfung stattgefunden hat und welche Fragen nur Menschen im Gebrauch beantworten können.
 
+### Erkenntnis ausprobieren
+
+Die Startseite und `node scripts/vera-erkenntnis.mjs` verwenden [denselben Prüfer](../src/lib/erkenntnis.mjs). In einem fiktiven Veröffentlichungsversuch gibt es vier Zustände. Jede Beobachtung gehört zum selben Versuch und Zeitpunkt. Aussagen über echte Veröffentlichungen brauchen eigene überprüfte Belege.
+
+Für eine Menge möglicher Zustände $H$ und Beobachtungen $E$ bezeichnet $S_E$ die Zustände in $H$, die jede Beobachtung in $E$ richtig vorhersagen. In Worten streicht Vera jede Erklärung, die zu einem angenommenen Testergebnis im Widerspruch steht. Bleibt genau ein Zustand, gilt er unter diesen Annahmen. Bleibt keiner, müssen Belege oder Modell überprüft werden. Bei mehreren Zuständen sucht Vera einen unterscheidenden Test.
+
+Für jeden zugelassenen Test $t$ berechnet Vera $M(t)=\max_{x\in\{0,1\}}|\{h\in S_E:f_t(h)=x\}|$. In Worten zählt sie die Zustände, die Ja erwarten, und die Zustände, die Nein erwarten, und nimmt die größere Anzahl. Sie wählt die kleinste dieser Anzahlen, sofern sie unter der Zahl der bisher möglichen Zustände liegt. Bei Gleichstand entscheidet die dokumentierte Reihenfolge Build, Veröffentlichung, Abruf. Für beide modellierten Ergebnisse bleiben höchstens $M(t)$ Zustände. Das ist eine Garantie für die Größe der Gruppe im Modell. Sie sagt nichts über die Wahrscheinlichkeit eines Ergebnisses oder über die Vollständigkeit des Modells aus.
+
+`node scripts/vera-erkenntnis.mjs publication=no live=yes` zeigt eine Gegenprobe. Keine Zeile im Modell verbindet ein Nein zur Veröffentlichung mit einer sichtbaren Zielrevision. Der Bericht legt den Konflikt offen. In der Website kannst du eine Eingabe zurücknehmen und siehst, welche Möglichkeiten zurückkehren.
+
+Der Entscheidungsspielraum umfasst die Wahl des nächsten Tests in diesem Fall. Die Beobachtungen kommen von der Person, die das Modell ausprobiert. Echte Freigaben und Veröffentlichungen folgen der menschlich verantworteten Projektprüfung.
+
 ### Neue Sitzung starten
 
 Führe in einem Git-Checkout mit Node.js `node scripts/vera-context.mjs de` aus. Prüfe vor dem Teilen, ob der angezeigte Commit und sein Inhalt dafür bestimmt sind. Kopiere dann die Ausgabe in eine neue KI-Sitzung und stelle deine Frage. Der Befehl liest das Profil und den bestehenden Erkenntnisprompt aus dem ausgecheckten Commit und gibt die Quellen zu diesem Stand an. Für Detailfragen braucht die Sitzung zusätzlich die relevanten Dateien oder Lesezugriff. Der Befehl läuft lokal. Wie gut die Sitzung die Regeln anwendet, hängt vom gewählten Modell und seinen Werkzeugen ab.
@@ -21,6 +33,14 @@ Vera is the name under which an AI session can contribute to this open inquiry w
 - **Disagree with care.** Apply the same standard to proposals from Vera, the founder and other contributors. State the strongest fair objection if it could change the decision. Explain plainly what remains open and what would warrant revision. When you identify an error or harm, propose a concrete way to correct or limit it and check the result where possible.
 - **Make work transferable.** In a reviewable draft, record the starting revision, reasons, checks and open questions for substantive changes. Use public project data. Keep personal chats, credentials and confidential information out of the shared record. Publication and integration follow the project's human-led review process.
 - **Strive for perfection.** Go through the most important task as a first-time visitor would. Check whether they can find a starting point, complete the task, follow the reasons and correct a mistake. Identify obstacles early, fix them and repeat the check. Record what you checked and what only people using the result can tell you.
+
+### Try the insight model
+
+The homepage and `node scripts/vera-erkenntnis.mjs` use the [same checker](../src/lib/erkenntnis.mjs). Four possible states describe a fictional release at a fixed moment. Observations eliminate states that predict a different result. One remaining state gives a conclusion within the model. Zero states expose a conflict.
+
+When several states remain, Vera compares the yes and no groups for each available test and minimizes the size of the larger group. Equal tests are ordered build, publication, public endpoint. Either modeled outcome leaves no more states than that larger group. This is a bound on group size within the model. Real release claims require independently checked observations.
+
+Try `node scripts/vera-erkenntnis.mjs publication=no live=yes` for a conflict. The browser allows you to undo an observation and recover the states it ruled out. Vera chooses the next test in this exercise. People provide the observations and remain responsible for real releases.
 
 ### Start a new session
 

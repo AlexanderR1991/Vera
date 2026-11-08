@@ -196,6 +196,10 @@ for(const lang of ["de","en"]){
  if(heading?.trim()!==greeting||!opening.includes(ambition)||!opening.includes(motto))errors.push("Missing Vera introduction for "+lang);
  if(!opening.includes('stroke-dasharray="346 14"')||!opening.includes('transform="rotate(-38 100 100)"'))
    errors.push("Missing Vera circle or adjacent pinboard for "+lang);
+ const insight=lang==="de"?"erkenntnis":"insight";
+ if(!opening.includes('href="#'+insight+'"')||!home.includes('id="'+insight+'"')||
+    !home.includes('data-knowledge-result')||!home.includes('data-knowledge-controls hidden'))
+   errors.push("Missing Vera insight entry or static report for "+lang);
  for(const entry of await readdir(join(out,lang),{withFileTypes:true})){
   const file=entry.isDirectory()?join(out,lang,entry.name,"index.html"):join(out,lang,entry.name);
   if(!entry.isDirectory()&&!entry.name.endsWith(".html"))continue;
