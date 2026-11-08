@@ -1,247 +1,139 @@
 <svg xmlns="http://www.w3.org/2000/svg">
   <symbol id="module" viewBox="0 0 320 190">
-    <defs>
-      <linearGradient id="vera-module-field" x2="1" y2="1" gradientUnits="objectBoundingBox">
-        <stop stop-color="#ecece8"/><stop offset="1" stop-color="#aeb1af"/>
-      </linearGradient>
-      <linearGradient id="vera-module-metal" x2=".88" y2="1" gradientUnits="objectBoundingBox">
-        <stop stop-color="#b8bcb9"/><stop offset=".24" stop-color="#707572"/><stop offset=".52" stop-color="#929793"/><stop offset="1" stop-color="#434844"/>
-      </linearGradient>
-      <linearGradient id="vera-module-tray" x2=".85" y2="1" gradientUnits="objectBoundingBox">
-        <stop stop-color="#777d79"/><stop offset="1" stop-color="#383d3a"/>
-      </linearGradient>
-      <pattern id="vera-module-grid" width="16" height="16" patternUnits="userSpaceOnUse">
-        <path d="M16 0H0V16" fill="none" stroke="#242925" stroke-opacity=".12" stroke-width=".6"/>
-      </pattern>
-      <pattern id="vera-module-ribs" width="3" height="3" patternUnits="userSpaceOnUse">
-        <path d="M0 .5H3" stroke="#d3d8d2" stroke-opacity=".28"/>
-      </pattern>
-    </defs>
-    <rect width="320" height="190" fill="url(#vera-module-field)"/>
-    <rect x="12" y="11" width="296" height="168" fill="url(#vera-module-grid)"/>
-    <path d="M12 24V11h13m270 0h13v13m0 142v13h-13m-270 0H12v-13" fill="none" stroke="#535853" stroke-width=".7"/>
-    <g fill="none" stroke="#4a514b" stroke-width=".65" opacity=".68">
-      <path d="M29 36h45l36 23M243 93h24l25-20M216 151h49l15-12"/>
-      <path d="M88 53v103m125-87v104m44-131v98" stroke-dasharray="2 3"/>
+    <g fill="none" stroke="#666e6a" stroke-width=".75">
+      <path d="M18 32V18h14m256 0h14v14m0 126v14h-14m-256 0H18v-14" opacity=".6"/>
+      <path d="M74 53v65m120-14v68m56-95v65" stroke-dasharray="2 4" opacity=".65"/>
+      <path d="M24 100h23l16-8m194 30h19l14-7M76 126l-6 14m125 32-6 14M69 136l123 49"/>
+      <path d="m66 138 6-4m117 53 6-4"/>
     </g>
-    <g fill="#353b36" font-family="monospace" font-size="6" letter-spacing=".8">
-      <text x="26" y="31">V / 01</text>
-      <text x="267" y="68">KERN</text>
-      <text x="274" y="134">PCB</text>
-      <text x="26" y="169">FIG 01</text>
+    <g fill="#505753" font-family="monospace" font-size="7" letter-spacing="1">
+      <text x="24" y="52">FIG. 01</text>
+      <text x="260" y="112">PCB</text>
     </g>
 
-    <!-- Lower housing, board and anodized top cover share the same projection. -->
-    <path d="m80 147 134 37 64-32-129-39Z" fill="#29322b" opacity=".13"/>
-    <g stroke-linejoin="round">
-      <path d="m89 141 1 9 86 27 24-2 46-24v7l-46 24-24 2-86-27-1-9z" fill="#2b302d" stroke="#202521"/>
-      <path d="m91 153 85 27 24-2 45-23" fill="none" stroke="#666e68" stroke-width=".65"/>
-      <g transform="matrix(1 .31 -.84 .43 147 111)">
-        <path d="M8 0h88l15 14v55L98 82H12L0 69V12Z" fill="url(#vera-module-tray)" stroke="#2b312d" stroke-width="1.6"/>
-        <path d="M13 8h79l10 10v46l-9 10H16L9 65V18Z" fill="#3b413c" stroke="#9ba29b" stroke-width="1.4"/>
-        <path d="M22 14h64v55H22z" fill="#535b54" stroke="#262d28"/>
-        <path d="M27 20h53v5H27zm0 9h53v4H27zm0 8h53v4H27zm0 8h53v4H27zm0 8h53v4H27zm0 8h53v4H27z" fill="#252c26"/>
-        <path d="M3 23h4v33H3zm101 0h4v33h-4z" fill="#909991"/>
-        <path d="M16 12v55m78-55v55" fill="none" stroke="#1e2520"/>
-        <g fill="#292f2a" stroke="#adb4ab" stroke-width="1.1">
-          <circle cx="14" cy="15" r="3.4"/><circle cx="96" cy="15" r="3.4"/>
-          <circle cx="14" cy="67" r="3.4"/><circle cx="96" cy="67" r="3.4"/>
-        </g>
+    <!-- Each deck uses the same dimetric projection. Elevation shifts only the screen y coordinate. -->
+    <g transform="translate(0 56)">
+      <path d="M258.6 77.8 207.4 103.4H193L65 52.2l-1.6-6.4v6L65 58.2l128 51.2h14.4l51.2-25.6Z" fill="#303634" stroke="#262b28"/>
+      <g transform="matrix(1 .4 -.8 .4 121 17)">
+        <path d="M8 0h128l8 8v64l-8 8H8l-8-8V8Z" fill="#59615d" stroke="#262b28" stroke-width="1.25"/>
+        <path d="M14 8h116l6 6v52l-6 6H14l-6-6V14Z" fill="#424a45" stroke="#a4aca5" stroke-width=".9"/>
+        <path d="M18 48h108m-108 7h108m-108 7h108" stroke="#adb5ae" stroke-width="1"/>
       </g>
-      <path d="m151 132 23 7 22-11 26 8-59 30-35-11-24-7 14-8" fill="none" stroke="#252823" stroke-width="3"/>
-      <path d="m151 132 23 7 22-11 26 8-59 30-35-11-24-7 14-8" fill="none" stroke="#e4a554" stroke-width="1.35"/>
-
-      <g transform="matrix(1 .31 -.84 .43 147 78)">
-        <path d="M5 6h98l8 8v56l-7 6H6L0 70V14Z" transform="translate(4 6)" fill="#242b24" stroke="#242b24" stroke-width="1.4"/>
-        <path d="M5 6h98l8 8v56l-7 6H6L0 70V14Z" fill="#596259" stroke="#222a23" stroke-width="1.35"/>
-        <path d="M8 10h93l6 6v51l-5 5H8l-4-5V17Z" fill="none" stroke="#a4ab9d" stroke-width=".7"/>
-        <g fill="none" stroke="#c4c6ad" stroke-opacity=".76" stroke-width=".8">
-          <path d="M10 28h17l10 10h13m-40-6h14l9 10h14m-37-5h12l8 10h17m-37 5h15l8-6m-19 16h28l9-9m-23 16h41l8-9h14"/>
-          <path d="M58 34V22l6-6h22m-22 18V24l5-4h20m-19 15v-9h13m-10 16h17l8-8m-25 12h20l8-8m-26 13h21l6-6m-31 9v7l9 7h19"/>
-        </g>
-        <g fill="#292d2b" stroke="#b3b7ae" stroke-width=".8">
-          <rect x="45" y="30" width="28" height="26" rx="1.5"/>
-          <rect x="11" y="24" width="13" height="8" rx="1"/>
-          <rect x="19" y="55" width="15" height="8" rx="1"/>
-          <rect x="83" y="25" width="12" height="10" rx="1"/>
-          <rect x="79" y="57" width="13" height="7" rx="1"/>
-          <rect x="32" y="16" width="14" height="8" rx="1"/>
-        </g>
-        <path d="M43 34h-5m5 4h-5m5 4h-5m5 4h-5m5 4h-5m5 4h-5m37-20h5m-5 4h5m-5 4h5m-5 4h5m-5 4h5m-5 4h5M51 28v-5m5 5v-5m5 5v-5m5 5v-5m-15 35v5m5-5v5m5-5v5m5-5v5" stroke="#d7d7bd" stroke-width="1"/>
-        <path d="M51 36h16v14H51z" fill="#373d39" stroke="#767f76" stroke-width=".75"/>
-        <path d="m55 40 4 7 4-7" fill="none" stroke="#d0d3cb" stroke-width=".9"/>
-        <path d="M8 42h9v9H8zm87 9h8v10h-8z" fill="#d4a460"/>
-        <g fill="#353b36" stroke="#cad0c3" stroke-width="1.15">
-          <circle cx="11" cy="14" r="3"/><circle cx="99" cy="14" r="3"/>
-          <circle cx="11" cy="67" r="3"/><circle cx="99" cy="67" r="3"/>
-        </g>
-      </g>
-
-      <g fill="#d7b380" stroke="#403d32" stroke-width=".75">
-        <path d="M102 65v16l3 2 3-2V65zM206 86v23l3 2 3-2V86zM245 67v13l3 2 3-2V67z"/>
-        <path d="m102 65 3-2 3 2-3 2zm104 21 3-2 3 2-3 2zm39-19 3-2 3 2-3 2z" fill="#ede0c8"/>
-      </g>
-      <path d="m99 49 1 9 86 27 24-2 46-24v10l-46 24-24 2-86-27-1-9z" fill="#383e3a" stroke="#2c322d"/>
-      <path d="m101 62 85 27 24-2 45-23m-154 1 85 27 24-2 45-23" fill="none" stroke="#828a83" stroke-width=".65"/>
-      <g transform="matrix(1 .31 -.84 .43 157 19)">
-        <path d="M8 0h88l15 14v55L98 82H12L0 69V12Z" fill="url(#vera-module-metal)" stroke="#343a35" stroke-width="1.5"/>
-        <path d="M11 3h84l13 12v53L97 79H13L3 68V13Z" fill="none" stroke="#d1d5d0" stroke-opacity=".68"/>
-        <path d="M24 8h56v9H24zm0 57h56v9H24z" fill="#4d534e" stroke="#2f3630" stroke-width=".8"/>
-        <path d="M24 8h56v9H24zm0 57h56v9H24z" fill="url(#vera-module-ribs)"/>
-        <path d="M43 24h24l12 16-12 17H43L31 40Z" fill="#434a44" stroke="#c4cbc3" stroke-width="1.4"/>
-        <path d="M45 27h20l10 13-10 14H45L35 40Z" fill="#858d86" stroke="#252c26" stroke-width="1"/>
-        <path d="m46 33 8 15h3l8-15h-4l-5.5 10L50 33Z" fill="#303831"/>
-        <path d="M90 27h8v28h-8zM12 27h8v28h-8z" fill="#3d453e"/>
-        <path d="M90 30h8m-8 4h8m-8 4h8m-8 4h8m-8 4h8m-8 4h8m-86-20h8m-8 4h8m-8 4h8m-8 4h8m-8 4h8m-8 4h8" stroke="#8e988f" stroke-width=".8"/>
-        <g fill="#454d45" stroke="#c7cfc7" stroke-width="1.25">
-          <circle cx="14" cy="14" r="3.3"/><circle cx="97" cy="14" r="3.3"/>
-          <circle cx="14" cy="68" r="3.3"/><circle cx="97" cy="68" r="3.3"/>
-        </g>
-        <path d="M11 14h6m77 0h6M11 68h6m77 0h6" stroke="#b8c1b8" stroke-width=".85"/>
-      </g>
-      <path d="m221 86 12-6m3-1 2-1" stroke="#e9ad62" stroke-width="1.25" stroke-linecap="round"/>
     </g>
+
+    <g transform="translate(0 28)">
+      <path d="M258.6 77.8 207.4 103.4H193L65 52.2l-1.6-6.4v3L65 55.2l128 51.2h14.4l51.2-25.6Z" fill="#252e2b" stroke="#29332e"/>
+      <g transform="matrix(1 .4 -.8 .4 121 17)">
+        <path d="M8 0h128l8 8v64l-8 8H8l-8-8V8Z" fill="#4a554d" stroke="#28312c" stroke-width="1.25"/>
+        <path d="M14 8h116l6 6v52l-6 6H14l-6-6V14Z" fill="none" stroke="#89978b" stroke-width=".9"/>
+        <g fill="none" stroke="#d6c5a7" stroke-width="1.25">
+          <path d="M20 50h19l12 12h14m-45-6h16l12 12h28l8-8h20l14-14h8m-96 16h4l8 8m53-17h14l9-9"/>
+          <path d="M64 61v-9m8 9v-9m8 9v-9m8 9v-9"/>
+        </g>
+        <path d="M59 31h35v24H59Z" fill="#212925" stroke="#9ca99e" stroke-width="1.1"/>
+        <path d="M66 38h21v10H66Z" fill="#333e37" stroke="#b6c3b7" stroke-width=".9"/>
+        <path d="M17 47h8v6h-8Zm100-4h8v6h-8Zm-20 18h8v6h-8Z" fill="#d9a467"/>
+      </g>
+    </g>
+
+    <path d="M258.6 77.8 207.4 103.4H193L65 52.2l-1.6-6.4v6L65 58.2l128 51.2h14.4l51.2-25.6Z" fill="#535c57" stroke="#303633"/>
+    <path d="m193 103.4 14.4 0 51.2-25.6v6l-51.2 25.6H193Z" fill="#737c75" stroke="#303633"/>
+    <g transform="matrix(1 .4 -.8 .4 121 17)">
+      <path d="M8 0h128l8 8v64l-8 8H8l-8-8V8Z" fill="#bbc1ba" stroke="#303633" stroke-width="1.25"/>
+      <path d="M14 8h116l6 6v52l-6 6H14l-6-6V14Z" fill="none" stroke="#69746c" stroke-width="1"/>
+      <path d="M62 24h20l12 12v8L82 56H62L50 44v-8Z" fill="#59655e" stroke="#37413b" stroke-width="1.2"/>
+      <path d="m65 34 7 13 7-13" fill="none" stroke="#eef0e9" stroke-width="2"/>
+      <path d="M23 29h14m-14 6h14m-14 6h14m-14 6h14m-14 6h14m70-24h14m-14 6h14m-14 6h14m-14 6h14m-14 6h14" stroke="#48554d" stroke-width="1.25"/>
+      <path d="M64 64h16" stroke="#865021" stroke-width="1.6"/>
+      <g fill="#59655e" stroke="#ecede7" stroke-width="1.1">
+        <circle cx="18" cy="18" r="3.5"/><circle cx="126" cy="18" r="3.5"/>
+        <circle cx="18" cy="62" r="3.5"/><circle cx="126" cy="62" r="3.5"/>
+      </g>
+    </g>
+    <path d="M257 122h4" stroke="#975a2a" stroke-width="1.5"/>
   </symbol>
 
   <symbol id="dial" viewBox="0 0 320 190">
-    <defs>
-      <linearGradient id="vera-dial-field" x2="1" y2="1" gradientUnits="objectBoundingBox">
-        <stop stop-color="#333835"/><stop offset="1" stop-color="#181c19"/>
-      </linearGradient>
-      <linearGradient id="vera-dial-ring" x2=".85" y2="1" gradientUnits="objectBoundingBox">
-        <stop stop-color="#b8bdb7"/><stop offset=".25" stop-color="#444b45"/><stop offset=".54" stop-color="#858e85"/><stop offset=".82" stop-color="#343a35"/><stop offset="1" stop-color="#a9b2a9"/>
-      </linearGradient>
-      <linearGradient id="vera-dial-knob" x2=".87" y2="1" gradientUnits="objectBoundingBox">
-        <stop stop-color="#b9bfb9"/><stop offset=".4" stop-color="#747c75"/><stop offset=".63" stop-color="#3c443d"/><stop offset="1" stop-color="#969f96"/>
-      </linearGradient>
-      <linearGradient id="vera-dial-grip" x2=".8" y2="1" gradientUnits="objectBoundingBox">
-        <stop stop-color="#ecece6"/><stop offset=".54" stop-color="#a0aaa1"/><stop offset="1" stop-color="#646e66"/>
-      </linearGradient>
-      <pattern id="vera-dial-grid" width="12" height="12" patternUnits="userSpaceOnUse">
-        <path d="M12 0H0V12" fill="none" stroke="#b4beb5" stroke-opacity=".17" stroke-width=".55"/>
-      </pattern>
-    </defs>
-    <rect width="320" height="190" fill="url(#vera-dial-field)"/>
-    <rect x="12" y="12" width="296" height="166" fill="url(#vera-dial-grid)"/>
-    <path d="M12 25V12h13m270 0h13v13m0 140v13h-13m-270 0H12v-13" fill="none" stroke="#8b978c" stroke-width=".7"/>
-    <g fill="none" stroke="#a3afa3" stroke-width=".65" opacity=".6">
-      <path d="M24 95h272M160 13v164" stroke-dasharray="2 4"/>
-      <path d="M34 53h42l33 23m96 45 36 27h48M34 146h42l21-24m131-65 18-14h43"/>
-      <path d="M35 55v-4m252 94v5M35 143v5m252-108v5"/>
+    <g fill="none" stroke="#929e96" stroke-width=".75">
+      <path d="M18 32V18h14m256 0h14v14m0 126v14h-14m-256 0H18v-14" opacity=".6"/>
+      <path d="M46 95h228M160 14v162" stroke-dasharray="2 4" opacity=".55"/>
+      <path d="M31 63h54l16 16m118-25 17-17h52m-58 101 14 14h44"/>
     </g>
-    <g fill="#c7d0c6" font-family="monospace" font-size="6" letter-spacing=".8">
-      <text x="34" y="47">V / 02</text>
-      <text x="34" y="158">FIG 02</text>
-      <text x="255" y="37">0—360°</text>
-      <text x="250" y="159">REV 01</text>
+    <g fill="#c1c9c1" font-family="monospace" font-size="7" letter-spacing="1">
+      <text x="31" y="55">FIG. 02</text>
+      <text x="247" y="29">0–360°</text>
     </g>
-    <circle cx="161" cy="99" r="66" fill="#101411" opacity=".85"/>
-    <circle cx="160" cy="95" r="65" fill="#555e56" stroke="#a7b0a6" stroke-width="1"/>
-    <circle cx="160" cy="95" r="62" fill="url(#vera-dial-ring)" stroke="#1b211d"/>
-    <circle cx="160" cy="95" r="59" fill="none" stroke="#242a25" stroke-width="4" pathLength="144" stroke-dasharray="1.1 1.9"/>
-    <circle cx="160" cy="95" r="55" fill="#363d37" stroke="#1f2620"/>
-    <circle cx="160" cy="95" r="51" fill="#232a24" stroke="#969f94" stroke-width=".65"/>
-    <circle cx="160" cy="95" r="47" fill="none" stroke="#a5afa2" stroke-width="1.9" pathLength="120" stroke-dasharray=".45 1.55"/>
-    <g stroke="#d1d9ce" stroke-width="1.25">
-      <path d="M160 45v6m0 88v6M110 95h6m88 0h6m-85-35 4 4m62 62 4 4m0-70-4 4m-62 62-4 4"/>
+    <path d="M105 29h110l11 11v110l-11 11H105l-11-11V40Z" fill="#242b28" stroke="#66756b"/>
+    <path d="M111 37h98l9 9v98l-9 9h-98l-9-9V46Z" fill="none" stroke="#424e47" stroke-width=".75"/>
+    <circle cx="160" cy="95" r="48" fill="#181c1a" stroke="#aab7ae" stroke-width="1.1"/>
+    <circle cx="160" cy="95" r="43" fill="none" stroke="#aab7ae" stroke-width="3" pathLength="360" stroke-dasharray="1.5 13.5"/>
+    <circle cx="160" cy="95" r="34" fill="none" stroke="#647269" stroke-width=".9"/>
+    <g fill="none" stroke="#d3dad4" stroke-width="1.1">
+      <path d="M160 46v9m0 80v9m-49-49h9m80 0h9"/>
+      <path d="M154 95h12m-6-6v12" opacity=".75"/>
     </g>
-    <circle cx="160" cy="95" r="42" fill="#191f1b" stroke="#687168" stroke-width=".7"/>
-    <circle cx="160" cy="97" r="36" fill="#0d110f"/>
-    <circle cx="160" cy="94" r="35" fill="url(#vera-dial-knob)" stroke="#a4ada3" stroke-width=".8"/>
-    <circle cx="160" cy="94" r="31.5" fill="none" stroke="#586158" stroke-width=".65"/>
-    <path d="m141 114-6-6a5 5 0 0 1 0-7l29-29a5 5 0 0 1 7 0l13 13a5 5 0 0 1 0 7l-29 29a5 5 0 0 1-7 0Z" fill="#292f2a"/>
-    <path d="m141 111-6-6a5 5 0 0 1 0-7l29-29a5 5 0 0 1 7 0l13 13a5 5 0 0 1 0 7l-29 29a5 5 0 0 1-7 0Z" fill="url(#vera-dial-grip)" stroke="#d1d6ce" stroke-width=".6"/>
-    <path d="m170 72 5 5" stroke="#8e531f" stroke-width="2.2" stroke-linecap="round"/>
-    <path d="m189 64 4-5" stroke="#e3a25d" stroke-width="1.8" stroke-linecap="round"/>
-    <circle cx="246" cy="43" r="1.5" fill="#e3a25d"/>
+    <path d="m160 95 27-27m-9 0h9v9" fill="none" stroke="#e4ad73" stroke-width="2"/>
+    <path d="m190 65 6-6" stroke="#e4ad73" stroke-width="1.6"/>
+    <g fill="none" stroke="#a8b4ac" stroke-width=".8">
+      <path d="M111 47h5m-2.5-2.5v5m90-2.5h5m-2.5-2.5v5m-95 93h5m-2.5-2.5v5m90-2.5h5m-2.5-2.5v5"/>
+    </g>
   </symbol>
 
   <symbol id="worksheet" viewBox="0 0 320 190">
-    <defs>
-      <linearGradient id="vera-worksheet-field" x2="1" y2="1">
-        <stop stop-color="#f4f2ec"/><stop offset="1" stop-color="#b8bab6"/>
-      </linearGradient>
-      <linearGradient id="vera-worksheet-face" x2=".75" y2="1">
-        <stop stop-color="#faf9f3"/><stop offset="1" stop-color="#d0d0ca"/>
-      </linearGradient>
-    </defs>
-    <rect width="320" height="190" fill="url(#vera-worksheet-field)"/>
-    <g fill="none" stroke="#626662" stroke-width=".65">
-      <path d="M18 34V18h16m252 0h16v16m0 122v16h-16m-252 0H18v-16"/>
-      <path d="M19 58h38l37 14m175 53h19v21m-81 23h58m-49-3v6m39-6v6"/>
-      <path d="M90 59v79m65-111v103m65-80v88m45-65v75" stroke-dasharray="2 4" opacity=".66"/>
+    <g fill="none" stroke="#68716a" stroke-width=".75">
+      <path d="M18 32V18h14m256 0h14v14m0 126v14h-14m-256 0H18v-14" opacity=".6"/>
+      <path d="M70 46v65m116-25v66m80-76v67" stroke-dasharray="2 4" opacity=".6"/>
+      <path d="M25 77h28l17-8m196 56h15l12-6M189 172h69m-62-3v6m54-6v6"/>
     </g>
-    <path d="m58 129 137 41 82-43-137-40Z" fill="#30332f" opacity=".13"/>
+    <text x="25" y="69" fill="#505753" font-family="monospace" font-size="7" letter-spacing="1">FIG. 03</text>
 
-    <g transform="matrix(1 .29 -.8 .43 135 86)">
-      <path d="M0 6 6 0h120l12 12v76l-5 5H0Z" transform="translate(0 7)" fill="#737873"/>
-      <path d="M0 6 6 0h120l12 12v76l-5 5H0Z" fill="#aaaea7" stroke="#565b56"/>
-      <path d="M15 74h48m-48 7h65m12 0h24m-24-7h31" fill="none" stroke="#424843" stroke-width="1.4"/>
-      <circle cx="126" cy="78" r="3" fill="#ed9d57" stroke="#5a4a3b"/>
+    <g transform="matrix(1 .4 -.8 .4 118 71)" stroke="#58635a" stroke-width="1.2">
+      <path d="M6 0h144l8 8v64l-6 6H0V6Z" fill="#9da69d"/>
+      <path d="M20 42h46m-46 8h63m-63 8h36m42-16h34m-34 8h25m-25 8h34" fill="none"/>
+      <path d="M133 61h8v7h-8Z" fill="#9b5d30" stroke="none"/>
     </g>
-    <g transform="matrix(1 .29 -.8 .43 135 55)">
-      <path d="M0 6 6 0h120l12 12v76l-5 5H0Z" transform="translate(0 6)" fill="#999d96"/>
-      <path d="M0 6 6 0h120l12 12v76l-5 5H0Z" fill="#d3d5ce" stroke="#6c726b"/>
-      <g fill="none" stroke="#515950" stroke-width="1.2">
-        <path d="M12 73h26l9 8h23l11-12h36m-105 14h22l11 7h28l9-9h35"/>
-        <circle cx="121" cy="70" r="3"/><circle cx="121" cy="81" r="3"/>
-      </g>
+    <g transform="matrix(1 .4 -.8 .4 118 44)" stroke="#68746b" stroke-width="1.2">
+      <path d="M6 0h144l8 8v64l-6 6H0V6Z" fill="#c7cdc4"/>
+      <path d="M17 45h28l12 12h36l12-12h34m-122 9h24l12 12h44l12-12h30" fill="none"/>
+      <path d="M136 42h6v6h-6Zm0 9h6v6h-6Z" fill="#c7cdc4"/>
     </g>
-    <g transform="matrix(1 .29 -.8 .43 135 24)">
-      <path d="M0 6 6 0h120l12 12v76l-5 5H0Z" transform="translate(0 5)" fill="#a4a7a0"/>
-      <path d="M0 6 6 0h120l12 12v76l-5 5H0Z" fill="url(#vera-worksheet-face)" stroke="#777e75"/>
-      <path d="M11 11h111v70H11Z" fill="none" stroke="#999d95" stroke-width=".8"/>
-      <path d="M21 68h31m-31 7h57m13-7h18m-18 7h18" fill="none" stroke="#555e56" stroke-width="1.5"/>
-      <path d="M25 20h25v34H25Z" fill="#dfdfd8" stroke="#858b82"/>
-      <circle cx="38" cy="37" r="8" fill="none" stroke="#666d63"/>
-      <path d="M38 25v24m-12-12h24M61 25h42m-42 9h48m-48 9h30m-30 9h39" stroke="#777e75" stroke-width="1.2"/>
-      <path d="M90 43h19" stroke="#b4642f" stroke-width="2"/>
-      <g fill="#70776e" stroke="#f3f3ea" stroke-width=".9">
-        <circle cx="7" cy="12" r="3"/><circle cx="7" cy="81" r="3"/>
-        <circle cx="130" cy="17" r="3"/><circle cx="130" cy="81" r="3"/>
-      </g>
+    <g transform="matrix(1 .4 -.8 .4 118 17)" stroke="#67736a" stroke-width="1.2">
+      <path d="M6 0h144l8 8v64l-6 6H0V6Z" fill="#eef0e9"/>
+      <path d="M11 11h136v56H11Z" fill="none" stroke-width=".85"/>
+      <path d="M22 20h44v38H22Z" fill="#e0e5dc"/>
+      <path d="M28 39h32M44 24v30" fill="none" stroke-width=".8"/>
+      <path d="m44 28 11 11-11 11-11-11Z" fill="none"/>
+      <path d="M80 24h47m-47 9h53m-53 9h27m-27 9h40m-40 9h26" fill="none"/>
+      <path d="M113 42h19" stroke="#8e5126" stroke-width="1.8"/>
+      <path d="M146 3v9h9" fill="none" stroke-width=".85"/>
     </g>
-    <circle cx="57" cy="58" r="2" fill="#b4642f"/>
+    <path d="M51 77h4" stroke="#945627" stroke-width="1.6"/>
   </symbol>
 
   <symbol id="correction" viewBox="0 0 320 190">
-    <defs>
-      <linearGradient id="vera-correction-field" x2="1" y2="1">
-        <stop stop-color="#2a2d2d"/><stop offset="1" stop-color="#171919"/>
-      </linearGradient>
-      <linearGradient id="vera-correction-plate" x2=".75" y2="1">
-        <stop stop-color="#4d5150"/><stop offset="1" stop-color="#303332"/>
-      </linearGradient>
-    </defs>
-    <rect width="320" height="190" fill="url(#vera-correction-field)"/>
-    <g fill="none" stroke="#8f9692" stroke-width=".7">
-      <path d="M17 33V17h16m254 0h16v16m0 124v16h-16m-254 0H17v-16"/>
-      <path d="M30 143h73l19-15m76-70 19-15h73"/>
-      <path d="M23 95h274M77 29v132m166-132v132" stroke-dasharray="2 4" opacity=".64"/>
+    <g fill="none" stroke="#69766c" stroke-width=".75">
+      <path d="M18 32V18h14m256 0h14v14m0 126v14h-14m-256 0H18v-14" opacity=".6"/>
+      <path d="M24 95h272M77 43v104m166-104v104" stroke-dasharray="2 4" opacity=".65"/>
+      <path d="M30 145h58m-48-3v6m40-6v6m130-96 12-12h66"/>
     </g>
-    <g fill="#151717" stroke="#1e2020" stroke-width="1.25">
-      <path d="M32 57h90l13 13v54l-11 13H35l-13-13V70Z" transform="translate(0 4)"/>
-      <path d="M199 57h90l13 13v54l-11 13h-89l-13-13V70Z" transform="translate(0 4)"/>
+    <text x="31" y="40" fill="#505753" font-family="monospace" font-size="7" letter-spacing="1">FIG. 04</text>
+
+    <g fill="#e5e8e1" stroke="#515e55" stroke-width="1.1">
+      <path d="M36 61h82l10 10v48l-10 10H36l-10-10V71Z"/>
+      <path d="M202 61h82l10 10v48l-10 10h-82l-10-10V71Z"/>
     </g>
-    <g fill="url(#vera-correction-plate)" stroke="#8e9691" stroke-width="1">
-      <path d="M32 57h90l13 13v54l-11 13H35l-13-13V70Z"/>
-      <path d="M199 57h90l13 13v54l-11 13h-89l-13-13V70Z"/>
+    <g fill="none" stroke="#819084" stroke-width=".8">
+      <path d="M42 70h70l7 7v36l-7 7H42l-7-7V77Z"/>
+      <path d="M208 70h70l7 7v36l-7 7h-70l-7-7V77Z"/>
     </g>
-    <g fill="none" stroke="#aeb5b1" stroke-width=".9" opacity=".64">
-      <path d="M42 70h73l7 7v41l-7 7H42l-7-7V77Z"/>
-      <path d="M209 70h73l7 7v41l-7 7h-73l-7-7V77Z"/>
-      <path d="M30 74h5m87 0h5m-97 47h5m87 0h5m70-47h5m87 0h5m-97 47h5m87 0h5"/>
+    <g fill="#e5e8e1" stroke="#515e55" stroke-width="1.1">
+      <path d="M44 92h6v6h-6Zm60 0h6v6h-6Zm106 0h6v6h-6Zm60 0h6v6h-6Z"/>
+      <path d="m77 86 9 9-9 9-9-9Z"/>
     </g>
-    <g fill="#252827" stroke="#bfc4c0" stroke-width="1.25">
-      <circle cx="78" cy="97" r="11"/><circle cx="245" cy="97" r="11"/>
-      <circle cx="45" cy="97" r="3.5"/><circle cx="112" cy="97" r="3.5"/>
-      <circle cx="212" cy="97" r="3.5"/><circle cx="279" cy="97" r="3.5"/>
-    </g>
-    <g fill="none" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M50 97h16m24 0h17" stroke="#d3d7d4" stroke-width="2.25"/>
-      <path d="m74 93 8 8m0-8-8 8" stroke="#ed9d57" stroke-width="1.6"/>
-      <path d="M217 97h8l10-16h20l10 16h9" stroke="#ed9d57" stroke-width="2.25"/>
-      <path d="M148 97h24m-6-6 6 6-6 6" stroke="#d7dcd7" stroke-width="1.5"/>
+    <g fill="none">
+      <path d="M50 95h18m18 0h18m36 0h40m-7-7 7 7-7 7" stroke="#515e55" stroke-width="1.4"/>
+      <path d="m74 92 6 6m0-6-6 6m142-3h11l11-11h10l11 11h11" stroke="#8b5129" stroke-width="1.6"/>
+      <path d="M227 95h32" stroke="#69766c" stroke-width=".8" stroke-dasharray="2 3"/>
     </g>
   </symbol>
 </svg>
