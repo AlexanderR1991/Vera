@@ -1,0 +1,43 @@
+---
+import InquiryComparison from "./InquiryComparison.astro";
+import {inquiryTools} from "../lib/inquiry-tools.mjs";
+
+const {lang = "de"} = Astro.props;
+const en = lang === "en";
+---
+<section class="inquiry-tools" id="inquiry-tools" aria-labelledby="inquiry-tools-title">
+  <h2 id="inquiry-tools-title">{en ? "What would you like to do?" : "Was möchtest du tun?"}</h2>
+  <p class="workbench-help">{en
+    ? "Choose a tool. Its result can help you with the next one."
+    : "Wähle ein Werkzeug. Mit seinem Ergebnis kannst du im nächsten weiterarbeiten."}
+    <a href="#inquiry-question">{en ? "Go straight to my question" : "Direkt zu meiner Frage"}</a>
+  </p>
+  {inquiryTools.map(tool => {
+    const copy = tool[lang];
+    const next = inquiryTools.find(candidate => candidate.id === tool.next);
+    return (
+      <details class="tool-choice">
+        <summary>{copy.title}</summary>
+        <p class="tool-question" id={"tool-" + tool.id} tabindex="-1">{copy.question}</p>
+        <p class="workbench-help">{copy.example}</p>
+        {tool.id === "compare" && <InquiryComparison lang={lang} />}
+        <div class="workbench-links">
+          <a href={"#inquiry-" + tool.input}>{copy.input}</a>
+          <a href={"#inquiry-" + tool.output}>{copy.output}</a>
+          {next && <a href={"#tool-" + next.id}>{en ? "Next tool · " : "Nächstes Werkzeug · "}{next[lang].title}</a>}
+        </div>
+      </details>
+    );
+  })}
+</section>
+
+<style>
+  .inquiry-tools { max-width: 52rem; margin-bottom: 2rem; }
+  .inquiry-tools h2 { font-size: clamp(1.5rem, 3vw, 2rem); }
+  .inquiry-tools > p a { color: var(--gold); text-decoration: underline; text-underline-offset: .2em; }
+  .inquiry-tools > .tool-choice { margin: 0; padding: 0; }
+  .tool-choice > summary { min-height: 44px; padding: .75rem 0; }
+  .tool-choice > .tool-question { margin: .25rem 0; color: var(--text); }
+  .tool-choice > .workbench-links { margin-block: .75rem 1.25rem; }
+  .tool-choice:last-of-type { border-bottom: 1px solid var(--line); }
+</style>

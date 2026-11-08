@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/SiteLayout.astro";
+import InquiryTools from "./InquiryTools.astro";
 import project from "../../public/project.json" with {type: "json"};
 import {pathFor} from "../lib/paths.mjs";
 import {rulePack} from "../lib/rule-pack.mjs";
@@ -46,8 +47,9 @@ const example = en ? {
     <nav class="workbench-links" aria-label={t("Zur Orientierung","Explore the project")}><a href={pathFor(lang,"erkenntnisnavigator")}>{t("Passende Ansätze finden","Find possible approaches")} ↗</a><a href={pathFor(lang,"methode")}>{t("Methode verstehen","Understand the method")} ↗</a><a href={pathFor(lang,"fragen-und-ki-prompt")}>{t("Mit KI weiterarbeiten","Continue with AI")} ↗</a><a href={pathFor(lang,"projektstatus")}>{t("Stand von 1.0","Status of 1.0")} ↗</a></nav>
   </header>
   <noscript><p class="workbench-data-note">{t("Die Fragen und Hinweise kannst du auch ohne JavaScript lesen und in ein eigenes Dokument übernehmen. Vorschau, Dateiexport und Browserspeicher benötigen JavaScript.","You can read the questions and guidance without JavaScript and copy them into your own document. Preview, file export and browser storage require JavaScript.")}</p></noscript>
+  <InquiryTools lang={lang} />
   <div class="workbench-grid">
-    <form aria-label={t("Prüfblatt ausfüllen","Complete the worksheet")}>
+    <form data-inquiry-form aria-label={t("Prüfblatt ausfüllen","Complete the worksheet")}>
       <fieldset class="workbench-simple"><legend>{t("Hier anfangen · alle Felder freiwillig", "Start here · every field is optional")}</legend>
         {simpleFields.map(item=><div class="workbench-field"><label for={"inquiry-"+item.key}>{item.label}</label><p id={"hint-"+item.key}>{item.hint}</p><textarea id={"inquiry-"+item.key} name={item.key} rows={3} maxlength="12000" aria-describedby={"hint-"+item.key}></textarea></div>)}
       </fieldset>

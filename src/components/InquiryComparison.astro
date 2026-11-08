@@ -1,0 +1,99 @@
+---
+const {lang = "de"} = Astro.props;
+const t = (de, en) => lang === "en" ? en : de;
+---
+<section class="comparison" data-inquiry-comparison data-lang={lang} aria-labelledby="comparison-title">
+  <h3 id="comparison-title">{t("Zwei Möglichkeiten prüfen", "Check two options")}</h3>
+  <p class="workbench-help">{t("Wähle eine Bedingung, die für dich unbedingt erfüllt sein muss. Trage ein, was du über jede Möglichkeit weißt. Ändert sich die Bedingung, prüfst du beide erneut.", "Choose one requirement that matters enough to rule an option out. Enter what you know about each option. If the requirement changes, check both options again.")}</p>
+  <div data-comparison-controls hidden>
+    <label class="workbench-label" for="comparison-criterion">{t("Was muss unbedingt erfüllt sein?", "What requirement must each option meet?")}</label>
+    <input id="comparison-criterion" type="text" maxlength="200" autocomplete="off" />
+    <div class="comparison-options">
+      {[1, 2].map(n => <fieldset data-comparison-option>
+        <legend>{t("Möglichkeit", "Option")} {n}</legend>
+        <label class="workbench-label" for={`comparison-name-${n}`}>{t("Wie heißt sie?", "What is its name?")}</label>
+        <input id={`comparison-name-${n}`} type="text" maxlength="100" autocomplete="off" />
+        <label class="workbench-label" for={`comparison-answer-${n}`}>{t("Erfüllt sie die Bedingung?", "Does it meet the requirement?")}</label>
+        <select id={`comparison-answer-${n}`} disabled>
+          <option value="open">{t("Offen", "Open")}</option>
+          <option value="yes">{t("Ja", "Yes")}</option>
+          <option value="no">{t("Nein", "No")}</option>
+        </select>
+        <p class="workbench-help comparison-result" data-result role="status"></p>
+      </fieldset>)}
+    </div>
+    <p class="workbench-help">{t("Übernimm deine Einschätzung ins Prüfblatt, wenn du sie dort speichern oder exportieren möchtest. Beim Öffnen eines anderen Blatts oder beim Leeren der Felder wird der Vergleich zurückgesetzt.", "Add your assessment to the worksheet if you want to save or export it there. Opening a different worksheet or clearing the fields resets the comparison.")}</p>
+    <button type="button" data-transfer disabled>{t("Meine Einschätzung ins Prüfblatt übernehmen", "Add my assessment to the worksheet")}</button>
+    <p data-transfer-status class="workbench-help" role="status"></p>
+  </div>
+  <noscript><p class="workbench-help">{t("Du kannst deine Einschätzung auch direkt im Prüfblatt festhalten.", "You can also write your assessment directly in the worksheet.")}</p></noscript>
+</section>
+
+<style>
+  .comparison { margin-block: 1.25rem; }
+  .comparison-options { display: grid; gap: 0 1.25rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); }
+  .comparison input { box-sizing: border-box; width: 100%; min-height: 44px; margin-bottom: 1rem; padding: .65rem .85rem; border: 1px solid #746d61; border-radius: 0; color: var(--text); background: #111719; font: inherit; }
+  .comparison :is(input, select, button):focus-visible { outline: 2px solid var(--gold-bright); outline-offset: 2px; }
+  .comparison-result { min-height: 1.65em; }
+</style>
+
+<script>
+  import {assessOption, comparisonNote, comparisonResults, appendComparison} from "../lib/inquiry-comparison.mjs";
+
+  const root = document.querySelector<HTMLElement>("[data-inquiry-comparison]");
+  if (root) {
+    const sheet = root.closest("[data-inquiry-workbench]")!;
+    const support = sheet.querySelector<HTMLTextAreaElement>("#inquiry-support")!;
+    const criterion = root.querySelector<HTMLInputElement>("#comparison-criterion")!;
+    const button = root.querySelector<HTMLButtonElement>("[data-transfer]")!;
+    const status = root.querySelector<HTMLElement>("[data-transfer-status]")!;
+    const lang = root.dataset.lang === "en" ? "en" : "de";
+    const t = (de: string, en: string) => lang === "en" ? en : de;
+    const rows = [...root.querySelectorAll("[data-comparison-option]")].map(row => ({
+      name: row.querySelector("input")!,
+      answer: row.querySelector("select")!,
+      result: row.querySelector<HTMLElement>("[data-result]")!,
+      previous: assessOption("", "", "open", null)
+    }));
+    let note = "";
+    function update() {
+      const options = rows.map(row => {
+        const option = assessOption(criterion.value, row.name.value, row.answer.value, row.previous);
+        row.answer.value = option.answer;
+        row.answer.disabled = !option.criterion || !option.name;
+        const result = row.answer.disabled ? "" : comparisonResults[lang][option.answer];
+        if (row.result.textContent !== result) row.result.textContent = result;
+        row.previous = option;
+        return option;
+      });
+      note = comparisonNote(options, lang);
+      button.disabled = !note;
+      status.textContent = "";
+    }
+    criterion.addEventListener("input", update);
+    for (const row of rows) {
+      row.name.addEventListener("input", update);
+      row.answer.addEventListener("change", update);
+    }
+    sheet.addEventListener("inquiry-sheet-change", () => {
+      criterion.value = "";
+      for (const row of rows) row.name.value = "";
+      update();
+    });
+    button.addEventListener("click", () => {
+      const result = appendComparison(support.value, note, support.maxLength);
+      if (result.status === "added") {
+        support.value = result.value;
+        support.closest("details")!.open = true;
+        support.dispatchEvent(new Event("input", {bubbles: true}));
+        status.textContent = t("Deine Einschätzung steht jetzt unter „Was spricht dafür?“.", "Your assessment is now under “What supports it?”.");
+      } else if (result.status === "duplicate") {
+        status.textContent = t("Diese Einschätzung steht bereits im Prüfblatt.", "This assessment is already in your worksheet.");
+      } else if (result.status === "full") {
+        status.textContent = t("Der Platz im Feld „Was spricht dafür?“ reicht nicht für die Einschätzung. Du kannst das Feld kürzen und es erneut versuchen.", "There is too little space under “What supports it?”. Shorten that field and try again.");
+      }
+    });
+    update();
+    root.querySelector<HTMLElement>("[data-comparison-controls]")!.hidden = false;
+  }
+</script>
