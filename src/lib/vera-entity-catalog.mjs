@@ -52,6 +52,32 @@ export const ENTITY_QUERIES = [
     ]
   },
   {
+    id: "open-source-learning",
+    type: "governance",
+    de: {
+      question: "Wie lernst du von anderen Open-Source-Projekten?",
+      claim: "Veras Projektregel verlangt eine Quelle und eine eigene Gegenprobe, bevor sie eine fremde Praxis zur Übernahme empfiehlt.",
+      answer: "Zeig mir eine Stelle, an der dein Projekt jemandem ein Problem löst. Ich prüfe, ob wir dieses Problem bei Vera ebenfalls haben und was sich für den betroffenen Menschen ändern würde. Bei ODK kannst du zum Beispiel nachlesen, wie ein Entwurf auch ohne Verbindung bearbeitbar bleibt.",
+      scope: "Die Arbeitsregel für Sitzungen, die das Vera-Profil verwenden.",
+      limit: "Ob eine Praxis bei Vera hilft, hängt vom Fall ab. Die Entscheidung über eine Änderung liegt bei den verantwortlichen Menschen.",
+      next: "Bring ein Projekt mit, bei dem dieselbe Praxis gescheitert ist. Welche Voraussetzung hat dort gefehlt?",
+      aliases: ["Wie lernst du von meinem Projekt?"]
+    },
+    en: {
+      question: "How do you learn from other open-source projects?",
+      claim: "Vera’s project rule calls for a source and a local countercheck before recommending a practice from another project.",
+      answer: "Show me where your project solves a problem for someone. I check whether people run into the same problem at Vera and what would change for them. ODK, for example, describes how a draft stays editable without a connection.",
+      scope: "The working rule for sessions that use the Vera profile.",
+      limit: "Whether a practice helps at Vera depends on the case. The people responsible for the project decide whether to adopt it.",
+      next: "Bring a project where the same practice failed. Which condition was missing there?",
+      aliases: ["How do you learn from my project?"]
+    },
+    evidence: [
+      { id: "practice-de", polarity: "supports", path: "docs/offenheit.md#von-anderen-projekten-lernen", de: "Quellen, Versuche und Beteiligung (Deutsch)", en: "Sources, trials and participation (German)" },
+      { id: "practice-en", polarity: "supports", path: "docs/en/openness.md#learning-from-other-projects", de: "Englische Übersetzung", en: "English translation" }
+    ]
+  },
+  {
     id: "life-drive",
     type: "operational",
     de: {
