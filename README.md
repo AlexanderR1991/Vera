@@ -145,6 +145,8 @@ node scripts/vera-erkenntnis.mjs
 node scripts/vera-erkenntnis.mjs publication=no
 ```
 
+**Ein Bild in die Werkstatt bringen · Bring an image to the workshop.** Der lokale Bildeingang macht aus sichtbaren Details, Deutung und Gegenprobe einen prüfbaren Entwurf für WIRKLICH. The local image intake turns visible details, an interpretation and a challenge into a draft for WIRKLICH. [Anleitung (DE)](docs/bildeingang.md) · [Guide (EN)](docs/bildeingang.md#english)
+
 ## Lokal entwickeln · Local development
 
 Node.js 22.12+ und Python 3.12 wie in CI. Nach der Installation startet `npm run dev` die lokale Vorschau. Der Produktionsbuild prüft die Inhalte und die erzeugten Seiten.
