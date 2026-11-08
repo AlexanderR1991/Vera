@@ -36,6 +36,16 @@ Eine zweite freiwillige Runde an einem später vereinbarten Termin kann einen an
 
 In einer eigenen freiwilligen Navigatoraufgabe erhält die Person nur die Frage „Unser Dorf hat im Durchschnitt genug zu essen. Hat damit jeder Haushalt genug?“ Beobachte, ob sie einen Einwand findet und in eigenen Worten erklären kann, wie eine ungleiche Verteilung denselben Durchschnitt ergeben kann. Notiere benötigte Hilfe und Abbrüche auch dann, wenn keine Erklärung zustande kommt. Erreichbarkeit, selbstständiges Finden und inhaltliches Verstehen werden getrennt ausgewertet. Die Aufgabe ist ein Vorschlag für den Bedienpilot und darf später nicht als ungesehene Vergleichsaufgabe dienen. [Erfahrung eines DebateGraph-Anwenders](methodenkritik.md)
 
+## Erstbesuch auf der Startseite
+
+Öffne für eine freiwillige Person, die Vera noch nicht kennt, die Startseite in ihrer Sprache. Gib ihr nur diese Aufgabe. „Finde heraus, was Vera heute kann. Stell dir vor, ein Satz ist unklar. Wie würdest du das jemandem zeigen? Du möchtest kein Konto anlegen.“ Lass sie selbst entscheiden, wo sie beginnt. Eine Rückmeldung an das Projekt braucht sie für die Probe nicht abzuschicken.
+
+Frage anschließend „Wer kann deinen Hinweis jetzt sehen?“ Halte mit Einverständnis den ersten unklaren Schritt fest. Unterscheide, ob die Person eine Fähigkeit in eigenen Worten beschreiben konnte, ob sie ohne Hilfe einen Entwurf sichern konnte und ob ihr klar war, wer den Text erhalten hat. Ein Abbruch ist ein Ergebnis. Notiere nur Sprachfassung, getesteten Stand und die beobachtete Hürde. Wiederhole die Aufgabe nach einer Korrektur mit einer anderen Person.
+
+**English.** With a volunteer who is new to Vera, open the homepage in their language. Use this prompt. “Find out what Vera can do today. Imagine a sentence is unclear. How would you show someone? You want to do this without creating an account.” Let them choose where to start. They can stop before sending anything.
+
+Then ask “Who can see your note now?” With permission, record the first point of difficulty. Observe separately whether the person can explain a capability, save a draft without help, and tell who has received it. Record only the language, the version tried and the obstacle, including where they stopped. Try a revision with a different person.
+
 ## Verantwortung vor breiter Einladung
 
 Der erste Pilot ist eine begrenzte, persönlich betreute Runde. Die Person kann jederzeit abbrechen und entscheidet, ob eine anonyme Rückmeldung festgehalten werden darf. Niemand muss persönliche Erlebnisse erzählen. Keine ungefragte Aufzeichnung, keine Veröffentlichung persönlicher Aussagen. Eine vertrauliche Beschwerdestelle und ein betreuter öffentlicher Beitragsweg ohne GitHub sind noch nicht eingerichtet; vor einer breiten Community-Einladung braucht es tatsächlich zugesagte Zuständigkeiten gemäß [Governance](community-governance.md).

@@ -6,7 +6,7 @@
 <meta property="og:description" content="Ein offener Denkversuch: nicht glauben, sondern prüfen.">
 <title>Mitwirken · Grundtext des Wirklichen</title>
 <link rel="icon" href="assets/signet.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/style.css">
-<script src="assets/site.js" defer></script></head>
+<script src="assets/site.js" defer></script><script src="src/client/site.js" defer></script></head>
 <body class=""><a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
 <header class="site-header"><div class="site-header__inner">
 <a class="brand" href="index.html" aria-label="Grundtext des Wirklichen – Startseite"><img src="assets/signet.svg" alt="" width="38" height="38"><span class="brand__name">GRUNDTEXT <span>DES WIRKLICHEN</span><small>Ein offenes Erkenntnisprojekt</small></span></a>
@@ -18,9 +18,25 @@
 <section id="rueckmeldung" class="page-intro page-intro--compact"><div class="container">
 <p class="section-kicker">CONCORDIA / V</p><h1>Bitte hilf mir besser zu werden.</h1>
 <p class="page-intro__lead">Was ist unklar, fehlt oder funktioniert nicht? Sag mir, wo es hakt. Ein Satz reicht für den Anfang.</p>
-<p><a class="button button--gold" href="https://github.com/AlexanderR1991/Vera/issues/new?template=rueckmeldung.yml">Rückmeldung auf GitHub geben ↗</a></p>
+<p><a class="button button--gold" href="#entwurf">Rückmeldung ohne Konto vorbereiten</a> <a class="subtle-link" href="https://github.com/AlexanderR1991/Vera/issues/new?template=rueckmeldung.yml">Rückmeldung auf GitHub geben ↗</a></p>
 <p class="small-note">Dein Beitrag wird öffentlich, wenn du ihn mit deinem GitHub-Konto absendest. Lass private Angaben weg.</p>
 </div></section>
+<section id="entwurf" class="section" aria-labelledby="entwurf-heading"><div class="container contribute-grid">
+<div><p class="section-kicker">DEIN GEDANKE ALS ENTWURF</p><h2 id="entwurf-heading">Wo bist du hängen geblieben?</h2>
+<p>Ein Satz und die Stelle auf der Website genügen. Du kannst deine Rückmeldung auf deinem Gerät als Textdatei speichern.</p>
+<p>Wenn du möchtest, gib den Text einer Person mit GitHub-Konto. Vereinbart, welchen Wortlaut sie öffentlich einreichen darf. Erst dann erreicht er das Projekt.</p>
+<p class="small-note">Bitte keine vertraulichen oder personenbezogenen Informationen Dritter eingeben.</p></div>
+<div><form class="issue-form" data-feedback-draft hidden>
+<label>BETROFFENE STELLE <input name="stelle" placeholder="z. B. These 08 oder Lesestück 01" maxlength="150"></label>
+<label>ART DES BEITRAGS <select name="art"><option>Frage</option><option>Einwand</option><option>Korrekturvorschlag</option><option>Quellenhinweis</option></select></label>
+<label>DEIN GEDANKE <textarea name="gedanke" rows="6" maxlength="5000" placeholder="Welche Aussage möchtest du prüfen? Was spricht dafür oder dagegen?" required></textarea></label>
+<button class="button button--gold" type="submit">Textdatei speichern (.txt)</button>
+<p class="form-note" aria-live="polite" data-form-message></p>
+<p>Beim Öffnen des Entwurfs erhält GitHub deine Eingaben. Dort kannst du sie prüfen und mit deinem GitHub-Konto veröffentlichen.</p>
+<button class="button" type="submit" data-open-issue>Entwurf auf GitHub öffnen ↗</button>
+</form>
+<p class="small-note">Auf Papier oder in einer Notiz-App reichen zwei Zeilen: „Hier war ich …“ und „An dieser Stelle …“. Auch diesen Entwurf kannst du selbst weitergeben.</p>
+</div></div></section>
 <section class="section section--paper community-start" aria-labelledby="community-heading"><div class="container">
 <div class="section-heading"><div><p class="section-kicker">EIN OFFENES WERK</p>
 <h2 id="community-heading">Du brauchst keine<br><em>Programmierkenntnisse.</em></h2></div>
@@ -33,8 +49,6 @@
 <p class="community-start__note">Wenn du eine Änderung vorschlägst, benenne die Stelle und erkläre, warum du sie anders formulieren würdest.</p>
 </div></section>
 <section class="section section--paper"><div class="container"><div class="section-heading"><div><p class="section-kicker">DREI MÖGLICHKEITEN</p><h2>Wie du etwas<br><em>beitragen kannst.</em></h2></div><p>Eine konkrete Frage ist oft wertvoller als ein allgemeines Urteil. Unsere Diskussionen sollen sachlich, respektvoll und offen für Korrekturen bleiben.</p></div><div class="participate-grid"><article><span>01</span><h3>Frage stellen</h3><p>Wo ist etwas unverständlich? Welche Begriffe fehlen? Ist ein Beispiel irreführend?</p></article><article><span>02</span><h3>Einwand formulieren</h3><p>Welche Aussage ist falsch, zu stark oder unbegründet? Welche Quellen sprechen dagegen?</p></article><article><span>03</span><h3>Text verbessern</h3><p>Schlage eine klarere Formulierung, einen besseren Beleg oder eine transparente Einschränkung vor.</p></article></div></div></section>
-<section class="section"><div class="container contribute-grid"><div><p class="section-kicker">DEIN GEDANKE ALS ENTWURF</p><h2>Beginne mit<br><em>einem Einwand.</em></h2><p>Beim Öffnen des Entwurfs erhält GitHub deine Eingaben. Dort kannst du sie prüfen und mit deinem GitHub-Konto veröffentlichen.</p><p class="small-note">Bitte keine vertraulichen oder personenbezogenen Informationen Dritter eingeben.</p></div>
-<form class="issue-form" data-issue-builder hidden><label>BETROFFENE STELLE <input name="stelle" placeholder="z. B. These 08 oder Lesestück 01" maxlength="150"></label><label>ART DES BEITRAGS <select name="art"><option>Frage</option><option>Einwand</option><option>Korrekturvorschlag</option><option>Quellenhinweis</option></select></label><label>DEIN GEDANKE <textarea name="gedanke" rows="6" minlength="10" maxlength="5000" placeholder="Welche Aussage möchtest du prüfen? Was spricht dafür oder dagegen?" required></textarea></label><button class="button button--gold" type="submit">Entwurf auf GitHub öffnen ↗</button><p class="form-note" aria-live="polite" data-form-message>Du veröffentlichst erst, wenn du den Beitrag auf GitHub bestätigst.</p></form><noscript><p>Ohne JavaScript kannst du deinen Beitrag direkt auf GitHub vorbereiten. <a class="subtle-link" href="https://github.com/AlexanderR1991/Vera/issues/new/choose">Beitragsvorlage auswählen ↗</a></p></noscript></div></section>
 <section class="section section--paper"><div class="container"><div class="section-heading"><div><p class="section-kicker">OFFENE WERKSTATT</p><h2>Unsere Regeln<br><em>für den Widerspruch.</em></h2></div><p>Wir prüfen Behauptungen ohne Menschen abzuwerten. Persönliche Angriffe, Einschüchterung und die Veröffentlichung privater Daten haben hier keinen Platz.</p></div><div class="link-tiles"><a href="https://github.com/AlexanderR1991/Vera/issues" target="_blank" rel="noopener noreferrer"><b>Offene Kritik ansehen</b><span>GitHub Issues ↗</span></a><a href="https://github.com/AlexanderR1991/Vera/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer"><b>Beitragsregeln lesen</b><span>Mitwirken ↗</span></a><a href="https://github.com/AlexanderR1991/Vera/blob/main/CODE_OF_CONDUCT.md" target="_blank" rel="noopener noreferrer"><b>Diskussionskodex lesen</b><span>Respekt und Grenzen ↗</span></a></div></div></section>
 
 <section class="section" id="unterstuetzen" aria-labelledby="support-heading"><div class="container">

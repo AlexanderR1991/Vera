@@ -25,18 +25,41 @@ proofButtons.forEach(btn=>btn.addEventListener("click",()=>{
  proofButtons.forEach(b=>{const on=b===btn;b.classList.toggle("is-active",on);b.setAttribute("aria-pressed",String(on));});
  proofCards.forEach(card=>{card.hidden=category!=="alle"&&card.dataset.kind!==category;});
 }));
-const form=document.querySelector("[data-issue-builder]");
-if(form)form.addEventListener("submit",e=>{
- e.preventDefault();if(!form.reportValidity())return;
- const data=new FormData(form),kind=String(data.get("art")||"").trim(),place=String(data.get("stelle")||"").trim(),thought=String(data.get("gedanke")||"").trim();
- if(thought.length<10)return;
- const title="["+kind+"] "+(place||(en?"General":"Allgemein"));
- const body=en?
- "## Contribution\n"+kind+"\n\n## Relevant passage\n"+(place||"General")+"\n\n## Question or objection\n"+thought+"\n\n## Sources and suggested revision\n[Optional]\n":
- "## Art des Beitrags\n"+kind+"\n\n## Betroffene Stelle\n"+(place||"Allgemein")+"\n\n## Gedanke / Einwand\n"+thought+"\n\n## Quellen und mögliche Korrektur\n[Optional ergänzen]\n";
- location.assign("https://github.com/AlexanderR1991/Vera/issues/new?title="+encodeURIComponent(title)+"&body="+encodeURIComponent(body));
-});
-if(form)form.hidden=false;
+const form=document.querySelector("[data-feedback-draft]");
+if(form){
+ const thoughtField=form.elements.gedanke;
+ thoughtField.addEventListener("input",()=>thoughtField.setCustomValidity(""));
+ form.addEventListener("submit",event=>{
+  event.preventDefault();
+  const thought=thoughtField.value.trim();
+  if(!thought){
+   thoughtField.setCustomValidity(en?"Write a short observation.":"Schreib eine kurze Beobachtung.");
+   thoughtField.reportValidity();
+   return;
+  }
+  const kind=form.elements.art.value;
+  const place=form.elements.stelle.value.trim()||(en?"General":"Allgemein");
+  const title="["+kind+"] "+place;
+  const body=en?
+   "## Contribution\n"+kind+"\n\n## Relevant passage\n"+place+"\n\n## Question or objection\n"+thought+"\n":
+   "## Art des Beitrags\n"+kind+"\n\n## Betroffene Stelle\n"+place+"\n\n## Gedanke / Einwand\n"+thought+"\n";
+  if(event.submitter?.hasAttribute("data-open-issue")){
+   location.assign("https://github.com/AlexanderR1991/Vera/issues/new?title="+encodeURIComponent(title)+"&body="+encodeURIComponent(body));
+   return;
+  }
+  const url=URL.createObjectURL(new Blob([body],{type:"text/plain;charset=utf-8"}));
+  const link=document.createElement("a");
+  link.href=url;
+  link.download=en?"vera-feedback.txt":"vera-rueckmeldung.txt";
+  document.body.append(link);
+  link.click();
+  link.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),30_000);
+  form.querySelector("[data-form-message]").textContent=en?
+   "Download started. Your feedback has not been sent.":"Download gestartet. Deine Rückmeldung wurde nicht versendet.";
+ });
+ form.hidden=false;
+}
 // The homepage filter only searches its own visible tiles; it is not a site-wide knowledge search.
 const boardFilter=document.querySelector("[data-board-filter]");
 if(boardFilter){
