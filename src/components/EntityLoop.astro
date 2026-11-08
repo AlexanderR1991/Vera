@@ -52,8 +52,9 @@ const steps=[
    <p>{demo.note[lang]}</p>
    <div class="entity-statement"><small>{t("Vorläufige These · Version","Provisional claim · version")} {snapshot.current_version}</small><p>{snapshot.current_statement}</p><small>{t("Ungeprüft · Kein Konsens erhoben · Kein Wahrheits- oder Moralwert","Unreviewed · Consensus not assessed · No truth or moral score")}</small></div>
    <h3>{t("Begründungen und Einwände","Reasons and objections")}</h3>
+   <p>{t("Einwände, die auf eine Entscheidung warten","Objections awaiting a decision")} · <strong data-open-objection-count>{snapshot.open_objection_ids.length}</strong></p>
    <ol class="entity-events" data-entity-events>
-    {record.events.map(event=><li><strong>{kinds[event.kind]}</strong><span>{event.text}</span><small>{event.origin} · V{event.based_on_version}</small></li>)}
+    {record.events.map(event=><li><strong>{kinds[event.kind]}</strong><span>{event.text}</span><small>{event.id} · V{event.based_on_version} · {event.origin}{snapshot.open_objection_ids.includes(event.id) && t(" · offen"," · open")}</small></li>)}
    </ol>
    <form data-entity-form data-seed={JSON.stringify({initial,events:demo.events[lang]})} data-lang={lang} class="entity-form">
     <h3>{t("Füge einen Gedanken hinzu","Add a thought")}</h3>
@@ -76,6 +77,7 @@ const steps=[
    <p>{t("Keine unabhängige Wirksamkeitsprüfung, kein aktiver Fachagentenschwarm, kein verifizierter menschlicher Review in dieser statischen Demo und kein kalibrierter Richtungsindex. Offizielle Änderungen brauchen einen verantworteten Prozess; auch unsere Regeln dürfen angegriffen werden.","There is no independent effectiveness evaluation, active specialist swarm, authenticated human review in this static demo or calibrated direction index. Official changes require an accountable process; even these rules remain challengeable.")}</p>
    <div class="entity-links">
     <a href={project.repository+"/blob/main/docs/entitaet.md"}>{t("Architektur und Gegenargumente","Architecture and objections")} ↗</a>
+   <a href={project.repository+"/blob/main/docs/mathematische-struktur.md"}>{t("Veras mathematische Modelle","Vera’s mathematical models")} ↗</a>
     <a href={base+"protocol/entity-loop.v0.json"}>{t("Maschinenlesbares Protokoll","Machine-readable protocol")} ↗</a>
     <a href={pathFor(lang,"werkstatt")}>{t("Meine eigene Frage prüfen","Examine my own question")} →</a>
     <a href={project.repository+"/issues/new?template=kritik.yml"}>{t("Das Modell angreifen","Challenge the model")} ↗</a>
@@ -84,13 +86,14 @@ const steps=[
  </article>
 </Layout>
 <script>
- import {createEntityRecord,addEntityDraft} from "../lib/entity-core.mjs";
+ import {createEntityRecord,addEntityDraft,inspectEntityRecord} from "../lib/entity-core.mjs";
  for(const form of document.querySelectorAll("[data-entity-form]")){
   const {initial,events}=JSON.parse(form.dataset.seed);
   let record=createEntityRecord(initial);
   for(const entry of events)record=addEntityDraft(record,entry);
   const feedback=form.querySelector("[data-entity-feedback]");
   const list=document.querySelector("[data-entity-events]");
+  const count=document.querySelector("[data-open-objection-count]");
   const lang=form.dataset.lang;
   const labels=lang==="en"
    ? {objection:"Objection",perspective:"Perspective",evidence_hint:"Source hint",revision_proposal:"Revision proposal"}
@@ -106,10 +109,14 @@ const steps=[
     const li=document.createElement("li"),strong=document.createElement("strong"),span=document.createElement("span"),small=document.createElement("small");
     strong.textContent=labels[kind];
     span.textContent=text;
-    small.textContent="human_submission · V"+record.current_version;
+    const entry=record.events.at(-1);
+    const openIds=inspectEntityRecord(record).open_objection_ids;
+    small.textContent=entry.id+" · V"+entry.based_on_version+" · "+entry.origin;
+    if(openIds.includes(entry.id))small.textContent+=lang==="en"?" · open":" · offen";
+    count.textContent=String(openIds.length);
     li.append(strong,span,small);list.append(li);
     form.elements.namedItem("text").value="";
-    feedback.textContent=lang==="en"?added+" local drafts · no review or publication":added+" lokale Entwürfe · keine Prüfung oder Veröffentlichung";
+    feedback.textContent=lang==="en"?"Added locally · "+entry.id:"Lokal hinzugefügt · "+entry.id;
    }catch(error){feedback.textContent=error.message;}
   });
   form.querySelector("[data-entity-export]").addEventListener("click",()=>{

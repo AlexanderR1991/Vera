@@ -95,6 +95,10 @@ Ein Issue ist eine Einladung zur Untersuchung. Ein Pull Request ist ein Änderun
 
 Issues and PRs are public. Maintainers may request clarification, suggest revisions, or close contributions that do not match the project's scope or conduct rules. We cannot promise a response time.
 
+**Deinen Einwand wiederfinden.** Nach dem Einreichen führt der Link zum Issue zurück zum öffentlichen Verlauf. Stehen zwei Einwände im selben Issue, kann eine Entscheidung beispielsweise „Punkt 1 geändert, Punkt 2 offen“ mit der Begründung und dem Link zur betroffenen Fassung festhalten. Ein neuer Gegenfall kann in diesem Verlauf auf den betroffenen Punkt verweisen.
+
+**Following your objection.** After submission, the issue link takes you back to the public discussion. If one issue raises two objections, a decision can record “point 1 revised, point 2 open” with the reason and a link to the affected revision. Later counterexamples can refer to that specific point in the thread.
+
 ## 5. Grenzen und Rechte / Boundaries and rights
 
 - Keine persönlichen Informationen anderer Menschen, keine privaten Chats, keine unveröffentlichten privaten Manuskripte.

@@ -77,6 +77,78 @@ test("invalid inputs and source URLs fail closed", () => {
   assert.throws(() => addEntityDraft(seed(), {...objection, text: "a".repeat(2001)}), /invalid draft/);
 });
 
+const decision = {id: "H-001", at, based_on_version: 1, outcome: "retain", reviewer: "Test reviewer", rationale: "Reason for this particular test decision"};
+// In these unit tests this stub stands in for the trusted host.
+const permit = () => true;
+
+test("only linked objections leave the open set, including across a wording change", () => {
+  let record = addEntityDraft(seed(), objection);
+  record = addEntityDraft(record, {...objection, id: "E-002", origin: "human_submission"});
+  record = recordEntityDecision(record, {...decision, outcome: "revise", new_statement: "A correction still requires an effect check.", objection_ids: ["E-001"]}, permit);
+  assert.deepEqual(inspectEntityRecord(record).open_objection_ids, ["E-002"]);
+  record = addEntityDraft(record, {...objection, id: "E-003", based_on_version: 2});
+  assert.deepEqual(inspectEntityRecord(record).open_objection_ids, ["E-002", "E-003"]);
+  record = recordEntityDecision(record, {...decision, id: "H-002", based_on_version: 2, objection_ids: ["E-002"]}, permit);
+  assert.deepEqual(inspectEntityRecord(record).open_objection_ids, ["E-003"]);
+  assert.equal(record.events[1].based_on_version, 1);
+  assert.deepEqual(inspectEntityRecord(record).last_decision.objection_ids, ["E-002"]);
+});
+
+test("leave_open retains or reopens the named objections and later review is possible", () => {
+  let record = addEntityDraft(seed(), objection);
+  record = addEntityDraft(record, {...objection, id: "E-002"});
+  record = recordEntityDecision(record, {...decision, objection_ids: ["E-001"]}, permit);
+  record = recordEntityDecision(record, {...decision, id: "H-002", outcome: "leave_open", objection_ids: ["E-002", "E-001"]}, permit);
+  assert.deepEqual(inspectEntityRecord(record).open_objection_ids, ["E-001", "E-002"]);
+  record = recordEntityDecision(record, {...decision, id: "H-003", objection_ids: ["E-001"]}, permit);
+  assert.deepEqual(inspectEntityRecord(record).open_objection_ids, ["E-002"]);
+  assert.deepEqual(record.events[3].objection_ids, ["E-002", "E-001"]);
+});
+
+test("legacy decisions keep all objections visible and new links are bound to the authorized action", () => {
+  const before = addEntityDraft(seed(), objection);
+  const legacy = recordEntityDecision(before, decision, permit);
+  delete legacy.events.at(-1).objection_ids;
+  delete legacy.events.at(-1).record_id;
+  assert.deepEqual(inspectEntityRecord(legacy).open_objection_ids, ["E-001"]);
+  assert.deepEqual(inspectEntityRecord(legacy).last_decision.objection_ids, []);
+  const ids = ["E-001"];
+  const proposal = {...decision, outcome: "narrow", new_statement: "Narrower claim", objection_ids: ids};
+  const reviewed = recordEntityDecision(before, proposal, payload => {
+    assert.equal(payload.record_id, before.id);
+    assert.equal(payload.based_on_version, 1);
+    assert.equal(payload.new_statement, proposal.new_statement);
+    assert.deepEqual(payload.objection_ids, ["E-001"]);
+    return true;
+  });
+  assert.throws(() => recordEntityDecision(before, proposal, payload => payload.record_id === "other-record"), /trusted human-review/);
+  ids.length = 0;
+  inspectEntityRecord(reviewed).last_decision.objection_ids.length = 0;
+  const extended = addEntityDraft(reviewed, {...objection, id: "E-002", based_on_version: 2});
+  extended.events[1].objection_ids.length = 0;
+  assert.deepEqual(reviewed.events.at(-1).objection_ids, ["E-001"]);
+  assert.deepEqual(inspectEntityRecord(reviewed).open_objection_ids, []);
+});
+
+test("rejects repeated, missing, non-objection or future references even in replayed JSON", () => {
+  const before = addEntityDraft(addEntityDraft(seed(), objection), {...objection, id: "P-001", kind: "perspective"});
+  for (const invalid of [null, {"id": "E-001"}, "E-001", ["E-001","E-001"], ["E-other"], ["P-001"]]) {
+    assert.throws(() => recordEntityDecision(before, {...decision, objection_ids: invalid}, permit), /objection/);
+  }
+  const valid = recordEntityDecision(before, {...decision, objection_ids: ["E-001"]}, permit);
+  assert.throws(() => recordEntityDecision(before, {...decision, record_id: "Other-record", objection_ids: ["E-001"]}, permit), /record id mismatch/);
+  assert.throws(() => inspectEntityRecord({...valid, id: "Other-record"}), /record id mismatch/);
+  const forged = structuredClone(valid);
+  forged.events[2].objection_ids = ["P-001"];
+  assert.throws(() => inspectEntityRecord(forged), /objection reference/);
+  forged.events = [valid.events[2], valid.events[0], valid.events[1]];
+  assert.throws(() => inspectEntityRecord(forged), /earlier objection/);
+  forged.events = [valid.events[0], valid.events[0], valid.events[2]];
+  assert.throws(() => inspectEntityRecord(forged), /event history/);
+  forged.events = [...valid.events.slice(0, 2), {...valid.events[2], based_on_version: 2}];
+  assert.throws(() => inspectEntityRecord(forged), /event history/);
+});
+
 test("the bilingual public contract and synthetic fixture stay consistent", () => {
   const protocol = JSON.parse(readFileSync(new URL("../public/protocol/entity-loop.v0.json", import.meta.url), "utf8"));
   const demo = JSON.parse(readFileSync(new URL("../public/knowledge/entity-demo.v0.json", import.meta.url), "utf8"));

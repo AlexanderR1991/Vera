@@ -20,7 +20,8 @@ def entry_pages():
             </details></section>"""
         guide_body = (f'<section id="korrektur"><a data-vera-local-feedback href="{SITE}{lang}/mitwirken/#entwurf">Draft</a>'
                       f'<a data-vera-feedback href="{FEEDBACK}">Form</a></section>')
-        for suffix, body in (("", home_body), ("regelkreis/", guide_body)):
+        draft_body = '<section id="entwurf"><h2>Draft on your device</h2></section>'
+        for suffix, body in (("", home_body), ("regelkreis/", guide_body), ("mitwirken/", draft_body)):
             path = f"{lang}/{suffix}"
             pages[path] = f"""<html lang="{lang}"><head><link rel="canonical" href="{SITE}{path}"></head>
                 <body><a hreflang="{other}" href="{SITE}{other}/{suffix}">{other}</a>
@@ -42,6 +43,18 @@ class EntryPathTests(unittest.TestCase):
         errors, _ = check(lambda path: EntryPage(pages[path]))
         self.assertEqual(errors, [])
 
+    def test_missing_draft_page_is_reported(self):
+        pages = entry_pages()
+
+        def read(path):
+            if path == "de/mitwirken/":
+                raise FileNotFoundError(path)
+            return EntryPage(pages[path])
+
+        errors, _ = check(read)
+        self.assertEqual(len(errors), 1)
+        self.assertIn("de/mitwirken/", errors[0])
+
     def test_broken_routes_are_reported(self):
         cases = [
             ("de/", "open>", ">", "first answer"),  # closed on entry
@@ -59,6 +72,10 @@ class EntryPathTests(unittest.TestCase):
             ("de/", f'<a hreflang="en" href="{SITE}en/">en</a>',
              f'<details><summary>Menu</summary><summary><a hreflang="en" href="{SITE}en/">en</a></summary></details>', "other language"),
             ("de/regelkreis/", "de/mitwirken/#entwurf", "en/mitwirken/#entwurf", "local draft link"),
+            ("de/mitwirken/", 'id="entwurf"', 'id="anderes"', "draft section"),
+            ("en/mitwirken/", 'id="entwurf"', 'id="entwurf" hidden', "draft section"),
+            ("en/mitwirken/", '<section id="entwurf">', '<i id="entwurf"></i><section id="entwurf">', "draft section"),
+            ("de/mitwirken/", '<section id="entwurf">', '<i id="entwurf"></i><section>', "draft section"),
         ]
         for path, old, new, message in cases:
             with self.subTest(path=path, change=new):
