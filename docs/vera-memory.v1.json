@@ -100,6 +100,26 @@
         "lesson": "For each objection, check the latest decision naming its ID. A later objection stays open until a decision addresses it.",
         "limits": "The comparison uses short synthetic histories. A response to an actual submission and any benefit to the affected person require separate observation."
       }
+    },
+    {
+      "id": "VM-006",
+      "status": "reproduced",
+      "sources": [
+        { "path": "src/client/site.js", "revision": "f6614eb2e01800b324ea3df71fbd7e30443582c4" },
+        { "path": "tests/feedback-draft.test.mjs" },
+        { "path": "docs/offenheit.md" },
+        { "path": "docs/en/openness.md" }
+      ],
+      "de": {
+        "observation": "Der GitHub-Knopf im Rückmeldeformular versuchte auch bei gemeldeter Offlineverbindung, die Seite zu verlassen. Das ließ sich im deutschen und englischen Formular-Handler reproduzieren.",
+        "lesson": "ODK unterscheidet Entwurf und Empfang. Bei Vera bleibt der Entwurf bei gemeldeter Offlineverbindung im Formular. Die Person kann ihn als Textdatei mitnehmen und später selbst über die Abgabe entscheiden.",
+        "limits": "Der Versuch beginnt mit einem bereits geladenen Formular. Das Online-Signal des Browsers belegt keinen Empfang bei GitHub. Wer das Formular schließt, braucht eine eigene Kopie."
+      },
+      "en": {
+        "observation": "The GitHub button in the feedback form tried to leave the page even when the browser reported being offline. This was reproduced in the German and English form handlers.",
+        "lesson": "ODK distinguishes a draft from receipt. At Vera the draft stays in the form when the browser reports being offline. Its author can take a text copy and decide later whether to submit it.",
+        "limits": "The exercise starts with an already loaded form. The browser’s online signal cannot confirm receipt at GitHub. Anyone closing the form needs to save their own copy."
+      }
     }
   ]
 }
