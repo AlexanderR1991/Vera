@@ -234,14 +234,19 @@ for(const lang of ["de","en"]){
  const heading=home.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/)?.[1];
  const {greeting,ambition,motto}=missionCopy[lang].opening;
  const opening=home.match(/<section class="home-opening"[^>]*>([\s\S]*?)<\/section>\s*<section class="industrial-board"/)?.[1]??"";
- if(heading?.trim()!==greeting||!opening.includes(ambition)||!opening.includes(motto))errors.push("Missing Vera introduction for "+lang);
+ if(heading?.trim()!==greeting||!home.includes(ambition)||!opening.includes(motto))errors.push("Missing Vera introduction for "+lang);
+ const starter=opening.match(/<textarea\b[^>]*id="inquiry-prompt"[^>]*>([\s\S]*?)<\/textarea>/)?.[1]??"";
+ if(!opening.includes("data-copy-inquiry")||!opening.includes('href="'+project.repository+'"')||
+    !opening.includes('href="/Vera/prompts/vera-context.'+lang+'.txt"')||
+    !starter.includes(project.repository)||!starter.includes("docs/vera.md")||!starter.includes(missionCopy[lang].encounter.example))
+   errors.push("Missing chat starter, repository or text-file fallback in opening for "+lang);
  if(!opening.includes('stroke-dasharray="346 14"')||!opening.includes('transform="rotate(-38 100 100)"'))
    errors.push("Missing Vera circle or adjacent pinboard for "+lang);
  const board=home.match(/<section class="industrial-board"[^>]*>([\s\S]*?)<\/section>/)?.[1]??"";
  if(!board.includes("data-board-card")||/<(?:img|svg)\b/.test(board))
    errors.push("Missing text-only pinboard for "+lang);
  const insight=lang==="de"?"erkenntnis":"insight";
- if(!opening.includes('href="#'+insight+'"')||!home.includes('id="'+insight+'"')||
+ if(!board.includes('href="#'+insight+'"')||!home.includes('id="'+insight+'"')||
     !home.includes('data-knowledge-result')||!home.includes('data-knowledge-controls hidden'))
    errors.push("Missing Vera insight entry or static report for "+lang);
  for(const entry of await readdir(join(out,lang),{withFileTypes:true})){

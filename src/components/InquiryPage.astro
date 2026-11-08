@@ -45,7 +45,8 @@ const examples=en?[
       </ol>
       <p><a class="inquiry-text-link" href="#vera">{en?"How to work with Vera ↓":"Wie du Vera begegnen kannst ↓"}</a></p>
       <div class="button-row inquiry-tools">
-        <button class="button button--gold" type="button" data-copy-inquiry hidden>{en?"Copy the framework":"Regelwerk kopieren"}</button>
+        <button class="button button--gold" type="button" data-copy-inquiry hidden
+          data-copied={en?"Framework copied. Paste it into your AI chat and add your question.":"Regelwerk kopiert. Füge es in deinen KI-Chat ein und ergänze deine Frage."}>{en?"Copy the framework":"Regelwerk kopieren"}</button>
         <a class="button button--ghost" href={packPath} download>{en?"Download text file (.txt) ↓":"Textdatei herunterladen (.txt) ↓"}</a>
       </div>
       <p class="inquiry-status" data-copy-status role="status"></p>
@@ -131,28 +132,7 @@ const examples=en?[
   </section>
 </Layout>
 
-<script>
-  const button=document.querySelector<HTMLButtonElement>("[data-copy-inquiry]");
-  const field=document.querySelector<HTMLTextAreaElement>("#inquiry-prompt");
-  const status=document.querySelector<HTMLParagraphElement>("[data-copy-status]");
-  if(button&&field&&status){
-    const en=document.documentElement.lang==="en";
-    button.hidden=false;
-    button.addEventListener("click",async()=>{
-      try{
-        if(!navigator.clipboard?.writeText)throw new Error("Clipboard unavailable");
-        await navigator.clipboard.writeText(field.value);
-        status.textContent=en?"Framework copied. Paste it into your AI chat and add your question.":"Regelwerk kopiert. Füge es in deinen KI-Chat ein und ergänze deine Frage.";
-      }catch{
-        const preview=field.closest("details");
-        if(preview) preview.open=true;
-        field.focus();
-        field.select();
-        status.textContent=en?"Automatic copying is unavailable. The full text is selected. Use your device’s Copy command or download the TXT file.":"Automatisches Kopieren ist nicht verfügbar. Der vollständige Text ist markiert. Nutze die Kopierfunktion deines Geräts oder lade die TXT-Datei herunter.";
-      }
-    });
-  }
-</script>
+<script>import "../client/copy-inquiry.mjs";</script>
 
 <style>
   .inquiry-hero .small-note{margin-top:20px}

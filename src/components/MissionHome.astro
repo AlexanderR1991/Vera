@@ -15,6 +15,7 @@ import protocol from "../../public/protocol/self-correction.v1.json";
 const {lang="de",root=false}=Astro.props;
 const t=copy[lang];
 const de=lang==="de";
+const starter=t.encounter.request.replace("{repo}",project.repository)+"\n\n"+t.encounter.example;
 const featuredQuestions=everydayQuestions.questions.slice(0,3);
 ---
 <Layout lang={lang} slug="index" root={root} pageTitle={root?ui[lang].titles.index:undefined} description={t.metaDescription}>
@@ -27,19 +28,17 @@ const featuredQuestions=everydayQuestions.questions.slice(0,3);
       </svg>
       <div class="home-opening__copy">
         <h1 id="home-heading" class="home-opening__title">{t.opening.greeting}</h1>
-        <p class="home-opening__ambition">{t.opening.ambition}</p>
+        <p class="home-opening__lead">{t.encounter.lead} <a href={project.repository}>{t.encounter.repo}</a> {t.encounter.afterLink}</p>
+        <button class="home-link home-opening__start" type="button" data-copy-inquiry data-copied={t.encounter.copied} hidden>{t.encounter.copy}</button>
+        <p class="home-opening__status" data-copy-status role="status"></p>
+        <details class="home-opening__help">
+          <summary>{t.encounter.details}</summary>
+          <label for="inquiry-prompt">{t.encounter.field}</label>
+          <textarea id="inquiry-prompt" readonly rows="6" spellcheck="false">{starter}</textarea>
+          <p>{t.encounter.connect}</p>
+          <p>{t.encounter.fallback} <a href={base+`prompts/vera-context.${lang}.txt`} download>{t.encounter.download}</a></p>
+        </details>
         <p class="home-opening__motto">{t.opening.motto}</p>
-        <div class="home-opening__links">
-          <a class="home-link home-opening__entry home-opening__entry--primary" data-vera-entry href={de?"#vera-fragen":"#ask-vera"}>
-            {de?"Frag mich":"Ask me"} <span aria-hidden="true">↓</span>
-          </a>
-          <a class="home-link home-opening__entry" href={de?"#erkenntnis":"#insight"}>
-            {de?"So entscheide ich":"See how I decide"} <span aria-hidden="true">↓</span>
-          </a>
-        </div>
-        <a class="home-link home-opening__feedback" href={pathFor(lang,"mitwirken","rueckmeldung")}>
-          {ui[lang].feedbackInvitation} <span aria-hidden="true">→</span>
-        </a>
       </div>
     </div>
   </section>
@@ -164,15 +163,6 @@ const featuredQuestions=everydayQuestions.questions.slice(0,3);
             <li><a href={project.repository+"/issues/new?template=frage.yml"}>{t.publicQuestion} ↗</a></li>
           </ul>
         </details>
-        <details>
-          <summary>{t.encounter.title}</summary>
-          <p>{t.encounter.lead} {t.encounter.instructions}</p>
-          <p>{t.encounter.example}</p>
-          <ul>
-            <li><a href={pathFor(lang,"fragen-und-ki-prompt","prompt")}>{t.aiLink} ↗</a></li>
-            <li><a href={pathFor(lang,"forum")}>{t.encounter.forumLink} ↗</a></li>
-          </ul>
-        </details>
         {t.groups.map(group=><details>
           <summary>{group.title}</summary>
           <p>{group.text}</p>
@@ -183,7 +173,7 @@ const featuredQuestions=everydayQuestions.questions.slice(0,3);
   </section>
 
   <aside class="home-ai-identity container" aria-label={de?"Unsere Open-Source-KI-Vision":"Our open-source AI vision"}>
-    <strong>{de?"Unser Ziel: Eine Open-Source-KI für Menschen bauen.":"Our goal: Build an open-source AI for people."}</strong>
+    <strong>{t.opening.ambition}</strong>
     <p>{de?"Heute kannst du in der Werkstatt Fragen prüfen, Beispiele ausprobieren und die Regeln in deinem eigenen KI-Chat nutzen. Ein eigenständig veröffentlichtes Vera-Modell steht noch aus.":"Today you can examine questions, try examples and use the workshop rules in your own AI chat. An independently released Vera model is still to come."}</p>
     <a class="home-link" href={pathFor(lang,"ki-und-mensch")}>{de?"Idee und Projektstand prüfen":"Explore the goal and project status"} <span aria-hidden="true">↗</span></a>
     <p>{de?"Forschungsfrage: Kann kollektive Moral wachsen, ohne Menschen in Zahlen zu bewerten?":"Research question: Can collective morality grow without rating people numerically?"} <a class="home-link" href={pathFor(lang,"kollektive-moral")}>{de?"Den Richtungsindex erkunden":"Explore the direction index"} <span aria-hidden="true">↗</span></a></p>
@@ -195,3 +185,5 @@ const featuredQuestions=everydayQuestions.questions.slice(0,3);
     <a class="home-link" href={pathFor(lang,"projektstatus")}>{t.statusLink} ↗</a>
   </aside>
 </Layout>
+
+<script>import "../client/copy-inquiry.mjs";</script>

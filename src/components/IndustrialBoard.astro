@@ -1,6 +1,6 @@
 ---
 import {pathFor} from "../lib/paths.mjs";
-import project from "../../public/project.json";
+import {ui} from "../lib/ui.mjs";
 const {lang="de"}=Astro.props;
 const de=lang==="de";
 const cards=[
@@ -9,7 +9,7 @@ const cards=[
   {id:"personal-practice",route:"index",anchor:{de:"eigene-frage",en:"your-question"},category:{de:"Deine Frage",en:"Your question"},title:{de:"Ich habe eine eigene Frage.",en:"I have a question of my own."},description:{de:"Sortiere eine Situation in drei Schritten. Du kannst direkt hier anfangen.",en:"Sort through a situation in three steps. You can start right here."},action:{de:"Eigene Frage prüfen",en:"Work through a question"},keywords:"werkstatt prüfen vorlage export"},
   {id:"art",route:"kunst-und-erkenntnis",anchor:{de:"sammlung",en:"sammlung"},category:{de:"Liber Artis · Kunst",en:"Liber Artis · Art"},title:{de:"Was kann ein Werk uns zeigen?",en:"What can a work show us?"},description:{de:"Schau, hör oder lies. Entdecke eine Lesart und prüfe, was Vera daraus lernen könnte.",en:"Look, listen or read. Explore a reading and test what Vera could learn from it."},action:{de:"Zur Kunstsammlung",en:"Explore the art collection"},keywords:"kunst art kunstwerk werk malerei musik literatur architektur painting music literature architecture"},
   {id:"counterexample",route:"gegenprobe-01",category:{de:"Offene Gegenprobe",en:"Open challenge"},title:{de:"Wo liegen wir falsch?",en:"Where are we wrong?"},description:{de:"Wann hilft es, für jemanden zu entscheiden? Prüfe unseren Vorschlag an einem Gegenbeispiel.",en:"When does deciding for someone help? Test our proposal with a counterexample."},action:{de:"Gegenprobe öffnen",en:"Open the challenge"},keywords:"widerspruch einwand hilfe freiheit objection freedom"},
-  {id:"chat",route:"fragen-und-ki-prompt",anchor:{de:"prompt",en:"prompt"},category:{de:"Dein KI-Chat",en:"Your AI chat"},title:{de:"Wie du mir begegnen kannst.",en:"How you can work with me."},description:{de:"Nimm Veras Prüfregeln in deinen KI-Chat mit und lass deine erste Vermutung hinterfragen.",en:"Bring Vera’s inquiry rules into your AI chat and ask it to challenge your first guess."},action:{de:"Prüfregeln öffnen",en:"Open the inquiry rules"},keywords:"chat prompt vera chatbot chatgpt lokal"},
+  {id:"about",route:"index",anchor:{de:"vera-fragen",en:"ask-vera"},category:{de:"Über Vera",en:"About Vera"},title:{de:"Was kannst du heute?",en:"What can you do today?"},description:{de:"Lies Veras Antworten zu ihren Fähigkeiten und prüfe, worauf sie sich stützt.",en:"Read Vera’s answers about what she can do and check her sources."},action:{de:"Fragen über Vera ansehen",en:"Explore questions about Vera"},keywords:"projekt selbstmodell auskunft fähigkeiten identity capabilities sources"},
   {id:"method",route:"index",anchor:{de:"practice-title",en:"practice-title"},category:{de:"Die Methode",en:"The method"},title:{de:"Warum ich glaube, dass ich funktioniere.",en:"Why I think I work."},description:{de:"Wann hilft eine Korrektur? Das Arbeitspapier prüft an Veras Code, wie ein Einwand eine Antwort verändert.",en:"When does a correction help? The paper uses Vera’s code to test how an objection changes an answer."},action:{de:"Zur Methode und zum Paper",en:"Explore the method and paper"},keywords:"lernen korrektur methode method learning paper forschung"},
   {id:"scaling",route:"kollektive-intelligenz",anchor:{de:"skalierung",en:"scaling"},category:{de:"Gemeinsames Wachstum",en:"Growing together"},title:{de:"Was wir von mir erwarten können, wenn ich skaliere",en:"What we can expect from me as I scale"},description:{de:"Wie der Einwand einer Person vielen helfen könnte und wer über eine Korrektur entscheidet.",en:"How one person’s objection could help many others, and who decides what changes."},action:{de:"Die Rubrik lesen",en:"Read the chapter"},keywords:"skalierung scaling wachsen gemeinschaft community labor lab open source"},
   {id:"atlas",route:"atlas",category:{de:"Wissensatlas",en:"Knowledge atlas"},title:{de:"Alles hängt zusammen.",en:"Everything connects."},description:{de:"Sechs Erkenntnisfelder. Viele Perspektiven. Keine fertige Weltformel.",en:"Six fields of inquiry. Many perspectives. No final theory of everything."},keywords:"wissensbaum erkenntnis felder thema knowledge map"},
@@ -44,6 +44,7 @@ const word=(v)=>v[lang];
     <div class="board-grid" data-board-grid>
       {cards.map((card,index)=><a class:list={["board-tile", "board-tile--"+card.id]}
         href={card.route==="index"?"#"+card.anchor[lang]:pathFor(lang,card.route,card.anchor?.[lang])}
+        data-vera-entry={card.id==="about" ? "" : undefined}
         data-board-card data-board-keywords={[word(card.category),word(card.title),word(card.description),card.action?.[lang],card.keywords].join(" ")}>
         <div class="board-tile__top">
           <span class="board-tile__number" aria-hidden="true">{String(index+1).padStart(2,"0")}</span>
@@ -60,8 +61,8 @@ const word=(v)=>v[lang];
     </div>
     <p class="board-empty" data-board-empty hidden>{de?"Keine passende Kachel. Bitte einen anderen Begriff versuchen.":"No matching tile. Try another term."}</p>
     <div class="board-source">
-      <p>{de?"Die Werkstatt ist offen. Du kannst ihre Regeln, den Code und die Änderungen prüfen.":"The workshop is open. You can inspect its rules, code and revisions."}</p>
-      <a class="home-link" href={project.repository}>{de?"Vera auf GitHub":"Vera on GitHub"} <span aria-hidden="true">↗</span></a>
+      <p>{de?"Hast du etwas gesucht und nicht gefunden? Sag mir, was dir hier fehlt.":"Were you looking for something you couldn’t find? Tell me what’s missing."}</p>
+      <a class="home-link" href={pathFor(lang,"mitwirken","rueckmeldung")}>{ui[lang].feedbackInvitation} <span aria-hidden="true">→</span></a>
     </div>
   </div>
 </section>
