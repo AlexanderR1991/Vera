@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-07",
+  "updated_at": "2026-11-08",
   "source_language": "de",
   "target_language": "en",
   "scope": "Language coverage and editorial review. Draft and unassessed are not independently approved.",
@@ -304,6 +304,15 @@
     }
   },
   "documents": {
+    "README.md": {
+      "status": "partial",
+      "priority": "support",
+      "target": "docs/en/README.md",
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
     "angriffsschwarm.md": {
       "status": "unassessed",
       "priority": "support",

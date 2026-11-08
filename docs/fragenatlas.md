@@ -1,6 +1,6 @@
 # Fragenatlas & KI-Schleuse / Question atlas & AI attention boundary
 
-**Pilot seit 7. November 2026.** Der [Fragenatlas im Forum](https://alexanderr1991.github.io/Vera/de/forum/#fragenatlas) verbindet sieben **redaktionelle, ungeprüfte Beispielfragen**. Er ist kein Live-Index aller GitHub Discussions und noch kein verifizierter Wissensgraph.
+**Pilot seit 7. November 2026.** Der [Fragenatlas im Forum](https://alexanderr1991.github.io/Vera/de/forum/#fragenatlas) verbindet **redaktionelle, ungeprüfte Beispielfragen**. Die Einträge und ihre Beziehungen stehen im [öffentlichen Register](../public/knowledge/questions.json). Er ist kein Live-Index aller GitHub Discussions und noch kein verifizierter Wissensgraph.
 
 > **Die Zahl der Fragen darf wachsen. Die Unübersichtlichkeit nicht.**
 >
@@ -16,7 +16,7 @@ Diese Räume sind derzeit Arbeitsbereiche des vorhandenen Repositories, keine se
 
 ## Abgrenzung zur Grundfragen-Schicht (U-IDs)
 
-Neben den sechs individuellen Beispiel-Fragen `Q-001`…`Q-006` gibt es nun die **separaten, übergreifenden [Grundfragen U-001…U-016](grundfragen-kreislauf.md)**. Sie verbinden mehrere veröffentlichte Disziplinen, ohne die ursprünglichen Fragen zu löschen oder gleichzusetzen. Beziehungen zwischen den beiden Registern sind lediglich Verweise mit expliziter Herkunft, keine automatische Fusion oder Wahrheitsübertragung. Die Grundfragen-Seite ist **keine zweite Agora**: Beiträge laufen über [ein öffentliches, menschlich geprüftes GitHub-Issue-Formular](https://github.com/AlexanderR1991/Vera/issues/new?template=grundfrage.yml).
+Fragen im Atlas haben eine stabile ID mit dem Präfix `Q-`, etwa `Q-007` für die Frage nach der Verteilung von Produktivitätsgewinnen. Die übergreifenden [Grundfragen](grundfragen-kreislauf.md) haben eigene IDs mit dem Präfix `U-`. Sie verbinden mehrere veröffentlichte Disziplinen, ohne die ursprünglichen Fragen zu löschen oder gleichzusetzen. Beziehungen zwischen den beiden Registern sind lediglich Verweise mit expliziter Herkunft, keine automatische Fusion oder Wahrheitsübertragung. Die Grundfragen-Seite ist **keine zweite Agora**: Beiträge laufen über [ein öffentliches, menschlich geprüftes GitHub-Issue-Formular](https://github.com/AlexanderR1991/Vera/issues/new?template=grundfrage.yml).
 
 Ein **lexikalischer** Korpus-Scan gibt nur Prüfanlässe aus; ein späterer KI-gestützter semantischer Durchlauf muss eigens eingebaut, begrenzt, gekennzeichnet und evaluiert werden. Das Register für fachlich überprüfte Grundfragen-**Teilantworten** ist derzeit leer. Für die bestehenden Q-IDs gelten unverändert die Triage- und Schutzgrenzen dieses Dokuments.
 
@@ -51,7 +51,7 @@ Frage-zu-Aussage-Links besagen **nur**, dass der öffentliche Eintrag relevant s
 
 ## Datenformat und lokale Triage
 
-Das öffentliche Register `public/knowledge/questions.json` führt `schema_version: 1` und stabile IDs `Q-001` usw. Nach Veröffentlichung darf eine ID nicht neu vergeben werden. Die `origin`-Werte sind `editorial_draft` und `human_submission`. **KI-Entwürfe (`ai_draft`) sind im öffentlichen Register durch den Validator verboten.** `review_status: unreviewed` bleibt bei allen sieben Beispielen. `human_curated` benötigt einen namentlichen und datierten Review-Eintrag, dessen Echtheit ein Strukturskript allein nicht sicherstellen kann.
+Das öffentliche Register `public/knowledge/questions.json` führt `schema_version: 1` und stabile IDs `Q-001` usw. Nach Veröffentlichung darf eine ID nicht neu vergeben werden. Die `origin`-Werte sind `editorial_draft` und `human_submission`. **KI-Entwürfe (`ai_draft`) sind im öffentlichen Register durch den Validator verboten.** Der Prüfstand jeder Frage steht im Feld `review_status`. Ein ungeprüfter Eintrag trägt den Wert `unreviewed`. `human_curated` benötigt einen namentlichen und datierten Review-Eintrag, dessen Echtheit ein Strukturskript allein nicht sicherstellen kann.
 
 Für die Offline-Triage lässt sich eine lokale (nicht automatisch publizierte) JSON-Datei anlegen:
 
