@@ -70,6 +70,8 @@ Führe in einem Git-Checkout mit Node.js `node scripts/vera-context.mjs de` aus.
 
 Das [Projektgedächtnis](vera-memory.v1.json) bewahrt projektbezogene Gegenproben, Korrekturen und offene Fragen für spätere Sitzungen. Jeder Eintrag hat eine feste ID, Quellen und Grenzen. `reproduced` bezeichnet einen nachvollzogenen Befund, `open` eine offene Prüfung oder Korrektur, `superseded` einen abgelösten Eintrag. Der Export enthält bis zu acht aktuelle Einträge. Lies bei Bedarf das vollständige Register und prüfe die Quellen, bevor du dich auf einen Eintrag stützt.
 
+Führe im Stammverzeichnis eines vollständigen Checkouts `node scripts/verify-memory.mjs` aus. Der Befehl prüft für jeden Eintrag, ob die referenzierten Dateien im angegebenen Commit oder im geprüften Projektstand vorhanden sind und sich aus dessen Historie erreichen lassen. Ob eine Quelle die notierte Lehre trägt, prüfst du beim Lesen.
+
 Schlage Änderungen per Pull Request vor. Hänge neue Einträge am Ende an. Bei einer späteren Korrektur bleibt der frühere Eintrag mit Status `superseded` und einem Hinweis auf die neue ID erhalten. Die gemeinsame Fassung entsteht durch menschliche Prüfung. Der Sitzungsexport liest diese Daten. Private Chats, persönliche Profile und unbearbeitete externe Einsendungen gehören nicht ins Register. Der [ENT-00-Entwurf](https://github.com/AlexanderR1991/Vera/pull/85) untersucht ein anderes, noch offenes Verfahren für revisionsbezogene Ereignisse.
 
 ## English
@@ -131,5 +133,7 @@ In a Git checkout with Node.js, run `node scripts/vera-context.mjs en`. Before s
 ### What project memory records
 
 [Project memory](vera-memory.v1.json) preserves project counterexamples, corrections and open questions for later sessions. Each record has a stable ID, sources and limits. `reproduced` identifies a finding that has been reproduced, `open` a pending check or correction, and `superseded` a replaced record. The export includes up to eight current records. Consult the full ledger when needed and check the sources before relying on an entry.
+
+Run `node scripts/verify-memory.mjs` from the root of a full checkout. It checks that each cited file exists at its specified commit or at the checked revision and is reachable through that revision’s history. Read the source to judge whether it supports the recorded lesson.
 
 Propose changes by pull request. Append new records at the end. When a later correction supersedes an entry, keep the earlier entry with status `superseded` and a pointer to the new ID. Human review determines the shared version. The session export reads these data. Keep private chats, personal profiles and raw external submissions out of the ledger. The [ENT-00 draft](https://github.com/AlexanderR1991/Vera/pull/85) explores a separate, pending process for revision events.

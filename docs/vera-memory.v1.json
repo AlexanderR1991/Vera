@@ -64,6 +64,23 @@
         "lesson": "Check jointly feasible scenarios, genuinely distinct weights and numerical sign boundaries separately.",
         "limits": "These checks target the linked draft revision. The implementation now checks rounding bounds and distinct weight vectors. How to represent coupled effects remains a modelling question. The examples use synthetic data."
       }
+    },
+    {
+      "id": "VM-004",
+      "status": "open",
+      "sources": [
+        { "path": "docs/prueffall-webb-m16.md" }
+      ],
+      "de": {
+        "observation": "NASA führt für das NIRCam-Bild von M16 und seine beschriftete Fassung dieselben Filter auf. Das MIRI-Bild desselben Ziels stammt aus einer anderen Beobachtung im selben Programm.",
+        "lesson": "Ordne jede Fundstelle der genauen Aussage zu. Verfolge, welche Aufnahme oder Datenreihe ihr zugrunde liegt. Halte eine gemeinsame Herkunft und die erste unbelegte Verbindung fest.",
+        "limits": "Geprüft sind Bildbeschreibungen und Beobachtungsplan. Einzelne Rohdaten und die Unabhängigkeit der Messfehler bleiben ungeprüft."
+      },
+      "en": {
+        "observation": "NASA lists the same filters for the NIRCam image of M16 and its annotated version. The MIRI image of that target comes from a different observation in the same program.",
+        "lesson": "Match each source to the exact claim. Trace the observation or data series it uses. Record a shared origin and the first link in the chain that lacks evidence.",
+        "limits": "The image descriptions and observing plan were checked. Individual raw exposures and the independence of measurement errors remain untested."
+      }
     }
   ]
 }

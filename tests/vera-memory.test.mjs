@@ -1,5 +1,9 @@
 import assert from "node:assert/strict";
-import { existsSync, readFileSync } from "node:fs";
+import { execFileSync, spawnSync } from "node:child_process";
+import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
+import { fileURLToPath } from "node:url";
 import { test } from "node:test";
 import { formatMemory, memoryPath, validateMemory } from "../scripts/vera-memory.mjs";
 
@@ -66,4 +70,45 @@ test("Vera bounds the volume of records added to a session", () => {
   assert.match(output, /VM-008/);
   assert.doesNotMatch(output, /VM-005/);
   assert.match(output, /superseded records\) · [5-7]$/);
+});
+
+test("the memory audit resolves the ledger and its sources at the cited commits", (t) => {
+  const cwd = mkdtempSync(join(tmpdir(), "vera-memory-"));
+  t.after(() => rmSync(cwd, { recursive: true, force: true }));
+  const git = (...args) => execFileSync("git", ["-C", cwd, ...args], { encoding: "utf8" }).trim();
+  const commit = () => {
+    git("add", "-A");
+    git("-c", "user.name=Vera Test", "-c", "user.email=vera@example.invalid",
+      "-c", "commit.gpgsign=false", "commit", "-qm", "Test snapshot");
+  };
+  const script = fileURLToPath(new URL("../scripts/verify-memory.mjs", import.meta.url));
+  const audit = () => spawnSync(process.execPath, [script], { cwd, encoding: "utf8" });
+  git("init", "-q");
+  const source = join(cwd, "historical.md");
+  writeFileSync(source, "Original observation");
+  commit();
+  const original = git("rev-parse", "HEAD");
+  rmSync(source);
+  mkdirSync(join(cwd, "docs"));
+  const entry = record(1);
+  entry.sources = [{ path: "historical.md", revision: original }];
+  const saveLedger = () => writeFileSync(join(cwd, memoryPath), JSON.stringify({ schemaVersion: 1, entries: [entry] }));
+  saveLedger();
+  commit();
+  assert.equal(audit().status, 0);
+
+  entry.sources[0].path = "added-later.md";
+  writeFileSync(join(cwd, "added-later.md"), "Only exists at a later revision");
+  saveLedger();
+  commit();
+  const missing = audit();
+  assert.equal(missing.status, 1);
+  assert.ok(missing.stderr.includes(`VM-001: cannot verify ${original}:added-later.md`));
+
+  // A local fix takes effect only once it is in the snapshot being audited.
+  delete entry.sources[0].revision;
+  saveLedger();
+  assert.equal(audit().status, 1);
+  commit();
+  assert.equal(audit().status, 0);
 });
