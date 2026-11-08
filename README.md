@@ -8,6 +8,8 @@
 
 [Wie du mir begegnen kannst](#mit-vera-arbeiten--work-with-vera) · [How to work with me](#mit-vera-arbeiten--work-with-vera)
 
+**WIRKLICH · Philosophischer Motor.** Prüfe Veras Selbstmodell und seine Belege. [Frag mich](https://alexanderr1991.github.io/Vera/de/#vera-fragen) · [Ask me](https://alexanderr1991.github.io/Vera/en/#ask-vera) · [Modell und Terminalabfrage / Model and CLI](docs/vera.md#vera-abfragen)
+
 > **META-01 · Wir bauen kein System, das recht behalten soll. Wir bauen ein System, das aus seinen Irrtümern lernen muss.**
 
 Dieser Satz ist eine **anfechtbare Verfahrensregel**, nicht bloß Werbung: Jede Frage darf geprüft werden, ein starker Einwand muss eine neue Prüfung auslösen können, und substanzielle Korrekturen bleiben mit Gründen und verantwortlicher Person nachvollziehbar. [Der Regelkreis (DE)](https://alexanderr1991.github.io/Vera/de/regelkreis/) · [Normativer Grundsatz](docs/selbstkorrektur.md) · [Maschinenlesbarer Entwurf](public/protocol/self-correction.v1.json).

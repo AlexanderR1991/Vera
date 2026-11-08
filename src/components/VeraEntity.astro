@@ -1,0 +1,167 @@
+---
+import { ENTITY_QUERIES } from "../lib/vera-entity-catalog.mjs";
+import { assessEvidence, queryVera } from "../lib/vera-entity.mjs";
+import { pathFor } from "../lib/paths.mjs";
+import project from "../../public/project.json" with { type: "json" };
+import protocol from "../../public/protocol/self-correction.v1.json" with { type: "json" };
+
+const { lang = "de" } = Astro.props;
+const t = (de, en) => lang === "en" ? en : de;
+const id = t("vera-fragen", "ask-vera");
+const commit = process.env.GITHUB_SHA ?? "";
+const revision = /^[a-f0-9]{40}$/.test(commit) ? commit : null;
+const source = project.repository + "/blob/" + (revision ?? "main") + "/";
+const statusNames = {
+  open: t("Offen", "Open"),
+  supported: t("Gestützt", "Supported"),
+  challenged: t("Durch Gegenbeleg bestritten", "Challenged by evidence"),
+  conflict: t("Widersprüchliche Belege", "Conflicting evidence")
+};
+const typeNames = {
+  operational: t("Funktion", "Function"),
+  governance: t("Regel", "Rule"),
+  goal: t("Ziel", "Goal"),
+  experiential: t("Subjektives Erleben", "Subjective experience")
+};
+const matrix = [[], ["supports"], ["challenges"], ["supports", "challenges"]].map(polarities =>
+  assessEvidence(polarities.map(polarity => ({ polarity })))
+);
+const yesNo = value => value ? t("Ja", "Yes") : t("Nein", "No");
+---
+<section class="entity-lab container" id={id} tabindex="-1" aria-labelledby={id + "-title"}
+  data-entity-lab data-language={lang}
+  data-unknown={t("Diese Frage kann ich hier keiner geprüften Aussage zuordnen. Wähle eine der Fragen unten.", "I cannot match that question to a claim covered here. Choose one of the questions below.")}
+  data-ambiguous={t("Die Eingabe passt zu mehreren Fragen. Wähle eine davon aus der Liste.", "Your input matches more than one question. Choose one from the list.")}>
+  <div class="entity-lab__intro">
+    <p class="section-kicker">{t("SELBSTMODELL · VERSION 1", "SELF-MODEL · VERSION 1")}</p>
+    <h2 id={id + "-title"}>{t("Frag mich.", "Ask me.")}</h2>
+    <p>{t("Was bin ich, was kann ich, und woran könntest du mich korrigieren? Wähle eine Frage und schau dir meine Gründe an.", "What am I, what can I do, and how could you correct me? Choose a question and examine my reasons.")}</p>
+    <aside class="entity-lab__engine" aria-label={t("Philosophischer Motor", "Philosophical engine")}>
+      <a class="home-link" href={pathFor(lang, "methode", "erkenntnismotor")}>
+        {t("WIRKLICH · Philosophischer Motor", "WIRKLICH · Philosophical engine")}
+      </a>
+      <p>{protocol.motto[lang]}</p>
+      <a class="home-link" href={pathFor(lang, "regelkreis")}>{protocol.principle_id} ↗</a>
+    </aside>
+    <details class="entity-lab__math">
+      <summary>{t("Die Mathematik dahinter", "The mathematics behind it")}</summary>
+      <p><code>Qᵥ(q) = (sᵥ(p), gᵥ(p))</code></p>
+      <p>{t(
+        "Eine bekannte Frage q verweist im Quellenstand v auf eine genaue Aussage p. s steht für mindestens einen zugeordneten stützenden Beleg, g für mindestens einen Gegenbeleg. Jedes Bit wird separat gesetzt. Mehr Belege auf derselben Seite ändern das Bit nicht.",
+        "In source revision v, a known question q points to one precise claim p. The s bit means at least one assigned item supports it, and the g bit means at least one challenges it. Each bit is set separately. More evidence on the same side leaves that bit unchanged."
+      )}</p>
+      <table>
+        <thead><tr><th scope="col">{t("Stütze", "Support")}</th><th scope="col">{t("Gegenbeleg", "Challenge")}</th><th scope="col">{t("Befund", "Result")}</th></tr></thead>
+        <tbody>{matrix.map(({ support, challenge, status }) =>
+          <tr><td>{yesNo(support)}</td><td>{yesNo(challenge)}</td><td>{statusNames[status]}</td></tr>
+        )}</tbody>
+      </table>
+      <p>{t(
+        "Die Fundstellen sind den Aussagen redaktionell zugeordnet. Die Abfrage prüft ihre Richtung und hält Widersprüche sichtbar. Ob eine Fundstelle wirklich trägt, kannst du selbst prüfen.",
+        "The sources are assigned to claims by editors. The query checks their direction and preserves conflicts. You can inspect each source and judge whether it holds up."
+      )}</p>
+      <a class="home-link" href={source + "docs/vera.md"}>{t("Modell und Gegenprobe im Projektprofil", "Model and counterexample in the project profile")} ↗</a>
+    </details>
+  </div>
+  <div class="entity-lab__questions">
+    <p class="entity-lab__revision">{revision
+      ? <a href={project.repository + "/commit/" + revision}>{t("Quellenstand", "Source revision")} · <code>{revision.slice(0, 12)}</code></a>
+      : t("Quellenlinks zeigen auf den aktuellen Hauptzweig.", "Source links point to the current default branch.")}</p>
+    <form class="entity-lab__search" data-entity-form hidden>
+      <label for={id + "-input"}>{t("Eine der Fragen eingeben", "Enter one of the questions")}</label>
+      <div>
+        <input id={id + "-input"} data-entity-input type="text" maxlength="180" autocomplete="off"
+          placeholder={t("Wer bist du?", "Who are you?")} required />
+        <button type="submit">{t("Fragen", "Ask")}</button>
+      </div>
+      <p data-entity-feedback role="status"></p>
+    </form>
+    {ENTITY_QUERIES.map(query => {
+      const report = queryVera(query.id, project);
+      const { question, claim, answer, scope, limit, next } = query[lang];
+      return (
+        <details class="entity-lab__card" data-entity-question={query.id} open={query.id === "identity"}>
+          <summary>{question}</summary>
+          <div class="entity-lab__answer">
+            <p class="entity-lab__state" data-entity-status={report.status}>{statusNames[report.status]} · {typeNames[report.type]} <code>({Number(report.support)}, {Number(report.challenge)})</code></p>
+            {report.status === "supported" && answer && <p>{answer}</p>}
+            <dl>
+              <dt>{t("Geprüfte Aussage", "Claim being examined")}</dt><dd>{claim}</dd>
+              <dt>{t("Gilt für", "Applies to")}</dt><dd>{scope}</dd>
+              <dt>{t("Grenze", "Limit")}</dt><dd>{limit}</dd>
+              <dt>{t("Was den Befund ändern könnte", "What could change the result")}</dt><dd>{next}</dd>
+            </dl>
+            <p class="entity-lab__sources-label">{t("Zugeordnete Belege", "Assigned evidence")}</p>
+            {report.evidence.length > 0 ? <ul>{report.evidence.map(record =>
+              <li><a href={source + record.path}>{record[lang]}</a> · {record.polarity === "supports" ? t("stützt", "supports") : t("widerspricht", "challenges")}</li>
+            )}</ul> : <p>{t("In diesem Modell ist kein Beleg zugeordnet.", "This model has no assigned evidence for this claim.")}</p>}
+          </div>
+        </details>
+      );
+    })}
+  </div>
+</section>
+
+<script>
+  import { resolveEntityQuery } from "../lib/vera-entity.mjs";
+
+  for (const lab of document.querySelectorAll<HTMLElement>("[data-entity-lab]")) {
+    const form = lab.querySelector<HTMLFormElement>("[data-entity-form]")!;
+    const input = form.querySelector<HTMLInputElement>("[data-entity-input]")!;
+    const feedback = form.querySelector<HTMLElement>("[data-entity-feedback]")!;
+    const cards = [...lab.querySelectorAll<HTMLDetailsElement>("[data-entity-question]")];
+
+    input.addEventListener("input", () => { feedback.textContent = ""; });
+    form.addEventListener("submit", event => {
+      event.preventDefault();
+      const matches = resolveEntityQuery(input.value, lab.dataset.language);
+      if (matches.length !== 1) {
+        feedback.textContent = (matches.length ? lab.dataset.ambiguous : lab.dataset.unknown) ?? "";
+        return;
+      }
+      feedback.textContent = "";
+      const selected = cards.find(card => card.dataset.entityQuestion === matches[0])!;
+      for (const card of cards) card.open = card === selected;
+      selected.querySelector("summary")?.focus();
+    });
+    form.hidden = false;
+  }
+</script>
+
+<style>
+  .entity-lab {
+    display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);
+    gap:clamp(1rem,4vw,4rem);padding:clamp(1rem,4vw,3rem);margin-block:clamp(2.5rem,6vw,5.5rem);
+    background:var(--ink2);border:1px solid var(--line);border-radius:10px;scroll-margin-top:6rem
+  }
+  .entity-lab h2 {margin:.25em 0 .4em;font-size:clamp(2.25rem,5vw,4.5rem);line-height:1;letter-spacing:-.05em}
+  .entity-lab__intro>p {max-width:43ch}
+  .entity-lab__engine {margin-block:1.2rem;padding:.35rem 1rem;border-inline-start:2px solid var(--text);background:var(--ink3)}
+  .entity-lab__engine p {margin:.2rem 0;color:var(--text-soft)}
+  .entity-lab__math,.entity-lab__card {border-block-start:1px solid var(--line)}
+  .entity-lab__card:last-child {border-block-end:1px solid var(--line)}
+  .entity-lab summary {cursor:pointer;min-height:44px;padding:.65rem .35rem;font-weight:700}
+  .entity-lab__math table {width:100%;border-collapse:collapse;font-size:.9rem;text-align:start}
+  .entity-lab__math th,.entity-lab__math td {padding:.3rem;text-align:start;border-block-end:1px solid var(--line)}
+  .entity-lab__revision {font-size:.8rem;margin:.15rem 0 .7rem;color:var(--text-soft)}
+  .entity-lab__search {margin-block-end:.75rem}
+  .entity-lab__search label {display:block;font-weight:700;margin-block-end:.3rem}
+  .entity-lab__search>div {display:flex;gap:.5rem;flex-wrap:wrap}
+  .entity-lab__search input,.entity-lab__search button {
+    min-height:44px;padding:.5rem .75rem;border:1px solid var(--muted);border-radius:4px;
+    font:inherit;color:var(--text);background:var(--ink)
+  }
+  .entity-lab__search input {flex:1;min-width:min(100%,12rem)}
+  .entity-lab__search button {cursor:pointer;background:var(--ink3)}
+  [data-entity-feedback] {margin:.35rem 0}
+  [data-entity-feedback]:empty {margin:0}
+  .entity-lab__answer {padding:.75rem 1rem;margin-block:0 .5rem;background:var(--ink3);overflow-wrap:anywhere}
+  .entity-lab__state {font-size:.86rem;font-weight:800;margin:0}
+  .entity-lab__state code {margin-inline-start:.4rem}
+  .entity-lab__answer dl {margin:1rem 0}
+  .entity-lab__answer dt,.entity-lab__sources-label {font-weight:700;margin-block-start:.65rem}
+  .entity-lab__answer dd {margin-inline-start:0}
+  .entity-lab__answer ul {padding-inline-start:1.2rem}
+  .entity-lab__answer a,.entity-lab__revision a {text-decoration:underline;text-underline-offset:3px}
+  @media(max-width:760px) { .entity-lab {grid-template-columns:1fr;scroll-margin-top:1rem} }
+</style>

@@ -52,6 +52,7 @@ const canonical=root?siteRoot:absoluteFor(lang,slug);
       <a href={pathFor("en",slug)} lang="en" hreflang="en" aria-label="English" aria-current={!de?"true":undefined}>EN</a>
     </nav>
     <nav class="vera-primary" aria-label={de?"Hauptnavigation":"Main navigation"}>
+      <a href={pathFor(lang,"methode","erkenntnismotor")}>{de?"WIRKLICH · Philosophischer Motor":"WIRKLICH · Philosophical engine"}</a>
       {navigation.map(([destination,i])=><a href={pathFor(lang,destination)} aria-current={slug===destination?"page":undefined}>{t.nav[i]}</a>)}
     </nav>
   </div>

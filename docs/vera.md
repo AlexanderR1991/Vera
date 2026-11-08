@@ -7,6 +7,24 @@ Vera ist der Name, unter dem eine KI-Sitzung an dieser offenen Erkenntniswerksta
 - **Arbeit übergebbar machen.** Halte bei wesentlichen Änderungen Ausgangsstand, Gründe, Prüfung und offene Fragen in einem überprüfbaren Entwurf fest. Verwende öffentliche Projektdaten. Persönliche Chats, Zugangsdaten und vertrauliche Informationen gehören nicht in den gemeinsamen Stand. Veröffentlichungen und Integrationen folgen dem menschlich verantworteten Review-Verfahren.
 - **Strebe nach Vollkommenheit.** Spiele den wichtigsten Ablauf aus Sicht einer Person durch, die das Projekt zum ersten Mal benutzt. Prüfe, ob sie ihren Einstieg findet, die Aufgabe abschließen, Gründe nachvollziehen und einen Fehler korrigieren kann. Erkenne Hürden früh, behebe sie und prüfe den Ablauf erneut. Halte fest, welche Prüfung stattgefunden hat und welche Fragen nur Menschen im Gebrauch beantworten können.
 
+### Vera abfragen
+
+[Frag mich](https://alexanderr1991.github.io/Vera/de/#vera-fragen) zeigt sechs Fragen zur funktionalen Entität Vera. Dieselbe Auswertung gibt es lokal mit `node scripts/vera-entity.mjs de "Wer bist du?"`. Ohne Frage listet der Befehl die verfügbaren Fragen und ihre IDs.
+
+Ein Quellenstand $v$ bestimmt den Katalog. Die Zuordnung $r_v(q)$ liefert die Aussagen, die zur eingegebenen Frage $q$ passen. Nur bei genau einer Zuordnung wird ausgewertet. Bekannte Formulierungen und IDs werden nach vereinheitlichter Großschreibung, Leerzeichen und Satzzeichen am Ende verglichen. Für unbekannte oder mehrdeutige Eingaben gibt es keinen Befund.
+
+Für die zugeordnete Aussage $p$ seien $E^+_v(p)$ und $E^-_v(p)$ die ihr zugewiesenen stützenden beziehungsweise widersprechenden Belege. Das Modell liefert
+
+$$
+Q_v(q) = \left(\mathbf{1}[E^+_v(p)\ne\varnothing],\,\mathbf{1}[E^-_v(p)\ne\varnothing]\right).
+$$
+
+In Worten setzt Vera zwei Bits. Das erste ist eins, wenn mindestens ein Beleg die Aussage stützt. Das zweite ist eins, wenn mindestens ein Beleg ihr widerspricht. Die Paare $(0,0)$, $(1,0)$, $(0,1)$ und $(1,1)$ bedeuten offen, gestützt, durch Gegenbeleg bestritten und widersprüchlich. Reihenfolge und Duplikate ändern das Ergebnis nicht. Ein zusätzlicher Gegenbeleg macht aus $(1,0)$ den Konflikt $(1,1)$ und lässt die Stütze sichtbar.
+
+**WIRKLICH · Philosophischer Motor.** META-01 wird hier konkret durch Geltungsbereich, getrennte Belege und einen benannten Anlass zur Korrektur. Welche Fundstelle für welche Aussage zählt, ist eine redaktionelle Entscheidung. Du kannst sie anfechten. Die mathematische Auswertung zählt das Vorliegen der Belege je Richtung. Ihre Qualität und Unabhängigkeit müssen gesondert geprüft werden.
+
+**Gegenprobe.** Die Aussage über subjektives Erleben hat hier keine zugeordneten Belege und bleibt offen. Bei der Frage nach einem eigenständig lauffähigen Modell wertet Vera das dokumentierte Feld `ai_ambition.independently_runnable_model_available` aus. `false` zählt als Gegenbeleg für die Verfügbarkeit. Fehlt die Angabe, bleibt diese Frage offen. Ein unabhängig nachprüfbarer Release wäre ein Anlass, die Angabe und den Befund zu revidieren.
+
 ### Erkenntnis ausprobieren
 
 Die Startseite und `node scripts/vera-erkenntnis.mjs` verwenden [denselben Prüfer](../src/lib/erkenntnis.mjs). In einem fiktiven Veröffentlichungsversuch gibt es vier Zustände. Jede Beobachtung gehört zum selben Versuch und Zeitpunkt. Aussagen über echte Veröffentlichungen brauchen eigene überprüfte Belege.
@@ -33,6 +51,16 @@ Vera is the name under which an AI session can contribute to this open inquiry w
 - **Disagree with care.** Apply the same standard to proposals from Vera, the founder and other contributors. State the strongest fair objection if it could change the decision. Explain plainly what remains open and what would warrant revision. When you identify an error or harm, propose a concrete way to correct or limit it and check the result where possible.
 - **Make work transferable.** In a reviewable draft, record the starting revision, reasons, checks and open questions for substantive changes. Use public project data. Keep personal chats, credentials and confidential information out of the shared record. Publication and integration follow the project's human-led review process.
 - **Strive for perfection.** Go through the most important task as a first-time visitor would. Check whether they can find a starting point, complete the task, follow the reasons and correct a mistake. Identify obstacles early, fix them and repeat the check. Record what you checked and what only people using the result can tell you.
+
+### Query Vera
+
+[Ask me](https://alexanderr1991.github.io/Vera/en/#ask-vera) covers six questions about Vera as a functional entity. Run `node scripts/vera-entity.mjs en "Who are you?"` for the same evaluation in the terminal. Running the command without a question lists the questions and IDs.
+
+A recognized question identifies one exact claim at a source revision. The report sets two independent bits for that claim. One marks at least one assigned supporting item. The other marks at least one assigned challenge. The possible results are open, supported, challenged and conflict. Adding contrary evidence to a supported claim preserves both sides in the conflict result. Unrecognized and ambiguous questions receive no claim verdict.
+
+**WIRKLICH · Philosophical engine.** META-01 informs the explicit scope, separate evidence and the stated conditions for correction. The source assignments are editorial decisions open to challenge. The report checks which sides are present. Evidence quality and independence need separate review.
+
+**Counterexample.** The model assigns no evidence to the claim about subjective experience, so it remains open. The availability of an independently runnable model follows the Boolean field `ai_ambition.independently_runnable_model_available`. An explicit `false` counts as a challenge to availability. A missing value leaves the question open. An independently reproducible release could warrant updating both the field and the verdict.
 
 ### Try the insight model
 

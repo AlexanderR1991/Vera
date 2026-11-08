@@ -181,8 +181,38 @@ for (const lang of ["de", "en"]) {
 if(errors.length){console.error(errors.join("\n"));process.exit(1);}
 console.log('Verified symbol/mathematics workshop: bilingual routes, 64 states, six controls, exports and discovery.');
 
-// Release identity and the new routes must agree with the published source data.
 const project=JSON.parse(await readFile("public/project.json","utf8"));
+
+// The entity query stays readable without JS, including its philosophical engine.
+const { ENTITY_QUERIES } = await import("../src/lib/vera-entity-catalog.mjs");
+const { queryVera } = await import("../src/lib/vera-entity.mjs");
+for (const [file, lang, id] of [
+ ["index.html", "de", "vera-fragen"],
+ ["de/index.html", "de", "vera-fragen"],
+ ["en/index.html", "en", "ask-vera"]
+]) {
+ const html = await readFile(join(out, file), "utf8");
+ const lab = html.match(/<section[^>]*data-entity-lab[^>]*>[\s\S]*?<\/section>/)?.[0] ?? "";
+ for (const token of ['id="' + id + '"', "WIRKLICH", "META-01", "data-entity-form", "data-entity-feedback"]) {
+  if (!lab.includes(token)) errors.push("Entity query missing " + token + " on " + file);
+ }
+ if (!html.includes('href="#' + id + '"')) errors.push("Entity query not linked from " + file);
+ const header = html.match(/<header\b[^>]*>[\s\S]*?<\/header>/)?.[0] ?? "";
+ if (!header.includes("WIRKLICH") || !header.includes('/' + lang + '/methode/#erkenntnismotor')) {
+  errors.push("Philosophical engine missing from header on " + file);
+ }
+ for (const query of ENTITY_QUERIES) {
+  const card = lab.match(new RegExp('<details[^>]*data-entity-question="' + query.id + '"[^>]*>[\\s\\S]*?<\\/details>'))?.[0] ?? "";
+  const report = queryVera(query.id, project);
+  if (!card.includes(query[lang].question) || !card.includes('data-entity-status="' + report.status + '"')) {
+   errors.push("Missing or incorrect static entity answer for " + file + "/" + query.id);
+  }
+ }
+}
+if(errors.length){console.error(errors.join("\n"));process.exit(1);}
+console.log("Verified entity queries, static verdicts and WIRKLICH links on all three home routes.");
+
+// Release identity and the new routes must agree with the published source data.
 const {summarizeProject}=await import("../src/lib/project-status.mjs");
 const discovery=JSON.parse(await readFile("public/research/stream.json","utf8"));
 const criticism=JSON.parse(await readFile("public/research/angriffe.json","utf8"));
