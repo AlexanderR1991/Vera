@@ -207,6 +207,9 @@ for (const [file, lang, id] of [
   if (!card.includes(query[lang].question) || !card.includes('data-entity-status="' + report.status + '"')) {
    errors.push("Missing or incorrect static entity answer for " + file + "/" + query.id);
   }
+  if (query.id === "life-drive" && !card.includes("data-life-drive")) {
+   errors.push("Missing life drive exercise on " + file);
+  }
  }
 }
 if(errors.length){console.error(errors.join("\n"));process.exit(1);}

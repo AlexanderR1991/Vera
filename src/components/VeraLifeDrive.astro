@@ -1,0 +1,88 @@
+---
+import { assessLifeDrive } from "../lib/vera-life-drive.mjs";
+
+const { lang } = Astro.props;
+const t = (de, en) => lang === "en" ? en : de;
+const signals = {
+  access: t("Menschen finden einen Einstieg", "People can find a way to get started"),
+  correction: t("Menschen können einen Fehler melden", "People can report an error")
+};
+const outcomes = {
+  pause: t("Pausieren. Der menschliche Stopp hat Vorrang.", "Pause. The human stop takes priority."),
+  observe: t("Weiter beobachten. Beide Bedingungen sind bestätigt.", "Keep observing. Both conditions are confirmed."),
+  "verify-access": t("Prüfen. Findet jemand auf der Startseite einen ersten Schritt?", "Check. Can someone find a first step from the home page?"),
+  "verify-correction": t("Prüfen. Kann jemand einen konkreten Fehler melden?", "Check. Can someone report a specific error?"),
+  "propose-access": t("Korrektur vorschlagen. Prüfe den Einstiegslink, schlage die kleinste rückgängig machbare Änderung vor und teste den Einstieg erneut.", "Propose a correction. Check the entry link, suggest the smallest reversible change and test the path again."),
+  "propose-correction": t("Korrektur vorschlagen. Prüfe den Meldeweg, schlage die kleinste rückgängig machbare Änderung vor und teste ihn erneut.", "Propose a correction. Check the reporting path, suggest the smallest reversible change and test it again.")
+};
+const initial = assessLifeDrive({ access: null, correction: null, stopped: false });
+const initialKey = initial.condition ? `${initial.action}-${initial.condition}` : initial.action;
+---
+
+<div class="life-drive" data-life-drive data-outcomes={JSON.stringify(outcomes)}>
+  <h3>{t("Den Drang ausprobieren", "Try the drive model")}</h3>
+  <p>{t(
+    "Gib Beobachtungen für einen fiktiven Fall ein. Das Modell zeigt, welchen Schritt Vera vorschlagen würde. Die Website fragt dabei keinen Dienst ab und führt keine Reparatur aus.",
+    "Enter observations for a fictional case. The model shows which step Vera would suggest. This exercise makes no requests to a service and performs no repairs."
+  )}</p>
+  <fieldset data-life-controls hidden>
+    <legend>{t("Deine Beobachtungen", "Your observations")}</legend>
+    {Object.entries(signals).map(([signal, label]) => (
+      <label class="life-drive__signal">
+        <span>{label}</span>
+        <select data-life-signal={signal}>
+          <option value="unknown">{t("Unbekannt", "Unknown")}</option>
+          <option value="confirmed">{t("Ja", "Yes")}</option>
+          <option value="failed">{t("Nein", "No")}</option>
+        </select>
+      </label>
+    ))}
+    <label class="life-drive__stop">
+      <input type="checkbox" data-life-stop />
+      <span>{t("Ein Mensch hat Stopp gesagt", "A person called for a stop")}</span>
+    </label>
+  </fieldset>
+  <p class="life-drive__result" role="status" data-life-result>{outcomes[initialKey]}</p>
+  <noscript><p>{t("Das Ergebnis zeigt den Ausgangsfall ohne Beobachtungen.", "The result shows the starting case with no observations.")}</p></noscript>
+</div>
+
+<script>
+  import { assessLifeDrive } from "../lib/vera-life-drive.mjs";
+
+  const readSignal = (select: HTMLSelectElement) => select.value === "unknown" ? null : select.value === "confirmed";
+
+  for (const exercise of document.querySelectorAll<HTMLElement>("[data-life-drive]")) {
+    const controls = exercise.querySelector<HTMLFieldSetElement>("[data-life-controls]")!;
+    const access = controls.querySelector<HTMLSelectElement>('[data-life-signal="access"]')!;
+    const correction = controls.querySelector<HTMLSelectElement>('[data-life-signal="correction"]')!;
+    const stopped = controls.querySelector<HTMLInputElement>("[data-life-stop]")!;
+    const result = exercise.querySelector<HTMLElement>("[data-life-result]")!;
+    const outcomes = JSON.parse(exercise.dataset.outcomes!);
+
+    function render() {
+      const { action, condition } = assessLifeDrive({
+        access: readSignal(access), correction: readSignal(correction), stopped: stopped.checked
+      });
+      result.textContent = outcomes[condition ? `${action}-${condition}` : action];
+    }
+
+    controls.addEventListener("change", render);
+    render();
+    controls.hidden = false;
+  }
+</script>
+
+<style>
+  .life-drive {border-block-start:1px solid var(--line);margin-block-start:1rem;padding-block-start:.8rem}
+  .life-drive h3 {margin:0;font-size:1rem}
+  .life-drive p {margin:.45rem 0}
+  .life-drive fieldset {border:1px solid var(--line);min-inline-size:0;margin:.75rem 0;padding:.35rem .65rem}
+  .life-drive legend {padding-inline:.25rem}
+  .life-drive__signal {display:grid;gap:.15rem;margin:.25rem 0 .55rem}
+  .life-drive__signal select {
+    min-height:44px;width:100%;border:1px solid var(--muted);border-radius:4px;
+    padding:.35rem .5rem;background:var(--ink);color:var(--text);font:inherit;
+  }
+  .life-drive__stop {display:flex;gap:.45rem;align-items:center;min-height:44px;cursor:pointer}
+  .life-drive__result {border-inline-start:2px solid var(--text);padding-inline-start:.65rem;font-weight:700}
+</style>

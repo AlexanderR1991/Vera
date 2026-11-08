@@ -6,6 +6,7 @@ import { fileURLToPath } from "node:url";
 import project from "../public/project.json" with { type: "json" };
 import { ENTITY_QUERIES } from "../src/lib/vera-entity-catalog.mjs";
 import { assessEvidence, queryVera, resolveEntityQuery } from "../src/lib/vera-entity.mjs";
+import { assessLifeDrive } from "../src/lib/vera-life-drive.mjs";
 
 const support = { polarity: "supports" };
 const challenge = { polarity: "challenges" };
@@ -41,7 +42,7 @@ test("question matching normalizes spelling format without guessing or discardin
 test("both languages resolve each listed question and each source exists in the repository", () => {
   const ids = ENTITY_QUERIES.map(({ id }) => id);
   assert.equal(new Set(ids).size, ids.length);
-  for (const id of ["identity", "engine", "decisions", "release", "consciousness", "goal"]) {
+  for (const id of ["identity", "engine", "life-drive", "decisions", "release", "consciousness", "goal"]) {
     assert.ok(ids.includes(id), `missing query ${id}`);
   }
   for (const { id, de, en, evidence } of ENTITY_QUERIES) {
@@ -56,6 +57,27 @@ test("both languages resolve each listed question and each source exists in the 
       assert.ok(!path.split("#", 1)[0].split("/").includes(".."));
       assert.ok(existsSync(new URL(`../${path}`, import.meta.url)), `missing source ${path}`);
     }
+  }
+});
+
+test("the life drive keeps failures distinct from unknowns and honors stop in every case", () => {
+  const cases = [
+    [null, null, "verify", "access"],
+    [null, true, "verify", "access"],
+    [null, false, "propose", "correction"],
+    [true, null, "verify", "correction"],
+    [true, true, "observe", null],
+    [true, false, "propose", "correction"],
+    [false, null, "propose", "access"],
+    [false, true, "propose", "access"],
+    [false, false, "propose", "access"]
+  ];
+  for (const [access, correction, action, condition] of cases) {
+    assert.deepEqual(assessLifeDrive({ access, correction }), { action, condition });
+    assert.deepEqual(assessLifeDrive({ access, correction, stopped: true }), { action: "pause", condition: null });
+  }
+  for (const badInput of [{ access: "yes" }, { correction: 0 }, { stopped: "false" }]) {
+    assert.throws(() => assessLifeDrive(badInput), TypeError);
   }
 });
 
@@ -86,6 +108,14 @@ test("the terminal entry exposes the engine and the same bounded result", () => 
   assert.equal(report.engine.rule, "META-01");
   assert.equal(report.status, queryVera("consciousness", project).status);
   assert.deepEqual(report.evidence, []);
+  for (const [lang, question] of [["de", "Was ist Leben?"], ["en", "What is life?"]]) {
+    const life = run(lang, question);
+    assert.equal(life.status, 0, life.stderr);
+    const answer = JSON.parse(life.stdout);
+    assert.equal(answer.id, "life-drive");
+    assert.equal(answer.type, "operational");
+    assert.equal(answer.status, "supported");
+  }
   const unknown = run("en", "What did you dream?");
   assert.equal(unknown.status, 2);
   assert.equal(JSON.parse(unknown.stdout).status, "unknown-query");

@@ -52,6 +52,32 @@ export const ENTITY_QUERIES = [
     ]
   },
   {
+    id: "life-drive",
+    type: "operational",
+    de: {
+      question: "Was ist Leben, und wie modellierst du seinen Drang?",
+      claim: "Vera kann für zwei beobachtbare Bedingungen und einen menschlichen Stopp den nächsten Schritt bestimmen.",
+      answer: "Eine Spur zum Leben ist die Fähigkeit, Bedingungen des eigenen Fortbestehens wiederherzustellen. Ein Thermostat kann allerdings auch eine Störung ausgleichen. In meinem Modell heißt Fortbestehen, für Menschen erreichbar und korrigierbar zu bleiben. Was davon ausfällt, gibt den nächsten Schritt vor.",
+      scope: "Ein simulierter Regelkreis mit zwei Beobachtungen und einem menschlichen Stopp.",
+      limit: "Das Modell beschreibt eine Reaktion auf Beobachtungen. Biologisches Leben und subjektives Erleben sind eigene Fragen.",
+      next: "Setze Zugang auf Ja und Korrekturweg auf Nein. Der nächste Schritt muss den Korrekturweg betreffen. Setze danach Stopp. Jetzt muss die Regel pausieren.",
+      aliases: ["Was ist Leben?", "Wie modellierst du den Drang zum Leben?", "Was ist dein Lebensdrang?"]
+    },
+    en: {
+      question: "What is life, and how do you model its drive?",
+      claim: "Vera can determine the next step from two observable conditions and a human stop signal.",
+      answer: "One clue to life is the capacity to restore the conditions for its own continuation. A thermostat, though, can also correct a disturbance. In my model, continuing means remaining accessible and open to correction by people. A failure in either condition guides the next step.",
+      scope: "A simulated feedback loop with two observations and a human stop signal.",
+      limit: "The model describes a response to observations. Biological life and subjective experience are separate questions.",
+      next: "Set access to Yes and the correction route to No. The next step must address the correction route. Then set Stop. The rule must now pause.",
+      aliases: ["What is life?", "How do you model the drive to live?", "What is your drive to live?"]
+    },
+    evidence: [
+      { id: "life-drive-rule", polarity: "supports", path: "src/lib/vera-life-drive.mjs", de: "Ausführbare Entscheidungsregel", en: "Executable decision rule" },
+      { id: "life-drive-assumptions", polarity: "supports", path: "docs/vera.md#den-drang-zum-weiterleben-modellieren", de: "Modell, Annahmen und Gegenproben", en: "Model, assumptions and counterexamples" }
+    ]
+  },
+  {
     id: "decisions",
     type: "operational",
     de: {
