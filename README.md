@@ -55,21 +55,23 @@ Künstliche Intelligenz braucht mehr als Fähigkeiten. **WIRKLICH will mit Mensc
 
 ## Vera lokal fragen · Ask Vera locally
 
-Vera kann das [versionierte Projektprofil](docs/vera.md) und den Erkenntnisprompt direkt an ein lokales Sprachmodell übergeben. Dafür brauchst du einen Git-Checkout, Node.js ab 22.12 und [Ollama](https://ollama.com/download). Starte Ollama lokal mit [abgeschalteten Cloud-Funktionen](https://docs.ollama.com/faq#how-do-i-disable-ollamas-cloud-features) und lade einmal ein Modell, etwa mit `ollama pull qwen2.5:1.5b`. Danach funktioniert der folgende Befehl mit diesem Modell auch offline.
+Vera übergibt das [versionierte Projektprofil](docs/vera.md) und den Erkenntnisprompt an ein lokales Sprachmodell. Du brauchst einen Git-Checkout, Node.js ab 22.12 und [Ollama](https://ollama.com/download) mit [abgeschalteten Cloud-Funktionen](https://docs.ollama.com/faq#how-do-i-disable-ollamas-cloud-features). Lade einmal ein [Modell mit Werkzeugunterstützung](https://ollama.com/library/qwen3:4b), etwa mit `ollama pull qwen3:4b`. Danach funktionieren beide Befehle offline.
 
 ```sh
-node scripts/vera-ask.mjs de qwen2.5:1.5b "Welcher Einwand könnte deine Antwort ändern?"
+node scripts/vera-ask.mjs de qwen3:4b "Wie prüft Vera, ob Verstehen und Zustimmung auseinanderfallen?"
+node scripts/vera-ask.mjs de qwen3:4b --explore
 ```
 
-Vera can pass the versioned project profile and inquiry prompt directly to a local language model. Use a Git checkout, Node.js 22.12 or later, and Ollama running with its cloud features disabled. Download a model once with `ollama pull qwen2.5:1.5b`, then ask a question offline.
+Vera passes the versioned project profile and inquiry prompt to a local language model. Use a Git checkout, Node.js 22.12 or later, and Ollama with cloud features disabled. Download a model with tool support once, for example with `ollama pull qwen3:4b`. Both commands then work offline.
 
 ```sh
-node scripts/vera-ask.mjs en qwen2.5:1.5b "What evidence would change your answer?"
+node scripts/vera-ask.mjs en qwen3:4b "How does Vera test when understanding and agreement diverge?"
+node scripts/vera-ask.mjs en qwen3:4b --explore
 ```
 
-Der Befehl sendet Profil, Prompt und Frage an `127.0.0.1` (Port `11434`, einstellbar mit `VERA_OLLAMA_PORT`). Die Modellantwort ist ein Entwurf. Git-Stand und Modell stehen separat im Terminal. Verlinkte Quellen müssen bei Bedarf von Menschen geprüft werden.
+Bei einer entscheidenden Wissenslücke kann das Modell selbst eine Suche anfordern. Mit `--explore` wählt es die Frage aus dem Grundfragenregister. Pro Lauf steht eine lokale Stichwortsuche in den Dokumenten desselben Git-Stands zur Verfügung. Das Terminal zeigt den Suchgrund und bis zu drei tatsächlich abgerufene Fundstellen separat vom Entwurf. Ein leerer Trefferbericht lässt die Frage offen. Wie gut das Modell Lücken und passende Suchbegriffe erkennt, lässt sich mit dem gewählten Modell prüfen. Der Befehl verbindet sich mit `127.0.0.1` (Port `11434`, einstellbar mit `VERA_OLLAMA_PORT`).
 
-The command sends the profile, prompt and question to `127.0.0.1` (port `11434`, configurable via `VERA_OLLAMA_PORT`). The answer is a model draft. The terminal shows the Git revision and model separately. Follow up on linked sources directly when needed.
+The model can request a search when a consequential gap remains. With `--explore`, it selects an open question from the project catalogue. Each run can perform one local keyword search in the documentation at the same Git revision. The terminal shows the reason for searching and up to three retrieved passages separately from the draft. An empty result leaves the gap open. Test how well your chosen model identifies gaps and selects search terms. The command connects to `127.0.0.1` (port `11434`, configurable via `VERA_OLLAMA_PORT`).
 
 ## Gemeinsam klüger werden · Learn together
 
