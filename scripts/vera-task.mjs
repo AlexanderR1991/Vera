@@ -8,7 +8,8 @@ const [language, ...selectors] = process.argv.slice(2);
 const usage = "Usage: node scripts/vera-task.mjs <de|en> <path:START-END> [<path:START-END> ...] (up to 5)";
 const publicModelSources = new Set([
   "src/components/VeraEntity.astro", "src/components/VeraErkenntnis.astro",
-  "src/lib/vera-entity.mjs", "src/lib/erkenntnis.mjs"
+  "src/lib/vera-entity.mjs", "src/lib/erkenntnis.mjs",
+  "scripts/vera-swarm.mjs", "scripts/vera-task.mjs"
 ]);
 
 function selectSource(selector) {

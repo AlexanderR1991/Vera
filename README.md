@@ -193,18 +193,23 @@ node scripts/vera-task.mjs en docs/selbstkorrektur.md:61-65
 
 ### Veras Optimierungsschwarm · Vera’s improvement swarm
 
-**WIRKLICH · META-01.** Drei getrennte Sitzungen prüfen wahlweise das Selbstmodell (`entity`) oder das Entscheidungsmodell (`insight`). Die Rollen prüfen Verständlichkeit und Einspruch, mathematische Annahmen und technische Fehler. Jede Rolle liefert ihre Fundstelle, den stärksten Einwand und eine Gegenprobe. Der Bericht hält abweichende Befunde und fehlgeschlagene Rollen einzeln fest. Führe eine vorgeschlagene Gegenprobe aus, bevor du eine Änderung übernimmst.
+**WIRKLICH · META-01.** Im Modus `auto` wählt Vera einen Prüfbereich aus einem kleinen Katalog: Selbstmodell (`entity`), Entscheidungsmodell (`insight`) oder den Schwarm selbst (`swarm`). Danach prüft Vera den gewählten Bereich in drei getrennten Sitzungen aus Sicht von Philosophie, Mathematik und Technik. Jede Rolle liefert eine Fundstelle aus demselben Git-Commit, ihren stärksten Einwand und eine Gegenprobe. Eine letzte Sitzung schlägt eine dieser Gegenproben vor oder lässt die Wahl offen. Alle Einwände und Ausfälle bleiben einzeln sichtbar.
 
-**WIRKLICH · META-01.** Three separate sessions examine the self-model (`entity`) or decision model (`insight`). Each role reports its source, strongest objection and a check that could change its finding. The report preserves dissent and failed roles. Run a proposed check before adopting a change.
+**WIRKLICH · META-01.** In `auto` mode, Vera chooses a bounded target from the catalogue: the self-model (`entity`), decision model (`insight`) or swarm itself (`swarm`). Three separate sessions examine that target from philosophical, mathematical and engineering perspectives. Each role supplies a source from the same Git commit, its strongest objection and a discriminating check. A final session proposes one of those checks or leaves the choice open. The report preserves each objection and failure.
 
 ```sh
-node scripts/vera-swarm.mjs de entity
+node scripts/vera-swarm.mjs de auto qwen2.5:7b
 node scripts/vera-swarm.mjs en insight qwen2.5:7b
+node scripts/vera-swarm.mjs de entity
 ```
 
-Der erste Befehl gibt die drei Arbeitsaufträge mit Quellen aus einem Git-Commit aus. Setze im zweiten Befehl den Namen deines bereits installierten lokalen Modells ein. Er startet drei Anfragen an Ollama auf `127.0.0.1:11434` (Port über `VERA_OLLAMA_PORT` wählbar). Die Sitzungen verwenden dasselbe Modell ohne gegenseitigen Zugriff auf ihre Antworten. Die JSON-Ausgabe ist ein Prüfentwurf für Menschen. Eine fehlende oder ungültige Antwort führt zu Exitcode 1, vorhandene Ergebnisse bleiben im Bericht.
+Der erste Befehl benötigt ein installiertes Modell in Ollama mit abgeschalteten Cloud-Funktionen. Ein vollständiger Lauf sendet fünf Anfragen an `127.0.0.1:11434` (Port über `VERA_OLLAMA_PORT` wählbar). Gib ein Prüfziel direkt an, um nur die drei Rollen zu starten. Ohne Modellname gibt Vera Arbeitsaufträge aus, im Modus `auto` nur den Auftrag für die Zielwahl. Fehlende oder ungültige Antworten führen zu Exitcode 1. Vorhandene Entwürfe bleiben im JSON-Bericht.
 
-The first command exports three briefs with excerpts from one Git commit. Substitute the name of an installed local model in the second command. It sends three requests to Ollama at `127.0.0.1:11434` (override the port with `VERA_OLLAMA_PORT`). The sessions share a model and receive no other role’s output. The JSON report contains drafts for human review. Missing or invalid replies set exit code 1 and preserve the other results. [Ollama chat API](https://docs.ollama.com/api/chat)
+The first command requires an installed Ollama model with cloud features disabled. A complete run sends five requests to `127.0.0.1:11434` (override with `VERA_OLLAMA_PORT`). Name a target directly to run only the three review roles. Omit the model to export briefs, or just the target-selection brief in `auto` mode. Missing or invalid replies set exit code 1 and preserve any drafts already collected.
+
+**Korrektur nachvollziehen.** Die Rollen nutzen dasselbe Modell und sehen die Antworten der anderen Rollen nicht. Erst die abschließende Sitzung erhält alle drei Entwürfe. Der Bericht ist ein KI-Entwurf. Prüfe die vorgeschlagene Gegenprobe, halte Entscheidung und Gründe fest und wiederhole die Prüfung nach einer Änderung am betroffenen Ziel mit dem neuen Commit. Der Schwarm gibt den Bericht im Terminal aus.
+
+**Follow a correction.** The review roles share a model and see no other role’s draft. Only the final session receives all three drafts. The report is an AI draft. Run the suggested check, record the decision and reasons, and review the same target again after committing a change. The swarm prints the report to the terminal.
 
 ### Erkenntnis ausprobieren · Try the insight model
 
