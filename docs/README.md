@@ -56,7 +56,7 @@ npm ci
 npm run build
 python -m unittest discover -s tests -p 'test_*.py'
 python scripts/validate_site.py
-python scripts/check_vera_entry.py --revision "$(git rev-parse HEAD)"
+python scripts/check_vera_entry.py
 ```
 
 Projekttexte und Übersetzungen stehen unter CC BY-SA 4.0, eigener Code unter MIT. Einzelheiten zu Bildrechten und Ausnahmen stehen in den Lizenzhinweisen. [Lizenzen](../LICENSING.md) · [Urheberschaft](../AUTHORS.md) · [Beitragsleitfaden](../CONTRIBUTING.md)
