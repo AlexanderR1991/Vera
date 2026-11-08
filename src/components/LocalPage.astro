@@ -15,7 +15,7 @@ const marker = slug === "methode" ? "<!--worked-case-->" : "<!--chapter-shelf-->
 const [before, after] = content.split(marker);
 if (["methode", "bibliothek"].includes(slug) && after === undefined) throw Error("Missing content marker on " + slug);
 const followUp = {
-  atlas: ["erkenntnisnavigator", "baum-des-wissens", "bibliothek", "schnittmengen"],
+  atlas: ["kollektive-intelligenz", "erkenntnisnavigator", "baum-des-wissens", "bibliothek", "schnittmengen"],
   bibliothek: ["baum-des-wissens", "forschungsstrom"],
   methode: ["erkenntnisnavigator", "werkstatt", "aussagen", "fragen-und-ki-prompt"],
   pruefstand: ["aussagen", "angriffsschwarm"],
@@ -35,6 +35,12 @@ const followUp = {
       )}</ul>
     </section>}
   {after && <Fragment set:html={after} />}
+  {slug === "atlas" && <section class="container atlas-learning" id="lernendes-netz">
+    <p class="section-kicker">{de ? "ATLAS ALS GRUNDLAGE" : "ATLAS AS A FOUNDATION"}</p>
+    <h2>{de ? "Unsere Karte könnte Teil einer kollektiven Intelligenz werden." : "Our map could become part of a collective intelligence."}</h2>
+    <p>{de ? "Die sechs Felder sind Themenräume, noch kein denkendes System. Erst wenn Menschen Verbindungen mit guten Gründen prüfen, Minderheiteneinwände erhalten und aus Fehlern lernen, könnte aus der Sammlung eine neue Erkenntnisfähigkeit entstehen." : "The six fields organize domains, not a thinking system. Only with justified links, preserved minority objections and learning from errors might the collection become a new capacity for inquiry."}</p>
+    <a href={pathFor(lang,"kollektive-intelligenz")}>{de ? "Zur Grundidee und ihren Gegenproben" : "Explore the founding idea and its challenges"} →</a>
+  </section>}
   {followUp.length > 0 &&
     <nav class="container next-links" aria-label={de ? "Weiterführende Seiten" : "Related pages"}>
       <strong>{de ? "Von hier aus weiter" : "Where to go next"}</strong>
@@ -43,6 +49,10 @@ const followUp = {
 </Layout>
 
 <style>
+  .atlas-learning {border-top:1px solid var(--line);padding-block:3rem}
+  .atlas-learning h2{font:clamp(1.8rem,3vw,2.8rem)/1.2 var(--serif);max-width:52rem}
+  .atlas-learning p{max-width:54rem}
+  .atlas-learning a{color:var(--gold-bright);text-underline-offset:.2em}
   .chapter-shelf { padding-block: clamp(3rem, 7vw, 6rem); }
   .chapter-shelf h2 { font-size: clamp(2.25rem, 5vw, 3.5rem); margin: 1rem 0; }
   .chapter-shelf ul { list-style: none; padding: 0; margin: 2rem 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); gap: 1.5rem 2.5rem; }

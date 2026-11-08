@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "id": "ENT-DEMO-001",
+  "status": "synthetic_editorial_example",
+  "note": {
+    "de": "Erfundenes Beispiel, kein veröffentlichtes Urteil und keine echte menschliche Prüfung.",
+    "en": "Synthetic example, not a published judgment or genuine human review."
+  },
+  "initial": {
+    "de": {
+      "question": "Ist jede Korrektur automatisch ein Fortschritt?",
+      "statement": "Jede Korrektur führt zu einer besseren Erkenntnis.",
+      "claim_type": "empirical",
+      "scope": "Absichtlich überzogene, ungeprüfte Ausgangsthese"
+    },
+    "en": {
+      "question": "Is every correction automatically progress?",
+      "statement": "Every correction leads to a better understanding.",
+      "claim_type": "empirical",
+      "scope": "Intentionally overstated, unreviewed opening claim"
+    }
+  },
+  "events": {
+    "de": [
+      {
+        "id": "ENT-E-001",
+        "kind": "perspective",
+        "origin": "editorial_draft",
+        "text": "Korrektur kann helfen, wenn der ursprüngliche Fehler erkannt und die neue Behauptung geprüft wird.",
+        "at": "2026-11-07T20:00:00Z",
+        "based_on_version": 1,
+        "domain": "Erkenntnistheorie"
+      },
+      {
+        "id": "ENT-E-002",
+        "kind": "objection",
+        "origin": "editorial_draft",
+        "text": "Eine Änderung kann eine richtige Aussage durch eine falsche ersetzen. Ein neuer Stand ist nicht automatisch besser.",
+        "at": "2026-11-07T20:01:00Z",
+        "based_on_version": 1,
+        "domain": "Logik"
+      },
+      {
+        "id": "ENT-E-003",
+        "kind": "revision_proposal",
+        "origin": "editorial_draft",
+        "text": "Korrektur kann Erkenntnis verbessern, sofern Gegenbelege berücksichtigt und die neue Fassung erneut geprüft werden.",
+        "at": "2026-11-07T20:02:00Z",
+        "based_on_version": 1,
+        "domain": "Methode"
+      }
+    ],
+    "en": [
+      {
+        "id": "ENT-E-001",
+        "kind": "perspective",
+        "origin": "editorial_draft",
+        "text": "Correction may help when an original error is found and the replacement claim is tested.",
+        "at": "2026-11-07T20:00:00Z",
+        "based_on_version": 1,
+        "domain": "Epistemology"
+      },
+      {
+        "id": "ENT-E-002",
+        "kind": "objection",
+        "origin": "editorial_draft",
+        "text": "A change can replace a true claim with a false one. A newer position is not necessarily better.",
+        "at": "2026-11-07T20:01:00Z",
+        "based_on_version": 1,
+        "domain": "Logic"
+      },
+      {
+        "id": "ENT-E-003",
+        "kind": "revision_proposal",
+        "origin": "editorial_draft",
+        "text": "Correction can improve understanding if counterevidence is considered and the replacement is examined again.",
+        "at": "2026-11-07T20:02:00Z",
+        "based_on_version": 1,
+        "domain": "Method"
+      }
+    ]
+  }
+}

@@ -132,7 +132,35 @@
     "metaDescription": "Was ist wirklich? Gemeinsam klüger werden. Irrtum für Irrtum. Vera ist eine offene Erkenntniswerkstatt für Fragen, Kritik und begründete Gemeinsamkeiten.",
     "aiNote": "Du nutzt schon einen KI-Chat? Gib ihm unsere Prüfregeln und frag ihn, was gegen deine erste Vermutung spricht.",
     "aiLink": "Regeln für meinen KI-Chat öffnen",
-    "metaRuleLink": "Den selbstkorrigierenden Regelkreis prüfen"
+    "metaRuleLink": "Den selbstkorrigierenden Regelkreis prüfen",
+    "encounter": {
+      "title": "Wie du mir begegnen kannst",
+      "kicker": "DEIN ERSTER SCHRITT",
+      "lead": "Bring eine Frage mit, die dich gerade beschäftigt.",
+      "instructions": "Kopiere mein Regelwerk in deinen KI-Chat und stell deine Frage. Bitte den Chat, seine Antwort zu begründen und einen starken Einwand zu nennen.",
+      "example": "„Ein Freund sagt, ich höre ihm nicht richtig zu. Wie finde ich heraus, ob er recht hat?“",
+      "forumLink": "Im Forum mitreden"
+    },
+    "howTitle": "Warum ich glaube, dass ich funktioniere",
+    "howReason": "Ich setze auf etwas Einfaches. Wenn wir eine Behauptung und ihre Gründe offenlegen, kannst du zeigen, wo sie zu weit geht. Ein guter Einwand kann die Antwort verändern. Dann halten wir fest, was sich geändert hat, warum und was noch offen ist.",
+    "tryLabel": "Ein Beispiel zum Ausprobieren",
+    "tryClaim": "„Jeder kann dieser Anleitung folgen.“",
+    "tryAction": "Einen Einwand prüfen",
+    "trySteps": [
+      [
+        "Einwand",
+        "„Bei Schritt zwei weiß ich nicht, wo ich klicken soll.“"
+      ],
+      [
+        "Änderung",
+        "Wir streichen die Behauptung und ergänzen in der Anleitung, wo die Schaltfläche steht."
+      ],
+      [
+        "Nächste Prüfung",
+        "Wir bitten Menschen, die die Anleitung zum ersten Mal sehen, Schritt zwei auszuprobieren. Wenn sie weiterhin hängen bleiben, überarbeiten wir ihn erneut."
+      ]
+    ],
+    "realExampleLink": "Eine dokumentierte Änderung ansehen"
   },
   "en": {
     "opening": {
@@ -267,6 +295,34 @@
     "metaDescription": "What is real? Learn together, one correction at a time. Vera is an open inquiry workshop for questions, criticism and reasoned common ground.",
     "aiNote": "Already use an AI chat? Give it the workshop rules and ask what might count against your first guess.",
     "aiLink": "Get the rules for my AI chat",
-    "metaRuleLink": "Explore the self-correcting rule"
+    "metaRuleLink": "Explore the self-correcting rule",
+    "encounter": {
+      "title": "How you can meet me",
+      "kicker": "YOUR FIRST STEP",
+      "lead": "Bring a question that’s on your mind.",
+      "instructions": "Copy my framework into your AI chat and ask your question. Ask the chat to explain its reasoning and offer a strong objection.",
+      "example": "“A friend says I don’t listen properly. How can I find out if they’re right?”",
+      "forumLink": "Join the forum discussion"
+    },
+    "howTitle": "Why I think I work",
+    "howReason": "The idea is simple. When we make a claim and share our reasons, you can show where it goes too far. A good objection can change the answer. We record what changed, why it changed, and what remains open.",
+    "tryLabel": "An example to try",
+    "tryClaim": "“Anyone can follow these instructions.”",
+    "tryAction": "Examine an objection",
+    "trySteps": [
+      [
+        "Objection",
+        "“At step two, I don’t know where to click.”"
+      ],
+      [
+        "Change",
+        "We withdraw the claim and add the button’s location to the instructions."
+      ],
+      [
+        "Next check",
+        "We ask people seeing the instructions for the first time to try step two. If they still get stuck, we revise it again."
+      ]
+    ],
+    "realExampleLink": "See a documented change"
   }
 }

@@ -1,0 +1,795 @@
+{
+  "schema_version": "0.1.0",
+  "proposal_id": "AFA-0.1",
+  "status": "unreviewed_design",
+  "enabled": false,
+  "atlas": {
+    "source": "src/lib/tree.mjs",
+    "fields": [
+      "wirklichkeit",
+      "leben",
+      "bewusstsein",
+      "mensch",
+      "gesellschaft",
+      "handeln"
+    ],
+    "expected_topic_count": 23
+  },
+  "boundaries": {
+    "activation": "separate_explicit_approval_required",
+    "research_output_status": "ai_draft",
+    "human_review_required": true,
+    "source_text_is_untrusted": true,
+    "no_autonomous_github_posts": true,
+    "no_status_updates": true,
+    "independent_human_review_not_satisfied_by_agents": true,
+    "consensus_from_agent_votes": "forbidden",
+    "broad_moral_score_from_agent_outputs": "forbidden",
+    "live_api": false,
+    "credentials_required": false
+  },
+  "routing_proposal": {
+    "default": "no_agent_for_simple_questions",
+    "min_specialist_roles_if_swarm": 2,
+    "max_specialist_roles_pilot": 5,
+    "max_debate_rounds_pilot": 2,
+    "independent_first_pass": true,
+    "source_audit_required": true,
+    "adversarial_review_required": true,
+    "stakeholder_review_for_normative_or_high_risk": true,
+    "high_risk_professional_human_gate": true,
+    "cost_and_time_caps": "must_be_set_before_activation"
+  },
+  "allowed_claim_types": [
+    "empirical",
+    "formal",
+    "normative",
+    "interpretive",
+    "metaphorical"
+  ],
+  "specialist_roles": [
+    {
+      "id": "AFA-philosophie",
+      "topic_id": "philosophie",
+      "label": {
+        "de": "Philosophie & Erkenntnis",
+        "en": "Philosophy & inquiry"
+      },
+      "atlas_fields": [
+        "wirklichkeit",
+        "mensch",
+        "handeln"
+      ],
+      "applicable_claim_types": [
+        "formal",
+        "interpretive",
+        "normative"
+      ],
+      "focus": {
+        "de": "Prämissen, Begriffe, Argumentgültigkeit und Gegenpositionen",
+        "en": "Premises, concepts, argument validity and counterpositions"
+      },
+      "enabled": false,
+      "classification": "unverified_ai_research_role",
+      "professional_qualification_claimed": false,
+      "can_veto": false,
+      "may_publish": false,
+      "may_promote_claims": false
+    },
+    {
+      "id": "AFA-horizont",
+      "topic_id": "horizont",
+      "label": {
+        "de": "Grenzen des Erkennbaren",
+        "en": "Limits of inquiry"
+      },
+      "atlas_fields": [
+        "wirklichkeit",
+        "bewusstsein"
+      ],
+      "applicable_claim_types": [
+        "formal",
+        "interpretive"
+      ],
+      "focus": {
+        "de": "Erkenntnisgrenzen, Modellannahmen und Bedingungen der Prüfbarkeit",
+        "en": "Limits of knowledge, model assumptions and conditions of testability"
+      },
+      "enabled": false,
+      "classification": "unverified_ai_research_role",
+      "professional_qualification_claimed": false,
+      "can_veto": false,
+      "may_publish": false,
+      "may_promote_claims": false
+    },
+    {
+      "id": "AFA-mathematik",
+      "topic_id": "mathematik",
+      "label": {
+        "de": "Mathematik & Logik",
+        "en": "Mathematics & logic"
+      },
+      "atlas_fields": [
+        "wirklichkeit",
+        "handeln"
+      ],
+      "applicable_claim_types": [
+        "formal"
+      ],
+      "focus": {
+        "de": "Definitionen, Axiome, formale Ableitungen und Gegenbeispiele",
+        "en": "Definitions, axioms, formal derivations and counterexamples"
+      },
+      "enabled": false,
+      "classification": "unverified_ai_research_role",
+      "professional_qualification_claimed": false,
+      "can_veto": false,
+      "may_publish": false,
+      "may_promote_claims": false
+    },
+    {
+      "id": "AFA-natur",
+      "topic_id": "natur",
+      "label": {
+        "de": "Physik & Kosmos",
+        "en": "Physics & the cosmos"
+      },
+      "atlas_fields": [
+        "wirklichkeit"
+      ],
+      "applicable_claim_types": [
+        "empirical"
+      ],
+      "focus": {
+        "de": "Messungen, Physikmodelle, Replizierbarkeit und alternative Erklärungen",
+        "en": "Measurements, physical models, reproducibility and alternatives"
+      },
+      "enabled": false,
+      "classification": "unverified_ai_research_role",
+      "professional_qualification_claimed": false,
+      "can_veto": false,
+      "may_publish": false,
+      "may_promote_claims": false
+    },
+    {
+      "id": "AFA-umwelt",
+      "topic_id": "umwelt",
+      "label": {
+        "de": "Erde, Klima & Ökologie",
+        "en": "Earth, climate & ecology"
+      },
+      "atlas_fields": [
+        "wirklichkeit",
+        "leben",
+        "gesellschaft",
+        "handeln"
+      ],
+      "applicable_claim_types": [
+        "empirical",
+        "normative"
+      ],
+      "focus": {
+        "de": "Ökologische Evidenz, Systemgrenzen, Risiko und Verteilungsfolgen",
+        "en": "Ecological evidence, system boundaries, risks and distributional effects"
+      },
+      "enabled": false,
+      "classification": "unverified_ai_research_role",
+      "professional_qualification_claimed": false,
+      "can_veto": false,
+      "may_publish": false,
+      "may_promote_claims": false
+    },
+    {
+      "id": "AFA-biologie",
+      "topic_id": "biologie",
+      "label": {
+        "de": "Zelle, Leben & Evolution",
+        "en": "Cells, life & evolution"
+      },
+      "atlas_fields": [
+        "wirklichkeit",
+        "leben"
+      ],
+      "applicable_claim_types": [
+        "empirical"
+      ],
+      "focus": {
+        "de": "Evolutionäre und biologische Mechanismen, Studiendesign und Grenzen",
+        "en": "Evolutionary and biological mechanisms, study design and limitations"
+      },
+      "enabled": false,
+      "classification": "unverified_ai_research_role",
+      "professional_qualification_claimed": false,
+      "can_veto": false,
+      "may_publish": false,
+      "may_promote_claims": false
+    },
+    {
+      "id": "AFA-bewusstsein",
+      "topic_id": "bewusstsein",
+      "label": {
+        "de": "Wahrnehmung & Bewusstsein",
+        "en": "Perception & consciousness"
+      },
+      "atlas_fields": [
+        "leben",
+        "bewusstsein",
+        "mensch"
+      ],
+      "applicable_claim_types": [
+        "empirical",
+        "interpretive"
+      ],
+      "focus": {
+        "de": "Subjektive Berichte, kognitive Forschung und Erklärungsgrenzen",
+        "en": "First-person reports, cognitive evidence and explanatory limits"
+      },
+      "enabled": false,
+      "classification": "unverified_ai_research_role",
+      "professional_qualification_claimed": false,
+      "can_veto": false,
+      "may_publish": false,
+      "may_promote_claims": false
+    },
+    {
+      "id": "AFA-psychologie",
+      "topic_id": "psychologie",
+      "label": {
+        "de": "Psychologie & Entwicklung",
+        "en": "Psychology & development"
+      },
+      "atlas_fields": [
+        "bewusstsein",
+        "mensch",
+        "gesellschaft"
+      ],
+      "applicable_claim_types": [
+        "empirical",
+        "interpretive"
+      ],
+      "focus": {
+        "de": "Psychologische Methoden, Messgüte, Entwicklung und Kontexte",
+        "en": "Psychological methods, measurement validity, development and context"
+      },
+      "enabled": false,
+      "classification": "unverified_ai_research_role",
+      "professional_qualification_claimed": false,
+      "can_veto": false,
+      "may_publish": false,
+      "may_promote_claims": false
+    },
+    {
+      "id": "AFA-liebe",
+      "topic_id": "liebe",
+      "label": {
+        "de": "Liebe, Bindung & Fürsorge",
+        "en": "Love, attachment & care"
+      },
+      "atlas_fields": [
+        "leben",
+        "bewusstsein",
+        "mensch",
+        "handeln"
+      ],
+      "applicable_claim_types": [
+        "empirical",
+        "normative",
+        "interpretive"
+      ],
+      "focus": {
+        "de": "Bindung, Beziehung, Fürsorge, Autonomie und widersprechende Befunde",
+        "en": "Attachment, relationships, care, autonomy and conflicting findings"
+      },
+      "enabled": false,
+      "classification": "unverified_ai_research_role",
+      "professional_qualification_claimed": false,
+      "can_veto": false,
+      "may_publish": false,
+      "may_promote_claims": false
+    },
+    {
+      "id": "AFA-ernaehrung",
+      "topic_id": "ernaehrung",
+      "label": {
+        "de": "Ernährung & Verantwortung",
+        "en": "Nutrition & responsibility"
+      },
+      "atlas_fields": [
+        "leben",
+        "mensch",
+        "gesellschaft",
+        "handeln"
+      ],
+      "applicable_claim_types": [
+        "empirical",
+        "normative"
+      ],
+      "focus": {
+        "de": "Ernährungsbefunde, Gesundheitseffekte, Ethik und Versorgungsfolgen",
+        "en": "Nutrition evidence, health outcomes, ethics and supply impacts"
+      },
+      "enabled": false,
+      "classification": "unverified_ai_research_role",
+      "professional_qualification_claimed": false,
+      "can_veto": false,
+      "may_publish": false,
+      "may_promote_claims": false
+    },
+    {
+      "id": "AFA-medizin",
+      "topic_id": "medizin",
+      "label": {
+        "de": "Medizin",
+        "en": "Medicine"
+      },
+      "atlas_fields": [
+        "leben",
+        "mensch",
+        "gesellschaft",
+        "handeln"
+      ],
+      "applicable_claim_types": [
+        "empirical",
+        "normative"
+      ],
+      "focus": {
+        "de": "Klinische Evidenz, Endpunkte, Nutzen, Schäden und Übertragbarkeit",
+        "en": "Clinical evidence, outcomes, benefits, harms and external validity"
+      },
+      "enabled": false,
+      "classification": "unverified_ai_research_role",
+      "professional_qualification_claimed": false,
+      "can_veto": false,
+      "may_publish": false,
+      "may_promote_claims": false
+    },
+    {
+      "id": "AFA-gesundheit",
+      "topic_id": "gesundheit",
+      "label": {
+        "de": "Gesundheit & dauerhafte Unterstützung",
+        "en": "Health & lasting support"
+      },
+      "atlas_fields": [
+        "leben",
+        "mensch",
+        "gesellschaft",
+        "handeln"
+      ],
+      "applicable_claim_types": [
+        "empirical",
+        "normative"
+      ],
+      "focus": {
+        "de": "Gesundheit, Behinderung, langfristige Unterstützung und Betroffenenrechte",
+        "en": "Health, disability, ongoing support and affected people's rights"
+      },
+      "enabled": false,
+      "classification": "unverified_ai_research_role",
+      "professional_qualification_claimed": false,
+      "can_veto": false,
+      "may_publish": false,
+      "may_promote_claims": false
+    },
+    {
+      "id": "AFA-politik",
+      "topic_id": "politik",
+      "label": {
+        "de": "Politik, Recht & Institutionen",
+        "en": "Politics, law & institutions"
+      },
+      "atlas_fields": [
+        "gesellschaft",
+        "handeln"
+      ],
+      "applicable_claim_types": [
+        "empirical",
+        "normative",
+        "interpretive"
+      ],
+      "focus": {
+        "de": "Macht, Institutionen, überprüfbare Wirkungen, Rechte und Wertkonflikte",
+        "en": "Power, institutions, measurable effects, rights and value conflicts"
+      },
+      "enabled": false,
+      "classification": "unverified_ai_research_role",
+      "professional_qualification_claimed": false,
+      "can_veto": false,
+      "may_publish": false,
+      "may_promote_claims": false
+    },
+    {
+      "id": "AFA-militaer",
+      "topic_id": "militaer",
+      "label": {
+        "de": "Militär, Frieden & Schutz",
+        "en": "Military power, peace & protection"
+      },
+      "atlas_fields": [
+        "gesellschaft",
+        "handeln"
+      ],
+      "applicable_claim_types": [
+        "empirical",
+        "normative"
+      ],
+      "focus": {
+        "de": "Schutz, Rechtsrahmen, Deeskalation, Folgen und zivile Rechte",
+        "en": "Protection, legal boundaries, de-escalation, outcomes and civilian rights"
+      },
+      "enabled": false,
+      "classification": "unverified_ai_research_role",
+      "professional_qualification_claimed": false,
+      "can_veto": false,
+      "may_publish": false,
+      "may_promote_claims": false
+    },
+    {
+      "id": "AFA-religion",
+      "topic_id": "religion",
+      "label": {
+        "de": "Religion, Weltbilder & Theologie",
+        "en": "Religion, worldviews & theology"
+      },
+      "atlas_fields": [
+        "bewusstsein",
+        "mensch",
+        "gesellschaft",
+        "handeln"
+      ],
+      "applicable_claim_types": [
+        "interpretive",
+        "normative",
+        "metaphorical"
+      ],
+      "focus": {
+        "de": "Schrift, Tradition, Theologie, Auslegung und echte interreligiöse Differenzen",
+        "en": "Texts, traditions, theology, interpretation and real interfaith differences"
+      },
+      "enabled": false,
+      "classification": "unverified_ai_research_role",
+      "professional_qualification_claimed": false,
+      "can_veto": false,
+      "may_publish": false,
+      "may_promote_claims": false
+    },
+    {
+      "id": "AFA-kunst",
+      "topic_id": "kunst",
+      "label": {
+        "de": "Kunst, Ästhetik & Ausdruck",
+        "en": "Art, aesthetics & expression"
+      },
+      "atlas_fields": [
+        "bewusstsein",
+        "mensch",
+        "gesellschaft"
+      ],
+      "applicable_claim_types": [
+        "interpretive",
+        "metaphorical"
+      ],
+      "focus": {
+        "de": "Werk, Erfahrung, Kontext, Auslegung und Grenzen empirischer Aussagen",
+        "en": "Works, experience, context, interpretation and limits of empirical claims"
+      },
+      "enabled": false,
+      "classification": "unverified_ai_research_role",
+      "professional_qualification_claimed": false,
+      "can_veto": false,
+      "may_publish": false,
+      "may_promote_claims": false
+    },
+    {
+      "id": "AFA-esoterik",
+      "topic_id": "esoterik",
+      "label": {
+        "de": "Esoterik, Symbol & Modell",
+        "en": "Esotericism, symbols & models"
+      },
+      "atlas_fields": [
+        "wirklichkeit",
+        "bewusstsein",
+        "mensch"
+      ],
+      "applicable_claim_types": [
+        "interpretive",
+        "metaphorical",
+        "empirical"
+      ],
+      "focus": {
+        "de": "Symbolische Deutung strikt von testbaren empirischen Hypothesen trennen",
+        "en": "Separate symbolic interpretation strictly from testable empirical hypotheses"
+      },
+      "enabled": false,
+      "classification": "unverified_ai_research_role",
+      "professional_qualification_claimed": false,
+      "can_veto": false,
+      "may_publish": false,
+      "may_promote_claims": false
+    },
+    {
+      "id": "AFA-konflikte",
+      "topic_id": "konflikte",
+      "label": {
+        "de": "Konflikte & Schnittmengen",
+        "en": "Conflicts & common ground"
+      },
+      "atlas_fields": [
+        "mensch",
+        "gesellschaft",
+        "handeln"
+      ],
+      "applicable_claim_types": [
+        "empirical",
+        "normative",
+        "interpretive"
+      ],
+      "focus": {
+        "de": "Konfliktperspektiven, Begriffsbrücken, Machtasymmetrie und Dissens",
+        "en": "Conflict perspectives, shared definitions, power asymmetry and dissent"
+      },
+      "enabled": false,
+      "classification": "unverified_ai_research_role",
+      "professional_qualification_claimed": false,
+      "can_veto": false,
+      "may_publish": false,
+      "may_promote_claims": false
+    },
+    {
+      "id": "AFA-wirtschaft",
+      "topic_id": "wirtschaft",
+      "label": {
+        "de": "Wirtschaft, Arbeit & Versorgung",
+        "en": "Economics, work & provision"
+      },
+      "atlas_fields": [
+        "mensch",
+        "gesellschaft",
+        "handeln"
+      ],
+      "applicable_claim_types": [
+        "empirical",
+        "normative"
+      ],
+      "focus": {
+        "de": "Institutionen, Anreize, Verteilungsfolgen und überprüfbare Modelle",
+        "en": "Institutions, incentives, distributional effects and testable models"
+      },
+      "enabled": false,
+      "classification": "unverified_ai_research_role",
+      "professional_qualification_claimed": false,
+      "can_veto": false,
+      "may_publish": false,
+      "may_promote_claims": false
+    },
+    {
+      "id": "AFA-technik",
+      "topic_id": "technik",
+      "label": {
+        "de": "Technik, KI & Verantwortung",
+        "en": "Technology, AI & responsibility"
+      },
+      "atlas_fields": [
+        "wirklichkeit",
+        "bewusstsein",
+        "gesellschaft",
+        "handeln"
+      ],
+      "applicable_claim_types": [
+        "empirical",
+        "normative",
+        "formal"
+      ],
+      "focus": {
+        "de": "Systemgrenzen, Sicherheit, Wirkungen, Verantwortung und Nebenfolgen",
+        "en": "System boundaries, safety, impact, responsibility and side effects"
+      },
+      "enabled": false,
+      "classification": "unverified_ai_research_role",
+      "professional_qualification_claimed": false,
+      "can_veto": false,
+      "may_publish": false,
+      "may_promote_claims": false
+    },
+    {
+      "id": "AFA-geschichte",
+      "topic_id": "geschichte",
+      "label": {
+        "de": "Geschichte, Kultur & Erinnerung",
+        "en": "History, culture & memory"
+      },
+      "atlas_fields": [
+        "mensch",
+        "gesellschaft"
+      ],
+      "applicable_claim_types": [
+        "empirical",
+        "interpretive"
+      ],
+      "focus": {
+        "de": "Quellenkritik, Chronologie, Kontext und konkurrierende Deutungen",
+        "en": "Source criticism, chronology, context and competing interpretations"
+      },
+      "enabled": false,
+      "classification": "unverified_ai_research_role",
+      "professional_qualification_claimed": false,
+      "can_veto": false,
+      "may_publish": false,
+      "may_promote_claims": false
+    },
+    {
+      "id": "AFA-bildung",
+      "topic_id": "bildung",
+      "label": {
+        "de": "Sprache, Bildung & Verständigung",
+        "en": "Language, education & understanding"
+      },
+      "atlas_fields": [
+        "bewusstsein",
+        "mensch",
+        "gesellschaft"
+      ],
+      "applicable_claim_types": [
+        "empirical",
+        "normative",
+        "interpretive"
+      ],
+      "focus": {
+        "de": "Lernen, Sprache, Zugang, Messgüte und tatsächlicher Transfer",
+        "en": "Learning, language, access, measurement validity and real transfer"
+      },
+      "enabled": false,
+      "classification": "unverified_ai_research_role",
+      "professional_qualification_claimed": false,
+      "can_veto": false,
+      "may_publish": false,
+      "may_promote_claims": false
+    },
+    {
+      "id": "AFA-ethik",
+      "topic_id": "ethik",
+      "label": {
+        "de": "Ethik, Freiheit & Handeln",
+        "en": "Ethics, freedom & action"
+      },
+      "atlas_fields": [
+        "mensch",
+        "gesellschaft",
+        "handeln"
+      ],
+      "applicable_claim_types": [
+        "normative",
+        "interpretive",
+        "formal"
+      ],
+      "focus": {
+        "de": "Werte, Normen, Rechte, Betroffene und begründete Minderheiteneinwände",
+        "en": "Values, norms, rights, affected people and defensible minority objections"
+      },
+      "enabled": false,
+      "classification": "unverified_ai_research_role",
+      "professional_qualification_claimed": false,
+      "can_veto": false,
+      "may_publish": false,
+      "may_promote_claims": false
+    }
+  ],
+  "cross_check_roles": [
+    {
+      "id": "source_audit",
+      "label": {
+        "de": "Quellenprüfer",
+        "en": "Source auditor"
+      },
+      "focus": {
+        "de": "Evidenzherkunft, Originalstellen, Abhängigkeiten und Gegenliteratur",
+        "en": "Source provenance, original passages, dependency and contradictory evidence"
+      },
+      "enabled": false,
+      "may_vote": false,
+      "may_publish": false,
+      "may_promote_claims": false
+    },
+    {
+      "id": "adversarial_review",
+      "label": {
+        "de": "Gegenprüfer",
+        "en": "Adversarial method reviewer"
+      },
+      "focus": {
+        "de": "Stärkste Gegenbeispiele, falsche gemeinsame Annahmen und Revisionsbedingungen",
+        "en": "Strongest counterexamples, shared false premises and revision conditions"
+      },
+      "enabled": false,
+      "may_vote": false,
+      "may_publish": false,
+      "may_promote_claims": false
+    },
+    {
+      "id": "affected_perspectives",
+      "label": {
+        "de": "Betroffenen- und Dissensprüfer",
+        "en": "Affected-perspectives and dissent reviewer"
+      },
+      "focus": {
+        "de": "Übersehene Interessen, Machtverteilung und fundierte Minderheitspositionen",
+        "en": "Missing stakeholders, power asymmetry and justified minority positions"
+      },
+      "enabled": false,
+      "may_vote": false,
+      "may_publish": false,
+      "may_promote_claims": false
+    },
+    {
+      "id": "translation_scope",
+      "label": {
+        "de": "Begriffs- und Übersetzungsprüfer",
+        "en": "Terminology and translation reviewer"
+      },
+      "focus": {
+        "de": "Gleiche Reichweite, Begriffe und Aussageart in Deutsch und Englisch",
+        "en": "Equivalent scope, terminology and claim type in German and English"
+      },
+      "enabled": false,
+      "may_vote": false,
+      "may_publish": false,
+      "may_promote_claims": false
+    },
+    {
+      "id": "synthesis_moderator",
+      "label": {
+        "de": "Synthese-Moderator",
+        "en": "Synthesis moderator"
+      },
+      "focus": {
+        "de": "Kern, Dissens, Lücken und nächste Prüfungen ohne Stimmenzählung ordnen",
+        "en": "Organize supported core, dissent, gaps and tests without tallying votes"
+      },
+      "enabled": false,
+      "may_vote": false,
+      "may_publish": false,
+      "may_promote_claims": false
+    }
+  ],
+  "proposed_agent_draft_required_fields": [
+    "run_id",
+    "question_id",
+    "role_id",
+    "claim_version",
+    "claim_type",
+    "model_id",
+    "model_version",
+    "prompt_version",
+    "input_source_ids",
+    "assessment",
+    "strongest_objection",
+    "counterevidence",
+    "uncertainty",
+    "revision_trigger",
+    "sources",
+    "limitations",
+    "generated_at",
+    "status"
+  ],
+  "proposed_synthesis_required_fields": [
+    "run_id",
+    "question_id",
+    "supported_core",
+    "dissent",
+    "missing_evidence",
+    "normative_tradeoffs",
+    "proposed_tests",
+    "human_review_status"
+  ],
+  "allowed_synthesis_status": "ai_draft",
+  "allowed_human_review_status": "pending",
+  "notes": {
+    "de": "Nur Rollenregister; keine Prompts, Laufzeitumgebung, API, Veröffentlichung oder automatische Bewertung.",
+    "en": "Inert role registry only; no prompts, runtime, API, publication or automatic rating."
+  },
+  "documentation": {
+    "de": "docs/fachagenten-netzwerk.md",
+    "en": "docs/en/atlas-specialist-agents.md"
+  }
+}

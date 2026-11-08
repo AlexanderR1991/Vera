@@ -1,0 +1,137 @@
+---
+import Layout from "../layouts/SiteLayout.astro";
+import {base,pathFor} from "../lib/paths.mjs";
+import project from "../../public/project.json";
+import protocol from "../../public/protocol/entity-loop.v0.json";
+import demo from "../../public/knowledge/entity-demo.v0.json";
+import {createEntityRecord,addEntityDraft,inspectEntityRecord} from "../lib/entity-core.mjs";
+import "../styles/mission.css";
+const {lang="de"}=Astro.props;
+const en=lang==="en";
+const t=(de,english)=>en?english:de;
+const initial={...demo.initial[lang],id:demo.id,lang};
+let record=createEntityRecord(initial);
+for(const event of demo.events[lang])record=addEntityDraft(record,event);
+const snapshot=inspectEntityRecord(record);
+const kinds={
+ perspective:t("Perspektive","Perspective"),
+ evidence_hint:t("Quellenhinweis","Source hint"),
+ objection:t("Einwand","Objection"),
+ revision_proposal:t("Revisionsvorschlag","Revision proposal")
+};
+const steps=[
+ t("Frage","Question"),
+ t("Aussageart","Claim type"),
+ t("Perspektiven","Perspectives"),
+ t("Stärkster Einwand","Strongest objection"),
+ t("Prüfung","Examination"),
+ t("Revisionsentwurf","Revision draft"),
+ t("Menschliche Entscheidung","Human decision"),
+ t("Verlauf bewahren","Preserve history"),
+ t("Weiterfragen","Ask again")
+];
+---
+<Layout lang={lang} slug="entitaet" description={protocol.definition[lang]}>
+ <article class="container mission-document entity-page">
+  <header>
+   <p class="section-kicker">ENT-00 · {t("OFFENER FORSCHUNGSPROTOTYP","OPEN RESEARCH PROTOTYPE")}</p>
+   <h1>Vera · {t("Entität","Entity")}</h1>
+   <p class="mission-lead">{t("Ein Mensch fragt. Andere prüfen. Ein ernsthafter Einwand verändert eine These. Jede Änderung bleibt angreifbar. So könnte eine offene kollektive Erkenntnisarchitektur funktionieren.","A person asks. Others examine. A serious objection challenges a claim. Every change remains open to scrutiny. This is how an open collective inquiry architecture might work.")}</p>
+   <p class="entity-caution">{t("„Entität“ ist eine technische Arbeitshypothese, kein bewusstes KI-Wesen. Kein autonomer Erkenntnismotor läuft auf dieser Seite.","‘Entity’ is a technical working hypothesis, not a conscious AI being. No autonomous inquiry engine runs on this page.")}</p>
+   <div class="button-row"><a class="button button--gold" href="#pilot">{t("Einwand ausprobieren ↓","Try an objection ↓")}</a><a class="button button--ghost" href={pathFor(lang,"regelkreis")}>{t("Korrekturregel →","Correction rule →")}</a></div>
+  </header>
+  <section>
+   <p class="section-kicker">{t("DER KREISLAUF","THE LOOP")}</p>
+   <h2>{t("Ein Verfahren. Kein Orakel.","A process. Not an oracle.")}</h2>
+   <ol class="entity-steps">{steps.map((step,index)=><li><small>{String(index+1).padStart(2,"0")}</small><span>{step}</span></li>)}</ol>
+   <p>{t("Atlas, Forum, Fachperspektiven, mathematische Forschungsmodelle und Korrekturgeschichte sollen verbunden werden. KI-Agenten liefern höchstens gekennzeichnete Entwürfe, niemals unabhängige Stimmen oder automatisch legitimierte Wahrheiten.","The atlas, forum, specialist perspectives, bounded mathematical models and correction history could be connected. AI agents may supply labelled drafts, never independent votes or automatically legitimate truth.")}</p>
+  </section>
+  <section id="pilot">
+   <p class="section-kicker">{t("SYNTHETISCHES BEISPIEL · LOKAL IM BROWSER","SYNTHETIC EXAMPLE · LOCAL TO YOUR BROWSER")}</p>
+   <h2>{initial.question}</h2>
+   <p>{demo.note[lang]}</p>
+   <div class="entity-statement"><small>{t("Vorläufige These · Version","Provisional claim · version")} {snapshot.current_version}</small><p>{snapshot.current_statement}</p><small>{t("Ungeprüft · Kein Konsens erhoben · Kein Wahrheits- oder Moralwert","Unreviewed · Consensus not assessed · No truth or moral score")}</small></div>
+   <h3>{t("Begründungen und Einwände","Reasons and objections")}</h3>
+   <ol class="entity-events" data-entity-events>
+    {record.events.map(event=><li><strong>{kinds[event.kind]}</strong><span>{event.text}</span><small>{event.origin} · V{event.based_on_version}</small></li>)}
+   </ol>
+   <form data-entity-form data-seed={JSON.stringify({initial,events:demo.events[lang]})} data-lang={lang} class="entity-form">
+    <h3>{t("Füge einen Gedanken hinzu","Add a thought")}</h3>
+    <p>{t("Dieser Entwurf verlässt deinen Browser nicht. Er wird weder veröffentlicht noch von einer KI überprüft. Du kannst ihn als JSON speichern.","This draft never leaves your browser. It is neither published nor reviewed by AI. You can save it as JSON.")}</p>
+    <label for="entity-kind">{t("Art des Gedankens","Kind of contribution")}</label>
+    <select id="entity-kind" name="kind">
+     <option value="objection">{kinds.objection}</option>
+     <option value="perspective">{kinds.perspective}</option>
+     <option value="evidence_hint">{kinds.evidence_hint}</option>
+     <option value="revision_proposal">{kinds.revision_proposal}</option>
+    </select>
+    <label for="entity-text">{t("Dein Gedanke","Your thought")}</label>
+    <textarea id="entity-text" name="text" rows="4" maxlength="2000" required placeholder={t("Was würde diese These widerlegen oder verändern?","What could refute or change this claim?")}></textarea>
+    <div class="button-row"><button class="button button--gold" type="submit">{t("Lokal hinzufügen","Add locally")}</button><button class="button button--ghost" type="button" data-entity-export>{t("JSON speichern","Save JSON")}</button></div>
+    <p role="status" aria-live="polite" data-entity-feedback>{t("Noch keine eigenen Entwürfe.","No personal drafts yet.")}</p>
+   </form>
+  </section>
+  <section>
+   <h2>{t("Was noch fehlt","What is still missing")}</h2>
+   <p>{t("Keine unabhängige Wirksamkeitsprüfung, kein aktiver Fachagentenschwarm, kein verifizierter menschlicher Review in dieser statischen Demo und kein kalibrierter Richtungsindex. Offizielle Änderungen brauchen einen verantworteten Prozess; auch unsere Regeln dürfen angegriffen werden.","There is no independent effectiveness evaluation, active specialist swarm, authenticated human review in this static demo or calibrated direction index. Official changes require an accountable process; even these rules remain challengeable.")}</p>
+   <div class="entity-links">
+    <a href={project.repository+"/blob/main/docs/entitaet.md"}>{t("Architektur und Gegenargumente","Architecture and objections")} ↗</a>
+    <a href={base+"protocol/entity-loop.v0.json"}>{t("Maschinenlesbares Protokoll","Machine-readable protocol")} ↗</a>
+    <a href={pathFor(lang,"werkstatt")}>{t("Meine eigene Frage prüfen","Examine my own question")} →</a>
+    <a href={project.repository+"/issues/new?template=kritik.yml"}>{t("Das Modell angreifen","Challenge the model")} ↗</a>
+   </div>
+  </section>
+ </article>
+</Layout>
+<script>
+ import {createEntityRecord,addEntityDraft} from "../lib/entity-core.mjs";
+ for(const form of document.querySelectorAll("[data-entity-form]")){
+  const {initial,events}=JSON.parse(form.dataset.seed);
+  let record=createEntityRecord(initial);
+  for(const entry of events)record=addEntityDraft(record,entry);
+  const feedback=form.querySelector("[data-entity-feedback]");
+  const list=document.querySelector("[data-entity-events]");
+  const lang=form.dataset.lang;
+  const labels=lang==="en"
+   ? {objection:"Objection",perspective:"Perspective",evidence_hint:"Source hint",revision_proposal:"Revision proposal"}
+   : {objection:"Einwand",perspective:"Perspektive",evidence_hint:"Quellenhinweis",revision_proposal:"Revisionsvorschlag"};
+  let added=0;
+  form.addEventListener("submit",event=>{
+   event.preventDefault();
+   const kind=form.elements.namedItem("kind").value;
+   const text=form.elements.namedItem("text").value.trim();
+   try{
+    record=addEntityDraft(record,{id:"LOCAL-"+String(added+1).padStart(3,"0"),kind,origin:"human_submission",text,at:new Date().toISOString(),based_on_version:record.current_version});
+    added+=1;
+    const li=document.createElement("li"),strong=document.createElement("strong"),span=document.createElement("span"),small=document.createElement("small");
+    strong.textContent=labels[kind];
+    span.textContent=text;
+    small.textContent="human_submission · V"+record.current_version;
+    li.append(strong,span,small);list.append(li);
+    form.elements.namedItem("text").value="";
+    feedback.textContent=lang==="en"?added+" local drafts · no review or publication":added+" lokale Entwürfe · keine Prüfung oder Veröffentlichung";
+   }catch(error){feedback.textContent=error.message;}
+  });
+  form.querySelector("[data-entity-export]").addEventListener("click",()=>{
+   const blob=new Blob([JSON.stringify(record,null,2)+"\n"],{type:"application/json"});
+   const uri=URL.createObjectURL(blob);
+   const a=document.createElement("a");a.href=uri;a.download="vera-entitaet-"+lang+"-entwurf.json";document.body.append(a);a.click();a.remove();
+   setTimeout(()=>URL.revokeObjectURL(uri),1000);
+  });
+ }
+</script>
+<style>
+.entity-page{padding-block:clamp(2.5rem,6vw,5rem)}
+.entity-page header{max-width:64rem}
+.entity-page section{border-top:1px solid var(--line);margin-top:3rem;padding-top:2.5rem;scroll-margin-top:6rem}
+.entity-caution{color:var(--gold-bright)}
+.entity-steps{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,11rem),1fr));gap:.8rem}
+.entity-steps li,.entity-statement,.entity-events li,.entity-form{border:1px solid var(--line);background:#111719;padding:1.15rem}
+.entity-steps li{display:grid;gap:.5rem}.entity-steps small,.entity-statement small,.entity-events strong{color:var(--gold-bright)}
+.entity-statement{margin:1.4rem 0}.entity-statement p{font:clamp(1.2rem,2vw,1.8rem)/1.4 var(--serif)}
+.entity-events{list-style:none;padding:0;display:grid;gap:.8rem}.entity-events li{display:grid;gap:.4rem}.entity-events small{color:#aab0b0}
+.entity-form{display:grid;gap:.8rem;margin-top:2rem}.entity-form h3,.entity-form p{margin:.2rem 0}
+.entity-form textarea,.entity-form select{width:100%;background:#0b0d0f;border:1px solid #778080;color:#fff;padding:.8rem;font:inherit}
+.entity-form .button-row{flex-wrap:wrap}.entity-links{display:flex;gap:1rem 2rem;flex-wrap:wrap}
+.entity-links a{display:inline-flex;align-items:center;min-height:44px;color:var(--gold-bright);text-decoration:underline}
+</style>

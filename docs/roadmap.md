@@ -60,6 +60,20 @@ Das [Emporirren-Konzept](emporirren.md) verbindet Spielen, die eigene Frage und 
 
 **Keine Studie durchgeführt, keine validierte Skala, keine mathematisch bewiesene Verhaltensnorm.**
 
+## Atlas-Fachagenten · Architektur vorbereitet, Betrieb offen
+
+Der [AFA-0.1-Entwurf](fachagenten-netzwerk.md) / [English](en/atlas-specialist-agents.md) ordnet den 23 Atlas-Fachthemen jeweils eine **inaktive KI-Prüfrolle** zu. Ein inaktives [Rollenregister](../public/ai/atlas-agents.v0.json) und Strukturtests schaffen eine Grundlage für einen späteren **fragebezogenen**, nicht permanent laufenden Mehrperspektiven-Motor. Die Synthese darf keinen Modellkonsens als menschlichen Konsens ausgeben; R0–R4, META-01 und redaktionelle Freigaben bleiben maßgeblich.
+
+- [x] Zweisprachigen, anfechtbaren Architekturentwurf formulieren; vorhandene Atlasfelder, Themen und R0–R4 als Datengrenzen übernehmen
+- [x] Fachrollen und methodische Gegenrollen rein deklarativ und standardmäßig deaktiviert erfassen
+- [ ] Fachliche und demokratische Schieflagen der Rollen/Routing-Regeln durch Menschen und Betroffene prüfen lassen
+- [ ] Einen Datensatz künstlicher bzw. öffentlicher Gegenproben vorab definieren; Kosten-, Datenschutz-, Sicherheits- und Abbruchbedingungen festlegen
+- [ ] Eine isolierte, nur manuell ausführbare Orchestrierung mit Quellenledger und getrenntem Ersturteil bauen; kein Forum-Autoposting
+- [ ] Den Nutzen gegen reguläre Quellenprüfung und eine Einzel-KI unabhängig evaluieren; unzureichenden Nutzen als Abbruchgrund anerkennen
+- [ ] Erst danach über getrennt zu genehmigende Integration in den bestehenden Forschungsstrom entscheiden
+
+**Keine Aktivierung durch diesen Entwurf.** Die Existenz einer Rollenbeschreibung besagt weder Fachkompetenz noch erfolgreiche Prüfung. Ein späterer Schwarm darf keine Menschenstimmen vortäuschen.
+
 ## Etappe 1 · Ein kleiner, vollständig geprüfter Bestand
 
 Die [Gesamtprüfung des fliegenden Baums](gesamtpruefung-baum.md) verknüpft die Themen, sichtbaren Lücken und öffentlichen Selbstprüfungen [B-01](https://github.com/AlexanderR1991/Vera/issues/28), [B-02](https://github.com/AlexanderR1991/Vera/issues/29) und [B-03](https://github.com/AlexanderR1991/Vera/issues/30). Ein erweiterter Themenplan erfüllt die folgenden Freigabekriterien noch nicht.
@@ -104,6 +118,20 @@ Die [KI-Charta](ki-charta.md) und der [zweisprachige Prüfkatalog](../public/ai/
 
 **Freigabegrenze:** Ohne unabhängige Evaluation keine Behauptung über tatsächliche Modellkonformität, Sicherheit oder universelle Gültigkeit.
 
+## Querschnittsforschung · Kollektive Moral und Richtungsindex
+
+[Konzept und Abbruchkriterien](kollektive-moral.md) · [DE/EN-Webseite](https://alexanderr1991.github.io/Vera/de/kollektive-moral/) · [Datenentwurf](../public/knowledge/direction-index.v0.json). Das ist bislang **kein funktionierender Score**.
+
+- [x] Philosophisches Modell, Gegenproben, Schutzgrenzen und versionierten JSON-Entwurf zur Diskussion dokumentieren
+- [ ] Eine konkrete Vergleichsfrage samt Wertprofilen und Betroffenen vorab festlegen
+- [ ] Quellen, mögliche Verzerrungen, Messskalen und Anwendungsgrenzen untersuchen
+- [ ] Unabhängige Prüfung der Wirkungsannahmen (R3+) und kalibrierte Unsicherheitsmessung erreichen
+- [ ] Sensitivität unterschiedlicher begründbarer Wertprofile prüfen und Minderheitendissens erhalten
+- [ ] In unabhängigen Blindtests den Nutzen **mit** Index gegen eine Richtungskarte **ohne** Zahl vergleichen
+- [ ] Rechteprüfung, verantwortliche Freigabe, Einspruch und vollständige Rücknahme von Zahlen organisatorisch erproben
+
+**Freigabestopp:** Keine öffentliche Zahl ohne vorher dokumentierte Methodik, tragfähige Evidenz, robuste Interpretation, Schutz vor Personenbewertungen und menschliche Verantwortung. Viele Menschen allein sind kein Prüfmaßstab.
+
 ## Etappe 3 · Verantwortung und Versorgung verteilen
 
 **Freigabekriterium:** Zuständigkeiten, Einspruchswege und Finanzierung sind nachvollziehbar und im Alltag erprobt.
@@ -114,6 +142,18 @@ Die [KI-Charta](ki-charta.md) und der [zweisprachige Prüfkatalog](../public/ai/
 - [ ] Organisationsform, laufendes Budget und Vergütungsregeln klären
 - [ ] Ausstieg, Export und Weiterverwendung praktisch ermöglichen
 - [ ] Die von Beginn an geprüfte Zugänglichkeit fortlaufend mit betroffenen Nutzerinnen und Nutzern verbessern
+
+## Zukunftsoffenheit · Vom offenen Projekt zum unabhängig nutzbaren Protokoll (OPEN-01)
+
+**Ziel, noch kein Status:** WIRKLICH möchte eine offen dokumentierte und von anderen unabhängig implementierbare Methode für Aussagen, Kritik, Quellen, Revisionen und sichtbaren Dissens entwickeln. Das wäre ein Beitrag zu einem möglichen Open-Source-Standard, nicht dessen bereits erfolgte Anerkennung. [Begründung und Grenzen](offenheit.md#open-source--nach-vorn-gerichtet).
+
+- [ ] Entwurf einer minimalen versionierten Protokollspezifikation mit stabilen Kennungen, typisierten Aussagen, belegbaren Quellenrollen, Einwänden, Revisionsereignissen und expliziten Unsicherheiten veröffentlichen.
+- [ ] Beispiel-Datensätze und öffentliche, automatisierbare Konformitätstests bereitstellen; technische Kompatibilität von inhaltlicher Zustimmung trennen.
+- [ ] Export, Import, Versionierung, Migration und kontrollierte Abwärtskompatibilität mit anderen Werkzeugen praktisch testen.
+- [ ] Eine **unabhängige** externe Implementierung und eine kritische Prüfung von Dokumentation, Zugänglichkeit und Lizenzgrenzen ermöglichen und auswerten.
+- [ ] Risiken durch Zentralisierung, KI-/Anbieterbindung, Missbrauch und übertriebene Wahrheits- oder Standardisierungsansprüche regelmäßig offen prüfen.
+
+**Freigabebedingung:** Erst nach einer nachvollziehbaren externen Implementierung und Evaluation von Interoperabilität dürfen wir von nachgewiesener unabhängiger Implementierbarkeit sprechen. Die gesellschaftliche Anerkennung als Standard erfordert darüber hinaus tatsächliche Adoption und bleibt offen.
 
 ## Etappe 4 · Erst nach Bewährung verbreitern
 

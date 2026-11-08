@@ -2,6 +2,7 @@
 import { ENTITY_QUERIES } from "../lib/vera-entity-catalog.mjs";
 import { assessEvidence, queryVera } from "../lib/vera-entity.mjs";
 import { pathFor } from "../lib/paths.mjs";
+import VeraLifeDrive from "./VeraLifeDrive.astro";
 import project from "../../public/project.json" with { type: "json" };
 import protocol from "../../public/protocol/self-correction.v1.json" with { type: "json" };
 
@@ -65,7 +66,7 @@ const yesNo = value => value ? t("Ja", "Yes") : t("Nein", "No");
   </div>
   <div class="entity-lab__questions">
     <p class="entity-lab__revision">{revision
-      ? <a href={project.repository + "/commit/" + revision}>{t("Quellenstand", "Source revision")} · <code>{revision.slice(0, 12)}</code></a>
+      ? <a data-vera-revision href={project.repository + "/commit/" + revision}>{t("Quellenstand", "Source revision")} · <code>{revision.slice(0, 12)}</code></a>
       : t("Quellenlinks zeigen auf den aktuellen Hauptzweig.", "Source links point to the current default branch.")}</p>
     <form class="entity-lab__search" data-entity-form hidden>
       <label for={id + "-input"}>{t("Eine der Fragen eingeben", "Enter one of the questions")}</label>
@@ -95,6 +96,10 @@ const yesNo = value => value ? t("Ja", "Yes") : t("Nein", "No");
             {report.evidence.length > 0 ? <ul>{report.evidence.map(record =>
               <li><a href={source + record.path}>{record[lang]}</a> · {record.polarity === "supports" ? t("stützt", "supports") : t("widerspricht", "challenges")}</li>
             )}</ul> : <p>{t("In diesem Modell ist kein Beleg zugeordnet.", "This model has no assigned evidence for this claim.")}</p>}
+            {query.id === "life-drive" && <VeraLifeDrive lang={lang} />}
+            <a class="home-link" data-vera-correction={query.id} href={pathFor(lang, "regelkreis", "korrektur")}>
+              {t("Dieser Antwort widersprechen", "Challenge this answer")} →
+            </a>
           </div>
         </details>
       );

@@ -1,0 +1,21 @@
+name: "Rückmeldung / Feedback"
+description: "Melde, was unklar ist, fehlt oder nicht funktioniert / Tell Vera what is unclear, missing or broken"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Bitte hilf mir besser zu werden.** Ein Satz reicht für den Anfang. Dein Beitrag ist öffentlich. Lass private Angaben weg.
+
+        **Please help me get better.** One sentence is enough to start. Your contribution is public. Leave out private details.
+  - type: input
+    id: stelle
+    attributes:
+      label: "Wo ist es dir aufgefallen? / Where did you notice it?"
+      description: "Link, Seitentitel oder kurze Beschreibung / Link, page title or short description"
+  - type: textarea
+    id: rueckmeldung
+    attributes:
+      label: "Was ist dir aufgefallen? / What did you notice?"
+      description: "Wenn du schon eine Idee hast, wie es besser wäre, schreib sie gern dazu. / If you have an idea for improving it, feel free to add it."
+    validations:
+      required: true

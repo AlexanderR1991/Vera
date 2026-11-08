@@ -1,0 +1,67 @@
+---
+import {base, pathFor} from "../lib/paths.mjs";
+const {lang="de"} = Astro.props;
+const en = lang === "en";
+---
+<details class="header-search" name="vera-header-panel" data-site-search data-lang={lang} data-index-url={base + "search/" + lang + ".json"}>
+  <summary class="header-search__toggle" aria-label={en ? "Search" : "Suche"} title={en ? "Search" : "Suche"}>
+    <svg class="header-search__icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="10.8" cy="10.8" r="6.6"/><path d="m16 16 5 5"/></svg>
+  </summary>
+  <div class="header-search__body">
+  <form class="header-search__form" role="search" method="get" action={pathFor(lang, "suche")}
+    aria-label={en ? "Search the website" : "Website durchsuchen"}>
+    <label for="site-search-input" class="site-search-visually-hidden">{en ? "Search for topics and questions" : "Themen und Fragen suchen"}</label>
+    <input id="site-search-input" name="q" type="search" autocomplete="off" maxlength="120" data-site-search-input
+      placeholder={en ? "Search Vera…" : "Vera durchsuchen…"} />
+    <button type="submit" aria-label={en ? "Show all search results" : "Alle Suchergebnisse anzeigen"} title={en ? "Search" : "Suchen"}>↵</button>
+  </form>
+  <div class="header-search__panel" data-site-search-panel hidden>
+    <p class="header-search__status" data-site-search-status role="status"></p>
+    <ul class="header-search__results" data-site-search-results></ul>
+    <a class="header-search__all" data-site-search-all href={pathFor(lang, "suche")}>
+      {en ? "Show all results" : "Alle Ergebnisse anzeigen"} →
+    </a>
+  </div>
+  </div>
+</details>
+<script>
+  import "../client/site-search.mjs";
+</script>
+<style is:global>
+  .site-search-visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+  .header-search__toggle{display:grid;place-items:center;min-width:44px;min-height:44px;color:var(--vera-paper);list-style:none;cursor:pointer}
+  .header-search__toggle::-webkit-details-marker{display:none}
+  .header-search[open] .header-search__toggle{color:var(--vera-signal)}
+  .header-search__body{position:absolute;inset:100% 0 auto auto;width:min(440px,100%);max-height:calc(100dvh - 64px);overflow:auto;background:var(--vera-panel);border:1px solid var(--vera-line);padding:12px;z-index:100}
+  .header-search__form{display:flex;align-items:center;gap:7px;min-height:38px;border:1px solid var(--vera-line);border-radius:0;padding:0 8px;background:rgba(255,255,255,.035)}
+  .header-search__form:focus-within{border-color:var(--gold-bright)}
+  .header-search__icon{flex:none;color:var(--gold)}
+  .header-search__form input{flex:1;min-width:0;width:100%;font:12px var(--sans);color:var(--text);background:transparent;border:0;outline:0;padding:8px 0}
+  .header-search__form input:focus{outline:0}
+  .header-search__form input::placeholder{color:#aaa69c;opacity:1}
+  .header-search__form button{flex:none;border:0;background:transparent;color:var(--gold-bright);font-size:19px;cursor:pointer;min-width:25px;min-height:32px;padding:0}
+  .header-search__panel{padding:12px 0 0}
+  .header-search__panel[hidden]{display:none}
+  .header-search__status{color:#c7beb1;font-size:12px;margin:2px 5px 9px}
+  .header-search__results{list-style:none;padding:0;margin:0;display:grid;gap:4px}
+  .header-search__results li{list-style:none;margin:0}
+  .header-search__results a{display:block;text-decoration:none;padding:10px;border-radius:0;color:var(--text);font-size:13px;line-height:1.4}
+  .header-search__results a:hover,.header-search__results a:focus-visible{background:rgba(205,181,143,.12)}
+  .header-search__results small{display:block;color:var(--gold);font-size:10px;margin-bottom:2px;text-transform:uppercase;letter-spacing:.08em}
+  .header-search__all{display:block;padding:11px 8px 2px;color:var(--gold-bright);border-top:1px solid var(--vera-line);margin-top:8px;font-size:12px;text-decoration:none}
+  .site-search-page{padding:clamp(45px,8vw,100px) 0;max-width:850px}
+  .site-search-page h1{font-size:clamp(42px,6vw,72px);margin:14px 0}
+  .site-search-page__intro{max-width:650px;margin-bottom:28px}
+  .site-search-page__form{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:20px}
+  .site-search-page__form label{font-weight:600;flex-basis:100%;font-size:13px}
+  .site-search-page__form input{flex:1 1 270px;min-width:180px;background:#151a1b;border:1px solid var(--vera-line);color:var(--text);border-radius:0;padding:13px;font:inherit}
+  .site-search-page__form button{border:1px solid var(--gold);color:#191612;background:var(--gold-bright);border-radius:0;padding:13px 20px;cursor:pointer;font:inherit}
+  .site-search-page__status{color:var(--gold-bright);margin:20px 0}
+  .site-search-page__results{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+  .site-search-page__results li{list-style:none;padding:18px 20px;border:1px solid var(--vera-line);border-radius:0;background:rgba(255,255,255,.02)}
+  .site-search-page__results small{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:7px}
+  .site-search-page__results a{font-family:var(--sans);font-size:22px;line-height:1.4;color:var(--text);text-decoration:none}
+  .site-search-page__results a:hover{text-decoration:underline;text-decoration-color:var(--gold)}
+  .site-search-page__results p{font-size:14px;line-height:1.6;margin:8px 0 0;overflow-wrap:anywhere}
+  .site-search-page__foot{margin-top:28px;font-size:13px}
+</style>

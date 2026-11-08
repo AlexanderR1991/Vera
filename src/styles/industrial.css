@@ -119,6 +119,7 @@ a:hover { color: var(--gold-bright); }
   text-decoration: none;
 }
 .home-opening__entry--primary:hover { background: #fff; color: var(--vera-ink); }
+.home-opening__feedback { margin-top: 10px; color: var(--vera-dim); }
 
 /* The pinboard is a text index. Layout and document order match. */
 .industrial-board {
@@ -362,4 +363,30 @@ a:hover { color: var(--gold-bright); }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+}
+
+.home-correction-example {
+  margin-block: 20px;
+  padding: 12px 18px;
+  border: 1px solid var(--vera-line);
+}
+.home-correction-example summary {
+  min-height: 36px;
+  cursor: pointer;
+  font-weight: 700;
+}
+.home-correction-example blockquote {
+  margin-inline: 0;
+  padding-inline-start: 12px;
+  border-inline-start: 1px solid var(--vera-signal);
+}
+.home-correction-example dl {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 16px;
+}
+.home-correction-example dt { font-weight: 700; }
+.home-correction-example dd {
+  margin: 4px 0 0;
+  color: var(--vera-dim);
 }

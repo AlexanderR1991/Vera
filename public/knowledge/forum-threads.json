@@ -17,6 +17,10 @@
     {
       "claim_id": "MED-001",
       "issue_number": 64
+    },
+    {
+      "claim_id": "P-001",
+      "issue_number": 72
     }
   ]
 }

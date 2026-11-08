@@ -4,6 +4,7 @@ import { copyFileSync, existsSync, mkdirSync, mkdtempSync, rmSync, writeFileSync
 import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
 import { test } from "node:test";
+import { memoryPath } from "../scripts/vera-memory.mjs";
 
 const contextScript = "scripts/vera-context.mjs";
 const taskScript = "scripts/vera-task.mjs";
@@ -19,7 +20,7 @@ function fixture(t, files) {
     writeFileSync(join(root, path), text);
   };
   const runtimeFiles = [
-    contextScript, taskScript, "docs/vera.md", "public/project.json",
+    contextScript, taskScript, "scripts/vera-memory.mjs", memoryPath, "docs/vera.md", "public/project.json",
     "public/prompts/erkenntnisprompt-v1.de.txt", "public/prompts/erkenntnisprompt-v1.en.txt"
   ];
   const sharedContextModule = "src/lib/vera-context.mjs";

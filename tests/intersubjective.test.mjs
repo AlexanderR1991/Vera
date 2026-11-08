@@ -27,9 +27,35 @@ test("distance respects extremes and an average over equal, anchored items", () 
 });
 
 test("a better restatement does not require improved agreement", () => {
-  const before = bridgeSnapshot({a:[0],b:[4],aEstimatesB:[0],bEstimatesA:[4]});
-  const after = bridgeSnapshot({a:[0],b:[4],aEstimatesB:[4],bEstimatesA:[0]});
+  const before = {a:[0],b:[4],aEstimatesB:[0],bEstimatesA:[4]};
+  const after = {a:[0],b:[4],aEstimatesB:[4],bEstimatesA:[0]};
   assert.deepEqual(bridgeChange(before,after),{fromBtoA:1,fromAtoB:1,agreement:0});
+});
+
+test("unchanged estimates do not count as gains when their references move", () => {
+  const before = {a:[0],b:[0],aEstimatesB:[4],bEstimatesA:[4]};
+  const after = { ...before, a:[4], b:[4] };
+  assert.deepEqual(bridgeChange(before,after),{fromBtoA:null,fromAtoB:null,agreement:0});
+});
+
+test("a moving reference suppresses only its own direction", () => {
+  const before = {a:[0,4],b:[4,4],aEstimatesB:[0,4],bEstimatesA:[4,0]};
+  const after = {a:[4,0],b:[4,4],aEstimatesB:[4,4],bEstimatesA:[4,4]};
+  assert.deepEqual(bridgeChange(before,after),{fromBtoA:null,fromAtoB:0.5,agreement:0});
+  const shorter = {a:[4],b:[4],aEstimatesB:[4],bEstimatesA:[4]};
+  assert.throws(() => bridgeChange(before, shorter), RangeError);
+});
+
+test("one-item agreement and directed accuracies are constrained jointly", () => {
+  // Zero accuracy in both directions forces both reference answers to be endpoints.
+  for (const a of [0, 4]) {
+    for (const b of [0, 4]) {
+      const s = bridgeSnapshot({a:[a],b:[b],aEstimatesB:[4-b],bEstimatesA:[4-a]});
+      assert.equal(s.fromBtoA, 0);
+      assert.equal(s.fromAtoB, 0);
+      assert.equal(s.agreement, a === b ? 1 : 0);
+    }
+  }
 });
 
 test("rejects missing, incomparable, out-of-range and imprecise responses", () => {

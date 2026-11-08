@@ -39,6 +39,10 @@ Die Mindestbedingungen sind **notwendig, nicht hinreichend**: Ein Eintrag kann f
 
 R1–R4 verlangen einen dokumentierten menschlichen Review der **aktuellen Fassung**, und R3/R4 zusätzliche nachvollziehbare unabhängige Prüfungen. Kein Bot und keine Mehrheit dürfen die Stufe selbst verändern. Der Validator prüft nur Pflichtangaben und verhindert einige unzulässige Kombinationen. Ob Quellen tatsächlich tragfähig sind, bleibt menschliche Arbeit.
 
+## Richtungsindex ist keine Erkenntnisreife
+
+Der [Forschungsentwurf zur kollektiven Moral](kollektive-moral.md) erprobt eine **zusätzliche bedingte Orientierung** von −1 bis +1, die nur mit explizitem Wertprofil, Referenz und unabhängiger Prüfung sinnvoll sein könnte. Sie ersetzt **keines** der Felder Aussageart, Abstraktion, R0–R4, Konsens oder Review. Keine Zustimmung, KI-Antwort oder spätere Richtung darf einen Reifegrad automatisch verändern. Der Entwurf enthält derzeit **nur nicht bewertete Beispiele**. Öffentliche Zahlen wären erst nach mindestens R3-Prüfung der einschlägigen Wirkungsannahmen, Kalibrierung, Robustheitsprüfung und verantwortlicher menschlicher Entscheidung vertretbar.
+
 ## Konsens nicht mit Wahrheit verwechseln
 
 Der Konsensstatus im Register ist **not_assessed** (nicht erhoben), **documented_agreement** (Zustimmung belegt), **documented_dissent** (Dissens belegt) oder **mixed** (beides). Für dokumentierte Positionen braucht es überprüfbare Referenzen und ihren Kontext; eine einzelne Zustimmung ist **kein allgemeiner Konsens**. Unbekannte Grundgesamtheit, Auswahlverzerrung, stille Gegenstimmen und Abhängigkeiten sind offenzulegen.

@@ -36,11 +36,18 @@ export function bridgeSnapshot({a, b, aEstimatesB, bEstimatesA}) {
   return {fromBtoA, fromAtoB, agreement, mutualFloor: Math.min(fromAtoB, fromBtoA)};
 }
 
-// Differences are meaningful only when the questionnaire and anchors remain stable.
+// Both observations must use the same anchored questions in the same order.
 export function bridgeChange(before, after) {
+  const first = bridgeSnapshot(before);
+  const last = bridgeSnapshot(after);
+  if (before.a.length !== after.a.length) {
+    throw new RangeError("Expected the same number of items in both observations");
+  }
+  const sameA = before.a.every((answer, index) => answer === after.a[index]);
+  const sameB = before.b.every((answer, index) => answer === after.b[index]);
   return {
-    fromBtoA: after.fromBtoA - before.fromBtoA,
-    fromAtoB: after.fromAtoB - before.fromAtoB,
-    agreement: after.agreement - before.agreement
+    fromBtoA: sameA ? last.fromBtoA - first.fromBtoA : null,
+    fromAtoB: sameB ? last.fromAtoB - first.fromAtoB : null,
+    agreement: last.agreement - first.agreement
   };
 }

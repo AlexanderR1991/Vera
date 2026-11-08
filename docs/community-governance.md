@@ -10,6 +10,20 @@ Jeder kann über Issues Argumente einbringen und über Pull Requests Änderungen
 
 Anyone can suggest ideas through issues or changes through pull requests. **Submission does not imply acceptance.** Maintainers make editorial decisions and should explain substantive corrections or rejections.
 
+## OPEN-01 · Die Menschheit als Interessenmaßstab / Humanity as the guiding interest
+
+**WIRKLICH muss als öffentlich prüfbarer und weiterführbarer Erkenntnisprozess offen bleiben, weil es dem Interesse der Menschheit dienen soll, nicht exklusiven Eigentümer-, Unternehmens-, Staats- oder KI-Interessen.** Das ist eine anfechtbare redaktionelle Selbstbindung, **keine** Behauptung demokratischer Vertretung oder bereits erreichter Gemeinwohlwirkung.
+
+Zum öffentlichen Kern gehören die publizierten Texte, prüfbaren Regeln, lizenzierbarer Code, künftige Bewertungskriterien, Begründungen für redaktionelle Entscheidungen und dokumentierter Dissens. Privatdaten, geschützte Informationen und fremde Rechte bleiben geschützt. Die heutigen Lizenzen (MIT für eigenen Code, CC BY-SA 4.0 für eigene Texte) erlauben Weiterverwendung, verhindern aber **nicht** jede proprietäre Fork oder spätere Machtkonzentration. Die offizielle Redaktion liegt weiterhin beim Eigentümer; externe Aufsicht und Beteiligung sind noch aufzubauen.
+
+**Zukunftsoffenheit innerhalb von OPEN-01:** Wir wollen den veröffentlichten Kern so entwickeln, dass andere ihn künftig unabhängig untersuchen, exportieren, erweitern und in eigener Software implementieren können. Versionierte, dokumentierte Datenformate, Protokollschnittstellen und Kompatibilitätstests sind Entwicklungsziele, **keine bereits erreichten Standards**. Neue Methoden und KI-Anbieter sind willkommen, erhalten aber ohne passende Prüfung keine Sonderautorität. Menschliche Verantwortung, unterschiedliche Wahrheitsmaßstäbe und die Grenzen durch Privatsphäre und Rechte Dritter bleiben bestehen. [Prüfbare Ziele](offenheit.md#open-source--nach-vorn-gerichtet).
+
+**English — future openness:** We aim for a published core that others can inspect, export, extend and eventually implement independently. Versioned formats, protocols and compatibility tests are goals, **not a certified or adopted standard**. New methods and AI providers must be evaluated; human accountability, type-appropriate reasoning, privacy and third-party rights still apply. [Design goals](en/openness.md#open-sourcelooking-forward).
+
+Ein Wechsel zu exklusiven oder nicht mehr nachprüfbaren Verfahren darf **nicht stillschweigend** erfolgen: Er benötigt einen sichtbaren Regeländerungs-PR nach den unten geltenden Verfahren, mit Folgen, Interessenkonflikten und stärkstem Einwand. Ein grundlegender Bruch ist offen als solcher zu kennzeichnen. Die Selbstbindung darf ebenso wie META-01 kritisiert werden. [Begründung und Grenzen auf Deutsch](offenheit.md) · [English draft](en/openness.md).
+
+**English:** WIRKLICH treats humanity's interests as its intended reference point, not as a mandate to speak on humanity's behalf. Its published core and editorial criteria should remain inspectable, correctable and independently reusable, subject to privacy, rights and security limits. Open licenses are necessary but insufficient against capture. Changes to openness require transparent, reviewable governance rather than silent privatization.
+
 ## META-01 · Öffentliche Selbstkorrektur / Public self-correction
 
 > Wir bauen kein System, das recht behalten soll. Wir bauen ein System, das aus seinen Irrtümern lernen muss.
@@ -31,6 +45,14 @@ Die [zehn Arbeitsregeln und der Regelkreis](selbstkorrektur.md) bilden eine **an
 - Maintainer: Repository-Eigentümer / repository owner
 - Rechtliche Lizenzierung: Texte CC BY-SA 4.0; eigener Code MIT; Logo und fremde Materialien ausgenommen / content CC BY-SA 4.0, original code MIT; logo and third-party exceptions
 - Formale wissenschaftliche Begutachtung: nicht eingerichtet / not established
+
+## REDE-01 · Ausdrucksfreiheit und Schadensbegrenzung / Expression and harm prevention
+
+Der [anfechtbare REDE-01-Entwurf](redefreiheit-und-schutz.md) unterscheidet **eine Aussage prüfen** von **ihre Veröffentlichung oder Reichweite ermöglichen**. Bloße Kränkung, Unbeliebtheit, Kritik am Projekt oder Mehrheit stimmen keine Löschung ab. Konkrete Gefährdung von Menschen, Rechte Dritter, Einschüchterung und privater Datenmissbrauch können dagegen wirksame, verhältnismäßige Maßnahmen erfordern. Gegenrede, Kontext, vorläufige Einschränkung und Entfernen sind getrennte Entscheidungen; Schutz und Einspruch werden mit möglichst wenigen personenbezogenen Daten dokumentiert.
+
+Die endgültige Regelannahme folgt META-01 und dem unten stehenden öffentlichen Änderungsverfahren. **Es gibt noch keine eigene Moderationssoftware, keine vertrauliche Meldestelle und keine unabhängige Beschwerdeinstanz.** Externe GitHub-Dienste folgen zusätzlich ihren eigenen Regeln.
+
+**English:** [REDE-01](redefreiheit-und-schutz.md) protects criticism and unpopular claims without treating discomfort as sufficient grounds for restriction. Assess credible harm, privacy and rights; choose the least restrictive effective intervention, with human accountability and privacy-preserving reasons and review. This is a proposed procedure, not an operating moderation service or an already adopted rule.
 
 ## Ablauf / Process
 

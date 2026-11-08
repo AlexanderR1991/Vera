@@ -6,6 +6,10 @@ const contextScript = fileURLToPath(new URL("./vera-context.mjs", import.meta.ur
 const maxSourceBytes = 12 * 1024;
 const [language, ...selectors] = process.argv.slice(2);
 const usage = "Usage: node scripts/vera-task.mjs <de|en> <path:START-END> [<path:START-END> ...] (up to 5)";
+const publicModelSources = new Set([
+  "src/components/VeraEntity.astro", "src/components/VeraErkenntnis.astro",
+  "src/lib/vera-entity.mjs", "src/lib/erkenntnis.mjs"
+]);
 
 function selectSource(selector) {
   const match = /^([A-Za-z0-9_./-]+):([1-9]\d*)-([1-9]\d*)$/.exec(selector);
@@ -15,7 +19,7 @@ function selectSource(selector) {
   const allowedPath = /^(README\.md|AGENTS\.md|CONTRIBUTING\.md|(docs|public)\/(?:[A-Za-z0-9_-]+\/)*[A-Za-z0-9_-][A-Za-z0-9_.-]*\.(md|json|txt))$/;
   const start = Number(first);
   const end = Number(last);
-  if (!allowedPath.test(path) || !Number.isSafeInteger(end) || start > end) return null;
+  if ((!allowedPath.test(path) && !publicModelSources.has(path)) || !Number.isSafeInteger(end) || start > end) return null;
   return { path, start, end };
 }
 

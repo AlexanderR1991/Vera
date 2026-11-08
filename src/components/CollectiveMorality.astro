@@ -1,0 +1,94 @@
+---
+import Layout from "../layouts/SiteLayout.astro";
+import {base,pathFor} from "../lib/paths.mjs";
+import project from "../../public/project.json";
+import model from "../../public/knowledge/direction-index.v0.json";
+import "../styles/mission.css";
+
+const {lang="de"}=Astro.props;
+const en=lang==="en";
+const t=(de,english)=>en?english:de;
+const local=value=>value[lang];
+---
+<Layout lang={lang} slug="kollektive-moral" description={local(model.disclaimer)}>
+  <article class="container mission-document morality">
+    <header>
+      <p class="section-kicker">{t("VERA · FORSCHUNGSENTWURF · KEIN MORALURTEIL","VERA · RESEARCH PROPOSAL · NO MORAL VERDICT")}</p>
+      <h1>{t("Kann Moral gemeinsam wachsen?","Can morality grow collectively?")}</h1>
+      <p class="mission-lead">{t("Ein offener Kompass statt eines endgültigen Richters. Wir wollen untersuchen, welche Richtungen entstehen, wenn Menschen Erfahrungen, Werte, überprüfte Wirkungen und Gegenargumente zusammenbringen.","An open compass, not a final judge. We explore which directions emerge when people combine experiences, values, independently tested effects and serious objections.")}</p>
+      <blockquote class="morality__motto">{t("Wir entscheiden nicht, was gut ist. Wir prüfen, wohin die Gründe weisen – und korrigieren die Richtung.","We do not decree what is good. We examine where the reasons point — and revise the direction.")}</blockquote>
+      <p><strong>{t("Heute nur ein Entwurf.","Today: proposal only.")}</strong> {local(model.disclaimer)}</p>
+      <div class="button-row">
+        <a class="button button--gold" href="#schritte">{t("Das Verfahren ansehen ↓","Explore the process ↓")}</a>
+        <a class="button button--ghost" href={pathFor(lang,"regelkreis")}>{t("META-01 prüfen →","Examine META-01 →")}</a>
+      </div>
+    </header>
+    <section id="richtung">
+      <p class="section-kicker">{t("RICHTUNG STATT ENDURTEIL","DIRECTION INSTEAD OF FINAL VERDICT")}</p>
+      <h2>{t("Eine Zahl braucht einen Maßstab.","A number needs a reference.")}</h2>
+      <p>{t("Belege zeigen, was wahrscheinlich geschieht. Wertprofile legen offen, was Menschen wichtig ist. Erst ein definierter Vergleich erlaubt eine bedingte Richtung. Mehrheit, Belegqualität und Moral sind nicht dieselbe Sache.","Evidence concerns what is likely to happen. Value profiles disclose what people prioritize. Only a defined comparison permits a conditional direction. Majority opinion, evidential quality and morality are not the same thing.")}</p>
+      <div class="morality__range" role="img" aria-label={t("Illustrative Skala von minus eins bis plus eins – ohne Messwerte.","Illustrative scale from minus one to plus one, without measurements.")}>
+        <span>−1</span><span>0</span><span>+1</span>
+      </div>
+      <p>{t("−1 bedeutet negative und +1 positive Richtung relativ zu offengelegten Zielen und Bedingungen. 0 darf nur eine ausreichend geprüfte Balance bedeuten. Unbekannt bleibt unbewertet – nicht null.","−1 means negative and +1 positive direction relative to disclosed objectives and conditions. Zero requires sufficient evidence of balance. Unknown stays unscored — never zero.")}</p>
+    </section>
+    <section id="schritte">
+      <p class="section-kicker">{t("DER PHILOSOPHISCHE MOTOR","THE PHILOSOPHICAL ENGINE")}</p>
+      <h2>{t("Sechs Schritte, immer korrigierbar.","Six steps, always revisable.")}</h2>
+      <ol class="morality__steps">
+        {model.process.map((step,i)=><li><span>{String(i+1).padStart(2,"0")}</span><p>{local(step)}</p></li>)}
+      </ol>
+    </section>
+    <section id="beispiele">
+      <h2>{t("Wir erfinden keine Werte.","We do not invent scores.")}</h2>
+      <p>{t("Diese Sätze sind Forschungsfragen. Ein +0,475 oder −0,014 wäre derzeit keine Erkenntnis, sondern Scheingenauigkeit.","These are research questions. A +0.475 or −0.014 today would be false precision, not an established finding.")}</p>
+      <div class="morality__examples">
+        {model.samples.map(sample=><article>
+          <p class="section-kicker">{sample.id} · {t("NICHT BEWERTET","NOT SCORED")}</p>
+          <h3>„{local(sample.claim)}“</h3>
+          <strong>{t("Kein Zahlenwert","No numeric score")}</strong>
+          <p>{local(sample.reason)}</p>
+        </article>)}
+      </div>
+    </section>
+    <section id="freigabe">
+      <p class="section-kicker">{t("HÜRDE FÜR EINEN SPÄTEREN INDEX","GATES BEFORE ANY FUTURE SCORE")}</p>
+      <h2>{t("Viele Daten reichen allein nicht.","More data alone is not enough.")}</h2>
+      <ol class="morality__gates">{model.release_gates.map(gate=><li><strong>{gate.id}</strong> {local(gate)}</li>)}</ol>
+      <p>{t("Wenn plausible Wertprofile unterschiedliche Vorzeichen ergeben, zeigen wir den Konflikt statt eines einzigen Weltmoralwerts. Auch der Algorithmus, die Gewichtungen und die Freigaberegeln bleiben angreifbar.","If plausible value profiles reverse the sign, we show the conflict instead of a single world-morality score. The algorithm, weights and publication rules remain challengeable too.")}</p>
+    </section>
+    <section id="konvergenz">
+      <h2>{t("Ein möglicher Konvergenzmotor.","A possible convergence layer.")}</h2>
+      <p>{t("Er könnte über die Themenfelder hinweg untersuchen, welche begründeten Richtungen trotz unterschiedlicher Perspektiven stabil bleiben. Das Ergebnis wäre eine neue prüfbare Hypothese – niemals ein Beweis universeller Moral.","Across topics, it could examine which reasoned directions remain stable under differing perspectives. Its output would be a new testable hypothesis — never proof of universal morality.")}</p>
+      <p>{t("Keine Bewertung von Personen, Kulturen oder Gruppen. Keine automatisierten Sanktionen und keine Stimmen für KI-Schwärme. Menschen tragen die redaktionelle Verantwortung; ein belastbarer Einwand kann auch eine spätere Zahl zurückziehen.","No ratings of persons, cultures or groups. No automated sanctions or AI-swarm votes. People retain editorial responsibility; a substantiated challenge can withdraw even a future score.")}</p>
+    </section>
+    <section id="mitmachen">
+      <h2>{t("Stelle den Entwurf infrage.","Challenge this proposal.")}</h2>
+      <p>{t("Der vollständige Forschungsentwurf beschreibt das Modell, die stärksten Einwände, eine unabhängige Erprobung und klare Abbruchbedingungen.","The full research proposal describes the model, strongest objections, independent tests and explicit stop conditions.")}</p>
+      <div class="morality__links">
+        <a href={project.repository+"/blob/main/docs/"+(en?"en/collective-morality.md":"kollektive-moral.md")}>{t("Vollständiger Entwurf ↗","Full proposal ↗")}</a>
+        <a href={base+"knowledge/direction-index.v0.json"}>{t("Maschinenlesbarer Entwurf ↗","Machine-readable proposal ↗")}</a>
+        <a href={project.repository+"/issues/new?template=idee.yml"}>{t("Gegenargument einreichen ↗","Submit an objection ↗")}</a>
+        <a href={pathFor(lang,"forum")}>{t("Forum erkunden →","Explore the forum →")}</a>
+      </div>
+    </section>
+  </article>
+</Layout>
+<style>
+.morality{padding-block:clamp(2.5rem,6vw,5rem)}
+.morality header{max-width:65rem}
+.morality__motto{border-left:3px solid var(--gold);color:var(--gold-bright);font:clamp(1.3rem,2.8vw,2.1rem)/1.35 var(--serif);padding:.6rem 0 .6rem 1.2rem;margin:1.5rem 0}
+.morality section{border-top:1px solid var(--line);padding-top:2.5rem;margin-top:3rem;scroll-margin-top:6rem}
+.morality section h2{max-width:55rem}
+.morality__range{display:flex;justify-content:space-between;align-items:center;min-height:64px;padding:1rem;background:linear-gradient(90deg,#5b3333,#373b3c,#345645);border:1px solid var(--line);color:#fff;font-weight:700;margin:1.5rem 0}
+.morality__steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;list-style:none;padding:0}
+.morality__steps li{border-top:2px solid var(--gold);padding:.8rem .4rem}.morality__steps span{color:var(--gold-bright)}
+.morality__examples{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin:1rem 0}
+.morality__examples article{background:#111719;border:1px solid var(--line);padding:1.25rem;min-width:0}
+.morality__examples h3{font:clamp(1.2rem,2vw,1.55rem)/1.3 var(--serif)}
+.morality__examples strong,.morality__gates strong{color:var(--gold-bright)}
+.morality__gates li{margin:.75rem 0}.morality__links{display:flex;flex-wrap:wrap;gap:.7rem 1.5rem}
+.morality__links a{color:var(--gold-bright);text-decoration:underline;text-underline-offset:.2em;display:inline-flex;align-items:center;min-height:44px}
+@media(max-width:760px){.morality__steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:580px){.morality__steps,.morality__examples{grid-template-columns:1fr}}
+</style>

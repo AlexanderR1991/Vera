@@ -1,7 +1,7 @@
 {
   "id": "M-02",
-  "version": "0.1",
-  "date": "2026-11-07",
+  "version": "0.2",
+  "date": "2026-11-08",
   "title": {
     "de": "Die Mathematik des Dazwischen",
     "en": "Mathematics Between Minds"
@@ -15,7 +15,8 @@
     "directed_accuracy_B_to_A": "1 - sum(abs(a_j - b_estimate_a_j))/(4*m)",
     "directed_accuracy_A_to_B": "1 - sum(abs(b_j - a_estimate_b_j))/(4*m)",
     "agreement": "1 - sum(abs(a_j - b_j))/(4*m)",
-    "reporting": "Report both directed values separately, with item-level detail; never merge into human ranking."
+    "reporting": "Report both directed values separately, with item-level detail; never merge into human ranking.",
+    "before_after": "Use identical anchored questions. Withhold change in a directed accuracy if any of its reference answers changed. Report agreement change separately."
   },
   "formal_result": {
     "id": "M-02.1",

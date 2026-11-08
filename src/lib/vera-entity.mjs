@@ -40,7 +40,7 @@ export function queryVera(id, project) {
   const evidence = [];
   for (const record of query.evidence) {
     if (record.field === undefined) {
-      evidence.push(record);
+      evidence.push({ ...record });
       continue;
     }
     const observed = project?.ai_ambition?.[record.field];

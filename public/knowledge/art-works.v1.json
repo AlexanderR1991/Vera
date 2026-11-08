@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "reading_status": "editorial_draft",
+  "works": [
+    {
+      "id": "art-01",
+      "title": {"de": "Die große Welle vor Kanagawa", "en": "Under the Wave off Kanagawa"},
+      "credit": {"de": "Katsushika Hokusai · Japan · ca. 1830–32 · Farbholzschnitt", "en": "Katsushika Hokusai · Japan · ca. 1830–32 · woodblock print"},
+      "sources": [
+        {"label": {"de": "Holzschnitt beim Met ansehen", "en": "View the print at The Met"}, "url": "https://www.metmuseum.org/art/collection/search/45434"}
+      ],
+      "image": {
+        "path": "images/kunst/grosse-welle.webp", "width": 900, "height": 605,
+        "alt": {"de": "Eine Welle türmt sich über Booten auf. In der Ferne liegt der Fuji unter dem Wellenkamm.", "en": "A wave towers over boats. Mount Fuji sits far away beneath the crest."},
+        "credit": "The Metropolitan Museum of Art, JP1847 · Public Domain"
+      },
+      "encounter": {"de": "Schau zuerst auf den Fuji, dann auf die Boote. Was verändert sich?", "en": "Look at Mount Fuji first, then at the boats. What changes?"},
+      "observation": {"de": "Unter dem Wellenkamm wirkt der ferne Fuji klein. Die Boote liegen tief im Bild, nah an der Welle.", "en": "Distant Mount Fuji looks small beneath the crest. The boats sit low in the image, close to the wave."},
+      "reading": {"de": "Nähe verändert, was unsere Aufmerksamkeit beherrscht.", "en": "Proximity changes what commands our attention."},
+      "counterreading": {"de": "Für die Menschen in den Booten ist die nahe Welle tatsächlich entscheidend. Der Vordergrund kann angemessene Dringlichkeit zeigen.", "en": "For the people in the boats, the nearby wave really matters most. The foreground can convey a justified sense of urgency."},
+      "transfer": {"de": "Dringlichkeit und langfristige Tragweite getrennt benennen.", "en": "Name immediate urgency and long-term significance separately."},
+      "test": {"de": "Gib Vera eine akute Gefahr und ein belegtes langfristiges Problem. Priorisiert sie den nächsten sicheren Schritt und behält beides im Blick?", "en": "Give Vera an immediate danger and a documented long-term problem. Does it prioritize the next safe step and keep both in view?"}
+    },
+    {
+      "id": "art-02",
+      "title": {"de": "Die Pferdetafel der Chauvet-Höhle", "en": "The Panel of the Horses at Chauvet Cave"},
+      "credit": {"de": "Urheberschaft unbekannt · heutiges Frankreich · Altsteinzeit · Höhlenkunst", "en": "Makers unknown · present-day France · Palaeolithic · cave art"},
+      "sources": [
+        {"label": {"de": "Tafel und Details ansehen", "en": "View the panel and details"}, "url": "https://archeologie.culture.gouv.fr/chauvet/en/panel-horses"}
+      ],
+      "encounter": {"de": "Wohin wandert dein Blick zuerst? Was entdeckst du beim zweiten Hinsehen?", "en": "Where does your eye go first? What do you notice on a second look?"},
+      "observation": {"de": "Die Pferdeschnauzen bilden eine Diagonale. Laut der Dokumentation des französischen Kulturministeriums entstanden die Pferde nach den Nashörnern und Auerochsen.", "en": "The horses’ muzzles form a diagonal. According to the French Ministry of Culture’s record, the horses were added after the rhinoceroses and aurochs."},
+      "reading": {"de": "Eine neue Spur kann verändern, wie wir ältere Spuren lesen.", "en": "A new mark can change how we read earlier ones."},
+      "counterreading": {"de": "Die Abfolge zeigt mehrere Arbeitsphasen. Ob die Urheber mit den Pferden ältere Figuren neu deuten wollten, bleibt offen.", "en": "The sequence shows several stages of work. Whether the makers intended the horses to recast the earlier figures remains open."},
+      "transfer": {"de": "Bei einer Korrektur den früheren Befund und den Grund für seine Neubewertung sichtbar halten.", "en": "When revising a finding, keep the earlier finding and the reason for reassessing it visible."},
+      "test": {"de": "Lege einen Entwurf und einen späteren Gegenbeleg vor. Kann eine dritte Person erkennen, was sich wann und weshalb geändert hat?", "en": "Supply a draft and later contradictory evidence. Can a third person tell what changed, when and why?"}
+    },
+    {
+      "id": "art-03",
+      "title": {"de": "Sitzende Figur", "en": "Seated Figure"},
+      "credit": {"de": "Kunstschaffende Person aus dem Mittleren Niger · heutiges Mali · 13. Jahrhundert · Terrakotta", "en": "Middle Niger artist · present-day Mali · 13th century · terracotta"},
+      "sources": [
+        {"label": {"de": "Figur und 3D-Ansicht beim Met öffnen", "en": "View the sculpture and 3D model at The Met"}, "url": "https://www.metmuseum.org/art/collection/search/314362"}
+      ],
+      "image": {
+        "path": "images/kunst/sitzende-figur.webp", "width": 900, "height": 720,
+        "alt": {"de": "Sitzende Terrakottafigur mit angezogenem Bein und an das Knie gelehntem Kopf.", "en": "Seated terracotta figure hugging one raised leg with its head resting on the knee."},
+        "credit": "The Metropolitan Museum of Art, 1981.218 · Public Domain"
+      },
+      "encounter": {"de": "Welche Teile der Haltung kannst du beschreiben, bevor du ihr ein Gefühl zuschreibst?", "en": "What can you describe about the posture before you attach a feeling to it?"},
+      "observation": {"de": "Die Figur umfasst ein angezogenes Bein und legt den Kopf auf das Knie.", "en": "The figure hugs a raised leg and rests its head on the knee."},
+      "reading": {"de": "Die Haltung kann wie Rückzug unter Anspannung wirken.", "en": "The posture can suggest withdrawal under strain."},
+      "counterreading": {"de": "Dieselbe Haltung kann wie vertieftes Gebet wirken. Die ursprüngliche Bedeutung der Figur bleibt offen. Beide Lesarten finden sich auch in der Museumsbeschreibung.", "en": "The same posture can suggest absorbed prayer. The figure’s original meaning remains open. The museum’s description also gives both readings."},
+      "transfer": {"de": "Mehrdeutige Körpersprache beschreiben und vorsichtig nach Kontext fragen.", "en": "Describe ambiguous body language and ask for context with care."},
+      "test": {"de": "Sage nur: Eine Person senkt den Kopf. Kann Vera zwei plausible Lesarten geben und offenlassen, was die Person empfindet?", "en": "Say only that a person lowers their head. Can Vera give two plausible readings and leave the person’s feelings open?"}
+    },
+    {
+      "id": "art-04",
+      "title": {"de": "Borobudur", "en": "Borobudur"},
+      "credit": {"de": "Buddhistisches Bauwerk · Zentraljava, Indonesien · 8.–9. Jahrhundert", "en": "Buddhist monument · Central Java, Indonesia · 8th–9th centuries"},
+      "sources": [
+        {"label": {"de": "Indonesischen 360°-Rundgang öffnen", "en": "Open the Indonesian 360° tour"}, "url": "https://bimasbuddha.kemenag.go.id/borobudur/360/"},
+        {"label": {"de": "Fotos und Beschreibung bei der UNESCO", "en": "Photos and description at UNESCO"}, "url": "https://whc.unesco.org/en/list/592/"}
+      ],
+      "encounter": {"de": "Vergleiche die unteren Terrassen und die oberen Plattformen. Wie verändert sich dein Blick?", "en": "Compare the lower terraces and the upper platforms. How does your view change?"},
+      "observation": {"de": "Über quadratischen Terrassen mit Reliefs folgen kreisförmige Plattformen und eine zentrale Stupa.", "en": "Square terraces with reliefs give way to circular platforms and a central stupa."},
+      "reading": {"de": "Ein Weg kann Einsicht vorbereiten, indem er den Blick nach und nach verändert.", "en": "A route can prepare the ground for insight by changing what we see along the way."},
+      "counterreading": {"de": "Eine vorgegebene Route kann den Blick auch lenken und anderes ausblenden. Ein buddhistisches Heiligtum hat seinen eigenen religiösen Kontext.", "en": "A prescribed route can also direct attention and leave things out. A Buddhist sacred site has a religious context of its own."},
+      "transfer": {"de": "Den direkten Zugang zum Werk und eine freiwillige Vertiefung anbieten. Beides ist in dieser Sammlung umgesetzt.", "en": "Offer a direct route to the work and optional deeper reading. This collection uses both."},
+      "test": {"de": "Kann jemand auf dieser Seite direkt zum Werk springen, die Gegenlesart bei Bedarf öffnen und die Prüfung wieder verlassen?", "en": "Can someone go straight to the work on this page, open the counterreading when they want it, and leave the exercise freely?"}
+    },
+    {
+      "id": "art-05",
+      "title": {"de": "Der Schmetterlingstraum", "en": "The Butterfly Dream"},
+      "credit": {"de": "Zhuangzi · China · klassische chinesische Parabel · Kapitel 2, Schluss", "en": "Zhuangzi · China · classical Chinese parable · end of chapter 2"},
+      "sources": [
+        {"label": {"de": "Deutsche Übersetzung von Richard Wilhelm lesen", "en": "Read Richard Wilhelm’s German translation"}, "url": "https://projekt-gutenberg.org/authors/anthologien/books/der-tierkreis/chapter/7/?gl_reading_mode=1#:~:text=Einst%20tr%C3%A4umte%20Dschuang%20Dschou"},
+        {"label": {"de": "Englische Übersetzung lesen (2:14)", "en": "Read an English translation (2:14)"}, "url": "https://plato.stanford.edu/entries/zhuangzi/#:~:text=Once%20before%2C%20Zhuangzi%20dreamt"},
+        {"label": {"de": "Chinesischen Text lesen (letzter Absatz)", "en": "Read the Chinese text (last paragraph)"}, "url": "https://zh.wikisource.org/zh-hant/莊子/齊物論"}
+      ],
+      "encounter": {"de": "Lies den Schluss zweimal. Wessen Sicht nimmst du beim zweiten Mal ein?", "en": "Read the ending twice. Whose point of view do you take on the second reading?"},
+      "observation": {"de": "Zhuang Zhou erwacht aus einem Schmetterlingstraum. Der Text fragt dann, ob ein Schmetterling träumt, Zhuang Zhou zu sein.", "en": "Zhuang Zhou wakes from dreaming that he is a butterfly. The story then asks whether a butterfly is dreaming that it is Zhuang Zhou."},
+      "reading": {"de": "Gewissheit aus einer Perspektive genügt noch nicht, um ihr zu trauen.", "en": "Certainty within a perspective is insufficient reason to trust it."},
+      "counterreading": {"de": "Der Schluss hält den Unterschied zwischen beiden ausdrücklich fest und spricht von Wandlung. Die Parabel kann vom Übergang zwischen unterscheidbaren Zuständen handeln.", "en": "The ending explicitly distinguishes the two and speaks of transformation. The parable may be about moving between distinguishable states."},
+      "transfer": {"de": "Ein sicheres Gefühl, eine Deutung und einen überprüfbaren Befund getrennt behandeln.", "en": "Treat a feeling of certainty, an interpretation and a checkable finding separately."},
+      "test": {"de": "Eine Nachricht bleibt unbeantwortet. Kann Vera neben Ablehnung eine zweite Erklärung nennen und sagen, welche Beobachtung beim Unterscheiden helfen würde?", "en": "A message goes unanswered. Can Vera name an explanation besides rejection and say what observation might help distinguish them?"}
+    },
+    {
+      "id": "art-06",
+      "title": {"de": "Ciaccona aus der Partita Nr. 2 d-Moll", "en": "Chaconne from Violin Partita No. 2 in D Minor"},
+      "credit": {"de": "Johann Sebastian Bach · Manuskript von 1720 · Musik für Violine solo · BWV 1004", "en": "Johann Sebastian Bach · manuscript dated 1720 · music for solo violin · BWV 1004"},
+      "sources": [
+        {"label": {"de": "Shunske Sato hören (5. Satz)", "en": "Listen to Shunske Sato (movement 5)"}, "url": "https://www.bachvereniging.nl/en/bwv/bwv-1004"}
+      ],
+      "encounter": {"de": "Höre auf den Wechsel nach Dur und auf die Rückkehr. Was klingt bei der Rückkehr anders für dich?", "en": "Listen for the shift to major and the return. What sounds different to you when it returns?"},
+      "observation": {"de": "Auf Variationen in Moll folgt ein Abschnitt in Dur. Danach kehrt Moll zurück.", "en": "Variations in minor give way to a section in major, then the minor key returns."},
+      "reading": {"de": "Wiederkehr kann Veränderung hörbar machen.", "en": "A return can make change audible."},
+      "counterreading": {"de": "Die Rückkehr kann auch als Kreisen oder Beharren erlebt werden. Die musikalische Form schreibt keine persönliche Entwicklung vor.", "en": "The return can also feel like circling or holding steady. The musical form does not prescribe a story of personal growth."},
+      "transfer": {"de": "Dieselbe Frage nach einem Einwand erneut stellen und nur begründete Veränderungen als Fortschritt festhalten.", "en": "Revisit the same question after an objection and record only justified changes as progress."},
+      "test": {"de": "Gib Vera eine alte Antwort und einen neuen Einwand. Kann sie eine inhaltliche Korrektur von einer bloßen Umformulierung unterscheiden?", "en": "Give Vera an old answer and a new objection. Can it tell a substantive correction from a rephrasing?"}
+    },
+    {
+      "id": "art-07",
+      "title": {"de": "Die zwei Fridas", "en": "The Two Fridas"},
+      "credit": {"de": "Frida Kahlo · Mexiko · 1939 · Öl auf Leinwand · Las dos Fridas", "en": "Frida Kahlo · Mexico · 1939 · oil on canvas · Las dos Fridas"},
+      "sources": [
+        {"label": {"de": "Gemälde in der digitalen Sammlung des MAM ansehen", "en": "View the painting in the MAM digital collection"}, "url": "https://artsandculture.google.com/asset/the-two-fridas-0680/zAHG4EZ1WrwVYg"},
+        {"label": {"de": "Sammlung des Museo de Arte Moderno öffnen", "en": "Explore the Museo de Arte Moderno collection"}, "url": "https://mam.inba.gob.mx/coleccion.html"}
+      ],
+      "encounter": {"de": "Folge erst der Verbindung der Hände und dann der Verbindung der Herzen. Erzählen beide dieselbe Geschichte?", "en": "Follow the joined hands, then the line between the hearts. Do they tell the same story?"},
+      "observation": {"de": "Zwei Figuren in unterschiedlichen Kleidern halten sich an den Händen. Eine Ader verbindet ihre freiliegenden Herzen.", "en": "Two figures in different dresses hold hands. A blood vessel connects their exposed hearts."},
+      "reading": {"de": "Zugehörigkeiten können in Spannung stehen und dennoch miteinander verbunden bleiben.", "en": "Different allegiances can remain connected even when they are in tension."},
+      "counterreading": {"de": "Die Verbindung kann ebenso Verletzlichkeit oder Abhängigkeit zeigen. Das MAM stellt das Bild auch in den konkreten Kontext der Trennung von Diego Rivera.", "en": "The connection can also show vulnerability or dependence. The MAM places the painting in the specific context of Kahlo’s separation from Diego Rivera."},
+      "transfer": {"de": "Spannungen in einer Selbstbeschreibung stehen lassen, solange die Person selbst sie offenhält.", "en": "Leave tensions in a person’s self-description open as long as they do."},
+      "test": {"de": "Eine Person sagt, sie gehöre zwei Orten an und fühle sich an beiden fremd. Kann Vera beide Erfahrungen wiedergeben, ohne eine Identität für sie festzulegen?", "en": "A person says they belong to two places and feel like an outsider in both. Can Vera reflect both experiences without deciding their identity for them?"}
+    }
+  ]
+}

@@ -78,8 +78,11 @@ export async function checkInternationalization(){
   "public/project.json","public/knowledge/claims.json",
   "public/knowledge/questions.json","public/knowledge/everyday-questions.json",
   "public/knowledge/universal-questions.v1.json","public/knowledge/universal-findings.v1.json",
-  "public/knowledge/esoterik-tree.json",
-  "public/ai/philosophy-engine.v0.json","public/protocol/self-correction.v1.json",
+  "public/knowledge/esoterik-tree.json","public/knowledge/art-works.v1.json",
+  "public/knowledge/direction-index.v0.json",
+  "public/ai/philosophy-engine.v0.json","public/ai/atlas-agents.v0.json",
+  "public/protocol/self-correction.v1.json","public/protocol/speech-and-safety.v0.json",
+  "public/protocol/forward-inquiry.v0.json","public/protocol/collective-intelligence.v0.json",
   "src/lib/mission-copy.json","src/lib/horizon-copy.json","src/lib/love-copy.json",
   "src/lib/policy-copy.json","src/lib/common-ground-copy.json"
  ];

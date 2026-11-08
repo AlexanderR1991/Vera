@@ -9,7 +9,7 @@
 .vera-site .vera-header__inner {
   position: relative;
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-columns: auto minmax(0, 1fr) auto auto;
   align-items: center;
   gap: clamp(12px, 2.2vw, 34px);
   min-height: 64px;
@@ -271,8 +271,8 @@
   }
 
   .vera-site .vera-header__inner {
-    grid-template-columns: minmax(0, 1fr) auto auto;
-    gap: 12px;
+    grid-template-columns: minmax(0, 1fr) auto auto auto;
+    gap: clamp(3px, 1.25vw, 12px);
   }
 
   .vera-site .vera-menu-wide {

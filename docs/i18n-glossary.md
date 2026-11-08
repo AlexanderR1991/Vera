@@ -31,6 +31,16 @@
 | Mustererkennung | pattern recognition / cross-domain connection | A proposed analogy still needs fresh validation. / Analogie ist kein Beweis. |
 | philosophischer Motor | philosophical inquiry framework | A metaphor for a revisable process, not a physical engine or a validated intelligence layer. / Metapher, kein Naturgesetz. |
 
+## Begriffe für kollektive Moral / Collective morality terminology
+
+| Deutsch | English | Präzisierung / Clarification |
+| --- | --- | --- |
+| kollektive Moral | collective morality | Forschungsziel, kein universeller Moralkodex / research goal, not universal code |
+| Richtungsindex | conditional direction index | Relativ zu einem Wertprofil und Vergleich; **kein Wahrheitswert** / not truth |
+| Wertprofil | value profile | Offen gelegte normative Prioritäten / declared value priorities |
+| Richtungskarte | direction map | Getrennte Folgenachsen statt erzwungenem Einzelwert / separate impacts, no forced scalar |
+| Robustheitsprüfung | sensitivity / robustness check | Alternativen dürfen das Vorzeichen ändern / defensible alternatives may reverse the sign |
+
 ## False friends / Kritische Unterschiede
 
 1. **Truth ≠ consensus.** Auch breite Einigkeit ersetzt keinen tragfähigen Grund. / Even broad agreement cannot establish truth.

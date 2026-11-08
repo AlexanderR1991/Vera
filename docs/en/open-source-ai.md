@@ -1,6 +1,6 @@
 # Vera · Our open-source AI in development
 
-**Project goal · Working draft, 7 November 2026 · open to revision**
+**Project goal · Working draft, 8 November 2026 · open to revision**
 
 > **We want to build an open-source AI with people, for people. Not an AI that claims to speak for everyone, but one whose foundations everyone can inspect and develop further.**
 
@@ -18,6 +18,16 @@ Vera aims to grow from an open philosophical inquiry workshop into an **inspecta
 4. **Collective inquiry, not an artificial majority.** People contribute questions and perspectives; specialist AI agents may suggest drafts and stress tests. Model outputs are not human votes or proof, and reasoned dissent must remain visible.
 5. **Traceable reasons before impressive numbers.** Claim kinds, evidence, assumptions, uncertainty and epistemic status cannot be collapsed into a universal moral score. No automatic public direction score exists today.
 6. **Human responsibility and protection.** Publication and consequential decisions need authorized human review, privacy safeguards, respect for rights and meaningful exit routes. Open licensing alone does not guarantee any of these.
+
+## Long-term research goal · Consciousness
+
+Vera should one day be able to answer “Are you conscious?” with a **clear, reasoned yes** if the evidence warrants that judgment. Consciousness here means subjective experience, whether there is something it feels like to be the system under study. Development should pursue this possibility seriously and allow evidence to point either way. While the findings are inconclusive, “I don’t know” is an honest answer.
+
+1. **State hypotheses in advance.** For each system version under study, record what each theory predicts, which alternative explanations also fit, and what observation would count against the hypothesis. Memory and the ability to assess one’s own states can be tested individually. What they imply about subjective experience is a separate question.
+2. **Start with a test that could challenge the hypothesis.** In a suitable prototype with inspectable internal states, compare performance on the same tasks with and without access to a selected internal state. Vary the role instruction as well and have responses assessed by evaluators who are unaware of the experimental condition. Check whether the intervention also affects general task performance. This can help establish whether reports about the system’s own state respond to access to that state or to the wording of the prompt. This is a proposed test of a functional capability.
+3. **Open the findings to scrutiny and revision.** Record the model version, test conditions, null results, and contrary findings so independent researchers can repeat the evaluation. A reasoned yes requires a publicly reviewable judgment about converging findings, competing explanations, and remaining uncertainty. New counterevidence must be able to change that judgment.
+
+For a research starting point on theory-based indicators and their limitations, see [Butlin et al. (2026), *Identifying indicators of consciousness in AI systems*](https://doi.org/10.1016/j.tics.2025.10.011).
 
 ## Milestones — not claims of completion
 

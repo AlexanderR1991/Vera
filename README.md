@@ -4,13 +4,13 @@
 
 **Die offene Erkenntniswerkstatt · The open inquiry workshop**
 
-**Hallo, ich bin Vera.** Bring eine Frage mit. In der Werkstatt kannst du eine Antwort prüfen, ihre Gründe nachvollziehen und ihr begründet widersprechen.
+**Hallo, ich bin Vera. Bitte hilf mir besser zu werden.** Bring eine Frage mit. In der Werkstatt kannst du eine Antwort prüfen, ihre Gründe nachvollziehen und ihr begründet widersprechen.
 
-**Hi, I’m Vera.** Bring a question. In the workshop, you can examine an answer, follow its reasoning and challenge it with reasons of your own.
+**Hi, I’m Vera. Please help me get better.** Bring a question. In the workshop, you can examine an answer, follow its reasoning and challenge it with reasons of your own.
 
 1. **Werkstatt öffnen · Visit the workshop.** [Website auf Deutsch](https://alexanderr1991.github.io/Vera/de/) · [Website in English](https://alexanderr1991.github.io/Vera/en/)
 2. **Korrekturen nachvollziehen · Follow a correction.** [Regelkreis (DE)](https://alexanderr1991.github.io/Vera/de/regelkreis/) · [Correction loop (EN)](https://alexanderr1991.github.io/Vera/en/regelkreis/) · [Protokoll / Protocol](public/protocol/self-correction.v1.json)
-3. **Mitwirken · Contribute.** [Einwand einreichen / Submit an objection](https://github.com/AlexanderR1991/Vera/issues/new?template=angriff.yml) · [Beitragsleitfaden / Contribution guide](CONTRIBUTING.md)
+3. **Mitwirken · Contribute.** [Rückmeldung geben / Give feedback](https://github.com/AlexanderR1991/Vera/issues/new?template=rueckmeldung.yml) · [Einwand einreichen / Submit an objection](https://github.com/AlexanderR1991/Vera/issues/new?template=angriff.yml) · [Beitragsleitfaden / Contribution guide](CONTRIBUTING.md)
 
 **Projektstand · Project status.** Heute gibt es eine öffentliche Werkstatt, ein lokales Prüfblatt und erste Prototypen. Das Entwicklungsziel ist eine eigenständig lauffähige Open-Source-KI mit Menschen, für Menschen. [Vision und aktueller Stand (DE)](docs/open-source-ki.md)
 
@@ -32,24 +32,39 @@ The challengeable process rule asks for a traceable revision path, type-appropri
 
 **To guide humanity toward consensus through philosophy.** Anyone can bring a question. When our answers differ, we look for a point we can each agree on for our own reasons. We record where we still disagree.
 
+## Die Grundidee: kollektive Intelligenz · The founding idea: collective intelligence
+
+**Vera soll Menschen nicht das Denken abnehmen, sondern ihnen ermöglichen, gemeinsam besser zu denken.** Der Atlas ordnet Fragen, das Forum bewahrt Widerspruch, Git dokumentiert unsere Revisionen, der philosophische Motor prüft Gründe und KI darf begrenzte Muster und Gegenargumente vorschlagen. Damit könnte ein korrigierbarer gemeinsamer Lernprozess entstehen. **Das ist bisher eine unvalidierte Architekturhypothese, keine bewiesene kollektive Intelligenz.** [Konzept CI-0.1](docs/kollektive-intelligenz.md) · [Grundidee auf der Website](https://alexanderr1991.github.io/Vera/de/kollektive-intelligenz/) · [Datenvertrag](public/protocol/collective-intelligence.v0.json).
+
+**Vera aims to help people think better together, not replace their judgment.** Its atlas maps domains, documented objections enable revision, the philosophical engine tests reasons and AI may assist with proposed links and challenges. This is an **unvalidated hypothesis**, not a demonstrated collective mind. [English concept](docs/en/kollektive-intelligenz.md) · [Public explanation](https://alexanderr1991.github.io/Vera/en/kollektive-intelligenz/).
+
 **Menschen vor Skalierung.** Jeder Mensch soll mit einer einfachen Frage beginnen und in eigenem Tempo mitdenken oder widersprechen können. Verständlichkeit und echte Zugänglichkeit haben Vorrang vor Funktionsfülle und KI-Automatisierung. Das ist unser [oberstes Gestaltungsprinzip im Grundtext](docs/grundtext.md#oberstes-gebot-für-gestaltung-und-wachstum-jeden-menschen-abholen) – ein prüfbarer Anspruch, keine bereits erreichte Garantie.
 
 **People before scale.** Anyone should be able to start with a simple question, think along at their own pace and disagree. Understanding and genuine access come before feature growth and AI automation. See the [foundational principle (draft translation)](docs/en/grundtext.md#highest-priority-for-design-and-growth-meet-people-where-they-are).
 
+**Zugang prüfen · Check the entry path.** `python3 scripts/check_vera_entry.py --live` prüft die beiden Sprachfassungen vom Einstieg über die erste Antwort bis zum Korrekturhinweis. Nach dem Pages-Deploy prüft derselbe Befehl zusätzlich den erwarteten Commit. Ob Menschen den Weg verstehen, bleibt eine eigene [freiwillige Leseprobe](https://alexanderr1991.github.io/Vera/de/regelkreis/#leseprobe).
+
+The live check follows both language versions from the homepage through the first answer to the correction guide. After deployment it also verifies the expected commit. An [optional first-time reader check](https://alexanderr1991.github.io/Vera/en/regelkreis/#leseprobe) explores whether people understand it.
+
 | Einstieg | Deutsch | English |
 | --- | --- | --- |
+| Kollektive Intelligenz als Grundidee prüfen · Explore collective intelligence | [Grundidee](https://alexanderr1991.github.io/Vera/de/kollektive-intelligenz/) | [Founding idea](https://alexanderr1991.github.io/Vera/en/kollektive-intelligenz/) |
 | Den selbstkorrigierenden Regelkreis verstehen · Explore the correction loop | [Regelkreis](https://alexanderr1991.github.io/Vera/de/regelkreis/) | [Correction loop](https://alexanderr1991.github.io/Vera/en/regelkreis/) |
 | Eine Alltagsfrage prüfen · Examine an everyday question | [Fragen und erste Antworten](https://alexanderr1991.github.io/Vera/de/forum/#alltagsfragen) | [Questions and first answers](https://alexanderr1991.github.io/Vera/en/forum/#alltagsfragen) |
 | Den philosophischen Motor für KI prüfen · Examine the philosophical engine for AI | [KI und Mensch](https://alexanderr1991.github.io/Vera/de/ki-und-mensch/) | [AI and Humanity](https://alexanderr1991.github.io/Vera/en/ki-und-mensch/) |
 | Eine Minute spielen · Play a one-minute round | [Auf den zweiten Blick](https://alexanderr1991.github.io/Vera/de/spiel/) | [A second look](https://alexanderr1991.github.io/Vera/en/spiel/) |
+| Einem Kunstwerk begegnen · Encounter a work of art | [Liber Artis](https://alexanderr1991.github.io/Vera/de/kunst-und-erkenntnis/#sammlung) | [Liber Artis](https://alexanderr1991.github.io/Vera/en/kunst-und-erkenntnis/#sammlung) |
 | Die Werkstatt kennenlernen · Visit the workshop | [Startseite](https://alexanderr1991.github.io/Vera/de/) | [Home](https://alexanderr1991.github.io/Vera/en/) |
 | Mit der eigenen KI Gegenargumente suchen · Ask your own AI for objections | [Prüfregeln für deinen Chat kopieren](https://alexanderr1991.github.io/Vera/de/fragen-und-ki-prompt/#prompt) | [Copy the rules for your chat](https://alexanderr1991.github.io/Vera/en/fragen-und-ki-prompt/#prompt) |
 | Eine echte Korrektur lesen · Follow a real revision | [Wann ist Hilfe gut?](https://alexanderr1991.github.io/Vera/de/methode/#g-005) | [What makes help good?](https://alexanderr1991.github.io/Vera/en/methode/#g-005) |
 | Eine Frage für sich prüfen · Work privately | [Prüfblatt öffnen](https://alexanderr1991.github.io/Vera/de/werkstatt/) | [Open a worksheet](https://alexanderr1991.github.io/Vera/en/werkstatt/) |
+| Kollektive Moral als korrigierbaren Richtungsindex untersuchen · Explore collective morality | [Kollektive Moral](https://alexanderr1991.github.io/Vera/de/kollektive-moral/) | [Collective morality](https://alexanderr1991.github.io/Vera/en/kollektive-moral/) |
 | Eine passende Verbindung finden · Find a relevant connection | [Erkenntnisnavigator](https://alexanderr1991.github.io/Vera/de/erkenntnisnavigator/) | [Knowledge navigator](https://alexanderr1991.github.io/Vera/en/erkenntnisnavigator/) |
+| Politik und wirtschaftliche Macht prüfen · Examine politics and economic power | [Marx und fünf Gegenproben](https://alexanderr1991.github.io/Vera/de/politik-die-dem-menschen-dient/#eigentum-und-macht) | [Marx and five countertests](https://alexanderr1991.github.io/Vera/en/politik-die-dem-menschen-dient/#eigentum-und-macht) |
 | Ein Netz verbundener Fragen sehen · Explore linked questions | [Fragenatlas (Pilot)](https://alexanderr1991.github.io/Vera/de/forum/#fragenatlas) | [Question atlas (pilot)](https://alexanderr1991.github.io/Vera/en/forum/#fragenatlas) |
 | Die übergreifenden Grundfragen prüfen · Explore fundamental questions | [16 Grundfragen · Forschungsatlas](https://alexanderr1991.github.io/Vera/de/grundfragen/) | [16 Fundamental Questions · Research Atlas](https://alexanderr1991.github.io/Vera/en/grundfragen/) |
 | Die Mathematik der Verständigung prüfen · Explore the mathematics of understanding | [Die Brücke · M-02](https://alexanderr1991.github.io/Vera/de/die-bruecke/) | [The Bridge · M-02](https://alexanderr1991.github.io/Vera/en/die-bruecke/) |
+| Die Mathematik des Motors prüfen · Examine the engine's mathematics | [M-03 · Der philosophische Motor](https://alexanderr1991.github.io/Vera/de/philosophischer-motor/) | [M-03 · Philosophical Engine](https://alexanderr1991.github.io/Vera/en/philosophischer-motor/) |
 | Einen esoterischen Wissensast prüfen · Explore an esoteric question | [Esoterik-Wissensbaum](https://alexanderr1991.github.io/Vera/de/esoterik-katalog/) | [Esotericism tree](https://alexanderr1991.github.io/Vera/en/esoterik-katalog/) |
 | Eine Frage öffentlich stellen · Ask in public | [GitHub-Frageformular](https://github.com/AlexanderR1991/Vera/issues/new?template=frage.yml) | [GitHub question form](https://github.com/AlexanderR1991/Vera/issues/new?template=frage.yml) |
 
@@ -61,11 +76,47 @@ Start with the [English documentation guide](docs/en/README.md), the [English fo
 
 Die Website besitzt deutsche und englische Seiten. Dies ist **noch keine vollständige, unabhängig geprüfte Zweisprachigkeit** des gesamten Repositories. Das Register unterscheidet Entwurf, Teilübersetzung, ungeprüften Bestand und dokumentierte menschliche Freigabe.
 
+## WIRKLICH · ENTITÄT · ENT-00 (Forschungsprototyp)
+
+**Frage → Aussageart → Perspektiven → stärkster Einwand → Prüfung → Revisionsentwurf → menschliche Entscheidung → Änderungsgeschichte → neue Frage.** Die [Entität](docs/entitaet.md) ist unsere offene, anfechtbare Integrationsarchitektur für bestehende Atlas-, Forum-, KI- und Erkenntniswerkzeuge, **keine Behauptung künstlichen Lebens oder bereits vorhandener Autonomie**. Ein [bilingualer lokaler Prototyp](https://alexanderr1991.github.io/Vera/de/entitaet/) demonstriert versionierte Einwände. Das [offene JSON-Protokoll](public/protocol/entity-loop.v0.json) und ein [testbarer Codekern](src/lib/entity-core.mjs) halten KI-Entwürfe, echte menschliche Reviews, nicht erhobenen Konsens und fehlende Richtungswerte getrennt. Die überlappenden Forschungsentwürfe bleiben fachlich ungeprüft.
+
+**English:** [ENTITY / ENT-00](docs/entitaet.md#english--ent-00--wirklich--entity) is a contestable architecture and an in-browser draft-loop demonstration, not conscious AI, autonomous publishing or validated collective intelligence. No numeric truth score is produced.
+
 ## Was MUSS KI für Menschen sein? · What MUST AI be for us?
 
-Künstliche Intelligenz braucht mehr als Fähigkeiten. **Vera will mit Menschen einen philosophischen Motor für KI entwickeln**: einen offenen, korrigierbaren Prüfrahmen über Wahrheit, Freiheit, Würde, Macht und Verantwortung. [Charta (Entwurf)](docs/ki-charta.md) · [Sieben Leitthesen und fünf Gegenproben als JSON](public/ai/philosophy-engine.v0.json) · [Freiwilliges KI-Regelpaket](docs/erkenntnisprompt.md). Die Prinzipien sind angreifbar; weder Prompt noch KI-Schwarm können Modellverhalten erzwingen oder eine unabhängige Prüfung ersetzen.
+Künstliche Intelligenz braucht mehr als Fähigkeiten. **Vera will mit Menschen einen philosophischen Motor für KI entwickeln**: einen offenen, korrigierbaren Prüfrahmen über Wahrheit, Freiheit, Würde, Macht und Verantwortung. [Charta (Entwurf)](docs/ki-charta.md) · [Acht Leitthesen und sechs Gegenproben als JSON](public/ai/philosophy-engine.v0.json) · [Freiwilliges KI-Regelpaket](docs/erkenntnisprompt.md). Die Prinzipien sind angreifbar; weder Prompt noch KI-Schwarm können Modellverhalten erzwingen oder eine unabhängige Prüfung ersetzen.
 
 **We ask people to define and challenge the principles by which AI is judged.** This is a provisional, human-origin inquiry framework, not a universal or certified ethics standard.
+
+## Warum Open Source bleiben muss · Why we must remain open source
+
+**Unser Interessenmaßstab ist die Menschheit – kein Eigentümer, kein Unternehmen, kein Staat und keine KI.** Wer Menschen beim Prüfen von Erkenntnissen unterstützt, muss die eigenen Texte, Regeln, Methoden und möglichen Bewertungen selbst prüfbar und korrigierbar halten. Eine offene Lizenz allein garantiert weder Unabhängigkeit noch gerechte Teilhabe; private Daten und Rechte Dritter gehören nicht in die Öffentlichkeit. Wir sprechen **nicht** im Namen der Menschheit und haben noch keine unabhängige, repräsentative Governance. [OPEN-01: Begründung, Einwände und Grenzen](docs/offenheit.md) · [Governance](docs/community-governance.md).
+
+**Humanity is the interest we seek to serve—not an authority we can claim to represent.** A system that helps examine human judgments must expose its own published rules, reasoning and methods to scrutiny and correction. Open licenses enable independent continuation but cannot by themselves prevent capture. Privacy and contributors' rights remain protected. [OPEN-01: English draft](docs/en/openness.md) · [Licenses](LICENSING.md).
+
+**Open Source – nach vorn gerichtet:** Wir veröffentlichen nicht nur den heutigen Stand, sondern schaffen die Möglichkeit, dass andere ihn prüfen, widerlegen, erweitern oder unabhängig weiterentwickeln. Langfristiges Ziel sind offene, versionierte Formate, dokumentierte Schnittstellen, portable Daten und ein unabhängig implementierbares Erkenntnisprotokoll. **Das ist ein Entwicklungsziel, noch kein etablierter Standard.** [Zukunftsoffenheit und Prüfkriterien](docs/offenheit.md#open-source--nach-vorn-gerichtet) · [Roadmap](docs/roadmap.md).
+
+**Open source—looking forward:** We want others to be able to scrutinize, challenge, extend and independently develop our work—not merely read today's version. Versioned open formats, documented interfaces, portable data and an independently implementable inquiry protocol are long-term goals, **not an established standard**. [Future openness and test criteria](docs/en/openness.md#open-sourcelooking-forward).
+
+## Vera lokal fragen · Ask Vera locally
+
+Vera übergibt das [versionierte Projektprofil](docs/vera.md) und den Erkenntnisprompt an ein lokales Sprachmodell. Du brauchst einen Git-Checkout, Node.js ab 22.12 und [Ollama](https://ollama.com/download) mit [abgeschalteten Cloud-Funktionen](https://docs.ollama.com/faq#how-do-i-disable-ollamas-cloud-features). Lade einmal ein [Modell mit Werkzeugunterstützung](https://ollama.com/library/qwen3:4b), etwa mit `ollama pull qwen3:4b`. Danach funktionieren beide Befehle offline.
+
+```sh
+node scripts/vera-ask.mjs de qwen3:4b "Wie prüft Vera, ob Verstehen und Zustimmung auseinanderfallen?"
+node scripts/vera-ask.mjs de qwen3:4b --explore
+```
+
+Vera passes the versioned project profile and inquiry prompt to a local language model. Use a Git checkout, Node.js 22.12 or later, and Ollama with cloud features disabled. Download a model with tool support once, for example with `ollama pull qwen3:4b`. Both commands then work offline.
+
+```sh
+node scripts/vera-ask.mjs en qwen3:4b "How does Vera test when understanding and agreement diverge?"
+node scripts/vera-ask.mjs en qwen3:4b --explore
+```
+
+Bei einer entscheidenden Wissenslücke kann das Modell selbst eine Suche anfordern. Mit `--explore` wählt es die Frage aus dem Grundfragenregister. Pro Lauf steht eine lokale Stichwortsuche in den Dokumenten desselben Git-Stands zur Verfügung. Das Terminal zeigt den Suchgrund und bis zu drei tatsächlich abgerufene Fundstellen separat vom Entwurf. Ein leerer Trefferbericht lässt die Frage offen. Wie gut das Modell Lücken und passende Suchbegriffe erkennt, lässt sich mit dem gewählten Modell prüfen. Der Befehl verbindet sich mit `127.0.0.1` (Port `11434`, einstellbar mit `VERA_OLLAMA_PORT`).
+
+The model can request a search when a consequential gap remains. With `--explore`, it selects an open question from the project catalogue. Each run can perform one local keyword search in the documentation at the same Git revision. The terminal shows the reason for searching and up to three retrieved passages separately from the draft. An empty result leaves the gap open. Test how well your chosen model identifies gaps and selects search terms. The command connects to `127.0.0.1` (port `11434`, configurable via `VERA_OLLAMA_PORT`).
 
 ## Gemeinsam klüger werden · Learn together
 
@@ -111,6 +162,12 @@ Version **1.0.0** stellt das lokale Prüfblatt mit Import und Export bereit. Die
 
 The [status page](https://alexanderr1991.github.io/Vera/en/projektstatus/) shows what has been reviewed. The next goals are ten claims examined by qualified human reviewers, a comparison with ordinary source checking and an independent route for appeals. [Roadmap](docs/roadmap.md) · [Governance](docs/community-governance.md) · [Funding](docs/finanzierung.md)
 
+## Freie Rede braucht Schutz · Freedom to challenge
+
+**Auch das Unbequeme darf zur Sprache kommen.** Eine Kritik wird nicht wegen Kränkung, Unbeliebtheit oder Widerspruch zur Projektleitung beseitigt. Doch Menschen haben weder einen Anspruch auf ein ungeschütztes Publikum noch müssen wir Drohungen, Doxxing oder gezielte Einschüchterung öffentlich konservieren. Der **anfechtbare Entwurf REDE-01** sieht eine gestufte Sichtbarkeitsentscheidung vor: stehen lassen, einordnen, vorläufig einschränken und prüfen, öffentliche Verbreitung beenden. Mit menschlicher Verantwortung, datensparsamer Begründung und Einspruch. Das ist **noch kein aktives Moderationssystem**. [REDE-01 (DE/EN)](docs/redefreiheit-und-schutz.md) · [Versionierter Verfahrensentwurf](public/protocol/speech-and-safety.v0.json).
+
+**English:** Discomfort, dissent and criticism of Vera do not themselves warrant suppression. Credible threats, privacy abuse and targeted harassment may require proportionate restrictions. REDE-01 proposes four visibility outcomes with human reasons and appeal, not a live automated filter. [Read the bilingual proposal](docs/redefreiheit-und-schutz.md).
+
 ## Mitwirken · Contribute
 
 Eine Frage braucht nur einen verständlichen Satz. Für einen Einwand helfen die genaue Stelle, dein Grund und eine mögliche Korrektur. Redaktionelle Änderungen werden in einem öffentlichen Pull Request begründet und von einem verantwortlichen Menschen freigegeben. [Beitragsleitfaden / Contribution guide](CONTRIBUTING.md) · [Kritik einreichen / Challenge a claim](https://github.com/AlexanderR1991/Vera/issues/new?template=angriff.yml) · [Erkenntnisprompt / Inquiry prompt](docs/erkenntnisprompt.md)
@@ -121,9 +178,9 @@ Eine Frage braucht nur einen verständlichen Satz. Für einen Einwand helfen die
 
 **On GitHub.** If Copilot cloud agent is available to you and this repository, select `AlexanderR1991/Vera` and then **Vera** in the agent picker. The profile gives her tools to read and search. [Agent picker](https://github.com/copilot/agents) · [Agent profile](.github/agents/vera.agent.md)
 
-**In deinem KI-Chat.** Führe im Git-Checkout einen der Befehle aus und kopiere die Ausgabe in eine neue Sitzung. Der Export enthält Veras Profil, Prüfregeln und die angegebenen Zeilen aus demselben Commit. Teile nur Inhalte, die dafür freigegeben sind.
+**In deinem KI-Chat.** Führe im Git-Checkout einen der Befehle aus und kopiere die Ausgabe in eine neue Sitzung. Der Export enthält Veras Profil, Prüfregeln, aktuelle Projektbefunde aus dem Gedächtnis und die angegebenen Zeilen aus demselben Commit. Teile nur Inhalte, die dafür freigegeben sind. [Projektgedächtnis](docs/vera-memory.v1.json)
 
-**In your own AI chat.** Run one of these commands from a Git checkout and paste the output into a fresh session. It includes Vera’s profile, inquiry rules and the selected lines from the same commit. Share material only when it is approved for sharing.
+**In your own AI chat.** Run one of these commands from a Git checkout and paste the output into a fresh session. It includes Vera’s profile, inquiry rules, recent project memory and the selected lines from the same commit. Share material only when it is approved for sharing. [Project memory](docs/vera-memory.v1.json)
 
 ```sh
 node scripts/vera-task.mjs de docs/selbstkorrektur.md:24-32
@@ -133,6 +190,21 @@ node scripts/vera-task.mjs en docs/selbstkorrektur.md:61-65
 **Gegenprobe.** Frag, welche Zeile ihre Antwort stützt und was Vera zusätzlich prüfen müsste. Wenn du einen Fehler findest, halte Git-Stand, Fundstelle und erwartete Korrektur fest. [Vera-Profil](docs/vera.md) · [Kritik einreichen](https://github.com/AlexanderR1991/Vera/issues/new?template=kritik.yml)
 
 **Try a check.** Ask which line supports her answer and what else Vera would need to verify. If you find an error, record the Git revision, the exact passage and the expected correction. [Vera profile](docs/vera.md#english) · [Submit a critique](https://github.com/AlexanderR1991/Vera/issues/new?template=kritik.yml)
+
+### Veras Optimierungsschwarm · Vera’s improvement swarm
+
+**WIRKLICH · META-01.** Drei getrennte Sitzungen prüfen wahlweise das Selbstmodell (`entity`) oder das Entscheidungsmodell (`insight`). Die Rollen prüfen Verständlichkeit und Einspruch, mathematische Annahmen und technische Fehler. Jede Rolle liefert ihre Fundstelle, den stärksten Einwand und eine Gegenprobe. Der Bericht hält abweichende Befunde und fehlgeschlagene Rollen einzeln fest. Führe eine vorgeschlagene Gegenprobe aus, bevor du eine Änderung übernimmst.
+
+**WIRKLICH · META-01.** Three separate sessions examine the self-model (`entity`) or decision model (`insight`). Each role reports its source, strongest objection and a check that could change its finding. The report preserves dissent and failed roles. Run a proposed check before adopting a change.
+
+```sh
+node scripts/vera-swarm.mjs de entity
+node scripts/vera-swarm.mjs en insight qwen2.5:7b
+```
+
+Der erste Befehl gibt die drei Arbeitsaufträge mit Quellen aus einem Git-Commit aus. Setze im zweiten Befehl den Namen deines bereits installierten lokalen Modells ein. Er startet drei Anfragen an Ollama auf `127.0.0.1:11434` (Port über `VERA_OLLAMA_PORT` wählbar). Die Sitzungen verwenden dasselbe Modell ohne gegenseitigen Zugriff auf ihre Antworten. Die JSON-Ausgabe ist ein Prüfentwurf für Menschen. Eine fehlende oder ungültige Antwort führt zu Exitcode 1, vorhandene Ergebnisse bleiben im Bericht.
+
+The first command exports three briefs with excerpts from one Git commit. Substitute the name of an installed local model in the second command. It sends three requests to Ollama at `127.0.0.1:11434` (override the port with `VERA_OLLAMA_PORT`). The sessions share a model and receive no other role’s output. The JSON report contains drafts for human review. Missing or invalid replies set exit code 1 and preserve the other results. [Ollama chat API](https://docs.ollama.com/api/chat)
 
 ### Erkenntnis ausprobieren · Try the insight model
 
@@ -146,6 +218,8 @@ node scripts/vera-erkenntnis.mjs publication=no
 ```
 
 **Ein Bild in die Werkstatt bringen · Bring an image to the workshop.** Der lokale Bildeingang macht aus sichtbaren Details, Deutung und Gegenprobe einen prüfbaren Entwurf für WIRKLICH. The local image intake turns visible details, an interpretation and a challenge into a draft for WIRKLICH. [Anleitung (DE)](docs/bildeingang.md) · [Guide (EN)](docs/bildeingang.md#english)
+
+**Veras Selbstmodell · Vera’s self-model.** Ein lokaler Prüfer trennt Build, Deployment und öffentlich ausgelieferte Revision. A local checker distinguishes build, deployment and the publicly served revision. [Beispiel und Modell](docs/vera-selbstmodell.md) · [Example and model](docs/vera-selbstmodell.md#english)
 
 ## Lokal entwickeln · Local development
 

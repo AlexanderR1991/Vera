@@ -8,3 +8,5 @@ public/*.html
 public/.nojekyll
 __pycache__/
 *.py[cod]
+
+public/search/
