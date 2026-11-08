@@ -128,6 +128,21 @@ node scripts/vera-task.mjs en docs/selbstkorrektur.md:61-65
 
 **Try a check.** Ask which line supports her answer and what else Vera would need to verify. If you find an error, record the Git revision, the exact passage and the expected correction. [Vera profile](docs/vera.md#english) · [Submit a critique](https://github.com/AlexanderR1991/Vera/issues/new?template=kritik.yml)
 
+### Veras Optimierungsschwarm · Vera’s improvement swarm
+
+**WIRKLICH · META-01.** Drei getrennte Sitzungen prüfen wahlweise das Selbstmodell (`entity`) oder das Entscheidungsmodell (`insight`). Die Rollen prüfen Verständlichkeit und Einspruch, mathematische Annahmen und technische Fehler. Jede Rolle liefert ihre Fundstelle, den stärksten Einwand und eine Gegenprobe. Der Bericht hält abweichende Befunde und fehlgeschlagene Rollen einzeln fest. Führe eine vorgeschlagene Gegenprobe aus, bevor du eine Änderung übernimmst.
+
+**WIRKLICH · META-01.** Three separate sessions examine the self-model (`entity`) or decision model (`insight`). Each role reports its source, strongest objection and a check that could change its finding. The report preserves dissent and failed roles. Run a proposed check before adopting a change.
+
+```sh
+node scripts/vera-swarm.mjs de entity
+node scripts/vera-swarm.mjs en insight qwen2.5:7b
+```
+
+Der erste Befehl gibt die drei Arbeitsaufträge mit Quellen aus einem Git-Commit aus. Setze im zweiten Befehl den Namen deines bereits installierten lokalen Modells ein. Er startet drei Anfragen an Ollama auf `127.0.0.1:11434` (Port über `VERA_OLLAMA_PORT` wählbar). Die Sitzungen verwenden dasselbe Modell ohne gegenseitigen Zugriff auf ihre Antworten. Die JSON-Ausgabe ist ein Prüfentwurf für Menschen. Eine fehlende oder ungültige Antwort führt zu Exitcode 1, vorhandene Ergebnisse bleiben im Bericht.
+
+The first command exports three briefs with excerpts from one Git commit. Substitute the name of an installed local model in the second command. It sends three requests to Ollama at `127.0.0.1:11434` (override the port with `VERA_OLLAMA_PORT`). The sessions share a model and receive no other role’s output. The JSON report contains drafts for human review. Missing or invalid replies set exit code 1 and preserve the other results. [Ollama chat API](https://docs.ollama.com/api/chat)
+
 ### Erkenntnis ausprobieren · Try the insight model
 
 Vera wählt in einem fiktiven Veröffentlichungsfall den nächsten Test. Die Website zeigt, was ein Ja oder Nein an ihrer Einschätzung ändert. Im Terminal lässt sich dieselbe Entscheidung nachvollziehen. [Modell und Annahmen](docs/vera.md#erkenntnis-ausprobieren) · [Model and assumptions](docs/vera.md#try-the-insight-model)

@@ -66,6 +66,13 @@ test("an unknown query differs from a recognized question with no evidence", () 
   assert.deepEqual(result.evidence, []);
 });
 
+test("changing the evidence in one report cannot change a later verdict", () => {
+  const report = queryVera("identity", project);
+  assert.equal(report.status, "supported");
+  report.evidence[0].polarity = "challenges";
+  assert.equal(queryVera("identity", project).status, "supported");
+});
+
 test("the release claim follows the exact boolean in the versioned project record", () => {
   const release = ENTITY_QUERIES.find(({ id }) => id === "release");
   const { field } = release.evidence.find(({ path }) => path === "public/project.json");
