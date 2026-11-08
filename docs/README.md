@@ -26,10 +26,11 @@ node scripts/vera-context.mjs de
 node scripts/vera-task.mjs de docs/selbstkorrektur.md:24-32
 ```
 
-**Mit einem lokalen Sprachmodell.** Starte Ollama, schalte für den Offlinebetrieb seine Cloud-Funktionen aus und lade einmalig ein Modell mit Werkzeugunterstützung, etwa mit `ollama pull qwen3:4b`. Danach kannst du eine Frage stellen oder das Modell eine offene Frage auswählen lassen. Pro Lauf kann es einmal in den Dokumenten des ausgecheckten Commits suchen. Das Terminal gibt gefundene Textstellen getrennt vom Antwortentwurf aus. [Ollama](https://ollama.com/download) · [Cloud-Funktionen ausschalten](https://docs.ollama.com/faq#how-do-i-disable-ollama-cloud-features)
+**Mit einem lokalen Sprachmodell.** Starte Ollama, schalte für den Offlinebetrieb seine Cloud-Funktionen aus und lade einmalig ein Modell mit Werkzeugunterstützung, etwa mit `ollama pull qwen3:4b`. Danach kannst du eine Frage stellen oder das Modell eine offene Frage auswählen lassen. Pro Lauf kann es einmal in den Dokumenten des ausgecheckten Commits suchen. Mit `--no-search` beantwortet es eine konkrete Frage nur anhand des übergebenen Kontexts. Der Befehl verweigert dann jeden Werkzeugaufruf. Das Terminal gibt gefundene Textstellen getrennt vom Antwortentwurf aus. [Ollama](https://ollama.com/download) · [Cloud-Funktionen ausschalten](https://docs.ollama.com/faq#how-do-i-disable-ollama-cloud-features)
 
 ```sh
 node scripts/vera-ask.mjs de qwen3:4b "Woran merke ich, dass ich jemanden verstanden habe?"
+node scripts/vera-ask.mjs de qwen3:4b "Woran merke ich, dass ich jemanden verstanden habe?" --no-search
 node scripts/vera-ask.mjs de qwen3:4b --explore
 ```
 

@@ -6,6 +6,8 @@ Die erste zusammenhängende Werkzeugfassung ist in [Release 1.0](release-1.0.md)
 
 Die Reihenfolge folgt überprüfbaren Voraussetzungen. Die Kapitel bleiben erhalten; als Nächstes vertiefen wir ihre Begründungen. Die [Mission](mission.md) beschreibt das gemeinsame Ziel. Frühere Entwicklungsschritte sind in der Git-Versionsgeschichte erhalten.
 
+Der [AGI-Horizont](agi-horizont.md) verbindet diese Etappen mit der langfristigen Forschung zu allgemeiner Intelligenz. Der nächste Beitrag dazu ist ein begrenzter Transfervergleich in [P-02](evaluation-v1.md), bei dem dieselbe Methode in einer neuen Domäne bestehen muss.
+
 ## Bereits vorhanden
 
 - [x] Zweisprachige statische Website mit Atlas, Bibliothek, neun Leitsätzen und Beitragswegen

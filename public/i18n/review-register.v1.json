@@ -313,6 +313,15 @@
       "source_commit": null,
       "review_url": null
     },
+    "agi-horizont.md": {
+      "status": "shared_bilingual",
+      "priority": "core",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
     "angriffsschwarm.md": {
       "status": "unassessed",
       "priority": "support",

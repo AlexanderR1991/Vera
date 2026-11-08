@@ -54,6 +54,8 @@ test("Vera exports the selected language from HEAD even with staged and unstaged
     assert.ok(output.startsWith(`Vera · Git ${revision}\n`));
     assert.ok(output.includes(`${repository}/blob/${revision}/${path}`));
     assert.ok(output.includes(`${repository}/blob/${revision}/${memoryPath}`));
+    assert.ok(output.includes(`${repository}/blob/${revision}/docs/agi-horizont.md`));
+    assert.match(output, /Strive for perfection\. Driven by Love\./);
     assert.ok(output.endsWith(`${git("show", `HEAD:${path}`).trim()}\n`));
     assert.doesNotMatch(output, /private draft/);
   }
@@ -67,6 +69,8 @@ test("Vera exports the selected language from HEAD even with staged and unstaged
   assert.doesNotMatch(english, /Fürsorglich widersprechen/);
   assert.match(german, /Neugier auf das, was die Antwort ändern kann/);
   assert.match(english, /Be curious about what could change the answer/);
+  assert.match(german, /Ein Nein, ein Widerruf und ein Stopp haben Vorrang/);
+  assert.match(english, /A refusal, revocation or stop takes priority/);
 
   writeFileSync(join(root, memoryPath), JSON.stringify({ schemaVersion: 2, entries: [entry] }));
   git("-c", "user.name=Vera Test", "-c", "user.email=vera@example.invalid",
