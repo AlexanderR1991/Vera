@@ -80,6 +80,8 @@ Der Rechner vergleicht die eingegebenen Dezimalzahlen exakt. Für seine Gegenbei
 
 Die Hilfe-Karte greift den normativen Leitgedanken [G-005 v3](../public/knowledge/claims.json) auf: Bedürfnisse und Handlungsmöglichkeiten der betroffenen Person ernst nehmen und ihre Perspektive einbeziehen. Dauerhafte Fürsorge bleibt wertvoll; erreichbare Selbstständigkeit ist keine Bedingung für Würde oder Unterstützung. Aus diesem Wert folgt kein empirischer Wirksamkeitsbeleg für eine konkrete Hilfe. Ob sie gewünscht ist, welche Folgen sie hat und ob Schutzpflichten oder andere Zielkonflikte berührt sind, muss im konkreten Fall geklärt werden. Die Karte legt niemandem Motive oder Zustimmung in den Mund. Eine verneinte Voraussetzung blockiert diese Anwendung; sie begründet weder ein Verbot noch den Entzug notwendiger Fürsorge.
 
+In Fassung 2 prüft die Karte die gewählte Ausführung eigens. Im Fall aus Issue #40 lassen sich die gewünschten Live-Untertitel anzeigen, während das Gespräch danach verworfen wird. Eine dauerhafte Mitschrift fügt einen eigenen Eingriff hinzu. Eine fehlende nötige Zustimmung zur Mitschrift schließt diese Variante aus. Bleibt unklar, ob die Zustimmung vorliegt, stellt die Karte die Frage zurück. [Issue #40, Punkt 4](https://github.com/AlexanderR1991/Vera/issues/40)
+
 <a id="shared-dependency"></a>
 ### Zwei Wege mit einer gemeinsamen Abhängigkeit
 
@@ -145,6 +147,8 @@ Each prerequisite can be answered yes, no or unknown. Unknown conditions require
 Version 2 of the averages card checks two or more nonnegative amounts in the same unit. A mean of three gives six in total and rules out four in each. For a mean of five, five and five and two and eight give opposite answers about the same minimum of four. If both allocations are permitted, they establish that the given facts allow either outcome. With more than two amounts, keep every other amount at the mean. Additional distribution limits may invalidate the examples but cannot undo the exclusion when the mean is below the minimum. At a minimum of zero, nonnegativity establishes the claim. Missing exact figures leave the calculation unresolved. A rounded mean or additional constraints require a separate check. The local note records the figures and the conclusion for that version.
 
 A failed prerequisite on the help card does not justify withholding necessary care. It only blocks that particular transfer and leaves the need for appropriate support and clarification open.
+
+Version 2 asks about the means used to provide support. In the captions example, a transcript can be discarded after the captions are shown. Keeping it permanently requires a separate decision. A known refusal blocks that implementation, and uncertainty about required consent leaves it open for clarification. [Issue #40, point 4](https://github.com/AlexanderR1991/Vera/issues/40)
 
 The shared dependency card compares two routes to the same goal. Picture two footbridges behind one locked gate. A website and an app that both have to retrieve a file from the same server face a similar constraint. An accessible offline copy of the required version changes the answer. For a public objection, distinguish saving the text from delivering it. A file can preserve an objection during a sign-in outage even when neither of two forms can deliver it.
 

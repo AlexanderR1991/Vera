@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; img-src data:; base-uri 'none'; form-action 'none'">
+<link rel="icon" href="data:,">
+<title>Vera · Welcher Einwand ist noch offen?</title>
+<style>
+:root{color-scheme:light dark;--bg:#121416;--text:#f4f2eb;--muted:#bbc2bf;--line:#49504e;--accent:#bfe5d4}
+*{box-sizing:border-box}[hidden]{display:none!important}body{margin:0;background:var(--bg);color:var(--text);font:1rem/1.58 system-ui,sans-serif}
+main{max-width:46rem;margin:auto;padding:clamp(1rem,4vw,2.7rem)}header{display:flex;justify-content:space-between;align-items:center;gap:1rem;border-bottom:1px solid var(--line);padding-bottom:1rem}
+header span,.eyebrow,dt{font:600 .82rem/1.5 ui-monospace,monospace;letter-spacing:.05em;color:var(--accent)}
+h1{font-size:clamp(1.9rem,6vw,3rem);line-height:1.12;margin:2.2rem 0 1.2rem;overflow-wrap:anywhere;hyphens:auto}h2{font-size:1.25rem;line-height:1.3}p{max-width:62ch}
+small,.hint{color:var(--muted)}ol{padding-left:1.7rem}li{padding:.35rem 0 .35rem .3rem}li strong{display:block}li p{margin:.2rem 0}.link{border-left:2px solid var(--accent);padding:.35rem .7rem}
+fieldset{border:1px solid var(--line);margin:1rem 0;padding:.5rem 1rem 1rem}legend{padding:0 .25rem;font-weight:650}label{display:block;padding:.35rem 0;cursor:pointer}input{accent-color:var(--accent);margin-right:.55rem}
+button{font:inherit;min-height:44px;color:var(--text);background:transparent;border:1px solid var(--line);padding:.5rem .9rem;cursor:pointer}
+button.primary{background:var(--accent);color:#14231d;border-color:var(--accent);font-weight:650}
+details{margin:1rem 0}summary{cursor:pointer;min-height:44px;color:var(--accent)}
+button:focus-visible,input:focus-visible,h1:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.actions,.progress{display:flex;align-items:center;justify-content:space-between;gap:.75rem;flex-wrap:wrap}.actions{margin-top:1.4rem}
+.progress{border-bottom:1px solid var(--line);margin-top:1rem;padding:.5rem 0}.progress p{margin:0}#clock{font-variant-numeric:tabular-nums}
+@media(prefers-color-scheme:light){:root{--bg:#f6f5f0;--text:#1a211e;--muted:#4b5550;--line:#a0aaa4;--accent:#1e654d}button.primary{color:white}}
+</style>
+</head>
+<body><main>
+<header><span>VERA / 01</span><button type="button" id="language" lang="en">English</button></header>
+<div id="screen"></div>
+<noscript><h1>Lesetest / Reading task</h1><p>Diese lokale Aufgabe braucht JavaScript. / This local task requires JavaScript.</p></noscript>
+</main>
+<script>
+"use strict";
+const cases = {
+  room: {
+    de: ["Ein Kurs in der Bibliothek",
+      "Der Aushang nennt Raum 2. In der aktuellen Belegung ist Raum 5 eingetragen.",
+      "Der Aushang erklärt nicht, ob man sich für den Kurs anmelden muss.",
+      "Wir berichtigen den Ort auf dem Aushang. Die Bibliothek hat uns die neue Raumbelegung bestätigt."],
+    en: ["A class at the library",
+      "The notice lists room 2. The current booking lists room 5.",
+      "The notice does not say whether you have to register for the class.",
+      "We will correct the location on the notice. The library has confirmed the new room booking."],
+    addressed: 0
+  },
+  entrance: {
+    de: ["Ein Treffen im Nachbarschaftshaus",
+      "Die Einladung lässt offen, wann das Treffen endet.",
+      "Die Einladung führt zum Eingang an der Treppe. Die stufenlose Tür liegt am Hof.",
+      "Wir ändern die Wegbeschreibung in der Einladung. Das Haus hat uns den Zugang für Personen mit Rollstuhl bestätigt."],
+    en: ["A meeting at the community centre",
+      "The invitation leaves the end time of the meeting unclear.",
+      "The invitation directs people to the steps. The step-free entrance is in the courtyard.",
+      "We will change the directions in the invitation. The centre has confirmed the route for wheelchair users."],
+    addressed: 1
+  }
+};
+const languageButton = document.querySelector("#language");
+const screen = document.querySelector("#screen");
+let lang = new URLSearchParams(location.search).get("lang") === "en" ? "en" : "de";
+const t = (de,en) => lang === "en" ? en : de;
+const seconds = 90;
+let assignment, plan, results = [], active = null, timer = null;
+const answerNames = ["addressed","open","unsure"];
+function heading(text, focus = true) {
+  const h1 = screen.querySelector("h1");
+  h1.textContent = text;
+  if (focus) { h1.tabIndex = -1; h1.focus(); }
+}
+function intro() {
+  document.documentElement.lang = lang;
+  document.title = t("Vera · Welcher Einwand ist noch offen?", "Vera · Which objection is still open?");
+  languageButton.textContent = t("English","Deutsch");
+  languageButton.lang = t("en","de");
+  screen.innerHTML = '<h1></h1><p>' +
+    t("Du liest zwei erfundene Fälle. Jeder enthält zwei Einwände und eine begründete Entscheidung. Gib für jeden Punkt an, ob die Entscheidung ihn behandelt oder ob er weiter offen ist. Du kannst auch „Weiß nicht“ wählen oder einen Punkt auslassen.",
+      "You will read two fictional cases. Each has two objections and a decision with a reason. For each point, say whether the decision addresses it or leaves it open. You can also choose “Unsure” or leave a point unanswered.") +
+    '</p><p>' + t("Reihenfolge und Darstellung werden ausgelost. Pro Fall hast du höchstens 90 Sekunden. Wenn die Zeit abläuft, bleiben deine bisherigen Angaben erhalten. Vor dem zweiten Fall kannst du pausieren. Während der Aufgaben gibt es keine Auflösung.",
+      "The order and presentation are randomly assigned. You have up to 90 seconds per case. When time runs out, your selections so far are kept. You can pause before the second case. No answer key is shown during the tasks.") +
+    '</p><p class="hint">' + t("Die Teilnahme ist freiwillig. Du kannst jederzeit beenden. Alles läuft auf deinem Gerät. Der Versuch erhebt keine Kennung und übermittelt keine Antworten. Am Ende kannst du eine Ergebnisdatei speichern. Beim Schließen geht der Versuch verloren.",
+      "Participation is voluntary. You can stop at any point. Everything runs on your device. The task collects no participant ID and sends no answers. At the end you may save a results file. Closing the page discards the session.") +
+    '</p><button id="start" type="button" class="primary">' + t("Ersten Fall starten","Start first case") + '</button>';
+  heading(t("Welcher Einwand ist noch offen?","Which objection is still open?"), false);
+  screen.querySelector("#start").onclick = () => {
+    assignment = crypto.getRandomValues(new Uint8Array(1))[0] % 4;
+    const caseOrder = assignment % 2 === 0 ? ["room","entrance"] : ["entrance","room"];
+    const firstLinked = assignment >= 2;
+    plan = caseOrder.map((id,i) => ({id, linked: i === 0 ? firstLinked : !firstLinked}));
+    languageButton.hidden = true;
+    startCase();
+  };
+}
+languageButton.onclick = () => { lang = t("en","de"); intro(); };
+function startCase() {
+  const i = results.length, {id, linked} = plan[i], c = cases[id], [title,one,two,decision] = c[lang];
+  const label = t("Einwand","Objection");
+  const choices = [t("Behandelt","Addressed"),t("Weiter offen","Still open"),t("Weiß nicht","Unsure")];
+  const field = n => '<fieldset><legend>'+ t("Was gilt für Einwand ","What is the status of objection ") + n +
+    '?</legend>' + answerNames.map((value,j) => '<label><input type="radio" name="p' + n +
+    '" value="' + value + '">' + choices[j] + '</label>').join("") + '</fieldset>';
+  screen.innerHTML = '<div class="progress"><p class="eyebrow">'+ t("FALL","CASE") + ' ' + (i+1) +
+    ' / 2</p><p><span>' + t("Restzeit","Time left") + ' </span><span id="clock" role="timer" aria-live="off">1:30</span></p></div><h1></h1>' +
+    '<ol id="events"><li><strong>'+label+' 1</strong><p>'+one+'</p></li><li><strong>'+label+' 2</strong><p>'+two+
+    '</p></li><li><strong>'+t("Entscheidung","Decision")+'</strong><p>'+decision+'</p>' +
+    (linked ? '<p class="link" data-link>' + t("Bezug der Entscheidung · Einwand ","Decision refers to objection ") + (c.addressed+1) + '</p>' : '') +
+    '</li></ol><form>' + field(1) + field(2) + '<div class="actions"><button id="submit" class="primary" type="submit">' +
+    t("Diesen Fall abschließen","Finish this case") + '</button><button id="stop" type="button">' +
+    t("Versuch abbrechen","Stop the study") + '</button></div></form>';
+  heading(title);
+  active = {start: performance.now(), answers: [null,null]};
+  screen.querySelector("form").onchange = e => {
+    if (expire()) return;
+    active.answers[e.target.name === "p1" ? 0 : 1] = e.target.value;
+  };
+  screen.querySelector("form").onsubmit = e => { e.preventDefault(); if (!expire()) finishCase("completed"); };
+  screen.querySelector("#stop").onclick = () => {
+    if (expire()) { endStudy(); return; }
+    finishCase("aborted");
+  };
+  timer = setInterval(() => {
+    if (!expire()) {
+      const left = Math.ceil(seconds - (performance.now()-active.start)/1000);
+      document.querySelector("#clock").textContent = Math.floor(left/60)+":"+String(left%60).padStart(2,"0");
+    }
+  }, 200);
+}
+function expire() {
+  if (!active) return true;
+  if (performance.now()-active.start < seconds*1000) return false;
+  finishCase("timed_out");
+  return true;
+}
+function result(index, outcome, answers, elapsed) {
+  const {id,linked} = plan[index], addressed = cases[id].addressed;
+  const started = outcome !== "not_started";
+  const items = answers.map((answer,i) => ({
+    point:i+1, answer,
+    classification: !started ? "not_started" : !answer ? "omitted" : answer === "unsure" ? "unsure" :
+      answer === (addressed===i ? "addressed" : "open") ? "correct" :
+      answer === "addressed" ? "false_closure" : "missed_decision"
+  }));
+  const count = what => items.filter(item => item.classification===what).length;
+  return {order:index+1, case_id:id, display:linked?"linked":"chronological", outcome, elapsed_ms:elapsed,
+    items, correct_matches:count("correct"), false_closures:count("false_closure"),
+    missed_decisions:count("missed_decision"), omissions:count("omitted"), unsure:count("unsure")};
+}
+function finishCase(outcome) {
+  clearInterval(timer);
+  results.push(result(results.length, outcome, active.answers,
+    Math.min(seconds*1000,Math.round(performance.now()-active.start))));
+  active = null;
+  if (outcome==="aborted" || results.length===2) { endStudy(); return; }
+  screen.innerHTML = '<h1></h1><p>' + t("Die Uhr für den nächsten Fall startet erst mit dem nächsten Klick.",
+    "The timer for the next case starts only when you choose to continue.") + '</p><div class="actions"><button id="continue" type="button" class="primary">' +
+    t("Zweiten Fall starten","Start second case") + '</button><button id="stop" type="button">' +
+    t("Versuch abbrechen","Stop the study") + '</button></div>';
+  heading(outcome==="timed_out"?t("Die Zeit für den ersten Fall ist um.","Time is up for the first case."):t("Erster Fall abgeschlossen","First case finished"));
+  screen.querySelector("#continue").onclick=startCase;
+  screen.querySelector("#stop").onclick=endStudy;
+}
+function endStudy() {
+  while (results.length<2) results.push(result(results.length,"not_started",[null,null],null));
+  const aborted = results.some(r => r.outcome==="aborted" || r.outcome==="not_started");
+  screen.innerHTML = '<h1></h1><p>' + t("Du kannst die Ergebnisse auf deinem Gerät speichern oder diese Seite schließen. Die Datei enthält Fallreihenfolge, Darstellung, Antworten, Auswertung je Punkt, Bearbeitungsdauer und Abschlussstatus. Sie enthält keine Teilnehmerkennung.",
+    "You can save the results on your device or close this page. The file contains case order, presentation, answers, classifications by point, elapsed time and completion status. It contains no participant ID.") +
+    '</p><button id="download" type="button" class="primary">' + t("Ergebnisdatei speichern","Save results file") + '</button>';
+  heading(aborted?t("Versuch abgebrochen","Study stopped"):t("Versuch beendet","Study finished"));
+  if (!aborted) {
+    const notes = {
+      room: t("Die neue Raumangabe beantwortet Einwand 1. Ob eine Anmeldung nötig ist, bleibt offen (Einwand 2).",
+        "The new room information addresses objection 1. Whether registration is needed remains open (objection 2)."),
+      entrance: t("Die neue Wegbeschreibung beantwortet Einwand 2. Wann das Treffen endet, bleibt offen (Einwand 1).",
+        "The new directions address objection 2. The end time remains open (objection 1).")
+    };
+    const details = document.createElement("details");
+    const summary = document.createElement("summary");
+    summary.textContent = t("Zuordnung der beiden Fälle nachsehen","See which points each decision addressed");
+    details.append(summary);
+    for (const {id} of plan) {
+      const p = document.createElement("p");
+      const title = document.createElement("strong");
+      title.textContent = cases[id][lang][0];
+      p.append(title, document.createElement("br"), notes[id]);
+      details.append(p);
+    }
+    screen.querySelector("#download").before(details);
+  }
+  screen.querySelector("#download").onclick = () => {
+    const json = {study:"vera-objections-v1", language:lang, allocation:assignment, seconds_per_case:seconds,
+      stopped_early:aborted, cases:results};
+    const url = URL.createObjectURL(new Blob([JSON.stringify(json,null,2)+"\n"],{type:"application/json"}));
+    const a=document.createElement("a"); a.href=url; a.download="vera-objections-v1.json";
+    document.body.append(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(url),1000);
+  };
+}
+intro();
+</script>
+</body>
+</html>

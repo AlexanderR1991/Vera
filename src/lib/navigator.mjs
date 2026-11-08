@@ -82,7 +82,7 @@ export const connections = [
     keywords: {de: ["Durchschnitt", "durchschnittlich", "Mittelwert", "Mittelwerte", "Verteilung", "ungleich", "Ungleichheit", "gerecht", "Gerechtigkeit", "alle genug"], en: ["average", "averages", "mean", "the mean", "arithmetic mean", "mean value", "mean income", "distribution", "inequality", "fairness", "everyone enough"]}
   },
   {
-    id: "help", version: 1, type: "normative", reviewStatus: "draft",
+    id: "help", version: 2, type: "normative", reviewStatus: "draft",
     title: b("Welche Hilfe ist gewünscht?", "What help is wanted?"),
     question: b("Erfundenes Beispiel: Ich möchte helfen. Sollte ich der anderen Person alles abnehmen?", "Fictional example: I want to help. Should I take everything over for the other person?"),
     pattern: b("Ein Hilfsangebot berührt Bedürfnisse, Selbstbestimmung und möglicherweise dauerhafte Unterstützung.", "An offer of help involves needs, self-determination and possibly lasting support."),
@@ -94,12 +94,18 @@ export const connections = [
     conditions: [
       {id: "shared_value", label: b("Für diese Entscheidung möchte ich Bedürfnisse, Selbstbestimmung und auch dauerhafte Fürsorge als Werte berücksichtigen.", "For this decision, I want to consider needs, self-determination and lasting care as values.")},
       {id: "voluntary_setting", label: b("Es geht um ein freiwillig gestaltbares Angebot; akute Gefahr oder ungeklärte Schutzpflichten sind hier nicht der Entscheidungsgrund.", "This is an offer that can be shaped voluntarily; immediate danger or unresolved duties of protection are not the basis for this decision.")},
-      {id: "preferences_known", label: b("Die Wünsche der betroffenen Person zu diesem Angebot wurden verständlich geklärt und werden nicht nur von mir vermutet.", "The affected person's preferences about this offer have been clarified accessibly, rather than merely assumed by me.")}
+      {id: "preferences_known", label: b("Die Person, die Hilfe erhält, konnte ihre Wünsche auf eine für sie verständliche Weise äußern. Ich kenne ihre Wünsche zu diesem Angebot.", "The person receiving help could express their wishes in a way accessible to them. I know what they want from this offer.")},
+      {id: "method_consent", label: b("Für diese Ausführung ist geklärt, wessen Zustimmung zusätzlich nötig ist. Die nötigen Zustimmungen liegen vor.", "I know whose additional consent this way of providing help requires, and I have that consent."),
+       whenNo: b("Prüfe eine andere Ausführung der gewünschten Hilfe. Lehnt ein Gesprächsteilnehmer die Speicherung seiner Worte ab, können die gewünschten Live-Untertitel ohne gespeicherte Mitschrift laufen.", "Look for another way to provide the requested help. If a participant objects to their words being saved, live captions can still be shown without keeping a transcript.")}
     ],
     conclusion: b("Wenn du diese Werte und Voraussetzungen bestätigst, ist ein an den geklärten Wünschen orientiertes Angebot ein begründeter Vorschlag. Nötige dauerhafte Unterstützung bleibt wertvoll. Ob die konkrete Hilfe nützt, ist weiterhin zu prüfen.", "If you confirm these values and premises, an offer guided by the clarified preferences is a reasoned proposal. Necessary lasting support remains valuable. Whether the particular help is useful still needs examination."),
     nextStep: b("Halte fest, welche Hilfe gewünscht ist, welche Grenzen gelten und wie eine Änderung des Wunsches berücksichtigt wird. Bei offenen Voraussetzungen kläre diese zuerst.", "Record what help is wanted, which boundaries apply and how changed preferences will be respected. Clarify any open premises first."),
     sourceClaim: {id: "G-005", version: 3},
-    sources: [{label: b("G-005 v3 · normativer Leitgedanke, fachliche Prüfung offen", "G-005 v3 · guiding value, expert review pending"), url: repo + "public/knowledge/claims.json", role: "provenance"}, derivationSource("help")],
+    sources: [
+      {label: b("G-005 v3 · normativer Leitgedanke, fachliche Prüfung offen", "G-005 v3 · guiding value, expert review pending"), url: "https://github.com/AlexanderR1991/Vera/blob/e963b71395bef67f37647db6ba35590747b11884/public/knowledge/claims.json", role: "provenance"},
+      derivationSource("help", 2),
+      {label: b("Issue #40, Punkt 4 · Gedankenbeispiel mit Live-Untertiteln", "Issue #40, point 4 · live captions thought experiment"), url: "https://github.com/AlexanderR1991/Vera/issues/40", role: "provenance"}
+    ],
     ...topicFields("help"),
     keywords: {de: ["helfe", "helfen", "hilft", "Hilfe", "Fürsorge", "unterstütze", "unterstützen", "Unterstützung", "selbstständig", "Selbstständigkeit", "selbstbestimmt", "Selbstbestimmung", "alles abnehmen", "Pflege"], en: ["help", "helps", "helping", "care", "caregiving", "support", "independent", "independence", "autonomy", "take over", "assistance"]}
   },
@@ -259,6 +265,7 @@ export function buildNavigatorNote(input = {}) {
       if (condition.id === "mean_only" && isRecord(answers) && !needsAllocationExamples(answers)) continue;
       const raw = isRecord(answers) && Object.hasOwn(answers, condition.id) ? answers[condition.id] : "unknown";
       lines.push(`- ${condition.label[lang]} — ${answerLabels[raw] ?? t("Ungültige Angabe", "Invalid answer")}`);
+      if (raw === "no" && condition.whenNo) lines.push(condition.whenNo[lang]);
     }
     for (const field of connection.amounts ?? []) {
       const raw = isRecord(answers) && Object.hasOwn(answers, field.id) ? answers[field.id] : "";

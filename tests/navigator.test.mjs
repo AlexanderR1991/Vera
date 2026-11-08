@@ -79,6 +79,24 @@ test("one failed premise prevents transfer even when another premise is unknown"
   assert.deepEqual(assessConnection("capacity", {same_period: "yes", no_overlap: "no"}), {status: "not_applicable", missing: ["exceeds"], failed: ["no_overlap"]});
 });
 
+test("requested live captions and consent to keeping a transcript are separate (issue 40, point 4)", () => {
+  const help = connections.find(card => card.id === "help");
+  const premises = {shared_value: "yes", voluntary_setting: "yes", preferences_known: "yes"};
+  const liveOnly = {...premises, method_consent: "yes"};
+  const saveOverObjection = {...premises, method_consent: "no"};
+  assert.equal(help.version, 2);
+  assert.equal(assessConnection("help", liveOnly).status, "conditional");
+  assert.deepEqual(assessConnection("help", saveOverObjection), {status: "not_applicable", missing: [], failed: ["method_consent"]});
+  for (const unclear of [premises, {...premises, method_consent: "unknown"}]) {
+    assert.deepEqual(assessConnection("help", unclear), {status: "needs_context", missing: ["method_consent"], failed: []});
+  }
+  for (const lang of ["de", "en"]) {
+    const note = buildNavigatorNote({lang, connectionId: "help", answers: saveOverObjection});
+    assert.ok(!note.includes(help.conclusion[lang]));
+    assert.match(note, lang === "de" ? /ohne gespeicherte Mitschrift/ : /without keeping a transcript/);
+  }
+});
+
 test("invalid answers and inherited or foreign keys cannot establish applicability", () => {
   const connection = connections[0];
   for (const answers of [null, [], "yes", 1, {...allYes(connection), exceeds: true}, {...allYes(connection), exceeds: "probably"}]) assert.equal(assessConnection(connection.id, answers).status, "invalid");
