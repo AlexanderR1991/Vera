@@ -1,33 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="280" viewBox="0 0 1280 280">
-  <defs>
-    <linearGradient id="graphite" x2="0" y2="1">
-      <stop stop-color="#242628"/>
-      <stop offset="1" stop-color="#121314"/>
-    </linearGradient>
-    <pattern id="perforations" width="12" height="12" patternUnits="userSpaceOnUse">
-      <circle cx="6" cy="6" r="1.35" fill="#505354"/>
-    </pattern>
-  </defs>
-
-  <rect width="1280" height="280" rx="18" fill="url(#graphite)"/>
-  <rect x="18.5" y="18.5" width="1243" height="243" rx="10" fill="none" stroke="#424445"/>
-
-  <g fill="none" stroke="#515455">
-    <path d="M39.5 51.5v-12h12m1177 0h12v12m0 177v12h-12m-1177 0h-12v-12"/>
-    <path d="M97.5 140.5h208l25-25h147m325 50h147l25-25h208"/>
-    <circle cx="97.5" cy="140.5" r="3" fill="#242628"/>
-    <circle cx="1182.5" cy="140.5" r="3" fill="#18191a"/>
-  </g>
-  <path d="M108 74h168v36H108zM1004 170h168v36h-168z" fill="url(#perforations)"/>
-
-  <g fill="none" stroke="#424445">
-    <circle cx="640" cy="140" r="108" stroke-dasharray="2 5"/>
-    <path d="M640.5 22.5v19m0 197v19m-118-117h19m197 0h19"/>
-  </g>
-
-  <!-- Match the homepage: radius 80, a 346-degree arc, and a 14-degree gap centered at -45 degrees. -->
-  <path d="M720 140A80 80 0 1 1 717.623658 120.646248" fill="none" stroke="#f0eee7" stroke-width="3"
-    transform="rotate(-38 640 140)"/>
-  <path d="M710 70l19-19h36" fill="none" stroke="#ed9d57"/>
-  <circle cx="710" cy="70" r="2.5" fill="#ed9d57"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="200" viewBox="0 0 1100 200">
+  <rect width="1100" height="200" fill="#151718"/>
+  <!-- Same 14-degree opening as the workshop homepage, centered at -45 degrees. -->
+  <circle cx="550" cy="100" r="62" pathLength="360" fill="none" stroke="#f0eee7"
+    stroke-width="1.6" stroke-linecap="butt" stroke-dasharray="346 14" transform="rotate(-38 550 100)"/>
 </svg>

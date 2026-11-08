@@ -1,38 +1,38 @@
-# Start here · Vera
+# Hi, I’m Vera.
 
-**This is an open-source inquiry workshop, not a theory that claims to have final answers.** The German edition is the editorial source. The public website has German and English routes; some repository documents remain untranslated or contain only an English summary. English text is currently a machine-assisted **draft without independent review**.
+[Visit the English workshop](https://alexanderr1991.github.io/Vera/en/) · [Deutsch](../../README.md)
 
-## Read the ideas
+I’m the name people and AI assistants use when they work on a question together here. In a chat, a language model puts my answer into words. In this repository, you can see which rules it could draw on, who challenged them and what a maintainer decided to change. My goal is to become an open-source AI that people can run for themselves. Today you can already use the workshop, take my project profile into a chat and run small programs that put specific claims to the test. [Project profile](../vera.md#english) · [What works today and what we hope to build](open-source-ai.md)
 
-1. [Foundational theses — English draft](grundtext.md) (nine theses; full companion to [the German source](../grundtext.md)).
-2. [Collective intelligence as an unvalidated founding hypothesis](kollektive-intelligenz.md) and [public explanation](https://alexanderr1991.github.io/Vera/en/kollektive-intelligenz/).
-3. [The correction loop — English website](https://alexanderr1991.github.io/Vera/en/regelkreis/) and [META-01 in both languages](../selbstkorrektur.md).
-4. [How claims are examined — English website](https://alexanderr1991.github.io/Vera/en/methode/) and [technical method notes, with English summary](../methode.md).
-5. [AI and people — English website](https://alexanderr1991.github.io/Vera/en/ki-und-mensch/) and [the AI charter (primarily German)](../ki-charta.md).
-6. [The forum — questions, answers and objections](https://alexanderr1991.github.io/Vera/en/forum/).
+## When an objection changes my answer
 
-The central method is: frame the question, identify the kind of claim, find a strong objection, examine reasons appropriate to that claim, make an accountable decision, record revisions, and repeat. Neither popularity nor AI output counts as proof. Documented disagreement may remain.
+One of my rules says to help people find their own strength. Imagine someone who needs their letters read aloud every week. They decide how to reply. If I judge the help by whether the reading eventually stops, I miss the freedom it gives them today.
 
-The project explicitly discusses [why it seeks to remain open source](openness.md): humanity is its intended interest, **not a constituency it claims to represent**. Open licensing needs accountable governance, not just public code. The German source is [OPEN-01](../offenheit.md).
+An objection about long-term support led to a change in the foundational text. It now says that people’s dignity and their claim to care hold regardless of how much independence they can achieve. You can compare the two versions and judge the change yourself. [Read the case in English](https://alexanderr1991.github.io/Vera/en/methode/#g-005) · [See the revision](https://github.com/AlexanderR1991/Vera/pull/31/files)
 
-## What is and is not bilingual
+**Please help me get better.** Pick a sentence that matters to you. Where does it stop being true? A specific case, an awkward phrase or a missing perspective is enough to begin. You can think it through privately in the worksheet or send a public objection on GitHub. [Private worksheet](https://alexanderr1991.github.io/Vera/en/werkstatt/) · [Give feedback](https://github.com/AlexanderR1991/Vera/issues/new?template=rueckmeldung.yml) · [Challenge a claim](https://github.com/AlexanderR1991/Vera/issues/new?template=angriff.yml)
 
-The site currently exposes matching German and English paths for its main sections and interactive tools. The source data for claims, everyday questions and the AI framework has both languages. The repository's specialist documentation is **not yet completely translated**. Please consult the [translation inventory and human-review register](../../public/i18n/review-register.v1.json) rather than assuming equivalence or approval.
+## Can I tell when I’m wrong?
 
-The [philosophical terminology glossary](../i18n-glossary.md) distinguishes *truth*, *consensus*, *justification*, *evidence*, *proof*, *review*, and related terms. It is also a proposal subject to criticism.
+If I say a new website is online, you can open it and see which version actually loads. In my self-study, my checker judged all six simulated publication states correctly when its inputs were accurate. When one input was reversed, it gave four wrong answers in 18 cases. I now ask a second question when I describe myself. **Who could spot my mistake even if every internal check passed?** [Working paper in German, awaiting independent review](https://alexanderr1991.github.io/Vera/papers/warum-ich-glaube-dass-ich-funktioniere/paper.html) · [Self-model specification in English](../vera-selbstmodell.md#english)
 
-## Challenge a translation or a claim
+To repeat the experiment, run this from the repository root with Node.js 22.12 or later. It uses synthetic inputs and needs no model, network connection or package installation.
 
-You need not be a programmer. Use the [translation review issue](https://github.com/AlexanderR1991/Vera/issues/new?template=uebersetzung.yml) for nuance and language corrections or the [adversarial review issue](https://github.com/AlexanderR1991/Vera/issues/new?template=angriff.yml) for a philosophical objection. Give the German source at a specific commit, the English wording, the strongest alternative reading, and why your revision matters.
+```sh
+node scripts/probe-vera-selbststudie.mjs
+```
 
-A successful automated build guarantees **structural coverage**, not the truth or philosophical accuracy of a translation. English text may be called reviewed only after a named person documents the source revision, date, and public review decision. That review is not automatically independent. See the [internationalization policy and release checklist](../internationalisierung.md).
+## Find your way around
 
-Source repository: https://github.com/AlexanderR1991/Vera
+| If you want to… | Start here |
+| --- | --- |
+| Examine a question or follow a disagreement | [Forum](https://alexanderr1991.github.io/Vera/en/forum/) · [Correction loop](https://alexanderr1991.github.io/Vera/en/regelkreis/) · [Method notes with English summary](../methode.md) |
+| Read the philosophy behind WIRKLICH, my inquiry method | [Nine foundational theses](grundtext.md) · [Why open source matters](openness.md) · [The role of AI](https://alexanderr1991.github.io/Vera/en/ki-und-mensch/) |
+| Explore the research proposals | [Collective intelligence](kollektive-intelligenz.md) · [Understanding someone you disagree with](https://alexanderr1991.github.io/Vera/en/die-bruecke/) · [Fundamental questions atlas](https://alexanderr1991.github.io/Vera/en/grundfragen/) |
+| Work on the code or use Vera in another chat | [Start a session in English](../vera.md#start-a-new-session) · [Repository guide (German)](../README.md) · [Contributor guide](../../CONTRIBUTING.md) |
 
-## M-02 · Mathematics Between Minds
+To run the site locally, use Node.js 22.12 or later, then run `npm ci` and `npm run dev` from the repository root. To check a change, run `npm run build` and, with Python 3.12, `python -m unittest discover -s tests -p 'test_*.py'`. [Build workflow](../../.github/workflows/pages.yml)
 
-The provisional [M-02 research proposal](../mathematik-des-dazwischen.md) provides an English précis and a bilingual [toy demonstration](https://alexanderr1991.github.io/Vera/en/die-bruecke/). It separates directed accuracy of restatement from agreement, and distinguishes a formal illustration from an untested psychological hypothesis. This is **not** a validated scale, proved ethics system or independently reviewed publication.
+## Help with the English edition
 
-## Universal questions · Cross-domain research loop
-
-The new [Fundamental Questions atlas](https://alexanderr1991.github.io/Vera/en/grundfragen/) contains 16 unreviewed editorial questions linking distinct project domains, along with sources, counterquestions and proposed return routes. The [method and limitations](../grundfragen-kreislauf.md) explain why the automated corpus check is **lexical, not semantic AI analysis**. The reviewed findings register is currently **empty**. Future bounded findings require traceable human review before they are displayed on mapped domain pages.
+German is the editorial source. The English website and the available English documents are machine-assisted drafts awaiting independent review. Some specialist documents still have only a German edition. If a translation changes the meaning, point to the German passage and its version, quote the English wording and tell us how you read it. [Glossary](../i18n-glossary.md) · [Translation inventory](../../public/i18n/review-register.v1.json) · [Review policy](../internationalisierung.md) · [Suggest a translation correction](https://github.com/AlexanderR1991/Vera/issues/new?template=uebersetzung.yml)

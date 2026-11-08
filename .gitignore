@@ -10,3 +10,4 @@ __pycache__/
 *.py[cod]
 
 public/search/
+public/research/universal-scan.v1.json

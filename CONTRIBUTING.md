@@ -52,7 +52,16 @@ Auf GitHub benötigst du ein kostenloses Konto.
 
 On GitHub, open the relevant file, click the pencil icon, edit your fork, and open a pull request. Explain *why* the change is better. Do not assume a proposal will automatically be accepted.
 
-**Sprachfassungen / Languages:** Der Auftakt liegt in `MissionHome.astro` und `src/lib/mission-copy.json`, Mission und Register in den gleichnamigen Komponenten. Aussagen werden in `public/knowledge/claims.json` gepflegt ([Datenvertrag](docs/aussagenregister.md)). Ältere Unterseiten stammen aus den Root-HTML-Dateien und `src/i18n/*.en.json`; neue Kapitel aus `src/components/` und ihren Kopierdaten. Alle neuen Einträge benötigen DE/EN. / See the same paths for bilingual editing. For complex edits, start with an issue.
+**Deutsch und Englisch bearbeiten / Editing both languages**
+
+| Was möchtest du ändern? / What do you want to edit? | Wo findest du es? / Where does it live? |
+| --- | --- |
+| Startseite / Homepage | [Seitenaufbau / Layout](src/components/MissionHome.astro) · [Texte / Copy](src/lib/mission-copy.json) |
+| Mission und Aussagenregister / Mission and claim register | [Mission](src/components/MissionPage.astro) · [Register](src/components/ClaimRegister.astro) · [Aussagen / Claims](public/knowledge/claims.json) · [Datenvertrag / Data contract](docs/aussagenregister.md) |
+
+Pflege neue Einträge auf Deutsch und Englisch. Bei älteren Unterseiten liegt der deutsche Quelltext in den HTML-Dateien im Stammverzeichnis, die englische Fassung unter [src/i18n/](src/i18n/). Neuere Kapitel findest du unter [src/components/](src/components/).
+
+Write new entries in both languages. For older pages, edit the German HTML files at the repository root and the English text in `src/i18n/`. Newer chapters live in `src/components/`. For complex edits, start with an issue.
 
 **Projektchronik / Project timeline.** Für einen Meilenstein ergänze in `src/lib/observatory-events.json` eine kurze Beschreibung in beiden Sprachen, die Issue- oder PR-Nummer und den belegten UTC-Zeitpunkt der Meldung oder Übernahme. Ordne ihn zeitlich ein. Die Tagesstände entstehen beim Build aus der vollständigen Git-Historie. / To add a milestone, record both descriptions, the issue or PR number and the verified UTC opening or merge time in chronological order. The build derives daily snapshots from a full Git checkout.
 
@@ -97,6 +106,6 @@ Do not submit personal data, confidential communications, or third-party materia
 
 ## Fragen verknüpfen, ohne Unterschiede zu verlieren / Link questions without suppressing differences
 
-Prüfe zuerst den [Fragenatlas im Forum](https://alexanderr1991.github.io/Vera/de/forum/#fragenatlas), der bislang nur sechs redaktionelle Beispiele enthält. Auch eine ähnlich klingende Frage darf gestellt werden, wenn sie eine andere Voraussetzung, einen neuen Einwand oder eine bislang unbeachtete Perspektive aufzeigt. Ein Vorschlag zur Verbindung nennt beide ursprünglichen Formulierungen, Herkunft, Beziehungstyp, Begründung, Unterschiede und Einwandsmöglichkeiten. Nur ein geprüfter PR ändert `public/knowledge/questions.json`. Autonome KI-Massenkommentare, vorgetäuschte menschliche Identitäten und Scheinmehrheiten sind nicht zulässig. [Fragenatlas-Regeln](docs/fragenatlas.md).
+Schau zuerst in den [Fragenatlas im Forum](https://alexanderr1991.github.io/Vera/de/forum/#fragenatlas). Auch eine ähnlich klingende Frage darf gestellt werden, wenn sie eine andere Voraussetzung, einen neuen Einwand oder eine bislang unbeachtete Perspektive aufzeigt. Ein Vorschlag zur Verbindung nennt beide ursprünglichen Formulierungen, Herkunft, Beziehungstyp, Begründung, Unterschiede und Einwandsmöglichkeiten. Änderungen am [Datenbestand des Fragenatlas](public/knowledge/questions.json) brauchen einen geprüften Pull Request. Autonome KI-Massenkommentare, vorgetäuschte menschliche Identitäten und Scheinmehrheiten sind nicht zulässig. [Fragenatlas-Regeln](docs/fragenatlas.md).
 
-**English:** Similar questions may be genuinely different; preserve provenance and dissent. Propose traceable links in a reviewed PR; AI drafts must not auto-post or merge.
+**English:** Start with the [question atlas](https://alexanderr1991.github.io/Vera/en/forum/#fragenatlas) and its [source data](public/knowledge/questions.json). Similar questions may be genuinely different; preserve provenance and dissent. Propose traceable links in a reviewed PR; AI drafts must not auto-post or merge.
