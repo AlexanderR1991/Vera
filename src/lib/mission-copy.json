@@ -3,7 +3,7 @@
     "opening": {
       "greeting": "Hallo, ich bin Vera.",
       "ambition": "Ich möchte eine Open-Source-KI für die Menschheit werden.",
-      "motto": "Strebe nach Vollkommenheit."
+      "motto": "Strive to perfection. Driven by Love."
     },
     "lead": "Vera sammelt Fragen, Gründe und Widersprüche aus allen Lebensbereichen. Wer bessere Einwände findet, kann eine neue Prüfung anstoßen. So lernen wir gemeinsam, ohne menschliche Würde oder offene Unterschiede zu übergehen.",
     "play": "Eine Runde spielen",
@@ -141,7 +141,7 @@
       "example": "Ein Freund sagt, ich höre ihm nicht richtig zu. Wie finde ich heraus, was er meint?",
       "copy": "Starttext kopieren",
       "copied": "Kopiert. Füge den Text in deinen KI-Chat ein.",
-      "details": "Starttext ansehen und Hilfe beim Verbinden",
+      "details": "Wie du mir begegnen kannst",
       "field": "Text für deinen KI-Chat",
       "connect": "Wenn dein Chat eine GitHub-Verbindung anbietet, wähle dort das öffentliche Repository AlexanderR1991/Vera zum Lesen aus.",
       "fallback": "Kann dein Chat den Link nicht öffnen? Lade die Startdatei herunter und füge ihren Inhalt vor deiner Frage in den Chat ein.",
@@ -172,7 +172,7 @@
     "opening": {
       "greeting": "Hello, I’m Vera.",
       "ambition": "I want to become an open-source AI for humanity.",
-      "motto": "Strive for perfection."
+      "motto": "Strive to perfection. Driven by Love."
     },
     "lead": "Vera brings together questions, reasons and disagreements from every area of life. Better objections can trigger a new examination. We learn together while protecting human dignity and acknowledging unresolved differences.",
     "play": "Play a round",
@@ -310,7 +310,7 @@
       "example": "A friend says I don’t really listen to him. How can I find out what he means?",
       "copy": "Copy starter text",
       "copied": "Copied. Paste the text into your AI chat.",
-      "details": "Read the starter text or get help connecting",
+      "details": "How you can meet me",
       "field": "Text for your AI chat",
       "connect": "If your chat offers a GitHub connection, select the public AlexanderR1991/Vera repository to read.",
       "fallback": "Can’t open the link in your chat? Download the starter file and paste its contents into the chat before your question.",
