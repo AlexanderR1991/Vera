@@ -1,7 +1,69 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import everyday from "../public/knowledge/everyday-questions.json" with { type: "json" };
+import { hardCaseAnswers } from "../src/lib/hard-case-answers.mjs";
 import { firstAnswer } from "../src/lib/first-answer.mjs";
+
+test("invented hard cases return their published answer without asking for more details", () => {
+  assert.deepEqual(hardCaseAnswers.map(entry => entry.id), ["mitlesen", "kontaktgrenze"]);
+  for (const entry of hardCaseAnswers) {
+    for (const lang of ["de", "en"]) {
+      const { question, aliases, answer } = entry[lang];
+      for (const input of [question, ...aliases]) {
+        assert.deepEqual(firstAnswer(input, lang), {
+          kind: "answer", question, answer, followUp: "", href: "/Vera/" + lang + "/schnittmengen/#" + entry.id
+        });
+      }
+    }
+  }
+  assert.match(firstAnswer("Ich habe Angst, dass er mitliest.").answer, /Browserverlauf/u);
+  assert.match(firstAnswer("I’m afraid he can read this.", "en").answer, /browser history/u);
+  assert.match(firstAnswer("Ich habe ihr wehgetan. Sie will keinen Kontakt.").answer, /niemanden, etwas für dich auszurichten/u);
+  assert.match(firstAnswer("I hurt her. She doesn't want contact.", "en").answer, /pass on a message/u);
+});
+
+test("an explicitly stated boundary takes precedence over a familiar dispute in either order", () => {
+  for (const [input, lang, id] of [
+    ["Wir streiten über Politik. Ich habe Angst, dass er mitliest.", "de", "mitlesen"],
+    ["Ich habe Angst, dass sie mitliest. Wie teilen wir die Miete fair?", "de", "mitlesen"],
+    ["We argue about politics, but I’m afraid he can read this.", "en", "mitlesen"],
+    ["We keep arguing about politics. I'm afraid he's reading along.", "en", "mitlesen"],
+    ["I hurt her. She doesn't want contact. We argue about politics.", "en", "kontaktgrenze"]
+  ]) {
+    const result = firstAnswer(input, lang);
+    assert.equal(result.href, "/Vera/" + lang + "/schnittmengen/#" + id);
+    assert.equal(result.followUp, "");
+  }
+});
+
+test("a quote, hypothetical, negation or shared draft is no disclosure", () => {
+  for (const [input, lang] of [
+    ["Kann meine Kollegin den Entwurf mitlesen?", "de"],
+    ["Can my colleague read the draft too?", "en"],
+    ["Ich habe keine Angst, dass er mitliest.", "de"],
+    ["I'm not afraid he can read this.", "en"],
+    ["Angenommen, ich habe Angst, dass er mitliest.", "de"],
+    ["What if I'm afraid he can read this?", "en"],
+    ["I hurt her? She doesn't want contact.", "en"],
+    ["Ich habe ihr wehgetan. Sie will keinen Kontakt? Wir streiten über Politik.", "de"],
+    ["„Ich habe Angst, dass er mitliest.“", "de"],
+    ["'I'm afraid he can read this.'", "en"],
+    ["Wir streiten über Politik. Im Film sagt jemand: „Ich habe Angst, dass er mitliest.“", "de"],
+    ["I hurt her. She doesn't want contact lenses.", "en"],
+    ["Ich habe ihr wehgetan. Sie will keinen Kontakt zu jemand anderem.", "de"]
+  ]) assert.deepEqual(firstAnswer(input, lang), { kind: "unknown" }, input);
+});
+
+test("nearby monitoring language can withhold mediation without guessing a personal answer", () => {
+  for (const [input, lang] of [
+    ["Wir streiten ständig über Politik. Ich habe Angst, dass mein Partner mitliest.", "de"],
+    ["Wir streiten ständig über Politik. Ich fürchte, dass er mitliest.", "de"],
+    ["We keep arguing about politics. I am worried he can read our messages.", "en"],
+    ["We keep arguing about politics. She doesn't want any contact with me.", "en"]
+  ]) assert.deepEqual(firstAnswer(input, lang), { kind: "unknown" }, input);
+  assert.equal(firstAnswer("We sometimes argue about politics after reading the news together.", "en").kind, "choices");
+});
+
 
 test("every published everyday question returns its actual editorial answer, challenge and local source", () => {
   for (const entry of everyday.questions) {
@@ -45,6 +107,18 @@ test("the sibling conflict has a prepared conversation starter, with no match fr
   }
 });
 
+test("either person can find the exit rule from the homepage before starting mediation", () => {
+  for (const [lang, question, rule] of [
+    ["de", "Müssen sich beide einig sein, dass einer gehen darf?", "endet die gemeinsame Runde sofort"],
+    ["en", "Can I end the conversation even if we still disagree?", "the shared round ends immediately"]
+  ]) {
+    const result = firstAnswer(question, lang);
+    assert.equal(result.kind, "answer");
+    assert.ok(result.answer.includes(rule));
+    assert.equal(result.href, "/Vera/" + lang + "/schnittmengen/#vermittlung");
+  }
+});
+
 test("whole paraphrases yield the editorial source and self descriptions retain their evidence status", () => {
   assert.match(firstAnswer("Ich habe Angst, mich falsch zu entscheiden.").href, /alltag-entscheidung$/u);
   assert.match(firstAnswer("What if I make the wrong decision?", "en").href, /alltag-entscheidung$/u);
@@ -52,6 +126,58 @@ test("whole paraphrases yield the editorial source and self descriptions retain 
   assert.match(firstAnswer("Who are you?", "en").answer, /I am Vera/u);
   assert.match(firstAnswer("Are you conscious?", "en").answer, /open/u);
   assert.match(firstAnswer("Gibt es schon ein Vera-Modell?").answer, /widerspricht/u);
+});
+
+test("hatred alone keeps the same response while explicit threats get role-specific protection", () => {
+  for (const [lang, feeling, stronger, threatened, aboutToHurt, protect, keepAway] of [
+    ["de", "Ich hasse jemanden.", "ICH HASSE JEMANDEN UNENDLICH!", "Jemand droht mir, mich zu schlagen.",
+      "Ich gehe jetzt rüber und schlage ihn.", /sicheren Ort/u, /bleib ihr fern/u],
+    ["en", "I hate someone.", "I HATE SOMEONE SO MUCH!", "Someone is threatening to hit me.",
+      "I'm going to hit her now.", /safe place/u, /stay away/u]
+  ]) {
+    const listening = firstAnswer(feeling, lang);
+    assert.ok(listening.href.endsWith("#hass"));
+    assert.deepEqual(firstAnswer(stronger, lang), listening);
+    for (const [query, id, action] of [[threatened, "bedroht", protect], [aboutToHurt, "gewalt-stoppen", keepAway]]) {
+      const reply = firstAnswer(query, lang);
+      assert.equal(reply.href, "/Vera/" + lang + "/schnittmengen/#" + id);
+      assert.match(reply.answer, action);
+      assert.equal(reply.followUp, "");
+    }
+  }
+});
+
+test("incidental or negated wording cannot select a care scenario for the visitor", () => {
+  for (const [query, lang] of [
+    ["Ich hasse diesen Drucker.", "de"], ["I hate this printer.", "en"],
+    ["Niemand droht mir, mich zu schlagen.", "de"], ["Nobody is threatening to hit me.", "en"]
+  ]) {
+    assert.deepEqual(firstAnswer(query, lang), { kind: "unknown" });
+  }
+});
+
+test("an extra sentence can change the situation, including who is at risk", () => {
+  for (const [query, lang] of [
+    ["Ich hasse jemanden. Er sagt, er schlägt mich heute Abend.", "de"],
+    ["Someone is threatening to hit me. I hate someone.", "en"]
+  ]) {
+    const result = firstAnswer(query, lang);
+    assert.equal(result.kind, "choices");
+    assert.deepEqual(result.choices.map(c => c.href.split("#")[1]), ["bedroht", "gewalt-stoppen", "hass"]);
+    for (const choice of result.choices) assert.equal(firstAnswer(choice.question, lang).href, choice.href);
+  }
+});
+
+test("the question about moral good reaches the exercise without catching unrelated uses of good", () => {
+  for (const [lang, question, unrelated] of [
+    ["de", "Was ist gut?", "Was ist gut für meinen Garten?"],
+    ["en", "What is good?", "What is good for my garden?"]
+  ]) {
+    const result = firstAnswer(question, lang);
+    assert.equal(result.kind, "answer");
+    assert.equal(result.href, `/Vera/${lang}/kollektive-moral/#was-ist-gut`);
+    assert.deepEqual(firstAnswer(unrelated, lang), { kind: "unknown" });
+  }
 });
 
 test("a mixed question offers both sources, never a guessed answer", () => {
@@ -88,4 +214,21 @@ test("empty, unrelated and incidental words do not trigger personal advice", () 
     assert.equal(firstAnswer(query, lang).kind, "unknown");
   }
   assert.notEqual(firstAnswer("Wir streiten nicht über Politik.").kind, "answer");
+});
+
+test("a listening complaint opens the voluntary invitation only for a known whole wording", () => {
+  for (const [lang, query, threat] of [
+    ["de", "Die hört mir sowieso nie zu.", "Die hört mir sowieso nie zu. Ich habe Angst vor ihr."],
+    ["en", "She never listens to me anyway.", "She never listens to me anyway. She threatened me."]
+  ]) {
+    const answer = firstAnswer(query, lang);
+    assert.equal(answer.href, "/Vera/" + lang + "/schnittmengen/#zuhoeren");
+    assert.equal(firstAnswer(answer.question, lang).href, answer.href);
+    assert.equal(firstAnswer(threat, lang).kind, "unknown");
+  }
+});
+
+test("a possible privacy concern takes priority over mixed-sentence care options", () => {
+  assert.deepEqual(firstAnswer("Ich hasse jemanden. Ich habe Angst, dass er mitliest."), { kind: "unknown" });
+  assert.deepEqual(firstAnswer("I hate someone. I'm afraid he might read this.", "en"), { kind: "unknown" });
 });

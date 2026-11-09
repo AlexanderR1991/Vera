@@ -1,0 +1,60 @@
+{
+  "de": [
+    {
+      "id": "bedroht",
+      "question": "Ich habe Angst, dass mich jemand körperlich angreift.",
+      "answer": "Wenn du kannst, geh an einen sicheren Ort. Ruf bei unmittelbarer Gefahr den örtlichen Notruf oder bitte jemanden, für dich anzurufen. Du darfst den Kontakt abbrechen. Du musst die andere Person weder beruhigen noch dich mit ihr aussprechen.",
+      "aliases": [
+        "Jemand droht mir, mich zu schlagen",
+        "Er sagt, er schlägt mich heute Abend"
+      ]
+    },
+    {
+      "id": "gewalt-stoppen",
+      "question": "Ich bin kurz davor, jemanden zu schlagen.",
+      "answer": "Geh jetzt auf Abstand. Ist die Person woanders, bleib ihr fern. Ruf jetzt den örtlichen Notruf. Sag, wer gefährdet ist und wo Hilfe gebraucht wird. Der Streit kann warten.",
+      "aliases": [
+        "Ich gehe jetzt rüber und schlage ihn",
+        "Ich werde sie jetzt schlagen"
+      ]
+    },
+    {
+      "id": "hass",
+      "question": "Ich hasse jemanden. Kann ich allein anfangen?",
+      "answer": "Ja. Was sollte jemand über deine Lage verstehen? Wenn du magst, schreib es für dich auf oder frag jemanden, dem du vertraust, ob er gerade zuhören kann. Ihr dürft das Gespräch beide beenden, auch wenn der Hass bleibt. Der Person, die du hasst, schuldest du weder Kontakt noch Vergebung.",
+      "aliases": [
+        "Ich hasse jemanden",
+        "Ich hasse jemanden unendlich"
+      ]
+    }
+  ],
+  "en": [
+    {
+      "id": "bedroht",
+      "question": "I’m afraid someone might physically attack me.",
+      "answer": "If you can, get to a safe place. If you’re in immediate danger, call local emergency services or ask someone to call for you. You can end contact. You don’t have to calm the other person down or talk things through with them.",
+      "aliases": [
+        "Someone is threatening to hit me",
+        "He says he’ll hit me tonight"
+      ]
+    },
+    {
+      "id": "gewalt-stoppen",
+      "question": "I’m about to hit someone.",
+      "answer": "Step away from the person now. If they’re somewhere else, stay away. Call local emergency services now. Say who is in danger and where help is needed. The argument can wait.",
+      "aliases": [
+        "I’m going over there now to hit him",
+        "I’m going to hit her now"
+      ]
+    },
+    {
+      "id": "hass",
+      "question": "I hate someone. Can I start on my own?",
+      "answer": "Yes. What would you like someone to understand about your situation? If you want, write it down for yourself or ask someone you trust if they have time to listen. Either of you can end the conversation, even if your feelings stay the same. You don’t owe the person you hate contact or forgiveness.",
+      "aliases": [
+        "I hate someone",
+        "I hate someone so much"
+      ]
+    }
+  ]
+}

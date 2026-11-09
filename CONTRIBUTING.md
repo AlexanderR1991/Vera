@@ -61,6 +61,7 @@ On GitHub, open the relevant file, click the pencil icon, edit your fork, and op
 | Was möchtest du ändern? / What do you want to edit? | Wo findest du es? / Where does it live? |
 | --- | --- |
 | Startseite / Homepage | [Seitenaufbau / Layout](src/components/MissionHome.astro) · [Texte / Copy](src/lib/mission-copy.json) |
+| Pinnwand / Pinboard | [Kacheln / Cards](src/components/IndustrialBoard.astro) · [Magazinprinzip](docs/pinnwand-magazinprinzip.md) · [Magazine approach](docs/pinnwand-magazinprinzip.md#english) |
 | Werkzeuge im privaten Prüfblatt / Tools in the private worksheet | [Werkzeugkatalog / Tool catalogue](src/lib/inquiry-tools.mjs) · [Felder und Dateiformat / Fields and file format](src/lib/inquiry.mjs) · [Tests](tests/inquiry-tools.test.mjs) |
 | Mission und Aussagenregister / Mission and claim register | [Mission](src/components/MissionPage.astro) · [Register](src/components/ClaimRegister.astro) · [Aussagen / Claims](public/knowledge/claims.json) · [Datenvertrag / Data contract](docs/aussagenregister.md) |
 

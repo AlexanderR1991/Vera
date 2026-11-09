@@ -420,6 +420,18 @@ svg.board-tile__art { width: auto; max-width: 100%; margin-inline: auto; }
   text-transform: uppercase;
 }
 .board-tile__arrow { flex: none; font-size: 1rem; }
+.board-tile__trend:not([hidden]) {
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+  margin-block-start: .6rem;
+  padding: .15rem .38rem;
+  border: 1px solid currentColor;
+  border-radius: .22rem;
+  color: var(--pin-accent);
+  font: 600 .6875rem/1.35 var(--vera-mono);
+}
+.board-tile__trend svg { flex: none; }
 .board-tile h3 {
   margin: .62rem 0 0;
   font: 400 clamp(1.5rem, 2.7vw, 1.9rem)/1.09 Georgia, serif;

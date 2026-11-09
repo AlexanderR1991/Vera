@@ -1,0 +1,123 @@
+---
+import Layout from "../layouts/SiteLayout.astro";
+import ForumSectionLink from "./ForumSectionLink.astro";
+import { base, pathFor } from "../lib/paths.mjs";
+import { ui } from "../lib/ui.mjs";
+
+const { lang = "de" } = Astro.props;
+const de = lang === "de";
+const t = (german, english) => de ? german : english;
+const slug = "welt-mathematisch-abbilden";
+const description = t(
+  "Zwei Wege zur Bibliothek zeigen, wie ein mathematisches Modell Möglichkeiten vergleichbar macht, Vorhersagen erlaubt und sich durch neue Beobachtungen korrigieren lässt.",
+  "Two routes to the library show how a mathematical model helps us compare options, make predictions and revise them in light of new observations."
+);
+---
+<Layout lang={lang} slug={slug} description={description}>
+  <article class="container world-model">
+    <a class="subtle-link" href={pathFor(lang, "index", de ? "leben" : "life")}>
+      <span aria-hidden="true">←</span> {t("Zur Pinnwand", "Back to the pinboard")}
+    </a>
+    <header class="model-hero">
+      <div>
+        <p class="section-kicker">{t("Mathematik im Alltag", "Everyday mathematics")}</p>
+        <h1>{ui[lang].titles[slug]}</h1>
+        <p class="model-lead">{t(
+          "Eine Karte lässt vieles weg, damit du den Weg siehst. Mit Zeiten und Hindernissen kannst du abschätzen, welcher Weg für dich infrage kommt und wann du ankommst. Vor Ort prüfst du, ob die Annahmen stimmen.",
+          "A map leaves things out so you can see the route. Add travel times and obstacles, and you can work out which routes might suit you and when you could arrive. On the ground, you can check your assumptions."
+        )}</p>
+      </div>
+      <img src={base + "images/pinnwand/world-model.svg"} width="240" height="240" alt="" />
+    </header>
+
+    <section aria-labelledby="modell-beispiel">
+      <h2 id="modell-beispiel">{t("Zwei Wege zur Bibliothek", "Two routes to the library")}</h2>
+      <p>{t(
+        "Du willst zur Bibliothek. Auf deiner Karte gibt es zwei Wege. Welcher ist schneller? Und welchen kannst du nehmen, wenn du stufenlos ans Ziel kommen musst?",
+        "You’re going to the library. Your map shows two routes. Which one is faster? And which can you take if you need a step-free route?"
+      )}</p>
+      <table>
+        <caption>{t("Erfundene Wege und Zeiten", "Fictional routes and times")}</caption>
+        <thead>
+          <tr>
+            <th scope="col">{t("Weg", "Route")}</th>
+            <th scope="col">{t("Zeit ohne Warten", "Time without waiting")}</th>
+            <th scope="col">{t("Stufen", "Steps")}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">{t("A · Treppe", "A · Stairs")}</th><td>5 min</td><td>18</td></tr>
+          <tr><th scope="row">{t("B · Aufzug in Betrieb", "B · Working lift")}</th><td>8 min</td><td>0</td></tr>
+        </tbody>
+      </table>
+      <p>{t(
+        "Ohne Wartezeit dauert der Weg mit dem Aufzug laut Modell drei Minuten länger als der über die Treppe. Brauchst du einen stufenlosen Weg, kommt von den beiden nur der Aufzug infrage. Vier Minuten Wartezeit verlängern diesen Weg auf zwölf Minuten. Mit einer Uhr kannst du prüfen, ob die Schätzung für dich stimmt.",
+        "With no wait, the model says the lift route takes three minutes longer than the stairs. If you need step-free access, the lift is the only option shown. A four-minute wait brings that journey to twelve minutes. You can time the journey to check whether the estimate holds for you."
+      )}</p>
+      <details>
+        <summary>{t("Was ändert sich, wenn der Aufzug ausfällt?", "What changes if the lift breaks down?")}</summary>
+        <p>{t(
+          "Mit den beiden eingezeichneten Wegen bleibt dann keine stufenlose Verbindung. Eine Anwohnerin weist auf einen dritten Weg über den Seiteneingang hin. Prüfe, ob der Eingang zu deiner Ankunftszeit offen und der Weg tatsächlich stufenlos ist. Wenn beides zutrifft, kannst du den Weg eintragen. Jetzt zeigt die Karte auch bei ausgefallenem Aufzug eine stufenlose Verbindung.",
+          "Neither of the two routes shown now offers step-free access. A local resident points out a third route through the side entrance. Check whether the entrance is open when you arrive and whether the route really is step-free. If both checks pass, you can add the route. The map now shows a step-free way in even when the lift is out of service."
+        )}</p>
+      </details>
+      <ForumSectionLink lang={lang} place={slug} section="modell-beispiel" />
+    </section>
+
+    <section aria-labelledby="modell-grenzen">
+      <h2 id="modell-grenzen">{t("Was in der Karte fehlt", "What the map leaves out")}</h2>
+      <p>{t(
+        "Auch ein stufenloser Weg kann zu steil sein. Jemand, der ihn gehen oder fahren will, bemerkt womöglich eine Hürde, die beim Zeichnen der Karte niemand bedacht hat. Die Frage bestimmt, was wir erfassen. Die Erfahrung vor Ort zeigt, wann wir noch etwas ergänzen müssen.",
+        "A step-free route can still be too steep. Someone trying to use it might spot a barrier nobody considered when drawing the map. The question determines what we record. Experience on the ground shows us when we need to add something."
+      )}</p>
+      <p>{t(
+        "Die Maße einer Tür und eines Regals helfen dir zu prüfen, ob das Regal durchpasst, bevor du es anhebst. In einem Streit über einen gemeinsam genutzten Raum kannst du ausrechnen, wer zu welchen Zeiten Zugang hätte. Welche Regel fair ist und sich gemeinsam tragen lässt, klären die Beteiligten im Gespräch. In Veras philosophischem Motor haben Beobachtungen, Annahmen und Wertmaßstäbe deshalb jeweils ihren eigenen Platz.",
+        "The dimensions of a doorway and a shelf unit help you check whether it will fit before you lift it. In a dispute over a shared room, you can work out who would have access and at what times. The people involved can then discuss which rule is fair and which they can all live with. Vera’s philosophical engine gives observations, assumptions and values their own place."
+      )}</p>
+      <ForumSectionLink lang={lang} place={slug} section="modell-grenzen" />
+    </section>
+
+    <section aria-labelledby="modell-ausprobieren">
+      <h2 id="modell-ausprobieren">{t("Welche Frage möchtest du prüfen?", "What question would you like to test?")}</h2>
+      <p>{t(
+        "Wähle eine Frage aus deinem Alltag. Was willst du vergleichen? Von welcher Annahme hängt deine Antwort ab? Welche Beobachtung würde dich dazu bringen, sie zu ändern?",
+        "Pick a question from your own life. What are you trying to compare? What assumption does your answer depend on? What observation would make you revise it?"
+      )}</p>
+      <nav class="model-links" aria-label={t("Weiterdenken", "Explore further")}>
+        <a class="subtle-link" href={pathFor(lang, "werkstatt")}>{t("Eine eigene Frage ins Prüfblatt nehmen", "Take your own question to the worksheet")} <span aria-hidden="true">→</span></a>
+        <a class="subtle-link" href={pathFor(lang, "philosophischer-motor")}>{t("Zum philosophischen Motor", "Explore the philosophical engine")} <span aria-hidden="true">→</span></a>
+      </nav>
+    </section>
+  </article>
+</Layout>
+
+<style>
+  .world-model { max-width: 64rem; padding-block: clamp(2rem, 5vw, 4.5rem); }
+  .model-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(9rem, 14rem);
+    align-items: center;
+    gap: 1rem 2.5rem;
+    margin-block: 1.5rem 2.5rem;
+  }
+  .model-hero img { width: 100%; height: auto; border: 1px solid var(--line); border-radius: 3px; }
+  h1 { font-size: clamp(1.8rem, 4.6vw, 3.55rem); line-height: 1.08; letter-spacing: -.035em; margin-block: .2em .4em; }
+  h2 { font-size: clamp(1.5rem, 3.8vw, 2.15rem); line-height: 1.15; margin-bottom: .7rem; }
+  p { max-width: 68ch; }
+  .model-lead { color: var(--text); font: clamp(1.125rem, 2.35vw, 1.4rem)/1.5 var(--serif); }
+  .world-model > section { border-top: 1px solid var(--line); margin-top: 2rem; padding-top: 1.4rem; }
+  table { width: min(100%, 36rem); border-collapse: collapse; margin-block: 1.1rem; }
+  caption { text-align: start; font-size: .9rem; margin-block-end: .35rem; }
+  th, td { border-bottom: 1px solid var(--line); text-align: start; padding: .55rem .65rem; }
+  thead th { color: var(--text); }
+  td { white-space: nowrap; font-variant-numeric: tabular-nums; }
+  details { max-width: 68ch; border-inline-start: 2px solid var(--gold); padding-inline: 1rem; margin-block: .8rem; }
+  summary { cursor: pointer; color: var(--text); padding-block: .55rem; }
+  summary:focus-visible { outline: 2px solid var(--gold-bright); outline-offset: 3px; }
+  details p { margin-block: 0 .6rem; padding-block-end: .4rem; }
+  .model-links { display: flex; flex-wrap: wrap; gap: .6rem 1.4rem; }
+  @media (max-width: 42rem) {
+    .model-hero { grid-template-columns: minmax(0, 1fr); margin-block-end: 1.8rem; }
+    .model-hero img { width: min(36%, 7rem); }
+  }
+</style>

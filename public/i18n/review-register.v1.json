@@ -168,6 +168,13 @@
         "source_commit": null,
         "review_url": null
       },
+      "welt-mathematisch-abbilden": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewed_at": null,
+        "source_commit": null,
+        "review_url": null
+      },
       "kunst-und-erkenntnis": {
         "status": "draft",
         "reviewer": null,
@@ -259,6 +266,13 @@
         "source_commit": null,
         "review_url": null
       },
+      "repository": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewed_at": null,
+        "source_commit": null,
+        "review_url": null
+      },
       "schnittmengen": {
         "status": "draft",
         "reviewer": null,
@@ -302,6 +316,13 @@
         "review_url": null
       },
       "kollektive-intelligenz": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewed_at": null,
+        "source_commit": null,
+        "review_url": null
+      },
+      "obsidian": {
         "status": "draft",
         "reviewer": null,
         "reviewed_at": null,
@@ -534,6 +555,15 @@
       "source_commit": null,
       "review_url": null
     },
+    "gehoer-und-korrekturwelle.md": {
+      "status": "shared_bilingual",
+      "priority": "support",
+      "target": "docs/gehoer-und-korrekturwelle.md",
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
     "grundtext.md": {
       "status": "draft",
       "priority": "core",
@@ -597,6 +627,15 @@
       "source_commit": null,
       "review_url": null
     },
+    "mathematik-innerer-wege.md": {
+      "status": "shared_bilingual",
+      "priority": "support",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
     "mathematischer-pruefstand.md": {
       "status": "unassessed",
       "priority": "support",
@@ -637,6 +676,15 @@
       "status": "draft",
       "priority": "core",
       "target": "docs/en/open-source-ai.md",
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "pinnwand-magazinprinzip.md": {
+      "status": "shared_bilingual",
+      "priority": "support",
+      "target": null,
       "reviewer": null,
       "reviewed_at": null,
       "source_commit": null,
@@ -716,6 +764,15 @@
     },
     "theologischer-dialog.md": {
       "status": "unassessed",
+      "priority": "support",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "vera-horizont.md": {
+      "status": "shared_bilingual",
       "priority": "support",
       "target": null,
       "reviewer": null,
@@ -898,6 +955,15 @@
       "status": "draft",
       "priority": "core",
       "target": "docs/en/philosophical-motor-mathematics.md",
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "spielwelten.md": {
+      "status": "shared_bilingual",
+      "priority": "support",
+      "target": null,
       "reviewer": null,
       "reviewed_at": null,
       "source_commit": null,

@@ -11,7 +11,8 @@ export function renderVeraContext({ language, revision, repository, profile, pro
 
   const english = language === "en";
   const sources = [veraProfilePath, veraPromptPath(language), "AGENTS.md", "docs/grundtext.md",
-    "docs/selbstkorrektur.md", "docs/ki-charta.md", "docs/community-governance.md", "docs/agi-horizont.md", "docs/vermittlung.md"];
+    "docs/selbstkorrektur.md", "docs/ki-charta.md", "docs/community-governance.md", "docs/agi-horizont.md", "docs/vermittlung.md",
+    "docs/philosophischer-motor-mathematik.md", "src/lib/care-step.mjs"];
   const memoryText = revision && memory !== undefined
     ? formatMemory(memory, { language, repository, revision })
     : "";

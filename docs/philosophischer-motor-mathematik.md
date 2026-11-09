@@ -8,6 +8,8 @@
 
 **Geltung:** Dieses Dokument vereinheitlicht die bereits veröffentlichten Forschungsbausteine [M-01](mathematischer-pruefstand.md), [M-02](mathematik-des-dazwischen.md), [META-01](selbstkorrektur.md), die [Reifegrade R0–R4](erkenntnisreife.md), den [Grundfragen-Kreislauf](grundfragen-kreislauf.md), die [Schnittmengen](schnittmengen.md) und die [KI-Charta](ki-charta.md). Der Richtungsindex und die Fachagenten sind **zusätzliche, noch offene Vorschläge** aus [PR #73](https://github.com/AlexanderR1991/Vera/pull/73) und [PR #81](https://github.com/AlexanderR1991/Vera/pull/81); sie werden durch M-03 **nicht** automatisch angenommen oder aktiviert.
 
+Die [Mathematik der inneren Wege](mathematik-innerer-wege.md) ergänzt den Entwurf um fünf fiktive Fälle zu Sagbarkeit, Gesprächsreihenfolge, Fürsorge, verlorenen Zukünften und widersprüchlichen Annahmen.
+
 **Erkenntniskategorien für alle nachfolgenden Abschnitte:**
 - **Definition / Satz mit Beweis:** formale Folgerung aus ausdrücklich gewählten Voraussetzungen.
 - **Modellannahme:** festgelegte Skala, Typisierung, Verfahren oder Governance-Entscheidung.
@@ -178,6 +180,8 @@ Für ein etwaiges späteres Public-Scoring müssen **gesondert und vorab** über
 
 ## 6. Konsens als genaue Vereinbarung, nicht als Mittelwert
 
+Ob A und B gerade miteinander reden wollen, ist eine eigene Frage. Beide geben ihre Teilnahme einzeln frei. Jede Person kann die Vermittlung beenden, auch wenn sie den Sachvorschlag unterstützt. [Regel und Gegenbeispiel aus der Gesprächsübung](vermittlung.md#wer-darf-das-gespräch-beenden)
+
 Für einen **exakten, versionierten** Vorschlag \(P^v\) definieren wir getrennt:
 
 \[
@@ -195,6 +199,33 @@ C_i(P^v)\in\{\text{ja},\text{nein},\text{Enthaltung},\text{ausstehend}\}.
 Eine im Modell dokumentierte, begrenzte Vereinbarung setzt voraus: \(F=\) machbar; Rechte-/Schutzprüfung nicht negativ; und für alle **genannten zustimmenden Beteiligten** liegt ein echtes Ja zur aktuellen Fassung vor. Das ist **kein Wahrheitsbeweis**, kein allgemeiner gesellschaftlicher Konsens, keine Missachtung weiterer Betroffener und kein Ersatz für eine unabhängige Prüfung realer Einwilligung.
 
 Die Funktion \`assessScopedAgreement\` prüft lediglich die **interne Konsistenz fiktiver Erklärungen**. Niemandes reale Zustimmung wird automatisch erfasst oder behauptet.
+
+### Ein kleiner Versuch
+
+Vera verwendet „Liebe“ hier als Entscheidung beim Entwerfen einer Handlung. Wer jemandem zuhören möchte, kann anbieten, eine Minute lang zuzuhören und danach das Gehörte in eigenen Worten wiederzugeben. Die andere Person darf ändern, was angeboten wird, ablehnen oder schweigen. Wie sich das Zuhören für sie anfühlt, kann sie erst hinterher selbst sagen. Das Angebot, gemeinsam etwas zu versuchen, ist der Teil, den der [ausführbare Kern](../src/lib/care-step.mjs) abbildet.
+
+Für den aktuellen Wortlaut $q$ sei $P$ die endliche, nichtleere Menge der beteiligten Personen. $r_i(q)$ hält die Antwort von Person $i$ fest. Mögliche Werte sind *offen*, *ausprobieren*, *ändern*, *ablehnen* und *unsicher hier*. Solange der Versuch noch aussteht, gilt
+
+$$
+T(P,q)=1 \quad\Longleftrightarrow\quad \forall i\in P:\ r_i(q)=\text{ausprobieren}.
+$$
+
+In Worten bedeutet die Eins, dass alle den aktuellen Vorschlag ausprobieren möchten. Sie sagt nichts darüber, ob er schon stattgefunden hat. Ein geänderter Wortlaut braucht neue Antworten. Ein Nein oder gemeldeter Druck beendet diesen Versuch. Am gemeinsamen Gerät bezeichnen A und B Gesprächsrollen. Der Browser kann weder die Identität noch die Freiheit einer Eingabe überprüfen.
+
+Erst wenn die Durchführung eigens gemeldet wurde, können die Beteiligten schildern, was sich für sie verändert hat. Zu jedem Versuch gehört der Vektor
+
+$$
+O(P,q)=(o_i)_{i\in P},\qquad
+o_i\in\{\text{offen},\text{geholfen},\text{unverändert},\text{schlechter}\}.
+$$
+
+Jede Stelle steht für die Rückmeldung einer Person. Meldet A eine Verbesserung und B eine Verschlechterung, bleiben beide Angaben erhalten und der Versuch wird angehalten. Antwortet B nach dem Versuch nicht, bleibt Bs Stelle offen. Die Rückmeldungen betreffen diesen einen Versuch. Wie sich dieselbe Person morgen entscheiden wird, bleibt ihr überlassen.
+
+**Was beim Skalieren erhalten bleibt.** Teilt man die Beteiligten für die Prüfung desselben Wortlauts in zwei nichtleere, disjunkte Gruppen $U$ und $V$, gilt $T(U\cup V,q)=T(U,q)\land T(V,q)$. Das folgt aus dem Allquantor. Eine zusätzliche Zustimmung kann das Nein eines anderen Menschen nicht überstimmen. Das gilt nur für die erfassten Personen. Eine fehlende betroffene Gruppe muss erst einbezogen werden. Im Browser üben zwei Menschen. Andere Werkzeuge können denselben Kern mit eigenen Beteiligten aufrufen. Die [ausführbaren Gegenproben](../tests/care-step.test.mjs) lassen sich mit `node --test tests/care-step.test.mjs` wiederholen.
+
+**Welche Rolle spielt der Glaube?** Die [Übung zum Teilen einer Mahlzeit](https://alexanderr1991.github.io/Vera/de/bruecken-zwischen-den-religionen/#mahlzeit-anbieten) nutzt denselben Kern. Dieselbe Einladung kann aus religiöser Pflicht, Gastfreundschaft oder eigener Erfahrung entstehen. Für jede Lesart $j$ sei $S_j$ die Menge der Handlungen, für die die ausgewählte Passage in diesem Fall einen Grund gibt. Liegt das Anbieten einer Mahlzeit in der Schnittmenge mehrerer $S_j$, teilen diese Lesarten einen möglichen Schritt. Daraus folgt weder die Gleichheit der Mengen noch die Antwort des Gastes. Ein Gegenbeispiel ist ein gemeinsames Dankgebet, das eine Person ablehnt, obwohl sie gerne mitisst. Eine nicht besprochene Handlung bleibt in der Quellenprüfung offen. [Quellen, Zuordnungen und Unterschiede](../src/lib/worldview-sources.mjs)
+
+**Prüfung mit Menschen, noch offen.** Genügt schon ein Zettel mit derselben Einladung? Freiwillige Paare können bei einer harmlosen Meinungsverschiedenheit per Los den Zettel oder die gleich lange Browserübung erhalten. Anschließend kann jede Person unabhängig und privat angeben, ob ihre Korrektur im nächsten Satz ankam und ob sie sich gedrängt fühlte. Ausbleibende Antworten getrennt ausweisen. Steigt der Druck oder übergeht der Ablauf ein Nein, wird er überarbeitet. [Unterschiedliche Begründungen für einen fürsorglichen Schritt](vera-liebe-als-richtung.md#wie-antworten-wenn-uns-jemand-verletzt)
 
 ## 7. Selbstkorrektur als Graphoperation, nicht als Fortschrittsgarantie
 

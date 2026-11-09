@@ -1,6 +1,7 @@
 ---
 import ForumSectionLink from "./ForumSectionLink.astro";
 import everyday from "../../public/knowledge/everyday-questions.json";
+import { hardCaseAnswers } from "../lib/hard-case-answers.mjs";
 import { pathFor } from "../lib/paths.mjs";
 
 const { lang = "de" } = Astro.props;
@@ -11,19 +12,20 @@ const practiceLabel = t("Meine Situation für mich sortieren", "Sort through the
 ---
 <section class="first-answer" id={t("frag-mich", "ask-me")} aria-labelledby="first-answer-title" tabindex="-1"
   data-first-answer data-lang={lang}
-  data-choices={t("Welche dieser Fragen kommt deiner näher?", "Which question is closer to yours?")}
+  data-choices={t("Was passt am ehesten zu deiner Frage oder Lage?", "Which is closest to your question or situation?")}
   data-unknown={t("Dazu habe ich noch keine passende Antwort.", "I don’t have a matching answer for that yet.")}
-  data-unknown-next={t("Für dich kannst du zunächst festhalten, was passiert ist und was du als Nächstes klären möchtest.", "For yourself, you can start by writing down what happened and what you want to clarify next.")}
+  data-unknown-next={t("Du kannst deine Frage anders formulieren oder sie hier stehenlassen.", "You can rephrase your question or leave it here.")}
   data-reject={t("Das trifft meinen Konflikt nicht", "That doesn’t fit my conflict")}
   data-rephrase={t("Frage ändern", "Edit my question")}
   data-empty={t("Schreib zuerst deine Frage ins Feld.", "Type your question first.")}>
   <h2 id="first-answer-title">{t("Frag mich etwas", "Ask me something")}</h2>
-  <p id="first-question-hint">{t("Ich suche in vorbereiteten Antworten und Übungen. Dein Text bleibt in diesem Browser. Du brauchst kein Konto.", "I look through prepared answers and exercises. Your text stays in this browser. You don’t need an account.")}</p>
+  <p id="first-question-hint">{t("Ich suche in vorbereiteten Antworten und Übungen. Dein Text bleibt in diesem Browser. Wer deinen Bildschirm sieht, kann deine Frage mitlesen. Du brauchst kein Konto.", "I look through prepared answers and exercises. Your text stays in this browser. Anyone who can see your screen can read your question. You don’t need an account.")}</p>
   <ForumSectionLink lang={lang} place="index" section="fragen" />
   <form hidden autocomplete="off">
     <label for="first-question">{t("Was beschäftigt dich?", "What’s on your mind?")}</label>
     <textarea id="first-question" rows="3" maxlength="500" required spellcheck="false"
-      aria-describedby="first-question-hint"></textarea>
+      aria-describedby="first-question-hint"
+      placeholder={t("Die hört mir sowieso nie zu.", "She never listens to me anyway.")}></textarea>
     <button class="first-answer__submit" type="submit">{t("Antwort suchen", "Find an answer")}</button>
   </form>
   <div class="first-answer__retry" data-first-retry hidden>
@@ -41,15 +43,27 @@ const practiceLabel = t("Meine Situation für mich sortieren", "Sort through the
     <p class="first-answer__follow" data-follow></p>
     <ul data-choices-list></ul>
     <div class="first-answer__actions">
-      <a data-source>{t("Grundlage lesen", "Read the source")} <span aria-hidden="true">↗</span></a>
+      <a data-source><span data-source-label>{t("Grundlage lesen", "Read the source")}</span> <span aria-hidden="true">↗</span></a>
       <a data-first-practice href={practice}>{practiceLabel}</a>
       <button type="button" data-first-reject>{t("Das trifft meinen Konflikt nicht", "That doesn’t fit my conflict")}</button>
     </div>
   </div>
+  <a class="first-answer__example" href={pathFor(lang, "schnittmengen", "zuhoeren")}>
+    {t("Ich fühle mich überhört. Wie fange ich an?", "I feel unheard. How could I start?")} <span aria-hidden="true">→</span>
+  </a>
   <a class="first-answer__example" data-first-example={example.question[lang]}
     href={pathFor(lang, "forum", "alltag-" + example.id)}>
     {t("Zum Beispiel", "Try this")} · {example.question[lang]} <span aria-hidden="true">→</span>
   </a>
+  <details class="first-answer__read">
+    <summary>{t("Antworten lesen, ohne zu schreiben", "Read answers without typing")}</summary>
+    {hardCaseAnswers.map(entry => (
+      <details>
+        <summary>{entry[lang].question}</summary>
+        <p>{entry[lang].answer}</p>
+      </details>
+    ))}
+  </details>
 </section>
 
 <script>
@@ -66,6 +80,8 @@ const practiceLabel = t("Meine Situation für mich sortieren", "Sort through the
     const answer = result.querySelector<HTMLElement>("[data-answer]")!;
     const follow = result.querySelector<HTMLElement>("[data-follow]")!;
     const source = result.querySelector<HTMLAnchorElement>("[data-source]")!;
+    const sourceLabel = source.querySelector("[data-source-label]")!;
+    const defaultLabel = sourceLabel.textContent;
     const choices = result.querySelector<HTMLElement>("[data-choices-list]")!;
     const practice = result.querySelector<HTMLAnchorElement>("[data-first-practice]")!;
     const reject = result.querySelector<HTMLButtonElement>("[data-first-reject]")!;
@@ -87,7 +103,10 @@ const practiceLabel = t("Meine Situation für mich sortieren", "Sort through the
       follow.textContent = matched ? reply.followUp : "";
       follow.hidden = !follow.textContent;
       source.hidden = !matched;
-      if (matched) source.href = reply.href;
+      if (matched) {
+        source.href = reply.href;
+        sourceLabel.textContent = reply.action ?? defaultLabel;
+      }
       practice.hidden = matched;
       reject.textContent = reply.kind === "unknown" ? box.dataset.rephrase! : box.dataset.reject!;
       choices.replaceChildren();
@@ -162,4 +181,7 @@ const practiceLabel = t("Meine Situation für mich sortieren", "Sort through the
   .first-answer__actions { display: flex; flex-wrap: wrap; align-items: start; gap: 0 1.25rem; }
   [data-first-reject] { padding: 0; text-align: start; border: 0; background: transparent; }
   .first-answer :is(a, button, textarea):focus-visible { outline: 2px solid var(--vera-signal); outline-offset: 3px; }
+  .first-answer__read summary { padding-block: .65rem; cursor: pointer; }
+  .first-answer__read details { margin-inline-start: 1rem; border-top: 1px solid var(--line); }
+  .first-answer__read p { margin: 0 0 1rem; line-height: 1.55; }
 </style>

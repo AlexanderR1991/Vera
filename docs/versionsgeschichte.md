@@ -1,5 +1,9 @@
 # Versionsgeschichte
 
+## 2026-11-09 · Fürsorge bei Hass
+
+[These 03 im Grundtext](grundtext.md#these-03-jeder-mensch-besitzt-würde--auch-im-widerspruch) benennt in Arbeitsfassung 0.3, wem Fürsorge im Konflikt gilt. Auch wer Hass äußert, behält seine Würde. Bei einer Drohung hat der Schutz der gefährdeten Person Vorrang. Die [Gegenprobe mit einem erfundenen Gespräch](vera-liebe-als-richtung.md#wenn-jemand-hass-ausspricht) trennt das geäußerte Gefühl von einer konkreten Gewaltankündigung. Ob Veras Antwort im Alltag Hass mindert, bleibt offen.
+
 ## 2026-11-08 · Wer über Veras Grundregeln entscheidet
 
 In der Gründungsphase kann der Gründer eine Änderung im öffentlichen PR begründet freigeben. Nach der [bisherigen Regel](https://github.com/AlexanderR1991/Vera/blob/394784e4ed8d59b6e3fc3a8957a245104bcd181a/docs/community-governance.md#L66-L76) war nach dem ersten externen inhaltlichen Beitrag eine erneute Beratung vorgesehen. Künftig entscheiden die menschlichen Mitwirkenden ab diesem Beitrag gemeinsam über Grundregeln, Ausrichtung und Entscheidungsrechte. Fehlt das gemeinsam vereinbarte Verfahren, bleibt die Grundsatzfrage offen. Ein Beispiel ist die künftige Regel dafür, wer Quellenprüfungen freigeben darf. [Entscheidungsweg und Einspruch](community-governance.md#wer-darf-die-regeln-ändern--who-can-change-the-rules)

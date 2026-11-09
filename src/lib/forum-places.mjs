@@ -31,6 +31,9 @@ const sections = {
     section("fragen", "Eine eigene Frage", "A question of your own", {anchors: pair("frag-mich", "ask-me")}),
     section("pinnwand", "Die Fragen auf der Pinnwand", "The questions on the pinboard", {anchors: pair("leben", "life")})
   ],
+  obsidian: [
+    section("note-feedback", "Was müsste die Verbindung können?", "What would make this connection useful?")
+  ],
   alltagsfragen: everyday.questions.map(entry => ({
     id: "alltag-" + entry.id,
     anchors: pair("alltag-" + entry.id, "alltag-" + entry.id),
@@ -52,6 +55,14 @@ const sections = {
     }),
     section("parenting-challenge", "Die Grenze der Entscheidung", "The limits of deciding for a child", {
       prompt: pair("Wie kannst du einem Kind erklären, warum es diesmal nicht selbst entscheiden kann?", "How could you explain to a child why they cannot make this decision themselves this time?")
+    })
+  ],
+  "welt-mathematisch-abbilden": [
+    section("modell-beispiel", "Zwei Wege zur Bibliothek", "Two routes to the library", {
+      prompt: pair("Welche Beobachtung könnte ändern, welchen Weg dir die Karte zeigt?", "What observation could change which route the map shows you?")
+    }),
+    section("modell-grenzen", "Was in der Karte fehlt", "What the map leaves out", {
+      prompt: pair("Was müsste die Karte zusätzlich zeigen, damit du dich auf sie verlassen kannst?", "What else would the map need to show before you could rely on it?")
     })
   ],
   medizin: [
@@ -98,7 +109,8 @@ const sections = {
   ],
   "philosophischer-motor": [
     section("motor-ebenen", "Die sechs Ebenen des Motors", "The engine’s six layers"),
-    section("rechenbeispiele", "Fiktive Rechenbeispiele", "Fictional worked examples")
+    section("rechenbeispiele", "Fiktive Rechenbeispiele", "Fictional worked examples"),
+    section("innere-wege", "Die Mathematik der inneren Wege", "The mathematics of the paths we see")
   ],
   "die-bruecke": [
     section("experiment", "Verstehen und Zustimmung", "Understanding and agreement"),
@@ -169,6 +181,7 @@ const groups = {
     ["aussagen", "Bei welcher Aussage möchtest du eine Voraussetzung oder einen Beleg prüfen?", "Which claim has a premise or a piece of evidence you want to examine?"],
     ["pruefstand", "Welches Beispiel würde einen vorgeschlagenen Test an seine Grenze bringen?", "What example would expose a limit of a proposed test?"],
     ["werkstatt", "An welcher Stelle hilft dir das Prüfblatt weiter, und wo bleibst du hängen?", "Where does the worksheet help you, and where do you get stuck?"],
+    ["welt-mathematisch-abbilden", "Wann hat dir ein Modell geholfen, etwas zu sehen, das du vorher übersehen hast?", "When has a model helped you see something you had missed?", pair("Mathematik im Alltag", "Everyday mathematics")],
     ["erkenntnisnavigator", "Welche Verbindung würdest du beim Erkunden gern finden?", "Which connection would you like to find as you explore?"],
     ["gegenprobe-01", "Wann kann es fürsorglich sein, für jemanden zu entscheiden?", "When could deciding for someone be an act of care?"],
     ["philosophischer-motor", "Welche Annahme im Modell verändert das Ergebnis am stärksten?", "Which assumption changes the model’s result the most?"],
@@ -179,11 +192,13 @@ const groups = {
   ],
   project: [
     ["index", "Was möchtest du mit Vera besprechen?", "What would you like to discuss with Vera?", pair("Vera kennenlernen", "Getting to know Vera")],
+    ["obsidian", "Was würde dir helfen, zwischen deinem Denkraum in Obsidian und Vera zu wechseln?", "What would help you move between your thinking space in Obsidian and Vera?"],
     ["mission", "Welche Aufgabe sollte Vera zuerst für Menschen lösen?", "What should Vera first help people with?"],
     ["manifest", "Welche Regel im Grundtext würdest du an einem konkreten Fall prüfen?", "Which rule in the foundational text would you test against a specific case?"],
     ["mitwirken", "Was würde dir den ersten Beitrag erleichtern?", "What would make it easier for you to contribute?"],
     ["projektstatus", "Welcher veröffentlichte Fortschritt wäre für dich überprüfbar?", "What published progress could you verify for yourself?"],
     ["projektobservatorium", "Welche Entwicklung im Projekt möchtest du nachvollziehen können?", "Which development in the project would you like to be able to trace?"],
+    ["repository", "Bei welchem Ordner ist dir unklar, welche Rolle er im Projekt hat?", "Which folder’s role in the project would you like to understand better?"],
     ["fragen-und-ki-prompt", "Bei welcher Frage hat dir die KI geholfen, und was fehlte noch?", "Which question did the AI help with, and what was still missing?"],
     ["ki-und-mensch", "Welche Aufgabe würdest du einer KI anvertrauen, und wer sollte sie beaufsichtigen?", "What would you entrust to AI, and who should oversee it?"],
     ["entitaet", "Welche Veränderung sollte der Entwurf dokumentieren können?", "What change should the prototype be able to document?"],

@@ -2,7 +2,7 @@
 
 > Die Wirklichkeit steht über diesem Werk.
 
-**Arbeitsfassung 0.2 · 7. November 2026**
+**Arbeitsfassung 0.3 · 9. November 2026**
 
 Dies ist ein offener, korrigierbarer philosophischer Entwurf, keine wissenschaftlich bewiesene Gesamttheorie.
 
@@ -25,6 +25,8 @@ Wer seine Meinung angesichts besserer Gründe verändert, scheitert nicht an sei
 ## These 03: Jeder Mensch besitzt Würde – auch im Widerspruch.
 
 Argumente können falsch, Handlungen schädlich und Entscheidungen unverantwortlich sein. Das rechtfertigt keine Entwertung einer Person. Kritik muss hart sein dürfen, ohne entmenschlichend zu werden.
+
+Kein Maß an Hass entbindet uns von der Fürsorge. Sie gilt auch dem Menschen, der hasst. Wer durch sein Handeln in Gefahr gerät, hat Vorrang beim Schutz.
 
 ## These 04: Freiheit braucht die Freiheit des anderen.
 

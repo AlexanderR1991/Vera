@@ -75,9 +75,19 @@ if (board) {
  const empty = document.querySelector("[data-board-empty]");
  const actions = document.querySelector("[data-board-actions]");
  const more = actions.querySelector("[data-board-more]");
- const pageSize = 8;
+ const pageSize = 9;
  const format = new Intl.NumberFormat(document.documentElement.lang);
  const clean = value => value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replaceAll("ß", "ss");
+ const now = Date.now();
+ const pinned = [...board.querySelectorAll("[data-board-trend-rank]")]
+  .filter(card => Number(card.dataset.boardTrendExpires) > now)
+  .sort((a, b) => Number(a.dataset.boardTrendRank) - Number(b.dataset.boardTrendRank));
+ for (const card of pinned) {
+  const badge = card.querySelector("[data-board-trend]");
+  badge.hidden = false;
+  card.setAttribute("aria-describedby", `${card.getAttribute("aria-describedby")} ${badge.id}`);
+ }
+ if (pinned.length) board.prepend(...pinned);
  const entries = [...board.querySelectorAll("[data-board-card]")].map(card => ({
   card,
   topic: card.dataset.boardTopic,

@@ -21,11 +21,13 @@ const messages = {
   objected: t("Nach der Veränderung lehnt mindestens eine Person den Vorschlag ab.", "After the change, at least one person rejects the proposal."),
   abstained: t("Nach der Veränderung enthält sich mindestens eine Person zum Vorschlag.", "After the change, at least one person abstains on the proposal."),
   agreed: t("Nach der Veränderung tragen beide den Vorschlag nach eigener erneuter Antwort mit.", "After the change, both have personally confirmed their support for the proposal."),
-  stopped: t("Der Durchlauf ist beendet. Texte, Meldungen und Antworten sind gelöscht.", "This round has ended. Its text, reports and responses have been cleared."),
+  waiting: t("Möchtet ihr beide mitmachen?", "Would you both like to take part?"),
+  paused: t("Das Gespräch pausiert.", "The conversation is paused."),
+  uncertain: t("Was möchtest du gerade?", "What would you like right now?"),
+  oneReady: t("hat für sich Ja gesagt. Die gemeinsame Runde wartet.", "has said yes for themselves. The shared round is waiting."),
   noOwner: t("Die Bedingung hat noch niemand als eigene bestätigt.", "Nobody has yet claimed this condition as their own."),
   owner: t("Diese Bedingung benennt Person", "This condition was named by person"),
   askRemaining: t("Wenn du möchtest, sag dem Gegenüber: Welcher Einwand bliebe für dich selbst bei erfüllter Bedingung bestehen?", "If you wish, tell the other person which concern you would still have even if this condition were met."),
-  askListening: t("Was bräuchtest du, um das Gespräch überhaupt führen zu wollen? Ihr könnt hier auch aufhören.", "What would you need before you would want to have this conversation? You may also stop here."),
   reported: t("Bisher gemeldet von", "Reported so far by"),
   copied: t("Frageauftrag kopiert.", "Prompt copied."),
   selectCopy: t("Markiere den Auftrag und kopiere ihn selbst.", "Select the prompt and copy it yourself.")
@@ -36,82 +38,108 @@ const messages = {
     <p class="section-kicker">{t("Vermittlung · Lokaler Prototyp", "Mediation · Local prototype")}</p>
     <h2 id="mediation-title">{t("Was würde sich für dich ändern?", "What would change for you?")}</h2>
     <p>{t("Nehmt einen konkreten Vorschlag, zu dem ihr unterschiedlich denkt. Eine Person benennt etwas, das für sie einen Unterschied machen könnte. Dann antwortet jede für sich. Ihr teilt einen Bildschirm und könnt die Einträge beider Personen sehen.", "Choose a specific proposal you disagree about. One of you names something that could make a difference to them. Then each answers for themselves. You share a screen and can see both people’s entries.")}</p>
+    <p>{t("Ihr prüft einen Vorschlag, über den ihr euch uneinig seid. Beide sehen die Antworten auf demselben Gerät. Antwortet jemand nicht mehr, wähle „Pause machen“. Mit „Gespräch beenden“ kann jede Person sofort alle Eingaben dieser Runde löschen. Du brauchst keinen Grund.", "You will consider a proposal you disagree about. Both people can see the answers on the shared device. If someone stops replying, choose “Pause”. Either person can choose “End conversation” to stop immediately and clear all entries in this round. You do not need to give a reason.")}</p>
     <p>{t("Macht freiwillig mit. Ihr könnt jederzeit aufhören. Bei Drohungen oder Zwang hat Schutz Vorrang. Die Eingaben gelten für diese geöffnete Seite. Liegt die Änderung Tage in der Zukunft, könnt ihr den Vorschlag und die Bedingung für euch auf Papier festhalten. Beim Verlassen der Seite werden die Eingaben verworfen.", "Take part voluntarily and stop whenever you wish. If there are threats or coercion, prioritise safety. Entries belong to this open page. If the change will take days, you can keep the proposal and condition on paper yourselves. Leaving the page clears the entries.")}</p>
     <ForumSectionLink lang={lang} place="schnittmengen" section="vermittlung" />
     <p><a class="subtle-link" href="#rueckblick">{t("Prüffragen aus dem freiwilligen Rückblick ansehen", "View questions from the optional reflection")} ↓</a></p>
-    <details class="guide">
-      <summary>{t("Mit der eigenen KI vorbereiten", "Prepare with your own AI")}</summary>
-      <p>{t("Beide können denselben Auftrag separat in der eigenen KI verwenden. Teile nur, was du über dich erzählen möchtest. Übernimm hier die Worte, die du selbst vertreten willst.", "Each of you can use this prompt separately with your own AI. Share only what you choose to say about yourself. Bring back the wording you personally stand by.")}</p>
-      <blockquote data-prompt>{aiPrompt}</blockquote>
-      <button type="button" data-copy-prompt hidden>{t("Auftrag kopieren", "Copy prompt")}</button>
-      <span role="status" data-copy-status></span>
-    </details>
-    <noscript><p>{t("Für die interaktive Runde braucht ihr JavaScript. Mündlich könnt ihr euch jetzt fragen: Was würdest du heute mittragen? Was würde sich unter deiner Bedingung ändern? Sobald sie eingetreten ist, fragt beide erneut.", "The interactive round requires JavaScript. You can also ask each other aloud what you would support today and what would change under your condition. If it actually happens, ask each other again.")}</p></noscript>
+    <noscript><p>{t("Ohne JavaScript könnt ihr die Übung mündlich machen. Beginnt erst, wenn beide Ja sagen. Nehmt einen Vorschlag und fragt euch, was sich für jede Person ändern müsste. Sagt jemand Stopp, endet die Runde. Ist ein Wunsch unklar, fragt einmal, was die Person gerade möchte. Ohne Antwort ruht das Gespräch. Nach einer Pause entscheiden beide neu.", "Without JavaScript, you can do this exercise aloud. Begin when both say yes. Pick a proposal and ask what would need to change for each of you. If either person says stop, the round ends. If a wish is unclear, ask once what the person wants. With no reply, let the conversation rest. After a pause, each person chooses again.")}</p></noscript>
     <div data-session hidden>
-      <label>{t("Wer hat das Gerät gerade in der Hand?", "Who is holding the device?")}
-        <select data-actor autocomplete="off"><option value="">{t("Person wählen", "Choose a person")}</option><option>A</option><option>B</option></select>
-      </label>
-      <fieldset>
-        <legend>{t("1 · Worum geht es?", "1 · What is at issue?")}</legend>
-        <label>{t("Diesen Vorschlag prüfen wir beide", "The proposal we are both considering")}
-          <textarea rows="2" data-frame="proposal" autocomplete="off" placeholder={t("Zum Beispiel: Wir testen einen autofreien Marktplatz für drei Monate.", "For example: We will trial a car-free market square for three months.")}></textarea>
+      <div class="actions boundaries">
+        <button type="button" data-pause>{t("Pause machen", "Pause")}</button>
+        <button type="button" data-stop>{t("Gespräch beenden", "End conversation")}</button>
+      </div>
+      <button type="button" data-uncertain>{t("Ich bin unsicher", "I’m unsure")}</button>
+      <div data-gate>
+        <h3 tabindex="-1" data-gate-title>{messages.waiting}</h3>
+        <p data-rest-note hidden>{t("Die Runde ruht. Du brauchst nichts zu antworten. Wenn ihr später weitermachen möchtet, entscheidet jede Person noch einmal für sich.", "The round is on hold. You can leave it here without answering. If you want to continue later, each person chooses again for themselves.")}</p>
+        <details data-opt-in open>
+          <summary>{t("Selbst entscheiden", "Choose for yourself")}</summary>
+          <p>{t("Wählt je einen Buchstaben und gebt das Gerät weiter. Jede Person drückt ihre eigene Taste. Ohne zwei Ja wartet die Runde.", "Choose one letter each and pass the device. Each person presses their own button. The round waits until both people say yes.")}</p>
+          <p role="status" tabindex="-1" data-ready-status></p>
+          <div class="actions">
+            {["A", "B"].map(person => <button type="button" data-ready={person}>{t("Ich bin " + person + " und möchte mitmachen", "I am " + person + " and want to take part")}</button>)}
+          </div>
+        </details>
+      </div>
+      <div data-workspace hidden>
+        <p>{t("Nehmt einen konkreten Vorschlag, zu dem ihr unterschiedlich denkt. Eine Person benennt etwas, das für sie einen Unterschied machen könnte. Dann antwortet jede für sich.", "Choose a specific proposal you disagree about. One of you names something that could make a difference to them. Then each answers for themselves.")}</p>
+        <p>{t("Bei Drohungen oder Zwang hat Schutz Vorrang. Die Eingaben gelten für diese geöffnete Seite. Liegt die Änderung Tage in der Zukunft, könnt ihr den Vorschlag und die Bedingung für euch auf Papier festhalten. Beim Verlassen der Seite werden die Eingaben verworfen.", "If there are threats or coercion, prioritise safety. Entries belong to this open page. If the change will take days, you can keep the proposal and condition on paper yourselves. Leaving the page clears the entries.")}</p>
+        <details class="guide">
+          <summary>{t("Mit der eigenen KI vorbereiten", "Prepare with your own AI")}</summary>
+          <p>{t("Beide können denselben Auftrag separat in der eigenen KI verwenden. Teile nur, was du über dich erzählen möchtest. Übernimm hier die Worte, die du selbst vertreten willst.", "Each of you can use this prompt separately with your own AI. Share only what you choose to say about yourself. Bring back the wording you personally stand by.")}</p>
+          <blockquote data-prompt>{aiPrompt}</blockquote>
+          <button type="button" data-copy-prompt hidden>{t("Auftrag kopieren", "Copy prompt")}</button>
+          <span role="status" data-copy-status></span>
+        </details>
+        <label>{t("Wer hat das Gerät gerade in der Hand?", "Who is holding the device?")}
+          <select data-actor autocomplete="off"><option value="">{t("Person wählen", "Choose a person")}</option><option>A</option><option>B</option></select>
         </label>
-        <label>{t("Welche konkrete Veränderung möchtest du prüfen?", "What specific change would you like to consider?")}
-          <textarea rows="2" data-frame="condition" autocomplete="off" placeholder={t("Zum Beispiel: Vor dem Beschluss können die Anwohner den Plan mitändern.", "For example: Residents can help change the plan before the decision.")}></textarea>
-        </label>
-        <p class="note">{t("Ändert ihr den Vorschlag, die Bedingung oder deren Urheberschaft, beginnen alle Antworten für diese Fassung neu.", "Changing the proposal, condition or its author clears all responses for the new version.")}</p>
-        <button type="button" data-claim>{t("Ich benenne diese Bedingung für mich", "I name this condition for myself")}</button>
-        <p data-owner class="note"></p>
-        <a class="subtle-link" href="#sprachprobe">{t("Ihr seht keine weitere Bedingung? Hier geht es ohne sie zur Sprachprobe.", "No other condition comes to mind? Try the conversation exercise without one.")} ↓</a>
-      </fieldset>
-      <fieldset>
-        <legend>{t("2 · Wie antworte ich?", "2 · What is my answer?")}</legend>
-        <p>{t("Gebt das Gerät weiter und wählt oben eure Person. Antwortet auf denselben Vorschlag einmal für heute und einmal für die angenommene Situation.", "Pass the device and choose your role above. Answer about the same proposal twice, once for today and once for the imagined situation.")}</p>
-        <label>{t("Über welche Situation spreche ich?", "Which situation am I answering about?")}
-          <select data-phase autocomplete="off">
-            <option value="today">{t("Heute", "Today")}</option>
-            <option value="ifChanged">{t("Angenommen, die Bedingung wäre erfüllt", "If the condition were met")}</option>
-            <option value="afterChange" disabled>{t("Nach der tatsächlichen Veränderung", "After the actual change")}</option>
-          </select>
-        </label>
-        <div class="answer-pair">
-          {[
-            ["listen", t("Bin ich bereit, dem Gegenüber zuzuhören?", "Am I willing to listen to the other person?")],
-            ["support", t("Trage ich diesen Vorschlag mit?", "Do I support this proposal?")]
-          ].map(([kind, question]) => <label>{question}
-            <select data-answer={kind} autocomplete="off">{answers.map(([value, label]) => <option value={value}>{label}</option>)}</select>
-          </label>)}
-        </div>
-        <p class="note" data-follow-up></p>
-        <table>
-          <caption>{t("Antworten in der gewählten Situation", "Responses in the selected situation")}</caption>
-          <thead><tr><th scope="col">{t("Frage", "Question")}</th><th scope="col">A</th><th scope="col">B</th></tr></thead>
-          <tbody>
+        <fieldset>
+          <legend>{t("1 · Worum geht es?", "1 · What is at issue?")}</legend>
+          <label>{t("Diesen Vorschlag prüfen wir beide", "The proposal we are both considering")}
+            <textarea rows="2" data-frame="proposal" autocomplete="off" placeholder={t("Zum Beispiel: Wir testen einen autofreien Marktplatz für drei Monate.", "For example: We will trial a car-free market square for three months.")}></textarea>
+          </label>
+          <label>{t("Welche konkrete Veränderung möchtest du prüfen?", "What specific change would you like to consider?")}
+            <textarea rows="2" data-frame="condition" autocomplete="off" placeholder={t("Zum Beispiel: Vor dem Beschluss können die Anwohner den Plan mitändern.", "For example: Residents can help change the plan before the decision.")}></textarea>
+          </label>
+          <p class="note">{t("Ändert ihr den Vorschlag, die Bedingung oder deren Urheberschaft, beginnen alle Antworten für diese Fassung neu.", "Changing the proposal, condition or its author clears all responses for the new version.")}</p>
+          <button type="button" data-claim>{t("Ich benenne diese Bedingung für mich", "I name this condition for myself")}</button>
+          <p data-owner class="note"></p>
+          <a class="subtle-link" href="#sprachprobe">{t("Ihr seht keine weitere Bedingung? Hier geht es ohne sie zur Sprachprobe.", "No other condition comes to mind? Try the conversation exercise without one.")} ↓</a>
+        </fieldset>
+        <fieldset>
+          <legend>{t("2 · Wie antworte ich?", "2 · What is my answer?")}</legend>
+          <p>{t("Gebt das Gerät weiter und wählt oben eure Person. Antwortet auf denselben Vorschlag einmal für heute und einmal für die angenommene Situation.", "Pass the device and choose your role above. Answer about the same proposal twice, once for today and once for the imagined situation.")}</p>
+          <label>{t("Über welche Situation spreche ich?", "Which situation am I answering about?")}
+            <select data-phase autocomplete="off">
+              <option value="today">{t("Heute", "Today")}</option>
+              <option value="ifChanged">{t("Angenommen, die Bedingung wäre erfüllt", "If the condition were met")}</option>
+              <option value="afterChange" disabled>{t("Nach der tatsächlichen Veränderung", "After the actual change")}</option>
+            </select>
+          </label>
+          <div class="answer-pair">
             {[
-              ["listen", t("Zuhören", "Listen")],
-              ["support", t("Vorschlag mittragen", "Support the proposal")]
-            ].map(([kind, label]) => <tr>
-              <th scope="row">{label}</th>
-              {["A", "B"].map(person => <td data-record={kind} data-person={person}>{answers[0][1]}</td>)}
-            </tr>)}
-          </tbody>
-        </table>
-      </fieldset>
-      <details class="guide">
-        <summary>{t("3 · Die Bedingung ist tatsächlich eingetreten", "3 · The condition has actually been met")}</summary>
-        <p>{t("Beschreibt einander, woran ihr die Veränderung erkennt. Jede Person meldet sie für sich. Sobald beide sie gemeldet haben, antwortet ihr erneut. Frühere Antworten bleiben in ihrer damaligen Situation.", "Tell each other what you observed. Each person reports the change for themselves. Once both have reported it, you can answer again. Earlier responses remain tied to the earlier situation.")}</p>
-        <div class="actions"><button type="button" data-observe>{t("Ich habe die Veränderung beobachtet", "I observed the change")}</button>
-          <button type="button" data-unobserve>{t("Meldung zurückziehen oder widersprechen", "Withdraw or challenge the report")}</button></div>
-        <p class="note" data-observers></p>
-      </details>
-      <p class="outcome" role="status" data-result></p>
-      <button type="button" data-stop>{t("Durchlauf beenden und alle Eingaben löschen", "End the round and clear all entries")}</button>
+              ["listen", t("Bin ich bereit, dem Gegenüber zuzuhören?", "Am I willing to listen to the other person?")],
+              ["support", t("Trage ich diesen Vorschlag mit?", "Do I support this proposal?")]
+            ].map(([kind, question]) => <label>{question}
+              <select data-answer={kind} autocomplete="off">{answers.map(([value, label]) => <option value={value}>{label}</option>)}</select>
+            </label>)}
+          </div>
+          <p class="note" data-follow-up></p>
+          <table>
+            <caption>{t("Antworten in der gewählten Situation", "Responses in the selected situation")}</caption>
+            <thead><tr><th scope="col">{t("Frage", "Question")}</th><th scope="col">A</th><th scope="col">B</th></tr></thead>
+            <tbody>
+              {[
+                ["listen", t("Zuhören", "Listen")],
+                ["support", t("Vorschlag mittragen", "Support the proposal")]
+              ].map(([kind, label]) => <tr>
+                <th scope="row">{label}</th>
+                {["A", "B"].map(person => <td data-record={kind} data-person={person}>{answers[0][1]}</td>)}
+              </tr>)}
+            </tbody>
+          </table>
+        </fieldset>
+        <details class="guide">
+          <summary>{t("3 · Die Bedingung ist tatsächlich eingetreten", "3 · The condition has actually been met")}</summary>
+          <p>{t("Beschreibt einander, woran ihr die Veränderung erkennt. Jede Person meldet sie für sich. Sobald beide sie gemeldet haben, antwortet ihr erneut. Frühere Antworten bleiben in ihrer damaligen Situation.", "Tell each other what you observed. Each person reports the change for themselves. Once both have reported it, you can answer again. Earlier responses remain tied to the earlier situation.")}</p>
+          <div class="actions"><button type="button" data-observe>{t("Ich habe die Veränderung beobachtet", "I observed the change")}</button>
+            <button type="button" data-unobserve>{t("Meldung zurückziehen oder widersprechen", "Withdraw or challenge the report")}</button></div>
+          <p class="note" data-observers></p>
+        </details>
+        <p class="outcome" role="status" data-result></p>
+        <p><a class="subtle-link" href="#rueckblick">{t("Freiwilliger Rückblick auf die Übung", "Optional reflection on the exercise")} →</a></p>
+      </div>
     </div>
     <div data-ended hidden>
-      <p tabindex="-1" role="status">{messages.stopped}</p>
-      <button type="button" data-restart>{t("Neue Runde beginnen", "Start a new round")}</button>
+      <h3 tabindex="-1">{t("Das Gespräch ist beendet.", "The conversation has ended.")}</h3>
+      <p>{t("Alle Eingaben dieser Runde sind gelöscht. Der Streit darf offenbleiben.", "All entries from this round have been cleared. The disagreement can stay open.")}</p>
+      <details>
+        <summary>{t("Für mich allein nachdenken", "Reflect on my own")}</summary>
+        <p>{t("Was hättest du dir gewünscht, dass die andere Person versteht? Du kannst den Gedanken für dich behalten oder auf einem eigenen Blatt notieren.", "What do you wish the other person had understood? You can keep the thought to yourself or write it on your own piece of paper.")}</p>
+      </details>
     </div>
-    <p><a class="subtle-link" href="#rueckblick">{t("Freiwilliger Rückblick auf die Übung", "Optional reflection on the exercise")} →</a></p>
+    <p><a class="subtle-link" href={"https://github.com/AlexanderR1991/Vera/blob/main/docs/vermittlung.md#" + t("wer-darf-das-gespräch-beenden", "who-can-end-the-conversation")}>{t("Die Regel für Pause und Stopp nachlesen", "Read the rule for pausing and stopping")} ↗</a></p>
   </div>
 </section>
 <script>
@@ -133,6 +161,14 @@ const messages = {
   textarea { resize: vertical; }
   button { cursor: pointer; }
   button:disabled, select:disabled { opacity: .55; cursor: default; }
+  .boundaries { position: sticky; top: 65px; z-index: 2; padding: .4rem 0; margin-bottom: .5rem; background: var(--ink); }
+  [data-session] :is(button, select, textarea, summary, [tabindex]) { scroll-margin-block-start: 9rem; }
+  [data-gate], [data-ended] { margin: 1rem 0; }
+  [data-gate] h3, [data-ended] h3 { line-height: 1.3; }
+  .mediation :is(button, select, textarea, summary, [tabindex]):focus-visible { outline: 2px solid var(--gold-bright); outline-offset: 3px; }
+  [data-ready-status]:empty { margin: 0; }
+  @media(max-width: 960px) { .boundaries { top: 0; } }
+  @media(max-height: 450px) { .boundaries { position: static; } }
   .answer-pair { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .8rem; align-items: end; }
   table { width: 100%; border-collapse: collapse; font-size: .92rem; }
   caption { padding: .8rem 0 .35rem; text-align: left; font-weight: 600; }
