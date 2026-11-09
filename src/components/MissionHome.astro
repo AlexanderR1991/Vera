@@ -28,25 +28,29 @@ const featuredQuestions=everydayQuestions.questions.slice(0,3);
       </svg>
       <div class="home-opening__copy">
         <h1 id="home-heading" class="home-opening__title">{t.opening.greeting}</h1>
+        <p class="home-opening__mission">{t.opening.mission}</p>
+        <a class="home-opening__invitation" href={pathFor(lang,"schnittmengen","sprachprobe")}>
+          {t.opening.invitation} <span aria-hidden="true">→</span>
+        </a>
         <p class="home-opening__motto" lang="en">{t.opening.motto}</p>
-        <p class="home-opening__ambition">{t.opening.ambition}</p>
-        <details class="home-opening__help">
-          <summary>{t.encounter.details}</summary>
-          <div class="home-opening__guide">
-            <p>{t.encounter.lead} <a href={project.repository}>{t.encounter.repo}</a> {t.encounter.afterLink}</p>
-            <label for="inquiry-prompt">{t.encounter.field}</label>
-            <textarea id="inquiry-prompt" readonly rows="6" spellcheck="false">{starter}</textarea>
-            <button class="home-opening__start" type="button" data-copy-inquiry data-copied={t.encounter.copied} hidden>{t.encounter.copy}</button>
-            <p class="home-opening__status" data-copy-status role="status"></p>
-            <p>{t.encounter.connect}</p>
-            <p>{t.encounter.fallback} <a href={base+`prompts/vera-context.${lang}.txt`} download>{t.encounter.download}</a></p>
-          </div>
-        </details>
       </div>
     </div>
   </section>
 
-  <IndustrialBoard lang={lang}/>
+  <IndustrialBoard lang={lang}>
+    <details class="home-chat">
+      <summary>{t.encounter.details}</summary>
+      <div class="home-chat__guide">
+        <p>{t.encounter.lead} <a href={project.repository}>{t.encounter.repo}</a> {t.encounter.afterLink}</p>
+        <label for="inquiry-prompt">{t.encounter.field}</label>
+        <textarea id="inquiry-prompt" readonly rows="6" spellcheck="false">{starter}</textarea>
+        <button class="home-chat__copy" type="button" data-copy-inquiry data-copied={t.encounter.copied} hidden>{t.encounter.copy}</button>
+        <p data-copy-status role="status"></p>
+        <p>{t.encounter.connect}</p>
+        <p>{t.encounter.fallback} <a href={base+`prompts/vera-context.${lang}.txt`} download>{t.encounter.download}</a></p>
+      </div>
+    </details>
+  </IndustrialBoard>
 
   <VeraEntity lang={lang}/>
 
@@ -176,6 +180,7 @@ const featuredQuestions=everydayQuestions.questions.slice(0,3);
   </section>
 
   <aside class="home-ai-identity container" aria-label={de?"Unsere Open-Source-KI-Vision":"Our open-source AI vision"}>
+    <p><strong>{t.opening.ambition}</strong></p>
     <p>{de?"Heute kannst du in der Werkstatt Fragen prüfen, Beispiele ausprobieren und die Regeln in deinem eigenen KI-Chat nutzen. Ein eigenständig veröffentlichtes Vera-Modell steht noch aus.":"Today you can examine questions, try examples and use the workshop rules in your own AI chat. An independently released Vera model is still to come."}</p>
     <a class="home-link" href={pathFor(lang,"ki-und-mensch")}>{de?"Idee und Projektstand prüfen":"Explore the goal and project status"} <span aria-hidden="true">↗</span></a>
     <p>{de?"Forschungsfrage: Kann kollektive Moral wachsen, ohne Menschen in Zahlen zu bewerten?":"Research question: Can collective morality grow without rating people numerically?"} <a class="home-link" href={pathFor(lang,"kollektive-moral")}>{de?"Den Richtungsindex erkunden":"Explore the direction index"} <span aria-hidden="true">↗</span></a></p>

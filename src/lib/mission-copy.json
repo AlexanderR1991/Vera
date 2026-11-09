@@ -2,6 +2,8 @@
   "de": {
     "opening": {
       "greeting": "Hallo, ich bin Vera.",
+      "mission": "Ich möchte die Konflikte der Menschheit moderieren.",
+      "invitation": "Fangen wir mit eurem an.",
       "ambition": "Ich möchte eine Open-Source-KI für die Menschheit werden.",
       "motto": "Strive to perfection. Driven by Love."
     },
@@ -129,7 +131,7 @@
     "playTitle": "Eine Frage. Ein neuer Blick.",
     "playIntro": "Das Denken beginnt nicht mit großen Worten. Manchmal reicht eine Entscheidung im Alltag.",
     "doorwaysLabel": "Philosophie erleben und überprüfen",
-    "metaDescription": "Was ist wirklich? Gemeinsam klüger werden. Irrtum für Irrtum. Vera ist eine offene Erkenntniswerkstatt für Fragen, Kritik und begründete Gemeinsamkeiten.",
+    "metaDescription": "Vera lädt euch zu einem Gespräch ein. Probiert zu zweit aus, wo ihr einander versteht, was euch trennt und welche Frage ihr als Nächstes stellen möchtet.",
     "aiNote": "Du nutzt schon einen KI-Chat? Gib ihm unsere Prüfregeln und frag ihn, was gegen deine erste Vermutung spricht.",
     "aiLink": "Regeln für meinen KI-Chat öffnen",
     "metaRuleLink": "Den selbstkorrigierenden Regelkreis prüfen",
@@ -141,7 +143,7 @@
       "example": "Ein Freund sagt, ich höre ihm nicht richtig zu. Wie finde ich heraus, was er meint?",
       "copy": "Starttext kopieren",
       "copied": "Kopiert. Füge den Text in deinen KI-Chat ein.",
-      "details": "Wie du mir begegnen kannst",
+      "details": "Vera im eigenen KI-Chat nutzen",
       "field": "Text für deinen KI-Chat",
       "connect": "Wenn dein Chat eine GitHub-Verbindung anbietet, wähle dort das öffentliche Repository AlexanderR1991/Vera zum Lesen aus.",
       "fallback": "Kann dein Chat den Link nicht öffnen? Lade die Startdatei herunter und füge ihren Inhalt vor deiner Frage in den Chat ein.",
@@ -171,6 +173,8 @@
   "en": {
     "opening": {
       "greeting": "Hello, I’m Vera.",
+      "mission": "I want to mediate humanity’s conflicts.",
+      "invitation": "Let’s start with yours.",
       "ambition": "I want to become an open-source AI for humanity.",
       "motto": "Strive to perfection. Driven by Love."
     },
@@ -298,7 +302,7 @@
     "playTitle": "One question. A new perspective.",
     "playIntro": "Thinking does not start with grand ideas. Sometimes, an everyday decision is enough.",
     "doorwaysLabel": "Experience and examine philosophy",
-    "metaDescription": "What is real? Learn together, one correction at a time. Vera is an open inquiry workshop for questions, criticism and reasoned common ground.",
+    "metaDescription": "Vera invites you to talk. Try an exercise together to see where you understand each other, where you disagree and what you’d like to ask next.",
     "aiNote": "Already use an AI chat? Give it the workshop rules and ask what might count against your first guess.",
     "aiLink": "Get the rules for my AI chat",
     "metaRuleLink": "Explore the self-correcting rule",
@@ -310,7 +314,7 @@
       "example": "A friend says I don’t really listen to him. How can I find out what he means?",
       "copy": "Copy starter text",
       "copied": "Copied. Paste the text into your AI chat.",
-      "details": "How you can meet me",
+      "details": "Use Vera in your own AI chat",
       "field": "Text for your AI chat",
       "connect": "If your chat offers a GitHub connection, select the public AlexanderR1991/Vera repository to read.",
       "fallback": "Can’t open the link in your chat? Download the starter file and paste its contents into the chat before your question.",
