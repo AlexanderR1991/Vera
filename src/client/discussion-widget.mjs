@@ -93,7 +93,7 @@ export function mountDiscussionWidget(widget) {
 
   if (sections.length === 0) return;
 
-  if ("IntersectionObserver" in window) {
+  if (typeof IntersectionObserver === "function") {
     const observer = new IntersectionObserver(entries => {
       for (const entry of entries) {
         for (const section of byRegion.get(entry.target)) {
@@ -109,6 +109,6 @@ export function mountDiscussionWidget(widget) {
   window.addEventListener("scroll", scheduleUpdate, { passive: true });
   window.addEventListener("resize", scheduleUpdate);
   window.addEventListener("hashchange", scheduleUpdate);
-  if ("ResizeObserver" in window) new ResizeObserver(scheduleUpdate).observe(main);
+  if (typeof ResizeObserver === "function") new ResizeObserver(scheduleUpdate).observe(main);
   scheduleUpdate();
 }
