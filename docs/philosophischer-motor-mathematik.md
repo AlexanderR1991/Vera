@@ -8,6 +8,8 @@
 
 **Geltung:** Dieses Dokument vereinheitlicht die bereits veröffentlichten Forschungsbausteine [M-01](mathematischer-pruefstand.md), [M-02](mathematik-des-dazwischen.md), [META-01](selbstkorrektur.md), die [Reifegrade R0–R4](erkenntnisreife.md), den [Grundfragen-Kreislauf](grundfragen-kreislauf.md), die [Schnittmengen](schnittmengen.md) und die [KI-Charta](ki-charta.md). Der Richtungsindex und die Fachagenten sind **zusätzliche, noch offene Vorschläge** aus [PR #73](https://github.com/AlexanderR1991/Vera/pull/73) und [PR #81](https://github.com/AlexanderR1991/Vera/pull/81); sie werden durch M-03 **nicht** automatisch angenommen oder aktiviert.
 
+Die [Mathematik der inneren Wege](mathematik-innerer-wege.md) ergänzt den Entwurf um fünf fiktive Fälle zu Sagbarkeit, Gesprächsreihenfolge, Fürsorge, verlorenen Zukünften und widersprüchlichen Annahmen.
+
 **Erkenntniskategorien für alle nachfolgenden Abschnitte:**
 - **Definition / Satz mit Beweis:** formale Folgerung aus ausdrücklich gewählten Voraussetzungen.
 - **Modellannahme:** festgelegte Skala, Typisierung, Verfahren oder Governance-Entscheidung.

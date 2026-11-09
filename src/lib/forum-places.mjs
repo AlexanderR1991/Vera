@@ -98,7 +98,8 @@ const sections = {
   ],
   "philosophischer-motor": [
     section("motor-ebenen", "Die sechs Ebenen des Motors", "The engine’s six layers"),
-    section("rechenbeispiele", "Fiktive Rechenbeispiele", "Fictional worked examples")
+    section("rechenbeispiele", "Fiktive Rechenbeispiele", "Fictional worked examples"),
+    section("innere-wege", "Die Mathematik der inneren Wege", "The mathematics of the paths we see")
   ],
   "die-bruecke": [
     section("experiment", "Verstehen und Zustimmung", "Understanding and agreement"),

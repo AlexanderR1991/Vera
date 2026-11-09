@@ -597,6 +597,15 @@
       "source_commit": null,
       "review_url": null
     },
+    "mathematik-innerer-wege.md": {
+      "status": "shared_bilingual",
+      "priority": "support",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
     "mathematischer-pruefstand.md": {
       "status": "unassessed",
       "priority": "support",

@@ -26,6 +26,23 @@ const safeguards={
  declared_pass:t("Schutzlage nur im fiktiven Beispiel als erfüllt gesetzt","Safeguards assumed to pass in this fictional example"),
  not_assessed:t("Nicht geprüft","Not assessed")
 };
+const innerPaths = [
+ {title:t("Stille hat einen Horizont","Silence has a horizon"),
+  case:t("Im Meeting kostet dich ein Einwand im Modell 8. Unter vier Augen kostet der erste Schritt 2 und der von dir freigegebene Beitrag 4. Bei einer Grenze von 5 ist der Umweg gangbar, wenn die größte Hürde zählt (4). Wenn sich die Hürden addieren, kostet er 6.","In the model, raising an objection in the meeting costs 8. A private conversation costs 2 and a contribution you approve costs 4. With a limit of 5, the route is feasible if the largest hurdle counts (4). If hurdles add up, it costs 6."),
+  question:t("Könnten hinter fünf geäußerten Einwänden fünf Zweifelnde stehen oder fünfzig? Welche Wege fehlen im Protokoll?","Could five voiced objections come from five dissenters or from fifty? Which routes are missing from the minutes?")},
+ {title:t("Atmosphäre hat eine Reihenfolge","Atmosphere depends on order"),
+  case:t("„Ich sehe, dass dich das getroffen hat.“ „Ich möchte erklären, wie ich es gemeint habe.“ Im Rechenbeispiel ergibt diese Reihenfolge 0,32 für die Bereitschaft zum Weiterreden. Umgekehrt ergibt sie 0,52. Die Werte folgen aus den erfundenen Regeln.","“I see that hurt you.” “I'd like to explain what I meant.” In the worked example, this order gives 0.32 for willingness to continue. Reversing it gives 0.52. The numbers follow from the invented rules."),
+  question:t("Dreh die Sätze um. Was könnte „Ist schon gut“ danach jeweils bedeuten? Lass die Person selbst antworten.","Swap the lines. What could “It's okay” mean after each version? Let the person answer for themselves.")},
+ {title:t("Fürsorge nach einem Nein","Care after a no"),
+  case:t("Du möchtest drei Dinge tun. Nach einem Nein zu einer sachfremden Bitte bleiben zwei möglich. Der Anteil ist 2 von 3. Gewünschte Assistenz, die verfügbar bleibt, zählt mit.","You want to do three things. After declining an unrelated request, two remain possible. The share is 2 out of 3. Any support you want and can still access counts."),
+  question:t("Welches Ziel fällt weg, und hängt der Zugang zu ihm vom Wohlwollen einer einzigen Person ab?","Which goal becomes unreachable, and does access depend on a single person's goodwill?")},
+ {title:t("Heimweh nach einer Zukunft","Homesick for a future"),
+  case:t("Ein Leben am Meer fühlt sich weniger erreichbar an. Bei einer angenommenen Bedeutung von 4 und einem Rückgang von 0,75 auf 0,25 ergibt das Modell 4 × 0,50 = 2.","A life by the sea feels less attainable. With a stipulated value of 4 and a drop from 0.75 to 0.25, the model gives 4 × 0.50 = 2."),
+  question:t("Könnte eine andere Zukunft denselben Wunsch erfüllen?","Could a different future fulfil the same wish?")},
+ {title:t("Ein Einwand schließt den Kreis","An objection closes the loop"),
+  case:t("Ehrlichkeit und Respekt verlangen hier dasselbe. Respekt und Schweigen auch. Schweigen und Ehrlichkeit verlangen Gegensätzliches. Der Kreis hat das Produkt (+1) × (+1) × (−1) = −1. Unter diesen Annahmen lässt sich keine widerspruchsfreie Wahl treffen.","Honesty and respect call for the same choice here. So do respect and silence. Silence and honesty call for opposites. The product around the loop is (+1) × (+1) × (−1) = −1. The assumptions admit no consistent choice."),
+  question:t("Meint „Respekt“ an beiden Stellen dasselbe? Welche Verbindung müsste genauer formuliert werden?","Does “respect” mean the same thing in both places? Which link needs a clearer definition?")}
+];
 ---
 <Layout lang={lang} slug="philosophischer-motor" pageTitle={t("Mathematik des philosophischen Motors","Mathematics of the Philosophical Engine")} description={t("M-03: Der mathematische Forschungsentwurf von WIRKLICH mit nachvollziehbaren fiktiven Rechenbeispielen.","M-03: The mathematical research design behind WIRKLICH, with auditable fictional worked examples.")}>
  <article class="motor-page">
@@ -37,6 +54,7 @@ const safeguards={
     <p class="motor-status">{t("FORMALER FORSCHUNGSENTWURF · NICHT EMPIRISCH VALIDIERT · KEIN LIVE-KI-SYSTEM","FORMAL RESEARCH DRAFT · NOT EMPIRICALLY VALIDATED · NO LIVE AI SYSTEM")}</p>
     <div class="button-row">
      <a class="button button--gold" href="#rechenbeispiele">{t("Fiktive Rechenbeispiele ansehen","Explore fictional examples")} ↓</a>
+     <a class="button button--ghost" href="#innere-wege">{t("Fünf Gedankenexperimente","Five thought experiments")} ↓</a>
      <a class="button button--ghost" href={pathFor(lang,"die-bruecke")}>{t("M-02: Die Brücke","M-02: The Bridge")} ↗</a>
     </div>
    </div>
@@ -117,6 +135,23 @@ const safeguards={
    </div>
   </section>
 
+  <section class="section motor-section" id="innere-wege" aria-labelledby="innere-wege-title">
+   <div class="container">
+    <p class="section-kicker">{t("FÜNF GEDANKENEXPERIMENTE","FIVE THOUGHT EXPERIMENTS")}</p>
+    <h2 id="innere-wege-title">{t("Die Mathematik der inneren Wege","The mathematics of the paths we see")}</h2>
+    <ForumSectionLink lang={lang} place="philosophischer-motor" section="innere-wege" />
+    <p class="motor-caption">{t("Dieselbe Situation kann für zwei Menschen ganz verschiedene Wege offenlassen. Wähle einen erfundenen Fall und prüfe, welche Annahme sein Ergebnis ändern würde.","The same situation can leave two people with very different options. Pick a fictional case and examine which assumption would change its result.")}</p>
+    <div class="motor-paths">
+     {innerPaths.map(path=><details>
+      <summary>{path.title}</summary>
+      <p>{path.case}</p>
+      <p><strong>{path.question}</strong></p>
+     </details>)}
+    </div>
+    <p><a href={project.repository+"/blob/main/docs/mathematik-innerer-wege.md"+(en?"#english":"")}>{t("Formeln, Grenzen und Einsatz im Streit","Formulas, limits and use in a disagreement")} ↗</a></p>
+   </div>
+  </section>
+
   <section class="section motor-section">
    <div class="container">
     <p class="section-kicker">{t("NICHTVERRECHENBARE REGELN","NON-COMPENSATORY SAFEGUARDS")}</p>
@@ -187,6 +222,10 @@ const safeguards={
 .motor-interpret{padding-top:.9rem;margin:.5rem 0 0}
 .motor-no-publish{font-size:.8rem;opacity:.7}
 .motor-empty{padding:1.2rem;border:1px dashed var(--line);border-radius:8px}
+.motor-paths{max-width:48rem;margin:1.5rem 0}
+.motor-paths details{border-top:1px solid var(--line)}
+.motor-paths details:last-child{border-bottom:1px solid var(--line)}
+.motor-paths summary{padding:.85rem 0;cursor:pointer;font-weight:600}
 .motor-principles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
 .motor-principles>div{padding:1.2rem;border-top:2px solid var(--motor-accent)}
 .motor-principles strong{font-size:2rem;color:var(--motor-accent)}
