@@ -234,17 +234,23 @@ for(const lang of ["de","en"]){
  const heading=home.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/)?.[1];
  const {greeting,ambition,motto}=missionCopy[lang].opening;
  const opening=home.match(/<section class="home-opening"[^>]*>([\s\S]*?)<\/section>\s*<section class="industrial-board"/)?.[1]??"";
- if(heading?.trim()!==greeting||!home.includes(ambition)||!opening.includes(motto))errors.push("Missing Vera introduction for "+lang);
- const starter=opening.match(/<textarea\b[^>]*id="inquiry-prompt"[^>]*>([\s\S]*?)<\/textarea>/)?.[1]??"";
- if(!opening.includes("data-copy-inquiry")||!opening.includes('href="'+project.repository+'"')||
-    !opening.includes('href="/Vera/prompts/vera-context.'+lang+'.txt"')||
+ const intro=opening.split('<details class="home-opening__help">')[0];
+ const introOrder=["<circle ",greeting,motto,ambition].map(text=>intro.indexOf(text));
+ if(heading?.trim()!==greeting||introOrder.some((position,index)=>position<0||(index>0&&position<=introOrder[index-1])))
+   errors.push("Missing or out-of-order Vera introduction for "+lang);
+ const guide=opening.match(/<details class="home-opening__help">([\s\S]*?)<\/details>/)?.[1]??"";
+ const starter=guide.match(/<textarea\b[^>]*id="inquiry-prompt"[^>]*>([\s\S]*?)<\/textarea>/)?.[1]??"";
+ if(!guide.includes(`<summary>${missionCopy[lang].encounter.details}</summary>`)||
+    !guide.includes("data-copy-inquiry")||!guide.includes('href="'+project.repository+'"')||
+    !guide.includes('href="/Vera/prompts/vera-context.'+lang+'.txt"')||
     !starter.includes(project.repository)||!starter.includes("docs/vera.md")||!starter.includes(missionCopy[lang].encounter.example))
    errors.push("Missing chat starter, repository or text-file fallback in opening for "+lang);
  if(!opening.includes('stroke-dasharray="346 14"')||!opening.includes('transform="rotate(-38 100 100)"'))
    errors.push("Missing Vera circle or adjacent pinboard for "+lang);
  const board=home.match(/<section class="industrial-board"[^>]*>([\s\S]*?)<\/section>/)?.[1]??"";
- if(!board.includes("data-board-card")||/<(?:img|svg)\b/.test(board))
-   errors.push("Missing text-only pinboard for "+lang);
+ if(!board.includes("data-board-card")||!board.includes('data-board-art="graph"')||
+    !board.includes('data-board-art="custodiae"')||!board.includes(`href="/Vera/${lang}/militaer-und-verantwortung/"`))
+   errors.push("Missing mathematical or military pinboard illustration for "+lang);
  const insight=lang==="de"?"erkenntnis":"insight";
  if(!board.includes('href="#'+insight+'"')||!home.includes('id="'+insight+'"')||
     !home.includes('data-knowledge-result')||!home.includes('data-knowledge-controls hidden'))
