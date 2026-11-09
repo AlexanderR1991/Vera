@@ -12,7 +12,7 @@ const t=(de,english)=>en?english:de;
 const local=value=>value[lang];
 const feedback=new URLSearchParams({
   template:"rueckmeldung.yml",
-  stelle:absoluteFor(lang,"kollektive-moral","was-ist-gut")
+  stelle:absoluteFor(lang,"kollektive-moral")+"#was-ist-gut"
 });
 ---
 <Layout lang={lang} slug="kollektive-moral" description={local(model.disclaimer)}>
