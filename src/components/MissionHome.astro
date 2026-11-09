@@ -59,6 +59,9 @@ const paperWind = Array.from({length:72}, (_, index) => {
           <a class="home-link" href={paperUrl} hreflang="de">
             <span>{t.opening.paper}&nbsp;<span aria-hidden="true">↗</span></span>
           </a>
+          <a class="home-link" href={pathFor(lang,"repository")}>
+            {ui[lang].titles.repository} <span aria-hidden="true">↗</span>
+          </a>
         </div>
       </div>
     </div>

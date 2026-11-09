@@ -184,6 +184,7 @@ const groups = {
     ["mitwirken", "Was würde dir den ersten Beitrag erleichtern?", "What would make it easier for you to contribute?"],
     ["projektstatus", "Welcher veröffentlichte Fortschritt wäre für dich überprüfbar?", "What published progress could you verify for yourself?"],
     ["projektobservatorium", "Welche Entwicklung im Projekt möchtest du nachvollziehen können?", "Which development in the project would you like to be able to trace?"],
+    ["repository", "Bei welchem Ordner ist dir unklar, welche Rolle er im Projekt hat?", "Which folder’s role in the project would you like to understand better?"],
     ["fragen-und-ki-prompt", "Bei welcher Frage hat dir die KI geholfen, und was fehlte noch?", "Which question did the AI help with, and what was still missing?"],
     ["ki-und-mensch", "Welche Aufgabe würdest du einer KI anvertrauen, und wer sollte sie beaufsichtigen?", "What would you entrust to AI, and who should oversee it?"],
     ["entitaet", "Welche Veränderung sollte der Entwurf dokumentieren können?", "What change should the prototype be able to document?"],

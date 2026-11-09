@@ -259,6 +259,13 @@
         "source_commit": null,
         "review_url": null
       },
+      "repository": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewed_at": null,
+        "source_commit": null,
+        "review_url": null
+      },
       "schnittmengen": {
         "status": "draft",
         "reviewer": null,

@@ -13,6 +13,7 @@ const {lang="de",slug="index",root=false}=Astro.props;
 const t=ui[lang];
 const de=lang==="de";
 const home=slug==="index";
+const paper=home||Astro.props.theme==="light";
 const discussionPlace=getForumPlaceForSource(slug);
 const primaryLabel=de?"Hauptnavigation":"Main navigation";
 const primaryLinks = [
@@ -22,7 +23,7 @@ const primaryLinks = [
 ];
 const footerGroups = [
   { title: t.explore, routes: ["werkstatt", "erkenntnisnavigator", "atlas", "baum-des-wissens", "esoterik-katalog", "bibliothek", "aussagen", "forum", "pruefstand", "die-bruecke", "philosophischer-motor", "grundfragen", "forschungsstrom"] },
-  { title: t.project, routes: ["mission", "kollektive-intelligenz", "regelkreis", "entitaet", "methode", "ki-und-mensch", "kollektive-moral", "projektstatus", "projektobservatorium", "mitwirken"] }
+  { title: t.project, routes: ["mission", "kollektive-intelligenz", "regelkreis", "entitaet", "methode", "ki-und-mensch", "kollektive-moral", "projektstatus", "projektobservatorium", "repository", "mitwirken"] }
 ];
 const description = Astro.props.description ?? t.description;
 const title = Astro.props.pageTitle ?? (root ? "Choose your language / Sprache wählen" : t.titles[slug]);
@@ -38,8 +39,8 @@ const jsRevision=assetRevision("site.js");
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<meta name="theme-color" content={home?"#f7f3e9":"#0b0d0e"} />
-<meta name="color-scheme" content={home?"light":"dark"} />
+<meta name="theme-color" content={paper?"#f7f3e9":"#0b0d0e"} />
+<meta name="color-scheme" content={paper?"light":"dark"} />
 <meta name="description" content={description} />
 <meta property="og:type" content="website" />
 <meta property="og:title" content={title+" · "+t.name} />
@@ -56,7 +57,7 @@ const jsRevision=assetRevision("site.js");
 <title>{title} · {t.name}</title>
 <script is:inline src={base+"assets/site.js?v="+jsRevision} defer></script>
 </head>
-<body class:list={["vera-site",home?"vera-site--home":"vera-site--inner"]}>
+<body class:list={["vera-site",home?"vera-site--home":"vera-site--inner",paper&&"vera-site--paper"]}>
 <a class="skip-link" href="#inhalt">{lang==="de"?"Zum Inhalt springen":"Skip to content"}</a>
 <header class="vera-header">
   <div class="container vera-header__inner">
