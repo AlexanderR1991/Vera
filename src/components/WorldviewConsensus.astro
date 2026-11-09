@@ -1,0 +1,110 @@
+---
+import { worldviewSources } from "../lib/worldview-sources.mjs";
+import { pathFor } from "../lib/paths.mjs";
+import WorldviewReadings from "./WorldviewReadings.astro";
+
+const { lang = "de" } = Astro.props;
+const t = (de: string, en: string) => lang === "de" ? de : en;
+const people = ["Lou", "Kim", "Sam"];
+const options = [
+  { id: "soup", text: t("Am Samstag bieten wir im Nachbarschaftshaus allen Gästen kostenlos Gemüsesuppe an.", "On Saturday we will offer free vegetable soup to every guest at the community centre.") },
+  { id: "prayer", text: t("Wir drei sprechen vor der Ausgabe gemeinsam ein Dankgebet.", "Before serving the soup, the three of us will say a prayer of thanks together.") },
+];
+const choices = [
+  ["pending", t("Noch offen", "No answer yet")],
+  ["agree", t("Ich trage das mit", "I agree to this")],
+  ["object", t("Ich widerspreche", "I object")],
+  ["pass", t("Ich enthalte mich", "I abstain")],
+];
+const messages = {
+  shared: t("Im Beispiel tragen alle drei diesen Vorschlag mit.", "In this example, all three agree to this proposal."),
+  object: t("Im Beispiel gibt es einen Einwand gegen diesen Vorschlag.", "In this example, someone objects to this proposal."),
+  open: t("Eine gemeinsame Zusage bleibt offen.", "Agreement on this proposal remains open."),
+};
+const kinds = {
+  text: t("Textstelle", "Passage"),
+  application: t("Übertragung auf diesen Fall", "Application to this case"),
+  practice: t("Bericht aus der Praxis", "Account of a practice"),
+};
+---
+<section class="section worldview" id="weltanschauungen" aria-labelledby="meal-title">
+  <div class="narrow">
+    <p class="section-kicker">{t("Weltanschauungen am selben Tisch", "Worldviews around one table")}</p>
+    <h2 id="meal-title">{t("Eine Suppe, verschiedene Gründe", "One soup, different reasons")}</h2>
+    <p>{t("Lou möchte Gott danken. Kim erinnert sich daran, wie es war, hungrig nach Hause zu kommen. Sam freut sich darauf, mit den Nachbarn zu kochen. Was können die drei gemeinsam tun?", "Lou wants to give thanks to God. Kim remembers what it felt like to come home hungry. Sam looks forward to cooking with the neighbours. What can the three do together?")}</p>
+    <p>{t("Spiele die Antworten dieser drei erfundenen Menschen durch. Jede Antwort gilt für genau einen Vorschlag. Im Gespräch darf jede Person sich enthalten, ihre Antwort ändern oder ganz aussteigen. Die Auswahl bleibt auf diesem Gerät.", "Try out responses for these three fictional people. Each answer applies to one proposal. In an actual conversation, each person can abstain, change their answer or leave. Your choices stay on this device.")}</p>
+    <p><b>K = A<sub>Lou</sub> ∩ A<sub>Kim</sub> ∩ A<sub>Sam</sub></b><br/>{t("Jedes A enthält die Vorschläge, zu denen diese Person Ja sagt. K enthält die Vorschläge, die in allen drei Mengen liegen.", "Each A contains the proposals that person agrees to. K contains the proposals that appear in all three sets.")}</p>
+    <div data-worldview-exercise data-people={JSON.stringify(people)} data-messages={JSON.stringify(messages)}>
+      {options.map(option => <fieldset data-proposal={option.id} disabled>
+        <legend>{option.text}</legend>
+        <div class="responses">
+          {people.map(person => <label>{person}
+            <select data-person={person} autocomplete="off">
+              {choices.map(([value, label]) => <option value={value}>{label}</option>)}
+            </select>
+          </label>)}
+        </div>
+        <p class="outcome" role="status" data-outcome>{messages.open}</p>
+      </fieldset>)}
+    </div>
+    <p>{t("Geben alle drei der Suppe ein Ja und Kim dem gemeinsamen Gebet ein Nein, gehört die Suppe zu ihrer Schnittmenge. Ob das Geld für die Zutaten reicht, müssen sie noch klären. Ob jemand die Mahlzeit als Dank an Gott versteht, bleibt eine persönliche Frage.", "If all three agree to serve soup and Kim objects to joining in prayer, the soup is common ground. They still need to check whether they can afford the ingredients. Whether the meal expresses thanks to God remains a personal question.")}</p>
+    <noscript><p>{t("Auf Papier geht es genauso. Schreibt für jede Person und jeden Vorschlag eine Antwort auf. Ein Vorschlag gehört zur Schnittmenge, sobald ihn alle drei ausdrücklich mittragen.", "You can try this on paper. Write down one response per person for each proposal. A proposal enters the intersection when all three explicitly agree to it.")}</p></noscript>
+    <details class="sources">
+      <summary>{t("Warum Menschen Essen teilen · Quellen zum Nachlesen", "Why people share food · explore the sources")}</summary>
+      <p>{t("Hier stehen ausgewählte Texte und ein Praxisbericht nebeneinander. Eine Lesart kann eine Frage fürs Gespräch anregen. Wie jemand heute darüber denkt, kann nur die Person selbst sagen.", "These selected texts and an account of practice offer questions to bring to a conversation. Only the people taking part can say how they understand the matter today.")}</p>
+      <WorldviewReadings lang={lang} />
+      <ul>
+        {worldviewSources.map(source => <li>
+          <strong>{source.label[lang]}</strong> <span class="kind">· {kinds[source.kind]}</span>
+          <p>{source.reading[lang]}</p>
+          <a href={source.url}>{source.reference} ↗</a>
+        </li>)}
+      </ul>
+      <p><strong>{t("Ein Einwand aus demselben Kanon", "A challenge from the same canon")}</strong></p>
+      <p>{t("Gilt in jedem Fall eine Pflicht, Essen zu geben? Der zweite Thessalonicherbrief spricht Mitglieder dieser Gemeinde an, die sich weigern zu arbeiten. Sie werden aufgefordert, für ihren Lebensunterhalt zu arbeiten. Wer arbeitsunfähig ist, fällt aus dem beschriebenen Fall heraus.", "Is there a duty to give food in every circumstance? The second letter to the Thessalonians addresses members of this community who refuse to work and urges them to work for their own food. People who are unable to work fall outside the case it describes.")} <a href="https://bible.usccb.org/bible/2thessalonians/3">{t("2 Thessalonicher 3,10–13", "2 Thessalonians 3:10–13")} ↗</a></p>
+    </details>
+    <p><a class="subtle-link" href={pathFor(lang, "schnittmengen", "sprachprobe")}>{t("Unseren eigenen Fall zu zweit prüfen", "Try your own case together")} →</a></p>
+  </div>
+</section>
+
+<script>
+  import { evaluateWorldviewOptions } from "../lib/worldview-consensus.mjs";
+
+  for (const exercise of document.querySelectorAll<HTMLElement>("[data-worldview-exercise]")) {
+    const people: string[] = JSON.parse(exercise.dataset.people!);
+    const messages: Record<string, string> = JSON.parse(exercise.dataset.messages!);
+    for (const fieldset of exercise.querySelectorAll<HTMLFieldSetElement>("fieldset[data-proposal]")) {
+      const outcome = fieldset.querySelector<HTMLElement>("[data-outcome]")!;
+      const choices = Array.from(fieldset.querySelectorAll<HTMLSelectElement>("select[data-person]"));
+      const update = () => {
+        const responses = Object.fromEntries(choices.map(choice => [choice.dataset.person!, choice.value]));
+        const [result] = evaluateWorldviewOptions(people, [{ id: fieldset.dataset.proposal!, responses }]);
+        outcome.textContent = messages[result.state];
+      };
+      fieldset.addEventListener("change", update);
+      update();
+      fieldset.disabled = false;
+    }
+  }
+</script>
+
+<style>
+  .worldview { scroll-margin-top: 6rem; }
+  h2 { margin: 1rem 0; font: 400 clamp(2.3rem, 5vw, 4rem)/1.12 var(--serif); }
+  p { line-height: 1.7; }
+  fieldset { min-width: 0; margin: 1.5rem 0; padding: 1rem; border: 1px solid var(--line); }
+  legend { max-width: 100%; padding: 0 .35rem; font: 400 clamp(1.1rem, 3vw, 1.45rem)/1.45 var(--serif); }
+  .responses { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .75rem; }
+  label { display: grid; gap: .35rem; }
+  select { min-width: 0; min-height: 2.75rem; width: 100%; font: inherit; background: var(--ink); color: var(--text); border: 1px solid var(--gold); padding: .45rem; }
+  .outcome { margin: .9rem 0 0; }
+  .sources { margin-top: 1.5rem; padding-block: 1rem; border-block: 1px solid var(--line); }
+  summary { cursor: pointer; font-weight: 600; }
+  select:focus-visible, summary:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+  .sources ul { list-style: none; padding: 0; }
+  .sources li + li { border-top: 1px solid var(--line); margin-top: .9rem; padding-top: .9rem; }
+  .sources li p { margin: .3rem 0; }
+  .sources a { text-decoration: underline; text-underline-offset: .2em; overflow-wrap: anywhere; }
+  .kind { color: var(--text-soft); font-size: .85em; }
+  @media (max-width: 600px) { .responses { grid-template-columns: 1fr; } }
+</style>

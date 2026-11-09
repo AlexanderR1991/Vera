@@ -1,0 +1,56 @@
+---
+import {groupSourceReadings, readingQuestions, worldviewSources} from "../lib/worldview-sources.mjs";
+
+const {lang = "de"} = Astro.props;
+const t = (de: string, en: string) => lang === "de" ? de : en;
+const labels = {
+  text: t("im Text belegt", "direct textual support"),
+  application: t("auf den Fall übertragen", "editorial application"),
+  practice: t("in der Praxis dokumentiert", "documented practice"),
+  contrary: t("ausdrücklich widersprochen", "explicitly rejected in the text"),
+  open: t("offen", "open")
+};
+---
+<div class="readings">
+  <h3>{t("Was tragen die Quellen gemeinsam?", "What do the sources have in common?")}</h3>
+  <p>{t(`Wir prüfen drei Aussagen an denselben ${worldviewSources.length} Quellen. Jede Zahl gibt an, auf wie viele Quellen dieser Befund zutrifft. „Offen“ heißt, dass die ausgewählte Passage in unserer Lesart keine Antwort gibt.`, `We examine three claims using the same ${worldviewSources.length} sources. Each count shows how many sources yield that finding. “Open” means that in our reading the selected passage leaves the question unanswered.`)}</p>
+  <table>
+    <thead><tr><th scope="col">{t("Aussage", "Claim")}</th><th scope="col">{t("Befund je Quelle", "Findings by source")}</th></tr></thead>
+    <tbody>
+      {readingQuestions.map(question => {
+        const groups = Object.entries(groupSourceReadings(question.id)).filter(([, members]) => members.length);
+        return <tr>
+          <th scope="row">{question[lang]}</th>
+          <td>
+            <ul class="counts">{groups.map(([kind, members]) => <li><strong>{members.length}</strong> {labels[kind]}</li>)}</ul>
+            <details>
+              <summary>{t("Zuordnung ansehen", "See which sources")}</summary>
+              <dl>{groups.map(([kind, members]) => <div>
+                <dt>{labels[kind]}</dt>
+                <dd>{members.map(source => source.label[lang]).join(" · ")}</dd>
+              </div>)}</dl>
+            </details>
+          </td>
+        </tr>;
+      })}
+    </tbody>
+  </table>
+  <p>{t("Wer um Gottes willen hilft, kann andere Gründe für dieselbe Hilfe gelten lassen. Darum bleibt die Frage nach der Notwendigkeit einer göttlichen Begründung in vielen Lesarten offen.", "Someone who gives for God’s sake can still recognise other reasons for giving. That leaves the question of whether care requires a divine justification open in many of these readings.")}</p>
+</div>
+
+<style>
+  .readings { margin-block: 2rem; }
+  h3 { margin-block-end: .5rem; font: 400 clamp(1.45rem, 3vw, 2rem)/1.25 var(--serif); }
+  p { line-height: 1.65; }
+  table { width: 100%; border-collapse: collapse; overflow-wrap: anywhere; hyphens: auto; }
+  th, td { text-align: start; vertical-align: top; padding: .8rem .35rem; border-bottom: 1px solid var(--line); }
+  thead th { color: var(--text-soft); font-weight: 500; }
+  tbody th { width: 42%; padding-inline-end: .75rem; }
+  .counts { margin: 0; padding: 0; list-style: none; }
+  details { margin-top: .4rem; }
+  summary { cursor: pointer; text-decoration: underline; text-underline-offset: .2em; }
+  summary:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+  dl { margin: .5rem 0 0; }
+  dt { font-weight: 600; }
+  dd { margin: 0 0 .5rem; line-height: 1.45; }
+</style>
