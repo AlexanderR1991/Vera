@@ -66,6 +66,14 @@ const description = t(
 
     <section aria-labelledby="modell-grenzen">
       <h2 id="modell-grenzen">{t("Was in der Karte fehlt", "What the map leaves out")}</h2>
+      <p class="model-thesis" id="these">{t(
+        "Mathematik bildet die Wahrheit ab, aber sie ist sie nicht.",
+        "Mathematics represents truth, but it is not truth itself."
+      )}</p>
+      <p>{t(
+        "Die Rechnungen 8 + 4 = 12 und 9 + 3 = 12 stimmen beide. In beiden Fällen kommst du nach zwölf Minuten an, obwohl du unterschiedlich lang auf den Aufzug wartest. Miss Wegzeit und Wartezeit getrennt, um zu prüfen, welche Annahmen zu deinem Weg passen.",
+        "The calculations 8 + 4 = 12 and 9 + 3 = 12 are both correct. In either case, you arrive in twelve minutes, with a different wait for the lift. Measure time spent travelling and time spent waiting separately to check which assumptions fit your journey."
+      )}</p>
       <p>{t(
         "Auch ein stufenloser Weg kann zu steil sein. Jemand, der ihn gehen oder fahren will, bemerkt womöglich eine Hürde, die beim Zeichnen der Karte niemand bedacht hat. Die Frage bestimmt, was wir erfassen. Die Erfahrung vor Ort zeigt, wann wir noch etwas ergänzen müssen.",
         "A step-free route can still be too steep. Someone trying to use it might spot a barrier nobody considered when drawing the map. The question determines what we record. Experience on the ground shows us when we need to add something."
@@ -104,7 +112,8 @@ const description = t(
   h1 { font-size: clamp(1.8rem, 4.6vw, 3.55rem); line-height: 1.08; letter-spacing: -.035em; margin-block: .2em .4em; }
   h2 { font-size: clamp(1.5rem, 3.8vw, 2.15rem); line-height: 1.15; margin-bottom: .7rem; }
   p { max-width: 68ch; }
-  .model-lead { color: var(--text); font: clamp(1.125rem, 2.35vw, 1.4rem)/1.5 var(--serif); }
+  .model-lead, .model-thesis { color: var(--text); font: clamp(1.125rem, 2.35vw, 1.4rem)/1.5 var(--serif); }
+  .model-thesis { border-inline-start: 2px solid var(--gold); padding-inline-start: 1rem; }
   .world-model > section { border-top: 1px solid var(--line); margin-top: 2rem; padding-top: 1.4rem; }
   table { width: min(100%, 36rem); border-collapse: collapse; margin-block: 1.1rem; }
   caption { text-align: start; font-size: .9rem; margin-block-end: .35rem; }
