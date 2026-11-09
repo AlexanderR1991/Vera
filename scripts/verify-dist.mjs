@@ -238,6 +238,9 @@ for(const lang of ["de","en"]){
  const introOrder=["<circle ",greeting,mission,exerciseHref,invitation,motto].map(text=>opening.indexOf(text));
  if(heading?.trim()!==greeting||introOrder.some((position,index)=>position<0||(index>0&&position<=introOrder[index-1])))
    errors.push("Missing or out-of-order Vera introduction for "+lang);
+ const sampleHref=`href="/Vera/${lang}/forum/#alltag-entscheidung"`;
+ if(!opening.includes('id="first-question"')||!opening.includes('for="first-question"')||!opening.includes(sampleHref))
+   errors.push("Missing first question field or its script-free sample on home "+lang);
  const exercise=await readFile(join(out,lang,"schnittmengen","index.html"),"utf8");
  if(!exercise.includes('id="sprachprobe"')||!home.includes(ambition))
    errors.push("Missing conversation exercise or open-source ambition for "+lang);
