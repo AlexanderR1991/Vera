@@ -25,7 +25,7 @@ const paperWind = Array.from({length:44}, (_, index) => {
   const rise = 56 + index * 17 % 86;
   const duration = 9 + index * 11 % 9;
   const phase = (-duration * (index * .618034 % 1)).toFixed(2);
-  const opacity = (.12 + index % 4 * .018).toFixed(3);
+  const opacity = (.14 + index % 4 * .018).toFixed(3);
   return {edge,x,y,size,rise,duration,phase,opacity};
 });
 ---
