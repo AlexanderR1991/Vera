@@ -642,6 +642,15 @@
       "source_commit": null,
       "review_url": null
     },
+    "pinnwand-magazinprinzip.md": {
+      "status": "shared_bilingual",
+      "priority": "support",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
     "rechtliche-offene-punkte.md": {
       "status": "unassessed",
       "priority": "support",
