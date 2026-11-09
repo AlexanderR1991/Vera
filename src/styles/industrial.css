@@ -77,15 +77,16 @@ a:hover { color: var(--gold-bright); }
   color: var(--vera-signal);
 }
 @media (prefers-reduced-motion: no-preference) {
-  .home-opening__wind { display: block; }
+  .home-opening[data-wind-ready] .home-opening__wind { display: block; }
   .home-opening__particle {
     position: absolute;
     top: var(--y);
     left: var(--x);
     width: var(--size);
     height: var(--size);
-    animation: paper-rise 4.8s ease-out var(--phase) both;
+    animation: paper-rise var(--duration) linear var(--phase) infinite paused;
   }
+  .home-opening[data-wind-running] .home-opening__particle { animation-play-state: running; }
   .home-opening__particle::before,
   .home-opening__particle::after {
     content: "";
@@ -100,9 +101,29 @@ a:hover { color: var(--gold-bright); }
 }
 @keyframes paper-rise {
   0% { opacity: 0; transform: translate(0, 0); }
-  22%, 60% { opacity: .18; }
+  18%, 70% { opacity: var(--opacity); }
   100% { opacity: 0; transform: translate(clamp(10px, 2.8vw, 58px), calc(-1 * var(--rise))); }
 }
+
+.home-opening__wind-toggle {
+  position: absolute;
+  inset-inline-end: clamp(8px, 2vw, 32px);
+  inset-block-end: 8px;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 3px;
+  background: transparent;
+  color: var(--muted);
+}
+.home-opening__wind-toggle:hover { color: var(--text); }
+.home-opening__wind-toggle:focus-visible { outline-offset: -3px; }
+.home-opening__wind-toggle .wind-icon-play,
+.home-opening__wind-toggle[aria-pressed="true"] .wind-icon-pause { display: none; }
+.home-opening__wind-toggle[aria-pressed="true"] .wind-icon-play { display: block; }
 
 .home-opening__frame {
   display: flex;
