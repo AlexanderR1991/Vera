@@ -15,20 +15,26 @@ import protocol from "../../public/protocol/self-correction.v1.json";
 const {lang="de",root=false}=Astro.props;
 const t=copy[lang];
 const de=lang==="de";
-// Positions leave room for the mark and copy, including in the narrow hero.
-const paperWind=[
-  [6,46,5,54,-.3], [10,82,6,82,0], [17,59,4,68,-.8],
-  [23,30,5,56,-.4], [25,92,7,111,-.2], [33,71,4,73,-.9],
-  [38,49,5,88,-.5], [59,31,4,61,-.8], [66,87,6,101,-.1],
-  [73,62,5,77,-.7], [83,43,6,92,-.4], [85,88,5,72,-.6], [91,68,7,96,0]
-];
+// Stagger the loops so the field looks active on arrival and wraps continuously.
+const paperWind = Array.from({length:44}, (_, index) => {
+  const edge = index < 20;
+  const margin = index % 2 === 0 ? 2 : 82;
+  const x = edge ? margin + (index * 7 % 19) / 2 : 13 + index * 29 % 69;
+  const y = 21 + index * 31 % 76;
+  const size = 4 + index * 3 % 4;
+  const rise = 56 + index * 17 % 86;
+  const duration = 9 + index * 11 % 9;
+  const phase = (-duration * (index * .618034 % 1)).toFixed(2);
+  const opacity = (.12 + index % 4 * .018).toFixed(3);
+  return {edge,x,y,size,rise,duration,phase,opacity};
+});
 ---
 <Layout lang={lang} slug="index" root={root} pageTitle={t.opening.greeting} description={t.metaDescription}>
   <section class="home-opening" aria-labelledby="home-heading">
     <div class="home-opening__wind" aria-hidden="true">
-      {paperWind.map(([x,y,size,rise,phase])=>
-        <span class="home-opening__particle" data-wide={x>12&&x<81?"":undefined}
-          style={`--x:${x}%;--y:${y}%;--size:${size}px;--rise:${rise}px;--phase:${phase}s`}></span>
+      {paperWind.map(({edge,x,y,size,rise,duration,phase,opacity}) =>
+        <span class="home-opening__particle" data-wide={edge?undefined:""}
+          style={`--x:${x}%;--y:${y}%;--size:${size}px;--rise:${rise}px;--duration:${duration}s;--phase:${phase}s;--opacity:${opacity}`}></span>
       )}
     </div>
     <div class="container home-opening__frame">
@@ -45,6 +51,15 @@ const paperWind=[
         </a>
       </div>
     </div>
+    <button class="home-opening__wind-toggle" type="button" hidden aria-pressed="false"
+      aria-label={de?"Papierwind pausieren":"Pause paper breeze"}
+      title={de?"Papierwind":"Paper breeze"}>
+      <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor"
+        stroke-width="1.4" aria-hidden="true" focusable="false">
+        <path class="wind-icon-pause" d="M6 3.5v9m4-9v9" />
+        <path class="wind-icon-play" d="m6 3.5 6.5 4.5L6 12.5Z" />
+      </svg>
+    </button>
   </section>
 
   <IndustrialBoard lang={lang}/>
@@ -96,3 +111,35 @@ const paperWind=[
     <a class="home-link" href={pathFor(lang,"projektstatus")}>{t.statusLink} <span aria-hidden="true">↗</span></a>
   </aside>
 </Layout>
+
+<script>
+  const hero = document.querySelector(".home-opening");
+  const toggle = hero?.querySelector<HTMLButtonElement>(".home-opening__wind-toggle");
+
+  if (hero && toggle) {
+    const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let paused = false;
+    let inView = typeof IntersectionObserver === "undefined";
+
+    const updateWind = () => {
+      toggle.hidden = motion.matches;
+      hero.toggleAttribute("data-wind-running", !motion.matches && !paused && inView && !document.hidden);
+    };
+
+    toggle.addEventListener("click", () => {
+      paused = !paused;
+      toggle.setAttribute("aria-pressed", String(paused));
+      updateWind();
+    });
+    if (typeof IntersectionObserver !== "undefined") {
+      new IntersectionObserver(([entry]) => {
+        inView = entry.isIntersecting;
+        updateWind();
+      }).observe(hero);
+    }
+    motion.addEventListener?.("change", updateWind);
+    document.addEventListener("visibilitychange", updateWind);
+    hero.setAttribute("data-wind-ready", "");
+    updateWind();
+  }
+</script>
