@@ -57,6 +57,14 @@ const sections = {
       prompt: pair("Wie kannst du einem Kind erklären, warum es diesmal nicht selbst entscheiden kann?", "How could you explain to a child why they cannot make this decision themselves this time?")
     })
   ],
+  streiten: [
+    section("streit-beispiel", "Nach zehn in der WG", "After ten in a shared flat", {
+      prompt: pair("Wie würdest du die Bitte formulieren, wenn ihr euch unterschiedlich an den Abend erinnert?", "How would you make the request if you both remember the evening differently?")
+    }),
+    section("streit-offen", "Was darf offenbleiben?", "What can stay unresolved?", {
+      prompt: pair("Woran merkst du bei einem offenen Streit, dass dein Einwand angekommen ist?", "How can you tell your objection was heard when a disagreement is still open?")
+    })
+  ],
   "welt-mathematisch-abbilden": [
     section("modell-beispiel", "Zwei Wege zur Bibliothek", "Two routes to the library", {
       prompt: pair("Welche Beobachtung könnte ändern, welchen Weg dir die Karte zeigt?", "What observation could change which route the map shows you?")
@@ -157,6 +165,7 @@ const groups = {
     ["alltagsfragen", "Welche einfache Frage beschäftigt dich gerade?", "What simple question is on your mind right now?", pair("Alltagsfragen", "Everyday questions")],
     ["justiz", "Woran merkst du, dass ein Verfahren fair ist, auch wenn du verlierst?", "How can you tell a trial is fair even if you lose?", pair("Justiz", "Justice")],
     ["kindererziehung", "Wann sollte ein Kind über eine Entscheidung mitbestimmen?", "When should a child have a say in a decision?", pair("Kindererziehung", "Parenting")],
+    ["streiten", "Was hilft dir, einen Streit anzusprechen, der immer wiederkehrt?", "What helps you bring up a disagreement that keeps coming back?"],
     ["medizin", "Was müsste sich für Betroffene verbessern, damit eine Behandlung wirklich hilft?", "What would need to improve for patients for a treatment to help?", pair("Medizin", "Medicine")],
     ["ernaehrung-und-verantwortung", "Welche Rolle spielen Preis, Gewohnheit und Verantwortung bei dem, was wir essen?", "How do price, habit and responsibility shape what we eat?"],
     ["warum-liebe-wirkt", "Wann fühlt sich Fürsorge für die andere Person tatsächlich hilfreich an?", "When does care actually feel helpful to the other person?"],
