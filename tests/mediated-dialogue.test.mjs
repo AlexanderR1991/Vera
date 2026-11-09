@@ -2,8 +2,12 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { createDialogue, updateDialogue, assessDialogue } from "../src/lib/mediated-dialogue.mjs";
 
+function ready(state, actor) {
+  return updateDialogue(state, { type: "ready", actor });
+}
+
 function framed() {
-  return updateDialogue(createDialogue(), {
+  return updateDialogue(ready(ready(createDialogue(), "A"), "B"), {
     type: "frame", owner: "B", proposal: "Trial the car-free square for three months.",
     condition: "Residents can amend the plan before the council votes."
   });
@@ -98,17 +102,59 @@ test("changing the proposal, condition or speaker invalidates every answer", () 
 });
 
 test("a participant can stop at any point, clearing texts, observations and answers", () => {
-  for (const actor of ["A", "B"]) {
-    const stopped = updateDialogue(observe(framed(), "B"), { type: "stop", actor });
-    assert.deepEqual(stopped, { ...createDialogue(), stopped: true });
-    assert.equal(assessDialogue(stopped).status, "stopped");
-    assert.throws(() => answer(stopped, actor, "today", "support", "yes"));
-    assert.throws(() => updateDialogue(stopped, { type: "frame", proposal: "Reopen" }));
+  const active = observe(answer(framed(), "A", "today", "support", "yes"), "B");
+  for (const before of [createDialogue(), active, updateDialogue(active, { type: "pause" })]) {
+    for (const actor of [undefined, "A", "B"]) {
+      const stopped = updateDialogue(before, { type: "stop", actor });
+      assert.deepEqual(stopped, { ...createDialogue(), participation: "stopped" });
+      assert.equal(assessDialogue(stopped).status, "stopped");
+      for (const event of [{ type: "ready", actor: "A" }, { type: "pause" }, { type: "uncertain" },
+        { type: "frame", proposal: "Reopen" }, { type: "observe", actor: "B" }]) {
+        assert.throws(() => updateDialogue(stopped, event), /ended/);
+      }
+    }
+  }
+});
+
+test("starting or resuming joint work requires two fresh opt-ins, in either order", () => {
+  for (const [first, second] of [["A", "B"], ["B", "A"]]) {
+    for (const blocked of ["waiting", "paused", "uncertain"]) {
+      const state = blocked === "waiting" ? createDialogue()
+        : updateDialogue(framed(), { type: blocked === "paused" ? "pause" : "uncertain", actor: first });
+      assert.deepEqual(state.ready, { A: false, B: false });
+      const solo = ready(state, first);
+      assert.equal(ready(solo, first), solo);
+      for (const pending of [state, solo]) {
+        assert.equal(assessDialogue(pending).status, blocked);
+        for (const event of [{ type: "frame", proposal: "Changed" }, { type: "observe", actor: first },
+          { type: "unobserve", actor: second }, { type: "answer", phase: "today", kind: "support", value: "yes", actor: first }]) {
+          assert.throws(() => updateDialogue(pending, event), /Both people/);
+        }
+      }
+      const together = ready(solo, second);
+      assert.equal(assessDialogue(together).status, blocked === "waiting" ? "unframed" : "active");
+    }
+  }
+});
+
+test("pause hides past answers and an uncertain turn cannot override a requested pause", () => {
+  let state = answer(framed(), "A", "today", "support", "no");
+  for (const actor of ["A", "B"]) state = answer(state, actor, "ifChanged", "support", "yes");
+  assert.equal(assessDialogue(state).supportBridge, true);
+  const paused = ready(updateDialogue(state, { type: "pause" }), "A");
+  const stillPaused = updateDialogue(paused, { type: "uncertain" });
+  assert.deepEqual(assessDialogue(stillPaused), {
+    status: "paused", listeningBridge: false, supportBridge: false, afterChange: "unassessed"
+  });
+  assert.deepEqual(stillPaused.ready, { A: false, B: false });
+  assert.deepEqual(assessDialogue(ready(ready(stillPaused, "B"), "A")), assessDialogue(state));
+  for (const actor of [undefined, "assistant", "both"]) {
+    assert.throws(() => ready(stillPaused, actor));
   }
 });
 
 test("a blank frame, AI roles, unrecognised votes and cross-case paths cannot create assent", () => {
-  const start = createDialogue();
+  const start = ready(ready(createDialogue(), "A"), "B");
   assert.equal(assessDialogue(start).status, "unframed");
   assert.throws(() => observe(start, "B"));
   for (const field of [{ owner: null }, { proposal: " " }, { condition: "" }]) {

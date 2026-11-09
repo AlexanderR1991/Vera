@@ -5,6 +5,9 @@ import { assessDialogue, createDialogue, updateDialogue } from "../src/lib/media
 import { lessons, rememberedChecks, reviewDraft } from "../src/lib/mediation-lessons.mjs";
 
 const eventFields = {
+  ready: ["type", "actor"],
+  pause: ["type", "actor"],
+  uncertain: ["type", "actor"],
   frame: ["type", "proposal", "condition", "owner"],
   answer: ["type", "actor", "phase", "kind", "value"],
   observe: ["type", "actor"],
@@ -30,12 +33,14 @@ for (const lesson of lessons) {
       for (const line of lesson[lang]) assert.ok(typeof line === "string" && line.trim());
     }
     assert.ok(Array.isArray(lesson.events));
-    assert.equal(lesson.events[0]?.type, "frame", "Start with the invented proposal and condition.");
-    assert.ok(lesson.events[0].proposal.trim() && lesson.events[0].condition.trim());
-    assert.ok(["A", "B"].includes(lesson.events[0].owner));
+    assert.ok(lesson.events.length);
     for (const event of lesson.events) {
       assert.ok(Object.hasOwn(eventFields, event.type), "Use a supported model event.");
       for (const field of Object.keys(event)) assert.ok(eventFields[event.type].includes(field), field);
+      if (event.type === "frame") {
+        assert.ok(event.proposal.trim() && event.condition.trim());
+        assert.ok(["A", "B"].includes(event.owner));
+      }
     }
 
     // Replay the production transitions, including the two reports before a fresh ballot.

@@ -29,6 +29,18 @@ test("a concrete ordinary dispute produces a usable opening or a worked example 
   }
 });
 
+test("either person can find the exit rule from the homepage before starting mediation", () => {
+  for (const [lang, question, rule] of [
+    ["de", "Müssen sich beide einig sein, dass einer gehen darf?", "endet die gemeinsame Runde sofort"],
+    ["en", "Can I end the conversation even if we still disagree?", "the shared round ends immediately"]
+  ]) {
+    const result = firstAnswer(question, lang);
+    assert.equal(result.kind, "answer");
+    assert.ok(result.answer.includes(rule));
+    assert.equal(result.href, "/Vera/" + lang + "/schnittmengen/#vermittlung");
+  }
+});
+
 test("whole paraphrases yield the editorial source and self descriptions retain their evidence status", () => {
   assert.match(firstAnswer("Ich habe Angst, mich falsch zu entscheiden.").href, /alltag-entscheidung$/u);
   assert.match(firstAnswer("What if I make the wrong decision?", "en").href, /alltag-entscheidung$/u);

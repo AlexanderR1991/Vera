@@ -93,6 +93,8 @@ Any future public index needs a separate human-approved policy, context-specific
 
 ## 6. Exact scoped agreement, not a vote
 
+Whether A and B want to talk now is a separate question. Each chooses to take part. Either can end mediation even if they support the proposal. [Participation rule and worked example](../vermittlung.md#who-can-end-the-conversation)
+
 For a particular proposal version \(P^v\), distinguish
 
 \[

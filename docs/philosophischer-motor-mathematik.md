@@ -178,6 +178,8 @@ Für ein etwaiges späteres Public-Scoring müssen **gesondert und vorab** über
 
 ## 6. Konsens als genaue Vereinbarung, nicht als Mittelwert
 
+Ob A und B gerade miteinander reden wollen, ist eine eigene Frage. Beide geben ihre Teilnahme einzeln frei. Jede Person kann die Vermittlung beenden, auch wenn sie den Sachvorschlag unterstützt. [Regel und Gegenbeispiel aus der Gesprächsübung](vermittlung.md#wer-darf-das-gespräch-beenden)
+
 Für einen **exakten, versionierten** Vorschlag \(P^v\) definieren wir getrennt:
 
 \[

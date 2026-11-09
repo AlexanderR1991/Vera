@@ -53,6 +53,23 @@ const conversations = [
       answer: "Does fair mean paying the same amount, or the same share of your income? With €900 rent and one income twice the other, that works out to €450 each, or €600 and €300. Concrete amounts make it easier to see what each of you means.",
       followUp: "Which split could you accept if your incomes were the other way round?"
     }
+  },
+  {
+    path: "schnittmengen/#vermittlung",
+    de: {
+      question: "Darf ich die Vermittlung allein beenden?",
+      aliases: ["Müssen sich beide einig sein, dass einer gehen darf?", "Wann muss Vera aufhören zu vermitteln?", "Darf ich das Gespräch beenden, auch wenn der Streit noch offen ist?"],
+      cues: [/^vermittlung$/u, /^(?:beenden|abbrechen)$/u],
+      answer: "Wenn du aufhören möchtest, endet die gemeinsame Runde sofort. Du brauchst dafür weder eine Begründung noch die Erlaubnis der anderen Person. Der Streit darf offenbleiben.",
+      followUp: "Wenn du nur eine Pause möchtest, kannst du das auch wählen. Danach geht es erst weiter, wenn ihr beide wieder mitmachen wollt."
+    },
+    en: {
+      question: "Can I end mediation on my own?",
+      aliases: ["Do we both have to agree that one of us can leave?", "When should Vera stop mediating?", "Can I end the conversation even if we still disagree?"],
+      cues: [/^mediation$/u, /^(?:end|ending|stop|stopping)$/u],
+      answer: "If you want to stop, the shared round ends immediately. You don’t need to give a reason or get the other person’s permission. The disagreement can stay open.",
+      followUp: "You can also choose a break. After a break, the conversation only continues if you both choose to take part again."
+    }
   }
 ];
 

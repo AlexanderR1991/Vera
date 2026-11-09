@@ -4,6 +4,24 @@
 
 Welche andere Frage müsste sich klären, damit wir über diesen Vorschlag wieder reden könnten? Die [Gesprächsübung](schnittmengen.md) beginnt mit der Sicht des Gegenübers. Dieser Prototyp lädt A und B ein, **denselben Vorschlag unter einer selbst benannten Bedingung ein zweites Mal zu beurteilen**. Beide können die [zweisprachige Übung am selben Gerät](https://alexanderr1991.github.io/Vera/de/schnittmengen/#vermittlung) ausprobieren. Ein Dienst für getrennte Geräte und die Erprobung mit Konfliktparteien gehören zum Entwicklungsplan.
 
+## Wer darf das Gespräch beenden?
+
+**Jede Person darf allein Stopp sagen.** A möchte weiter über den Marktplatz reden. B möchte gehen. Der Streit kann für A noch wichtig und ungelöst sein. Trotzdem endet die gemeinsame Übung sofort. B braucht dafür weder eine Begründung noch ein Ja von A. Wer möchte, kann für sich überlegen, was offenbleibt.
+
+Eine Pause lässt eine andere Möglichkeit offen. Bei „So kann ich gerade nicht reden“ könnte B eine Pause brauchen oder anders zu Wort kommen wollen. B kann Unsicherheit angeben. Vera bietet dann einmal die Frage „Was möchtest du gerade?“ an. Die Antwort darf ausbleiben. Erst wenn beide von sich aus wieder teilnehmen wollen, geht es gemeinsam weiter. Antwortet jemand während der Übung nicht mehr, kann die Person am Gerät „Pause machen“ wählen. Vera erkennt Schweigen oder einen gesprochenen Stopp am gemeinsamen Gerät nicht von selbst.
+
+### Die Regel in einer Formel
+
+Für jede Person $i$ steht $J_i=1$ für ihr ausdrückliches Ja zur Teilnahme seit dem Beginn oder der letzten Unterbrechung. $J_i=0$ bedeutet nur, dass dieses Ja fehlt. $E=1$ bedeutet, dass die Sitzung beendet ist. Die gemeinsame Bearbeitung ist genau dann freigegeben, wenn
+
+$$
+G=(1-E)\,J_A\,J_B=1.
+$$
+
+Zu Beginn, bei Pause und bei gemeldeter Unsicherheit setzt Vera beide $J$ auf null. Danach kann jede Person nur ihr eigenes Ja geben. Schweigen verändert keinen Wert. Ein Stopp setzt $E$ dauerhaft auf eins und verwirft die gemeinsamen Eingaben. Damit bleibt der erste Faktor für diesen Durchlauf null, wie dringend A auch weitersprechen möchte. Nach einer Pause genügt ein einzelnes neues Ja ebenfalls nicht, weil der andere Faktor noch null ist. Am gemeinsamen Gerät bezeichnen A und B Rollen. Wer das Gerät bedient und ob jemand unter Druck steht, kann der Browser nicht prüfen.
+
+$G$ beantwortet ausschließlich die Frage, ob beide jetzt gemeinsam arbeiten wollen. B kann mitreden und den Vorschlag ablehnen. Umgekehrt kann B den Vorschlag unterstützen und das Gespräch beenden. Daraus ergibt sich weder eine Bewertung der Person noch ein Maß dafür, wie gut die Vermittlung war.
+
 ## Ein Fall mit zwei möglichen Ausgängen
 
 A möchte den Marktplatz drei Monate lang autofrei erproben. B erinnert sich daran, dass beim letzten Umbau der Plan bereits beschlossen war, als die Anwohner angehört wurden. B benennt eine Bedingung, die sich später prüfen lässt. „Noch vor dem Beschluss können wir Änderungen einreichen und bekommen eine begründete Antwort.“
@@ -66,13 +84,23 @@ Eine zuständige Person prüft unabhängig, ob sie den Fehler reproduzieren kann
 
 ## English summary
 
+### Who can end the conversation?
+
+**Either person can stop.** A still wants to talk about the market square. B wants to leave. The disagreement may still matter to A. The shared exercise ends immediately, without a reason or A’s permission. Anyone who wants to can think over what remains open on their own.
+
+A pause leaves room to return. “I can’t talk like this” might mean B needs a break or needs a different way to be heard. When someone chooses the unsure option, Vera offers one optional question. “What would you like right now?” They can leave it unanswered. The exercise waits for each person to choose to take part again. If someone stops replying during the exercise, the person holding the device can choose “Pause”. Vera cannot detect silence or a spoken stop on the shared device.
+
+In the [formula above](#die-regel-in-einer-formel), $J_A$ and $J_B$ each record an explicit yes to taking part since the start or most recent interruption. They begin at zero. Pausing or signalling uncertainty clears both. Silence makes no change. Ending the session permanently sets $E=1$ and clears its entries. The shared exercise opens only when $(1-E)J_AJ_B=1$. One fresh yes after a pause leaves the other factor at zero. After a stop the first factor stays zero for that session. On a shared device A and B identify turns. The browser cannot verify identity or freedom from pressure. Someone can support the proposal and still leave the conversation. Neither choice rates the person or measures the success of mediation.
+
+### What the two people explore
+
 Two people assess one proposal under present conditions and under a change named by either participant. They answer “Would I listen?” and “Would I support this proposal?” separately. A possible bridge requires an explicit initial **no** on that dimension and two hypothetical **yes** responses. Missing answers and abstentions stay visible. Both participants must separately report that the condition now holds to open a fresh round. They must then answer the proposal again before the exercise can record agreement on the proposal in the new situation. A connection across topics suggests a question to ask and carries no authority over anyone's answer.
 
 The first prototype uses one shared device. The roadmap moves to expiring two-device rooms with role-bound approvals, optional personal AI drafting, and a controlled pilot against the existing exercise. Stopping, stale approvals, replays, deletion and unauthorized access must be tested before expanding access. Evaluate whether each person recognizes their view in the other's account, including any remaining objection. Either person may end contact. Optional reflection uses a fixed menu of procedural questions and fictional tests independent of session data. People may optionally keep a deletable local set of unique check IDs for future conversations. Shared changes to rules or test cases require a human-reviewed Git diff. Private conflict histories and model training are outside the learning process described here.
 
 ## Eine neue Gegenprobe beitragen / Contributing a case
 
-Im [öffentlichen Fallkatalog](../public/research/mediation-cases.v1.json) reicht ein neuer Eintrag mit einer eigenen stabilen ID. Die drei Texte je Sprache enthalten Prüffrage, erfundene Ausgangslage und erwartetes Ergebnis. Unter `events` folgen der Vorschlag samt Bedingung und benennender Person, dann die einzelnen Antworten oder Meldungen. `expected` legt die vollständige erwartete Modellausgabe fest. Die [Katalogtests](../tests/mediation-lessons.test.mjs) spielen jeden Eintrag durch denselben Kern wie die Oberfläche. Neue Einträge erscheinen nach der redaktionellen Prüfung und Veröffentlichung in der Auswahl.
+Im [öffentlichen Fallkatalog](../public/research/mediation-cases.v1.json) reicht ein neuer Eintrag mit einer eigenen stabilen ID. Die drei Texte je Sprache enthalten Prüffrage, erfundene Ausgangslage und erwartetes Ergebnis. Unter `events` erklären A und B vor der gemeinsamen Bearbeitung einzeln, dass sie teilnehmen möchten. Dann folgen der Vorschlag samt Bedingung und benennender Person sowie die einzelnen Antworten oder Meldungen. `expected` legt die vollständige erwartete Modellausgabe fest. Die [Katalogtests](../tests/mediation-lessons.test.mjs) spielen jeden Eintrag durch denselben Kern wie die Oberfläche. Neue Einträge erscheinen nach der redaktionellen Prüfung und Veröffentlichung in der Auswahl.
 
 ```sh
 node --test tests/mediation-lessons.test.mjs tests/mediated-dialogue.test.mjs

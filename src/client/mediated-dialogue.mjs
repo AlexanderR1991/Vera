@@ -5,6 +5,13 @@ export function mountMediation(root) {
   const texts = JSON.parse(root.dataset.copy);
   const session = get("[data-session]");
   const ended = get("[data-ended]");
+  const workspace = get("[data-workspace]");
+  const gate = get("[data-gate]");
+  const gateTitle = get("[data-gate-title]");
+  const optIn = get("[data-opt-in]");
+  const readyStatus = get("[data-ready-status]");
+  const readyButtons = [...root.querySelectorAll("[data-ready]")];
+  const uncertain = get("[data-uncertain]");
   const actor = get("[data-actor]");
   const phase = get("[data-phase]");
   const frames = [...root.querySelectorAll("[data-frame]")];
@@ -20,6 +27,20 @@ export function mountMediation(root) {
   function render(revised = false) {
     const assessment = assessDialogue(state);
     const active = assessment.status === "active";
+    const joined = active || assessment.status === "unframed";
+    const resting = assessment.status === "paused" || assessment.status === "uncertain";
+    const stopped = assessment.status === "stopped";
+    session.hidden = stopped;
+    ended.hidden = !stopped;
+    workspace.hidden = !joined;
+    gate.hidden = joined || stopped;
+    uncertain.hidden = resting;
+    get("[data-rest-note]").hidden = !resting;
+    if (!gate.hidden) gateTitle.textContent = texts[assessment.status];
+    for (const button of readyButtons) button.disabled = state.ready[button.dataset.ready];
+    const firstReady = readyButtons.find(button => button.disabled);
+    const progress = !gate.hidden && firstReady ? firstReady.dataset.ready + " " + texts.oneReady : "";
+    if (readyStatus.textContent !== progress) readyStatus.textContent = progress;
     const hasReport = state.observations.A || state.observations.B;
     const responding = Boolean(actor.value) && active
       && (phase.value === "afterChange" ? state.observed : !hasReport);
@@ -38,8 +59,7 @@ export function mountMediation(root) {
     const round = state.responses[phase.value];
     const followUp = get("[data-follow-up]");
     followUp.textContent = "";
-    if (responding && round.listen[actor.value] === "no") followUp.textContent = texts.askListening;
-    else if (responding && phase.value === "ifChanged" && round.support[actor.value] === "no") followUp.textContent = texts.askRemaining;
+    if (responding && phase.value === "ifChanged" && round.listen[actor.value] !== "no" && round.support[actor.value] === "no") followUp.textContent = texts.askRemaining;
 
     for (const cell of records) {
       cell.textContent = labels[state.responses[phase.value][cell.dataset.record][cell.dataset.person]];
@@ -54,12 +74,30 @@ export function mountMediation(root) {
     if (revised) lines.push(texts.revised);
     if (assessment.listeningBridge) lines.push(texts.listening);
     if (assessment.supportBridge) lines.push(texts.support);
-    if (hasReport) lines.push(texts[assessment.afterChange]);
+    if (active && hasReport) lines.push(texts[assessment.afterChange]);
     if (!lines.length) lines.push(active ? texts.ready : texts.frame);
     const message = lines.join("\n");
     if (result.textContent !== message) result.textContent = message;
   }
 
+  for (const button of readyButtons) {
+    button.addEventListener("click", () => {
+      state = updateDialogue(state, { type: "ready", actor: button.dataset.ready });
+      actor.value = button.dataset.ready;
+      render();
+      if (workspace.hidden) readyStatus.focus();
+      else actor.focus();
+    });
+  }
+  function hold(type) {
+    state = updateDialogue(state, { type });
+    actor.value = "";
+    optIn.open = false;
+    render();
+    gateTitle.focus();
+  }
+  get("[data-pause]").addEventListener("click", () => hold("pause"));
+  uncertain.addEventListener("click", () => hold("uncertain"));
   actor.addEventListener("change", () => render());
   phase.addEventListener("change", () => render());
   for (const field of frames) {
@@ -99,22 +137,14 @@ export function mountMediation(root) {
     actor.value = "";
     phase.value = "today";
     for (const details of root.querySelectorAll("details")) details.open = false;
+    optIn.open = state.participation === "waiting";
     get("[data-copy-status]").textContent = "";
     render();
   }
   get("[data-stop]").addEventListener("click", () => {
-    state = actor.value ? updateDialogue(state, { type: "stop", actor: actor.value }) : createDialogue();
+    state = updateDialogue(state, { type: "stop" });
     clearControls();
-    session.hidden = true;
-    ended.hidden = false;
-    ended.querySelector("p").focus();
-  });
-  get("[data-restart]").addEventListener("click", () => {
-    state = createDialogue();
-    clearControls();
-    ended.hidden = true;
-    session.hidden = false;
-    actor.focus();
+    ended.querySelector("h3").focus();
   });
   // Clear the in-memory sheet even when the browser keeps the page in its back/forward cache.
   window.addEventListener("pagehide", () => {
@@ -134,5 +164,4 @@ export function mountMediation(root) {
     }
   });
   clearControls();
-  session.hidden = false;
 }

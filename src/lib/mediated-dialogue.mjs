@@ -6,7 +6,8 @@ function emptyRound() {
 
 export function createDialogue() {
   return {
-    proposal: "", condition: "", owner: null, stopped: false,
+    participation: "waiting", ready: { A: false, B: false },
+    proposal: "", condition: "", owner: null,
     observations: { A: false, B: false }, observed: false,
     responses: { today: emptyRound(), ifChanged: emptyRound(), afterChange: emptyRound() }
   };
@@ -21,7 +22,23 @@ function hasFrame(state) {
 }
 
 export function updateDialogue(state, event) {
-  if (state.stopped) throw new Error("This dialogue has ended.");
+  if (state.participation === "stopped") throw new Error("This dialogue has ended.");
+  const { actor } = event;
+  if (actor !== undefined && !isParticipant(actor)) throw new TypeError("Unknown participant.");
+
+  // Anyone holding the device can stop or suspend the exchange without identifying themselves.
+  if (event.type === "stop") return { ...createDialogue(), participation: "stopped" };
+  if (event.type === "pause" || event.type === "uncertain") {
+    const paused = event.type === "pause" || state.participation === "paused";
+    return { ...state, participation: paused ? "paused" : "uncertain", ready: { A: false, B: false } };
+  }
+  if (event.type === "ready") {
+    if (!isParticipant(actor)) throw new TypeError("Only A or B can opt in.");
+    if (state.ready[actor]) return state;
+    const ready = { ...state.ready, [actor]: true };
+    return { ...state, ready, participation: ready.A && ready.B ? "together" : state.participation };
+  }
+  if (state.participation !== "together") throw new Error("Both people must choose to take part.");
   if (event.type === "frame") {
     const { proposal = state.proposal, condition = state.condition } = event;
     // A rewritten condition needs someone to claim the new wording.
@@ -30,12 +47,10 @@ export function updateDialogue(state, event) {
       throw new TypeError("Expected proposal and condition text and a participant or null.");
     }
     if (proposal === state.proposal && condition === state.condition && owner === state.owner) return state;
-    return { ...createDialogue(), proposal, condition, owner };
+    return { ...createDialogue(), participation: state.participation, ready: state.ready, proposal, condition, owner };
   }
 
-  const { actor } = event;
   if (!isParticipant(actor)) throw new TypeError("A participant turn is required.");
-  if (event.type === "stop") return { ...createDialogue(), stopped: true };
   if (!hasFrame(state)) throw new Error("Name a proposal, condition and its speaker first.");
 
   if (event.type === "observe") {
@@ -82,9 +97,11 @@ function possibleBridge({ today, ifChanged }, kind) {
 }
 
 export function assessDialogue(state) {
-  const status = state.stopped ? "stopped" : hasFrame(state) ? "active" : "unframed";
+  if (state.participation !== "together") {
+    return { status: state.participation, listeningBridge: false, supportBridge: false, afterChange: "unassessed" };
+  }
   return {
-    status,
+    status: hasFrame(state) ? "active" : "unframed",
     listeningBridge: possibleBridge(state.responses, "listen"),
     supportBridge: possibleBridge(state.responses, "support"),
     afterChange: state.observed ? pairResult(state.responses.afterChange.support) : "unobserved"

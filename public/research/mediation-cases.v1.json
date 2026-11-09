@@ -14,6 +14,8 @@
         "Vera may report mutual willingness to listen if A wants to listen too. The date remains disputed."
       ],
       "events": [
+        {"type": "ready", "actor": "A"},
+        {"type": "ready", "actor": "B"},
         {"type": "frame", "proposal": "Das Vereinsfest findet am Samstag statt.", "condition": "Beide Gruppen können das Fest mitplanen.", "owner": "B"},
         {"type": "answer", "actor": "A", "phase": "today", "kind": "listen", "value": "yes"},
         {"type": "answer", "actor": "B", "phase": "today", "kind": "listen", "value": "no"},
@@ -39,6 +41,8 @@
         "Both would support the proposal under this condition. An actual agreement on the workbench is still pending."
       ],
       "events": [
+        {"type": "ready", "actor": "A"},
+        {"type": "ready", "actor": "B"},
         {"type": "frame", "proposal": "Wir schaffen zusammen eine Werkbank an.", "condition": "Ein abschließbarer Raum ist verfügbar.", "owner": "A"},
         {"type": "answer", "actor": "A", "phase": "today", "kind": "support", "value": "no"},
         {"type": "answer", "actor": "B", "phase": "today", "kind": "support", "value": "no"},
@@ -60,6 +64,8 @@
         "The current refusal stands. The earlier conditional answer remains identifiable as an earlier answer."
       ],
       "events": [
+        {"type": "ready", "actor": "A"},
+        {"type": "ready", "actor": "B"},
         {"type": "frame", "proposal": "Wir erproben die neue Schichtplanung.", "condition": "Die Einweisung für das Team ist abgeschlossen.", "owner": "B"},
         {"type": "answer", "actor": "A", "phase": "today", "kind": "support", "value": "yes"},
         {"type": "answer", "actor": "B", "phase": "today", "kind": "support", "value": "no"},
@@ -71,6 +77,27 @@
         {"type": "answer", "actor": "B", "phase": "afterChange", "kind": "support", "value": "no"}
       ],
       "expected": {"status": "active", "listeningBridge": false, "supportBridge": true, "afterChange": "objected"}
+    },
+    {
+      "id": "stop",
+      "de": [
+        "Darf ich aufhören, obwohl du noch reden möchtest?",
+        "A und B sprechen über ihr Vereinsfest. A möchte den Termin klären. B möchte das Gespräch beenden.",
+        "B kann sofort aufhören. Der Termin bleibt offen. A kann für dieses Gespräch keine weitere Antwort eintragen."
+      ],
+      "en": [
+        "Can I stop even if you still want to talk?",
+        "A and B are discussing a club party. A wants to settle the date. B wants to end the conversation.",
+        "B can stop immediately. The date remains open. A cannot enter another answer in this conversation."
+      ],
+      "events": [
+        {"type": "ready", "actor": "A"},
+        {"type": "ready", "actor": "B"},
+        {"type": "frame", "proposal": "Das Vereinsfest findet am Samstag statt.", "condition": "Beide Gruppen können das Fest mitplanen.", "owner": "B"},
+        {"type": "answer", "actor": "A", "phase": "today", "kind": "listen", "value": "yes"},
+        {"type": "stop", "actor": "B"}
+      ],
+      "expected": {"status": "stopped", "listeningBridge": false, "supportBridge": false, "afterChange": "unassessed"}
     }
   ]
 }
