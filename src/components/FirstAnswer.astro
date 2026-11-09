@@ -22,7 +22,7 @@ const example = everyday.questions.find(entry => entry.id === "entscheidung")!;
     <p id="first-question-hint">{t("Ich suche in meinen veröffentlichten Antworten. Deine Frage bleibt in deinem Browser.", "I search my published answers. Your question stays in your browser.")}</p>
   </form>
   <div class="first-answer__result" data-first-result hidden>
-    <h2 tabindex="-1"></h2>
+    <h3 tabindex="-1"></h3>
     <p data-answer></p>
     <p class="first-answer__follow" data-follow></p>
     <a data-source>{t("Fundstelle lesen", "Read the source")} <span aria-hidden="true">↗</span></a>
@@ -42,7 +42,7 @@ const example = everyday.questions.find(entry => entry.id === "entscheidung")!;
     const input = form.querySelector("input")!;
     const example = box.querySelector<HTMLAnchorElement>("[data-first-example]")!;
     const result = box.querySelector<HTMLElement>("[data-first-result]")!;
-    const heading = result.querySelector("h2")!;
+    const heading = result.querySelector("h3")!;
     const answer = result.querySelector<HTMLElement>("[data-answer]")!;
     const follow = result.querySelector<HTMLElement>("[data-follow]")!;
     const source = result.querySelector<HTMLAnchorElement>("[data-source]")!;
@@ -104,9 +104,9 @@ const example = everyday.questions.find(entry => entry.id === "entscheidung")!;
 </script>
 
 <style>
-  .first-answer { max-width: 35rem; margin: 1.5rem auto 0; text-align: left; }
+  .first-answer { max-width: 35rem; margin: 0; text-align: left; }
   .first-answer [hidden] { display: none; }
-  label { display: block; margin-bottom: .35rem; font-size: 1.05rem; font-weight: 700; }
+  label { display: block; margin-bottom: 12px; font-size: clamp(1.35rem, 2.4vw, 2rem); font-weight: 700; line-height: 1.14; letter-spacing: -.045em; }
   .first-answer__row { display: flex; gap: .45rem; }
   input, button { min-height: 48px; padding: .6rem .85rem; border: 1px solid var(--muted); border-radius: 0; font: inherit; }
   input { flex: 1; min-width: 0; background: var(--vera-panel); color: var(--text); }
@@ -117,7 +117,7 @@ const example = everyday.questions.find(entry => entry.id === "entscheidung")!;
   .first-answer__example, .first-answer__result :global(a) { color: var(--text); text-decoration: underline; text-underline-offset: .2em; }
   .first-answer__example { display: inline-flex; align-items: center; gap: .4rem; min-height: 44px; font-size: .875rem; }
   .first-answer__result { margin-top: 1rem; padding: 1rem 1.15rem; border-inline-start: 2px solid var(--signal); background: var(--vera-panel); overflow-wrap: anywhere; }
-  .first-answer__result h2 { margin: 0; font-size: 1.25rem; line-height: 1.3; }
+  .first-answer__result h3 { margin: 0; font-size: 1.25rem; line-height: 1.3; }
   .first-answer__result p { margin: .5rem 0; color: var(--text); }
   .first-answer__follow { font-weight: 600; }
   .first-answer__result ul { margin: .5rem 0 0; padding-inline-start: 1.1rem; }

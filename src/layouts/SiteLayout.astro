@@ -14,10 +14,11 @@ const home=slug==="index";
 const primaryLabel=de?"Hauptnavigation":"Main navigation";
 const primaryLinks = [
   { href: pathFor(lang,"methode","erkenntnismotor"), label: de?"WIRKLICH · Philosophischer Motor":"WIRKLICH · Philosophical engine" },
+  { href: home ? (de?"#leben":"#life") : pathFor(lang,"index",de?"leben":"life"), label: de?"Ausprobieren":"Try Vera" },
   ...navigation.map(([destination,i])=>({ href: pathFor(lang,destination), label: t.nav[i], current: slug===destination }))
 ];
 const footerGroups = [
-  { title: t.explore, routes: ["erkenntnisnavigator", "atlas", "baum-des-wissens", "esoterik-katalog", "bibliothek", "aussagen", "forum", "pruefstand", "die-bruecke", "philosophischer-motor", "grundfragen", "forschungsstrom"] },
+  { title: t.explore, routes: ["werkstatt", "erkenntnisnavigator", "atlas", "baum-des-wissens", "esoterik-katalog", "bibliothek", "aussagen", "forum", "pruefstand", "die-bruecke", "philosophischer-motor", "grundfragen", "forschungsstrom"] },
   { title: t.project, routes: ["mission", "kollektive-intelligenz", "regelkreis", "entitaet", "methode", "ki-und-mensch", "kollektive-moral", "projektstatus", "projektobservatorium", "mitwirken"] }
 ];
 const description = Astro.props.description ?? t.description;
