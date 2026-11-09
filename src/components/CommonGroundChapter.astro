@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/SiteLayout.astro";
 import {pathFor} from "../lib/paths.mjs";
+import { hardCaseAnswers } from "../lib/hard-case-answers.mjs";
 import copy from "../lib/common-ground-copy.json";
 import DialogueReview from "./DialogueReview.astro";
 import ConsensusExercise from "./ConsensusExercise.astro";
@@ -49,6 +50,13 @@ const t=copy[lang];
 </div></section>
 <section class="section section--paper common-section" id="grenzen"><div class="narrow">
 <h2>{t.boundariesTitle}</h2><ul class="common-boundaries">{t.boundaries.map(text=><li>{text}</li>)}</ul>
+{hardCaseAnswers.map(entry => <article id={entry.id}>
+  <h3>{entry[lang].question}</h3>
+  <p>{entry[lang].answer}</p>
+  {entry.id === "mitlesen" && <p>{lang === "de"
+    ? <a class="subtle-link" href="https://www.aktiv-gegen-digitale-gewalt.de/de/digitale-gewalt/cyberstalking/was-kann-ich-tun.html">Digitale Sicherheit beim Verdacht auf Überwachung · bff ↗</a>
+    : <a class="subtle-link" href="https://www.techsafety.org/resources-survivors/technology-safety-plan">Using a safer device · Safety Net Project ↗</a>}</p>}
+</article>)}
 </div></section>
 <section class="section common-section" id="arbeitsblatt"><div class="narrow">
 <h2>{t.worksheetTitle}</h2><p>{t.worksheetIntro}</p>

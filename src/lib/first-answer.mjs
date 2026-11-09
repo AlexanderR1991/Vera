@@ -1,6 +1,7 @@
 import everyday from "../../public/knowledge/everyday-questions.json" with { type: "json" };
 import project from "../../public/project.json" with { type: "json" };
 import { ENTITY_QUERIES } from "./vera-entity-catalog.mjs";
+import { hardCaseAnswers } from "./hard-case-answers.mjs";
 import { queryVera, resolveEntityQuery } from "./vera-entity.mjs";
 import { contentWords } from "./search-terms.mjs";
 
@@ -74,6 +75,41 @@ function entries(lang) {
 
 const catalog = { de: entries("de"), en: entries("en") };
 
+// A quoted example is not a disclosure. Apostrophes inside words are ordinary spelling.
+const quotation = /["„“”«»‹›‚]|(?:^|[^\p{L}])['‘’]|['‘’](?!\p{L})/u;
+// Nearby first-person concerns can withhold an exercise without classifying the situation.
+const privacyConcern = {
+  de: /(?:^| )ich (?:habe angst|fürchte|befürchte) dass (?:er|sie|jemand|mein partner|meine partnerin) (?:hier |heimlich )?mitliest(?: |$)/u,
+  en: /(?:^| )(?:im|i am) (?:afraid|worried) (?:that )?(?:he|she|they|someone|my partner) (?:can|could|might) (?:read|see) (?:this|(?:our|my) (?:messages|chat|screen))(?: |$)/u
+};
+
+function hardCaseReply(input, query, lang) {
+  for (const entry of hardCaseAnswers) {
+    const { question, aliases, answer } = entry[lang];
+    for (const form of [question, ...aliases].map(normalize)) {
+      if (!(" " + query + " ").includes(" " + form + " ")) continue;
+      // Only a complete statement can yield the answer, alone or alongside a known exercise.
+      // If the context changes its meaning, also withhold any invitation to joint mediation.
+      if (quotation.test(input)) return { kind: "unknown" };
+      const parts = input.split(/[?？]/u);
+      const isStatement = parts.some((part, index) => {
+        const words = " " + normalize(part) + " ";
+        return words.includes(" " + form + " ") && (index === parts.length - 1 || !words.endsWith(" " + form + " "));
+      });
+      if (!isStatement) return { kind: "unknown" };
+      if (query !== form) {
+        let other;
+        if (query.startsWith(form + " ")) other = query.slice(form.length + 1).replace(/^(?:und|aber|and|but) /u, "");
+        if (query.endsWith(" " + form)) other = query.slice(0, -form.length - 1).replace(/ (?:und|aber|and|but)$/u, "");
+        if (!other || !catalog[lang].some(item => item.cues && (item.forms.includes(other) || item.wording?.test(other)))) {
+          return { kind: "unknown" };
+        }
+      }
+      return { kind: "answer", question, answer, followUp: "", href: base + lang + "/schnittmengen/#" + entry.id };
+    }
+  }
+}
+
 function entityAnswer(id, lang) {
   const entry = ENTITY_QUERIES.find(item => item.id === id)[lang];
   const { status } = queryVera(id, project);
@@ -95,6 +131,9 @@ export function firstAnswer(input, lang = "de") {
 
   const query = normalize(input);
   if (!query) return { kind: "unknown" };
+  const boundary = hardCaseReply(input, query, lang);
+  if (boundary) return boundary;
+  if (privacyConcern[lang].test(query)) return { kind: "unknown" };
   const exact = catalog[lang].find(entry => entry.forms.includes(query) || entry.wording?.test(query));
   if (exact) {
     const { question, answer, followUp, href } = exact;
@@ -105,7 +144,7 @@ export function firstAnswer(input, lang = "de") {
   const words = new Set(contentWords(query, lang));
   const tokens = query.split(" ");
   const pause = lang === "de" ? /^(?:nicht|nie|kein\p{L}*|droh\p{L}*|bedroh\p{L}*|gedroht|gewalt\p{L}*|zwang|geschlagen)$/u
-    : /^(?:not|never|dont|threat\p{L}*|violence|violent|coerc\p{L}*|hit|abuse|abusive)$/u;
+    : /^(?:not|never|dont|doesnt|threat\p{L}*|violence|violent|coerc\p{L}*|hit|abuse|abusive)$/u;
   const choices = catalog[lang].filter(entry => {
     if (entry.cues) {
       return !tokens.some(word => pause.test(word)) &&
