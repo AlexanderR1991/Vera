@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/SiteLayout.astro";
+import ForumSectionLink from "./ForumSectionLink.astro";
 import {pathFor} from "../lib/paths.mjs";
 import questions from "../../public/knowledge/universal-questions.v1.json";
 import findings from "../../public/knowledge/universal-findings.v1.json";
@@ -59,6 +60,7 @@ const issueLink="https://github.com/AlexanderR1991/Vera/issues/new?template=grun
     </ol>
     <p class="uq-scan">{t("Der reproduzierbare Wortmuster-Scan umfasst aktuell","The reproducible lexical scan currently covers")} <strong>{scan.corpus.file_count}</strong> {t("öffentliche Textquellen. Er ist keine semantische KI-Analyse und enthält keine privaten Gespräche. Auch die Auswahl der 16 Fragen ist kritisierbar.","public text sources. It is not a semantic AI analysis and includes no private conversations. The selection of 16 questions is itself contestable.")} <a href={pathFor(lang,"forschungsstrom")}>{t("Zum Forschungsstrom","Research stream")} ↗</a></p>
     <p><a class="uq-text-link" href="https://github.com/AlexanderR1991/Vera/blob/main/docs/grundfragen-kreislauf.md">{t("Technische Regeln, Aufnahme und Rückführung","Technical rules, intake and return workflow")} ↗</a> · <a class="uq-text-link" href={pathFor(lang,"forum","fragenatlas")}>{t("Bestehender Fragenatlas im Forum","Existing question atlas in the forum")} →</a></p>
+    <ForumSectionLink lang={lang} place="grundfragen" section="kreislauf" />
    </div>
   </section>
 
@@ -105,6 +107,7 @@ const issueLink="https://github.com/AlexanderR1991/Vera/issues/new?template=grun
           {q.related_atlas_ids.length>0&&<p>{t("Bezug zum bisherigen Fragenatlas:","Related existing question atlas IDs:")} {q.related_atlas_ids.join(", ")}</p>}
          </details>
          {relationList.length>0&&<p class="uq-relations">{t("Verwandte Grundfragen:","Related fundamental questions:")} {relationList.map(r=><a href={"#"+(r.from===q.id?r.to:r.from).toLowerCase()}>{r.from===q.id?r.to:r.from}</a>)}</p>}
+         <ForumSectionLink lang={lang} place="grundfragen" section={q.id.toLowerCase()} />
          <a class="uq-text-link" href={issueLink} target="_blank" rel="noopener noreferrer">{t("Antwort, Einwand oder neue Frage vorschlagen","Propose a finding, objection or new question")} ↗</a>
        </article>;
      })}

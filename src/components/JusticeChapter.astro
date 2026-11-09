@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/SiteLayout.astro";
+import ForumSectionLink from "./ForumSectionLink.astro";
 import { base, pathFor } from "../lib/paths.mjs";
 
 const { lang = "de" } = Astro.props;
@@ -31,6 +32,7 @@ const description = t(
     <section aria-labelledby="justice-case">
       <p class="section-kicker">{t("Erfundener Fall", "Fictional case")}</p>
       <h2 id="justice-case">{t("Der Kratzer im Boden", "The scratch on the floor")}</h2>
+      <ForumSectionLink lang={lang} place="justiz" section="justice-case" />
       <p>{t(
         "Eine Vermieterin behält die Kaution ein. Sie sagt, der Mieter habe einen Kratzer im Boden hinterlassen. Der Mieter sagt, der Kratzer sei schon beim Einzug da gewesen. Im Übergabeprotokoll steht dazu nichts.",
         "A landlord keeps the deposit. She says the tenant left a scratch on the floor. The tenant says the scratch was already there when he moved in. The move-in report says nothing about it."
@@ -46,6 +48,7 @@ const description = t(
 
     <section aria-labelledby="justice-questions">
       <h2 id="justice-questions">{t("Vier Fragen an ein faires Verfahren", "Four questions for a fair trial")}</h2>
+      <ForumSectionLink lang={lang} place="justiz" section="justice-questions" />
       <ul class="justice-questions">
         <li><strong>{t("Zugang", "Access")}</strong> {t("Können beide Seiten das Verfahren verstehen, sich Gehör verschaffen und auf die Belege der anderen Seite antworten?", "Can both sides understand the process, be heard and respond to each other’s evidence?")}</li>
         <li><strong>{t("Unabhängigkeit", "Independence")}</strong> {t("Wer entscheidet, und wie wird diese Person vor Druck geschützt?", "Who decides, and how are they protected from pressure?")}</li>

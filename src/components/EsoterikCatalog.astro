@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/SiteLayout.astro";
+import ForumSectionLink from "./ForumSectionLink.astro";
 import project from "../../public/project.json";
 import catalog from "../../public/knowledge/esoterik-tree.json";
 import {topics} from "../lib/tree.mjs";
@@ -51,6 +52,7 @@ const proposal=(id,title)=>project.repository+"/issues/new?template=esoterik-ast
      })[id]}</p></div>)}
    </div>
    <p class="esoteric-warning">{t("Besonders bei Heilungs- oder Gefahrenbehauptungen gilt: Bedeutung und Trost sind kein Wirksamkeitsnachweis. Dieses Register bietet keine Diagnosen oder Behandlungsanweisungen. Öffentliche Beiträge dürfen keine vertraulichen Daten oder geschützten Rituale Dritter offenlegen.","For claims about health or danger in particular: meaning and comfort are not evidence of efficacy. This register gives no diagnoses or treatment instructions. Public submissions must not disclose private data or protected community rituals.")}</p>
+   <ForumSectionLink lang={lang} place="esoterik-katalog" section="pruefwege" />
   </section>
 
   <section class="container esoteric-examples" aria-label={t("Drei Beispiele","Three examples")}>
@@ -76,6 +78,7 @@ const proposal=(id,title)=>project.repository+"/issues/new?template=esoterik-ast
       <summary><span class="esoteric-branch__no">{branch.id}</span><span class="esoteric-branch__headline"><strong>{get(branch.title)}</strong><span>{get(branch.intro)}</span></span><span class="esoteric-branch__count">{branch.children.length} {t("Unteräste","subbranches")} <span aria-hidden="true">＋</span></span></summary>
       <div class="esoteric-branch__body">
        <div class="esoteric-memberships"><span>{t("Berührt andere Äste:","Other branches involved:")}</span>{branch.topics.map(id=><a href={pathFor(lang,"baum-des-wissens","ast-"+id)}>{get(related.get(id).name)}</a>)}</div>
+       <ForumSectionLink lang={lang} place="esoterik-katalog" section={anchor(branch.id)} />
        <div class="esoteric-items">
         {branch.children.map(item=><article class="esoteric-item" id={anchor(item.id)} data-esoteric-item data-kind={item.kind} data-search={[get(item.title),get(item.context),get(item.question),item.id].join(" ")}>
          <div class="esoteric-item__meta"><span>{item.id}</span><span>{get(types[item.kind])}</span></div>
@@ -83,7 +86,8 @@ const proposal=(id,title)=>project.repository+"/issues/new?template=esoterik-ast
          <p>{get(item.context)}</p>
          <p class="esoteric-question"><strong>{t("Offene Frage:","Open question:")}</strong> {get(item.question)}</p>
          <div class="esoteric-item__actions">
-          <a href={proposal(item.id,get(item.title))} target="_blank" rel="noopener noreferrer">{t("Diskussion eröffnen","Discuss this branch")} ↗</a>
+          <ForumSectionLink lang={lang} place="esoterik-katalog" section={anchor(item.id)} />
+          <a href={proposal(item.id,get(item.title))} target="_blank" rel="noopener noreferrer">{t("Änderung vorschlagen","Propose a change")} ↗</a>
           <a href={"#"+anchor(item.id)} aria-label={t("Link zum Unterast kopieren über die Adresszeile: ","Link to subbranch: ")+item.id}># {t("Link","Link")}</a>
          </div>
         </article>)}
@@ -110,6 +114,7 @@ const proposal=(id,title)=>project.repository+"/issues/new?template=esoterik-ast
     <li>{t("Frage als öffentlichen Vorschlag einreichen. Redaktionelle Prüfung entscheidet über Ergänzung, Änderung oder begründeten Dissens.","Submit a public proposal. Editorial review determines addition, revision or documented disagreement.")}</li>
    </ol>
    <div class="button-row">
+    <ForumSectionLink lang={lang} place="esoterik-katalog" section="neuer-ast" />
     <a class="button button--gold" href={proposal("NEU",t("Neuer Ast","New branch"))} target="_blank" rel="noopener noreferrer">{t("Neuen Ast vorschlagen","Propose a new branch")} ↗</a>
     <a class="button button--ghost" href={pathFor(lang,"forum")}>{t("Zum Forum","Go to the forum")} ↗</a>
     <a class="button button--ghost" href={pathFor(lang,"esoterik-und-mathematik")}>{t("Symbol und Mathematik prüfen","Explore symbols and mathematics")} ↗</a>

@@ -1,5 +1,7 @@
 ---
 import Layout from "../layouts/SiteLayout.astro";
+import ForumSectionLink from "./ForumSectionLink.astro";
+import {forumPlacePath} from "../lib/forum-places.mjs";
 import Diagram from "./LoveDiagram.astro";
 import content from "../lib/love-copy.json";
 import {pathFor} from "../lib/paths.mjs";
@@ -32,6 +34,7 @@ const url="https://github.com/AlexanderR1991/Vera";
 </div></section>
 <section class="section love-evidence" id="befunde"><div class="container">
 <p class="section-kicker">{t.evidenceLabel}</p><h2 class="love-section-title">{t.evidenceTitle}</h2>
+<ForumSectionLink lang={lang} place="warum-liebe-wirkt" section="befunde" />
 <div class="love-evidence__list">{t.evidence.map(e=><article>
 <div class="love-evidence__number">{e.n} / 03</div>
 <div class="love-evidence__content"><span class="love-evidence__type">{e.type}</span>
@@ -41,7 +44,7 @@ const url="https://github.com/AlexanderR1991/Vera";
 </div></article>)}</div>
 </div></section>
 <section class="section section--paper love-hypotheses" id="hypothesen"><div class="container">
-<p class="section-kicker">{t.hypLabel}</p><h2 class="love-section-title">{t.hypTitle}</h2><p class="love-section-lead">{t.hypIntro}</p>
+<p class="section-kicker">{t.hypLabel}</p><h2 class="love-section-title">{t.hypTitle}</h2><ForumSectionLink lang={lang} place="warum-liebe-wirkt" section="hypothesen" /><p class="love-section-lead">{t.hypIntro}</p>
 <div class="love-hypothesis-grid">{t.hypotheses.map(h=><article id={h.code.toLowerCase()}>
 <div class="love-hypothesis__head"><span>{h.code}</span><small>{h.status}</small></div>
 <h3>{h.name}</h3><p class="love-hypothesis__claim">{h.claim}</p>
@@ -50,7 +53,7 @@ const url="https://github.com/AlexanderR1991/Vera";
 </article>)}</div>
 </div></section>
 <section class="section love-counter" id="gegenmodelle"><div class="container">
-<p class="section-kicker">{t.counterLabel}</p><h2 class="love-section-title">{t.counterTitle}</h2><p class="love-section-lead">{t.counterLead}</p>
+<p class="section-kicker">{t.counterLabel}</p><h2 class="love-section-title">{t.counterTitle}</h2><ForumSectionLink lang={lang} place="warum-liebe-wirkt" section="gegenmodelle" /><p class="love-section-lead">{t.counterLead}</p>
 <div class="love-counter__grid">{t.counter.map(([title,description],i)=><article><span>{String(i+1).padStart(2,"0")} / 04</span><h3>{title}</h3><p>{description}</p></article>)}</div>
 </div></section>
 <section class="section section--paper love-ethic">
@@ -62,7 +65,7 @@ const url="https://github.com/AlexanderR1991/Vera";
 </div></section>
 <section class="section section--paper love-finale"><div class="narrow">
 <p class="section-kicker">{t.closingEyebrow}</p><h2>{t.closingTitle}</h2><p>{t.closingText}</p>
-<div class="button-row"><a class="button button--gold" href={url+"/discussions"} target="_blank" rel="noopener noreferrer">{t.forum}</a>
+<div class="button-row"><a class="button button--gold" href={forumPlacePath(lang,"warum-liebe-wirkt")}>{t.forum}</a>
 <a class="button button--ghost" href={url+"/issues/new?template=quellenpruefung.yml"} target="_blank" rel="noopener noreferrer">{t.critique}</a></div>
 </div></section>
 <section class="section love-sources"><div class="narrow"><p class="section-kicker">{t.sourcesLabel}</p><p>{t.sourcesIntro}</p>

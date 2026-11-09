@@ -1,4 +1,5 @@
 ---
+import ForumSectionLink from "./ForumSectionLink.astro";
 const { lang = "de" } = Astro.props;
 const t = (de: string, en: string) => lang === "en" ? en : de;
 const answers = [
@@ -36,6 +37,7 @@ const messages = {
     <h2 id="mediation-title">{t("Was würde sich für dich ändern?", "What would change for you?")}</h2>
     <p>{t("Nehmt einen konkreten Vorschlag, zu dem ihr unterschiedlich denkt. Eine Person benennt etwas, das für sie einen Unterschied machen könnte. Dann antwortet jede für sich. Ihr teilt einen Bildschirm und könnt die Einträge beider Personen sehen.", "Choose a specific proposal you disagree about. One of you names something that could make a difference to them. Then each answers for themselves. You share a screen and can see both people’s entries.")}</p>
     <p>{t("Macht freiwillig mit. Ihr könnt jederzeit aufhören. Bei Drohungen oder Zwang hat Schutz Vorrang. Die Eingaben gelten für diese geöffnete Seite. Liegt die Änderung Tage in der Zukunft, könnt ihr den Vorschlag und die Bedingung für euch auf Papier festhalten. Beim Verlassen der Seite werden die Eingaben verworfen.", "Take part voluntarily and stop whenever you wish. If there are threats or coercion, prioritise safety. Entries belong to this open page. If the change will take days, you can keep the proposal and condition on paper yourselves. Leaving the page clears the entries.")}</p>
+    <ForumSectionLink lang={lang} place="schnittmengen" section="vermittlung" />
     <p><a class="subtle-link" href="#rueckblick">{t("Prüffragen aus dem freiwilligen Rückblick ansehen", "View questions from the optional reflection")} ↓</a></p>
     <details class="guide">
       <summary>{t("Mit der eigenen KI vorbereiten", "Prepare with your own AI")}</summary>

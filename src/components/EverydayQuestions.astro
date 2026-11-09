@@ -1,5 +1,6 @@
 ---
 import { absoluteFor, pathFor } from "../lib/paths.mjs";
+import ForumSectionLink from "./ForumSectionLink.astro";
 import project from "../../public/project.json" with { type: "json" };
 import everyday from "../../public/knowledge/everyday-questions.json";
 
@@ -46,6 +47,7 @@ const objectionsLabel = t("Einwände suchen", "Find objections");
             <p><strong>{t("Jetzt du", "Your turn")}</strong>{entry.challenge[lang]}</p>
           </div>
           <div class="everyday-card__links">
+            <ForumSectionLink lang={lang} place="alltagsfragen" section={id} />
             <a href={`${project.repository}/issues/new?${submit}`} aria-label={`${objectionLabel} · ${entry.question[lang]}`}>
               {objectionLabel} <span aria-hidden="true">↗</span>
             </a>

@@ -3,6 +3,7 @@ import {access,readFile,readdir} from "node:fs/promises";
 import {join} from "node:path";
 import missionCopy from "../src/lib/mission-copy.json" with {type:"json"};
 import {fields,topics,topicStates,selfReviews} from "../src/lib/tree.mjs";
+import {forumPlacePath,forumSourcePath,getForumPlaces} from "../src/lib/forum-places.mjs";
 const out=join(process.cwd(),"dist"),slugs=["index","projektobservatorium","die-bruecke","philosophischer-motor","grundfragen","kunst-und-erkenntnis","mission","kollektive-intelligenz","regelkreis","entitaet","ki-und-mensch","kollektive-moral","baum-des-wissens","esoterik-katalog","aussagen","forum","fragen-und-ki-prompt","forschungsstrom","atlas","bibliothek","lesestueck-wahrheit","manifest","pruefstand","methode","mitwirken","erkenntnishorizont","warum-liebe-wirkt","politik-die-dem-menschen-dient","bruecken-zwischen-den-religionen","militaer-und-verantwortung","medizin","ernaehrung-und-verantwortung","angriffsschwarm"],errors=[];
 for(const lang of ["de","en"]){
  const invitation=lang==="de"?"Bitte hilf mir besser zu werden.":"Please help me get better.";
@@ -564,3 +565,39 @@ for (const lang of ["de","en"]) {
 const entityProtocol=JSON.parse(await readFile(join(out,"protocol/entity-loop.v0.json"),"utf8"));
 if(entityProtocol.status!=="experimental_proposal"||entityProtocol.runtime_enabled!==false||entityProtocol.direction_index.public_score_allowed!==false)errors.push("ENT-00 must remain an unreviewed and inactive proposal");
 if(errors.length){console.error(errors.join("\n"));process.exit(1);}
+
+
+const forumPlaces = getForumPlaces();
+const sectionCount = forumPlaces.reduce((sum, place) => sum + place.sections.length, 0);
+const coveredSources = new Set(forumPlaces.map(place => place.sourceSlug));
+const utilityPages = new Set(["suche","impressum","datenschutz"]);
+for (const lang of ["de", "en"]) {
+  const routes = await readdir(join(out,lang),{withFileTypes:true});
+  for (const route of routes.filter(entry => entry.isDirectory())) {
+    if (!coveredSources.has(route.name) && !utilityPages.has(route.name)) {
+      errors.push(`No forum place for content route: ${lang}/${route.name}`);
+    }
+  }
+  const directory = await readFile(join(out,lang,"forum","index.html"),"utf8");
+  for (const place of forumPlaces) {
+    const url = forumPlacePath(lang,place.id);
+    const square = await readFile(join(out,lang,"forum",place.id,"index.html"),"utf8");
+    const source = await readFile(join(out,lang,...(place.sourceSlug === "index" ? [] : [place.sourceSlug]),"index.html"),"utf8");
+    if (!directory.includes(`href="${url}"`) || !sitemap.includes(url) || !square.includes(`href="${forumSourcePath(lang,place.id)}"`)) {
+      errors.push(`Forum place lacks directory, sitemap or return link: ${lang}/${place.id}`);
+    }
+    if (place.sourceSlug !== "forum" && !source.includes(`href="${url}" data-discussion-link`)) {
+      errors.push(`Forum place lacks an HTML widget link: ${lang}/${place.id}`);
+    }
+    for (const section of place.sections) {
+      const link = forumPlacePath(lang,place.id,section.id);
+      const back = forumSourcePath(lang,place.id,section.id);
+      if (!source.includes(`id="${section.anchors[lang]}"`) || !source.includes(`href="${link}"`) ||
+          !square.includes(`id="${section.id}"`) || !square.includes(`href="${back}"`)) {
+        errors.push(`Forum section lacks a source, square or reciprocal link: ${lang}/${place.id}#${section.id}`);
+      }
+    }
+  }
+}
+if (errors.length) {console.error(errors.join("\n")); process.exit(1);}
+console.log(`Verified ${forumPlaces.length} forum places and ${sectionCount} direct section links in both languages.`);

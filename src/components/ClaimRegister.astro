@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/SiteLayout.astro";
+import ForumSectionLink from "./ForumSectionLink.astro";
 import {absoluteFor,pathFor,base} from "../lib/paths.mjs";
 import project from "../../public/project.json" with {type: "json"};
 import register from "../../public/knowledge/claims.json";
@@ -23,11 +24,12 @@ const support={value_commitment:t("Wertentscheidung","Value commitment"),concept
   <header><p class="section-kicker">{t("AUSSAGENREGISTER · PROTOTYP","CLAIM REGISTER · PROTOTYPE")}</p><h1>{t("Zeig mir die Gründe.","Show me the reasons.")}</h1><p class="mission-lead">{t("Woher kommt eine Aussage? Wie weit trägt sie? Hier findest du Quellen, Einwände und den Prüfstatus jedes Eintrags.","Where does a claim come from? How far does it reach? Explore the sources, objections and review status of each entry.")}</p><p>{t("Aussageart, Begründungslage und Bearbeitungsstatus sind getrennte Angaben. „Ungeprüft“ bedeutet weder wahr noch falsch. Die KI-unterstützte Strukturierung und die englische Übersetzung wurden nicht unabhängig begutachtet.","Claim type, support and review status are separate descriptions. ‘Unreviewed’ means neither true nor false. AI-assisted structuring and the English translation have not received independent review.")}</p>
   <div class="button-row"><a class="button button--ghost" href={base+"knowledge/claims.json"} download="grundtext-claims.json">{t("Datensatz herunterladen · JSON ↓","Download dataset · JSON ↓")}</a><a class="subtle-link" href={pathFor(lang,"mission")+"#erkenntnis"}>{t("Die Unterscheidungen verstehen ↗","Understand these distinctions ↗")}</a></div></header>
   <p><a href={pathFor(lang,"erkenntnisnavigator")}>{t("Eine Verbindung zu deiner Frage prüfen","Examine a connection to your question")} →</a> {t("Die Navigator-Karten sind gesonderte Entwürfe. Ihre Anwendung verändert keinen Prüfstatus im Register.","The navigator cards are separate drafts. Using them does not change any review status in the register.")}</p>
-  <section class="maturity-guide" aria-labelledby="maturity-heading">
+  <section class="maturity-guide" id="erkenntnisreife" aria-labelledby="maturity-heading">
    <h2 id="maturity-heading">{t("Wann darf eine Erkenntnis aufsteigen?", "When may a claim advance?")}</h2>
    <p>{t("Erkenntnisreife, Abstraktion und dokumentierte Übereinstimmung sind drei verschiedene Angaben. Eine allgemeine Aussage ist nicht automatisch wahrer. Keine Mehrheit und kein KI-Schwarm kann eine Prüfung ersetzen.", "Maturity, abstraction and documented agreement are three different dimensions. A more general statement is not automatically truer. Neither majorities nor AI swarms replace review.")}</p>
    <ol class="maturity-scale">{maturityLabels[lang].map((label,i)=><li><strong>R{i}</strong><span>{label}</span></li>)}</ol>
    <p>{t("Aufstiege benötigen dokumentierte fachgerechte Prüfung; R3 und R4 zusätzlich unabhängige Gegenprüfungen. Gegenbelege können zu Rückstufung oder Korrektur führen.", "Advancement requires a documented, claim-appropriate review; R3 and R4 also need independent checks. Counterevidence can lead to demotion or correction.")} <a href={project.repository+"/blob/main/docs/erkenntnisreife.md"}>{t("Die Regeln lesen", "Read the rules")}</a>.</p>
+   <ForumSectionLink lang={lang} place="aussagen" section="erkenntnisreife" />
   </section>
   <div class="claim-tools" data-claim-tools hidden>
    <label>{t("Aussagen durchsuchen","Search claims")}<input type="search" data-claim-search placeholder={t("Begriff oder Kennung, z. B. KI-001","Term or identifier, e.g. KI-001")}/></label>
@@ -40,6 +42,7 @@ const support={value_commitment:t("Wertentscheidung","Value commitment"),concept
    return <section id={c.id} class="claim-card" data-claim-card data-kind={c.type}>
    <div class="claim-meta"><a href={"#"+c.id}>{c.id} · v{c.version}</a><span>{types[c.type]}</span><span>{support[c.epistemic_status]}</span><span>{statuses[c.review_status]}</span><span>{`R${c.maturity.level} · ${maturityLabels[lang][c.maturity.level]}`}</span></div>
    <h2 class="claim-statement">{c.statement[lang]}</h2>
+   <ForumSectionLink lang={lang} place="aussagen" section={c.id} />
    <details class="review-impact" id={"pruefpfad-"+c.id} open={c.id==="G-005"}>
     <summary>{t("Welche Fragen sollten wir bei einer Änderung erneut prüfen?","Which questions should we revisit if this claim changes?")} ({affected.length})</summary>
     {affected.length>0 ? <>
@@ -75,7 +78,7 @@ const support={value_commitment:t("Wertentscheidung","Value commitment"),concept
     <p>{t("Modellversion: ","Model version: ")}{c.ai_assistance.model||t("nicht erfasst","not recorded")}</p>
     <ul>{c.history.map(h=><li>v{h.version} · {h.date} · {h.change[lang]}</li>)}</ul>
    </details>
-   <div class="button-row claim-discussion-links"><a class="button button--gold" href={project.repository+"/issues/"+threads.get(c.id)} target="_blank" rel="noopener noreferrer">{t("Im Forum diskutieren ↗","Discuss in the Forum ↗")}</a>
+   <div class="button-row claim-discussion-links"><a class="button button--gold" href={project.repository+"/issues/"+threads.get(c.id)} target="_blank" rel="noopener noreferrer">{t("Öffentlichen Prüfthread öffnen ↗","Open the public review thread ↗")}</a>
    <a class="button button--ghost" href={project.repository + "/issues/new?" + new URLSearchParams({
     template: "angriff.yml",
     title: `[${c.id} v${c.version}] ${t("Begründeter Einwand", "Reasoned objection")}`,

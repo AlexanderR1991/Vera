@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/SiteLayout.astro";
+import ForumSectionLink from "./ForumSectionLink.astro";
 import ArtCollection from "./ArtCollection.astro";
 import {artSubmission} from "../lib/art-inquiry.mjs";
 import {pathFor} from "../lib/paths.mjs";
@@ -117,7 +118,7 @@ en:{
   </section>
   <section class="section art-work" id="werk">
     <div class="container art-work__grid">
-      <div><p class="section-kicker">EXPERIMENTUM / 01</p><h2>{t.experiment}</h2><p class="art-caption">{t.experimentNote}</p></div>
+      <div><p class="section-kicker">EXPERIMENTUM / 01</p><h2>{t.experiment}</h2><ForumSectionLink lang={lang} place="kunst-und-erkenntnis" section="werk" /><p class="art-caption">{t.experimentNote}</p></div>
       <div><blockquote class="art-poem">{t.poem.map(line=><p>{line}</p>)}</blockquote><ul>{t.questions.map(q=><li>{q}</li>)}</ul><p>{t.experimentEnd}</p></div>
     </div>
   </section>
@@ -133,7 +134,7 @@ en:{
     </div>
   </section>
   <section class="section section--paper" id="forschung">
-    <div class="container"><h2>{t.research}</h2><p class="art-intro">{t.researchNote}</p>
+    <div class="container"><h2>{t.research}</h2><ForumSectionLink lang={lang} place="kunst-und-erkenntnis" section="forschung" /><p class="art-intro">{t.researchNote}</p>
       <div class="art-cards">{t.hypotheses.map(([id,question,test],i)=><article id={"k-0"+(i+1)}><p class="section-kicker">{id}</p><h3>{question}</h3><p>{test}</p></article>)}</div>
     </div>
   </section>

@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/SiteLayout.astro";
+import ForumSectionLink from "./ForumSectionLink.astro";
 import {pathFor} from "../lib/paths.mjs";
 import copy from "../lib/common-ground-copy.json";
 import DialogueReview from "./DialogueReview.astro";
@@ -36,6 +37,7 @@ const t=copy[lang];
 <DialogueReview lang={lang} />
 <section class="section common-section" id="fragen"><div class="container">
 <h2>{t.stepsTitle}</h2>
+<ForumSectionLink lang={lang} place="schnittmengen" section="fragen" />
 <ol class="common-grid common-steps">{t.steps.map(([title,body],i)=><li>
 <span class="section-kicker" aria-hidden="true">{String(i+1).padStart(2,"0")} / 06</span><h3>{title}</h3><p>{body}</p>
 </li>)}</ol>
@@ -48,14 +50,14 @@ const t=copy[lang];
 <p class="section-kicker">{t.exampleTag}</p><h2>{t.exampleTitle}</h2><p>{t.example}</p><p>{t.exampleNote}</p>
 </div></section>
 <section class="section section--paper common-section" id="grenzen"><div class="narrow">
-<h2>{t.boundariesTitle}</h2><ul class="common-boundaries">{t.boundaries.map(text=><li>{text}</li>)}</ul>
+<h2>{t.boundariesTitle}</h2><ForumSectionLink lang={lang} place="schnittmengen" section="grenzen" /><ul class="common-boundaries">{t.boundaries.map(text=><li>{text}</li>)}</ul>
 </div></section>
 <section class="section common-section" id="arbeitsblatt"><div class="narrow">
 <h2>{t.worksheetTitle}</h2><p>{t.worksheetIntro}</p>
 <ol class="common-worksheet">{t.worksheet.map(text=><li>{text}</li>)}</ol>
 </div></section>
 <section class="section section--paper common-section" id="pruefung"><div class="narrow">
-<h2>{t.evaluationTitle}</h2><p>{t.evaluation}</p><p>{t.counter}</p>
+<h2>{t.evaluationTitle}</h2><ForumSectionLink lang={lang} place="schnittmengen" section="pruefung" /><p>{t.evaluation}</p><p>{t.counter}</p>
 <h3>{t.sourcesTitle}</h3>
 <p>{lang==="de"?"Habermas fragt, ob alle Betroffenen einer Regel in einem freien Austausch von Gründen zustimmen könnten. Die Sprachprobe greift diesen Gedanken auf. Die beiden Personen können dabei nur für sich selbst sprechen.":"Habermas asks whether everyone affected by a rule could agree to it in a free exchange of reasons. The exercise draws on that idea. The two participants can each speak only for themselves."} <a href="https://www.marxists.org/reference/archive/habermas/1998/communicative-ethics.htm">Jürgen Habermas ↗</a></p>
 <ul class="common-sources">
