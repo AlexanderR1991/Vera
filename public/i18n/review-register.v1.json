@@ -902,6 +902,15 @@
       "reviewed_at": null,
       "source_commit": null,
       "review_url": null
+    },
+    "spielwelten.md": {
+      "status": "shared_bilingual",
+      "priority": "support",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
     }
   }
 }

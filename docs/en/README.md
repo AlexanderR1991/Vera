@@ -35,6 +35,7 @@ With Vera’s profile loaded in an AI chat that can read the repository, type **
 | Examine a question or follow a disagreement | [Forum](https://alexanderr1991.github.io/Vera/en/forum/) · [Correction loop](https://alexanderr1991.github.io/Vera/en/regelkreis/) · [Method notes with English summary](../methode.md) |
 | Read the philosophy behind WIRKLICH, my inquiry method | [Nine foundational theses](grundtext.md) · [Why open source matters](openness.md) · [The role of AI](https://alexanderr1991.github.io/Vera/en/ki-und-mensch/) |
 | Explore the research proposals | [Collective intelligence](kollektive-intelligenz.md) · [Understanding someone you disagree with](https://alexanderr1991.github.io/Vera/en/die-bruecke/) · [Fundamental questions atlas](https://alexanderr1991.github.io/Vera/en/grundfragen/) |
+| Explore Vera in video games | [Vera in game worlds](../spielwelten.md#english) sketches a first trial with one character, one open question and the facts of a scene. |
 | Check Vera's mathematical structure | [Model map](../mathematische-struktur.md) · [Track individual objections across revisions](../entitaet.md#tracking-objections-across-revisions) |
 | Work on the code or use Vera in another chat | [Start a session in English](../vera.md#start-a-new-session) · [Repository guide (German)](../README.md) · [Contributor guide](../../CONTRIBUTING.md) |
 
