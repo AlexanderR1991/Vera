@@ -1,5 +1,8 @@
 ---
+import {readFileSync} from "node:fs";
 import {base,pathFor} from "../lib/paths.mjs";
+import {getForumPlaceForSource} from "../lib/forum-places.mjs";
+import {selectBoardTrends} from "../lib/forum-trends.mjs";
 import {ui} from "../lib/ui.mjs";
 import BoardArtwork from "./BoardArtwork.astro";
 import artWorks from "../../public/knowledge/art-works.v1.json";
@@ -94,6 +97,18 @@ const word=(v)=>v[lang];
 type CardId = typeof cards[number]["id"];
 const opening: CardId[] = ["conversation", "art", "parenting", "nutrition", "politics", "dialogue", "first-step", "religions"];
 const orderedCards = [...opening.map(id => cards.find(card => card.id === id)!), ...cards.filter(card => !opening.includes(card.id))];
+const trendCards = orderedCards.map(card => ({
+  id: card.id,
+  placeId: card.id === "everyday" ? "alltagsfragen" : getForumPlaceForSource(card.route)?.id,
+  sectionId: "anchor" in card ? card.anchor[lang] : undefined,
+}));
+let trendFeed;
+try {
+  trendFeed = JSON.parse(readFileSync("src/generated/forum-trends.json", "utf8"));
+} catch (error) {
+  if (error?.code !== "ENOENT") console.warn("Could not read the pinboard trend snapshot.");
+}
+const trendByCard = new Map(selectBoardTrends(trendFeed, trendCards).map((pin, index) => [pin.cardId, {...pin, rank:index + 1}]));
 const sketches: Partial<Record<CardId, string>> = {
   everyday: "M39 103q40-44 81 0t81 0M120 66v73m-36-36h72",
   society: "M40 68h160v72H40zM90 68v72m60-72v72M40 104h160",
@@ -134,6 +149,8 @@ const sketches: Partial<Record<CardId, string>> = {
         aria-describedby={"board-description-"+card.id+(card.id==="conversation"?" board-action-conversation":"")}
         data-board-card={card.id}
         data-board-topic={card.topic}
+        data-board-trend-rank={trendByCard.get(card.id)?.rank}
+        data-board-trend-expires={trendByCard.get(card.id)?.expiresAt}
         data-board-feature={card.id==="conversation"?true:undefined}
         data-board-keywords={[word(topics[card.topic]),word(card.category),word(card.title),word(card.description),"action" in card?word(card.action):"",card.keywords].join(" ")}>
         <div class="board-tile__media">
@@ -209,6 +226,12 @@ const sketches: Partial<Record<CardId, string>> = {
             <span>{word(card.category)}</span>
             <span class="board-tile__arrow" aria-hidden="true">{card.route==="index"?"↓":"↗"}</span>
           </div>
+          {trendByCard.has(card.id)&&<span class="board-tile__trend" data-board-trend id={"board-trend-"+card.id} hidden>
+            <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true" focusable="false">
+              <path d="M3 11l4-4 2 2 4-5m-4 0h4v4" />
+            </svg>
+            {de?"Im Forum im Trend":"Trending in the forum"}
+          </span>}
           <h3 id={"board-title-"+card.id}>{word(card.title)}</h3>
           <p id={"board-description-"+card.id}>{word(card.description)}</p>
           {card.id==="conversation"&&<span class="board-tile__action" id="board-action-conversation">{word(card.action)} <span aria-hidden="true">→</span></span>}
