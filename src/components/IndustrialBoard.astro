@@ -6,72 +6,77 @@ import artWorks from "../../public/knowledge/art-works.v1.json";
 const {lang="de"}=Astro.props;
 const de=lang==="de";
 const pinImages=base+"images/pinnwand/";
-const pinSizes="(min-width: 1360px) 225px, (min-width: 1080px) 250px, (min-width: 820px) 235px, (min-width: 600px) 250px, ";
-// A square source covering a portrait frame needs more pixels than the column width.
-const portraitPins=new Set(["nutrition","politics"]);
-const narrowPinSizes="(min-width: 450px) calc(46vw - 5.5px), calc(50vw - 23.5px)";
+const pinSizes = "(min-width: 1100px) 31vw, (min-width: 700px) 46vw, 92vw";
+const topics = {
+  all: {de:"Alle Fragen", en:"All questions"},
+  everyday: {de:"Alltag & Gesundheit", en:"Everyday life & health"},
+  together: {de:"Miteinander", en:"Life together"},
+  society: {de:"Gesellschaft", en:"Society"},
+  world: {de:"Kultur & Weltbilder", en:"Culture & worldviews"},
+  vera: {de:"Vera & Methode", en:"Vera & method"},
+} as const;
 const wave=artWorks.works.find(work=>work.id==="art-01");
 const cards=[
   {
-    id:"nutrition", photo:"nutrition", route:"ernaehrung-und-verantwortung",
+    id:"nutrition", topic:"everyday", photo:"nutrition", route:"ernaehrung-und-verantwortung",
     category:{de:"Ernährung",en:"Nutrition"},
     title:{de:"Was heißt gut essen?",en:"What does it mean to eat well?"},
     description:{de:"Was dein Körper braucht, was du dir leisten kannst und was dir wichtig ist.",en:"What your body needs, what you can afford, and what matters to you."},
     keywords:"essen lebensmittel tierwohl gesundheit kosten food animal welfare health budget"
   },
   {
-    id:"politics", photo:"politics", route:"politik-die-dem-menschen-dient",
+    id:"politics", topic:"society", photo:"politics", route:"politik-die-dem-menschen-dient",
     category:{de:"Politik",en:"Politics"},
     title:{de:"Wem dient eine politische Entscheidung?",en:"Who does a political decision serve?"},
     description:{de:"Schau darauf, wer mitentscheidet und wer die Folgen trägt.",en:"Look at who gets a say and who lives with the consequences."},
     keywords:"gesellschaft demokratie mitbestimmung rechte staat democracy rights government participation"
   },
-  {id:"conversation",photo:"table",route:"schnittmengen",anchor:{de:"sprachprobe",en:"sprachprobe"},category:{de:"Am Küchentisch",en:"At the kitchen table"},title:{de:"Teilen wir die Miete durch zwei?",en:"Should we split the rent in half?"},description:{de:"Ein Gehalt ist doppelt so hoch wie das andere. Ihr wollt beide fair teilen. Was bedeutet das für jeden von euch?",en:"One of you earns twice as much as the other. You both want to be fair. What does that mean to each of you?"},action:{de:"Gespräch zu zweit ausprobieren",en:"Try the conversation together"},keywords:"gespräch streit konflikt zuhören miete fairness mediation conversation rent disagreement listening"},
+  {id:"conversation", topic:"together", photo:"table",route:"schnittmengen",anchor:{de:"sprachprobe",en:"sprachprobe"},category:{de:"Am Küchentisch",en:"At the kitchen table"},title:{de:"Teilen wir die Miete durch zwei?",en:"Should we split the rent in half?"},description:{de:"Ein Gehalt ist doppelt so hoch wie das andere. Ihr wollt beide fair teilen. Was bedeutet das für jeden von euch?",en:"One of you earns twice as much as the other. You both want to be fair. What does that mean to each of you?"},action:{de:"Gespräch zu zweit ausprobieren",en:"Try the conversation together"},keywords:"gespräch streit konflikt zuhören miete fairness mediation conversation rent disagreement listening"},
   {
-    id:"parenting", route:"kindererziehung",
+    id:"parenting", topic:"together", route:"kindererziehung",
     category:{de:"Kindererziehung",en:"Parenting"},
     title:{de:"Wer entscheidet, wann wir gehen?",en:"Who decides when it’s time to go?"},
     description:{de:"Dein Kind will noch einmal rutschen. Du willst los. Was ändert sich, wenn ihr den letzten Bus erreichen müsst?",en:"Your child wants one more turn on the slide. You’re ready to leave. What changes if you have to catch the last bus?"},
     keywords:"erziehung kinder eltern familie spielplatz grenzen mitbestimmung children parents family playground boundaries choices"
   },
-  {id:"first-step",route:"index",anchor:{de:"erkenntnis",en:"insight"},category:{de:"Erkenntnis · Ausprobieren",en:"Insight · Try it"},title:{de:"Wie entscheidet Vera?",en:"How does Vera decide?"},description:{de:"Eine neue Seite soll online gehen. Welchen Test würdest du zuerst machen? Vergleiche deine Wahl mit Veras Modell.",en:"A new page is about to go live. What would you check first? Compare your choice with Vera’s model."},action:{de:"Modell ausprobieren",en:"Try the model"},keywords:"einstieg start erkenntnis entscheidung belege insight decision evidence"},
-  {id:"everyday",route:"forum",anchor:{de:"alltagsfragen",en:"alltagsfragen"},category:{de:"Aus dem Alltag",en:"Everyday life"},title:{de:"Was beschäftigt dich?",en:"What’s on your mind?"},description:{de:"Muss ich bleiben, wenn ich jemanden liebe? Hier findest du einen ersten Gedanken dazu und einen guten Grund, weiterzufragen.",en:"Do I have to stay if I love someone? Read one possible answer and a question that might change how you see it."},action:{de:"Alltagsfragen lesen",en:"Read everyday questions"},keywords:"liebe arbeit ernährung food work love beziehung"},
-  {id:"art",route:"kunst-und-erkenntnis",anchor:{de:"sammlung",en:"sammlung"},category:{de:"Liber Artis · Kunst",en:"Liber Artis · Art"},title:{de:"Wohin schaust du zuerst?",en:"Where does your eye go first?"},description:{de:"Unter Hokusais großer Welle ducken sich Menschen in ihren Booten. Schau einen Moment lang nur auf sie. Wie wirkt die Welle jetzt?",en:"Beneath Hokusai’s great wave, people crouch in their boats. Look just at them for a moment. How does the wave feel now?"},action:{de:"Zur Kunstsammlung",en:"Explore the art collection"},keywords:"kunst art kunstwerk werk malerei musik literatur architektur painting music literature architecture"},
-  {id:"military",route:"militaer-und-verantwortung",category:{de:"Liber Custodiae · Frieden",en:"Liber Custodiae · Peace"},title:{de:"Wer lebt neben dem Ziel?",en:"Who lives next to the target?"},description:{de:"Eine Armee soll Menschen schützen. In der Nähe ihres Ziels leben Familien. Was schuldet sie ihnen?",en:"An army has a duty to protect people. Families live near its target. What does it owe them?"},action:{de:"Zum Kapitel",en:"Read the chapter"},keywords:"militär military defence verteidigung frieden peace verantwortung schutz"},
-  {id:"society",route:"politik-die-dem-menschen-dient",anchor:{de:"garten",en:"garten"},category:{de:"Gesellschaft",en:"Society"},title:{de:"Wem gehört der Garten?",en:"Whose garden is it?"},description:{de:"Ein Kind will Fußball spielen, eines Blumen pflanzen, eines lesen. Wie finden sie eine Regel für den Platz, den alle teilen?",en:"One child wants to play football, another to plant flowers, another to read. How can they decide what to do with the space they share?"},keywords:"politik rechte moral demokratie"},
-  {id:"bridge",route:"die-bruecke",category:{de:"Die Brücke / M-02",en:"The Bridge / M-02"},title:{de:"Habe ich dich richtig verstanden?",en:"Have I understood you?"},description:{de:"Du kannst die Antwort eines Freundes genau vorhersagen und selbst anders denken. In diesem Modell kannst du beides ausprobieren.",en:"You might know exactly what a friend would say and still disagree. Try those two things side by side in the model."},keywords:"mathematik konsens beziehung dialog"},
-  {id:"atlas",route:"atlas",category:{de:"Wissensatlas",en:"Knowledge atlas"},title:{de:"Wo fängt deine Frage an?",en:"Where does your question begin?"},description:{de:"Beim Körper, bei einem Gefühl, bei den Regeln, nach denen wir leben? Sechs Felder laden zum Weiterdenken ein.",en:"With your body, a feeling, or the rules we live by? Explore six ways into a question."},keywords:"wissensbaum erkenntnis felder thema knowledge map"},
-  {id:"counterexample",route:"gegenprobe-01",category:{de:"Offene Gegenprobe",en:"Open challenge"},title:{de:"Entscheidest du das für mich?",en:"Would you decide for me?"},description:{de:"Ein Freund bittet dich darum. Wann wäre es fürsorglich, Ja zu sagen? An dieser Frage kannst du unsere Regel über Hilfe prüfen.",en:"A friend asks you to make a choice for them. When would saying yes be an act of care? Try our rule about helping against that case."},action:{de:"Gegenprobe öffnen",en:"Open the challenge"},keywords:"widerspruch einwand hilfe freiheit objection freedom"},
+  {id:"first-step", topic:"vera", route:"index",anchor:{de:"erkenntnis",en:"insight"},category:{de:"Erkenntnis · Ausprobieren",en:"Insight · Try it"},title:{de:"Wie entscheidet Vera?",en:"How does Vera decide?"},description:{de:"Eine neue Seite soll online gehen. Welchen Test würdest du zuerst machen? Vergleiche deine Wahl mit Veras Modell.",en:"A new page is about to go live. What would you check first? Compare your choice with Vera’s model."},action:{de:"Modell ausprobieren",en:"Try the model"},keywords:"einstieg start erkenntnis entscheidung belege insight decision evidence"},
+  {id:"everyday", topic:"everyday", route:"forum",anchor:{de:"alltagsfragen",en:"alltagsfragen"},category:{de:"Aus dem Alltag",en:"Everyday life"},title:{de:"Was beschäftigt dich?",en:"What’s on your mind?"},description:{de:"Muss ich bleiben, wenn ich jemanden liebe? Hier findest du einen ersten Gedanken dazu und einen guten Grund, weiterzufragen.",en:"Do I have to stay if I love someone? Read one possible answer and a question that might change how you see it."},action:{de:"Alltagsfragen lesen",en:"Read everyday questions"},keywords:"liebe arbeit ernährung food work love beziehung"},
+  {id:"art", topic:"world", route:"kunst-und-erkenntnis",anchor:{de:"sammlung",en:"sammlung"},category:{de:"Liber Artis · Kunst",en:"Liber Artis · Art"},title:{de:"Wohin schaust du zuerst?",en:"Where does your eye go first?"},description:{de:"Unter Hokusais großer Welle ducken sich Menschen in ihren Booten. Schau einen Moment lang nur auf sie. Wie wirkt die Welle jetzt?",en:"Beneath Hokusai’s great wave, people crouch in their boats. Look just at them for a moment. How does the wave feel now?"},action:{de:"Zur Kunstsammlung",en:"Explore the art collection"},keywords:"kunst art kunstwerk werk malerei musik literatur architektur painting music literature architecture"},
+  {id:"military", topic:"society", route:"militaer-und-verantwortung",category:{de:"Liber Custodiae · Frieden",en:"Liber Custodiae · Peace"},title:{de:"Wer lebt neben dem Ziel?",en:"Who lives next to the target?"},description:{de:"Eine Armee soll Menschen schützen. In der Nähe ihres Ziels leben Familien. Was schuldet sie ihnen?",en:"An army has a duty to protect people. Families live near its target. What does it owe them?"},action:{de:"Zum Kapitel",en:"Read the chapter"},keywords:"militär military defence verteidigung frieden peace verantwortung schutz"},
+  {id:"society", topic:"society", route:"politik-die-dem-menschen-dient",anchor:{de:"garten",en:"garten"},category:{de:"Gesellschaft",en:"Society"},title:{de:"Wem gehört der Garten?",en:"Whose garden is it?"},description:{de:"Ein Kind will Fußball spielen, eines Blumen pflanzen, eines lesen. Wie finden sie eine Regel für den Platz, den alle teilen?",en:"One child wants to play football, another to plant flowers, another to read. How can they decide what to do with the space they share?"},keywords:"politik rechte moral demokratie"},
+  {id:"bridge", topic:"together", route:"die-bruecke",category:{de:"Die Brücke / M-02",en:"The Bridge / M-02"},title:{de:"Habe ich dich richtig verstanden?",en:"Have I understood you?"},description:{de:"Du kannst die Antwort eines Freundes genau vorhersagen und selbst anders denken. In diesem Modell kannst du beides ausprobieren.",en:"You might know exactly what a friend would say and still disagree. Try those two things side by side in the model."},keywords:"mathematik konsens beziehung dialog"},
+  {id:"atlas", topic:"vera", route:"atlas",category:{de:"Wissensatlas",en:"Knowledge atlas"},title:{de:"Wo fängt deine Frage an?",en:"Where does your question begin?"},description:{de:"Beim Körper, bei einem Gefühl, bei den Regeln, nach denen wir leben? Sechs Felder laden zum Weiterdenken ein.",en:"With your body, a feeling, or the rules we live by? Explore six ways into a question."},keywords:"wissensbaum erkenntnis felder thema knowledge map"},
+  {id:"counterexample", topic:"vera", route:"gegenprobe-01",category:{de:"Offene Gegenprobe",en:"Open challenge"},title:{de:"Entscheidest du das für mich?",en:"Would you decide for me?"},description:{de:"Ein Freund bittet dich darum. Wann wäre es fürsorglich, Ja zu sagen? An dieser Frage kannst du unsere Regel über Hilfe prüfen.",en:"A friend asks you to make a choice for them. When would saying yes be an act of care? Try our rule about helping against that case."},action:{de:"Gegenprobe öffnen",en:"Open the challenge"},keywords:"widerspruch einwand hilfe freiheit objection freedom"},
   {
-    id:"medicine", photo:"medicine", route:"medizin",
+    id:"medicine", topic:"everyday", photo:"medicine", route:"medizin",
     category:{de:"Medizin",en:"Medicine"},
     title:{de:"Was sagt ein besserer Messwert aus?",en:"What does a better reading tell us?"},
     description:{de:"Prüfe an einem Fall, ob ein Messwert zeigt, dass es Menschen besser geht.",en:"Use a real case to ask whether a reading shows people are doing better."},
     keywords:"gesundheit studie evidenz behandlung health study evidence treatment"
   },
   {
-    id:"religions", art:"religions", route:"bruecken-zwischen-den-religionen",
+    id:"religions", topic:"world", art:"religions", route:"bruecken-zwischen-den-religionen",
     category:{de:"Religionen",en:"Religions"},
     title:{de:"Was teilen wir, obwohl wir anders glauben?",en:"What do we share across different beliefs?"},
     description:{de:"Erkunde Gemeinsamkeiten und Unterschiede zwischen Weltanschauungen.",en:"Explore common ground and differences between worldviews."},
     keywords:"glaube religion ethik weltanschauung faith belief ethics worldview"
   },
   {
-    id:"symbols", art:"symbols", route:"esoterik-katalog",
+    id:"symbols", topic:"world", art:"symbols", route:"esoterik-katalog",
     category:{de:"Esoterik",en:"Esotericism"},
     title:{de:"Was bedeutet ein Zeichen für dich?",en:"What does a sign mean to you?"},
     description:{de:"Unterscheide persönliche Deutung und überprüfbare Vorhersage.",en:"Separate personal meaning from a prediction you can test."},
     keywords:"symbol tarot astrologie deutung symbol astrology interpretation"
   },
   {
-    id:"dialogue", photo:"dialogue", route:"schnittmengen", anchor:{de:"vermittlung",en:"vermittlung"},
+    id:"dialogue", topic:"together", photo:"dialogue", route:"schnittmengen", anchor:{de:"vermittlung",en:"vermittlung"},
     category:{de:"Vermittlung",en:"Mediation"},
     title:{de:"Was könnte unser Gespräch wieder öffnen?",en:"What could get us talking again?"},
     description:{de:"Probiert zu zweit, welche Änderung für euch einen Unterschied machen würde.",en:"Try together to find a change that would make a difference for both of you."},
     keywords:"streit konflikt gespräch zuhören disagreement conflict dialogue listening"
   },
   {
-    id:"rules", art:"rules", route:"philosophischer-motor",
+    id:"rules", topic:"vera", art:"rules", route:"philosophischer-motor",
     category:{de:"Philosophischer Motor",en:"Philosophical engine"},
     title:{de:"Welche Gründe tragen deine Entscheidung?",en:"What reasons support your decision?"},
     description:{de:"Schau dir an, wie Vera Aussagen, Werte und Einwände auseinanderhält.",en:"See how Vera distinguishes claims, values and objections."},
@@ -79,18 +84,27 @@ const cards=[
   },
 ] as const;
 const word=(v)=>v[lang];
+type CardId = typeof cards[number]["id"];
+const opening: CardId[] = ["conversation", "art", "parenting", "nutrition", "politics", "dialogue", "first-step", "religions"];
+const orderedCards = [...opening.map(id => cards.find(card => card.id === id)!), ...cards.filter(card => !opening.includes(card.id))];
+const sketches: Partial<Record<CardId, string>> = {
+  everyday: "M39 103q40-44 81 0t81 0M120 66v73m-36-36h72",
+  society: "M40 68h160v72H40zM90 68v72m60-72v72M40 104h160",
+  counterexample: "M55 139l130-70M55 69l130 70M120 60v88",
+};
 ---
 <section class="industrial-board" id={de?"leben":"life"} aria-labelledby="board-title">
   <div class="container">
     <div class="board-heading">
       <div>
+        <p class="board-kicker">{de?"Fragen aus dem Leben":"Questions from life"}</p>
         <h2 id="board-title">{de?"Pinnwand":"Pinboard"}</h2>
         <p>{de?"Vielleicht kommt dir eine dieser Fragen bekannt vor. Fang dort an.":"Maybe one of these questions sounds familiar. Start there."}</p>
         <a class="home-link board-own" href={de?"#frag-mich":"#ask-me"}>
           {de?"Mich beschäftigt etwas anderes":"Something else is on my mind"} <span aria-hidden="true">↓</span>
         </a>
       </div>
-      <div class="board-filter" data-board-filter-wrap>
+      <div class="board-filter" data-board-filter-wrap hidden>
         <label for="board-filter-input">{de?"Pinnwand durchsuchen":"Search the pinboard"}</label>
         <div class="board-filter__field">
           <svg viewBox="0 0 20 20" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false">
@@ -98,75 +112,91 @@ const word=(v)=>v[lang];
           </svg>
           <input id="board-filter-input" type="search" placeholder={de?"Ernährung, Politik, Kunst …":"Nutrition, politics, art …"} autocomplete="off" data-board-filter />
         </div>
-        <span class="board-counter" data-board-counter aria-live="polite">{cards.length} {de?"Zugänge":"entries"}</span>
+        <span class="board-counter" data-board-counter role="status"></span>
       </div>
     </div>
-    <div class="board-grid" data-board-grid>
-      {cards.map(card=><a class:list={["board-tile", "board-tile--"+card.id]}
+    <div class="board-topics" data-board-topics role="group" aria-label={de?"Nach Themen filtern":"Filter by topic"} hidden>
+      {Object.entries(topics).map(([id, label]) =>
+        <button type="button" data-board-topic-filter={id} aria-controls="board-cards" aria-pressed={id==="all"}>{word(label)}</button>
+      )}
+    </div>
+    <div class="board-grid" id="board-cards" data-board-grid data-board-overview>
+      {orderedCards.map(card=><a class:list={["board-tile", "board-tile--"+card.id]}
         href={card.route==="index"?"#"+card.anchor[lang]:pathFor(lang,card.route,"anchor" in card?card.anchor[lang]:undefined)}
-        aria-labelledby={"board-title-"+card.id} aria-describedby={"board-description-"+card.id}
+        aria-labelledby={"board-title-"+card.id}
+        aria-describedby={"board-description-"+card.id+(card.id==="conversation"?" board-action-conversation":"")}
         data-board-card={card.id}
-        data-board-keywords={[word(card.category),word(card.title),word(card.description),"action" in card?word(card.action):"",card.keywords].join(" ")}>
-        {"art" in card&&<BoardArtwork id={card.art}/>}
-        {card.id==="parenting"&&
-          <img class="board-tile__art board-tile__art--drafting" data-board-art="parenting"
-            src={pinImages+"parenting.svg"} width="240" height="240" alt="" loading="lazy" decoding="async" />}
-        {"photo" in card&&
-          <img class="board-tile__art board-tile__art--image" data-board-art={card.photo}
-            src={pinImages+card.photo+"-640.webp"}
-            srcset={pinImages+card.photo+"-320.webp 320w, "+pinImages+card.photo+"-640.webp 640w"}
-            sizes={pinSizes+(portraitPins.has(card.photo)?"45vw":narrowPinSizes)} width="640" height="640" alt="" loading="lazy" decoding="async" />}
-        {card.id==="first-step"&&
-          <svg class="board-tile__art" data-board-art="graph" viewBox="0 0 200 238" aria-hidden="true" focusable="false">
-            <defs>
-              <linearGradient id="pin-graph-paper" x2="100%" y2="100%">
-                <stop stop-color="#25292b"/><stop offset="1" stop-color="#131617"/>
-              </linearGradient>
-              <pattern id="pin-graph-grid" width="20" height="20" x="20" y="36" patternUnits="userSpaceOnUse">
-                <path d="M20 0H0V20" fill="none" stroke="#bdc1be" stroke-width=".65" opacity=".31"/>
-              </pattern>
-            </defs>
-            <path d="M0 0h200v238H0z" fill="url(#pin-graph-paper)"/>
-            <rect x="20" y="36" width="160" height="140" fill="url(#pin-graph-grid)" stroke="#848d8c" stroke-width=".65"/>
-            <path d="M20 156h165m-5-3 5 3-5 3M100 176V31m-3 5 3-5 3 5" fill="none" stroke="#bfc4c0" stroke-width="1"/>
-            <path d="M20 76Q100 236 180 76" fill="none" stroke="#e8b17b" stroke-width="2.7"/>
-            <g fill="#f6d2ab">
-              <circle cx="20" cy="76" r="2"/><circle cx="60" cy="136" r="2"/><circle cx="100" cy="156" r="3"/>
-              <circle cx="140" cy="136" r="2"/><circle cx="180" cy="76" r="2"/>
-            </g>
-            <g fill="#cdd0cc" font-family="monospace" font-size="8">
-              <text x="16" y="169">−4</text><text x="96" y="169">0</text><text x="176" y="169">4</text>
-              <text x="104" y="73">4</text><text x="188" y="160">x</text><text x="105" y="31">y</text>
-            </g>
-            <path d="M20 197h160" stroke="#707876" stroke-width=".7"/>
-            <text x="20" y="217" fill="#f4f0e5" font-family="monospace" font-size="13">y = x² / 4</text>
-            <path d="M173 213h7" stroke="#e8b17b" stroke-width="2"/>
-          </svg>}
-        {card.id==="art"&&
-          <img class="board-tile__art board-tile__art--image" data-board-art="wave" src={base+wave.image.path}
-            width={wave.image.width} height={wave.image.height} alt={wave.image.alt[lang]} loading="lazy" decoding="async"/>}
-        {card.id==="atlas"&&
-          <svg class="board-tile__art board-tile__art--drafting" data-board-art="atlas" viewBox="0 0 224 200" aria-hidden="true" focusable="false">
-            <path d="M0 0h224v200H0z" fill="#edeae0"/>
-            <path d="M50 62h124v76H50zM112 62v76M50 138l62-76"
-              fill="none" stroke="#292d28" stroke-width="1.6"/>
-            <path d="M46 58h8v8h-8zM170 58h8v8h-8zM46 134h8v8h-8zM108 134h8v8h-8zM170 134h8v8h-8z"
-              fill="#292d28"/>
-            <path d="M108 58h8v8h-8z" fill="#a76045"/>
-          </svg>}
-        {card.id==="bridge"&&
-          <svg class="board-tile__art board-tile__art--drafting" data-board-art="bridge" viewBox="0 0 232 188" aria-hidden="true" focusable="false">
-            <path d="M0 0h232v188H0z" fill="#edeae0"/>
-            <path d="M48 55v71m136-71v71M33 119h166" fill="none" stroke="#292d28" stroke-width="1.6"/>
-            <path d="M82 91.75V119m34-15v15m34-27.25V119" fill="none" stroke="#292d28" stroke-width="1" opacity=".45"/>
-            <path d="M48 55Q116 153 184 55" fill="none" stroke="#a76045" stroke-width="2.2"/>
-          </svg>}
-        {card.id==="military"&&
-          <svg class="board-tile__art board-tile__art--drafting" data-board-art="custodiae" viewBox="0 0 200 210" aria-hidden="true" focusable="false">
-            <path d="M0 0h200v210H0z" fill="#242824"/>
-            <path d="M28 105h11m122 0h11M100 33v11m0 122v11" fill="none" stroke="#e8e3d7" stroke-width="1" opacity=".32"/>
-            <path d="m100 56 49 49-49 49-49-49Z" fill="none" stroke="#e8e3d7" stroke-width="2"/>
-          </svg>}
+        data-board-topic={card.topic}
+        data-board-feature={card.id==="conversation"?true:undefined}
+        data-board-keywords={[word(topics[card.topic]),word(card.category),word(card.title),word(card.description),"action" in card?word(card.action):"",card.keywords].join(" ")}>
+        <div class="board-tile__media">
+          {"art" in card&&<BoardArtwork id={card.art}/>}
+          {card.id==="parenting"&&
+            <img class="board-tile__art board-tile__art--drafting" data-board-art="parenting"
+              src={pinImages+"parenting.svg"} width="240" height="240" alt="" loading="lazy" decoding="async" />}
+          {"photo" in card&&
+            <img class="board-tile__art board-tile__art--image" data-board-art={card.photo}
+              src={pinImages+card.photo+"-640.webp"}
+              srcset={pinImages+card.photo+"-320.webp 320w, "+pinImages+card.photo+"-640.webp 640w"}
+              sizes={pinSizes} width="640" height="640" alt="" loading="lazy" decoding="async" />}
+          {card.id==="first-step"&&
+            <svg class="board-tile__art" data-board-art="graph" viewBox="0 0 200 238" aria-hidden="true" focusable="false">
+              <defs>
+                <linearGradient id="pin-graph-paper" x2="100%" y2="100%">
+                  <stop stop-color="#25292b"/><stop offset="1" stop-color="#131617"/>
+                </linearGradient>
+                <pattern id="pin-graph-grid" width="20" height="20" x="20" y="36" patternUnits="userSpaceOnUse">
+                  <path d="M20 0H0V20" fill="none" stroke="#bdc1be" stroke-width=".65" opacity=".31"/>
+                </pattern>
+              </defs>
+              <path d="M0 0h200v238H0z" fill="url(#pin-graph-paper)"/>
+              <rect x="20" y="36" width="160" height="140" fill="url(#pin-graph-grid)" stroke="#848d8c" stroke-width=".65"/>
+              <path d="M20 156h165m-5-3 5 3-5 3M100 176V31m-3 5 3-5 3 5" fill="none" stroke="#bfc4c0" stroke-width="1"/>
+              <path d="M20 76Q100 236 180 76" fill="none" stroke="#e8b17b" stroke-width="2.7"/>
+              <g fill="#f6d2ab">
+                <circle cx="20" cy="76" r="2"/><circle cx="60" cy="136" r="2"/><circle cx="100" cy="156" r="3"/>
+                <circle cx="140" cy="136" r="2"/><circle cx="180" cy="76" r="2"/>
+              </g>
+              <g fill="#cdd0cc" font-family="monospace" font-size="8">
+                <text x="16" y="169">−4</text><text x="96" y="169">0</text><text x="176" y="169">4</text>
+                <text x="104" y="73">4</text><text x="188" y="160">x</text><text x="105" y="31">y</text>
+              </g>
+              <path d="M20 197h160" stroke="#707876" stroke-width=".7"/>
+              <text x="20" y="217" fill="#f4f0e5" font-family="monospace" font-size="13">y = x² / 4</text>
+              <path d="M173 213h7" stroke="#e8b17b" stroke-width="2"/>
+            </svg>}
+          {card.id==="art"&&
+            <img class="board-tile__art board-tile__art--image" data-board-art="wave" src={base+wave.image.path}
+              width={wave.image.width} height={wave.image.height} alt={wave.image.alt[lang]} loading="lazy" decoding="async"/>}
+          {card.id==="atlas"&&
+            <svg class="board-tile__art board-tile__art--drafting" data-board-art="atlas" viewBox="0 0 224 200" aria-hidden="true" focusable="false">
+              <path d="M0 0h224v200H0z" fill="#edeae0"/>
+              <path d="M50 62h124v76H50zM112 62v76M50 138l62-76"
+                fill="none" stroke="#292d28" stroke-width="1.6"/>
+              <path d="M46 58h8v8h-8zM170 58h8v8h-8zM46 134h8v8h-8zM108 134h8v8h-8zM170 134h8v8h-8z"
+                fill="#292d28"/>
+              <path d="M108 58h8v8h-8z" fill="#a76045"/>
+            </svg>}
+          {card.id==="bridge"&&
+            <svg class="board-tile__art board-tile__art--drafting" data-board-art="bridge" viewBox="0 0 232 188" aria-hidden="true" focusable="false">
+              <path d="M0 0h232v188H0z" fill="#edeae0"/>
+              <path d="M48 55v71m136-71v71M33 119h166" fill="none" stroke="#292d28" stroke-width="1.6"/>
+              <path d="M82 91.75V119m34-15v15m34-27.25V119" fill="none" stroke="#292d28" stroke-width="1" opacity=".45"/>
+              <path d="M48 55Q116 153 184 55" fill="none" stroke="#a76045" stroke-width="2.2"/>
+            </svg>}
+          {card.id==="military"&&
+            <svg class="board-tile__art board-tile__art--drafting" data-board-art="custodiae" viewBox="0 0 200 210" aria-hidden="true" focusable="false">
+              <path d="M0 0h200v210H0z" fill="#242824"/>
+              <path d="M28 105h11m122 0h11M100 33v11m0 122v11" fill="none" stroke="#e8e3d7" stroke-width="1" opacity=".32"/>
+              <path d="m100 56 49 49-49 49-49-49Z" fill="none" stroke="#e8e3d7" stroke-width="2"/>
+            </svg>}
+          {sketches[card.id]&&
+            <svg class="board-tile__art board-tile__art--sketch" viewBox="0 0 240 208" aria-hidden="true" focusable="false">
+              <circle cx="120" cy="104" r="63" fill="none" stroke="currentColor" stroke-width=".8" stroke-dasharray="4 6" opacity=".42"/>
+              <path d={sketches[card.id]} fill="none" stroke="currentColor" stroke-width="1.3"/>
+              <circle cx="120" cy="104" r="3" fill="currentColor"/>
+            </svg>}
+        </div>
         <div class="board-tile__caption">
           <div class="board-tile__top">
             <span>{word(card.category)}</span>
@@ -174,10 +204,17 @@ const word=(v)=>v[lang];
           </div>
           <h3 id={"board-title-"+card.id}>{word(card.title)}</h3>
           <p id={"board-description-"+card.id}>{word(card.description)}</p>
+          {card.id==="conversation"&&<span class="board-tile__action" id="board-action-conversation">{word(card.action)} <span aria-hidden="true">→</span></span>}
         </div>
       </a>)}
     </div>
-    <p class="board-empty" data-board-empty hidden>{de?"Keine passende Kachel. Bitte einen anderen Begriff versuchen.":"No matching tile. Try another term."}</p>
+    <div class="board-empty" data-board-empty hidden>
+      <p>{de?"Hier passt gerade keine Frage zu deiner Suche. Versuch einen anderen Begriff oder sieh dir wieder alle Fragen an.":"No questions match this search. Try another term or return to all questions."}</p>
+      <button type="button" class="board-empty__reset" data-board-reset>{de?"Suche und Filter zurücksetzen":"Reset search and filters"}</button>
+    </div>
+    <div class="board-actions" data-board-actions hidden>
+      <button type="button" data-board-more aria-controls="board-cards">{de?"Mehr Fragen zeigen":"Show more questions"} <span aria-hidden="true">↓</span></button>
+    </div>
     <div class="board-source">
       <p>{de?"Hast du etwas gesucht und nicht gefunden? Sag mir, was dir hier fehlt.":"Were you looking for something you couldn’t find? Tell me what’s missing."}</p>
       <a class="home-link" href={pathFor(lang,"mitwirken","rueckmeldung")}>{ui[lang].feedbackInvitation} <span aria-hidden="true">→</span></a>
