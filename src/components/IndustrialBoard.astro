@@ -27,6 +27,13 @@ const cards=[
     keywords:"gesellschaft demokratie mitbestimmung rechte staat democracy rights government participation"
   },
   {id:"conversation",photo:"table",route:"schnittmengen",anchor:{de:"sprachprobe",en:"sprachprobe"},category:{de:"Am Küchentisch",en:"At the kitchen table"},title:{de:"Teilen wir die Miete durch zwei?",en:"Should we split the rent in half?"},description:{de:"Ein Gehalt ist doppelt so hoch wie das andere. Ihr wollt beide fair teilen. Was bedeutet das für jeden von euch?",en:"One of you earns twice as much as the other. You both want to be fair. What does that mean to each of you?"},action:{de:"Gespräch zu zweit ausprobieren",en:"Try the conversation together"},keywords:"gespräch streit konflikt zuhören miete fairness mediation conversation rent disagreement listening"},
+  {
+    id:"parenting", route:"kindererziehung",
+    category:{de:"Kindererziehung",en:"Parenting"},
+    title:{de:"Wer entscheidet, wann wir gehen?",en:"Who decides when it’s time to go?"},
+    description:{de:"Dein Kind will noch einmal rutschen. Du willst los. Was ändert sich, wenn ihr den letzten Bus erreichen müsst?",en:"Your child wants one more turn on the slide. You’re ready to leave. What changes if you have to catch the last bus?"},
+    keywords:"erziehung kinder eltern familie spielplatz grenzen mitbestimmung children parents family playground boundaries choices"
+  },
   {id:"first-step",route:"index",anchor:{de:"erkenntnis",en:"insight"},category:{de:"Erkenntnis · Ausprobieren",en:"Insight · Try it"},title:{de:"Wie entscheidet Vera?",en:"How does Vera decide?"},description:{de:"Eine neue Seite soll online gehen. Welchen Test würdest du zuerst machen? Vergleiche deine Wahl mit Veras Modell.",en:"A new page is about to go live. What would you check first? Compare your choice with Vera’s model."},action:{de:"Modell ausprobieren",en:"Try the model"},keywords:"einstieg start erkenntnis entscheidung belege insight decision evidence"},
   {id:"everyday",route:"forum",anchor:{de:"alltagsfragen",en:"alltagsfragen"},category:{de:"Aus dem Alltag",en:"Everyday life"},title:{de:"Was beschäftigt dich?",en:"What’s on your mind?"},description:{de:"Muss ich bleiben, wenn ich jemanden liebe? Hier findest du einen ersten Gedanken dazu und einen guten Grund, weiterzufragen.",en:"Do I have to stay if I love someone? Read one possible answer and a question that might change how you see it."},action:{de:"Alltagsfragen lesen",en:"Read everyday questions"},keywords:"liebe arbeit ernährung food work love beziehung"},
   {id:"art",route:"kunst-und-erkenntnis",anchor:{de:"sammlung",en:"sammlung"},category:{de:"Liber Artis · Kunst",en:"Liber Artis · Art"},title:{de:"Wohin schaust du zuerst?",en:"Where does your eye go first?"},description:{de:"Unter Hokusais großer Welle ducken sich Menschen in ihren Booten. Schau einen Moment lang nur auf sie. Wie wirkt die Welle jetzt?",en:"Beneath Hokusai’s great wave, people crouch in their boats. Look just at them for a moment. How does the wave feel now?"},action:{de:"Zur Kunstsammlung",en:"Explore the art collection"},keywords:"kunst art kunstwerk werk malerei musik literatur architektur painting music literature architecture"},
@@ -101,6 +108,9 @@ const word=(v)=>v[lang];
         data-board-card={card.id}
         data-board-keywords={[word(card.category),word(card.title),word(card.description),"action" in card?word(card.action):"",card.keywords].join(" ")}>
         {"art" in card&&<BoardArtwork id={card.art}/>}
+        {card.id==="parenting"&&
+          <img class="board-tile__art board-tile__art--drafting" data-board-art="parenting"
+            src={pinImages+"parenting.svg"} width="240" height="240" alt="" loading="lazy" decoding="async" />}
         {"photo" in card&&
           <img class="board-tile__art board-tile__art--image" data-board-art={card.photo}
             src={pinImages+card.photo+"-640.webp"}

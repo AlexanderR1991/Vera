@@ -1,0 +1,115 @@
+---
+import Layout from "../layouts/SiteLayout.astro";
+import { base, pathFor } from "../lib/paths.mjs";
+
+const { lang = "de" } = Astro.props;
+const de = lang === "de";
+const t = (german, english) => de ? german : english;
+const description = t(
+  "Dein Kind will noch einmal rutschen. Ihr müsst los. Was kann es mitentscheiden? Zwei Varianten einer Spielplatzszene und eine Gegenprobe.",
+  "Your child wants one more turn on the slide. You have to leave. What can they help decide? Two versions of a playground scene and a counterexample."
+);
+---
+<Layout lang={lang} slug="kindererziehung" description={description}>
+  <article class="container parenting">
+    <a class="subtle-link" href={pathFor(lang, "index", de ? "leben" : "life")}>
+      <span aria-hidden="true">←</span> {t("Zur Pinnwand", "Back to the pinboard")}
+    </a>
+    <header class="parenting-hero">
+      <div>
+        <p class="section-kicker">{t("Kindererziehung · Gedankenbeispiel", "Parenting · Thought experiment")}</p>
+        <h1>{t("Wer entscheidet, wann wir gehen?", "Who decides when it’s time to go?")}</h1>
+        <p class="parenting-lead">{t(
+          "Du sagst: „Wir gehen jetzt.“ Dein Kind steht schon wieder an der Leiter. „Einmal noch!“",
+          "‘It’s time to go,’ you say. Your child is already back at the ladder. ‘One more turn!’"
+        )}</p>
+      </div>
+      <img src={base + "images/pinnwand/parenting.svg"} width="240" height="240" alt="" />
+    </header>
+
+    <section aria-labelledby="parenting-perspectives">
+      <h2 id="parenting-perspectives">{t("Was wissen wir schon?", "What do we know so far?")}</h2>
+      <p>{t(
+        "Dein Kind sagt, dass es noch einmal rutschen will. Vielleicht möchte es seinem Freund noch etwas zeigen. Vielleicht macht das Rutschen einfach Spaß. Frag, wenn du Zeit hast, und lass auch ein Zeigen oder Kopfschütteln als Antwort gelten. Du weißt, dass du loswillst. Klär für dich, was eine weitere Runde tatsächlich kosten würde.",
+        "Your child says they want another turn. Maybe there’s something they want to show a friend. Maybe sliding is simply fun. If there’s time, ask, and let a gesture or a shake of the head count as an answer. You know you want to leave. Ask yourself what another turn would actually cost."
+      )}</p>
+    </section>
+
+    <section aria-labelledby="parenting-compare">
+      <h2 id="parenting-compare">{t("Gleicher Wunsch, zwei Situationen", "Same wish, two situations")}</h2>
+      <div class="parenting-cases">
+        <div class="parenting-case">
+          <h3>{t("Ihr habt noch Zeit", "You have time")}</h3>
+          <p>{t("Es wartet niemand auf euch. Eine weitere Runde passt. Dein Kind kann den Zeitpunkt mitbestimmen.", "Nobody is waiting for you. There’s room for another turn. Your child can help decide when you leave.")}</p>
+          <p class="parenting-voice">{t("„Du möchtest noch einmal rutschen. Eine Runde passt noch. Danach gehen wir.“", "‘You’d like another turn. We have time for one more, then we’ll go.’")}</p>
+        </div>
+        <div class="parenting-case">
+          <h3>{t("Ihr müsst den letzten Bus erreichen", "You need to catch the last bus")}</h3>
+          <p>{t("Eine weitere Runde würde bedeuten, dass ihr den Bus verpasst. Du entscheidest, wann ihr losgeht, und sagst deinem Kind, warum.", "Another turn would mean missing the bus. You decide when to leave and tell your child why.")}</p>
+          <p class="parenting-voice">{t("„Du wolltest noch rutschen. Wir müssen jetzt los, damit wir den Bus erwischen. Möchtest du zur Haltestelle neben mir laufen oder an meiner Hand?“", "‘You wanted another turn. We need to leave now to catch the bus. Would you like to walk beside me or hold my hand on the way to the stop?’")}</p>
+        </div>
+      </div>
+      <p class="parenting-principle">{t(
+        "Unser Vorschlag für diesen Fall: Nimm den Wunsch ernst, benenne den Grund für deine Entscheidung und biete nur eine Wahl an, wenn beide Antworten möglich sind. Dein Kind darf darüber weiter enttäuscht sein.",
+        "Our proposal for this case: take the wish seriously, explain what drives your decision and offer a choice only when both answers are possible. Your child can still feel disappointed."
+      )}</p>
+    </section>
+
+    <section aria-labelledby="parenting-challenge">
+      <h2 id="parenting-challenge">{t("Wo endet die Entscheidung der Erwachsenen?", "Where does the adult’s decision end?")}</h2>
+      <details id="gegenprobe">
+        <summary>{t("Dein Kind möchte der Tante keinen Kuss geben.", "Your child doesn’t want to give their aunt a kiss.")}</summary>
+        <p>{t(
+          "Hier geht es darum, wer über eine Berührung entscheidet. Auch wenn die Tante enttäuscht ist, soll das Kind den Kuss ablehnen können. Vielleicht mag es winken. Vielleicht möchte es auch das gerade nicht.",
+          "Here the question is who gets to decide about physical contact. Even if the aunt is disappointed, the child should be able to decline the kiss. They might want to wave, or they might prefer to do neither."
+        )}</p>
+      </details>
+      <p>{t(
+        "Denk an eine ähnliche Szene. Was stand wirklich fest? Welche Entscheidung konnte das Kind selbst treffen? Was hätte deine Einschätzung verändert?",
+        "Think of a similar moment. What really was fixed? What could the child decide for themselves? What would have changed your mind?"
+      )}</p>
+      <p class="parenting-source">{t(
+        "Ein Bezugspunkt für die Kinderperspektive ist Artikel 12 der UN-Kinderrechtskonvention. Er verankert, dass die Meinung von Kindern in sie betreffenden Angelegenheiten gehört und nach Alter und Reife berücksichtigt wird.",
+        "Article 12 of the UN Convention on the Rights of the Child is a reference point for the child’s perspective. It calls for children’s views to be heard on matters affecting them and given due weight according to their age and maturity."
+      )} <a href={t("https://www.unicef.de/informieren/ueber-uns/fuer-kinderrechte/un-kinderrechtskonvention", "https://www.unicef.org/child-rights-convention/convention-text")}>{t("Konventionstext bei UNICEF", "Read the convention at UNICEF")} ↗</a></p>
+      <nav class="parenting-links" aria-label={t("Weiterdenken", "Explore further")}>
+        <a class="subtle-link" href={pathFor(lang, "baum-des-wissens", "ast-psychologie")}>{t("Psychologie und Entwicklung im Wissensbaum", "Psychology and development in the knowledge tree")} ↗</a>
+        <a class="subtle-link" href={pathFor(lang, "methode", "g-005")}>{t("Wie Vera über Hilfe nachdenkt", "How Vera thinks about help")} ↗</a>
+        <a class="subtle-link" href={pathFor(lang, "mitwirken", "rueckmeldung")}>{t("Einen Einwand zu dieser Seite formulieren", "Raise an objection to this page")} ↗</a>
+      </nav>
+    </section>
+  </article>
+</Layout>
+
+<style>
+  .parenting { max-width: 64rem; padding-block: clamp(2rem, 5vw, 4.5rem); }
+  .parenting-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(11rem, 15rem);
+    gap: 1.5rem 3rem;
+    align-items: center;
+    margin-block: 1.5rem 2.5rem;
+  }
+  .parenting-hero img { width: 100%; height: auto; border: 1px solid var(--line); border-radius: 3px; }
+  h1 { font-size: clamp(2.35rem, 6vw, 4.65rem); line-height: 1.04; margin-block: .2em .35em; text-wrap: balance; }
+  h2 { font-size: clamp(1.5rem, 3.8vw, 2.2rem); line-height: 1.15; margin-bottom: .7rem; }
+  h3 { margin-bottom: .55rem; font-size: 1.1rem; }
+  p { max-width: 68ch; }
+  .parenting-lead { color: var(--text); font: clamp(1.15rem, 2.5vw, 1.55rem)/1.45 var(--serif); }
+  .parenting > section { border-top: 1px solid var(--line); margin-top: 2rem; padding-top: 1.4rem; }
+  .parenting-cases { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .85rem; }
+  .parenting-case { border: 1px solid var(--line); background: var(--ink2); padding: 1.1rem; }
+  .parenting-voice { color: var(--text); font: 1.15rem/1.5 var(--serif); margin-bottom: 0; }
+  .parenting-principle { margin-top: 1rem; }
+  details { border-inline-start: 2px solid var(--gold); padding: .6rem 1rem; margin-block: .6rem 1rem; }
+  details p { margin: .5rem 0 0; }
+  summary { cursor: pointer; color: var(--text); }
+  summary:focus-visible { outline: 2px solid var(--gold-bright); outline-offset: .2rem; }
+  .parenting-source { font-size: .9rem; }
+  .parenting-source a { text-decoration: underline; text-underline-offset: .18em; }
+  .parenting-links { display: flex; flex-wrap: wrap; gap: .6rem 1.4rem; }
+  @media (max-width: 40rem) {
+    .parenting-hero, .parenting-cases { grid-template-columns: minmax(0, 1fr); }
+    .parenting-hero img { width: min(45%, 9rem); }
+  }
+</style>

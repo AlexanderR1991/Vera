@@ -1,6 +1,6 @@
 // An editorial map, not a completeness claim or an evidence ranking.
 const b=(de,en)=>({de,en});
-export const treeSnapshot="2026-11-07";
+export const treeSnapshot="2026-11-09";
 export const fields=[
  {id:"wirklichkeit",name:b("Wirklichkeit","Reality")},
  {id:"leben",name:b("Leben","Life")},
@@ -22,7 +22,7 @@ export const topics=[
  {id:"umwelt",name:b("Erde, Klima & Ökologie","Earth, climate & ecology"),fields:["wirklichkeit","leben","gesellschaft","handeln"],state:"open",question:b("Wie hängen Lebensräume, Ressourcen und Verantwortung zusammen?","How are habitats, resources and responsibility connected?")},
  {id:"biologie",name:b("Zelle, Leben & Evolution","Cells, life & evolution"),fields:["wirklichkeit","leben"],state:"open",question:b("Wie entstehen und verändern sich lebende Systeme?","How do living systems arise and change?")},
  {id:"bewusstsein",name:b("Wahrnehmung & Bewusstsein","Perception & consciousness"),fields:["leben","bewusstsein","mensch"],state:"open",question:b("Was erleben wir, und was erklärt dieses Erleben?","What do we experience, and what explains that experience?")},
- {id:"psychologie",name:b("Psychologie & Entwicklung","Psychology & development"),fields:["bewusstsein","mensch","gesellschaft"],state:"open",question:b("Wie lernen, fühlen und verändern Menschen sich?","How do people learn, feel and change?")},
+ {id:"psychologie",name:b("Psychologie & Entwicklung","Psychology & development"),fields:["bewusstsein","mensch","gesellschaft"],state:"draft",slug:"kindererziehung",question:b("Wie lernen, fühlen und verändern Menschen sich? Ein erster Fall zur Kindererziehung fragt, wann ein Kind mitentscheiden kann.","How do people learn, feel and change? A first parenting case asks when a child can share in a decision.")},
  {id:"liebe",name:b("Liebe, Bindung & Fürsorge","Love, attachment & care"),fields:["leben","bewusstsein","mensch","handeln"],state:"draft",slug:"warum-liebe-wirkt",question:b("Welche Formen von Nähe helfen wem und unter welchen Bedingungen?","Which forms of closeness help whom, and under what conditions?")},
  {id:"ernaehrung",name:b("Ernährung & Verantwortung","Nutrition & responsibility"),fields:["leben","mensch","gesellschaft","handeln"],state:"draft",slug:"ernaehrung-und-verantwortung",question:b("Was nährt Menschen, und wie verteilen wir Zugang und Kosten?","What nourishes people, and how do we distribute access and costs?")},
  {id:"medizin",name:b("Medizin","Medicine"),fields:["leben","mensch","gesellschaft","handeln"],state:"draft",slug:"medizin",question:b("Woran erkennen wir, ob eine Behandlung Menschen hilft oder schadet?","How can we tell whether a treatment helps or harms people?")},
