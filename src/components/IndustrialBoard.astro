@@ -6,7 +6,10 @@ import artWorks from "../../public/knowledge/art-works.v1.json";
 const {lang="de"}=Astro.props;
 const de=lang==="de";
 const pinImages=base+"images/pinnwand/";
-const pinSizes="(min-width: 1360px) 225px, (min-width: 1080px) 250px, (min-width: 820px) 235px, (min-width: 600px) 250px, 45vw";
+const pinSizes="(min-width: 1360px) 225px, (min-width: 1080px) 250px, (min-width: 820px) 235px, (min-width: 600px) 250px, ";
+// A square source covering a portrait frame needs more pixels than the column width.
+const portraitPins=new Set(["nutrition","politics"]);
+const narrowPinSizes="(min-width: 450px) calc(46vw - 5.5px), calc(50vw - 23.5px)";
 const wave=artWorks.works.find(work=>work.id==="art-01");
 const cards=[
   {
@@ -102,7 +105,7 @@ const word=(v)=>v[lang];
           <img class="board-tile__art board-tile__art--image" data-board-art={card.photo}
             src={pinImages+card.photo+"-640.webp"}
             srcset={pinImages+card.photo+"-320.webp 320w, "+pinImages+card.photo+"-640.webp 640w"}
-            sizes={pinSizes} width="640" height="640" alt="" loading="lazy" decoding="async" />}
+            sizes={pinSizes+(portraitPins.has(card.photo)?"45vw":narrowPinSizes)} width="640" height="640" alt="" loading="lazy" decoding="async" />}
         {card.id==="first-step"&&
           <svg class="board-tile__art" data-board-art="graph" viewBox="0 0 200 238" aria-hidden="true" focusable="false">
             <defs>
