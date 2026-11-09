@@ -16,8 +16,30 @@ const aliases = {
   mehrheit: [["Darf die Mehrheit alles entscheiden?"], ["Can the majority decide everything?"]]
 };
 
-// Short conversation starters grounded in the two exercises linked below.
+export const goodActionDraft = {
+  de: "Ich würde eine Handlung gut nennen, wenn sie jemandem hilft und die anderen mitentscheiden können, was ihnen dabei zugemutet wird.",
+  en: "I’d call an action good if it helps someone and the others affected have a say in what is asked of them."
+};
+
+// Short conversation starters grounded in the linked exercises.
 const conversations = [
+  {
+    path: "kollektive-moral/#was-ist-gut",
+    de: {
+      question: "Was ist gut?",
+      aliases: ["Was ist moralisch gut?", "Was macht eine Handlung gut?", "Lasst uns gemeinsam definieren, was gut ist."],
+      cues: [/^moralisch$/u, /^gut$/u],
+      answer: goodActionDraft.de + " Stell dir vor, zwei Kollegen wollen am Samstag frei haben. Sie tragen eine abwesende Kollegin ein. Beide sind zufrieden.",
+      followUp: "Was ändert sich für dich, wenn sie selbst um die Schicht gebeten hat?"
+    },
+    en: {
+      question: "What is good?",
+      aliases: ["What is morally good?", "What makes an action good?", "Let’s define what good means together."],
+      cues: [/^morally$/u, /^good$/u],
+      answer: goodActionDraft.en + " Imagine two coworkers both want Saturday off. They put an absent coworker down for the shift. Both are happy with the arrangement.",
+      followUp: "Would you see it differently if she had asked for that shift herself?"
+    }
+  },
   {
     path: "schnittmengen/#vermittlung",
     de: {

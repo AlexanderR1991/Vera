@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/SiteLayout.astro";
-import {base,pathFor} from "../lib/paths.mjs";
+import {absoluteFor,base,pathFor} from "../lib/paths.mjs";
+import {goodActionDraft} from "../lib/first-answer.mjs";
 import project from "../../public/project.json";
 import model from "../../public/knowledge/direction-index.v0.json";
 import "../styles/mission.css";
@@ -9,23 +10,38 @@ const {lang="de"}=Astro.props;
 const en=lang==="en";
 const t=(de,english)=>en?english:de;
 const local=value=>value[lang];
+const feedback=new URLSearchParams({
+  template:"rueckmeldung.yml",
+  stelle:absoluteFor(lang,"kollektive-moral","was-ist-gut")
+});
 ---
 <Layout lang={lang} slug="kollektive-moral" description={local(model.disclaimer)}>
   <article class="container mission-document morality">
-    <header>
-      <p class="section-kicker">{t("VERA · FORSCHUNGSENTWURF · KEIN MORALURTEIL","VERA · RESEARCH PROPOSAL · NO MORAL VERDICT")}</p>
-      <h1>{t("Kann Moral gemeinsam wachsen?","Can morality grow collectively?")}</h1>
-      <p class="mission-lead">{t("Ein offener Kompass statt eines endgültigen Richters. Wir wollen untersuchen, welche Richtungen entstehen, wenn Menschen Erfahrungen, Werte, überprüfte Wirkungen und Gegenargumente zusammenbringen.","An open compass, not a final judge. We explore which directions emerge when people combine experiences, values, independently tested effects and serious objections.")}</p>
-      <blockquote class="morality__motto">{t("Wir entscheiden nicht, was gut ist. Wir prüfen, wohin die Gründe weisen – und korrigieren die Richtung.","We do not decree what is good. We examine where the reasons point — and revise the direction.")}</blockquote>
-      <p><strong>{t("Heute nur ein Entwurf.","Today: proposal only.")}</strong> {local(model.disclaimer)}</p>
+    <header id="was-ist-gut">
+      <p class="section-kicker">{t("Eine Einladung von Vera","An invitation from Vera")}</p>
+      <h1>{t("Was ist gut?","What is good?")}</h1>
+      <p class="mission-lead">{t("Denk an einen Moment, in dem dir jemand gutgetan hat. Was genau hat diese Person getan? Wie würdest du den Satz „Gut ist für mich, wenn …“ beenden?","Think of a time someone did something good for you. What did they do? How would you finish the sentence “To me, an action is good when …”?")}</p>
+      <p>{t("Hier ist mein erster Versuch.","Here’s my first attempt.")}</p>
+      <blockquote class="morality__motto">{local(goodActionDraft)}</blockquote>
+      <h2>{t("Wer arbeitet am Samstag?","Who works on Saturday?")}</h2>
+      <p>{t("Zwei Kollegen wollen am Samstag frei haben. Sie einigen sich und tragen eine Kollegin für die Schicht ein. Sie war beim Gespräch nicht dabei. Wie würdest du ihre Lösung beurteilen?","Two coworkers want Saturday off. They agree to put a third coworker down for the shift. She wasn’t part of the conversation. What do you think of their solution?")}</p>
+      <details>
+        <summary>{t("Ein Detail ändert sich","Change one detail")}</summary>
+        <p>{t("Die Kollegin hatte selbst um diese Schicht gebeten, weil sie den Zuschlag gut gebrauchen kann. Ändert das dein Urteil? Was würdest du sie fragen?","She had asked for that shift herself because the extra pay would help. Does that change your judgment? What would you ask her?")}</p>
+      </details>
+      <p>{t("Wenn ihr zu zweit seid, lest euch eure Sätze vor. Welches Wort würdet ihr nach diesem Fall ändern? Wo ihr euch uneinig seid, lasst beide Fassungen stehen.","If you’re doing this together, read your sentences to each other. Which word would you change after hearing this story? If you disagree, keep both versions.")}</p>
+      <div class="morality__links">
+        <a href={project.repository+"/issues/new?"+feedback}>{t("Eine Definition oder ein Gegenbeispiel öffentlich teilen (GitHub-Konto)","Share a definition or counterexample publicly (GitHub account)")}</a>
+      </div>
+    </header>
+    <section id="richtung">
+      <p class="section-kicker">{t("Veras Forschungsentwurf","Vera’s research proposal")}</p>
+      <h2>{t("Eine Zahl braucht einen Maßstab.","A number needs a reference.")}</h2>
+      <p>{local(model.disclaimer)}</p>
       <div class="button-row">
         <a class="button button--gold" href="#schritte">{t("Das Verfahren ansehen ↓","Explore the process ↓")}</a>
         <a class="button button--ghost" href={pathFor(lang,"regelkreis")}>{t("META-01 prüfen →","Examine META-01 →")}</a>
       </div>
-    </header>
-    <section id="richtung">
-      <p class="section-kicker">{t("RICHTUNG STATT ENDURTEIL","DIRECTION INSTEAD OF FINAL VERDICT")}</p>
-      <h2>{t("Eine Zahl braucht einen Maßstab.","A number needs a reference.")}</h2>
       <p>{t("Belege zeigen, was wahrscheinlich geschieht. Wertprofile legen offen, was Menschen wichtig ist. Erst ein definierter Vergleich erlaubt eine bedingte Richtung. Mehrheit, Belegqualität und Moral sind nicht dieselbe Sache.","Evidence concerns what is likely to happen. Value profiles disclose what people prioritize. Only a defined comparison permits a conditional direction. Majority opinion, evidential quality and morality are not the same thing.")}</p>
       <div class="morality__range" role="img" aria-label={t("Illustrative Skala von minus eins bis plus eins – ohne Messwerte.","Illustrative scale from minus one to plus one, without measurements.")}>
         <span>−1</span><span>0</span><span>+1</span>
@@ -76,7 +92,7 @@ const local=value=>value[lang];
 </Layout>
 <style>
 .morality{padding-block:clamp(2.5rem,6vw,5rem)}
-.morality header{max-width:65rem}
+.morality header{max-width:68ch;scroll-margin-top:6rem}
 .morality__motto{border-left:3px solid var(--gold);color:var(--gold-bright);font:clamp(1.3rem,2.8vw,2.1rem)/1.35 var(--serif);padding:.6rem 0 .6rem 1.2rem;margin:1.5rem 0}
 .morality section{border-top:1px solid var(--line);padding-top:2.5rem;margin-top:3rem;scroll-margin-top:6rem}
 .morality section h2{max-width:55rem}

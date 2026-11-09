@@ -38,6 +38,18 @@ test("whole paraphrases yield the editorial source and self descriptions retain 
   assert.match(firstAnswer("Gibt es schon ein Vera-Modell?").answer, /widerspricht/u);
 });
 
+test("the question about moral good reaches the exercise without catching unrelated uses of good", () => {
+  for (const [lang, question, unrelated] of [
+    ["de", "Was ist gut?", "Was ist gut für meinen Garten?"],
+    ["en", "What is good?", "What is good for my garden?"]
+  ]) {
+    const result = firstAnswer(question, lang);
+    assert.equal(result.kind, "answer");
+    assert.equal(result.href, `/Vera/${lang}/kollektive-moral/#was-ist-gut`);
+    assert.deepEqual(firstAnswer(unrelated, lang), { kind: "unknown" });
+  }
+});
+
 test("a mixed question offers both sources, never a guessed answer", () => {
   const result = firstAnswer("Muss ich aus Liebe bleiben? Oder was, wenn ich die falsche Entscheidung treffe?");
   assert.equal(result.kind, "choices");
