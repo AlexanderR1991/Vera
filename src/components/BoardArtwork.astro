@@ -1,12 +1,8 @@
 ---
 const palettes = {
-  nutrition: { light: "#eeeadc", shade: "#aaa994", ink: "#383f2e", accent: "#747d49" },
-  politics: { light: "#414644", shade: "#171b1a", ink: "#e7e1d2", accent: "#ddbb8c" },
-  medicine: { light: "#e6e8e2", shade: "#a2aca7", ink: "#304440", accent: "#708b82" },
-  religions: { light: "#eee5d4", shade: "#b4a48d", ink: "#4b4338", accent: "#8f6049" },
-  symbols: { light: "#35383d", shade: "#17191d", ink: "#e5e2d9", accent: "#e0bf94" },
-  dialogue: { light: "#eee8dc", shade: "#a9a398", ink: "#3e423e", accent: "#8c5940" },
-  rules: { light: "#dcded5", shade: "#8c958b", ink: "#2b3931", accent: "#728668" },
+  religions: { light: "#f3f2ee", shade: "#bcbdb9", ink: "#333735", accent: "#aa7951" },
+  symbols: { light: "#313332", shade: "#0d0f10", ink: "#d3d5cf", accent: "#c88552" },
+  rules: { light: "#eeede8", shade: "#d2d3ce", ink: "#393d3a", accent: "#a36442" },
 } as const;
 
 interface Props {
@@ -16,8 +12,10 @@ interface Props {
 const { id } = Astro.props;
 const { light, shade, ink, accent } = palettes[id];
 const background = `board-${id}-background`;
-const grid = `board-${id}-grid`;
-const plate = `board-${id}-plate`;
+const metal = `board-${id}-metal`;
+const darkMetal = `board-${id}-dark-metal`;
+const metalEdge = `board-${id}-metal-edge`;
+const shadow = `board-${id}-shadow`;
 const paint = (name: string) => `url(#${name})`;
 ---
 <svg class="board-tile__art" data-board-art={id} viewBox="0 0 240 180"
@@ -27,146 +25,81 @@ const paint = (name: string) => `url(#${name})`;
       <stop stop-color={light} />
       <stop offset="1" stop-color={shade} />
     </linearGradient>
-    <pattern id={grid} width="18" height="18" patternUnits="userSpaceOnUse">
-      <path d="M18 0H0V18" fill="none" stroke={ink} stroke-opacity=".18" stroke-width=".65" />
-      <circle r=".65" fill={ink} fill-opacity=".3" />
-    </pattern>
-    {id === "nutrition" && <radialGradient id={plate} cx="35%" cy="30%" r="69%">
-      <stop stop-color="#f8f5e8" />
-      <stop offset=".8" stop-color="#e1dbc5" />
-      <stop offset="1" stop-color="#9e9e83" />
-    </radialGradient>}
+    <linearGradient id={metal} x1="0%" y1="0%" x2="86%" y2="100%">
+      <stop stop-color="#fafaf6" /><stop offset=".3" stop-color="#c2c5c0" />
+      <stop offset=".51" stop-color="#e2e4df" /><stop offset="1" stop-color="#838985" />
+    </linearGradient>
+    <linearGradient id={darkMetal} x1="0%" y1="0%" x2="78%" y2="100%">
+      <stop stop-color="#929994" /><stop offset=".39" stop-color="#545c58" />
+      <stop offset="1" stop-color="#272d2c" />
+    </linearGradient>
+    <linearGradient id={metalEdge} x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop stop-color="#fcfcf8" /><stop offset=".46" stop-color="#8f9690" />
+      <stop offset="1" stop-color="#454b47" />
+    </linearGradient>
+    <filter id={shadow} x="-35%" y="-35%" width="180%" height="190%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="4" dy="7" stdDeviation="5" flood-color="#151916" flood-opacity=".31" />
+    </filter>
   </defs>
   <path d="M0 0h240v180H0Z" fill={paint(background)} />
-  <path d="M0 0h240v180H0Z" fill={paint(grid)} opacity={id === "nutrition" || id === "dialogue" ? ".27" : ".5"} />
-  <path d="M17 32V17h15m176 0h15v15m0 116v15h-15m-176 0H17v-15"
-    fill="none" stroke="currentColor" stroke-width=".75" opacity=".52" />
-
-  {id === "nutrition" && <>
-    <ellipse cx="129" cy="106" rx="67" ry="60" fill="#414337" opacity=".2" />
-    <circle cx="122" cy="91" r="64" fill={paint(plate)} stroke="#7e8068" stroke-width="1.2" />
-    <circle cx="122" cy="91" r="53" fill="#efe9d8" stroke="#a9a68c" stroke-width="1.8" />
-    <circle cx="122" cy="91" r="49" fill="none" stroke="#fffbee" stroke-width="2" />
-    <path d="M122 43v48l41 25a48 48 0 0 1-83-1l42-24" fill="#d8c6a1" opacity=".65" />
-    <g transform="translate(84 59) rotate(-19)" fill={accent}>
-      <path d="M0 36C3 18 17 11 29 12c-1 13-13 25-29 24Z" />
-      <path d="M8 35C1 20 5 9 15 2c6 13 4 24-7 33Z" fill="#596443" />
-      <path d="M11 39c10-11 21-12 31-7-7 11-20 14-31 7Z" fill="#939868" />
-      <path d="M-4 41 20 17m-9 11 23 7M9 24l5-14" fill="none" stroke="#e7e3c9" stroke-width="1.1" />
-    </g>
-    <g fill="#8a6044">
-      <circle cx="143" cy="70" r="5" /><circle cx="156" cy="75" r="6" /><circle cx="151" cy="86" r="5" />
-      <circle cx="139" cy="82" r="4" /><circle cx="161" cy="87" r="3.5" />
-    </g>
-    <g fill="#a7895e">
-      <ellipse cx="105" cy="115" rx="3" ry="5" transform="rotate(-35 105 115)" />
-      <ellipse cx="116" cy="124" rx="3" ry="5" transform="rotate(30 116 124)" />
-      <ellipse cx="126" cy="115" rx="3" ry="5" transform="rotate(45 126 115)" />
-      <ellipse cx="138" cy="122" rx="3" ry="5" transform="rotate(-18 138 122)" />
-      <ellipse cx="126" cy="132" rx="2.7" ry="4.5" transform="rotate(22 126 132)" />
-    </g>
-    <path d="M42 53v22m5-22v22m5-22v22m-10-8c0 10 10 10 10 0m-5 13v49m154-76c-6 8-8 23-7 40h7v36"
-      fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity=".67" />
-    <path d="M61 153h122m-122-4v8m122-8v8" stroke="currentColor" stroke-width=".75" opacity=".45" />
-  </>}
-
-  {id === "politics" && <>
-    <path d="M24 122a96 96 0 0 1 192 0H24Z" fill="#171d1b" stroke="#90978b" stroke-width="1.3" />
-    <path d="M41 122a79 79 0 0 1 158 0m-141 0a62 62 0 0 1 124 0m-107 0a45 45 0 0 1 90 0"
-      fill="none" stroke="currentColor" opacity=".5" />
-    <path d="M120 27v49m-68-28 35 39m101-39-35 39M30 84l54 20m126-20-54 20"
-      fill="none" stroke="currentColor" stroke-width=".7" opacity=".45" />
-    <g fill="#b2b8aa">
-      <circle cx="43" cy="108" r="4" /><circle cx="59" cy="73" r="4" /><circle cx="83" cy="52" r="4" />
-      <circle cx="102" cy="46" r="4" /><circle cx="138" cy="46" r="4" /><circle cx="157" cy="52" r="4" />
-      <circle cx="181" cy="73" r="4" /><circle cx="197" cy="108" r="4" />
-      <circle cx="65" cy="105" r="3.8" /><circle cx="79" cy="81" r="3.8" /><circle cx="103" cy="65" r="3.8" />
-      <circle cx="137" cy="65" r="3.8" /><circle cx="161" cy="81" r="3.8" /><circle cx="175" cy="105" r="3.8" />
-    </g>
-    <g fill={accent}>
-      <circle cx="93" cy="99" r="4.8" /><circle cx="120" cy="80" r="4.8" /><circle cx="147" cy="99" r="4.8" />
-    </g>
-    <path d="M93 99 120 130l27-31m-27-19v50" stroke={accent} stroke-width="1" stroke-dasharray="3 4" fill="none" />
-    <path d="M104 120h32v24h-32z" fill="#37403a" stroke={accent} stroke-width="1.2" />
-    <path d="M110 129h20m-17 6h14M32 151h176m-168-4v8m160-8v8" fill="none" stroke="currentColor" opacity=".67" />
-  </>}
-
-  {id === "medicine" && <>
-    <path d="M41 126h37l14-16 11 11 16-24 12 17h54" fill="none" stroke="currentColor" stroke-width="1" opacity=".55" />
-    <path d="M41 139H197m-156-4v8m156-8v8M120 33v14m-7-7h14" fill="none" stroke="currentColor" stroke-width=".8" opacity=".7" />
-    <g transform="rotate(-32 120 89)">
-      <rect x="62" y="66" width="130" height="57" rx="28.5" fill="#344742" opacity=".22" />
-      <rect x="55" y="60" width="130" height="57" rx="28.5" fill="#e5e9e2" stroke="currentColor" stroke-width="1.6" />
-      <path d="M120 60h36.5a28.5 28.5 0 0 1 0 57H120Z" fill={accent} stroke="currentColor" stroke-width="1.6" />
-      <path d="M67 80c3-7 10-12 18-12h28m14 0h27c10 0 19 5 23 13" fill="none"
-        stroke="#f7f9ef" stroke-width="2" opacity=".67" />
-      <path d="M80 89h20m-10-10v20" fill="none" stroke="currentColor" stroke-width="2.2" />
-      <path d="M139 90h23m-21 5h16m-15 5h11" fill="none" stroke="#3b514a" stroke-width="1" />
-    </g>
-  </>}
 
   {id === "religions" && <>
-    <path d="M38 132 120 32l82 100ZM120 23v135M31 113h178" fill="none" stroke="currentColor"
-      stroke-width=".8" opacity=".5" stroke-dasharray="3 4" />
-    <circle cx="120" cy="70" r="42" fill="#e5dbbe" fill-opacity=".58" stroke="currentColor" stroke-width="1.25" />
-    <circle cx="90" cy="113" r="42" fill="#a5aa8d" fill-opacity=".48" stroke="currentColor" stroke-width="1.25" />
-    <circle cx="150" cy="113" r="42" fill="#bb9580" fill-opacity=".37" stroke="currentColor" stroke-width="1.25" />
-    <path d="M120 84c10 8 13 18 12 26-8 2-16 2-24 0-1-8 2-18 12-26Z" fill="#eee5d4" stroke={accent} stroke-width="1.3" />
-    <path d="M115 99h10m-5-5v10" stroke={accent} stroke-width="1.2" />
-    <g fill="currentColor">
-      <circle cx="120" cy="70" r="2" /><circle cx="90" cy="113" r="2" /><circle cx="150" cy="113" r="2" />
+    <path d="M120 22v137M46 101h148" fill="none" stroke="currentColor" stroke-width=".55"
+      stroke-dasharray="2 4" opacity=".43" />
+    <g fill="none" stroke-width="13">
+      <circle cx="120" cy="63" r="32" stroke={paint(darkMetal)} filter={paint(shadow)} />
+      <circle cx="95" cy="107" r="32" stroke={paint(metal)} filter={paint(shadow)} />
+      <circle cx="145" cy="107" r="32" stroke={paint(metal)} filter={paint(shadow)} />
+      <path d="M88 63a32 32 0 0 1 64 0" stroke={paint(darkMetal)} />
     </g>
+    <g fill="none" stroke={paint(metalEdge)} stroke-width="1.1">
+      <circle cx="120" cy="63" r="26" /><path d="M83 64a37 37 0 0 1 74 0" />
+      <circle cx="95" cy="107" r="26" /><circle cx="145" cy="107" r="26" />
+      <path d="M85 70a38 38 0 1 0 22 73m26 0a38 38 0 1 0 23-73" />
+    </g>
+    <path d="M120 96v10m-5-5h10m26-66h18l7-7" fill="none" stroke={accent} stroke-width="1.05" />
+    <circle cx="178" cy="26" r="2" fill={accent} />
   </>}
 
   {id === "symbols" && <>
-    <circle cx="120" cy="89" r="72" fill="#202226" stroke="currentColor" stroke-opacity=".52" />
-    <circle cx="120" cy="89" r="58" fill="none" stroke="currentColor" stroke-opacity=".4" stroke-dasharray="2 4" />
-    <circle cx="120" cy="89" r="45" fill="none" stroke="currentColor" stroke-opacity=".38" />
-    <path d="M32 89h176M120 12v155m-55-23L175 34M65 34l110 110"
-      fill="none" stroke="currentColor" opacity=".36" />
-    <path d="m120 24 15 49 48 16-48 16-15 48-15-48-48-16 48-16Z"
-      fill={accent} fill-opacity=".23" stroke={accent} stroke-width="1.7" />
-    <path d="m120 48 10 31 32 10-32 10-10 31-10-31-31-10 31-10Z" fill="#202226" stroke={accent} stroke-width="1" />
-    <path d="M113 89h14m-7-7v14" stroke={accent} stroke-width="1.2" />
-    <g fill="currentColor">
-      <circle cx="79" cy="48" r="2.2" /><circle cx="161" cy="48" r="2.2" />
-      <circle cx="79" cy="130" r="2.2" /><circle cx="161" cy="130" r="2.2" />
+    <circle cx="120" cy="89" r="65" fill="#171919" stroke="#777d77" stroke-width="1" filter={paint(shadow)} />
+    <circle cx="120" cy="89" r="62" fill="none" stroke={paint(metalEdge)} stroke-width="1.5" />
+    <circle cx="120" cy="89" r="53" fill="none" stroke="#717771" stroke-width=".75" />
+    <circle cx="120" cy="89" r="44" fill="none" stroke="#565e59" stroke-width=".6" />
+    <path d="M56 89h128m-64-65v130" fill="none" stroke="#777d77" stroke-width=".7" stroke-dasharray="1.5 3.5" />
+    <g stroke="#a6aaa4" stroke-width="1">
+      <path d="M120 28v8m0 106v8M59 89h8m106 0h8M77 46l6 6m74 74 6 6m0-86-6 6m-74 74-6 6" />
     </g>
-  </>}
-
-  {id === "dialogue" && <>
-    <path d="M42 121h155M61 35v111m119-111v111m-55-111v111"
-      stroke="currentColor" opacity=".34" stroke-width=".75" fill="none" stroke-dasharray="3 4" />
-    <g transform="rotate(-10 91 75)">
-      <path d="M53 53h80v51h-34l-20 15v-15H53Z" fill="#4a4640" opacity=".19" />
-      <path d="M48 48h80v51H94l-20 15V99H48Z" fill="#f1ebdc" stroke="currentColor" stroke-width="1.25" />
-      <path d="M61 64h53M61 73h41M61 82h48" fill="none" stroke="currentColor" stroke-width="1.6" opacity=".73" />
+    <g transform="rotate(28 120 89)">
+      <path d="m120 36 8 45 29 8-29 8-8 45-8-45-29-8 29-8Z" fill="#424b48" stroke="#a0aaa3" stroke-width="1" />
+      <path d="m120 36 8 45-8 8-8-8Z" fill={accent} />
+      <path d="m120 36 0 53-8-8Z" fill="#f0b17d" opacity=".65" />
+      <path d="m120 89 8 8-8 45-8-45Z" fill={paint(metal)} />
+      <path d="m83 89 29-8 8 8Zm37 0 8 8 29-8Z" fill="#9ea9a2" />
     </g>
-    <g transform="rotate(10 148 109)">
-      <path d="M112 86h81v50h-25v15l-22-15h-34Z" fill="#403e37" opacity=".22" />
-      <path d="M106 80h81v50h-25v15l-22-15h-34Z" fill="#424843" stroke="#272e2a" stroke-width="1.25" />
-      <path d="M121 97h51m-51 9h39m-39 9h45" fill="none" stroke="#eae3d3" stroke-width="1.6" />
-      <circle cx="177" cy="89" r="2.6" fill="#d3a37e" />
-    </g>
-    <path d="M89 142h20m-10-10v20m56-118h20m-10-10v20" fill="none" stroke={accent} stroke-width=".8" opacity=".78" />
+    <circle cx="120" cy="89" r="4.8" fill={paint(metal)} stroke="#3b433e" stroke-width="1.1" />
+    <path d="M150 37h15l10-12h11" fill="none" stroke={accent} stroke-width=".8" opacity=".85" />
+    <path d="M57 155h15m-15 3h9" stroke="#929892" stroke-width=".8" />
   </>}
 
   {id === "rules" && <>
-    <path d="M58 43h118v105H58Z" fill="#37413a" opacity=".23" transform="rotate(10 120 90)" />
-    <path d="M58 35h118v105H58Z" fill="#a5afa1" stroke="currentColor" stroke-width="1"
-      transform="rotate(10 120 90)" />
-    <path d="M63 35h117v107H63Z" fill="#e8ebdf" stroke="currentColor" stroke-width="1.35"
-      transform="rotate(-8 120 90)" />
-    <g transform="rotate(-8 120 90)">
-      <path d="M79 52h79m-79 6h47m-47 18h85m-85 21h85m-85 21h85"
-        fill="none" stroke="currentColor" stroke-width=".9" opacity=".5" />
-      <path d="M80 65h10v10H80Zm0 21h10v10H80Zm0 21h10v10H80Z"
-        fill="none" stroke="currentColor" />
-      <path d="m82 69 3 3 7-9m-10 27 3 3 7-9"
-        fill="none" stroke={accent} stroke-width="2.1" />
-      <path d="M102 69h50m-50 21h37m-37 21h47"
-        fill="none" stroke="currentColor" stroke-width="1.6" opacity=".78" />
-      <circle cx="169" cy="45" r="2.5" fill={accent} />
+    <path d="M45 116 118 151l81-44M120 30v127m-55-53v32m108-40v29"
+      fill="none" stroke="currentColor" stroke-width=".65" opacity=".42" stroke-dasharray="2 4" />
+    <g stroke-linejoin="round" filter={paint(shadow)}>
+      <path d="M54 115 119 82l66 26v5l-66 35-65-27Z" fill={paint(darkMetal)} stroke="#505653" />
+      <path d="m54 115 65-33 66 26-66 35Z" fill={paint(metal)} stroke="#7f8580" />
     </g>
+    <g stroke-linejoin="round">
+      <path d="M54 91 119 58l66 26v5l-66 35-65-27Z" fill="#69716d" stroke="#57625d" />
+      <path d="m54 91 65-33 66 26-66 35Z" fill={paint(darkMetal)} stroke="#636b65" />
+      <path d="M54 66 119 33l66 26v5l-66 35-65-27Z" fill="#8c958f" stroke="#777e78" />
+      <path d="m54 66 65-33 66 26-66 35Z" fill={paint(metal)} stroke="#777e78" />
+    </g>
+    <path d="M54 66 119 94l66-35" fill="none" stroke="#f9f9f6" stroke-width=".9" />
+    <path d="m77 67 36-18m-22 24 39-20m-26 26 33-17m-18 22 30-15" fill="none"
+      stroke="#4f5a54" stroke-width="1.15" />
+    <path d="M163 58h20l9-10h10m-92 56-15 8H75" fill="none" stroke={accent} stroke-width="1.1" />
+    <circle cx="162" cy="58" r="2.2" fill={accent} />
+    <circle cx="110" cy="104" r="1.7" fill={accent} />
   </>}
 </svg>

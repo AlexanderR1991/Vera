@@ -261,6 +261,14 @@ for(const lang of ["de","en"]){
     boardArt.some(art=>!pinboard.includes(`data-board-art="${art}"`))||
     !pinboard.includes("data-board-filter"))
    errors.push("Missing pinboard routes, illustrations or filter for "+lang);
+ for(const id of ["table","nutrition","politics","medicine","dialogue"]){
+  const img=pinboard.match(new RegExp(`<img[^>]*data-board-art="${id}"[^>]*>`))?.[0]??"";
+  for(const size of [320,640]){
+   const file=`images/pinnwand/${id}-${size}.webp`;
+   if(!img.includes(`/Vera/${file} ${size}w`))errors.push("Missing responsive pinboard image for "+lang+"/"+file);
+   try{await access(join(out,file));}catch{errors.push("Missing pinboard image file "+file);}
+  }
+ }
  const question=home.slice(home.indexOf(opening)+opening.length);
  const sampleHref=`href="/Vera/${lang}/forum/#alltag-entscheidung"`;
  if(!pinboard.includes(`href="#${entry}"`)||!question.includes(`id="${entry}"`)||

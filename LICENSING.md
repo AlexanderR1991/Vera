@@ -71,6 +71,9 @@ MIT must not be interpreted to relicense book prose.
 - Third-party material (e.g. external libraries, quoted text, fonts, images,
   dependencies) remains subject to its own terms; inclusion or reference in
   this repository does not relicense those materials.
+- The five studio motifs in `public/images/pinnwand/` were generated for Vera.
+  They depict conceptual objects. The Pinterest reference informed the visual
+  direction, and its images are separate from the repository.
 - Official license texts (MIT and Creative Commons) remain governed by their
   respective source terms, not by this project's prose license.
 - Unpublished private manuscripts (apart from the expressly released open text

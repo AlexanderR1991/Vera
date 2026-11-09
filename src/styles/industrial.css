@@ -194,8 +194,6 @@ a:hover { color: var(--gold-bright); }
 }
 .board-tile {
   --pin-ratio: 1;
-  --pin-ink: #f2ecde;
-  --pin-accent: #d3b491;
   --pin-surface: #293029;
   --pin-edge: #0003;
   display: block;
@@ -208,8 +206,6 @@ a:hover { color: var(--gold-bright); }
 .board-tile:hover h3 { text-decoration: underline; text-underline-offset: .18em; }
 .board-tile--conversation {
   --pin-ratio: 1.18;
-  --pin-ink: #332c24;
-  --pin-accent: #855435;
   --pin-surface: #e4d7c3;
   --pin-edge: #84674a36;
 }
@@ -234,9 +230,8 @@ a:hover { color: var(--gold-bright); }
   border-radius: inherit;
   background: var(--pin-surface);
 }
-.board-tile__art:not([color]) { color: var(--pin-ink); }
-.board-tile__art--image { object-fit: cover; object-position: 26% 53%; }
-.board-tile__ink { stroke: var(--pin-accent); }
+.board-tile__art--image { object-fit: cover; }
+.board-tile--art .board-tile__art--image { object-position: 26% 53%; }
 .board-tile__caption { padding: .55rem .12rem .2rem; }
 .board-tile__top {
   display: flex;
