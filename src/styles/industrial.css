@@ -63,6 +63,47 @@ a:hover { color: var(--gold-bright); }
 .atlas-card:hover, .shelf-card:hover, .quote-panel:hover { background: #1c2021; border-color: #858c87; }
 .claim-tools input, .claim-tools select, .search-field input { border-radius: 0; background: var(--vera-panel); }
 
+.home-opening {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+.home-opening__wind {
+  display: none;
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  color: var(--vera-signal);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .home-opening__wind { display: block; }
+  .home-opening__particle {
+    position: absolute;
+    top: var(--y);
+    left: var(--x);
+    width: var(--size);
+    height: var(--size);
+    animation: paper-rise 4.8s ease-out var(--phase) both;
+  }
+  .home-opening__particle::before,
+  .home-opening__particle::after {
+    content: "";
+    position: absolute;
+    background: currentColor;
+  }
+  .home-opening__particle::before { inset: calc(50% - .5px) 0 auto; height: 1px; }
+  .home-opening__particle::after { inset: 0 auto 0 calc(50% - .5px); width: 1px; }
+}
+@media (max-width: 640px) {
+  .home-opening__particle[data-wide] { display: none; }
+}
+@keyframes paper-rise {
+  0% { opacity: 0; transform: translate(0, 0); }
+  22%, 60% { opacity: .18; }
+  100% { opacity: 0; transform: translate(clamp(10px, 2.8vw, 58px), calc(-1 * var(--rise))); }
+}
+
 .home-opening__frame {
   display: flex;
   flex-direction: column;
