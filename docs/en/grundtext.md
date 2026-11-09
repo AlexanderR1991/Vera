@@ -2,7 +2,7 @@
 
 > Reality stands above this work.
 
-**Draft English translation of German working version 0.2, 7 November 2026.**
+**Draft English translation of German working version 0.3, 9 November 2026.**
 **Translation status: draft; not independently reviewed.** [German source](../grundtext.md) · [Translation review status](../../public/i18n/review-register.v1.json).
 
 This is an open, correctable philosophical draft, not a scientifically proven comprehensive theory.
@@ -26,6 +26,8 @@ Someone who changes their mind in the light of better reasons does not fail to l
 ## Thesis 03: Every human being has dignity — even amid disagreement.
 
 Arguments may be false, actions harmful, and decisions irresponsible. None of this justifies devaluing a person. Criticism must be allowed to be forceful without becoming dehumanizing.
+
+However much hatred someone feels, we still owe them care. If their actions put someone in danger, protecting the person at risk comes first.
 
 ## Thesis 04: Freedom requires the freedom of others.
 

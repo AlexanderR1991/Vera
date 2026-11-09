@@ -7,7 +7,7 @@ const t = (de, en) => lang === "en" ? en : de;
 const example = everyday.questions.find(entry => entry.id === "entscheidung")!;
 ---
 <div class="first-answer" id={t("frag-mich", "ask-me")} data-first-answer data-lang={lang}
-  data-choices={t("Welche dieser Fragen kommt deiner näher?", "Which question is closer to yours?")}
+  data-choices={t("Was passt am ehesten zu deiner Frage oder Lage?", "Which is closest to your question or situation?")}
   data-unknown={t("Dazu habe ich noch keine passende Antwort.", "I don’t have a matching answer for that yet.")}
   data-retry={t("Wenn du vor einer Entscheidung stehst, frag dich als Erstes, was du noch erfahren könntest, das deine Wahl verändern würde. Eine solche Frage kannst du unten ausprobieren.", "If you’re facing a decision, what could you still find out that might change your choice? You can try a question like that below.")}
   data-empty={t("Schreib zuerst deine Frage ins Feld.", "Type your question first.")}>

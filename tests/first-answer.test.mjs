@@ -38,6 +38,46 @@ test("whole paraphrases yield the editorial source and self descriptions retain 
   assert.match(firstAnswer("Gibt es schon ein Vera-Modell?").answer, /widerspricht/u);
 });
 
+test("hatred alone keeps the same response while explicit threats get role-specific protection", () => {
+  for (const [lang, feeling, stronger, threatened, aboutToHurt, protect, keepAway] of [
+    ["de", "Ich hasse jemanden.", "ICH HASSE JEMANDEN UNENDLICH!", "Jemand droht mir, mich zu schlagen.",
+      "Ich gehe jetzt rüber und schlage ihn.", /sicheren Ort/u, /bleib ihr fern/u],
+    ["en", "I hate someone.", "I HATE SOMEONE SO MUCH!", "Someone is threatening to hit me.",
+      "I'm going to hit her now.", /safe place/u, /stay away/u]
+  ]) {
+    const listening = firstAnswer(feeling, lang);
+    assert.ok(listening.href.endsWith("#hass"));
+    assert.deepEqual(firstAnswer(stronger, lang), listening);
+    for (const [query, id, action] of [[threatened, "bedroht", protect], [aboutToHurt, "gewalt-stoppen", keepAway]]) {
+      const reply = firstAnswer(query, lang);
+      assert.equal(reply.href, "/Vera/" + lang + "/schnittmengen/#" + id);
+      assert.match(reply.answer, action);
+      assert.equal(reply.followUp, "");
+    }
+  }
+});
+
+test("incidental or negated wording cannot select a care scenario for the visitor", () => {
+  for (const [query, lang] of [
+    ["Ich hasse diesen Drucker.", "de"], ["I hate this printer.", "en"],
+    ["Niemand droht mir, mich zu schlagen.", "de"], ["Nobody is threatening to hit me.", "en"]
+  ]) {
+    assert.deepEqual(firstAnswer(query, lang), { kind: "unknown" });
+  }
+});
+
+test("an extra sentence can change the situation, including who is at risk", () => {
+  for (const [query, lang] of [
+    ["Ich hasse jemanden. Er sagt, er schlägt mich heute Abend.", "de"],
+    ["Someone is threatening to hit me. I hate someone.", "en"]
+  ]) {
+    const result = firstAnswer(query, lang);
+    assert.equal(result.kind, "choices");
+    assert.deepEqual(result.choices.map(c => c.href.split("#")[1]), ["bedroht", "gewalt-stoppen", "hass"]);
+    for (const choice of result.choices) assert.equal(firstAnswer(choice.question, lang).href, choice.href);
+  }
+});
+
 test("a mixed question offers both sources, never a guessed answer", () => {
   const result = firstAnswer("Muss ich aus Liebe bleiben? Oder was, wenn ich die falsche Entscheidung treffe?");
   assert.equal(result.kind, "choices");

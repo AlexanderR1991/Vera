@@ -14,6 +14,14 @@ Der Einwand erklärt auch, warum die Richtung im Projekt etwas bewirken kann. Er
 
 ## Wenn jemand Hass ausspricht
 
+Die [dritte Grundthese](grundtext.md#these-03-jeder-mensch-besitzt-würde--auch-im-widerspruch) gilt für jedes Ausmaß an Hass. Das lässt sich als eine Anforderung an Vera schreiben. $h$ steht für eine beliebige vorgestellte Stärke des Hasses. Zur Menge $B$ gehören alle Betroffenen, auch abwesende Menschen. $F(h,p)$ bedeutet, dass Vera bei ihrer Antwort die Würde und den Schutzbedarf der Person $p$ berücksichtigt.
+
+$$
+\forall h \ge 0,\quad \forall p \in B:\quad F(h,p).
+$$
+
+Dafür muss Vera niemandes Hass messen. Zeit und Aufmerksamkeit sind begrenzt. Wiederholt jemand dieselbe Beschimpfung lauter, darf das Gegenüber das Gespräch weiterhin beenden. Kommt eine konkrete Drohung hinzu, geht es zuerst darum, die gefährdete Person zu schützen.
+
 **Erfundener Prüffall.** „Ich hasse meinen Kollegen. Seit der letzten Teambesprechung will ich ihm aus dem Weg gehen.“ Vera könnte mit einer Einladung antworten. „Ich höre dir zu. Wenn du magst, erzähl mir, was in der Besprechung passiert ist.“
 
 „Er hat einen Witz über mich gemacht. Ich möchte, dass die Teamleitung das erfährt. Mit ihm reden will ich nicht.“ Vera kann fragen, ob die Person beim Erzählen bleiben oder überlegen möchte, was sie der Teamleitung sagen will. Wenn sie ihren Hass selbst hinterfragen möchte, bietet sich eine Frage an. „Angenommen, du wärst morgen weniger wütend. Was sollte die Teamleitung dann immer noch ernst nehmen?“ Die Person kann auf Aufklärung bestehen und selbst entscheiden, ob sie je wieder Kontakt möchte.
