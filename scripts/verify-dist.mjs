@@ -244,12 +244,31 @@ for(const lang of ["de","en"]){
     hero.includes('id="first-question"'))
    errors.push("Missing Vera circle or dedicated pinboard section for "+lang);
  const entry=lang==="de"?"frag-mich":"ask-me";
- const cards=[...pinboard.matchAll(/<a[^>]*class="board-tile board-tile--([^"]+)"[^>]*data-board-card[^>]*>/g)];
- const expectedCards=["conversation","first-step","everyday","art","military","society","bridge","atlas","counterexample"];
- if(cards.map(card=>card[1]).join()!==expectedCards.join()||
-    ["table","graph","wave","custodiae"].some(art=>!pinboard.includes(`data-board-art="${art}"`))||
+ const cards=new Map([...pinboard.matchAll(/<a[^>]*href="([^"]+)"[^>]*data-board-card="([^"]+)"[^>]*>/g)]
+  .map(([,href,id])=>[id,href]));
+ const boardRoutes={
+  nutrition:"ernaehrung-und-verantwortung/", politics:"politik-die-dem-menschen-dient/",
+  medicine:"medizin/", religions:"bruecken-zwischen-den-religionen/", symbols:"esoterik-katalog/",
+  dialogue:"schnittmengen/#vermittlung", rules:"philosophischer-motor/",
+  conversation:"schnittmengen/#sprachprobe", everyday:"forum/#alltagsfragen", art:"kunst-und-erkenntnis/#sammlung",
+  military:"militaer-und-verantwortung/", society:"politik-die-dem-menschen-dient/#garten", bridge:"die-bruecke/",
+  atlas:"atlas/", counterexample:"gegenprobe-01/"
+ };
+ const boardArt=["table","graph","wave","custodiae","atlas","bridge","nutrition","politics","medicine","religions","symbols","dialogue","rules"];
+ if(cards.size!==Object.keys(boardRoutes).length+1||
+    Object.entries(boardRoutes).some(([id,route])=>cards.get(id)!==`/Vera/${lang}/${route}`)||
+    cards.get("first-step")!==(lang==="de"?"#erkenntnis":"#insight")||
+    boardArt.some(art=>!pinboard.includes(`data-board-art="${art}"`))||
     !pinboard.includes("data-board-filter"))
-   errors.push("Missing original illustrated pinboard entries or filter for "+lang);
+   errors.push("Missing pinboard routes, illustrations or filter for "+lang);
+ for(const id of ["table","nutrition","politics","medicine","dialogue"]){
+  const img=pinboard.match(new RegExp(`<img[^>]*data-board-art="${id}"[^>]*>`))?.[0]??"";
+  for(const size of [320,640]){
+   const file=`images/pinnwand/${id}-${size}.webp`;
+   if(!img.includes(`/Vera/${file} ${size}w`))errors.push("Missing responsive pinboard image for "+lang+"/"+file);
+   try{await access(join(out,file));}catch{errors.push("Missing pinboard image file "+file);}
+  }
+ }
  const question=home.slice(home.indexOf(opening)+opening.length);
  const sampleHref=`href="/Vera/${lang}/forum/#alltag-entscheidung"`;
  if(!pinboard.includes(`href="#${entry}"`)||!question.includes(`id="${entry}"`)||

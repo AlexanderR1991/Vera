@@ -66,22 +66,56 @@ if(form){
  });
  form.hidden=false;
 }
-// The homepage filter only searches its own visible tiles; it is not a site-wide knowledge search.
-const boardFilter=document.querySelector("[data-board-filter]");
-if(boardFilter){
- const items=[...document.querySelectorAll("[data-board-card]")];
- const counter=document.querySelector("[data-board-counter]");
- const empty=document.querySelector("[data-board-empty]");
- const clean=(s)=>String(s||"").toLocaleLowerCase(document.documentElement.lang==="en"?"en":"de").normalize("NFD").replace(/[\u0300-\u036f]/g,"");
- const apply=()=>{
-  const query=clean(boardFilter.value.trim());
-  let shown=0;
-  items.forEach(item=>{const matches=clean(item.dataset.boardKeywords).includes(query);item.hidden=!matches;if(matches)shown++;});
-  if(counter)counter.textContent=shown+" "+(en?(shown===1?"entry":"entries"):(shown===1?"Zugang":"Zugänge"));
-  if(empty)empty.hidden=shown!==0;
- };
- boardFilter.addEventListener("input",apply);
- boardFilter.addEventListener("search",apply);
+// Shuffle the links themselves so keyboard and visual order stay aligned.
+const board = document.querySelector("[data-board-grid]");
+const boardFilter = document.querySelector("[data-board-filter]");
+if (board && boardFilter) {
+ const items = Array.from(board.querySelectorAll("[data-board-card]"));
+ const counter = document.querySelector("[data-board-counter]");
+ const empty = document.querySelector("[data-board-empty]");
+ for (let i = items.length - 1; i > 0; i--) {
+  const j = Math.floor(Math.random() * (i + 1));
+  [items[i], items[j]] = [items[j], items[i]];
+ }
+ board.append(...items);
+
+ // Sparse grid placement fills the next free column in source order. Resize
+ // observations update spans after wrapping, filtering or a viewport change.
+ const masonry = typeof ResizeObserver === "function";
+ if (masonry) board.dataset.boardMasonry = "";
+ function layoutBoard() {
+  if (!masonry) return;
+  const style = getComputedStyle(board);
+  const row = parseFloat(style.gridAutoRows);
+  const gap = parseFloat(style.columnGap);
+  if (!(row > 0) || !Number.isFinite(gap)) return;
+  const spans = items.filter(item => !item.hidden).map(item => {
+   const rows = Math.ceil((item.getBoundingClientRect().height + gap) / row);
+   return [item, "span " + rows];
+  });
+  for (const [item, span] of spans) {
+   if (item.style.gridRowEnd !== span) item.style.gridRowEnd = span;
+  }
+ }
+ if (masonry) {
+  const observer = new ResizeObserver(layoutBoard);
+  items.forEach(item => observer.observe(item));
+ }
+ const clean = value => value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+ const searchable = items.map(item => [item, clean(item.dataset.boardKeywords ?? "")]);
+ function apply() {
+  const query = clean(boardFilter.value.trim());
+  let shown = 0;
+  for (const [item, words] of searchable) {
+   item.hidden = !words.includes(query);
+   if (!item.hidden) shown++;
+  }
+  counter.textContent = shown + " " + (en ? (shown === 1 ? "entry" : "entries") : (shown === 1 ? "Zugang" : "Zugänge"));
+  empty.hidden = shown !== 0;
+  layoutBoard();
+ }
+ boardFilter.addEventListener("input", apply);
+ boardFilter.addEventListener("search", apply);
  apply();
 }
 })();
