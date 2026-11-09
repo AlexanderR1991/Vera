@@ -230,6 +230,7 @@ a:hover { color: var(--gold-bright); }
   border-radius: inherit;
   background: var(--pin-surface);
 }
+.board-tile__art--drafting { border-radius: 3px; }
 .board-tile__art--image { object-fit: cover; }
 .board-tile--art .board-tile__art--image { object-position: 26% 53%; }
 .board-tile__caption { padding: .55rem .12rem .2rem; }
