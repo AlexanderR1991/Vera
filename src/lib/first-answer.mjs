@@ -60,6 +60,8 @@ const conversations = [
 const normalize = text => text.normalize("NFKC").toLowerCase().replace(/ß/gu, "ss").replace(/[’']/gu, "")
   .replace(/[^\p{L}\p{M}\p{N}]+/gu, " ").trim();
 
+const withForms = entry => ({ ...entry, forms: [entry.question, ...entry.aliases].map(normalize) });
+
 function entries(lang) {
   const home = base + lang + "/";
   const records = everyday.questions.map(entry => ({
@@ -68,15 +70,13 @@ function entries(lang) {
     aliases: aliases[entry.id]?.[lang === "en" ? 1 : 0] ?? []
   }));
   for (const entry of conversations) records.push({ ...entry[lang], href: home + entry.path });
-  for (const entry of careResponses[lang]) records.push({
-    ...entry, href: home + "schnittmengen/#" + entry.id, followUp: "", exactOnly: true
-  });
-  return records.map(entry => ({
-    ...entry, forms: [entry.question, ...entry.aliases].map(normalize)
-  }));
+  return records.map(withForms);
 }
 
 const catalog = { de: entries("de"), en: entries("en") };
+const careCatalog = Object.fromEntries(Object.entries(careResponses).map(([lang, records]) => [
+  lang, records.map(entry => withForms({ ...entry, href: base + lang + "/schnittmengen/#" + entry.id, followUp: "" }))
+]));
 
 function entityAnswer(id, lang) {
   const entry = ENTITY_QUERIES.find(item => item.id === id)[lang];
@@ -99,7 +99,9 @@ export function firstAnswer(input, lang = "de") {
 
   const query = normalize(input);
   if (!query) return { kind: "unknown" };
-  const exact = catalog[lang].find(entry => entry.forms.includes(query) || entry.wording?.test(query));
+  const care = careCatalog[lang];
+  const exact = care.find(entry => entry.forms.includes(query))
+    ?? catalog[lang].find(entry => entry.forms.includes(query) || entry.wording?.test(query));
   if (exact) {
     const { question, answer, followUp, href } = exact;
     return { kind: "answer", question, answer, followUp, href };
@@ -107,7 +109,6 @@ export function firstAnswer(input, lang = "de") {
 
   // Added context can change who is at risk. Let the visitor choose their role.
   const sentences = input.split(/[.!?]+/u).map(normalize).filter(Boolean);
-  const care = catalog[lang].filter(entry => entry.exactOnly);
   if (sentences.length > 1 && care.some(entry => entry.forms.some(form => sentences.includes(form)))) {
     return { kind: "choices", choices: care.map(({ question, href }) => ({ question, href })) };
   }
@@ -118,8 +119,6 @@ export function firstAnswer(input, lang = "de") {
   const pause = lang === "de" ? /^(?:nicht|nie|kein\p{L}*|droh\p{L}*|bedroh\p{L}*|gedroht|gewalt\p{L}*|zwang|geschlagen)$/u
     : /^(?:not|never|dont|threat\p{L}*|violence|violent|coerc\p{L}*|hit|abuse|abusive)$/u;
   const choices = catalog[lang].filter(entry => {
-    // A partial match cannot tell us who faces a threat or who made it.
-    if (entry.exactOnly) return false;
     if (entry.cues) {
       return !tokens.some(word => pause.test(word)) &&
         entry.cues.every(cue => tokens.some(word => cue.test(word)));

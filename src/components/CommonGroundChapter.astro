@@ -2,9 +2,9 @@
 import Layout from "../layouts/SiteLayout.astro";
 import {pathFor} from "../lib/paths.mjs";
 import copy from "../lib/common-ground-copy.json";
-import careResponses from "../lib/care-responses.json" with {type: "json"};
 import DialogueReview from "./DialogueReview.astro";
 import ConsensusExercise from "./ConsensusExercise.astro";
+import careResponses from "../lib/care-responses.json" with {type: "json"};
 const {lang="de"}=Astro.props;
 const t=copy[lang];
 ---
