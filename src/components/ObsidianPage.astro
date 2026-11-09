@@ -1,0 +1,81 @@
+---
+import Layout from "../layouts/SiteLayout.astro";
+import ForumSectionLink from "./ForumSectionLink.astro";
+import everyday from "../../public/knowledge/everyday-questions.json" with {type: "json"};
+import { base, pathFor } from "../lib/paths.mjs";
+import { ui } from "../lib/ui.mjs";
+
+const { lang = "de" } = Astro.props;
+const t = (german, english) => lang === "de" ? german : english;
+const title = ui[lang].titles.obsidian;
+const description = t(
+  "Eine Markdown-Vorlage für deine philosophischen Fragen in Obsidian. Beginne mit einer einzigen Denknotiz.",
+  "A Markdown template for your philosophical questions in Obsidian. Start with a single note."
+);
+const questionBox = pathFor(lang, "index", t("frag-mich", "ask-me"));
+const example = everyday.questions.find(entry => entry.id === "entscheidung")!;
+---
+<Layout lang={lang} slug="obsidian" description={description}>
+  <article class="container obsidian-page">
+    <a class="subtle-link" href={pathFor(lang, "index", t("leben", "life"))}>
+      <span aria-hidden="true">←</span> {t("Zur Pinnwand", "Back to the pinboard")}
+    </a>
+
+    <header class="note-hero">
+      <div>
+        <p class="section-kicker">{t("Offene Schnittstellen · Markdown", "Open interfaces · Markdown")}</p>
+        <h1>{title}</h1>
+        <p class="note-lead">{t("Manche Fragen begleiten dich länger. Nimm eine davon mit in deinen eigenen Denkraum.", "Some questions stay with you. Take one into your own space for thinking.")}</p>
+        <a class="button button--gold" href={base + `templates/vera-denknotiz.${lang}.md`} download>
+          {t("Denknotiz herunterladen (.md)", "Download the inquiry note (.md)")}
+        </a>
+        <p class="small-note">{t("Eine Datei für Obsidian und andere Markdown-Programme. Du kannst direkt loslegen, ohne Konto oder Plugin.", "One file for Obsidian and other Markdown editors. You can start right away without an account or plugin.")}</p>
+      </div>
+      <img src={base + "images/pinnwand/obsidian.svg"} width="240" height="240" alt="" />
+    </header>
+
+    <section aria-labelledby="note-steps">
+      <h2 id="note-steps">{t("Von Vera in deine Notizen und zurück", "From Vera to your notes and back")}</h2>
+      <ol>
+        <li>{t("Lege die heruntergeladene Datei in deinen Obsidian-Ordner (Vault). Obsidian zeigt sie dort als Notiz an.", "Put the downloaded file in your Obsidian folder (vault). Obsidian will show it as a note.")}</li>
+        <li>{t("Schreib eine Frage auf. Halte fest, was du gerade denkst, was dagegen spricht und was deine Sicht ändern könnte. Verlinke Quellen und eigene Notizen, wenn sie dir helfen.", "Write down a question. Record what you think, what might count against it, and what could change your mind. Link to sources and your own notes if they help.")}</li>
+        <li>{t("Wenn du einen Impuls möchtest, füge die Frage selbst bei Vera ein. Vera sucht im Browser in vorbereiteten Antworten und Übungen. Was dir hilft, kannst du zurück in deine Notiz übernehmen.", "If you want a starting point, paste the question into Vera yourself. Vera searches prepared answers and exercises in your browser. Take any useful ideas back to your note.")}</li>
+      </ol>
+      <p>{t("Zum Ausprobieren", "Try this question")} · <em>{example.question[lang]}</em></p>
+      <p><a class="subtle-link" href={questionBox}>{t("Veras Fragefeld öffnen", "Open Vera’s question box")} <span aria-hidden="true">→</span></a></p>
+      <p class="small-note">{t("Du entscheidest, was du kopierst. Deine Notizen, ihre Verknüpfungen und Anhänge bleiben in deinem Vault. Vera greift darauf nicht zu.", "You choose what to copy. Your notes, links, and attachments stay in your vault, where Vera has no access to them.")}</p>
+      <p class="small-note"><a class="subtle-link" href={t("https://obsidian.md/de/help/data-storage", "https://obsidian.md/help/data-storage")}>{t("Obsidian-Hilfe zu Vaults und Markdown", "Obsidian’s help on vaults and Markdown")} <span aria-hidden="true">↗</span></a></p>
+    </section>
+
+    <section aria-labelledby="note-feedback">
+      <h2 id="note-feedback">{t("Was müsste die Verbindung können?", "What would make this connection useful?")}</h2>
+      <p>{t("Nutzt du Obsidian zum philosophischen Nachdenken? Wenn du magst, probier die Vorlage aus. Uns interessiert, bei welchem Schritt du dir eine Abkürzung wünschen würdest.", "Do you use Obsidian to think through philosophical questions? If you’d like, try the template. We’d love to know which step you’d want to make easier.")}</p>
+      <p>{t("Vielleicht möchtest du eine Vera-Seite als Markdown mitnehmen oder später einen ausgewählten Absatz direkt aus Obsidian als Frage übernehmen. Welche Möglichkeit würde dir im Alltag helfen?", "Maybe you’d like to save a Vera page as Markdown or turn a selected paragraph in Obsidian into a question. Which would help in your everyday work?")}</p>
+      <ForumSectionLink lang={lang} place="obsidian" section="note-feedback" />
+    </section>
+  </article>
+</Layout>
+
+<style>
+  .obsidian-page { max-width: 64rem; padding-block: clamp(2rem, 5vw, 4.5rem); }
+  .note-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(11rem, 15rem);
+    gap: 1.5rem 3rem;
+    align-items: center;
+    margin-block: 1.5rem 2.5rem;
+  }
+  .note-hero img { width: 100%; height: auto; border: 1px solid var(--line); border-radius: 3px; }
+  h1 { font-size: clamp(2.2rem, 6vw, 4.65rem); line-height: 1.04; margin-block: .2em .35em; }
+  h2 { font-size: clamp(1.5rem, 3.8vw, 2.2rem); line-height: 1.15; margin-bottom: .7rem; }
+  p, ol { max-width: 64ch; }
+  ol { padding-inline-start: 1.5rem; }
+  li + li { margin-block-start: .65rem; }
+  .note-lead { color: var(--text); font: clamp(1.15rem, 2.5vw, 1.55rem)/1.45 var(--serif); }
+  .obsidian-page > section { border-top: 1px solid var(--line); margin-top: 2rem; padding-top: 1.4rem; }
+  #note-feedback { scroll-margin-top: 6rem; }
+  @media (max-width: 40rem) {
+    .note-hero { grid-template-columns: minmax(0, 1fr); }
+    .note-hero img { width: min(45%, 9rem); }
+  }
+</style>

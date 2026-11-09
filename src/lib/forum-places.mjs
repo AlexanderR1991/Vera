@@ -31,6 +31,9 @@ const sections = {
     section("fragen", "Eine eigene Frage", "A question of your own", {anchors: pair("frag-mich", "ask-me")}),
     section("pinnwand", "Die Fragen auf der Pinnwand", "The questions on the pinboard", {anchors: pair("leben", "life")})
   ],
+  obsidian: [
+    section("note-feedback", "Was müsste die Verbindung können?", "What would make this connection useful?")
+  ],
   alltagsfragen: everyday.questions.map(entry => ({
     id: "alltag-" + entry.id,
     anchors: pair("alltag-" + entry.id, "alltag-" + entry.id),
@@ -179,6 +182,7 @@ const groups = {
   ],
   project: [
     ["index", "Was möchtest du mit Vera besprechen?", "What would you like to discuss with Vera?", pair("Vera kennenlernen", "Getting to know Vera")],
+    ["obsidian", "Was würde dir helfen, zwischen deinem Denkraum in Obsidian und Vera zu wechseln?", "What would help you move between your thinking space in Obsidian and Vera?"],
     ["mission", "Welche Aufgabe sollte Vera zuerst für Menschen lösen?", "What should Vera first help people with?"],
     ["manifest", "Welche Regel im Grundtext würdest du an einem konkreten Fall prüfen?", "Which rule in the foundational text would you test against a specific case?"],
     ["mitwirken", "Was würde dir den ersten Beitrag erleichtern?", "What would make it easier for you to contribute?"],

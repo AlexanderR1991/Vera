@@ -308,6 +308,13 @@
         "source_commit": null,
         "review_url": null
       },
+      "obsidian": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewed_at": null,
+        "source_commit": null,
+        "review_url": null
+      },
       "philosophischer-motor": {
         "status": "draft",
         "reviewer": null,

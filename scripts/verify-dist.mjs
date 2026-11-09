@@ -262,9 +262,9 @@ for(const lang of ["de","en"]){
   dialogue:"schnittmengen/#vermittlung", rules:"philosophischer-motor/",
   conversation:"schnittmengen/#sprachprobe", everyday:"forum/#alltagsfragen", art:"kunst-und-erkenntnis/#sammlung",
   military:"militaer-und-verantwortung/", society:"politik-die-dem-menschen-dient/#garten", bridge:"die-bruecke/",
-  atlas:"atlas/", counterexample:"gegenprobe-01/", parenting:"kindererziehung/", justice:"justiz/"
+  atlas:"atlas/", counterexample:"gegenprobe-01/", parenting:"kindererziehung/", justice:"justiz/", obsidian:"obsidian/"
  };
- const boardArt=["table","graph","wave","custodiae","atlas","bridge","nutrition","politics","medicine","religions","symbols","dialogue","rules","parenting","justice"];
+ const boardArt=["table","graph","wave","custodiae","atlas","bridge","nutrition","politics","medicine","religions","symbols","dialogue","rules","parenting","justice","obsidian"];
  if(cards.size!==Object.keys(boardRoutes).length+1||
     Object.entries(boardRoutes).some(([id,route])=>cards.get(id)!==`/Vera/${lang}/${route}`)||
     cards.get("first-step")!==(lang==="de"?"#erkenntnis":"#insight")||
@@ -305,13 +305,22 @@ for(const lang of ["de","en"]){
   if(!html.includes(`data-project-version="${project.version}"`)||!html.includes(` · ${name}</title>`)||headerName!==name)errors.push("Release identity mismatch "+file);
   if(html.includes("<title>undefined"))errors.push("Undefined page title "+file);
  }
- for(const slug of ["werkstatt","projektstatus","justiz"]){
+ for(const slug of ["werkstatt","projektstatus","justiz","obsidian"]){
   const file=join(out,lang,slug,"index.html"),html=await readFile(file,"utf8");
   if(!html.includes(`<html lang="${lang}"`)||!html.includes('rel="canonical"')||!html.includes('hreflang="en"')||!html.includes('hreflang="de"'))errors.push("Missing release page metadata "+file);
   if(!sitemap.includes('/'+lang+'/'+slug+'/'))errors.push("Release page missing from sitemap "+file);
   const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
   if(new Set(ids).size!==ids.length)errors.push("Duplicate release page anchor "+file);
  }
+ const notePage=await readFile(join(out,lang,"obsidian/index.html"),"utf8");
+ const templatePath=`templates/vera-denknotiz.${lang}.md`;
+ const template=await readFile(join(out,templatePath),"utf8");
+ const questionPath=`/Vera/${lang}/#${entry}`;
+ if(![...cards.keys()].slice(0,8).includes("obsidian")||
+    !notePage.includes(`href="/Vera/${templatePath}" download`)||
+    !notePage.includes(`href="${questionPath}"`)||
+    !template.includes(`(https://alexanderr1991.github.io${questionPath})`))
+   errors.push("Missing Obsidian entry, download or path back to Vera's question box for "+lang);
  const worksheet=await readFile(join(out,lang,"werkstatt/index.html"),"utf8");
  for(const token of ['data-inquiry-workbench','data-export-json','data-export-text','data-import','data-local-save','<noscript>']){
   if(!worksheet.includes(token))errors.push("Missing workbench capability "+lang+"/"+token);
