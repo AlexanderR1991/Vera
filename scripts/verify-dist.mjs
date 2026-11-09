@@ -262,9 +262,10 @@ for(const lang of ["de","en"]){
   dialogue:"schnittmengen/#vermittlung", rules:"philosophischer-motor/",
   conversation:"schnittmengen/#sprachprobe", everyday:"forum/#alltagsfragen", art:"kunst-und-erkenntnis/#sammlung",
   military:"militaer-und-verantwortung/", society:"politik-die-dem-menschen-dient/#garten", bridge:"die-bruecke/",
-  atlas:"atlas/", counterexample:"gegenprobe-01/", parenting:"kindererziehung/", justice:"justiz/"
+  atlas:"atlas/", counterexample:"gegenprobe-01/", parenting:"kindererziehung/", justice:"justiz/",
+  "world-model":"welt-mathematisch-abbilden/"
  };
- const boardArt=["table","graph","wave","custodiae","atlas","bridge","nutrition","politics","medicine","religions","symbols","dialogue","rules","parenting","justice"];
+ const boardArt=["table","graph","wave","custodiae","atlas","bridge","nutrition","politics","medicine","religions","symbols","dialogue","rules","parenting","justice","world-model"];
  if(cards.size!==Object.keys(boardRoutes).length+1||
     Object.entries(boardRoutes).some(([id,route])=>cards.get(id)!==`/Vera/${lang}/${route}`)||
     cards.get("first-step")!==(lang==="de"?"#erkenntnis":"#insight")||

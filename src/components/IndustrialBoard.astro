@@ -47,6 +47,13 @@ const cards=[
     keywords:"erziehung kinder eltern familie spielplatz grenzen mitbestimmung children parents family playground boundaries choices"
   },
   {id:"first-step", topic:"vera", route:"index",anchor:{de:"erkenntnis",en:"insight"},category:{de:"Erkenntnis · Ausprobieren",en:"Insight · Try it"},title:{de:"Wie entscheidet Vera?",en:"How does Vera decide?"},description:{de:"Eine neue Seite soll online gehen. Welchen Test würdest du zuerst machen? Vergleiche deine Wahl mit Veras Modell.",en:"A new page is about to go live. What would you check first? Compare your choice with Vera’s model."},action:{de:"Modell ausprobieren",en:"Try the model"},keywords:"einstieg start erkenntnis entscheidung belege insight decision evidence"},
+  {
+    id:"world-model", topic:"vera", drafting:"world-model", route:"welt-mathematisch-abbilden",
+    category:{de:"Mathematik im Alltag",en:"Everyday mathematics"},
+    title:{de:"Ist der kürzeste Weg für alle der beste?",en:"Is the shortest route best for everyone?"},
+    description:{de:"Fünf Minuten über die Treppe, acht mit dem Aufzug. Was muss eine Karte zeigen, damit du deinen Weg findest?",en:"Five minutes by the stairs, eight by the lift. What does a map need to show to help you find your way?"},
+    keywords:"mathematisch modell modellieren karte vorhersage zugang model modelling map prediction access"
+  },
   {id:"everyday", topic:"everyday", route:"forum",anchor:{de:"alltagsfragen",en:"alltagsfragen"},category:{de:"Aus dem Alltag",en:"Everyday life"},title:{de:"Was beschäftigt dich?",en:"What’s on your mind?"},description:{de:"Muss ich bleiben, wenn ich jemanden liebe? Hier findest du einen ersten Gedanken dazu und einen guten Grund, weiterzufragen.",en:"Do I have to stay if I love someone? Read one possible answer and a question that might change how you see it."},action:{de:"Alltagsfragen lesen",en:"Read everyday questions"},keywords:"liebe arbeit ernährung food work love beziehung"},
   {id:"art", topic:"world", route:"kunst-und-erkenntnis",anchor:{de:"sammlung",en:"sammlung"},category:{de:"Liber Artis · Kunst",en:"Liber Artis · Art"},title:{de:"Wohin schaust du zuerst?",en:"Where does your eye go first?"},description:{de:"Unter Hokusais großer Welle ducken sich Menschen in ihren Booten. Schau einen Moment lang nur auf sie. Wie wirkt die Welle jetzt?",en:"Beneath Hokusai’s great wave, people crouch in their boats. Look just at them for a moment. How does the wave feel now?"},action:{de:"Zur Kunstsammlung",en:"Explore the art collection"},keywords:"kunst art kunstwerk werk malerei musik literatur architektur painting music literature architecture"},
   {id:"military", topic:"society", route:"militaer-und-verantwortung",category:{de:"Liber Custodiae · Frieden",en:"Liber Custodiae · Peace"},title:{de:"Wer lebt neben dem Ziel?",en:"Who lives next to the target?"},description:{de:"Eine Armee soll Menschen schützen. In der Nähe ihres Ziels leben Familien. Was schuldet sie ihnen?",en:"An army has a duty to protect people. Families live near its target. What does it owe them?"},action:{de:"Zum Kapitel",en:"Read the chapter"},keywords:"militär military defence verteidigung frieden peace verantwortung schutz"},
@@ -92,7 +99,7 @@ const cards=[
 ] as const;
 const word=(v)=>v[lang];
 type CardId = typeof cards[number]["id"];
-const opening: CardId[] = ["conversation", "art", "parenting", "nutrition", "politics", "dialogue", "first-step", "religions"];
+const opening: CardId[] = ["conversation", "art", "parenting", "nutrition", "politics", "dialogue", "first-step", "world-model", "religions"];
 const orderedCards = [...opening.map(id => cards.find(card => card.id === id)!), ...cards.filter(card => !opening.includes(card.id))];
 const sketches: Partial<Record<CardId, string>> = {
   everyday: "M39 103q40-44 81 0t81 0M120 66v73m-36-36h72",

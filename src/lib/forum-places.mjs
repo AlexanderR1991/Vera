@@ -54,6 +54,14 @@ const sections = {
       prompt: pair("Wie kannst du einem Kind erklären, warum es diesmal nicht selbst entscheiden kann?", "How could you explain to a child why they cannot make this decision themselves this time?")
     })
   ],
+  "welt-mathematisch-abbilden": [
+    section("modell-beispiel", "Zwei Wege zur Bibliothek", "Two routes to the library", {
+      prompt: pair("Welche Beobachtung könnte ändern, welchen Weg dir die Karte zeigt?", "What observation could change which route the map shows you?")
+    }),
+    section("modell-grenzen", "Was in der Karte fehlt", "What the map leaves out", {
+      prompt: pair("Was müsste die Karte zusätzlich zeigen, damit du dich auf sie verlassen kannst?", "What else would the map need to show before you could rely on it?")
+    })
+  ],
   medizin: [
     section("cast", "Was das EKG offenließ", "What the ECG left unanswered"),
     section("regel", "Was Messwerte belegen", "What measurements establish"),
@@ -169,6 +177,7 @@ const groups = {
     ["aussagen", "Bei welcher Aussage möchtest du eine Voraussetzung oder einen Beleg prüfen?", "Which claim has a premise or a piece of evidence you want to examine?"],
     ["pruefstand", "Welches Beispiel würde einen vorgeschlagenen Test an seine Grenze bringen?", "What example would expose a limit of a proposed test?"],
     ["werkstatt", "An welcher Stelle hilft dir das Prüfblatt weiter, und wo bleibst du hängen?", "Where does the worksheet help you, and where do you get stuck?"],
+    ["welt-mathematisch-abbilden", "Wann hat dir ein Modell geholfen, etwas zu sehen, das du vorher übersehen hast?", "When has a model helped you see something you had missed?", pair("Mathematik im Alltag", "Everyday mathematics")],
     ["erkenntnisnavigator", "Welche Verbindung würdest du beim Erkunden gern finden?", "Which connection would you like to find as you explore?"],
     ["gegenprobe-01", "Wann kann es fürsorglich sein, für jemanden zu entscheiden?", "When could deciding for someone be an act of care?"],
     ["philosophischer-motor", "Welche Annahme im Modell verändert das Ergebnis am stärksten?", "Which assumption changes the model’s result the most?"],
