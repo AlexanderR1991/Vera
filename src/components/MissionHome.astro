@@ -34,52 +34,24 @@ const de=lang==="de";
     </div>
   </section>
 
-  <section class="home-life" id={de?"leben":"life"} aria-labelledby="life-heading">
-    <div class="container">
-      <div class="home-life__feature">
-        <div class="home-life__story">
-          <h2 id="life-heading">{t.life.title}</h2>
-          <p class="home-life__intro">{t.life.intro}</p>
-          <blockquote>{t.life.seed}</blockquote>
-          <a class="home-life__action" href={pathFor(lang,"schnittmengen","vermittlung")}>
-            {t.life.together} <span aria-hidden="true">↗</span>
-          </a>
-        </div>
-        <div class="home-life__garden" aria-hidden="true">
-          <svg viewBox="0 0 240 230" focusable="false">
-            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M47 176h146m-126 9h106m-82 9h58" opacity=".24"/>
-              <path d="M119 176c3-30-3-58 9-85 7-15 18-24 29-29M120 143c-8-15-18-22-33-28" stroke-width="1.5"/>
-              <path d="M125 100c-2-24 21-42 53-47-5 29-22 46-53 47Zm-8 38c-5-25-25-36-52-36 7 23 25 39 52 36Z" fill="currentColor" fill-opacity=".12" stroke-width="1.15"/>
-              <path d="M119 177c-3 7-10 14-20 19m21-18c1 10 6 16 14 22m-17-16c-4 9-4 15-3 20" opacity=".4"/>
-            </g>
-            <circle cx="120" cy="176" r="2.6" fill="currentColor"/>
-          </svg>
-        </div>
-      </div>
+  <IndustrialBoard lang={lang}/>
 
-      <div class="home-life__tools">
-        <div>
-          <FirstAnswer lang={lang}/>
-        </div>
-        <div class="home-life__solo">
-          <h3>{t.life.soloTitle}</h3>
-          <p>{t.life.soloText}</p>
-          <a class="home-link" href={de?"#eigene-frage":"#your-question"}>{t.life.solo} <span aria-hidden="true">↓</span></a>
-          <a class="home-link" href={de?"#vera-fragen":"#ask-vera"} data-vera-entry>{t.life.about} <span aria-hidden="true">↓</span></a>
-        </div>
-      </div>
-    </div>
-  </section>
+  <div class="home-question container">
+    <FirstAnswer lang={lang}/>
+  </div>
 
   <VeraPractice lang={lang}/>
-
-  <IndustrialBoard lang={lang}/>
 
   <section class="home-workshop container" aria-labelledby="practice-title">
     <h2 id="practice-title" tabindex="-1">{t.life.workshop}</h2>
     <blockquote class="home-meta-rule">{protocol.motto[lang]}</blockquote>
     <nav aria-label={t.life.workshop}>
+      <a class="home-link" href={de?"#vera-fragen":"#ask-vera"} data-vera-entry>
+        {t.life.about} <span aria-hidden="true">↓</span>
+      </a>
+      <a class="home-link" href={pathFor(lang,"schnittmengen","vermittlung")}>
+        {t.life.together} <span aria-hidden="true">↗</span>
+      </a>
       <a class="home-link" href={pathFor(lang,"methode","g-005")}>{t.realExampleLink} <span aria-hidden="true">↗</span></a>
       <a class="home-link" href={base+"papers/warum-ich-glaube-dass-ich-funktioniere/paper.html"} hreflang="de">
         {t.life.paper} <span aria-hidden="true">↗</span>

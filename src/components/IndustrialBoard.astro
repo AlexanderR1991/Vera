@@ -18,12 +18,15 @@ const cards=[
 ];
 const word=(v)=>v[lang];
 ---
-<section class="industrial-board" aria-labelledby="board-title">
+<section class="industrial-board" id={de?"leben":"life"} aria-labelledby="board-title">
   <div class="container">
     <div class="board-heading">
       <div>
         <h2 id="board-title">{de?"Pinnwand":"Pinboard"}</h2>
         <p>{de?"Vielleicht kommt dir eine dieser Fragen bekannt vor. Fang dort an.":"Maybe one of these questions sounds familiar. Start there."}</p>
+        <a class="home-link board-own" href={de?"#frag-mich":"#ask-me"}>
+          {de?"Mich beschäftigt etwas anderes":"Something else is on my mind"} <span aria-hidden="true">↓</span>
+        </a>
       </div>
       <div class="board-filter" data-board-filter-wrap>
         <label for="board-filter-input">{de?"Zugänge filtern":"Filter entries"}</label>

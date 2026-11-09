@@ -5,48 +5,68 @@ import { pathFor } from "../lib/paths.mjs";
 const { lang = "de" } = Astro.props;
 const t = (de, en) => lang === "en" ? en : de;
 const example = everyday.questions.find(entry => entry.id === "entscheidung")!;
+const practice = t("#eigene-frage", "#your-question");
+const practiceLabel = t("Meine Situation für mich sortieren", "Sort through the situation on my own");
 ---
-<div class="first-answer" id={t("frag-mich", "ask-me")} data-first-answer data-lang={lang}
+<section class="first-answer" id={t("frag-mich", "ask-me")} aria-labelledby="first-answer-title" tabindex="-1"
+  data-first-answer data-lang={lang}
   data-choices={t("Welche dieser Fragen kommt deiner näher?", "Which question is closer to yours?")}
   data-unknown={t("Dazu habe ich noch keine passende Antwort.", "I don’t have a matching answer for that yet.")}
-  data-retry={t("Wenn du vor einer Entscheidung stehst, frag dich als Erstes, was du noch erfahren könntest, das deine Wahl verändern würde. Eine solche Frage kannst du unten ausprobieren.", "If you’re facing a decision, what could you still find out that might change your choice? You can try a question like that below.")}
+  data-unknown-next={t("Für dich kannst du zunächst festhalten, was passiert ist und was du als Nächstes klären möchtest.", "For yourself, you can start by writing down what happened and what you want to clarify next.")}
+  data-reject={t("Das trifft meinen Konflikt nicht", "That doesn’t fit my conflict")}
+  data-rephrase={t("Frage ändern", "Edit my question")}
   data-empty={t("Schreib zuerst deine Frage ins Feld.", "Type your question first.")}>
+  <h2 id="first-answer-title">{t("Frag mich etwas", "Ask me something")}</h2>
+  <p id="first-question-hint">{t("Ich suche in vorbereiteten Antworten und Übungen. Dein Text bleibt in diesem Browser. Du brauchst kein Konto.", "I look through prepared answers and exercises. Your text stays in this browser. You don’t need an account.")}</p>
   <form hidden autocomplete="off">
-    <label for="first-question">{t("Frag mich etwas", "Ask me something")}</label>
-    <div class="first-answer__row">
-      <input id="first-question" type="text" maxlength="500" required spellcheck="false"
-        aria-describedby="first-question-hint"
-        placeholder={t("Wir streiten ständig über Politik.", "We keep arguing about politics.")} />
-      <button type="submit">{t("Fragen", "Ask")}</button>
-    </div>
-    <p id="first-question-hint">{t("Ich suche in meinen veröffentlichten Antworten. Deine Frage bleibt in deinem Browser.", "I search my published answers. Your question stays in your browser.")}</p>
+    <label for="first-question">{t("Was beschäftigt dich?", "What’s on your mind?")}</label>
+    <textarea id="first-question" rows="3" maxlength="500" required spellcheck="false"
+      aria-describedby="first-question-hint"></textarea>
+    <button class="first-answer__submit" type="submit">{t("Antwort suchen", "Find an answer")}</button>
   </form>
+  <div class="first-answer__retry" data-first-retry hidden>
+    <p id="first-retry-hint">{t("Du kannst die Frage ändern. Vielleicht hilft es, einen konkreten Moment zu beschreiben oder nur nach dem Punkt zu fragen, den du zuerst klären willst.", "You can edit the question. Try describing a specific moment or asking about the one thing you want to clarify first.")}</p>
+    <a href={practice}>{practiceLabel}</a>
+  </div>
+  <noscript>
+    <p>{t("Mit JavaScript kannst du hier nach einer Antwort suchen. Das Beispiel und die Übung lassen sich direkt lesen.", "Enable JavaScript to search for an answer here. You can read the example and the exercise directly.")}</p>
+    <a class="first-answer__example" href={practice}>{practiceLabel}</a>
+  </noscript>
   <div class="first-answer__result" data-first-result hidden>
+    <p class="first-answer__type" data-first-type>{t("Vorbereitete Antwort", "Prepared answer")}</p>
     <h3 tabindex="-1"></h3>
     <p data-answer></p>
     <p class="first-answer__follow" data-follow></p>
-    <a data-source>{t("Fundstelle lesen", "Read the source")} <span aria-hidden="true">↗</span></a>
     <ul data-choices-list></ul>
+    <div class="first-answer__actions">
+      <a data-source>{t("Grundlage lesen", "Read the source")} <span aria-hidden="true">↗</span></a>
+      <a data-first-practice href={practice}>{practiceLabel}</a>
+      <button type="button" data-first-reject>{t("Das trifft meinen Konflikt nicht", "That doesn’t fit my conflict")}</button>
+    </div>
   </div>
   <a class="first-answer__example" data-first-example={example.question[lang]}
     href={pathFor(lang, "forum", "alltag-" + example.id)}>
     {t("Zum Beispiel", "Try this")} · {example.question[lang]} <span aria-hidden="true">→</span>
   </a>
-</div>
+</section>
 
 <script>
   import { firstAnswer } from "../lib/first-answer.mjs";
 
   for (const box of document.querySelectorAll<HTMLElement>("[data-first-answer]")) {
     const form = box.querySelector("form")!;
-    const input = form.querySelector("input")!;
+    const input = form.querySelector("textarea")!;
     const example = box.querySelector<HTMLAnchorElement>("[data-first-example]")!;
+    const retry = box.querySelector<HTMLElement>("[data-first-retry]")!;
     const result = box.querySelector<HTMLElement>("[data-first-result]")!;
+    const type = result.querySelector<HTMLElement>("[data-first-type]")!;
     const heading = result.querySelector("h3")!;
     const answer = result.querySelector<HTMLElement>("[data-answer]")!;
     const follow = result.querySelector<HTMLElement>("[data-follow]")!;
     const source = result.querySelector<HTMLAnchorElement>("[data-source]")!;
     const choices = result.querySelector<HTMLElement>("[data-choices-list]")!;
+    const practice = result.querySelector<HTMLAnchorElement>("[data-first-practice]")!;
+    const reject = result.querySelector<HTMLButtonElement>("[data-first-reject]")!;
 
     function show(question: string) {
       const reply = firstAnswer(question, box.dataset.lang);
@@ -56,13 +76,18 @@ const example = everyday.questions.find(entry => entry.id === "entscheidung")!;
         return;
       }
       const matched = reply.kind === "answer";
+      retry.hidden = true;
+      input.setAttribute("aria-describedby", "first-question-hint");
       heading.textContent = matched ? reply.question : reply.kind === "choices" ? box.dataset.choices! : box.dataset.unknown!;
-      answer.textContent = matched ? reply.answer : reply.kind === "unknown" ? box.dataset.retry! : "";
+      type.hidden = !matched;
+      answer.textContent = matched ? reply.answer : reply.kind === "unknown" ? box.dataset.unknownNext! : "";
       answer.hidden = !answer.textContent;
       follow.textContent = matched ? reply.followUp : "";
       follow.hidden = !follow.textContent;
       source.hidden = !matched;
       if (matched) source.href = reply.href;
+      practice.hidden = matched;
+      reject.textContent = reply.kind === "unknown" ? box.dataset.rephrase! : box.dataset.reject!;
       choices.replaceChildren();
       choices.hidden = reply.kind !== "choices";
       if (reply.kind === "choices") {
@@ -85,10 +110,17 @@ const example = everyday.questions.find(entry => entry.id === "entscheidung")!;
         if (event.ctrlKey || event.metaKey || event.altKey || event.shiftKey) return;
         event.preventDefault();
         input.setCustomValidity("");
-        input.value = question;
+        if (!input.value.trim()) input.value = question;
         show(question);
       });
     }
+
+    reject.addEventListener("click", () => {
+      result.hidden = true;
+      retry.hidden = false;
+      input.setAttribute("aria-describedby", "first-question-hint first-retry-hint");
+      input.focus();
+    });
 
     input.addEventListener("input", () => {
       input.setCustomValidity("");
@@ -104,21 +136,28 @@ const example = everyday.questions.find(entry => entry.id === "entscheidung")!;
 </script>
 
 <style>
-  .first-answer { max-width: 35rem; margin: 0; text-align: left; }
+  .first-answer { max-width: 40rem; margin: 0; text-align: left; }
+  .first-answer, #first-question, h3 { scroll-margin-top: 6rem; }
   .first-answer [hidden] { display: none; }
-  label { display: block; margin-bottom: 12px; font-size: clamp(1.35rem, 2.4vw, 2rem); font-weight: 700; line-height: 1.14; letter-spacing: -.045em; }
-  .first-answer__row { display: flex; gap: .45rem; }
-  input, button { min-height: 48px; padding: .6rem .85rem; border: 1px solid var(--muted); border-radius: 0; font: inherit; }
-  input { flex: 1; min-width: 0; background: var(--vera-panel); color: var(--text); }
-  input::placeholder { color: var(--text-soft); }
-  button { font-weight: 700; cursor: pointer; background: var(--vera-paper); color: var(--vera-ink); }
-  button:hover { background: #fff; }
-  #first-question-hint { margin: .45rem 0 0; font-size: .875rem; line-height: 1.45; }
-  .first-answer__example, .first-answer__result :global(a) { color: var(--text); text-decoration: underline; text-underline-offset: .2em; }
-  .first-answer__example { display: inline-flex; align-items: center; gap: .4rem; min-height: 44px; font-size: .875rem; }
-  .first-answer__result { margin-top: 1rem; padding: 1rem 1.15rem; border-inline-start: 2px solid var(--signal); background: var(--vera-panel); overflow-wrap: anywhere; }
-  .first-answer__result h3 { margin: 0; font-size: 1.25rem; line-height: 1.3; }
+  h2 { margin: 0; font-size: clamp(1.8rem, 4.2vw, 2.75rem); line-height: 1.1; font-weight: 550; letter-spacing: -.035em; }
+  label { display: block; margin: 1.25rem 0 .45rem; font-weight: 650; }
+  textarea { display: block; width: 100%; resize: vertical; min-height: 6rem; padding: .65rem .75rem; border: 1px solid #777a6c; border-radius: 0; background: var(--vera-panel); color: var(--text); font: inherit; }
+  button { min-height: 44px; font: inherit; cursor: pointer; }
+  .first-answer__submit { margin-top: .6rem; padding: .5rem .9rem; border: 1px solid var(--vera-signal); background: var(--vera-signal); color: #fff; font-weight: 650; }
+  .first-answer__submit:hover { filter: brightness(.88); }
+  #first-question-hint { margin: .65rem 0 0; max-width: 48ch; color: var(--text-soft); font-size: .9375rem; line-height: 1.55; }
+  .first-answer__example, .first-answer__result :global(a), .first-answer__retry a, [data-first-reject] { color: var(--text); text-decoration: underline; text-underline-offset: .2em; }
+  .first-answer__example, .first-answer__actions a, .first-answer__retry a { display: inline-flex; align-items: center; gap: .4rem; min-height: 44px; }
+  .first-answer__example { font-size: .9375rem; }
+  .first-answer__result, .first-answer__retry { margin-top: 1rem; padding: .9rem 1rem; border-inline-start: 2px solid var(--vera-signal); background: var(--vera-panel); overflow-wrap: anywhere; }
+  .first-answer__retry p { margin: 0; }
+  .first-answer__result h3 { margin: .15rem 0 .65rem; font-size: 1.25rem; line-height: 1.3; }
   .first-answer__result p { margin: .5rem 0; color: var(--text); }
+  .first-answer__result .first-answer__type { margin: 0 0 .4rem; color: var(--text-soft); font-size: .875rem; }
   .first-answer__follow { font-weight: 600; }
   .first-answer__result ul { margin: .5rem 0 0; padding-inline-start: 1.1rem; }
+  .first-answer__result :global(li a) { display: inline-flex; align-items: center; min-height: 44px; }
+  .first-answer__actions { display: flex; flex-wrap: wrap; align-items: start; gap: 0 1.25rem; }
+  [data-first-reject] { padding: 0; text-align: start; border: 0; background: transparent; }
+  .first-answer :is(a, button, textarea):focus-visible { outline: 2px solid var(--vera-signal); outline-offset: 3px; }
 </style>

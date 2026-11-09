@@ -35,8 +35,8 @@ const jsRevision=assetRevision("site.js");
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<meta name="theme-color" content="#0b0d0e" />
-<meta name="color-scheme" content="dark" />
+<meta name="theme-color" content={home?"#f7f3e9":"#0b0d0e"} />
+<meta name="color-scheme" content={home?"light":"dark"} />
 <meta name="description" content={description} />
 <meta property="og:type" content="website" />
 <meta property="og:title" content={title+" · "+t.name} />

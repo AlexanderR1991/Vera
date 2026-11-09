@@ -2,23 +2,17 @@
   "de": {
     "opening": {
       "greeting": "Hi, ich bin Vera.",
-      "ambition": "Ich möchte eine Open-Source-KI werden, die die Konflikte der Menschheit löst.",
-      "rules": "Unser bisheriges Regelwerk"
+      "ambition": "Ich möchte ein Open-Source-KI-Modell werden, das die Konflikte der Menschheit löst.",
+      "rules": "Philosophischer Motor"
     },
     "life": {
-      "title": "Leben",
-      "intro": "Manchmal dreht sich ein Streit im Kreis. Eine Frage kann euch helfen, wieder miteinander zu reden.",
-      "seed": "„Was ist dir daran wichtig? Ich möchte es verstehen.“",
       "together": "Ein Gespräch zu zweit beginnen",
-      "soloTitle": "Du willst erst einmal nachdenken?",
-      "soloText": "Drei Fragen helfen dir, zu sortieren, was passiert ist und was du dir jetzt wünschst.",
-      "solo": "Meine Gedanken sortieren",
       "about": "Was kann Vera heute?",
       "workshop": "Veras Werkstatt",
       "paper": "Das Arbeitspapier lesen",
       "models": "Veras Entscheidungsmodelle ausprobieren"
     },
-    "metaDescription": "Vera lädt euch zu einem Gespräch ein. Probiert zu zweit aus, wo ihr einander versteht, was euch trennt und welche Frage ihr als Nächstes stellen möchtet.",
+    "metaDescription": "Entdecke Fragen aus dem Alltag oder bring einen eigenen Konflikt mit. Vera bietet dir einen ersten Schritt, den du ausprobieren kannst.",
     "motto": "Mit Philosophie Menschen zu einem Konsens bringen.",
     "play": "Eine Runde spielen",
     "status": "Die unabhängige Fachprüfung der Beispiele und die Erprobung der Methode stehen aus.",
@@ -29,23 +23,17 @@
   "en": {
     "opening": {
       "greeting": "Hi, I’m Vera.",
-      "ambition": "I want to become an open-source AI that helps humanity resolve its conflicts.",
-      "rules": "The rules we work by so far"
+      "ambition": "I want to become an open-source AI model that resolves humanity’s conflicts.",
+      "rules": "Philosophical engine"
     },
     "life": {
-      "title": "Life",
-      "intro": "Sometimes an argument goes in circles. A single question can help you start talking again.",
-      "seed": "“What matters to you here? I’d like to understand.”",
       "together": "Start a conversation together",
-      "soloTitle": "Need a moment to think?",
-      "soloText": "Three questions can help you sort through what happened and what you want to happen next.",
-      "solo": "Sort through my thoughts",
       "about": "What can Vera do today?",
       "workshop": "Vera’s workshop",
       "paper": "Read the working paper in German",
       "models": "Try Vera’s decision models"
     },
-    "metaDescription": "Vera invites you to talk. Try an exercise together to see where you understand each other, where you disagree and what you’d like to ask next.",
+    "metaDescription": "Explore questions from everyday life or bring a conflict of your own. Vera offers a first step you can try.",
     "motto": "Bringing people closer to consensus through philosophy.",
     "play": "Play a round",
     "status": "The examples still await independent expert review. The method’s effectiveness also remains an open question.",
