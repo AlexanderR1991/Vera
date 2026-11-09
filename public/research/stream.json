@@ -1,23 +1,89 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-08T22:06:48+00:00",
+  "updated_at": "2026-11-09T06:31:43+00:00",
   "status": "automatic_discovery_not_fact_checked",
   "analysis": "metadata_only",
   "source": "Crossref + arXiv",
   "source_queries": {
-    "Crossref": 3,
+    "Crossref": 5,
     "arXiv": 3
   },
-  "source_queries_succeeded": 6,
-  "new_items": 0,
+  "source_queries_succeeded": 8,
+  "new_items": 3,
   "agents_enabled": false,
   "errors": [
-    "Crossref/bewusstsein: HTTPError: HTTP Error 429: Too Many Requests",
-    "Crossref/gesellschaft: HTTPError: HTTP Error 429: Too Many Requests",
     "Crossref/ki: HTTPError: HTTP Error 429: Too Many Requests",
     "Crossref/kunst: HTTPError: HTTP Error 429: Too Many Requests"
   ],
   "items": [
+    {
+      "id": "arxiv:2611.09013v1",
+      "topic": "ki",
+      "title": "KnowEvo: Knowledge Evolution for Protein Optimization",
+      "date": "2026-11-06",
+      "authors": [
+        "Zijie Xing",
+        "Xingyue Liu",
+        "Runze Wang",
+        "Luoming Hu",
+        "Yanming Shen"
+      ],
+      "venue": "arXiv",
+      "url": "https://arxiv.org/abs/2611.09013v1",
+      "source": "arXiv bibliographic metadata",
+      "source_type": "repository_manuscript",
+      "peer_review": "not_verified",
+      "version": "1",
+      "related_doi": "",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "arxiv:2611.08922v1",
+      "topic": "ki",
+      "title": "Glyph: An Interpretability Engine for AI-Driven Scientific Discovery in Clinical Data",
+      "date": "2026-11-06",
+      "authors": [
+        "Robbie Holland",
+        "Ashwin Kumar",
+        "Mateus A. Esmeraldo",
+        "David Le",
+        "Andrea Fisher"
+      ],
+      "venue": "arXiv",
+      "url": "https://arxiv.org/abs/2611.08922v1",
+      "source": "arXiv bibliographic metadata",
+      "source_type": "repository_manuscript",
+      "peer_review": "not_verified",
+      "version": "1",
+      "related_doi": "",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "arxiv:2611.08767v1",
+      "topic": "ki",
+      "title": "MEDALLION: Manifold Embedding Distillation and Attributions for Low-dimensional Latent InterpretatiON",
+      "date": "2026-11-05",
+      "authors": [
+        "Vicky Jung",
+        "Claire M. He",
+        "Irene Chang",
+        "Genevera I. Allen"
+      ],
+      "venue": "arXiv",
+      "url": "https://arxiv.org/abs/2611.08767v1",
+      "source": "arXiv bibliographic metadata",
+      "source_type": "repository_manuscript",
+      "peer_review": "not_verified",
+      "version": "1",
+      "related_doi": "",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
     {
       "id": "arxiv:2611.07529v1",
       "topic": "ki",
