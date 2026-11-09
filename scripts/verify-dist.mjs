@@ -232,13 +232,15 @@ for(const lang of ["de","en"]){
  const name=lang==="de"?project.name:project.english_name;
  const home=await readFile(join(out,lang,"index.html"),"utf8");
  const heading=home.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/)?.[1];
- const {greeting,ambition,rules}=missionCopy[lang].opening;
+ const {greetingLead,ambition,rules,paper}=missionCopy[lang].opening;
  const [opening,hero,pinboard]=home.match(
   /<section class="home-opening"[^>]*>([\s\S]*?)<\/section>\s*<section class="industrial-board"[^>]*>([\s\S]*?)<\/section>/
  )??["","",""];
  const rulesHref=`href="/Vera/${lang}/methode/#erkenntnismotor"`;
- const introOrder=["<circle ",greeting,ambition,rulesHref,rules].map(text=>hero.indexOf(text));
- if(heading?.trim()!==greeting||introOrder.some((position,index)=>position<0||(index>0&&position<=introOrder[index-1])))
+ const paperHref='href="/Vera/papers/warum-ich-glaube-dass-ich-funktioniere/paper.html" hreflang="de"';
+ const introOrder=["<circle ",greetingLead,ambition,rulesHref,rules,paperHref,paper].map(text=>hero.indexOf(text));
+ if(heading?.trim()!==`${greetingLead} <span class="home-opening__name">${name}</span>.`||
+    introOrder.some((position,index)=>position<0||(index>0&&position<=introOrder[index-1])))
    errors.push("Missing or out-of-order Vera introduction for "+lang);
  if(!hero.includes('stroke-dasharray="346 14"')||!hero.includes('transform="rotate(-38 100 100)"')||
     hero.includes('id="first-question"'))

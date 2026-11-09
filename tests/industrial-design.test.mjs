@@ -6,10 +6,10 @@ const read=(path)=>readFileSync(new URL("../"+path,import.meta.url),"utf8");
 test("the bilingual homepage gives the introduction, pinboard and own question distinct places",()=>{
  const home=read("src/components/MissionHome.astro");
  const copy=JSON.parse(read("src/lib/mission-copy.json"));
- const order=["t.opening.greeting","t.opening.ambition","t.opening.rules","<IndustrialBoard","<FirstAnswer"];
+ const order=["t.opening.greetingLead","t.opening.ambition","t.opening.rules","t.opening.paper","<IndustrialBoard","<FirstAnswer"];
  const positions=order.map(token=>home.indexOf(token));
  assert.ok(positions.every((position,index)=>position>=0&&(index===0||position>positions[index-1])));
- assert.equal(copy.de.opening.greeting,"Hi, ich bin Vera.");
+ assert.equal(copy.de.opening.greetingLead,"Hi, ich bin");
  assert.equal(copy.de.opening.ambition,"Ich möchte ein Open-Source-KI-Modell werden, das die Konflikte der Menschheit löst.");
  assert.match(home,/t\.status/);
 });

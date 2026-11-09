@@ -1,9 +1,10 @@
 {
   "de": {
     "opening": {
-      "greeting": "Hi, ich bin Vera.",
+      "greetingLead": "Hi, ich bin",
       "ambition": "Ich möchte ein Open-Source-KI-Modell werden, das die Konflikte der Menschheit löst.",
-      "rules": "Philosophischer Motor"
+      "rules": "Philosophischer Motor",
+      "paper": "Warum ich glaube, dass ich funktioniere"
     },
     "life": {
       "together": "Ein Gespräch zu zweit beginnen",
@@ -22,9 +23,10 @@
   },
   "en": {
     "opening": {
-      "greeting": "Hi, I’m Vera.",
+      "greetingLead": "Hi, I’m",
       "ambition": "I want to become an open-source AI model that resolves humanity’s conflicts.",
-      "rules": "Philosophical engine"
+      "rules": "Philosophical engine",
+      "paper": "Why I believe I work (in German)"
     },
     "life": {
       "together": "Start a conversation together",
