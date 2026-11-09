@@ -131,9 +131,6 @@ export function firstAnswer(input, lang = "de") {
 
   const query = normalize(input);
   if (!query) return { kind: "unknown" };
-  const boundary = hardCaseReply(input, query, lang);
-  if (boundary) return boundary;
-  if (privacyConcern[lang].test(query)) return { kind: "unknown" };
   const exact = catalog[lang].find(entry => entry.forms.includes(query) || entry.wording?.test(query));
   if (exact) {
     const { question, answer, followUp, href } = exact;
@@ -141,6 +138,10 @@ export function firstAnswer(input, lang = "de") {
   }
 
   // Partial wording can only offer a question to choose. Never infer the person's situation from it.
+  const boundary = hardCaseReply(input, query, lang);
+  if (boundary) return boundary;
+  if (privacyConcern[lang].test(query)) return { kind: "unknown" };
+
   const words = new Set(contentWords(query, lang));
   const tokens = query.split(" ");
   const pause = lang === "de" ? /^(?:nicht|nie|kein\p{L}*|droh\p{L}*|bedroh\p{L}*|gedroht|gewalt\p{L}*|zwang|geschlagen)$/u
