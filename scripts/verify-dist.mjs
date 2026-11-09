@@ -246,8 +246,13 @@ for(const lang of ["de","en"]){
     hero.includes('id="first-question"'))
    errors.push("Missing Vera circle or dedicated pinboard section for "+lang);
  const entry=lang==="de"?"frag-mich":"ask-me";
- const cards=new Map([...pinboard.matchAll(/<a[^>]*href="([^"]+)"[^>]*data-board-card="([^"]+)"[^>]*>/g)]
-  .map(([,href,id])=>[id,href]));
+ const cardTags=[...pinboard.matchAll(/<a[^>]*href="([^"]+)"[^>]*data-board-card="([^"]+)"[^>]*>/g)];
+ const cards=new Map(cardTags.map(([,href,id])=>[id,href]));
+ const topics=new Set([...pinboard.matchAll(/data-board-topic-filter="(?!all")([^"]+)"/g)].map(([,topic])=>topic));
+ if(topics.size===0||cardTags.some(([tag])=>!topics.has(tag.match(/data-board-topic="([^"]+)"/)?.[1]))||
+    [...cards.keys()].slice(0,2).join(",")!=="conversation,art"||!cardTags[0]?.[0].includes("data-board-feature")||
+    !pinboard.includes("data-board-more")||!pinboard.includes("data-board-reset"))
+   errors.push("Missing or inconsistent pinboard topics, opening cards or browsing controls for "+lang);
  const boardRoutes={
   nutrition:"ernaehrung-und-verantwortung/", politics:"politik-die-dem-menschen-dient/",
   medicine:"medizin/", religions:"bruecken-zwischen-den-religionen/", symbols:"esoterik-katalog/",
