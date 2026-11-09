@@ -1,5 +1,7 @@
 ---
 import Layout from "../layouts/SiteLayout.astro";
+import ForumSectionLink from "./ForumSectionLink.astro";
+import {forumPlacePath} from "../lib/forum-places.mjs";
 import Diagram from "./CivitasDiagram.astro";
 import content from "../lib/policy-copy.json";
 import {pathFor} from "../lib/paths.mjs";
@@ -20,7 +22,7 @@ const github="https://github.com/AlexanderR1991/Vera";
 <div class="civitas-thesis"><span class="section-kicker">{t.principleLabel}</span><blockquote>{t.principle}</blockquote><p>{t.principleNote}</p></div>
 </div></section>
 <section class="section civitas-naive" id="garten"><div class="narrow">
-<p class="section-kicker">{t.naiveLabel}</p><h2>{t.naiveTitle}</h2><p>{t.naiveText}</p><blockquote>{t.naiveQuote}</blockquote>
+<p class="section-kicker">{t.naiveLabel}</p><h2>{t.naiveTitle}</h2><ForumSectionLink lang={lang} place="politik-die-dem-menschen-dient" section="garten" /><p>{t.naiveText}</p><blockquote>{t.naiveQuote}</blockquote>
 </div></section>
 <section class="section section--paper" id="grundsaetze"><div class="container">
 <p class="section-kicker">{t.rightsLabel}</p><h2 class="civitas-section-title">{t.rightsTitle}</h2>
@@ -37,6 +39,7 @@ const github="https://github.com/AlexanderR1991/Vera";
 </div></section>
 <section class="section section--paper" id="zielkonflikte"><div class="container">
 <p class="section-kicker">{t.positionsLabel}</p><h2 class="civitas-section-title">{t.positionsTitle}</h2>
+<ForumSectionLink lang={lang} place="politik-die-dem-menschen-dient" section="zielkonflikte" />
 <div class="civitas-tradeoffs">{t.tradeoffs.map(x=><article><h3>{x.pair}</h3>
 <div class="civitas-tradeoffs__sides"><p>{x.left}</p><p>{x.right}</p></div>
 <div class="civitas-tradeoffs__question">{x.question}</div>
@@ -82,7 +85,7 @@ const github="https://github.com/AlexanderR1991/Vera";
 </article>)}</div>
 </div></section>
 <section class="section section--paper civitas-ai" id="ki-und-macht"><div class="container civitas-ai__grid">
-<div><p class="section-kicker">{t.aiLabel}</p><h2>{t.aiTitle}</h2></div>
+<div><p class="section-kicker">{t.aiLabel}</p><h2>{t.aiTitle}</h2><ForumSectionLink lang={lang} place="politik-die-dem-menschen-dient" section="ki-und-macht" /></div>
 <div><p>{t.aiText}</p><blockquote>{t.aiNote}</blockquote></div>
 </div></section>
 <section class="section civitas-process" id="verfahren"><div class="container civitas-process__grid">
@@ -94,7 +97,7 @@ const github="https://github.com/AlexanderR1991/Vera";
 <div class="civitas-counter__grid">{t.counterpoints.map(([title,description],i)=><article><span>{String(i+1).padStart(2,"0")} / 04</span><h3>{title}</h3><p>{description}</p></article>)}</div>
 </div></section>
 <section class="section civitas-finale"><div class="narrow"><p class="section-kicker">{t.closingLabel}</p><h2>{t.closingTitle}</h2><blockquote>{t.closingQuote}</blockquote><p>{t.closingText}</p>
-<div class="button-row"><a class="button button--gold" href={github+"/discussions"} target="_blank" rel="noopener noreferrer">{t.forum}</a><a class="button button--ghost" href={github+"/issues/new?template=quellenpruefung.yml"} target="_blank" rel="noopener noreferrer">{t.critique}</a></div>
+<div class="button-row"><a class="button button--gold" href={forumPlacePath(lang,"politik-die-dem-menschen-dient")}>{t.forum}</a><a class="button button--ghost" href={github+"/issues/new?template=quellenpruefung.yml"} target="_blank" rel="noopener noreferrer">{t.critique}</a></div>
 </div></section>
 <section class="section civitas-sources"><div class="narrow">
 <p class="section-kicker">{t.sourcesLabel}</p><p>{t.sourcesText}</p>

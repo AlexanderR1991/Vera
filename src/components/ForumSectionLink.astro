@@ -1,0 +1,31 @@
+---
+import {forumPlacePath, getForumPlace} from "../lib/forum-places.mjs";
+
+const {lang, place, section} = Astro.props;
+const entry = getForumPlace(place)?.sections.find(item => item.id === section);
+if (!entry) throw new Error(`Unknown forum section: ${place}#${section}`);
+const label = lang === "de" ? "Hierüber diskutieren" : "Discuss this";
+---
+<a class="forum-section-link" href={forumPlacePath(lang, place, section)} data-forum-section={section}
+  aria-label={label + " · " + entry.title[lang]}>
+  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+    <path d="M20.5 4.5h-17v12h4v4l5-4h8zM8 9h8m-8 3h5"/>
+  </svg>
+  <span>{label}</span>
+</a>
+
+<style>
+  a.forum-section-link {
+    display: inline-flex;
+    align-items: center;
+    gap: .42rem;
+    min-block-size: 44px;
+    max-inline-size: 100%;
+    font: 650 .875rem/1.35 var(--sans, system-ui, sans-serif);
+    text-decoration: underline;
+    text-underline-offset: .24em;
+    overflow-wrap: anywhere;
+  }
+  a.forum-section-link svg { flex: none; }
+  a.forum-section-link:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+</style>

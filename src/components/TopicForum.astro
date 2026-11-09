@@ -1,0 +1,139 @@
+---
+import Layout from "../layouts/SiteLayout.astro";
+import {forumGroups,forumContributionPath,forumSourcePath,forumThreadSearchPath} from "../lib/forum-places.mjs";
+import {pathFor} from "../lib/paths.mjs";
+
+const {lang,place}=Astro.props;
+const t=(de,en)=>lang==="en"?en:de;
+const title=place.title[lang];
+const sourcePath=forumSourcePath(lang,place.id);
+const contributionPath=forumContributionPath(lang,place.id);
+const readPath=forumThreadSearchPath(place.id);
+---
+<Layout lang={lang} slug={`forum/${place.id}`} pageTitle={t(`Diskussionsplatz · ${title}`,`Discussion square · ${title}`)} description={place.prompt[lang]}>
+ <div class="topic-square">
+  <header class="topic-square__header">
+   <div class="container">
+    <nav class="topic-square__path" aria-label={t("Pfad zum Diskussionsplatz","Path to the discussion square")}>
+     <a href={pathFor(lang,"forum","diskussionsplaetze")}>{t("Alle Plätze","All squares")}</a>
+     <span aria-hidden="true">/</span>
+     <a href={pathFor(lang,"forum",`viertel-${place.group}`)}>{forumGroups[place.group][lang]}</a>
+    </nav>
+    <div class="topic-square__arrival">
+     <div>
+      <p class="section-kicker">{t("DISKUSSIONSPLATZ","DISCUSSION SQUARE")}</p>
+      <h1>{title}</h1>
+      <p class="topic-square__question">{place.prompt[lang]}</p>
+      <p class="topic-square__welcome">{t("Eine Frage, eine andere Sicht oder ein Beispiel reicht für den Anfang.","A question, a different perspective or an example is enough to start.")}</p>
+      <p class="topic-square__notice" id="topic-square-posting">{t("Lesen ist öffentlich. Zum Schreiben brauchst du ein GitHub-Konto. Dein Beitrag ist nach dem Absenden öffentlich. Lass private Angaben weg.","Anyone can read. Posting requires a GitHub account. Your contribution becomes public when you submit it. Leave out private information.")}</p>
+      <div class="topic-square__actions">
+       <a class="topic-square__primary" href={contributionPath} aria-describedby="topic-square-posting">{t("Auf GitHub schreiben","Write on GitHub")} <span aria-hidden="true">↗</span></a>
+       <a href={readPath}>{t("Beiträge auf GitHub suchen","Find contributions on GitHub")} <span aria-hidden="true">↗</span></a>
+      </div>
+     </div>
+     <svg class="topic-square__plan" viewBox="0 0 320 272" fill="none" aria-hidden="true" focusable="false">
+      <path d="M29 26H292V242H29z M44 41H277V227H44z M64 60H257V208H64z M104 92H216V176H104z" stroke="currentColor" opacity=".58" />
+      <path d="M0 134H320 M160 0V272 M29 26L292 242 M292 26L29 242" stroke="currentColor" opacity=".23" stroke-dasharray="3 6" />
+      <path d="M64 82H42m22 104H42m215-104h22m-22 104h22m-55-126V40m-128 20V40m128 168v20M96 208v20" stroke="currentColor" opacity=".54" />
+      <path d="M83 69h154m-154 130h154M74 87v93m172-93v93" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-dasharray="1 10" opacity=".62" />
+      <circle cx="160" cy="134" r="23" stroke="currentColor" opacity=".58" />
+      <circle cx="160" cy="134" r="13" stroke="currentColor" />
+      <circle cx="160" cy="134" r="3" fill="currentColor" />
+      <path d="M154 16h12m-6-6v12m-6 234h12m-6-6v12M10 128v12m-6-6h12m294-6v12m-6-6h12" stroke="currentColor" />
+     </svg>
+    </div>
+   </div>
+  </header>
+  <section class="topic-square__body container" aria-labelledby="topic-square-start">
+   <div class="topic-square__start">
+    <div>
+     <p class="section-kicker">{t("DEIN ERSTER SATZ","YOUR FIRST SENTENCE")}</p>
+     <h2 id="topic-square-start">{t("Wie fange ich an?","How do I start?")}</h2>
+     <ul role="list">
+      <li>{t("„Ich würde gern verstehen, warum …“","“I’d like to understand why …”")}</li>
+      <li>{t("„Bei mir sieht das anders aus. Ein Beispiel …“","“It looks different to me. Here’s an example …”")}</li>
+      <li>{t("„An dieser Aussage zweifle ich, weil …“","“I question this claim because …”")}</li>
+     </ul>
+    </div>
+    <aside aria-label={t("Weitere Wege","Other paths")}>
+     <p>{t("Auf der Themenseite kannst du den Gedanken im Zusammenhang lesen.","On the topic page you can read the idea in context.")}</p>
+     {place.sections.length>0&&<a href="#topic-square-sections">{t("Zu den Abschnitten","Go to the sections")} <span aria-hidden="true">↓</span></a>}
+     <a href={sourcePath}>{t("Themenseite lesen","Read the topic page")} <span aria-hidden="true">→</span></a>
+     <a href={pathFor(lang,"forum","rede-01")}>{t("Regeln für das Gespräch","Discussion rules")} <span aria-hidden="true">→</span></a>
+    </aside>
+   </div>
+  </section>
+  {place.sections.length>0&&<section class="topic-square__body container" aria-labelledby="topic-square-sections">
+   <p class="section-kicker">{t("KONKRETE STELLEN","SPECIFIC SECTIONS")}</p>
+   <h2 id="topic-square-sections">{t("Worüber genau möchtest du sprechen?","What exactly would you like to discuss?")}</h2>
+   <p>{t("Jede Stelle hat ihren eigenen Link. So können andere genau den Gedanken finden, auf den du dich beziehst.","Each section has a link of its own. That lets others find the exact idea you are referring to.")}</p>
+   {place.sections.length>12&&<details class="topic-square__contents">
+    <summary>{t("Alle Abschnitte zur Auswahl","Browse all sections")} ({place.sections.length})</summary>
+    <ul role="list">{place.sections.map(section=><li><a href={`#${section.id}`}>{section.title[lang]}</a></li>)}</ul>
+   </details>}
+   <div class="topic-square__sections">
+    {place.sections.map(section=><article id={section.id} tabindex="-1" aria-labelledby={`${section.id}-titel`}>
+     <h3 id={`${section.id}-titel`}>{section.title[lang]}</h3>
+     {section.prompt?.[lang]&&<p>{section.prompt[lang]}</p>}
+     <div class="topic-square__actions">
+      {section.thread?
+       <a class="topic-square__primary" href={forumThreadSearchPath(place.id,section.id)} aria-describedby="topic-square-posting" aria-label={t(`Faden lesen oder antworten (GitHub) · ${section.title[lang]}`,`Read or reply on GitHub · ${section.title[lang]}`)}>{t("Faden lesen oder antworten (GitHub)","Read or reply on GitHub")} <span aria-hidden="true">↗</span></a>
+       :<>
+        <a class="topic-square__primary" href={forumContributionPath(lang,place.id,section.id)} aria-describedby="topic-square-posting" aria-label={t(`Auf GitHub schreiben · ${section.title[lang]}`,`Write on GitHub · ${section.title[lang]}`)}>{t("Auf GitHub schreiben","Write on GitHub")} <span aria-hidden="true">↗</span></a>
+        <a href={forumThreadSearchPath(place.id,section.id)} aria-label={t(`Beiträge auf GitHub suchen · ${section.title[lang]}`,`Find contributions on GitHub · ${section.title[lang]}`)}>{t("Beiträge auf GitHub suchen","Find contributions on GitHub")} <span aria-hidden="true">↗</span></a>
+       </>}
+      <a href={forumSourcePath(lang,place.id,section.id)} aria-label={t(`Stelle im Thema lesen · ${section.title[lang]}`,`Read the section on the topic page · ${section.title[lang]}`)}>{t("Stelle im Thema lesen","Read the section on the topic page")} <span aria-hidden="true">→</span></a>
+     </div>
+     <p class="topic-square__target-notice" aria-hidden="true">{t("Öffentlicher Beitrag · GitHub-Konto nötig","Public contribution · GitHub account required")}</p>
+    </article>)}
+   </div>
+  </section>}
+  <aside class="topic-square__model container" aria-labelledby="topic-square-model">
+   <h2 id="topic-square-model">{t("Ein Platz, ein Weg zurück","One square, a way back")}</h2>
+   <p>{t("Ein Link bringt dich aus dem Thema auf diesen Platz. Ein weiterer öffnet das passende Formular oder den bestehenden Diskussionsfaden. Die beiden Sprachfassungen verwenden dieselbe Kennung für den Platz oder Abschnitt.","One link takes you from the topic to this square. A second opens the relevant form or an existing discussion thread. Both language versions use the same identifier for the square or section.")}</p>
+   <a href={pathFor(lang,"forum","forum-mathematik")}>{t("Mathematisches Modell der Plätze ansehen","See the mathematical model of the squares")} <span aria-hidden="true">→</span></a>
+  </aside>
+ </div>
+</Layout>
+
+<style>
+ .topic-square{--square-gold:#e6c799;--square-line:#3c4847}
+ .topic-square__header{padding-block:clamp(.65rem,2vw,1.25rem) clamp(2rem,5vw,4.5rem);border-bottom:1px solid var(--square-line);background:radial-gradient(ellipse at 84% 46%,#6d503226,transparent 56%),linear-gradient(120deg,#0c1011,#152020)}
+ .topic-square__path{display:flex;align-items:center;flex-wrap:wrap;gap:0 .75rem;color:var(--square-gold);margin-bottom:clamp(.8rem,3vw,2rem);font-size:.9rem}
+ .topic-square a{display:inline-flex;align-items:center;gap:.42rem;min-height:44px;color:var(--square-gold);text-decoration:underline;text-underline-offset:.26em}
+ .topic-square a:focus-visible{outline:2px solid var(--square-gold);outline-offset:3px}
+ .topic-square__arrival{display:grid;grid-template-columns:minmax(0,1fr) minmax(12rem,25rem);align-items:center;gap:clamp(1.8rem,5vw,5.5rem)}
+ .topic-square__arrival h1{margin:.16em 0 .3em;font-size:clamp(2.4rem,6vw,5.3rem);line-height:1.04;letter-spacing:-.045em;overflow-wrap:anywhere}
+ .topic-square__question{max-width:43ch;margin:.3em 0 .45em;font:400 clamp(1.3rem,2.7vw,2.2rem)/1.36 var(--serif);color:var(--square-gold)}
+ .topic-square__welcome{margin:.6rem 0}
+ .topic-square__actions{display:flex;flex-wrap:wrap;align-items:center;gap:.25rem .95rem}
+ .topic-square__actions .topic-square__primary{padding:.52rem .85rem;border:1px solid var(--square-gold);background:var(--square-gold);color:#161813;font-weight:700;text-decoration:none}
+ .topic-square__actions .topic-square__primary:hover{text-decoration:underline}
+ .topic-square__notice{max-width:65ch;margin:.65rem 0 .95rem;font-size:.875rem}
+ .topic-square__plan{display:block;width:100%;max-width:25rem;color:var(--square-gold)}
+ .topic-square__body{padding-block:clamp(1.8rem,4vw,3.25rem)}
+ .topic-square__body+.topic-square__body{padding-top:0}
+ .topic-square__body h2,.topic-square__model h2{margin:.22em 0 .5em;font:400 clamp(1.65rem,3vw,2.75rem)/1.2 var(--serif)}
+ #topic-square-sections{scroll-margin-top:5.5rem}
+ .topic-square__start{display:grid;grid-template-columns:minmax(0,1fr) minmax(13rem,.56fr);gap:clamp(1.5rem,5vw,4rem);align-items:start}
+ .topic-square__start ul{list-style:none;margin:0;padding:0;color:var(--text)}
+ .topic-square__start li{padding:.5rem 0;border-top:1px solid var(--square-line)}
+ .topic-square__start aside{padding:1rem 1.2rem;border:1px solid var(--square-line);background:#111719}
+ .topic-square__start aside p{margin:0 0 .35rem}
+ .topic-square__start aside a{display:flex;width:fit-content}
+ .topic-square__contents{padding:.3rem 1rem;margin-bottom:1rem;border:1px solid var(--square-line);background:#111719}
+ .topic-square__contents summary{min-height:44px;padding:.6rem 0;cursor:pointer;color:var(--square-gold)}
+ .topic-square__contents summary:focus-visible{outline:2px solid var(--square-gold);outline-offset:2px}
+ .topic-square__contents ul{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,18rem),1fr));list-style:none;gap:.25rem 1rem;margin:0;padding:0 0 .65rem}
+ .topic-square__sections{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem}
+ .topic-square__sections article{padding:1.15rem;border:1px solid var(--square-line);background:#111719;scroll-margin-top:5.5rem;min-width:0}
+ .topic-square__sections article:target,.topic-square__sections article:focus-visible{border-color:var(--square-gold);outline:2px solid var(--square-gold);outline-offset:2px}
+ .topic-square__sections h3{margin:0 0 .65rem;font:400 clamp(1.25rem,2.3vw,1.65rem)/1.24 var(--serif);overflow-wrap:anywhere}
+ .topic-square__sections .topic-square__actions{font-size:.875rem}
+ .topic-square__target-notice{display:none;margin:.45rem 0 0;font-size:.875rem}
+ .topic-square__sections article:target .topic-square__target-notice{display:block}
+ .topic-square__model{padding-block:1.15rem clamp(2.15rem,5vw,4rem);border-top:1px solid var(--square-line)}
+ .topic-square__model p{max-width:64ch;margin:0 0 .4rem}
+ @media(max-width:780px){.topic-square__arrival{grid-template-columns:1fr}.topic-square__plan{display:none}}
+ @media(max-width:720px){.topic-square__start,.topic-square__sections{grid-template-columns:1fr}}
+</style>

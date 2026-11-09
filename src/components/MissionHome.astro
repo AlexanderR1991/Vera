@@ -1,4 +1,5 @@
 ---
+import ForumSectionLink from "./ForumSectionLink.astro";
 import Layout from "../layouts/SiteLayout.astro";
 import IndustrialBoard from "./IndustrialBoard.astro";
 import FirstAnswer from "./FirstAnswer.astro";
@@ -71,6 +72,7 @@ const paperWind = Array.from({length:72}, (_, index) => {
   </section>
 
   <IndustrialBoard lang={lang}/>
+  <div class="container"><ForumSectionLink lang={lang} place="index" section="pinnwand" /></div>
 
   <div class="home-question container">
     <FirstAnswer lang={lang}/>

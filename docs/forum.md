@@ -22,6 +22,12 @@ Die antike Agora, Stoa und das römische Forum inspirieren die Darstellung, **ni
 
 **English:** The Agora, Stoa and Curia are navigational metaphors for three existing tools, not separate hosted forums: open GitHub Discussions, issue threads anchored to each claim ID, and reviewed pull requests for changes. A claim is never promoted by votes, comment counts or AI replies. The statement and its review status remain in the versioned register, separate from discussion. Use respectful, specific objections, cite the version and sources, and say what would change your mind. Public posts require a GitHub account; no confidential complaint route, response SLA or independent moderation is currently promised.
 
+## Diskussionsplätze · Topic squares
+
+Der Einstieg „Mitdiskutieren“ führt von einem Thema zu seinem eigenen Platz. Dort kann man eine konkrete Frage lesen, ein vorhandenes Gespräch öffnen oder mit dem richtigen Kontext einen Beitrag auf GitHub einreichen. Die Plätze teilen stabile Kennungen zwischen den Sprachfassungen. Ein Gespräch kann mehrere Themen verbinden und behält seine Adresse. Die [Architektur der Diskussionsplätze](forum-architektur.md) beschreibt das Zugangsmaß, eine Prüfreihenfolge für einen späteren Betrieb und einen konkreten Gegenfall.
+
+**English:** “Join the discussion” connects a topic with its square. Readers find a concrete question, a link to a conversation if one exists, or a GitHub contribution route carrying the topic context. Squares share stable IDs across languages. A conversation can connect multiple topics and keeps its address. See the [architecture of the topic squares](forum-architektur.md#english) for the access measure, a proposed review order and a worked counterexample.
+
 ## REDE-01 · Was darf stehen bleiben? / What can remain visible?
 
 **Möglichst jede Position prüfen, aber nicht jeden schädlichen Wortlaut öffentlich konservieren.** Der [anfechtbare Entwurf REDE-01](redefreiheit-und-schutz.md) schützt unangenehme, gegenläufige und sachlich falsche Thesen vor bloßer Mehrheitszensur. Wenn glaubhafte Gefährdung, gezielte Belästigung oder Privatsphäre betroffen sind, gelten vier abgestufte Antworten: stehen lassen, einordnen, vorläufig einschränken, öffentliche Verbreitung beenden. Der Maßstab ist konkreter Schutz, nicht die Unangreifbarkeit einer Idee. Grund und Einspruch sollen prüfbar sein; schädliche Originalinhalte werden **nicht zur Transparenz öffentlich wiederholt**.

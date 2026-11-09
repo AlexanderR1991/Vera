@@ -1,5 +1,7 @@
 ---
 import Layout from "../layouts/SiteLayout.astro";
+import ForumSectionLink from "./ForumSectionLink.astro";
+import {forumPlacePath} from "../lib/forum-places.mjs";
 import {pathFor} from "../lib/paths.mjs";
 const {lang="de"}=Astro.props;
 const en=lang==="en";
@@ -168,8 +170,10 @@ const gh="https://github.com/AlexanderR1991/Vera";
 <div class="mil-grid mil-grid--three">{t.layers.map(([n,title,description])=><article><span>{n}</span><h3>{title}</h3><p>{description}</p></article>)}</div>
 <p class="mil-caveat">{t.layerNote}</p></div></section>
 <section class="section mil-principles" id="grenzen"><div class="container"><p class="section-kicker">IV · {en?"LIMITS":"GRENZEN"}</p><h2 class="mil-heading">{t.principlesTitle}</h2>
+<ForumSectionLink lang={lang} place="militaer-und-verantwortung" section="grenzen" />
 <div class="mil-grid mil-grid--three">{t.principles.map(([n,title,description])=><article><span>{n} / 06</span><h3>{title}</h3><p>{description}</p></article>)}</div></div></section>
 <section class="section section--paper" id="zielkonflikte"><div class="container"><p class="section-kicker">V · {en?"COUNTERPOSITIONS":"GEGENPOSITIONEN"}</p><h2 class="mil-heading">{t.conflictsTitle}</h2>
+<ForumSectionLink lang={lang} place="militaer-und-verantwortung" section="zielkonflikte" />
 <div class="mil-grid mil-grid--two">{t.conflicts.map(([title,description,question])=><article><h3>{title}</h3><p>{description}</p><p class="mil-question">{question}</p></article>)}</div></div></section>
 <section class="section mil-exam" id="pruefverfahren"><div class="container mil-exam__grid">
 <div><p class="section-kicker">VI · {en?"THE EXAMINATION":"DAS PRÜFVERFAHREN"}</p><h2 class="mil-heading">{t.examinationTitle}</h2><p class="mil-scenario">{t.scenario}</p><p class="mil-caveat">{t.stop}</p></div>
@@ -178,10 +182,10 @@ const gh="https://github.com/AlexanderR1991/Vera";
 <section class="section section--paper" id="hypothesen"><div class="container"><p class="section-kicker">VII · {en?"OPEN RESEARCH":"OFFENE FORSCHUNG"}</p><h2 class="mil-heading">{t.hypothesesTitle}</h2>
 <div class="mil-grid mil-grid--two">{t.hypotheses.map(([id,title,idea,test,against])=><article id={id.toLowerCase()}><span>{id}</span><h3>{title}</h3><p class="mil-claim">{idea}</p><p><b>{en?"Possible test":"Mögliche Prüfung"}:</b> {test}</p><p><b>{en?"Countermodel":"Gegenmodell"}:</b> {against}</p></article>)}</div>
 <p class="mil-caveat">{t.hypNote}</p></div></section>
-<section class="section mil-ai" id="ki"><div class="narrow"><p class="section-kicker">VIII · {en?"AI AND FORCE":"KI UND GEWALT"}</p><h2 class="mil-heading">{t.aiTitle}</h2><p>{t.ai}</p><blockquote>{t.aiQuote}</blockquote></div></section>
+<section class="section mil-ai" id="ki"><div class="narrow"><p class="section-kicker">VIII · {en?"AI AND FORCE":"KI UND GEWALT"}</p><h2 class="mil-heading">{t.aiTitle}</h2><ForumSectionLink lang={lang} place="militaer-und-verantwortung" section="ki" /><p>{t.ai}</p><blockquote>{t.aiQuote}</blockquote></div></section>
 <section class="section section--paper mil-sources" id="quellen"><div class="container"><p class="section-kicker">IX · {en?"SOURCES":"QUELLEN"}</p><h2 class="mil-heading">{t.sourceTitle}</h2><p>{t.sourceNote}</p><ol>{t.sources.map(([label,note],i)=><li><a href={urls[i]} target="_blank" rel="noopener noreferrer">{label} ↗</a><small>{note}</small></li>)}</ol></div></section>
 <section class="section mil-finale"><div class="narrow"><p class="section-kicker">X · {en?"A REVISABLE CONCLUSION":"EIN KORRIGIERBARER SCHLUSS"}</p><h2>{t.finaleTitle}</h2><p>{t.finale}</p>
-<div class="button-row"><a class="button button--gold" href={gh+"/discussions"} target="_blank" rel="noopener noreferrer">{t.forum} ↗</a><a class="button button--ghost" href={gh+"/issues/new?template=quellenpruefung.yml"} target="_blank" rel="noopener noreferrer">{t.review} ↗</a></div>
+<div class="button-row"><a class="button button--gold" href={forumPlacePath(lang,"militaer-und-verantwortung")}>{t.forum} <span aria-hidden="true">→</span></a><a class="button button--ghost" href={gh+"/issues/new?template=quellenpruefung.yml"} target="_blank" rel="noopener noreferrer">{t.review} ↗</a></div>
 <div class="mil-back"><a href={pathFor(lang,"bibliothek")}>{t.back} ↗</a><a href={pathFor(lang,"politik-die-dem-menschen-dient")}>{t.policy} ↗</a></div>
 </div></section>
 </Layout>

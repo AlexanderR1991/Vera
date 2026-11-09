@@ -2,6 +2,7 @@
 import Layout from "../layouts/SiteLayout.astro";
 import EverydayQuestions from "./EverydayQuestions.astro";
 import {pathFor} from "../lib/paths.mjs";
+import {forumGroups, forumPlacePath, getForumPlaces} from "../lib/forum-places.mjs";
 import project from "../../public/project.json" with {type: "json"};
 import register from "../../public/knowledge/claims.json";
 import forum from "../../public/knowledge/forum-threads.json";
@@ -15,6 +16,7 @@ const en=lang==="en";
 const t=(de,english)=>en?english:de;
 const threads=new Map(forum.threads.map(thread=>[thread.claim_id,thread.issue_number]));
 const discussions=project.repository+"/discussions";
+const places=getForumPlaces();
 const claimById=new Map(register.claims.map(claim=>[claim.id,claim]));
 const relationLabels={
  depends_on:{outgoing:t("Hängt ab von","Depends on"),incoming:t("Voraussetzung für","Needed by")},
@@ -31,16 +33,17 @@ const reviewText={
  withdrawn:t("Zurückgezogen","Withdrawn")
 };
 ---
-<Layout lang={lang} slug="forum" description={t("Alltagsfragen über Liebe, Arbeit, Essen und mehr. Lies eine erste philosophische Antwort und prüfe sie an einem Beispiel aus dem Leben.","Everyday questions about love, work, food and more. Read a first philosophical answer and test it against a real-life example.")}>
+<Layout lang={lang} slug="forum" description={t("Finde den Diskussionsplatz zu deinem Thema, lies eine Einstiegsfrage oder bring deine eigene Frage ein.","Find your topic’s discussion square, read a starter question or bring your own.")}>
  <section class="forum-hero" aria-labelledby="forum-title">
   <div class="container forum-hero__grid">
    <div>
-    <p class="section-kicker">{t("DAS FORUM · EIN ORT FÜR VIELE STIMMEN","THE FORUM · A PLACE FOR MANY VOICES")}</p>
-    <h1 id="forum-title">{t("Das Forum.","The Forum.")}<br /><em>{t("Widerspruch ist willkommen.","Disagreement is welcome.")}</em></h1>
-    <p class="forum-lead">{t("Hier gehen wir Fragen nach, die uns im Alltag beschäftigen. Such dir eine aus und prüfe unsere Antwort an einem Fall, den du kennst.","Here we explore questions we live with every day. Pick one and test our answer against a case you know.")}</p>
-    <p>{t("Wir diskutieren nicht, um recht zu behalten. Ein guter Einwand kann das System verändern.","We discuss not to win, but because a strong objection can change the system.")} <a class="subtle-link" href={pathFor(lang,"regelkreis")}>{t("Unsere Regel META-01","Our rule META-01")} →</a></p>
+    <p class="section-kicker">{t("DAS FORUM · EINE STADT VOLLER GESPRÄCHE","THE FORUM · A CITY FULL OF CONVERSATIONS")}</p>
+    <h1 id="forum-title">{t("Das Forum.","The Forum.")}<br /><em>{t("Viele Plätze. Deine Frage.","Many squares. Your question.")}</em></h1>
+    <p class="forum-lead">{t("Geh dorthin, wo dich etwas beschäftigt. Auf jedem Platz kannst du mit einer einfachen Frage, einem Beispiel oder einem Einwand anfangen.","Go where something has been on your mind. Start with a simple question, an example or an objection in any square.")}</p>
+    <p>{t("Du kannst ohne Konto stöbern und lesen. Zum öffentlichen Schreiben brauchst du derzeit ein GitHub-Konto.","You can browse and read without an account. Public posting currently requires a GitHub account.")}</p>
     <div class="button-row">
-     <a class="button button--gold" href="#alltagsfragen">{t("Eine Alltagsfrage wählen ↓","Pick an everyday question ↓")}</a>
+     <a class="button button--gold" href="#diskussionsplaetze">{t("Einen Platz finden","Find a discussion square")} <span aria-hidden="true">↓</span></a>
+     <a class="button button--ghost" href="#alltagsfragen">{t("Alltagsfragen","Everyday questions")} <span aria-hidden="true">↓</span></a>
      <a class="button button--ghost" href={discussions} target="_blank" rel="noopener noreferrer">{t("Offene Gespräche ↗","Open conversations ↗")}</a>
     </div>
    </div>
@@ -54,6 +57,38 @@ const reviewText={
     </ol>
    </aside>
   </div>
+ </section>
+
+ <section class="forum-section forum-squares container" id="diskussionsplaetze" aria-labelledby="forum-squares-title">
+  <div class="forum-section__intro">
+   <p class="section-kicker">{t("STADTPLAN · DIE DISKUSSIONSPLÄTZE","CITY MAP · THE DISCUSSION SQUARES")}</p>
+   <h2 id="forum-squares-title">{t("Wo möchtest du hin?","Where would you like to go?")}</h2>
+   <p>{t("Jeder Platz hat eine Einstiegsfrage und führt dich zu den passenden Gesprächen. Ein eigenes Beispiel ist genauso willkommen.","Each square gives you a starter question and a way to find related conversations. You are equally welcome to bring an example of your own.")}</p>
+  </div>
+  <nav class="forum-squares__districts" aria-label={t("Stadtviertel","Districts")}>
+   {Object.entries(forumGroups).map(([group, label])=><a href={`#viertel-${group}`}>{label[lang]} <span aria-hidden="true">↓</span></a>)}
+  </nav>
+  {Object.entries(forumGroups).map(([group, label])=><section class="forum-squares__district" id={`viertel-${group}`} aria-labelledby={`viertel-titel-${group}`}>
+   <h3 id={`viertel-titel-${group}`}>{label[lang]}</h3>
+   <ul role="list">
+    {places.filter(place=>place.group===group).map(place=><li>
+     <a href={forumPlacePath(lang,place.id)}><span>{place.title[lang]}</span><span aria-hidden="true">→</span></a>
+    </li>)}
+   </ul>
+  </section>)}
+  <section class="forum-squares__model" id="forum-mathematik" aria-labelledby="forum-model-title">
+   <h3 id="forum-model-title">{t("Wie hängen die Plätze zusammen?","How do the squares connect?")}</h3>
+   <p>{t("Jede teilnehmende Seite hat genau einen Themenplatz. Wo ein Abschnitt eine feste Adresse hat, kann sein Link direkt die passende Stelle auf diesem Platz öffnen. Deutsch und Englisch verwenden dieselbe Kennung für den Platz oder Abschnitt.","Every participating page has exactly one topic square. Where a section has a stable address, its link can go straight to the right spot in the square. German and English use the same identifier for each square or section.")}</p>
+   <ul role="list" class="forum-squares__distances">
+    <li><strong>1</strong> {t("Aktion zum Themenplatz","action to the topic square")}</li>
+    <li><strong>≤ 2</strong> {t("Aktionen zum Formular","actions to the form")}</li>
+   </ul>
+   <h4>{t("Entwurf für eine faire Reihenfolge","Proposed way to share review slots")}</h4>
+   <p>{t("Wenn die Sprachwarteschlangen reihum an die Reihe kommen, gibt es eine Obergrenze für die Zahl der Terminvergaben bis zu einem Beitrag. Sie ergibt sich aus der maximalen Anzahl der Schlangen mal der eigenen Position in der Schlange.","When language queues take turns, there is a bound on how many slots can be allocated before a contribution gets one. Multiply the maximum number of queues by the contribution’s position in its own queue.")}</p>
+   <p class="forum-squares__formula"><var>S<sub>i</sub></var> ≤ <var>G<sub>max</sub></var> × (<var>n<sub>i</sub></var> + 1)</p>
+   <p>{t("Am Justizplatz stehen zehn deutsche Zustimmungen einem englischen Einwand gegenüber. Bei zwei Schlangen und keinem Vorgänger in der englischen Schlange erhält der Einwand spätestens die zweite Terminvergabe. Zeigt er einen für Screenreader unlesbaren Bescheid, kann dieser eine allgemeine Behauptung über die Lesbarkeit widerlegen. Der Entwurf beschreibt Terminvergaben. Für GitHub gibt es hier keine zugesagte Antwortzeit.","At the Justice square, there are ten German contributions in agreement and one English objection. With two queues and nobody ahead in the English queue, the objection gets a slot within two allocations. If it identifies a decision that a screen reader cannot read, that case can refute a universal claim of accessibility. The proposal concerns slot allocation. There is no promised response time on GitHub.")}</p>
+   <p><a href={project.repository+"/blob/main/docs/forum-architektur.md"+(en?"#english":"")}>{t("Mathematisches Modell und Entwurf lesen","Read the mathematical model and design")} <span aria-hidden="true">↗</span></a></p>
+  </section>
  </section>
 
  <section class="forum-section container" id="rede-01" aria-labelledby="forum-rede-01-title">
@@ -218,6 +253,24 @@ const reviewText={
  .forum-hero__seal li::before{content:counter(forum,decimal-leading-zero);font:600 .65rem var(--sans);letter-spacing:.12em;color:var(--gold);margin-right:.75rem}
  .forum-section{padding-block:clamp(3.2rem,6vw,5.6rem)}
  .forum-section__intro{max-width:52rem;margin-bottom:2.4rem}
+ .forum-squares,.forum-squares__district,.forum-squares__model{scroll-margin-top:5rem}
+ .forum-squares__districts{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:clamp(1.5rem,4vw,2.5rem)}
+ .forum-squares__districts a{display:inline-flex;align-items:center;gap:.65rem;padding:.35rem .75rem;min-height:44px;border:1px solid var(--line);font-size:.9rem;color:var(--gold-bright)}
+ .forum-squares__districts a:hover,.forum-squares__districts a:focus-visible{border-color:var(--gold-bright);text-decoration:underline}
+ .forum-squares__district{padding-block:1.25rem 1.8rem;border-top:1px solid var(--line)}
+ .forum-squares__district h3,.forum-squares__model h3{margin:0 0 .8rem;font:400 clamp(1.5rem,2.8vw,2.25rem)/1.2 var(--serif)}
+ .forum-squares__district ul{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:.5rem;margin:0;padding:0}
+ .forum-squares__district a{display:flex;min-height:48px;height:100%;justify-content:space-between;align-items:center;gap:.65rem;padding:.55rem .9rem;border:1px solid var(--line);background:#111719;color:var(--text);line-height:1.45;text-underline-offset:.25em}
+ .forum-squares__district a span:last-child{color:var(--gold-bright)}
+ .forum-squares__district a:hover,.forum-squares__district a:focus-visible{border-color:var(--gold-bright);text-decoration:underline}
+ .forum-squares__model{margin-top:1.75rem;padding:clamp(1.2rem,3.5vw,2.15rem);border:1px solid var(--line);border-left:2px solid var(--gold-bright);background:#111719}
+ .forum-squares__model p{max-width:62ch;margin:.8rem 0}
+ .forum-squares__model h4{margin:1.55rem 0 0;font:400 1.35rem/1.3 var(--serif);color:var(--text)}
+ .forum-squares__formula{font:1.35rem/1.2 var(--serif);color:var(--gold-bright)}
+ .forum-squares__model a{display:inline-flex;align-items:center;gap:.35rem;min-height:44px;color:var(--gold-bright);text-decoration:underline;text-underline-offset:.25em}
+ .forum-squares__distances{list-style:none;display:flex;flex-wrap:wrap;gap:.75rem 1.5rem;margin:1.25rem 0;padding:0}
+ .forum-squares__distances li{display:flex;align-items:center;gap:.6rem}
+ .forum-squares__distances strong{font:1.75rem/1 var(--serif);color:var(--gold-bright);white-space:nowrap}
  .forum-section h2{font-size:clamp(2.2rem,4.6vw,4rem);letter-spacing:-.04em;line-height:1.13;margin:.35em 0}
  .forum-rooms{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.1rem}
  .forum-rooms article{border-top:2px solid var(--gold);padding:2rem;background:#141b1b;display:flex;flex-direction:column}

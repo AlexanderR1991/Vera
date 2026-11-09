@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/SiteLayout.astro";
+import ForumSectionLink from "./ForumSectionLink.astro";
 import {pathFor} from "../lib/paths.mjs";
 import register from "../../public/knowledge/claims.json";
 import project from "../../public/project.json";
@@ -40,6 +41,7 @@ const evidenceForm = project.repository + "/issues/new?" + new URLSearchParams({
     <section id="cast">
       <p class="section-kicker">CAST · 1989 · {claim.id}</p>
       <h2>{t("Was das EKG offenließ", "What the ECG left unanswered")}</h2>
+      <ForumSectionLink lang={lang} place="medizin" section="cast" />
       <p>{t(
         "Nach einem Herzinfarkt hatten manche Menschen zusätzliche Schläge aus den Herzkammern. Sie spürten davon wenig oder gar nichts. Häufige Extraschläge gingen mit einem höheren Risiko für plötzlichen Tod einher. Daher lag die Vermutung nahe, dass ein Mittel gegen die Extraschläge Leben retten könnte.",
         "After a heart attack, some people had extra beats starting in the lower chambers of the heart. They barely felt them, if at all. Frequent extra beats were associated with a higher risk of sudden death. It seemed plausible that suppressing them with a medicine might save lives."
@@ -62,6 +64,7 @@ const evidenceForm = project.repository + "/issues/new?" + new URLSearchParams({
 
     <section id="regel">
       <h2>{t("Welche Schlussregel fällt hier durch?", "Which rule fails this test?")}</h2>
+      <ForumSectionLink lang={lang} place="medizin" section="regel" />
       <p>{t(
         "„Wer ein Warnzeichen beseitigt, beseitigt die Gefahr.“ Mit dieser Regel hätte Vera die falsche Vorhersage durchgewinkt. Bei jeder Nutzenbehauptung fragen wir deshalb, was sich für Betroffene ändern soll. Sollen Schmerzen nachlassen, soll Treppensteigen wieder möglich werden oder sollen Menschen länger leben?",
         "“Removing a warning sign removes the danger.” That rule would have led Vera to accept the wrong prediction. For every claim of benefit, we therefore ask what should change for the people affected. Should pain ease, should climbing stairs become possible again, or should people live longer?"
@@ -75,6 +78,7 @@ const evidenceForm = project.repository + "/issues/new?" + new URLSearchParams({
 
     <section id="pruefen">
       <h2>{t("Bring einen Satz aus der Medizin mit", "Bring one medical claim")}</h2>
+      <ForumSectionLink lang={lang} place="medizin" section="pruefen" />
       <ol class="mission-steps">
         <li><strong>{t("Was wird behauptet?", "What is the claim?")}</strong> {t(
           "Zitiere die öffentliche Quelle und nenne die untersuchte Gruppe. Geht es um eine Behandlung, einen Test, eine Prognose oder die Frage, was für Betroffene zählt?",

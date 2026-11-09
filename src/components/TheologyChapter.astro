@@ -1,5 +1,7 @@
 ---
 import Layout from "../layouts/SiteLayout.astro";
+import ForumSectionLink from "./ForumSectionLink.astro";
+import {forumPlacePath} from "../lib/forum-places.mjs";
 import WorldviewConsensus from "./WorldviewConsensus.astro";
 import {pathFor} from "../lib/paths.mjs";
 const {lang="de"}=Astro.props;
@@ -72,19 +74,20 @@ discuss:"Join the dialogue ↗",method:"Our method ↗"
 <WorldviewConsensus lang={lang} />
 <section class="section theology-principles" id="dialogregeln"><div class="container">
 <p class="section-kicker">{t.rulesTag}</p><h2>{t.rulesTitle}</h2>
+<ForumSectionLink lang={lang} place="bruecken-zwischen-den-religionen" section="dialogregeln" />
 <div class="theology-grid">{t.rules.map(([number,title,description])=><article>
 <span>{number} / 05</span><h3>{title}</h3><p>{description}</p>
 </article>)}</div>
 </div></section>
-<section class="section section--paper theology-questions"><div class="narrow">
-<p class="section-kicker">{t.questionsTag}</p><h2>{t.questionsTitle}</h2><p>{t.questionsText}</p>
+<section class="section section--paper theology-questions" id="theologie-fragen"><div class="narrow">
+<p class="section-kicker">{t.questionsTag}</p><h2>{t.questionsTitle}</h2><ForumSectionLink lang={lang} place="bruecken-zwischen-den-religionen" section="theologie-fragen" /><p>{t.questionsText}</p>
 </div></section>
 <section class="section theology-boundary"><div class="narrow">
 <p class="section-kicker">{t.boundaryTag}</p><h2>{t.boundaryTitle}</h2><p>{t.boundary}</p><p>{t.rendering}</p><blockquote>{t.quote}</blockquote>
 </div></section>
 <section class="section section--paper theology-final"><div class="narrow">
 <p class="section-kicker">{t.finalTag}</p><h2>{t.finalTitle}</h2><p>{t.final}</p>
-<div class="button-row"><a class="button button--gold" href="https://github.com/AlexanderR1991/Vera/discussions" target="_blank" rel="noopener noreferrer">{t.discuss}</a>
+<div class="button-row"><a class="button button--gold" href={forumPlacePath(lang,"bruecken-zwischen-den-religionen")}>{t.discuss}</a>
 <a class="button button--ghost" href={pathFor(lang,"methode")}>{t.method}</a>
 <a class="button button--ghost" href={pathFor(lang,"schnittmengen")}>{lang==="de"?"Schnittmengen im Streit finden":"Find common ground in conflict"} →</a></div>
 </div></section>

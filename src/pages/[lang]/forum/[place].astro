@@ -1,0 +1,15 @@
+---
+import TopicForum from "../../../components/TopicForum.astro";
+import {getForumPlaces} from "../../../lib/forum-places.mjs";
+import {locales} from "../../../lib/paths.mjs";
+
+export function getStaticPaths(){
+ return locales.flatMap(lang=>getForumPlaces().map(place=>({
+  params:{lang,place:place.id},
+  props:{lang,place}
+ })));
+}
+
+const {lang,place}=Astro.props;
+---
+<TopicForum lang={lang} place={place} />

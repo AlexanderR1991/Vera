@@ -1,0 +1,133 @@
+---
+import { forumPlacePath } from "../lib/forum-places.mjs";
+
+const {lang, place}=Astro.props;
+const de=lang==="de";
+const title=place.title[lang];
+const href=forumPlacePath(lang,place.id);
+const sections=place.sections.map(section=>({
+  id: section.id,
+  anchor: section.anchors[lang],
+  label: section.title[lang],
+  href: forumPlacePath(lang,place.id,section.id)
+}));
+---
+<nav class="discussion-widget" aria-label={de?"Diskussion zu dieser Seite":"Discussion about this page"} data-discussion-widget data-discussion-sections={JSON.stringify(sections)}>
+  <a class="discussion-widget__link" href={href} data-discussion-link>
+    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+      <path d="M20.5 4.5h-17v12h4v4l5-4h8zM8 9h8m-8 3h5"/>
+    </svg>
+    <span class="discussion-widget__copy">
+      <span class="discussion-widget__action">{de?"Mitdiskutieren":"Join the discussion"}</span>
+      <span class="discussion-widget__topic" data-discussion-topic>{title}</span>
+    </span>
+    <span class="discussion-widget__arrow" aria-hidden="true">→</span>
+  </a>
+</nav>
+
+<style>
+  :global(html:has([data-discussion-widget])) {
+    scroll-padding-block-end: calc(5rem + env(safe-area-inset-bottom));
+  }
+
+  :global(body:has(> [data-discussion-widget])) {
+    padding-block-end: calc(5rem + env(safe-area-inset-bottom));
+  }
+
+  .discussion-widget {
+    --discussion-paper: #fbf8ef;
+    --discussion-ink: #282d25;
+    --discussion-accent: #4d684e;
+    position: fixed;
+    z-index: 40;
+    inset-inline-end: calc(clamp(.65rem, 2.1vw, 2rem) + env(safe-area-inset-right));
+    inset-block-end: calc(clamp(.65rem, 1.8vw, 1.5rem) + env(safe-area-inset-bottom));
+    max-inline-size: min(21rem, calc(100% - 1.3rem));
+  }
+
+  .discussion-widget__link {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: .65rem;
+    min-block-size: 44px;
+    padding: .42rem .76rem;
+    border: 1px solid #7a8172;
+    border-radius: .38rem;
+    background: var(--discussion-paper);
+    color: var(--discussion-ink);
+    box-shadow: 0 3px 14px #11171336;
+    text-decoration: none;
+  }
+
+  .discussion-widget__link:hover .discussion-widget__action {
+    text-decoration: underline;
+    text-underline-offset: .21em;
+  }
+
+  .discussion-widget__link:focus-visible {
+    outline: 2px solid var(--discussion-accent);
+    outline-offset: -4px;
+  }
+
+  .discussion-widget__copy {
+    display: grid;
+    min-inline-size: 0;
+    gap: .16rem;
+    line-height: 1.15;
+  }
+
+  .discussion-widget__action {
+    font: 700 .85rem/1.2 var(--sans, system-ui, sans-serif);
+  }
+
+  .discussion-widget__topic {
+    overflow: hidden;
+    color: #53594e;
+    font: 500 .75rem/1.2 var(--sans, system-ui, sans-serif);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  svg, .discussion-widget__arrow {
+    color: var(--discussion-accent);
+  }
+
+  :global(body:has(dialog:modal)) .discussion-widget {
+    visibility: hidden;
+  }
+
+  @media (max-width: 40rem) {
+    .discussion-widget {
+      max-inline-size: min(15rem, calc(100% - 1.3rem));
+    }
+
+    :global(body:has(:is(input[type="text"], input[type="search"], input:not([type]), textarea, [contenteditable="true"]):focus)) .discussion-widget:not(:focus-within) {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+
+  @media (max-height: 21rem) {
+    :global(html:has([data-discussion-widget])) {
+      scroll-padding-block-end: 0;
+    }
+
+    :global(body:has(> [data-discussion-widget])) {
+      padding-block-end: 0;
+    }
+
+    .discussion-widget {
+      position: static;
+      inline-size: fit-content;
+      margin: .65rem 1rem .65rem auto;
+    }
+  }
+</style>
+
+<script>
+  import { mountDiscussionWidget } from "../client/discussion-widget.mjs";
+
+  const widget=document.querySelector("[data-discussion-widget]");
+  if (widget) mountDiscussionWidget(widget);
+</script>

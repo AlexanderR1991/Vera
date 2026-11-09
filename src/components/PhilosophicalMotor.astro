@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/SiteLayout.astro";
+import ForumSectionLink from "./ForumSectionLink.astro";
 import {base,pathFor} from "../lib/paths.mjs";
 import project from "../../public/project.json";
 import fixtures from "../../public/research/philosophical-motor-examples.v0.json";
@@ -58,10 +59,11 @@ const safeguards={
    </div>
   </section>
 
-  <section class="section motor-section">
+  <section class="section motor-section" id="motor-ebenen">
    <div class="container">
     <p class="section-kicker">{t("DIE GRUNDIDEE","THE CENTRAL DESIGN")}</p>
     <h2>{t("Sechs getrennte Ebenen. Eine nachvollziehbare Antwort.","Six distinct layers. One auditable response.")}</h2>
+    <ForumSectionLink lang={lang} place="philosophischer-motor" section="motor-ebenen" />
     <div class="motor-grid">
      {[
        {id:"01",de:"Wissen",en:"Evidence",detailDe:"Empirische Befunde, Quellabhängigkeit, Unsicherheit.",detailEn:"Empirical findings, source dependence, uncertainty."},
@@ -88,6 +90,7 @@ const safeguards={
    <div class="container">
     <p class="section-kicker">{t("AUSFÜHRBARER PROTOTYP · NUR ERFUNDENE DATEN","EXECUTABLE PROTOTYPE · INVENTED DATA ONLY")}</p>
     <h2>{t("Drei Fälle, die einem Zahlensystem Grenzen setzen.","Three cases that expose the limits of a scoring system.")}</h2>
+    <ForumSectionLink lang={lang} place="philosophischer-motor" section="rechenbeispiele" />
     <p class="motor-caption">{t("Die Zahlen entstehen durch einen offenen JavaScript-Kern aus künstlichen Wirkungsannahmen. Sie beschreiben keine Menschen, keine realen Folgen und keine statistischen Konfidenzintervalle. Die Software erlaubt keine Freigabe realer Richtungswerte.","These numbers come from a transparent JavaScript core applied to invented effect assumptions. They describe no real people or outcomes and are not statistical confidence intervals. The software cannot publish real direction scores.")}</p>
     <div class="motor-examples">
      {examples.map(({scenario,result})=><article class="motor-example">
@@ -133,6 +136,7 @@ const safeguards={
     <p>{t("Diese Mathematik ist ein Forschungsrahmen, keine neue bewiesene Gesellschaftstheorie. Auch Kriterien, Skalen, Gewichtungen und Regeln dürfen begründet geändert oder verworfen werden. Die aktuellen KI-Fachagenten und der Richtungsindex sind separate, noch ungeprüfte Vorhaben.","This mathematics is a research framework, not a proven new theory of society. Criteria, scales, weights and rules are all open to challenge or withdrawal. Expert AI roles and a public direction index remain separate unreviewed proposals.")}</p>
     <div class="motor-links">
      <a href={project.repository+"/blob/main/docs/"+(en?"en/philosophical-motor-mathematics.md":"philosophischer-motor-mathematik.md")}>{t("Vollständige mathematische Spezifikation","Complete mathematical specification")} ↗</a>
+     <a href={pathFor(lang,"forum","forum-mathematik")}>{t("Mathematik der Diskussionsplätze","Mathematics of the discussion squares")} <span aria-hidden="true">→</span></a>
      <a href={base+"research/philosophical-motor-examples.v0.json"}>{t("Fiktive Fälle als JSON","Fictional cases as JSON")} ↗</a>
      <a href={project.repository+"/blob/main/src/lib/philosophical-motor.mjs"}>{t("Berechnung und Schutzregeln als Quellcode","Calculation and safeguards in source code")} ↗</a>
      <a href={project.repository+"/issues/new?template=angriff.yml"}>{t("Einen formalen Gegenfall einreichen","Submit a countermodel")} ↗</a>

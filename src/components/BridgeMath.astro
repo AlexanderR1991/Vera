@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/SiteLayout.astro";
+import ForumSectionLink from "./ForumSectionLink.astro";
 import {pathFor} from "../lib/paths.mjs";
 import {bridgeSnapshot} from "../lib/intersubjective.mjs";
 
@@ -45,6 +46,7 @@ const fields=[
       <div class="container">
         <p class="section-kicker">{t("M-02.1 · EIN MODELL ZUM ANFASSEN","M-02.1 · A HANDS-ON TOY MODEL")}</p>
         <h2 id="bridge-exp-title">{t("Verschiedene Meinungen. Gemeinsame Verständlichkeit.","Different opinions. Accurate restatement.")}</h2>
+        <ForumSectionLink lang={lang} place="die-bruecke" section="experiment" />
         <p class="bridge-intro">{t("Stell dir eine einzige Frage mit Antwortstufen von 0 bis 4 vor. A und B wählen ihre eigene Antwort und versuchen, die des jeweils anderen zu treffen. Verändere die Werte. Es sind erfundene Zahlen, keine Messdaten.","Imagine one question with response levels from 0 to 4. A and B each give an answer and try to predict the other's response. Change the numbers. These are invented values, not observations.")}</p>
 
         <div class="bridge-demo" data-bridge-demo data-lang={lang}>
@@ -93,6 +95,7 @@ const fields=[
       <div class="container">
         <p class="section-kicker">{t("H-M02 · UNBEWIESENE, PRÜFBARE HYPOTHESE","H-M02 · UNTESTED, FALSIFIABLE HYPOTHESIS")}</p>
         <h2 id="bridge-test-title">{t("Hilft Nachfragen mehr als Überreden?","Does asking help more than persuading?")}</h2>
+        <ForumSectionLink lang={lang} place="die-bruecke" section="forschungsfrage" />
         <p class="bridge-intro">{t("Unsere offene Vermutung: Wer die Ansicht des Gegenübers in eigenen Worten wiedergibt und Korrektur zulässt, verbessert die Treffgenauigkeit bei dessen Antworten im Mittel stärker als in einer gleich langen neutralen Diskussion. Beide Richtungen müssen separat besser werden; die Meinungen müssen nicht zusammenrücken.","Our open hypothesis: Restating the other person's view and inviting correction improves response accuracy more than an equally long neutral discussion. We must examine both directions separately; opinions need not converge.")}</p>
         <div class="bridge-grid bridge-grid--two">
           <article><span>{t("VOR EINER STUDIE","BEFORE A STUDY")}</span><h3>{t("Fair prüfen","Test fairly")}</h3><p>{t("Feste Fragen, freiwillige Teilnehmende, Kontrollgruppe, Vorher-Nachher-Messung, Schutz der Privatsphäre, unabhängige Auswertung und Veröffentlichung auch negativer Ergebnisse.","Fixed questions, voluntary participants, a comparison group, before/after measures, privacy safeguards, independent evaluation, and publication of negative findings too.")}</p></article>

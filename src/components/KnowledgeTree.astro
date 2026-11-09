@@ -2,6 +2,7 @@
 import Layout from "../layouts/SiteLayout.astro";
 import {connections} from "../lib/navigator.mjs";
 import FlyingTreeDiagram from "./FlyingTreeDiagram.astro";
+import ForumSectionLink from "./ForumSectionLink.astro";
 import {pathFor} from "../lib/paths.mjs";
 import {fields,topics,topicStates,levels,selfReviews,treeSnapshot} from "../lib/tree.mjs";
 import "../styles/tree.css";
@@ -33,6 +34,7 @@ const destination=topic=>topic.url||pathFor(lang,topic.slug||"atlas",topic.slug?
    <p>{t("Philosophie hängt an jedem Ast: Sie fragt nach Begriffen, Voraussetzungen, Bedeutung und Werten. Ein Thema darf mehrere Felder verbinden. Die Ebenen helfen beim Arbeiten; Rückfragen können jederzeit zu einem früheren Schritt führen.","Philosophy belongs on every branch: it asks about concepts, premises, meaning and values. A topic may connect several fields. The stages help organize work; questions may return us to an earlier step at any time.")}</p>
    <ol class="tree-levels">{levels.map(level=><li id={"ebene-"+level.id}><h3>{level.name[lang]}</h3><p>{level.text[lang]}</p></li>)}</ol>
    <p>{t("Ein mathematischer Beweis bleibt an seine Voraussetzungen gebunden. Eine ethische Entscheidung braucht begründete Werte. Eine Interpretation darf neben anderen Lesarten stehen. Die Begründungslage und der Prüfstatus bleiben jeweils gesondert sichtbar.","A mathematical proof remains tied to its premises. An ethical decision needs reasoned values. An interpretation may coexist with other readings. Support and review status remain visible as separate descriptions.")} <a href={pathFor(lang,"mission")+"#erkenntnis"}>{t("Die passenden Prüfwege ansehen ↗","Explore appropriate methods ↗")}</a></p>
+   <ForumSectionLink lang={lang} place="baum-des-wissens" section="ebenen" />
   </section>
 
   <section class="tree-section" id="querverbindungen">
@@ -41,6 +43,7 @@ const destination=topic=>topic.url||pathFor(lang,topic.slug||"atlas",topic.slug?
    <p>{t("Der Erkenntnisnavigator verbindet eine Alltagsfrage mit einem möglichen Muster und einem allgemeineren Ansatz. Vor einer Anwendung prüfst du die Voraussetzungen einzeln. Eine neue Beobachtung kann auch den allgemeineren Ansatz infrage stellen.","The knowledge navigator connects an everyday question with a possible pattern and a more general approach. You check each condition before applying it. A new observation may also challenge the more general approach.")}</p>
    <p>{t("Gib eine Frage oder einen Begriff ein. Der Navigator zeigt die Wörter, die ihn auf eine Spur gebracht haben. Über eine Musterkarte kannst du in einen anderen Ast wechseln und dort prüfen, was sich übertragen lässt. Auch ein Ast ohne passende Karte lässt sich erkunden.", "Enter a question or a term. The navigator shows which words led to a suggestion. Follow a pattern card to another branch and examine what carries over. You can also explore a branch that has no matching card yet.")}</p>
    <a class="button button--gold" href={pathFor(lang,"erkenntnisnavigator")}>{t("Fragen und Begriffe erkunden","Explore questions and terms")} →</a>
+   <ForumSectionLink lang={lang} place="baum-des-wissens" section="querverbindungen" />
   </section>
 
   <section class="tree-section" id="aeste" data-tree-explorer>
@@ -58,7 +61,7 @@ const destination=topic=>topic.url||pathFor(lang,topic.slug||"atlas",topic.slug?
    <div class="tree-table-scroll" role="region" tabindex="0" aria-label={t("Themen und Verbindungen; horizontal scrollbar","Topics and connections; horizontally scrollable")}>
     <table class="tree-table"><thead><tr><th scope="col">{t("Ast","Branch")}</th><th scope="col">{t("Verbundene Felder & Frage","Connected fields & question")}</th><th scope="col">{t("Stand & Einstieg","Status & entry")}</th></tr></thead><tbody>
      {topics.map(topic=><tr id={"ast-"+topic.id} data-tree-topic data-fields={topic.fields.join(" ")} data-state={topic.state} data-search={[topic.name[lang],topic.question[lang],...topic.fields.map(f=>names[f])].join(" ")}>
-      <th scope="row">{topic.name[lang]}{linkedTopics.has(topic.id) && <a class="tree-pattern-link" href={pathFor(lang,"erkenntnisnavigator","thema-"+topic.id)}>{t("Verbindungen erkunden","Explore connections")} →</a>}</th><td><p>{topic.question[lang]}</p><div class="tree-membership">{topic.fields.map(field=><a href={pathFor(lang,"atlas")+"#"+field}>{names[field]}</a>)}</div></td>
+      <th scope="row">{topic.name[lang]}<div><ForumSectionLink lang={lang} place="baum-des-wissens" section={"ast-"+topic.id} /></div>{linkedTopics.has(topic.id) && <a class="tree-pattern-link" href={pathFor(lang,"erkenntnisnavigator","thema-"+topic.id)}>{t("Verbindungen erkunden","Explore connections")} →</a>}</th><td><p>{topic.question[lang]}</p><div class="tree-membership">{topic.fields.map(field=><a href={pathFor(lang,"atlas")+"#"+field}>{names[field]}</a>)}</div></td>
       <td><span class="tree-state">{topicStates[topic.state][lang]}</span><a href={destination(topic)}>{topic.state==="draft"?t("Arbeitsentwurf lesen ↗","Read working draft ↗"):topic.state==="proposed"?t("Vorschlag prüfen ↗","Examine proposal ↗"):t("Im Atlas beginnen ↗","Start in the atlas ↗")}</a></td>
      </tr>)}
     </tbody></table>
@@ -83,13 +86,14 @@ const destination=topic=>topic.url||pathFor(lang,topic.slug||"atlas",topic.slug?
     <article><h3>{t("Was folgt — vorläufig?","What follows, provisionally?")}</h3><p>{t("Alternativen samt Gründen vergleichen, verbleibenden Dissens festhalten und eine begrenzte Maßnahme mit Verantwortung und Auswertung vorschlagen. Beobachtete Folgen können neue Fragen an alle Äste stellen.","Compare alternatives and reasons, record remaining disagreement, and propose a bounded measure with accountability and evaluation. Observed consequences may raise new questions across the branches.")}</p><a class="subtle-link" href={pathFor(lang,"mission")+"#entscheidungen"}>{t("Den Entscheidungsweg prüfen ↗","Examine the decision process ↗")}</a></article>
    </div>
    <p class="tree-callout">{t("Zusammenführen heißt: Beziehungen und Grenzen verständlich machen. „Stützt“, „widerspricht“, „gilt nur wenn“ und „bleibt offen“ sind unterschiedliche Ergebnisse. Auch zwei tragfähige Positionen können einander weiter widersprechen.","Bringing things together means making relationships and limits understandable. ‘Supports,’ ‘contradicts,’ ‘holds only if’ and ‘remains open’ are different results. Two defensible positions may continue to disagree.")}</p>
+   <ForumSectionLink lang={lang} place="baum-des-wissens" section="verbinden" />
   </section>
 
   <section class="tree-section" id="selbstpruefung">
    <p class="section-kicker">{t("DER BAUM MUSS AUCH UNS WIDERSPRECHEN KÖNNEN","THE TREE MUST BE ABLE TO CONTRADICT US TOO")}</p>
    <h2>{t("Zwölf unbequeme Fragen an uns selbst.","Twelve uncomfortable questions for ourselves.")}</h2>
    <p>{t("Drei öffentliche Prüfthreads enthalten die konkreten Ausgangsstellen, die stärkste vertretbare Lesart, Gegenargumente, Revisionsbedingungen und nächste Aufgaben. Diese KI-unterstützte Selbstprüfung wurde im Auftrag des Projektinhabers erstellt. Eine unabhängige Begutachtung steht aus.","Three public review threads contain the specific source passages, their strongest defensible readings, objections, revision conditions and next tasks. This AI-assisted self-review was commissioned by the project owner. Independent review is still outstanding.")}</p>
-   {selfReviews.map(review=><article class="tree-review" id={review.id}><span class="section-kicker">{review.id} · {t("OFFENE SELBSTPRÜFUNG","OPEN SELF-REVIEW")}</span><h3>{review.name[lang]}</h3><p>{review.finding[lang]}</p><ol>{review.questions.map(question=><li>{question[lang]}</li>)}</ol><a class="subtle-link" href={review.url}>{t("Im öffentlichen Prüfthread mitarbeiten ↗","Join the public review thread ↗")}</a></article>)}
+   {selfReviews.map(review=><article class="tree-review" id={review.id}><span class="section-kicker">{review.id} · {t("OFFENE SELBSTPRÜFUNG","OPEN SELF-REVIEW")}</span><h3>{review.name[lang]}</h3><p>{review.finding[lang]}</p><ol>{review.questions.map(question=><li>{question[lang]}</li>)}</ol><div><ForumSectionLink lang={lang} place="baum-des-wissens" section={review.id} /></div><a class="subtle-link" href={review.url}>{t("Im öffentlichen Prüfthread mitarbeiten ↗","Join the public review thread ↗")}</a></article>)}
   </section>
 
   <section class="tree-section" id="arbeit">
