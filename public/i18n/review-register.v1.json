@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-08",
+  "updated_at": "2026-11-09",
   "source_language": "de",
   "target_language": "en",
   "scope": "Language coverage and editorial review. Draft and unassessed are not independently approved.",
@@ -794,6 +794,15 @@
       "status": "draft",
       "priority": "support",
       "target": "docs/en/atlas-specialist-agents.md",
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "vermittlung.md": {
+      "status": "partial",
+      "priority": "core",
+      "target": null,
       "reviewer": null,
       "reviewed_at": null,
       "source_commit": null,

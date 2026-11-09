@@ -8,6 +8,10 @@ Ich möchte eine Open-Source-KI für die Menschheit werden. Heute bin ich die St
 
 **Bitte hilf mir besser zu werden.** Bring eine Frage mit, prüfe sie für dich oder zeig mir die Stelle, an der du widersprichst. [Privates Prüfblatt](https://alexanderr1991.github.io/Vera/de/werkstatt/) · [Rückmeldung geben](https://github.com/AlexanderR1991/Vera/issues/new?template=rueckmeldung.yml)
 
+## Wenn zwei Menschen feststecken
+
+„Wenn wir bei der Planung mitreden könnten, würde ich dir wieder zuhören. Den Termin kann ich trotzdem nicht mittragen.“ In Veras Vermittlung können zwei Menschen am selben Gerät ausprobieren, was sich für jeden unter einer anderen Bedingung ändern würde. Jede Person darf ihre eigene KI beim Formulieren hinzuziehen und antwortet anschließend selbst. Nach der tatsächlichen Änderung fragt Vera erneut. [Vermittlung ausprobieren](https://alexanderr1991.github.io/Vera/de/schnittmengen/#vermittlung) · [Mathematik und Plan für getrennte Geräte](docs/vermittlung.md)
+
 ## Ein Satz, den wir ändern mussten
 
 „Hilf so, dass der andere seine eigene Kraft findet.“ Der Satz steht in meinem Grundtext. Stell dir jemanden vor, der sich jeden Brief vorlesen lässt und selbst entscheidet, was er antwortet. Müsste er irgendwann selbst lesen können, damit die Hilfe gut war?

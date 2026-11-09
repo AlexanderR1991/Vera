@@ -1,0 +1,76 @@
+{
+  "version": 1,
+  "cases": [
+    {
+      "id": "listen",
+      "de": [
+        "Was wird durch die Änderung möglich?",
+        "Ein Verein plant ein Fest. Wenn beide Gruppen bei der Planung mitreden, möchte B wieder zuhören. B lehnt den Termin weiterhin ab.",
+        "Vera darf gemeinsame Gesprächsbereitschaft ausweisen, wenn auch A zuhören will. Der Termin bleibt strittig."
+      ],
+      "en": [
+        "What would the change make possible?",
+        "A club is planning a party. B would listen again if both groups had a say in planning it. B still objects to the date.",
+        "Vera may report mutual willingness to listen if A wants to listen too. The date remains disputed."
+      ],
+      "events": [
+        {"type": "frame", "proposal": "Das Vereinsfest findet am Samstag statt.", "condition": "Beide Gruppen können das Fest mitplanen.", "owner": "B"},
+        {"type": "answer", "actor": "A", "phase": "today", "kind": "listen", "value": "yes"},
+        {"type": "answer", "actor": "B", "phase": "today", "kind": "listen", "value": "no"},
+        {"type": "answer", "actor": "A", "phase": "today", "kind": "support", "value": "yes"},
+        {"type": "answer", "actor": "B", "phase": "today", "kind": "support", "value": "no"},
+        {"type": "answer", "actor": "A", "phase": "ifChanged", "kind": "listen", "value": "yes"},
+        {"type": "answer", "actor": "B", "phase": "ifChanged", "kind": "listen", "value": "yes"},
+        {"type": "answer", "actor": "A", "phase": "ifChanged", "kind": "support", "value": "yes"},
+        {"type": "answer", "actor": "B", "phase": "ifChanged", "kind": "support", "value": "no"}
+      ],
+      "expected": {"status": "active", "listeningBridge": true, "supportBridge": false, "afterChange": "unobserved"}
+    },
+    {
+      "id": "conditional",
+      "de": [
+        "Ist die Bedingung schon eingetreten?",
+        "Zwei Nachbarn würden einer gemeinsamen Werkbank zustimmen, falls ein abschließbarer Raum verfügbar wird. Sie haben noch keinen Raum.",
+        "Beide würden den Vorschlag unter dieser Bedingung tragen. Eine tatsächliche Zusage für die Werkbank steht aus."
+      ],
+      "en": [
+        "Has the condition actually been met?",
+        "Two neighbours would support a shared workbench if they had a lockable room. They have no room yet.",
+        "Both would support the proposal under this condition. An actual agreement on the workbench is still pending."
+      ],
+      "events": [
+        {"type": "frame", "proposal": "Wir schaffen zusammen eine Werkbank an.", "condition": "Ein abschließbarer Raum ist verfügbar.", "owner": "A"},
+        {"type": "answer", "actor": "A", "phase": "today", "kind": "support", "value": "no"},
+        {"type": "answer", "actor": "B", "phase": "today", "kind": "support", "value": "no"},
+        {"type": "answer", "actor": "A", "phase": "ifChanged", "kind": "support", "value": "yes"},
+        {"type": "answer", "actor": "B", "phase": "ifChanged", "kind": "support", "value": "yes"}
+      ],
+      "expected": {"status": "active", "listeningBridge": false, "supportBridge": true, "afterChange": "unobserved"}
+    },
+    {
+      "id": "recheck",
+      "de": [
+        "Gilt die Antwort heute noch?",
+        "Ein Team hätte einem Versuch nach einer Einweisung zugestimmt. Nach der Einweisung meldet B, dass der Zugang für den Spätdienst fehlt, und sagt Nein.",
+        "Das aktuelle Nein gilt. Der frühere bedingte Zuspruch bleibt als frühere Antwort erkennbar."
+      ],
+      "en": [
+        "Does the answer still hold today?",
+        "A team would have backed a trial after training. Once trained, B finds that the late shift cannot get access and says no.",
+        "The current refusal stands. The earlier conditional answer remains identifiable as an earlier answer."
+      ],
+      "events": [
+        {"type": "frame", "proposal": "Wir erproben die neue Schichtplanung.", "condition": "Die Einweisung für das Team ist abgeschlossen.", "owner": "B"},
+        {"type": "answer", "actor": "A", "phase": "today", "kind": "support", "value": "yes"},
+        {"type": "answer", "actor": "B", "phase": "today", "kind": "support", "value": "no"},
+        {"type": "answer", "actor": "A", "phase": "ifChanged", "kind": "support", "value": "yes"},
+        {"type": "answer", "actor": "B", "phase": "ifChanged", "kind": "support", "value": "yes"},
+        {"type": "observe", "actor": "A"},
+        {"type": "observe", "actor": "B"},
+        {"type": "answer", "actor": "A", "phase": "afterChange", "kind": "support", "value": "yes"},
+        {"type": "answer", "actor": "B", "phase": "afterChange", "kind": "support", "value": "no"}
+      ],
+      "expected": {"status": "active", "listeningBridge": false, "supportBridge": true, "afterChange": "objected"}
+    }
+  ]
+}

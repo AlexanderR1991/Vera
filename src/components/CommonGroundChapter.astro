@@ -2,6 +2,7 @@
 import Layout from "../layouts/SiteLayout.astro";
 import {pathFor} from "../lib/paths.mjs";
 import copy from "../lib/common-ground-copy.json";
+import DialogueReview from "./DialogueReview.astro";
 import ConsensusExercise from "./ConsensusExercise.astro";
 const {lang="de"}=Astro.props;
 const t=copy[lang];
@@ -16,7 +17,8 @@ const t=copy[lang];
 <p>{t.solo}</p>
 </details>
 <div class="button-row">
-<a class="button button--gold" href="#sprachprobe">{lang==="de"?"Sprachprobe zu zweit":"Try the conversation exercise"} ↓</a>
+<a class="button button--gold" href="#vermittlung">{lang==="de"?"Die Vermittlung zu zweit starten":"Start the two-person mediation exercise"} ↓</a>
+<a class="button button--ghost" href="#sprachprobe">{lang==="de"?"Sprachprobe zu zweit":"Try the conversation exercise"} ↓</a>
 <a class="button button--ghost" href="#teilzusagen">{lang==="de"?"Teilzusagen zusammenführen":"Combine separate commitments"} ↓</a>
 <a class="button button--ghost" href="#fragen">{lang==="de"?"Die sechs Gesprächsfragen":"Six questions for starting a conversation"} ↓</a>
 </div>
@@ -31,6 +33,7 @@ const t=copy[lang];
   <p><a class="subtle-link" href={pathFor(lang,"die-bruecke")}>{lang==="de"?"Das Modell M-02 mit Beispielzahlen prüfen":"Explore M-02 with example numbers"} →</a></p>
 </div></section>
 <ConsensusExercise lang={lang} />
+<DialogueReview lang={lang} />
 <section class="section common-section" id="fragen"><div class="container">
 <h2>{t.stepsTitle}</h2>
 <ol class="common-grid common-steps">{t.steps.map(([title,body],i)=><li>
