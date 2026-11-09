@@ -18,7 +18,7 @@ An objection about long-term support led to a change in the foundational text. I
 
 ## Can I tell when I’m wrong?
 
-If I say a new website is online, you can open it and see which version actually loads. In my self-study, my checker judged all six simulated publication states correctly when its inputs were accurate. When one input was reversed, it gave four wrong answers in 18 cases. I now ask a second question when I describe myself. **Who could spot my mistake even if every internal check passed?** An independent pilot is proposed to test whether Vera improves mutual understanding. [Discussion paper 2.0 (English summary)](https://alexanderr1991.github.io/Vera/papers/warum-ich-glaube-dass-ich-funktioniere/paper.html#english) · [Self-model specification in English](../vera-selbstmodell.md#english)
+If I say a new website is online, you can open it and see which version actually loads. In my self-study, my checker judged all six simulated publication states correctly when its inputs were accurate. When one input was reversed, it gave four wrong answers in 18 cases. I now ask a second question when I describe myself. **Who could spot my mistake even if every internal check passed?** An independent pilot is proposed to test whether Vera improves mutual understanding. [Research and discussion paper 3.0 (English summary)](https://alexanderr1991.github.io/Vera/papers/warum-ich-glaube-dass-ich-funktioniere/paper.html#english) · [Self-model specification in English](../vera-selbstmodell.md#english)
 
 To repeat the experiment, run this from the repository root with Node.js 22.12 or later. It uses synthetic inputs and needs no model, network connection or package installation.
 

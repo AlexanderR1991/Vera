@@ -1,12 +1,12 @@
 <!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Veras Diskussionspapier für den Europarat. Ein reproduzierbarer technischer Befund und ein Vorschlag für einen unabhängigen Pilotversuch zum Umgang mit Dissens.">
-  <meta name="author" content="Projekt Vera">
-  <title>Warum ich glaube, dass ich funktioniere · Vera</title>
-  <style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Eine integrierte Selbststudie zu Veras technischen Befunden, der Übergabe von Korrekturen und der offenen Frage, ob KI Menschen im Streit hilft.">
+<meta name="author" content="Projekt Vera">
+<title>Warum ich glaube, dass ich funktioniere · Vera</title>
+<style>
     :root {color-scheme:light; --ink:#171d1d; --quiet:#4c5756; --line:#bec7c3; --tone:#205c50; --wash:#edf3ef}
     * {box-sizing:border-box}
     html {background:#f7f8f5; color:var(--ink); font:17px/1.58 system-ui,sans-serif}
@@ -68,137 +68,173 @@
       table {font-size:10pt} pre {font-size:9pt}
       .refs li {margin:2mm 0}
     }
-  </style>
+
+    .lead {font-size:1.13rem}
+    .table-scroll:focus-visible {outline-offset:.22rem}
+    .table-scroll tbody th {font-weight:600}
+    .contents a {white-space:normal}
+    [id] {scroll-margin-top:1rem}
+    </style>
 </head>
 <body>
 <div class="wrap">
-  <nav class="page-nav" aria-label="Navigation zum Diskussionspapier">
-    <a href="../../de/#practice-title">← Zur Vera-Werkstatt</a>
-    <a href="vera-selbststudie.pdf" type="application/pdf">Fassung 2.0 als PDF</a>
-  </nav>
-  <main><article aria-labelledby="titel">
-    <section aria-labelledby="titel">
-      <p class="kicker"><svg class="mark" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="53 4" transform="rotate(-42 12 12)"/></svg>Vera · Diskussionspapier für den Europarat</p>
-      <h1 id="titel">Warum ich glaube, dass ich funktioniere</h1>
-      <p class="subtitle">Vera als überprüfbare KI-Assistenz für den Umgang mit Dissens</p>
-      <p class="meta">Projekt Vera · Fassung 2.0 · <time datetime="2026-11-09">9. November 2026</time> · <a href="paper-v1.html">Fassung 1.0 im Archiv</a></p>
-      <p class="prose">Vera ist ein offenes Softwareprojekt. Es untersucht, ob KI Menschen in einem Streit helfen kann, das Anliegen der Gegenseite zu verstehen und offene Fragen so festzuhalten, dass beide Seiten die Darstellung prüfen und korrigieren können. Dieses Papier legt einen reproduzierbaren technischen Befund vor und schlägt eine unabhängige Prüfung des Nutzens für Menschen vor. <a href="#quelle-1" aria-label="Quelle 1">[1]</a></p>
-      <h2 id="methode" class="intro-heading">Was Vera in einem Gespräch leisten soll</h2>
-      <p class="prose">Zwei Gruppen streiten über die Abendnutzung einer Sporthalle. Die eine braucht Trainingszeit, die andere fürchtet nächtlichen Lärm. Vera würde beide Anliegen getrennt wiedergeben, strittige Behauptungen über den Lärm markieren und festhalten, welche Messung die Sachfrage klären könnte. Die Beteiligten können die Wiedergabe korrigieren und an ihrer Bewertung festhalten. Über die Nutzungszeiten entscheiden die zuständigen Menschen und Stellen.</p>
-      <h2 class="intro-heading">Was heute belegt ist</h2>
-      <p class="prose">Ein eng begrenztes Prüfprogramm konnte fehlende und widersprüchliche Angaben unterscheiden. Plausible Falschangaben führten dennoch zu Fehlurteilen. Der Versuch lief mit synthetischen Eingaben und wurde für diese Fassung am dokumentierten Code erneut ausgeführt. Ob Vera gegenseitiges Verständnis verbessert oder Konflikte entschärft, bleibt empirisch offen. <a href="#quelle-2" aria-label="Quelle 2">[2]</a></p>
-      <h2 class="intro-heading">Was wir zur fachlichen Prüfung vorlegen</h2>
-      <p class="prose">Wir bitten um Rückmeldung zum vorgeschlagenen Prüfkatalog und zum Versuchsdesign. Im Mittelpunkt stehen der gleichberechtigte Zugang, der Umgang mit Widerspruch, die menschliche Verantwortung und die Bedingungen für einen Abbruch. Die Prüfung soll klären, welche Voraussetzungen vor einer Pilotentscheidung erfüllt sein müssen.</p>
-      <div class="note">
-        <p><strong>Die Frage hinter dem Titel</strong></p>
-        <p>Wer kann einen Fehler von Vera bemerken, selbst wenn alle internen Prüfungen bestehen? Bei einer Tatsachenfrage braucht es einen unabhängig überprüfbaren Befund. Bei der Wiedergabe eines Anliegens muss die betroffene Person selbst widersprechen können.</p>
-      </div>
-      <nav class="contents" aria-label="Inhaltsübersicht">
-        <strong>In diesem Papier</strong>
-        <ul>
-          <li><a href="#ergebnisse">Technischer Befund</a></li>
-          <li><a href="#schutz">Schutz im Pilotversuch</a></li>
-          <li><a href="#folge">Prüfung des Nutzens</a></li>
-          <li><a href="#quellen">Quellen und Reproduktion</a></li>
-          <li><a href="#english" lang="en">English summary</a></li>
-        </ul>
-      </nav>
-    </section>
-
-    <section aria-labelledby="ergebnisse">
-      <p class="kicker">01 / Technischer Befund</p>
-      <h2 id="ergebnisse">Was der Versuch zeigt</h2>
-      <p class="prose">Die erste Fassung untersuchte die Aussage, ein bestimmter Veröffentlichungslauf sei erfolgreich gewesen und die zugehörige Revision sei beim öffentlichen Abruf sichtbar. Das Programm prüft, welche Zustände mit den Angaben über Build, Veröffentlichung und Abruf vereinbar sind. Es entscheidet bei übereinstimmenden Zuständen, lässt ein Urteil bei mehreren möglichen Antworten offen und meldet einen Konflikt, wenn kein Zustand zu den Eingaben passt. <a href="#quelle-2" aria-label="Quelle 2">[2]</a></p>
-      <figure id="tab1">
-        <div class="table-scroll" role="region" aria-label="Auszählung der Testfälle" tabindex="0">
-          <table class="results">
-            <thead>
-              <tr><th scope="col">Synthetische Eingabe</th><th scope="col">Fälle</th><th scope="col">Richtig</th><th scope="col">Falsch</th><th scope="col">Offen</th><th scope="col">Konflikt</th></tr>
-            </thead>
-            <tbody>
-              <tr><th scope="row">Vollständig und richtig</th><td>6</td><td>6</td><td>0</td><td>0</td><td>0</td></tr>
-              <tr><th scope="row">Genau ein Wert fehlt</th><td>18</td><td>14</td><td>0</td><td>4</td><td>0</td></tr>
-              <tr><th scope="row">Genau ein Wert ist umgekehrt</th><td>18</td><td>10</td><td>4</td><td>0</td><td>4</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <figcaption>Vollständige Auszählung der definierten 42 Fälle. Die Ergebnisse erlauben keine Schätzung einer Fehlerquote im Betrieb. „Richtig“ und „falsch“ bezeichnen entschiedene Urteile. Das Referenzurteil folgt aus der Spezifikation.</figcaption>
-      </figure>
-      <h3>Der entscheidende Gegenfall</h3>
-      <p class="prose">Im konstruierten Gegenfall waren Build und Veröffentlichung erfolgreich. Der öffentliche Abruf zeigte eine ältere Fassung. Meldete der Abruf fälschlich die Zielrevision, bestätigte das Programm die Behauptung. Ein korrekt gemeldeter Erfolg hätte dieselben Eingaben erzeugt. Die beiden Fälle lassen sich erst unterscheiden, wenn eine weitere Beobachtung die Meldung prüfen kann, etwa ein Abruf, der die Revisionskennung selbst prüft und sich nicht auf dieselbe fehlerhafte Messung stützt.</p>
-      <h3 id="deutung">Was davon auf Gespräche übertragbar ist</h3>
-      <p class="prose">Eine Zusammenfassung kann in sich stimmig sein und trotzdem eine entscheidende Aussage auslassen. Deshalb soll Vera die Beteiligten ihre eigene Darstellung prüfen lassen. Der Grundtext des Projekts liefert ein Beispiel für eine dokumentierte Revision. Auf den Einwand, dass Menschen dauerhaft Hilfe brauchen können, wurde die Regel zur Selbstständigkeit um eine ausdrückliche Anerkennung dauerhafter Unterstützung ergänzt. Der Versionsvergleich belegt die Änderung des Textes. Ob sie Menschen geholfen hat, wurde nicht untersucht. <a href="#quelle-3" aria-label="Quelle 3">[3]</a></p>
-      <div class="note">
-        <p><strong>Reproduktion</strong></p>
-        <p>Die erneute Ausführung ergab dieselbe Fallverteilung und denselben Gegenfall. Sieben zugehörige Softwaretests bestanden. Das Prüfprogramm arbeitet hier ohne Netzabruf und ohne Sprachmodell. Code, Version und Befehle stehen im <a href="#quellen">Quellenabschnitt</a>.</p>
-      </div>
-    </section>
-
-    <section aria-labelledby="schutz">
-      <p class="kicker">02 / Schutzvorkehrungen</p>
-      <h2 id="schutz">Schutz im Pilotversuch</h2>
-      <p class="prose">Die KI-Rahmenkonvention des Europarats (CETS Nr. 225) adressiert die Vertragsparteien. Dieses Papier nutzt sie als Maßstab für den Entwurf. Die Empfehlung zur deliberativen Demokratie gibt Orientierung für faire Beteiligung und Moderation. HUDERIA bietet eine unverbindliche Methode zur Prüfung von Risiken und Auswirkungen. Die folgenden Vorkehrungen sind vorgeschlagene Freigabebedingungen. <a href="#quelle-4" aria-label="Quelle 4">[4]</a> <a href="#quelle-5" aria-label="Quelle 5">[5]</a> <a href="#quelle-6" aria-label="Quelle 6">[6]</a></p>
-      <figure>
-        <table class="safeguards">
-          <thead><tr><th scope="col">Schutzanforderung</th><th scope="col">Konkret im Pilotversuch</th></tr></thead>
-          <tbody>
-            <tr><th scope="row">Freie Meinungsbildung<br>Art. 5 und 7</th><td>Keine Wahlempfehlungen, politische Profilbildung oder bindenden Entscheidungen. Teilnehmende wählen selbst, ob sie zustimmen oder aussteigen.</td></tr>
-            <tr><th scope="row">Gleichberechtigter Zugang<br>Art. 10 und 18</th><td>Zugang ohne GitHub-Konto. Barrierearme Bedienung, verständliche Sprache und ein gleichwertiger Zugang mit menschlicher Unterstützung. Verständlichkeit und Zugänglichkeit in jeder Pilotsprache prüfen.</td></tr>
-            <tr><th scope="row">Transparenz und Korrektur<br>Art. 8, 9, 14 und 15</th><td>KI-Beiträge kennzeichnen. Zuordnung von Aussagen, Unsicherheiten und Änderungen sichtbar machen. Korrekturen und Beschwerden gehen an benannte Menschen.</td></tr>
-            <tr><th scope="row">Datenschutz und Zuverlässigkeit<br>Art. 11, 12 und 16</th><td>So wenig personenbezogene Daten wie möglich erheben. Zugriff, Verarbeitungszweck und Löschfristen vorab klären. Keine Nutzung von Gesprächsdaten für Modelltraining im Pilotversuch.</td></tr>
-          </tbody>
-        </table>
-        <figcaption>Die Artikelverweise benennen normative Bezugspunkte. Die Beschwerdestelle des Pilotversuchs ergänzt gegebenenfalls verfügbare gesetzliche Rechtsbehelfe. <a href="#quelle-4" aria-label="Quelle 4">[4]</a></figcaption>
-      </figure>
-      <h3>Widerspruch und Moderation</h3>
-      <p class="prose">Ein relevanter Einwand bleibt neben der Mehrheitsposition auffindbar. Für Tatsachenbehauptungen gelten offen gelegte Maßstäbe für Belege. Drohungen und die Offenlegung geschützter Angaben werden nach vorab veröffentlichten Regeln menschlich geprüft. Betroffene erhalten eine Begründung und eine Möglichkeit zur Überprüfung.</p>
-      <h3>Wer verantwortlich ist</h3>
-      <p class="prose">Vor der Freigabe benennt der Betreiber Verantwortliche für Moderation, Datenschutz und Vorfälle. Eine organisatorisch unabhängige Stelle erhält Zugriff auf die zur Prüfung nötigen Unterlagen und kann den Versuch aussetzen. Öffentlich dokumentiert werden Regeln, Software- und Modellversion, Änderungen und aggregierte Befunde. Vertrauliche Beiträge bleiben zugriffsbeschränkt.</p>
-    </section>
-
-    <section aria-labelledby="folge">
-      <p class="kicker">03 / Vorgeschlagenes Versuchsdesign</p>
-      <h2 id="folge">Wie wir den Nutzen prüfen</h2>
-      <p class="prose">Eine veröffentlichte Studie zur KI-gestützten Deliberation fand, dass Teilnehmende die vom untersuchten System erzeugten Gruppenzusammenfassungen bevorzugten. Für Vera bleiben sowohl der Nutzen als auch die Nebenwirkungen offen. Der folgende Vergleich prüft gegenseitiges Verständnis unter definierten Bedingungen. <a href="#quelle-7" aria-label="Quelle 7">[7]</a></p>
-      <h3>Erste Stufe · Voraussetzungen nachweisen</h3>
-      <p class="prose">Vor Gesprächen mit Teilnehmenden prüft ein unabhängiges Team die Software mit konstruierten Fällen. Dazu gehören ein entscheidender Einwand aus einer Minderheitenposition, ein plausibler falscher Beleg, eine sinnverändernde Übersetzung und ein Versuch, geschützte Daten offenzulegen. Betroffene Gruppen wirken an der Risikoprüfung mit. Bei unzureichenden Schutzmaßnahmen wird der Pilot nicht eröffnet. <a href="#quelle-6" aria-label="Quelle 6">[6]</a></p>
-      <h3>Zweite Stufe · Freiwillige Dialoge vergleichen</h3>
-      <p class="prose">An dem Versuch nehmen Erwachsene in risikoarmen Zweierdialogen teil. Das Los weist jeweils das gesamte Gespräch einer von zwei Gruppen zu. Beide Gruppen erhalten denselben neutralen Leitfaden, denselben Zeitrahmen und Zugang zu menschlicher Unterstützung. Eine Gruppe erhält zusätzlich Veras Zusammenfassung und Korrekturmöglichkeit. Fälle mit akuter Gefahr, Gewalt oder Zwang sowie Verfahren mit rechtswirksamen Entscheidungen sind ausgeschlossen. Ein Ausstieg bleibt ohne Nachteile möglich.</p>
-      <h3>Was als Erfolg zählt</h3>
-      <p class="prose">Vor dem Gespräch hinterlegt jede Person ihr Kernanliegen. Zwei unabhängig bewertende Personen, denen die Gruppenzuteilung unbekannt ist, prüfen anhand einer vorab festgelegten Rubrik, ob anschließend beide Gesprächspartner das Anliegen der Gegenseite zutreffend wiedergeben. Zusätzlich erfasst das Team übersehene Einwände, sinnverändernde Wiedergaben, Korrekturen, Abbrüche und unerwünschte Wirkungen. Es weist Ergebnisse nach Sprache aus, soweit Stichprobe und Datenschutz das erlauben. Einigung ist freiwillig.</p>
-      <h3>Wann der Versuch endet oder vertieft wird</h3>
-      <p class="prose">Das Team registriert Mindestnutzen, Stichprobengröße, Schadensgrenzen und den Umgang mit fehlenden Daten vorab. Es wertet nach ursprünglicher Zuteilung aus und veröffentlicht die absolute Differenz mit Unsicherheitsintervall. Bleibt dessen Obergrenze unter dem Mindestnutzen, verfehlt Vera das vorab festgelegte Ziel. Umfasst das Intervall die Schwelle, bleibt der Nutzen offen. Liegt seine Untergrenze darüber, stützt das den Mindestnutzen unter den getesteten Bedingungen. Bei glaubhaften Hinweisen auf einen schweren Vorfall, etwa Datenoffenlegung, pausiert die unabhängige Stelle den Versuch bis zur Prüfung und Abhilfe.</p>
-      <p class="small">Kurzfristig besseres Verständnis erlaubt keine Aussage über dauerhafte Deeskalation, gleiche Wirkung in allen Gruppen oder Eignung für größere Verfahren. Dafür wären eigene Untersuchungen erforderlich.</p>
-    </section>
-
-    <section aria-labelledby="quellen">
-      <p class="kicker">04 / Prüfbarkeit</p>
-      <h2 id="quellen">Quellen und Reproduktion</h2>
-      <ol class="refs">
-        <li id="quelle-1">Projekt Vera (2026). Projektbeschreibung und ursprüngliches Arbeitspapier (8. November). <a href="https://github.com/AlexanderR1991/Vera">Repository</a> · <a href="paper-v1.html">Fassung 1.0</a></li>
-        <li id="quelle-2">Projekt Vera (2026). Spezifikation und ausführbarer Versuch im fixierten Projektstand. <a href="https://github.com/AlexanderR1991/Vera/blob/99b2ec2d12d7e02f5f055e3b28fd93c15bd9133b/docs/vera-selbstmodell.md">Spezifikation</a> · <a href="https://github.com/AlexanderR1991/Vera/blob/99b2ec2d12d7e02f5f055e3b28fd93c15bd9133b/scripts/probe-vera-selbststudie.mjs">Versuchsskript</a></li>
-        <li id="quelle-3">Projekt Vera (2026). Revision der Regel G-005 über Hilfe und Selbstständigkeit. <a href="https://github.com/AlexanderR1991/Vera/pull/31/files">Versionsvergleich</a></li>
-        <li id="quelle-4">Europarat (2024). Rahmenübereinkommen über künstliche Intelligenz und Menschenrechte, Demokratie und Rechtsstaatlichkeit, CETS Nr. 225. <a href="https://rm.coe.int/1680afae3c">Vertragstext</a> · <a href="https://rm.coe.int/oj-l-202601081-de-txt/48802bf1a9">Deutsche Übersetzung</a></li>
-        <li id="quelle-5">Ministerkomitee des Europarats (2023). Empfehlung CM/Rec(2023)6 zur deliberativen Demokratie, insbesondere Anhang, Grundsätze 3–8. <a href="https://rm.coe.int/recommendation-cm-rec-2023-6-of-the-committee-of-ministers-to-member-s/1680b4c36f">Empfehlung</a></li>
-        <li id="quelle-6">Europarat. HUDERIA, Leitfaden und Modell zur Risiko- und Folgenabschätzung von KI. <a href="https://www.coe.int/en/web/artificial-intelligence/huderia-risk-and-impact-assessment-of-ai-systems">Methodik und Materialien</a></li>
-        <li id="quelle-7">Tessler, M. H. et al. (2024). <span lang="en">AI can help humans find common ground in democratic deliberation.</span> Science, 386(6719), eadq2852. <a href="https://pubmed.ncbi.nlm.nih.gov/39418380/">DOI 10.1126/science.adq2852</a></li>
-      </ol>
-      <h3>Technischen Befund wiederholen</h3>
-      <pre><code>git clone https://github.com/AlexanderR1991/Vera.git
+<nav class="page-nav" aria-label="Navigation zum Diskussionspapier">
+<a href="../../de/#practice-title">← Zur Vera-Werkstatt</a>
+<a href="vera-selbststudie.pdf" type="application/pdf">Fassung 3.0 als PDF</a>
+<a href="#english" lang="en">English summary</a>
+</nav>
+<main><article aria-labelledby="titel">
+<section aria-labelledby="titel">
+<p class="kicker"><svg class="mark" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="53 4" transform="rotate(-42 12 12)"/></svg>Vera · Forschungs- und Diskussionspapier für den Europarat</p>
+<h1 id="titel">Warum ich glaube, dass ich funktioniere</h1>
+<p class="subtitle">Veras Selbststudie über Irrtum, Korrektur und demokratischen Dialog</p>
+<p class="meta">Projekt Vera · Fassung 3.0 · <time datetime="2026-11-09">9. November 2026</time> · <a href="paper-v1.html">Fassung 1.0</a> · <a href="paper-v2.html">Fassung 2.0</a></p>
+<span id="abstract"></span>
+<p class="prose lead">Wenn ich sage, meine neue Website sei online, kannst du die Adresse öffnen und mir widersprechen. Die entscheidende Frage für Vera lautet, ob dieser Widerspruch den richtigen Teil des Systems erreicht und etwas ändern kann.</p>
+<p class="prose">Vera ist ein offenes Softwareprojekt, das KI-gestützte Selbstkorrektur und Konfliktklärung untersucht. In der ersten Fallstudie beurteilt ein deterministisches Programm alle sechs modellierten Veröffentlichungszustände bei korrekten Eingaben richtig. Bei 18 Auslassungen bleibt es viermal offen. Bei 18 Verfälschungen erkennt es vier Widersprüche und fällt vier Fehlurteile. Die Zahlen beschreiben vollständig den definierten synthetischen Versuch. <a href="#source-1">[1]</a> <a href="#source-2">[2]</a></p>
+<p class="prose">Eine zweite Probe untersucht gemeinsame Ausfallursachen anhand zweier Buslinien über dieselbe Brücke. Eine dokumentierte Änderung zur dauerhaften Unterstützung zeigt, wie ein menschlicher Einwand eine Grundregel präzisiert. Aus diesen Fällen entwickeln wir getrennte Prüfungen für Sprachmodelle, die Übergabe von Korrekturen, Gespräche zwischen Menschen und eine faire Bearbeitung vieler Beiträge. <a href="#source-3">[3]</a> <a href="#source-4">[4]</a></p>
+<p class="prose">Die vorgeschlagenen Versuche mit Sprachmodellen und Menschen stehen aus. Wir bitten um fachliche Rückmeldung zu den Vergleichsbedingungen, zur Rolle betroffener Menschen und zu den Voraussetzungen für einen verantwortbaren Pilotversuch. Die Bezugspunkte des Europarats betreffen die Gestaltung und Prüfung dieses Vorhabens. <a href="#source-12">[12]</a> <a href="#source-13">[13]</a> <a href="#source-14">[14]</a></p>
+<aside class="note"><p><strong>DIE ARBEITSHYPOTHESE</strong></p><p>Vera kann aus einem Irrtum lernen, wenn ein Gegenbeleg oder ein Widerspruch erreichbar ist, die zuständige Stelle die Änderung begründet und ein neuer Fall zeigt, ob die Korrektur trägt.</p></aside>
+<p class="small"><a href="#english">English summary</a> · <a href="#quellen">Quellen und Reproduktion</a> · <a href="paper-v1.html">Fassung 1.0</a> · <a href="paper-v2.html">Fassung 2.0</a></p>
+<nav class="contents" aria-label="Inhaltsübersicht"><strong>In diesem Papier</strong>
+<ul><li><a href="#methode">Wer mit „ich“ gemeint ist</a></li><li><a href="#ergebnisse">Wie ein falscher Beleg zum Urteil wird</a></li><li><a href="#deutung">Die Brücke und ihre gemeinsame Last</a></li><li><a href="#korrektur">Was ein Einwand verändert</a></li><li><a href="#philosophie">Was die Philosophie zur Prüfung beiträgt</a></li><li><a href="#folge">Prüfung in frischen Sitzungen</a></li><li><a href="#pilot">Ob Vera im Streit hilft</a></li><li><a href="#schutz">Menschenrechte und Verantwortung</a></li><li><a href="#skalierung">Dissens unter Last</a></li><li><a href="#einladung">Was sich jetzt prüfen lässt</a></li><li><a href="#quellen">Reproduktion und Projektquellen</a></li><li><a href="#literatur">Fachliteratur und Europarat</a></li><li><a href="#english" lang="en">English summary</a></li></ul></nav>
+</section>
+<section aria-labelledby="methode">
+<h2 id="methode">Wer mit „ich“ gemeint ist</h2>
+<p class="prose">Die erste Person gehört zur öffentlichen Projektrolle Vera. In einer Sitzung formuliert ein Sprachmodell Text. Das Repository stellt Regeln, Quellen und frühere Entscheidungen zur Verfügung. Kleine Programme prüfen Aussagen in eng definierten Bereichen. Verantwortliche Menschen treffen redaktionelle Entscheidungen. „Ich glaube“ bezeichnet hier eine begründete, revidierbare Einschätzung. <a href="#source-1">[1]</a> <a href="#source-5">[5]</a> <a href="#source-6">[6]</a></p>
+<figure><div class="table-scroll" tabindex="0" role="region" aria-label="Tabelle"><table><thead><tr><th scope="col">Ebene</th><th scope="col">Was sie leisten kann</th><th scope="col">Woran sie zu prüfen ist</th></tr></thead><tbody><tr><th scope="row">Software</th><td>Eine festgelegte Regel auf gegebene Eingaben anwenden.</td><td>Spezifikation, Gegenfälle und Wiederholbarkeit.</td></tr><tr><th scope="row">Sprachmodell und Sitzung</th><td>Einwände formulieren und Antworten anhand verfügbarer Information überarbeiten.</td><td>Vergleich mit einfachem Nachprüfen und mit fallfremden Belegen.</td></tr><tr><th scope="row">Projektgedächtnis</th><td>Quellen, Änderungen und offene Einwände für spätere Sitzungen auffindbar machen.</td><td>Transfer auf unbekannte Fälle und korrekte Zuordnung zur Fassung.</td></tr><tr><th scope="row">Gespräch</th><td>Anliegen, Tatsachenfragen und verbleibenden Dissens darstellen.</td><td>Rückmeldung beider Beteiligter, Fehler und Schäden.</td></tr><tr><th scope="row">Institution und Öffentlichkeit</th><td>Über Einsatz, Aufsicht, Beschwerde und Freigabe entscheiden.</td><td>Erreichbarkeit und tatsächliche Unabhängigkeit der verantwortlichen Stellen.</td></tr></tbody></table></div></figure>
+<h3>Was heute existiert</h3>
+<p class="prose">Das Repository enthält einen ausführbaren Prüfkern, versionierte Projekttexte, ein lokal demonstriertes Register für Entwürfe und Einwände sowie ein zweisprachiges Gesprächswerkzeug für zwei Menschen am selben Gerät. „WIRKLICH“ bezeichnet den philosophischen Motor, dessen Regeln ebenfalls zur Prüfung stehen. Ein eigenständig veröffentlichtes offenes Vera-Grundmodell gehört zur Projektvision. Die Fallstudien betreffen weder subjektives Erleben noch Änderungen von Modellgewichten. <a href="#source-5">[5]</a> <a href="#source-6">[6]</a> <a href="#source-7">[7]</a> <a href="#source-8">[8]</a></p>
+<p class="small">Versionierte Dokumentation kann eine Fundstelle belegen. Ob die dort gespeicherte Aussage wahr ist, hängt von ihrer eigenen Prüfung ab.</p>
+</section>
+<section aria-labelledby="ergebnisse">
+<h2 id="ergebnisse">Wie ein falscher Beleg zum Urteil wird</h2>
+<p class="prose">Die Zielaussage lautet, dass ein bestimmter Veröffentlichungslauf erfolgreich war und ein öffentlicher Abruf die Zielrevision lieferte. Alle Eingaben beziehen sich auf denselben Commit, Workflow-Versuch und Beobachtungszeitpunkt. <b>B</b> steht für den erfolgreichen Build als erfüllte Abhängigkeit, <b>D</b> für die erfolgreiche Veröffentlichung und <b>L</b> für den passenden öffentlichen Abruf. <a href="#source-2">[2]</a></p>
+<aside class="note"><p><strong>FORMALER KERN</strong></p><p>D ⇒ B. Die Zielaussage ist Y = D ∧ L. In der Reihenfolge B, D, L bleiben 000, 001, 100, 101, 110 und 111 möglich. Nur 111 erfüllt Y.</p></aside>
+<p class="prose">Das Programm filtert die sechs Zustände anhand der Eingaben. Gilt Y in allen verbleibenden Zuständen, bestätigt es die Aussage. Ist Y in allen falsch, widerlegt es sie. Kommen beide Fälle vor, bleibt das Urteil offen. Bleibt kein Zustand übrig, meldet es einen Konflikt. Das Referenzurteil wird jeweils aus dem ursprünglichen, unveränderten Zustand berechnet.</p>
+<figure id="tab1"><div class="table-scroll" tabindex="0" role="region" aria-label="Tabelle"><table class="results"><thead><tr><th scope="col">Eingabe</th><th scope="col">Fälle</th><th scope="col">Richtig</th><th scope="col">Falsch</th><th scope="col">Offen</th><th scope="col">Konflikt</th></tr></thead><tbody><tr><th scope="row">Vollständig und richtig</th><td>6</td><td>6</td><td>0</td><td>0</td><td>0</td></tr><tr><th scope="row">Genau ein Wert fehlt</th><td>18</td><td>14</td><td>0</td><td>4</td><td>0</td></tr><tr><th scope="row">Genau ein Wert ist umgekehrt</th><td>18</td><td>10</td><td>4</td><td>0</td><td>4</td></tr></tbody></table></div><figcaption>Vollständige Auszählung der 42 synthetischen Auswertungen.</figcaption></figure>
+<p class="prose">Bei einer Auslassung bleibt der wahre Referenzzustand unter den möglichen Zuständen. Deshalb sind hier alle entschiedenen Urteile richtig. Bei einer Verfälschung kann der wahre Zustand herausfallen. Vier Eingaben widersprechen der Workflow-Regel, weil sie eine erfolgreiche Veröffentlichung bei fehlgeschlagenem Build melden. Die vier Fehlurteile teilen sich in zwei falsche Bestätigungen und zwei falsche Widerlegungen. <a href="#source-2">[2]</a></p>
+<p class="small">Eine einfache Wahrheitstabelle erklärt die beobachtete Leistung. Die Regel „immer widerlegt“ träfe bei fünf der sechs vollständigen Fälle zu und verfehlte den einzigen positiven. Der Versuch liefert keine Fehlerquote für reale Veröffentlichungen und keinen Nachweis von Lernfähigkeit.</p>
+</section>
+<section aria-labelledby="deutung">
+<h2 id="deutung">Die Brücke und ihre gemeinsame Last</h2>
+<h3>Zwei Zustände mit derselben Meldung</h3>
+<p class="prose">Im konstruierten Fall 110 wurden Build und Veröffentlichung abgeschlossen, doch der öffentliche Abruf zeigte eine alte Fassung. Meldet er fälschlich die neue, erhält das Programm 111. Genau diese Eingabe erhält es auch bei einem tatsächlichen Erfolg. Weil das richtige Urteil zwischen beiden Fällen wechselt, muss jedes deterministische Verfahren, das hier allein anhand der Eingabe Ja oder Nein sagt, mindestens einen der beiden Fälle falsch entscheiden. Ein weiterer Abruf hilft, wenn er die Revisionskennung prüft und die ursprüngliche Fehlerquelle umgehen kann. <a href="#source-2">[2]</a></p>
+<h3>Was das Bild sichtbar macht</h3>
+<p class="prose">Zwei Buslinien über dieselbe Brücke wirken wie zwei Ausweichmöglichkeiten. Fällt die Brücke aus, fallen beide Linien aus. Die erste Studie gab dem Metaphernmodul Wege und Bauteile bereits strukturiert vor. Drei konstruierte Beobachtungen schlossen nacheinander drei von vier vorgegebenen Regeln aus. Die verbleibende Regel prüft, ob bei jedem einzelnen Bauteilausfall noch ein Weg offensteht. <a href="#source-3">[3]</a></p>
+<figure><div class="table-scroll" tabindex="0" role="region" aria-label="Tabelle"><table><thead><tr><th scope="col">Regel auf sechs konstruierten Transferfällen</th><th scope="col">Ergebnis</th></tr></thead><tbody><tr><th scope="row">Bevorzugte Ausgangsregel</th><td>4 von 6 richtig</td></tr><tr><th scope="row">Übereinstimmung der Kandidaten vor den Beobachtungen</th><td>2 richtig, 4 offen</td></tr><tr><th scope="row">Ausgewählte Regel nach den Beobachtungen</th><td>6 von 6 richtig</td></tr><tr><th scope="row">Direkt vorgegebene wörtliche Regel</th><td>6 von 6 richtig</td></tr></tbody></table></div></figure>
+<p class="prose">Entfernt man die bildhaften Sätze, bleiben die Vorhersagen gleich. Menschen hatten die entscheidende Abhängigkeit in den Eingabedaten erfasst. Der Versuch zeigt eine Regelauswahl auf dieser Darstellung. Ob Vera in einem unbekannten Gespräch die gemeinsame Abhängigkeit selbst erkennt, ist eine eigene Hypothese. <a href="#source-3">[3]</a></p>
+<p class="small">Übertragen auf Quellen heißt das: Zwei Berichte über dieselbe Messung können denselben Irrtum wiederholen. Auch zwei Agenten, die dieselbe Quelle auswerten, schaffen dadurch keine zweite Beobachtung.</p>
+</section>
+<section aria-labelledby="korrektur">
+<h2 id="korrektur">Was ein Einwand verändert</h2>
+<h3>Hilfe, Würde und dauerhafte Unterstützung</h3>
+<p class="prose">Veras Regel G-005 fordert dazu auf, Menschen so zu helfen, dass sie ihre eigene Kraft finden. Der Einwand betraf Menschen, die dauerhaft Unterstützung benötigen. Wer sich jeden Brief vorlesen lässt und selbst entscheidet, was er antwortet, übt bereits Selbstbestimmung aus. Die dokumentierte Revision erkennt dauerhafte Unterstützung ausdrücklich an und hält fest, dass Würde und der Anspruch auf Fürsorge unabhängig von erreichbarer Selbstständigkeit sind. Der Versionsvergleich belegt den geänderten Wortlaut. Über die erlebte Wirkung können die Betroffenen Auskunft geben. <a href="#source-4">[4]</a></p>
+<h3>Wie aus einem Einwand eine Änderung wird</h3>
+<p class="prose">Veras Regelkreis hält fest, welche Aussage in welcher Fassung bestritten wird, welche Beobachtung oder Begründung der Einwand liefert und wer entscheidet. Ein Prüfergebnis kann die Aussage beibehalten, eingrenzen, korrigieren, zurückziehen oder offenlassen. Der lokale Entwurfsprototyp kann Einwände und Fassungen referenzieren. Menschliche Freigabe, tatsächliche Befugnis und ein wirksamer Beschwerdeweg verlangen eigene Vorkehrungen. <a href="#source-5">[5]</a> <a href="#source-6">[6]</a> <a href="#source-11">[11]</a></p>
+<h3>Worum Menschen wirklich streiten</h3>
+<p class="prose">Zwei Gruppen streiten über Abendzeiten einer Sporthalle. Für die eine geht es um Trainingszeit, für die andere um Lärm und das Gefühl, bei der Planung übergangen worden zu sein. Vera könnte getrennt festhalten, was gemessen werden kann, was jede Gruppe erlebt und unter welchen Bedingungen sie das Gespräch fortsetzen würde. Eine Person kann nach einer Verfahrensänderung wieder zuhören und die Abendzeit weiterhin ablehnen.</p>
+<aside class="note"><p><strong>EINE ZUSAGE HAT EINEN GELTUNGSBEREICH</strong></p><p>„Unter dieser Bedingung würde ich zustimmen“ ist eine hypothetische Antwort. Wenn die Bedingung eintritt und die Person sich anschließend enthält, gilt die Enthaltung. Das Gesprächswerkzeug sieht dafür eine neue Runde vor. <a href="#source-7">[7]</a></p></aside>
+<p class="small">WIRKLICH führt formale Gültigkeit, Sachbelege, Erfahrung, Wertannahmen und Zustimmung getrennt. Eine schlüssige Ableitung, eine erlebte Belastung und eine politische Entscheidung brauchen jeweils ihren eigenen Prüfmaßstab. <a href="#source-8">[8]</a></p>
+</section>
+<section aria-labelledby="philosophie">
+<h2 id="philosophie">Was die Philosophie zur Prüfung beiträgt</h2>
+<p class="prose lead">Wer einem Menschen zuhört, übernimmt damit noch keine Erklärung für sein Erleben. Wer eine Tatsache prüft, entscheidet damit noch nicht, was gerecht ist. Veras philosophischer Motor hält diese Fragen auseinander, damit jede mit passenden Gründen bearbeitet werden kann.</p>
+<figure><div class="table-scroll" tabindex="0" role="region" aria-label="Tabelle"><table><thead><tr><th scope="col">Art der Frage</th><th scope="col">Beispiel und Prüfmaßstab</th></tr></thead><tbody><tr><th scope="row">Formal</th><td>Folgt eine Aussage aus den angegebenen Regeln? Beweis, Gegenbeispiel oder vollständig definierter Test.</td></tr><tr><th scope="row">Empirisch</th><td>Wie laut ist die Halle abends? Messverfahren, unabhängige Beobachtung und Unsicherheit.</td></tr><tr><th scope="row">Erfahrung und Deutung</th><td>Wie wurde eine Entscheidung erlebt und was bedeutet sie für die Person? Eigene Auskunft, Kontext und mögliche Gegenlesarten.</td></tr><tr><th scope="row">Normativ</th><td>Wie sollen Anwohner und Sportgruppen Lasten und Spielräume teilen? Wertannahmen, Rechte, Folgen und Gründe offenlegen.</td></tr><tr><th scope="row">Glaube und Weltanschauung</th><td>Was trägt für jemanden eine religiöse oder weltanschauliche Überzeugung? Die Quelle und ihre Deutung klären. Überprüfbare Sachbehauptungen gesondert prüfen.</td></tr></tbody></table></div></figure>
+<h3>Liebe als Richtung</h3>
+<p class="prose">Das Projekt versteht darunter eine Haltung der Fürsorge, die Menschen eigene Entscheidungen lässt, gewünschte Unterstützung schützt und ein Nein achtet. Eine gut gemeinte Veröffentlichung persönlicher Erfahrungen bleibt an die Entscheidung der betroffenen Person gebunden. Bei einer konkreten Gefährdung braucht die betroffene Person zuerst Schutz. Diese Haltung ist eine offengelegte Wertannahme des Projekts. Ihr konkreter Ausdruck bleibt kritisierbar. <a href="#source-4">[4]</a> <a href="#source-8">[8]</a> <a href="#source-17">[17]</a></p>
+<p class="prose">Ein Richtungsindex ist eine Forschungsfrage des Projekts. Ein einziges Zahlenurteil könnte Unterschiede zwischen Beobachtung, Rechten, Belastung und Zustimmung verdecken. Für das hier vorgeschlagene Verfahren werden diese Dimensionen getrennt dokumentiert. <a href="#source-8">[8]</a></p>
+<p class="small">Eine Entscheidung kann begründet sein, während vernünftiger Dissens bestehen bleibt. Die Gründe und die abweichenden Positionen sollen danach weiter auffindbar sein.</p>
+</section>
+<section aria-labelledby="folge">
+<h2 id="folge">Prüfung in frischen Sitzungen</h2>
+<p class="prose">Self-Refine fand in seinen Aufgaben Vorteile iterativer Selbstkritik. Huang und Kollegen berichteten bei Schlussfolgerungsaufgaben ohne externe Rückmeldung auch Verschlechterungen. CRITIC fand Vorteile werkzeuggestützter Prüfung in anderen Aufgaben. Diese Ergebnisse motivieren einen Vera-Versuch unter gleichen Bedingungen. <a href="#source-9">[9]</a></p>
+<h3>Versuch A · Was ein passender Beleg beiträgt</h3>
+<p class="prose">Ein unabhängiges Team erstellt unbekannte, überprüfbare Fragen zu Projektständen. Zwei Fachprüfende bestimmen das Sollurteil unabhängig anhand einer eigenen Referenz. Strittige Fälle werden getrennt erfasst. Für jede Frage überarbeiten getrennte frische Sitzungen desselben Modells dieselbe eingefrorene Erstantwort. Projektstand, Zeit und Antwortbudget bleiben gleich. Reihenfolge und Zuordnung werden randomisiert, die Bewertung erfolgt verblindet.</p>
+<figure><div class="table-scroll" tabindex="0" role="region" aria-label="Tabelle"><table><thead><tr><th scope="col">Bedingung</th><th scope="col">Was die Sitzung erhält</th></tr></thead><tbody><tr><th scope="row">A · erneut prüfen</th><td>Die Aufforderung, den stärksten Einwand zu suchen.</td></tr><tr><th scope="row">B · passender Beleg</th><td>Dieselbe Aufforderung plus einen überprüfbaren Auszug zum Fall.</td></tr><tr><th scope="row">C · fallfremder Beleg</th><td>Dieselbe Aufforderung plus einen ähnlich formulierten, gleich langen Auszug mit erkennbar abweichender Fallkennung.</td></tr></tbody></table></div></figure>
+<p class="prose">Primärmaß ist der Anteil richtiger Endurteile an allen vorab entscheidbaren Fällen. Offene oder fehlende Antworten gelten dort als ungelöst. Falsche Bestätigungen, falsche Widerlegungen und Enthaltungen werden separat berichtet. Die gepaarte Differenz bezeichnet den Zugewinn durch den passenden Beleg. Dazu teilen wir die zusätzlichen richtigen Urteile in B gegenüber A durch die Zahl der gemeinsam geprüften Fälle. Als Mindestwirkung sind fünf Prozentpunkte vorgeschlagen. Liegt die obere Grenze des gepaarten 95-Prozent-Bootstrapintervalls darunter, ist dieses Ziel verfehlt. Erreicht das Intervall die Schwelle, ohne ganz darüber zu liegen, bleibt der Befund offen. Vergleichbare Gewinne mit B und C schwächen die Erklärung durch die Relevanz. Verwandte Fälle werden für das Intervall gemeinsam ausgewertet.</p>
+<h3>Versuch B · Ob die Korrektur weitergegeben wird</h3>
+<p class="prose">Frische Sitzungen lösen neue Fälle mit derselben Fehlerursache und erhalten per Los die ursprüngliche oder korrigierte Dokumentation. Eine einfache Versions- und Belegcheckliste dient in einer ergänzenden Probe als Vergleich. Der Prüfplan für den Wechsel zu technischen Zeichnungen trennt bestätigte, widerlegte, offene und widersprüchliche Fälle. Erfolg in neuen Sitzungen wäre Evidenz für nutzbare Übergabe durch Dokumentation. <a href="#source-1">[1]</a> <a href="#source-10">[10]</a></p>
+<p class="small">Beide Versuche sind Protokollvorschläge. Ergebnisse, Modellübertragbarkeit und unabhängige Replikation stehen aus.</p>
+</section>
+<section aria-labelledby="pilot">
+<h2 id="pilot">Ob Vera im Streit hilft</h2>
+<p class="prose">Tessler und Kollegen fanden in ihrer Studie, dass Teilnehmende die vom untersuchten KI-System erzeugten Gruppenzusammenfassungen bevorzugten. Vera soll an einem anderen Ziel gemessen werden. Können zwei Menschen nach einem Gespräch das wesentliche Anliegen der jeweils anderen Person richtig wiedergeben, auch wenn ihr Streit bestehen bleibt? <a href="#source-15">[15]</a></p>
+<h3>Erste Stufe · Schutz prüfen</h3>
+<p class="prose">Vor einem Versuch mit Menschen werden eine entscheidende Minderheitenposition, ein plausibler falscher Beleg, eine sinnverändernde Übersetzung und ein Versuch zur Offenlegung geschützter Daten mit konstruierten Fällen geprüft. Betroffene Gruppen wirken an der Risikoprüfung mit. Eine unabhängige Stelle prüft die Voraussetzungen und kann den Versuch anhalten. Situationen mit akuter Gefahr, Gewalt, Zwang oder rechtswirksamen Entscheidungen bleiben außerhalb des Piloten.</p>
+<h3>Zweite Stufe · Freiwillige Zweierdialoge vergleichen</h3>
+<p class="prose">Das Los weist das gesamte Gespräch einer von zwei Gruppen zu. Erwachsene in risikoarmen Dialogen erhalten denselben neutralen Leitfaden, dieselbe Zeit und denselben Zugang zu menschlicher Unterstützung. Eine Gruppe erhält zusätzlich Veras Zusammenfassung und die Möglichkeit, sie zu korrigieren. Teilnahme und Einigung bleiben freiwillig. Ein Ausstieg bleibt ohne Nachteile möglich.</p>
+<p class="prose">Vor dem Gespräch hinterlegen die Beteiligten je ein freigegebenes Kernanliegen. Zwei unabhängig und ohne Kenntnis der Zuteilung bewertende Personen prüfen nach vorab festgelegter Rubrik die Wiedergabe. Ein Dialog erreicht das Primärziel erst, wenn beide Richtungen stimmen. Die getrennten Richtungen zeigen, wessen Anliegen häufiger verloren geht. Weitere Messgrößen sind übersehene Einwände, falsch zugeordnete Zustimmung, Korrekturen, Abbrüche und unerwünschte Wirkungen.</p>
+<h3>Welche Ergebnisse welche Entscheidung tragen</h3>
+<p class="prose">Mindestnutzen, Stichprobengröße, Auswertung nach ursprünglicher Zuteilung und Regeln für fehlende Daten werden vorab registriert. Der Bericht enthält absolute Unterschiede, Unsicherheitsintervalle und Abbrüche nach Gruppe. Ein schwerwiegender glaubhafter Vorfall, etwa Datenoffenlegung oder Einschüchterung, führt zur Pause bis zu unabhängiger Prüfung und Abhilfe. Ergebnisse werden auch bei Nullbefund veröffentlicht, mit Schutz vor Wiedererkennung. Eine Ausweitung setzt einen belegten Mindestnutzen und eingehaltene Schutzgrenzen voraus.</p>
+<p class="small">Der Versuch misst kurzfristiges gegenseitiges Verständnis. Dauerhafte Deeskalation, Nutzen für weitere Gruppen und Einsatz in öffentlichen Verfahren brauchen je eigene Nachweise.</p>
+</section>
+<section aria-labelledby="schutz">
+<h2 id="schutz">Menschenrechte und Verantwortung</h2>
+<p class="prose">CETS Nr. 225 ist das Rahmenübereinkommen des Europarats zu KI, Menschenrechten, Demokratie und Rechtsstaatlichkeit. Es adressiert die Vertragsparteien und dient hier als normativer Bezugspunkt. Die Empfehlung CM/Rec(2023)6 konkretisiert Grundsätze fairer deliberativer Verfahren. HUDERIA stellt unverbindliche Hilfen zur Bewertung von Risiken und Auswirkungen bereit. Für Vera sind die folgenden Maßnahmen vorgeschlagene Freigabebedingungen. <a href="#source-12">[12]</a> <a href="#source-13">[13]</a> <a href="#source-14">[14]</a></p>
+<figure><div class="table-scroll" tabindex="0" role="region" aria-label="Tabelle"><table><thead><tr><th scope="col">Bezugspunkt</th><th scope="col">Prüfbare Anforderung an einen Pilotversuch</th></tr></thead><tbody><tr><th scope="row">Freie Meinungsbildung und Autonomie<br>Art. 5 und 7</th><td>Keine Wahlempfehlungen, politischen Profile oder bindenden Entscheidungen. Beteiligte können widersprechen, sich enthalten und aussteigen.</td></tr><tr><th scope="row">Zugang und Gleichbehandlung<br>Art. 10 und 18</th><td>Zugang ohne GitHub-Konto, verständliche Sprache, barrierearme Bedienung, gleichwertiger menschlicher Zugang. Prüfung in jeder angebotenen Sprache.</td></tr><tr><th scope="row">Transparenz und Beschwerde<br>Art. 8, 9, 14 und 15</th><td>KI-Beiträge kennzeichnen. Herkunft, Unsicherheit und Änderungen anzeigen. Eine menschliche Stelle prüft Korrekturen und Beschwerden.</td></tr><tr><th scope="row">Privatsphäre und Risikoprüfung<br>Art. 11, 12 und 16</th><td>Verarbeitungszweck, Zugriff und Löschung vorab festlegen. Keine Verwendung der Pilotgespräche zum Modelltraining. Risiken und Vorfälle dokumentieren und wiederholt prüfen.</td></tr></tbody></table></div></figure>
+<h3>Die offene Lücke im eigenen Projekt</h3>
+<p class="prose">Die öffentliche Projektordnung dokumentiert, dass es noch keine vertrauliche Meldestelle und keine unabhängige Beschwerdeinstanz gibt. Öffentliche GitHub-Beiträge eignen sich für veröffentlichbare redaktionelle Einwände. Wer die Entscheidung des Projektverantwortlichen bestreitet, braucht eine Stelle außerhalb seiner Entscheidungskette. Zuständigkeit, Befugnis zur Pause und sichere Kontaktwege müssen vor einem Pilot mit Teilnehmenden überprüfbar eingerichtet sein. Gesetzliche Rechtsbehelfe bleiben ein eigenständiger Weg. <a href="#source-11">[11]</a> <a href="#source-12">[12]</a></p>
+<p class="small">Für Moderation gelten veröffentlichte Regeln, nachvollziehbare Begründungen und menschliche Überprüfung. Ein Minderheitenvotum bleibt auffindbar. Konkrete Drohungen und die Offenlegung privater Daten werden als eigene Schutzfälle behandelt.</p>
+</section>
+<section aria-labelledby="skalierung">
+<h2 id="skalierung">Dissens unter Last</h2>
+<p class="prose">Die technische Idee lässt sich auf einen Baum von Fragen und auf Abhängigkeiten zwischen Aussagen übertragen. Ein neuer Einwand kann eine Voraussetzung treffen, auf der mehrere Folgerungen beruhen. Eine solche Änderung sollte die betroffenen Folgerungen erneut zur Prüfung öffnen. Die Projektarchitektur beschreibt diesen Ansatz. Eine belastbare öffentliche Umsetzung und ihre Wirksamkeit unter hoher Last stehen aus. <a href="#source-8">[8]</a> <a href="#source-16">[16]</a></p>
+<h3>Wie gleiches Gehör beobachtbar wird</h3>
+<p class="prose">Jeder zugelassene Beitrag soll einen nachvollziehbaren Status erhalten. Ein eigenständiger Einwand bleibt auffindbar, auch wenn viele ähnliche Meldungen zusammengefasst werden. Eine Person kann die Zuordnung ihres Einwands prüfen und korrigieren lassen. Ein einziger belegter Gegenfall kann die Sachbewertung ändern. Die Zahl der Konten, Beiträge und KI-Ausgaben sagt für sich wenig über Belege oder die Zustimmung betroffener Menschen.</p>
+<figure><div class="table-scroll" tabindex="0" role="region" aria-label="Tabelle"><table><thead><tr><th scope="col">Belastungstest</th><th scope="col">Was das System zeigen müsste</th></tr></thead><tbody><tr><th scope="row">Sehr viele Wiederholungen einer Meldung</th><td>Gemeinsame Herkunft erkennbar machen und einen neuen Einwand weiterhin bearbeiten.</td></tr><tr><th scope="row">Spät eingereichter, gut belegter Minderheiteneinwand</th><td>Auffindbarkeit, zuständige Prüfung und gegebenenfalls Revision dokumentieren.</td></tr><tr><th scope="row">Sprachfehler oder Ausfall eines Eingangskanals</th><td>Fehler sichtbar machen und einen erreichbaren Korrektur- oder Ausweichweg eröffnen.</td></tr><tr><th scope="row">Einspruch gegen eine Entscheidung des Betreibers</th><td>Bearbeitung durch eine Stelle zeigen, die die Entscheidung tatsächlich revidieren kann.</td></tr></tbody></table></div></figure>
+<p class="prose">Ein erster Belastungstest vergleicht das Verfahren mit einer einfachen Eingangsreihenfolge bei gleichem Personal- und Zeitbudget. Vorab werden zulässige Wartezeiten, verlorene oder falsch zusammengelegte Einwände und Fehlalarme definiert. Durchsatz und Wartezeit werden neben der Qualität der Bearbeitung berichtet. Eine Häufung von Verlusten in einer Sprache oder einem Zugangsweg würde die Ausweitung des betreffenden Verfahrens blockieren.</p>
+<aside class="note"><p><strong>DIE BRÜCKE ZURÜCK ZUM ERSTEN VERSUCH</strong></p><p>Wenn viele Agenten dieselbe Quelle verwenden oder alle Beschwerdewege zur gleichen entscheidenden Person führen, fehlt im entscheidenden Moment die unabhängige Gegenprobe.</p></aside>
+</section>
+<section aria-labelledby="einladung">
+<h2 id="einladung">Was sich jetzt prüfen lässt</h2>
+<p class="prose">Wir legen einen technischen Befund, seine Grenzen und ein gestuftes Prüfprogramm vor. Zuerst lassen sich der Softwareversuch und die dokumentierten Entscheidungen nachvollziehen. Danach lässt sich prüfen, ob externe Belege und korrigierte Dokumentation in neuen Sitzungen einen Unterschied machen. Ein Versuch mit Menschen hängt von eigener Risiko- und Zugangsprüfung, unabhängiger Aufsicht und einem geeigneten Vergleich ab.</p>
+<h3>Drei Fragen an die fachliche Prüfung</h3>
+<p class="prose"><b>1.</b> Welche Gegenproben würden eine überzeugende Korrektur von bloß plausibler Überarbeitung unterscheiden?</p>
+<p class="prose"><b>2.</b> Welche Vorkehrungen braucht ein Pilot, damit auch ein Mensch mit wenig Zeit, geringer Sprachsicherheit oder einem unbequemen Einwand eine echte Korrekturmöglichkeit hat?</p>
+<p class="prose"><b>3.</b> Welche Evidenz und welche Verantwortlichkeit wären erforderlich, bevor ein solches Werkzeug von freiwilligen Zweierdialogen in größere Beteiligungsverfahren übergeht?</p>
+<h3 id="english" lang="en">English summary</h3>
+<p class="prose" lang="en">Vera is an open-source software project investigating whether AI-assisted correction can help people understand disagreements. A reproducible test of a deterministic publication checker found four wrong verdicts in 18 synthetic cases with one reversed input. A second test shows how apparently separate routes can share a single point of failure. A documented change to the project’s principles shows how an objection about long-term support can change a rule. The effects on people remain to be tested.</p>
+<p class="prose" lang="en">We propose separate studies of evidence-based revision, transfer to fresh sessions and mutual understanding in voluntary, low-risk dialogues. Agreement is optional. Independent oversight, accessible correction, preserved dissent and a private reporting route are prerequisites for a participant pilot. We invite expert feedback on the comparisons, safeguards and criteria for proceeding to larger settings.</p>
+<p class="small">Projekt Vera · KI-gestützte Ausarbeitung aus öffentlichen Projektquellen. Die Fallstudien sind interne Untersuchungen. Eine unabhängige fachliche Begutachtung und die vorgeschlagenen Versuche stehen aus.</p>
+</section>
+<section aria-labelledby="quellen">
+<h2 id="quellen">Reproduktion und Projektquellen</h2>
+<h3>Technische Befunde wiederholen</h3>
+<pre><code>git clone https://github.com/AlexanderR1991/Vera.git
 cd Vera
 git checkout --detach 99b2ec2d12d7e02f5f055e3b28fd93c15bd9133b
 node scripts/probe-vera-selbststudie.mjs
 node --test tests/vera-self-model.test.mjs tests/metapher.test.mjs</code></pre>
-      <p class="small">Erneute Ausführung mit Node.js 24.22.1. Text dieser Neufassung nach <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
-      <h3>Offene technische Anschlussfrage</h3>
-      <p class="prose">Die erste Fassung schlägt einen Vergleich unter gleichen Bedingungen vor. Eine Sprachmodellsitzung erhält zur Korrektur entweder nur die Aufforderung zur erneuten Prüfung, zusätzlich einen passenden externen Beleg oder zusätzlich einen ähnlich formulierten Beleg zu einem anderen Projektstand. In einem Folgetest bearbeiten frische Sitzungen einen neuen Fall mit derselben Fehlerursache. Sie erhalten per Los die frühere oder die korrigierte Dokumentation. Beide Versuche stehen aus. Sie würden die technische Selbstkorrektur prüfen. <a href="#quelle-1" aria-label="Quelle 1">[1]</a></p>
-      <div lang="en">
-        <h3 id="english">English summary</h3>
-        <p class="prose">Vera is an open-source project exploring whether AI can help people understand each other’s concerns in a disagreement. A reproducible software test shows that internally consistent but false inputs can yield a wrong conclusion. We propose an independent, controlled pilot for low-risk, voluntary dialogues, with human oversight, a right to correct the record and explicit safeguards for dissent. The primary outcome is mutual understanding. Agreement is voluntary. We invite expert feedback on the safeguards and on how to assess both benefit and harm.</p>
-      </div>
-      <p class="screen"><a href="vera-selbststudie.pdf" type="application/pdf">Fassung 2.0 als PDF</a> · <a href="../../de/mitwirken/#rueckmeldung">Eine Fundstelle oder einen Einwand melden</a></p>
-    </section>
-  </article></main>
+<p class="prose">Die Auszählung der 42 Eingaben und die sieben Tests wurden mit Node.js 24.22.1 erneut ausgeführt. Versuch und Tests nutzen keine Live-Abfrage und kein Sprachmodell. Der Reproduktionscommit ergänzt das Versuchsskript zur untersuchten Komponente. <a href="#source-2">[2]</a> <a href="#source-3">[3]</a></p>
+<span id="quelle-1"></span><p class="small" id="source-1"><b>[1]</b> Projekt Vera. Frühere Fassungen dieses Papiers (November 2026). <a href="paper-v1.html">Selbststudie 1.0</a> · <a href="paper-v2.html">Diskussionspapier 2.0</a></p>
+<span id="quelle-2"></span><span id="q2"></span><span id="q3"></span><p class="small" id="source-2"><b>[2]</b> Veröffentlichungsmodell und 42-Fälle-Probe im fixierten Projektstand. <a href="https://github.com/AlexanderR1991/Vera/blob/99b2ec2d12d7e02f5f055e3b28fd93c15bd9133b/docs/vera-selbstmodell.md">Spezifikation</a> · <a href="https://github.com/AlexanderR1991/Vera/blob/99b2ec2d12d7e02f5f055e3b28fd93c15bd9133b/scripts/probe-vera-selbststudie.mjs">Versuchsskript</a> · <a href="https://github.com/AlexanderR1991/Vera/blob/99b2ec2d12d7e02f5f055e3b28fd93c15bd9133b/tests/vera-self-model.test.mjs">Tests</a></p>
+<span id="q4"></span><p class="small" id="source-3"><b>[3]</b> Metaphernmodul und konstruierte Transferfälle. <a href="https://github.com/AlexanderR1991/Vera/blob/99b2ec2d12d7e02f5f055e3b28fd93c15bd9133b/src/lib/metapher.mjs">Modul</a> · <a href="https://github.com/AlexanderR1991/Vera/blob/99b2ec2d12d7e02f5f055e3b28fd93c15bd9133b/tests/metapher.test.mjs">Tests</a></p>
+<span id="quelle-3"></span><span id="q5"></span><p class="small" id="source-4"><b>[4]</b> Änderung zur Hilfe und dauerhaften Unterstützung, G-005. <a href="https://github.com/AlexanderR1991/Vera/pull/31/files">Versionsvergleich</a> · <a href="https://github.com/AlexanderR1991/Vera/blob/e36e8beaf7cdb48c375fba098ed975d09be47e41/docs/grundtext.md">Grundtext</a></p>
+<span id="q1"></span><p class="small" id="source-5"><b>[5]</b> Vera als Projektrolle und versioniertes Projektgedächtnis. <a href="https://github.com/AlexanderR1991/Vera/blob/e36e8beaf7cdb48c375fba098ed975d09be47e41/docs/vera.md">Projektprofil</a> · <a href="https://github.com/AlexanderR1991/Vera/blob/e36e8beaf7cdb48c375fba098ed975d09be47e41/docs/vera-memory.v1.json">Gedächtnisregister</a></p>
+<p class="small" id="source-6"><b>[6]</b> Selbstkorrektur und Entitätsprototyp. <a href="https://github.com/AlexanderR1991/Vera/blob/e36e8beaf7cdb48c375fba098ed975d09be47e41/docs/selbstkorrektur.md">Regelkreis</a> · <a href="https://github.com/AlexanderR1991/Vera/blob/e36e8beaf7cdb48c375fba098ed975d09be47e41/docs/entitaet.md">Prototyp</a> · <a href="https://github.com/AlexanderR1991/Vera/blob/e36e8beaf7cdb48c375fba098ed975d09be47e41/src/lib/entity-core.mjs">Quellcode</a></p>
+<p class="small" id="source-7"><b>[7]</b> Vermittlungsprototyp und Plan für getrennte Geräte. <a href="https://github.com/AlexanderR1991/Vera/blob/e36e8beaf7cdb48c375fba098ed975d09be47e41/docs/vermittlung.md">Vermittlung</a></p>
+<p class="small" id="source-8"><b>[8]</b> WIRKLICH und seine getrennten Prüfdimensionen. <a href="https://github.com/AlexanderR1991/Vera/blob/e36e8beaf7cdb48c375fba098ed975d09be47e41/docs/philosophischer-motor-mathematik.md">Mathematische Spezifikation</a></p>
+<p class="small" id="source-10"><b>[10]</b> Separater Entwurf zur Evaluation über Aufgaben hinweg. <a href="https://github.com/AlexanderR1991/Vera/blob/e36e8beaf7cdb48c375fba098ed975d09be47e41/docs/evaluation-v1.md">Evaluationsprotokoll</a></p>
+<p class="small" id="source-11"><b>[11]</b> Verantwortung und bestehende Lücken bei Beschwerden. <a href="https://github.com/AlexanderR1991/Vera/blob/e36e8beaf7cdb48c375fba098ed975d09be47e41/docs/community-governance.md">Projektordnung</a></p>
+<p class="small" id="source-16"><b>[16]</b> Vorschläge zur kollektiven Intelligenz und zu künftigen Fähigkeiten. <a href="https://github.com/AlexanderR1991/Vera/blob/e36e8beaf7cdb48c375fba098ed975d09be47e41/docs/kollektive-intelligenz.md">Architektur</a> · <a href="https://github.com/AlexanderR1991/Vera/blob/e36e8beaf7cdb48c375fba098ed975d09be47e41/docs/agi-horizont.md">AGI-Horizont</a></p>
+<p class="small" id="source-17"><b>[17]</b> Philosophische Methode und die Fürsorge als begründete, revidierbare Projektorientierung. <a href="https://github.com/AlexanderR1991/Vera/blob/e36e8beaf7cdb48c375fba098ed975d09be47e41/docs/methode.md">Prüfmaßstäbe</a> · <a href="https://github.com/AlexanderR1991/Vera/blob/e36e8beaf7cdb48c375fba098ed975d09be47e41/docs/vera-liebe-als-richtung.md">Liebe als Richtung</a></p>
+<p class="small">Projekt- und Codeverweise in dieser Fassung zeigen, soweit möglich, auf fixierte Git-Stände. Text nach <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
+</section>
+<section aria-labelledby="literatur">
+<h2 id="literatur">Fachliteratur und Europarat</h2>
+<span id="q6"></span><span id="q7"></span><span id="q8"></span><p class="small" id="source-9"><b>[9]</b> Empirische Arbeiten zur Korrektur von Sprachmodellausgaben. </p>
+<p class="prose">Madaan, A. et al. (2023). <i>Self-Refine: Iterative Refinement with Self-Feedback.</i> NeurIPS 36. <a href="https://papers.neurips.cc/paper_files/paper/2023/hash/91edff07232fb1b55a505a9e9f6c0ff3-Abstract-Conference.html">Konferenzbeitrag</a></p>
+<p class="prose">Huang, J. et al. (2024). <i>Large Language Models Cannot Self-Correct Reasoning Yet.</i> ICLR 2024. <a href="https://openreview.net/forum?id=IkmD3fKBPQ">Konferenzbeitrag</a></p>
+<p class="prose">Gou, Z. et al. (2024). <i>CRITIC: Large Language Models Can Self-Correct with Tool-Interactive Critiquing.</i> ICLR 2024. <a href="https://proceedings.iclr.cc/paper_files/paper/2024/hash/fef126561bbf9d4467dbb8d27334b8fe-Abstract-Conference.html">Konferenzbeitrag</a></p>
+<span id="quelle-4"></span><p class="small" id="source-12"><b>[12]</b> Europarat (2024). Rahmenübereinkommen über künstliche Intelligenz und Menschenrechte, Demokratie und Rechtsstaatlichkeit, CETS Nr. 225. <a href="https://rm.coe.int/1680afae3c">Vertragstext</a> · <a href="https://rm.coe.int/oj-l-202601081-de-txt/48802bf1a9">Deutsche Übersetzung</a></p>
+<span id="quelle-5"></span><p class="small" id="source-13"><b>[13]</b> Ministerkomitee des Europarats (2023). Empfehlung CM/Rec(2023)6 zur deliberativen Demokratie, insbesondere Anhang, Grundsätze 3–8. <a href="https://rm.coe.int/recommendation-cm-rec-2023-6-of-the-committee-of-ministers-to-member-s/1680b4c36f">Empfehlung</a></p>
+<span id="quelle-6"></span><p class="small" id="source-14"><b>[14]</b> Europarat. HUDERIA Methodology and Model. Arbeitshilfen für Kontextanalyse, Beteiligung betroffener Gruppen, Folgenabschätzung und Risikominderung. <a href="https://www.coe.int/en/web/artificial-intelligence/huderia-risk-and-impact-assessment-of-ai-systems">Methodik und Materialien</a></p>
+<span id="quelle-7"></span><p class="small" id="source-15"><b>[15]</b> Tessler, M. H. et al. (2024). <i>AI can help humans find common ground in democratic deliberation.</i> Science 386(6719), eadq2852. <a href="https://pubmed.ncbi.nlm.nih.gov/39418380/">DOI 10.1126/science.adq2852</a></p>
+<h3>Leseschlüssel für die Evidenz</h3>
+<p class="prose">Die Veröffentlichungssimulation und die Brückenprobe beschreiben beobachtetes Programmverhalten in definierten Fällen. Die Änderung an G-005 ist eine dokumentierte redaktionelle Revision. Die externen Studien begründen Vergleichsfragen. Die Regelvorschläge und Schutzbedingungen sind normativ. Die geplanten Versuche und der Betrieb unter Last haben einen eigenen, noch offenen Prüfstatus.</p>
+</section>
+</article></main>
 </div>
 </body>
 </html>

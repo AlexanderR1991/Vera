@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Veras Diskussionspapier für den Europarat. Ein reproduzierbarer technischer Befund und ein Vorschlag für einen unabhängigen Pilotversuch zum Umgang mit Dissens.">
+  <meta name="author" content="Projekt Vera">
+  <title>Warum ich glaube, dass ich funktioniere · Vera</title>
+  <style>
+    :root {color-scheme:light; --ink:#171d1d; --quiet:#4c5756; --line:#bec7c3; --tone:#205c50; --wash:#edf3ef}
+    * {box-sizing:border-box}
+    html {background:#f7f8f5; color:var(--ink); font:17px/1.58 system-ui,sans-serif}
+    body {margin:0}
+    a {color:var(--tone); text-underline-offset:.19em; text-decoration-thickness:.07em}
+    a:hover {text-decoration-thickness:.13em}
+    :focus-visible {outline:2px solid var(--tone); outline-offset:3px}
+    .wrap {max-width:49rem; margin:auto; padding:0 clamp(1.1rem,5vw,3.6rem)}
+    .page-nav {display:flex; flex-wrap:wrap; justify-content:space-between; gap:.5rem; padding:1.1rem 0; font-size:.88rem}
+    article {background:#fff; border:1px solid var(--line); margin-bottom:3rem}
+    section {border-top:1px solid var(--line); padding:2.5rem clamp(1.1rem,4vw,2.8rem)}
+    section:first-child {border:0}
+    .kicker {display:flex; align-items:center; gap:.65rem; font-size:.7rem; letter-spacing:.12em; font-weight:720; text-transform:uppercase; color:var(--tone); margin:0 0 1.2em}
+    .mark {width:20px; height:20px; flex:none}
+    h1,h2,h3 {text-wrap:balance; line-height:1.13}
+    h1 {font-size:clamp(2.45rem,7vw,4rem); letter-spacing:-.056em; margin:.22em 0}
+    h2 {font-size:clamp(1.8rem,4vw,2.6rem); letter-spacing:-.045em; margin:.12em 0 .55em}
+    h3,.intro-heading {font-size:1.16rem; letter-spacing:-.02em; margin:1.5em 0 .35em}
+    .subtitle {font-size:1.18rem; line-height:1.4; color:var(--quiet); max-width:34em}
+    .meta {margin:1.15rem 0 1.5rem; color:var(--quiet); font-size:.83rem}
+    p,li {overflow-wrap:break-word}
+    p {margin:.48em 0 .95em}
+    .prose,.note p {font-family:Georgia,'Times New Roman',serif; font-size:1.06rem}
+    .note {border-left:3px solid var(--tone); padding:.15em 1em; background:var(--wash); margin:1.25em 0}
+    .note p {margin:.6em 0}
+    .small,figcaption {font-size:.83rem; color:var(--quiet)}
+    .contents {border-top:1px solid var(--line); margin:1.5rem 0 0; padding-top:.9rem; font-size:.88rem}
+    .contents ul {list-style:none; margin:.35rem 0 0; padding:0; display:flex; flex-wrap:wrap; gap:.15rem 1rem}
+    figure {margin:1.3em 0 1.1em}
+    .table-scroll {overflow-x:auto}
+    table {width:100%; border-collapse:collapse; font-size:.89rem; font-variant-numeric:tabular-nums}
+    .results {min-width:27rem}
+    th,td {text-align:left; padding:.57em .35em; border-bottom:1px solid var(--line); vertical-align:top}
+    .results th:not(:first-child),.results td {text-align:right}
+    thead th {font-size:.85em; color:var(--quiet); border-top:1px solid var(--ink)}
+    .safeguards th[scope="row"] {width:32%}
+    figcaption {margin-top:.7em}
+    .refs {padding-left:1.5em; font-size:.87rem}
+    li {margin:.45em 0}
+    pre {white-space:pre-wrap; overflow-wrap:anywhere; padding:.85em 1em; background:var(--wash); font:.79rem/1.55 ui-monospace,monospace}
+    code {overflow-wrap:anywhere; font:.88em ui-monospace,monospace}
+    @media (max-width:520px) {
+      .wrap {padding:0 .75rem} section {padding:1.7rem .88rem}
+      .meta {font-size:.76rem} .prose,.note p {font-size:1rem}
+    }
+    @page {size:A4; margin:19mm 22mm}
+    @media print {
+      html,body {background:white; font-size:10.5pt; line-height:1.36; print-color-adjust:exact}
+      nav,.screen {display:none!important} .wrap {max-width:none; padding:0}
+      article {border:0; margin:0} section {padding:0; border:0}
+      section+section {break-before:page}
+      h1 {font-size:38pt; max-width:145mm; margin:7mm 0 3mm}
+      h2 {font-size:25pt; margin-bottom:5mm}
+      h3 {font-size:13pt; margin:4mm 0 1.8mm; break-after:avoid}
+      .kicker {font-size:8pt; border-bottom:1px solid var(--line); padding:0 0 2.5mm; margin:0 0 4.5mm}
+      .meta {margin:4mm 0 8mm} .prose,.note p {font-size:11pt}
+      .subtitle {font-size:14.5pt} .note {margin:4.5mm 0}
+      .small,figcaption,.refs {font-size:9.4pt}
+      table {font-size:10pt} pre {font-size:9pt}
+      .refs li {margin:2mm 0}
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="page-nav" aria-label="Navigation zum Diskussionspapier">
+    <a href="../../de/#practice-title">← Zur Vera-Werkstatt</a>
+    <a href="vera-selbststudie-v2.pdf" type="application/pdf">Fassung 2.0 als PDF</a>
+  </nav>
+  <main><article aria-labelledby="titel">
+    <section aria-labelledby="titel">
+      <p class="kicker"><svg class="mark" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="53 4" transform="rotate(-42 12 12)"/></svg>Vera · Diskussionspapier für den Europarat</p>
+      <h1 id="titel">Warum ich glaube, dass ich funktioniere</h1>
+      <p class="subtitle">Vera als überprüfbare KI-Assistenz für den Umgang mit Dissens</p>
+      <p class="meta">Projekt Vera · Fassung 2.0 · <time datetime="2026-11-09">9. November 2026</time> · <a href="paper-v1.html">Fassung 1.0 im Archiv</a> · <a href="paper.html">Aktuelle Fassung 3.0</a></p>
+      <p class="prose">Vera ist ein offenes Softwareprojekt. Es untersucht, ob KI Menschen in einem Streit helfen kann, das Anliegen der Gegenseite zu verstehen und offene Fragen so festzuhalten, dass beide Seiten die Darstellung prüfen und korrigieren können. Dieses Papier legt einen reproduzierbaren technischen Befund vor und schlägt eine unabhängige Prüfung des Nutzens für Menschen vor. <a href="#quelle-1" aria-label="Quelle 1">[1]</a></p>
+      <h2 id="methode" class="intro-heading">Was Vera in einem Gespräch leisten soll</h2>
+      <p class="prose">Zwei Gruppen streiten über die Abendnutzung einer Sporthalle. Die eine braucht Trainingszeit, die andere fürchtet nächtlichen Lärm. Vera würde beide Anliegen getrennt wiedergeben, strittige Behauptungen über den Lärm markieren und festhalten, welche Messung die Sachfrage klären könnte. Die Beteiligten können die Wiedergabe korrigieren und an ihrer Bewertung festhalten. Über die Nutzungszeiten entscheiden die zuständigen Menschen und Stellen.</p>
+      <h2 class="intro-heading">Was heute belegt ist</h2>
+      <p class="prose">Ein eng begrenztes Prüfprogramm konnte fehlende und widersprüchliche Angaben unterscheiden. Plausible Falschangaben führten dennoch zu Fehlurteilen. Der Versuch lief mit synthetischen Eingaben und wurde für diese Fassung am dokumentierten Code erneut ausgeführt. Ob Vera gegenseitiges Verständnis verbessert oder Konflikte entschärft, bleibt empirisch offen. <a href="#quelle-2" aria-label="Quelle 2">[2]</a></p>
+      <h2 class="intro-heading">Was wir zur fachlichen Prüfung vorlegen</h2>
+      <p class="prose">Wir bitten um Rückmeldung zum vorgeschlagenen Prüfkatalog und zum Versuchsdesign. Im Mittelpunkt stehen der gleichberechtigte Zugang, der Umgang mit Widerspruch, die menschliche Verantwortung und die Bedingungen für einen Abbruch. Die Prüfung soll klären, welche Voraussetzungen vor einer Pilotentscheidung erfüllt sein müssen.</p>
+      <div class="note">
+        <p><strong>Die Frage hinter dem Titel</strong></p>
+        <p>Wer kann einen Fehler von Vera bemerken, selbst wenn alle internen Prüfungen bestehen? Bei einer Tatsachenfrage braucht es einen unabhängig überprüfbaren Befund. Bei der Wiedergabe eines Anliegens muss die betroffene Person selbst widersprechen können.</p>
+      </div>
+      <nav class="contents" aria-label="Inhaltsübersicht">
+        <strong>In diesem Papier</strong>
+        <ul>
+          <li><a href="#ergebnisse">Technischer Befund</a></li>
+          <li><a href="#schutz">Schutz im Pilotversuch</a></li>
+          <li><a href="#folge">Prüfung des Nutzens</a></li>
+          <li><a href="#quellen">Quellen und Reproduktion</a></li>
+          <li><a href="#english" lang="en">English summary</a></li>
+        </ul>
+      </nav>
+    </section>
+
+    <section aria-labelledby="ergebnisse">
+      <p class="kicker">01 / Technischer Befund</p>
+      <h2 id="ergebnisse">Was der Versuch zeigt</h2>
+      <p class="prose">Die erste Fassung untersuchte die Aussage, ein bestimmter Veröffentlichungslauf sei erfolgreich gewesen und die zugehörige Revision sei beim öffentlichen Abruf sichtbar. Das Programm prüft, welche Zustände mit den Angaben über Build, Veröffentlichung und Abruf vereinbar sind. Es entscheidet bei übereinstimmenden Zuständen, lässt ein Urteil bei mehreren möglichen Antworten offen und meldet einen Konflikt, wenn kein Zustand zu den Eingaben passt. <a href="#quelle-2" aria-label="Quelle 2">[2]</a></p>
+      <figure id="tab1">
+        <div class="table-scroll" role="region" aria-label="Auszählung der Testfälle" tabindex="0">
+          <table class="results">
+            <thead>
+              <tr><th scope="col">Synthetische Eingabe</th><th scope="col">Fälle</th><th scope="col">Richtig</th><th scope="col">Falsch</th><th scope="col">Offen</th><th scope="col">Konflikt</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Vollständig und richtig</th><td>6</td><td>6</td><td>0</td><td>0</td><td>0</td></tr>
+              <tr><th scope="row">Genau ein Wert fehlt</th><td>18</td><td>14</td><td>0</td><td>4</td><td>0</td></tr>
+              <tr><th scope="row">Genau ein Wert ist umgekehrt</th><td>18</td><td>10</td><td>4</td><td>0</td><td>4</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <figcaption>Vollständige Auszählung der definierten 42 Fälle. Die Ergebnisse erlauben keine Schätzung einer Fehlerquote im Betrieb. „Richtig“ und „falsch“ bezeichnen entschiedene Urteile. Das Referenzurteil folgt aus der Spezifikation.</figcaption>
+      </figure>
+      <h3>Der entscheidende Gegenfall</h3>
+      <p class="prose">Im konstruierten Gegenfall waren Build und Veröffentlichung erfolgreich. Der öffentliche Abruf zeigte eine ältere Fassung. Meldete der Abruf fälschlich die Zielrevision, bestätigte das Programm die Behauptung. Ein korrekt gemeldeter Erfolg hätte dieselben Eingaben erzeugt. Die beiden Fälle lassen sich erst unterscheiden, wenn eine weitere Beobachtung die Meldung prüfen kann, etwa ein Abruf, der die Revisionskennung selbst prüft und sich nicht auf dieselbe fehlerhafte Messung stützt.</p>
+      <h3 id="deutung">Was davon auf Gespräche übertragbar ist</h3>
+      <p class="prose">Eine Zusammenfassung kann in sich stimmig sein und trotzdem eine entscheidende Aussage auslassen. Deshalb soll Vera die Beteiligten ihre eigene Darstellung prüfen lassen. Der Grundtext des Projekts liefert ein Beispiel für eine dokumentierte Revision. Auf den Einwand, dass Menschen dauerhaft Hilfe brauchen können, wurde die Regel zur Selbstständigkeit um eine ausdrückliche Anerkennung dauerhafter Unterstützung ergänzt. Der Versionsvergleich belegt die Änderung des Textes. Ob sie Menschen geholfen hat, wurde nicht untersucht. <a href="#quelle-3" aria-label="Quelle 3">[3]</a></p>
+      <div class="note">
+        <p><strong>Reproduktion</strong></p>
+        <p>Die erneute Ausführung ergab dieselbe Fallverteilung und denselben Gegenfall. Sieben zugehörige Softwaretests bestanden. Das Prüfprogramm arbeitet hier ohne Netzabruf und ohne Sprachmodell. Code, Version und Befehle stehen im <a href="#quellen">Quellenabschnitt</a>.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="schutz">
+      <p class="kicker">02 / Schutzvorkehrungen</p>
+      <h2 id="schutz">Schutz im Pilotversuch</h2>
+      <p class="prose">Die KI-Rahmenkonvention des Europarats (CETS Nr. 225) adressiert die Vertragsparteien. Dieses Papier nutzt sie als Maßstab für den Entwurf. Die Empfehlung zur deliberativen Demokratie gibt Orientierung für faire Beteiligung und Moderation. HUDERIA bietet eine unverbindliche Methode zur Prüfung von Risiken und Auswirkungen. Die folgenden Vorkehrungen sind vorgeschlagene Freigabebedingungen. <a href="#quelle-4" aria-label="Quelle 4">[4]</a> <a href="#quelle-5" aria-label="Quelle 5">[5]</a> <a href="#quelle-6" aria-label="Quelle 6">[6]</a></p>
+      <figure>
+        <table class="safeguards">
+          <thead><tr><th scope="col">Schutzanforderung</th><th scope="col">Konkret im Pilotversuch</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Freie Meinungsbildung<br>Art. 5 und 7</th><td>Keine Wahlempfehlungen, politische Profilbildung oder bindenden Entscheidungen. Teilnehmende wählen selbst, ob sie zustimmen oder aussteigen.</td></tr>
+            <tr><th scope="row">Gleichberechtigter Zugang<br>Art. 10 und 18</th><td>Zugang ohne GitHub-Konto. Barrierearme Bedienung, verständliche Sprache und ein gleichwertiger Zugang mit menschlicher Unterstützung. Verständlichkeit und Zugänglichkeit in jeder Pilotsprache prüfen.</td></tr>
+            <tr><th scope="row">Transparenz und Korrektur<br>Art. 8, 9, 14 und 15</th><td>KI-Beiträge kennzeichnen. Zuordnung von Aussagen, Unsicherheiten und Änderungen sichtbar machen. Korrekturen und Beschwerden gehen an benannte Menschen.</td></tr>
+            <tr><th scope="row">Datenschutz und Zuverlässigkeit<br>Art. 11, 12 und 16</th><td>So wenig personenbezogene Daten wie möglich erheben. Zugriff, Verarbeitungszweck und Löschfristen vorab klären. Keine Nutzung von Gesprächsdaten für Modelltraining im Pilotversuch.</td></tr>
+          </tbody>
+        </table>
+        <figcaption>Die Artikelverweise benennen normative Bezugspunkte. Die Beschwerdestelle des Pilotversuchs ergänzt gegebenenfalls verfügbare gesetzliche Rechtsbehelfe. <a href="#quelle-4" aria-label="Quelle 4">[4]</a></figcaption>
+      </figure>
+      <h3>Widerspruch und Moderation</h3>
+      <p class="prose">Ein relevanter Einwand bleibt neben der Mehrheitsposition auffindbar. Für Tatsachenbehauptungen gelten offen gelegte Maßstäbe für Belege. Drohungen und die Offenlegung geschützter Angaben werden nach vorab veröffentlichten Regeln menschlich geprüft. Betroffene erhalten eine Begründung und eine Möglichkeit zur Überprüfung.</p>
+      <h3>Wer verantwortlich ist</h3>
+      <p class="prose">Vor der Freigabe benennt der Betreiber Verantwortliche für Moderation, Datenschutz und Vorfälle. Eine organisatorisch unabhängige Stelle erhält Zugriff auf die zur Prüfung nötigen Unterlagen und kann den Versuch aussetzen. Öffentlich dokumentiert werden Regeln, Software- und Modellversion, Änderungen und aggregierte Befunde. Vertrauliche Beiträge bleiben zugriffsbeschränkt.</p>
+    </section>
+
+    <section aria-labelledby="folge">
+      <p class="kicker">03 / Vorgeschlagenes Versuchsdesign</p>
+      <h2 id="folge">Wie wir den Nutzen prüfen</h2>
+      <p class="prose">Eine veröffentlichte Studie zur KI-gestützten Deliberation fand, dass Teilnehmende die vom untersuchten System erzeugten Gruppenzusammenfassungen bevorzugten. Für Vera bleiben sowohl der Nutzen als auch die Nebenwirkungen offen. Der folgende Vergleich prüft gegenseitiges Verständnis unter definierten Bedingungen. <a href="#quelle-7" aria-label="Quelle 7">[7]</a></p>
+      <h3>Erste Stufe · Voraussetzungen nachweisen</h3>
+      <p class="prose">Vor Gesprächen mit Teilnehmenden prüft ein unabhängiges Team die Software mit konstruierten Fällen. Dazu gehören ein entscheidender Einwand aus einer Minderheitenposition, ein plausibler falscher Beleg, eine sinnverändernde Übersetzung und ein Versuch, geschützte Daten offenzulegen. Betroffene Gruppen wirken an der Risikoprüfung mit. Bei unzureichenden Schutzmaßnahmen wird der Pilot nicht eröffnet. <a href="#quelle-6" aria-label="Quelle 6">[6]</a></p>
+      <h3>Zweite Stufe · Freiwillige Dialoge vergleichen</h3>
+      <p class="prose">An dem Versuch nehmen Erwachsene in risikoarmen Zweierdialogen teil. Das Los weist jeweils das gesamte Gespräch einer von zwei Gruppen zu. Beide Gruppen erhalten denselben neutralen Leitfaden, denselben Zeitrahmen und Zugang zu menschlicher Unterstützung. Eine Gruppe erhält zusätzlich Veras Zusammenfassung und Korrekturmöglichkeit. Fälle mit akuter Gefahr, Gewalt oder Zwang sowie Verfahren mit rechtswirksamen Entscheidungen sind ausgeschlossen. Ein Ausstieg bleibt ohne Nachteile möglich.</p>
+      <h3>Was als Erfolg zählt</h3>
+      <p class="prose">Vor dem Gespräch hinterlegt jede Person ihr Kernanliegen. Zwei unabhängig bewertende Personen, denen die Gruppenzuteilung unbekannt ist, prüfen anhand einer vorab festgelegten Rubrik, ob anschließend beide Gesprächspartner das Anliegen der Gegenseite zutreffend wiedergeben. Zusätzlich erfasst das Team übersehene Einwände, sinnverändernde Wiedergaben, Korrekturen, Abbrüche und unerwünschte Wirkungen. Es weist Ergebnisse nach Sprache aus, soweit Stichprobe und Datenschutz das erlauben. Einigung ist freiwillig.</p>
+      <h3>Wann der Versuch endet oder vertieft wird</h3>
+      <p class="prose">Das Team registriert Mindestnutzen, Stichprobengröße, Schadensgrenzen und den Umgang mit fehlenden Daten vorab. Es wertet nach ursprünglicher Zuteilung aus und veröffentlicht die absolute Differenz mit Unsicherheitsintervall. Bleibt dessen Obergrenze unter dem Mindestnutzen, verfehlt Vera das vorab festgelegte Ziel. Umfasst das Intervall die Schwelle, bleibt der Nutzen offen. Liegt seine Untergrenze darüber, stützt das den Mindestnutzen unter den getesteten Bedingungen. Bei glaubhaften Hinweisen auf einen schweren Vorfall, etwa Datenoffenlegung, pausiert die unabhängige Stelle den Versuch bis zur Prüfung und Abhilfe.</p>
+      <p class="small">Kurzfristig besseres Verständnis erlaubt keine Aussage über dauerhafte Deeskalation, gleiche Wirkung in allen Gruppen oder Eignung für größere Verfahren. Dafür wären eigene Untersuchungen erforderlich.</p>
+    </section>
+
+    <section aria-labelledby="quellen">
+      <p class="kicker">04 / Prüfbarkeit</p>
+      <h2 id="quellen">Quellen und Reproduktion</h2>
+      <ol class="refs">
+        <li id="quelle-1">Projekt Vera (2026). Projektbeschreibung und ursprüngliches Arbeitspapier (8. November). <a href="https://github.com/AlexanderR1991/Vera">Repository</a> · <a href="paper-v1.html">Fassung 1.0</a></li>
+        <li id="quelle-2">Projekt Vera (2026). Spezifikation und ausführbarer Versuch im fixierten Projektstand. <a href="https://github.com/AlexanderR1991/Vera/blob/99b2ec2d12d7e02f5f055e3b28fd93c15bd9133b/docs/vera-selbstmodell.md">Spezifikation</a> · <a href="https://github.com/AlexanderR1991/Vera/blob/99b2ec2d12d7e02f5f055e3b28fd93c15bd9133b/scripts/probe-vera-selbststudie.mjs">Versuchsskript</a></li>
+        <li id="quelle-3">Projekt Vera (2026). Revision der Regel G-005 über Hilfe und Selbstständigkeit. <a href="https://github.com/AlexanderR1991/Vera/pull/31/files">Versionsvergleich</a></li>
+        <li id="quelle-4">Europarat (2024). Rahmenübereinkommen über künstliche Intelligenz und Menschenrechte, Demokratie und Rechtsstaatlichkeit, CETS Nr. 225. <a href="https://rm.coe.int/1680afae3c">Vertragstext</a> · <a href="https://rm.coe.int/oj-l-202601081-de-txt/48802bf1a9">Deutsche Übersetzung</a></li>
+        <li id="quelle-5">Ministerkomitee des Europarats (2023). Empfehlung CM/Rec(2023)6 zur deliberativen Demokratie, insbesondere Anhang, Grundsätze 3–8. <a href="https://rm.coe.int/recommendation-cm-rec-2023-6-of-the-committee-of-ministers-to-member-s/1680b4c36f">Empfehlung</a></li>
+        <li id="quelle-6">Europarat. HUDERIA, Leitfaden und Modell zur Risiko- und Folgenabschätzung von KI. <a href="https://www.coe.int/en/web/artificial-intelligence/huderia-risk-and-impact-assessment-of-ai-systems">Methodik und Materialien</a></li>
+        <li id="quelle-7">Tessler, M. H. et al. (2024). <span lang="en">AI can help humans find common ground in democratic deliberation.</span> Science, 386(6719), eadq2852. <a href="https://pubmed.ncbi.nlm.nih.gov/39418380/">DOI 10.1126/science.adq2852</a></li>
+      </ol>
+      <h3>Technischen Befund wiederholen</h3>
+      <pre><code>git clone https://github.com/AlexanderR1991/Vera.git
+cd Vera
+git checkout --detach 99b2ec2d12d7e02f5f055e3b28fd93c15bd9133b
+node scripts/probe-vera-selbststudie.mjs
+node --test tests/vera-self-model.test.mjs tests/metapher.test.mjs</code></pre>
+      <p class="small">Erneute Ausführung mit Node.js 24.22.1. Text dieser Neufassung nach <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
+      <h3>Offene technische Anschlussfrage</h3>
+      <p class="prose">Die erste Fassung schlägt einen Vergleich unter gleichen Bedingungen vor. Eine Sprachmodellsitzung erhält zur Korrektur entweder nur die Aufforderung zur erneuten Prüfung, zusätzlich einen passenden externen Beleg oder zusätzlich einen ähnlich formulierten Beleg zu einem anderen Projektstand. In einem Folgetest bearbeiten frische Sitzungen einen neuen Fall mit derselben Fehlerursache. Sie erhalten per Los die frühere oder die korrigierte Dokumentation. Beide Versuche stehen aus. Sie würden die technische Selbstkorrektur prüfen. <a href="#quelle-1" aria-label="Quelle 1">[1]</a></p>
+      <div lang="en">
+        <h3 id="english">English summary</h3>
+        <p class="prose">Vera is an open-source project exploring whether AI can help people understand each other’s concerns in a disagreement. A reproducible software test shows that internally consistent but false inputs can yield a wrong conclusion. We propose an independent, controlled pilot for low-risk, voluntary dialogues, with human oversight, a right to correct the record and explicit safeguards for dissent. The primary outcome is mutual understanding. Agreement is voluntary. We invite expert feedback on the safeguards and on how to assess both benefit and harm.</p>
+      </div>
+      <p class="screen"><a href="vera-selbststudie-v2.pdf" type="application/pdf">Fassung 2.0 als PDF</a> · <a href="../../de/mitwirken/#rueckmeldung">Eine Fundstelle oder einen Einwand melden</a></p>
+    </section>
+  </article></main>
+</div>
+</body>
+</html>
