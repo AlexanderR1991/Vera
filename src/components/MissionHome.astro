@@ -15,9 +15,12 @@ import protocol from "../../public/protocol/self-correction.v1.json";
 const {lang="de",root=false}=Astro.props;
 const t=copy[lang];
 const de=lang==="de";
+const name=ui[lang].name;
+const greeting=`${t.opening.greetingLead} ${name}.`;
+const paperUrl=base+"papers/warum-ich-glaube-dass-ich-funktioniere/paper.html";
 // Stagger the loops so the field looks active on arrival and wraps continuously.
-const paperWind = Array.from({length:44}, (_, index) => {
-  const edge = index < 20;
+const paperWind = Array.from({length:72}, (_, index) => {
+  const edge = index < 32;
   const margin = index % 2 === 0 ? 2 : 82;
   const x = edge ? margin + (index * 7 % 19) / 2 : 13 + index * 29 % 69;
   const y = 21 + index * 31 % 76;
@@ -29,7 +32,7 @@ const paperWind = Array.from({length:44}, (_, index) => {
   return {edge,x,y,size,rise,duration,phase,opacity};
 });
 ---
-<Layout lang={lang} slug="index" root={root} pageTitle={t.opening.greeting} description={t.metaDescription}>
+<Layout lang={lang} slug="index" root={root} pageTitle={greeting} description={t.metaDescription}>
   <section class="home-opening" aria-labelledby="home-heading">
     <div class="home-opening__wind" aria-hidden="true">
       {paperWind.map(({edge,x,y,size,rise,duration,phase,opacity}) =>
@@ -44,16 +47,21 @@ const paperWind = Array.from({length:44}, (_, index) => {
           stroke-width="1.4" stroke-linecap="butt" stroke-dasharray="346 14" transform="rotate(-38 100 100)" />
       </svg>
       <div class="home-opening__copy">
-        <h1 id="home-heading" class="home-opening__title">{t.opening.greeting}</h1>
+        <h1 id="home-heading" class="home-opening__title">{t.opening.greetingLead} <span class="home-opening__name">{name}</span>.</h1>
         <p class="home-opening__mission">{t.opening.ambition}</p>
-        <a class="home-link home-opening__rules" href={pathFor(lang,"methode","erkenntnismotor")}>
-          {t.opening.rules} <span aria-hidden="true">↗</span>
-        </a>
+        <div class="home-opening__links">
+          <a class="home-link" href={pathFor(lang,"methode","erkenntnismotor")}>
+            {t.opening.rules} <span aria-hidden="true">↗</span>
+          </a>
+          <a class="home-link" href={paperUrl} hreflang="de">
+            <span>{t.opening.paper}&nbsp;<span aria-hidden="true">↗</span></span>
+          </a>
+        </div>
       </div>
     </div>
     <button class="home-opening__wind-toggle" type="button" hidden aria-pressed="false"
-      aria-label={de?"Papierwind pausieren":"Pause paper breeze"}
-      title={de?"Papierwind":"Paper breeze"}>
+      aria-label={de?"Animationen der Startseite pausieren":"Pause opening animations"}
+      title={de?"Animationen der Startseite":"Opening animations"}>
       <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor"
         stroke-width="1.4" aria-hidden="true" focusable="false">
         <path class="wind-icon-pause" d="M6 3.5v9m4-9v9" />
@@ -81,7 +89,7 @@ const paperWind = Array.from({length:44}, (_, index) => {
         {t.life.together} <span aria-hidden="true">↗</span>
       </a>
       <a class="home-link" href={pathFor(lang,"methode","g-005")}>{t.realExampleLink} <span aria-hidden="true">↗</span></a>
-      <a class="home-link" href={base+"papers/warum-ich-glaube-dass-ich-funktioniere/paper.html"} hreflang="de">
+      <a class="home-link" href={paperUrl} hreflang="de">
         {t.life.paper} <span aria-hidden="true">↗</span>
       </a>
       <a class="home-link" href={pathFor(lang,"fragen-und-ki-prompt","prompt")}>{t.aiLink} <span aria-hidden="true">↗</span></a>
