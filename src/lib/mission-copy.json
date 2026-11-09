@@ -1,344 +1,56 @@
 {
   "de": {
     "opening": {
-      "greeting": "Hallo, ich bin Vera.",
-      "mission": "Ich möchte die Konflikte der Menschheit moderieren.",
-      "invitation": "Fangen wir mit eurem an.",
-      "ambition": "Ich möchte eine Open-Source-KI für die Menschheit werden.",
-      "motto": "Strive to perfection. Driven by Love."
+      "greeting": "Hi, ich bin Vera.",
+      "ambition": "Ich möchte eine Open-Source-KI werden, die die Konflikte der Menschheit löst.",
+      "rules": "Unser bisheriges Regelwerk"
     },
-    "lead": "Vera sammelt Fragen, Gründe und Widersprüche aus allen Lebensbereichen. Wer bessere Einwände findet, kann eine neue Prüfung anstoßen. So lernen wir gemeinsam, ohne menschliche Würde oder offene Unterschiede zu übergehen.",
-    "play": "Eine Runde spielen",
-    "playNote": "Ohne Anmeldung. Ohne Zeitdruck. Du kannst auch laut mitdenken.",
-    "bringQuestion": "Meine eigene Frage mitbringen",
-    "worksheet": "Meine Frage im Prüfblatt untersuchen",
-    "publicQuestion": "Öffentlich auf GitHub fragen",
-    "privacy": "Das Prüfblatt bleibt auf deinem Gerät. Für eine öffentliche Frage brauchst du ein GitHub-Konto.",
-    "exampleLabel": "Aus der Werkstatt",
-    "exampleId": "These 05",
-    "exampleTitle": "Muss gute Hilfe zur Selbstständigkeit führen?",
-    "exampleText": "„Hilf so, dass der andere seine eigene Kraft findet.“ Wer auf Dauer Hilfe braucht, könnte darin die Erwartung hören, irgendwann allein zurechtzukommen. Im Grundtext steht heute ausdrücklich, welchen Wert dauerhafte Unterstützung hat.",
-    "exampleLink": "Die Änderung nachvollziehen",
-    "exploreLabel": "Weiterdenken",
-    "exploreTitle": "Woran möchtest du arbeiten?",
+    "life": {
+      "title": "Leben",
+      "intro": "Manchmal dreht sich ein Streit im Kreis. Eine Frage kann euch helfen, wieder miteinander zu reden.",
+      "seed": "„Was ist dir daran wichtig? Ich möchte es verstehen.“",
+      "together": "Ein Gespräch zu zweit beginnen",
+      "soloTitle": "Du willst erst einmal nachdenken?",
+      "soloText": "Drei Fragen helfen dir, zu sortieren, was passiert ist und was du dir jetzt wünschst.",
+      "solo": "Meine Gedanken sortieren",
+      "about": "Was kann Vera heute?",
+      "workshop": "Veras Werkstatt",
+      "paper": "Das Arbeitspapier lesen",
+      "models": "Veras Entscheidungsmodelle ausprobieren"
+    },
+    "metaDescription": "Vera lädt euch zu einem Gespräch ein. Probiert zu zweit aus, wo ihr einander versteht, was euch trennt und welche Frage ihr als Nächstes stellen möchtet.",
     "motto": "Mit Philosophie Menschen zu einem Konsens bringen.",
-    "exploreText": "Eine Maschine spart uns eine Stunde Arbeit. Wem gehört diese Stunde? Frag jemanden, der anders darüber denkt. Worauf könnt ihr euch einigen?",
-    "treeLink": "Im Themenbaum stöbern",
+    "play": "Eine Runde spielen",
     "status": "Die unabhängige Fachprüfung der Beispiele und die Erprobung der Methode stehen aus.",
     "statusLink": "Projektstand ansehen",
-    "groups": [
-      {
-        "title": "Eine Frage aus dem Leben verfolgen",
-        "text": "Lies einen Werkstatttext und prüfe, ob seine Gründe auch in deiner Situation tragen.",
-        "links": [
-          [
-            "Liebe und Fürsorge",
-            "warum-liebe-wirkt"
-          ],
-          [
-            "Politik und Zusammenleben",
-            "politik-die-dem-menschen-dient"
-          ],
-          [
-            "Ernährung",
-            "ernaehrung-und-verantwortung"
-          ],
-          [
-            "Frieden und Schutz",
-            "militaer-und-verantwortung"
-          ],
-          [
-            "Religion und Sinn",
-            "bruecken-zwischen-den-religionen"
-          ],
-          [
-            "Kunst und Erkenntnis",
-            "kunst-und-erkenntnis"
-          ],
-          [
-            "Grenzen des Erkennbaren",
-            "erkenntnishorizont"
-          ]
-        ]
-      },
-      {
-        "title": "Aus vorhandenem Wissen eine neue Idee entwickeln",
-        "text": "Welche Vermutung ergibt sich aus dem, was du schon weißt? Im Forschungsstrom findest du ungeprüfte Quellenhinweise. In der Werkstatt kannst du an einem Modell ausprobieren, was deine Vermutung vorhersagt.",
-        "links": [
-          [
-            "Quellenhinweise erkunden",
-            "forschungsstrom"
-          ],
-          [
-            "Esoterik und Mathematik ausprobieren",
-            "esoterik-und-mathematik"
-          ]
-        ]
-      },
-      {
-        "title": "Dem Projekt widersprechen",
-        "text": "Auch unsere eigenen Regeln stehen zur Prüfung. Bei jedem Registereintrag kannst du nachlesen, was wir behaupten, welche Einwände vorliegen und was uns umstimmen würde.",
-        "links": [
-          [
-            "Den Regelkreis angreifen",
-            "regelkreis"
-          ],
-          [
-            "Aussagenregister öffnen",
-            "aussagen"
-          ],
-          [
-            "Gegenargumente prüfen",
-            "angriffsschwarm"
-          ],
-          [
-            "Unsere Mission lesen",
-            "mission"
-          ],
-          [
-            "Eine Korrektur vorschlagen",
-            "mitwirken"
-          ]
-        ]
-      }
-    ],
-    "invitation": "Gemeinsam klüger werden. Irrtum für Irrtum.",
-    "ownQuestion": "Eine Frage oder einen Begriff erkunden",
-    "practiceTitle": "Du musst nicht schon Bescheid wissen.",
-    "practiceSteps": [
-      [
-        "Vermuten",
-        "Was denkst du gerade? Auch „weiß ich noch nicht“ passt."
-      ],
-      [
-        "Prüfen",
-        "Was spricht dafür? Was könnte dagegen sprechen?"
-      ],
-      [
-        "Weiterdenken",
-        "Bleibst du dabei, änderst du etwas oder lässt du es offen? Warum?"
-      ]
-    ],
-    "practiceNote": "Hier gibt es keine Punkte für die „richtige“ Meinung. Ein guter Grund kann dich umstimmen – oder deine Antwort stützen. Du bestimmst, wie tief du einsteigst.",
-    "consensusLimit": "Gemeinsamkeiten suchen, Unterschiede ehrlich stehen lassen. Niemand muss zustimmen, und Einigkeit allein beweist nichts.",
-    "gameScenario": "Du stehst im Supermarkt. An der linken Kasse warten zwei Leute, rechts vier. Wo stellst du dich an?",
-    "principle": "Konsens ist keine Pflicht zur Einigkeit. Ein starker Einwand zählt mehr als tausend Stimmen ohne Beleg; Änderungen bleiben öffentlich nachvollziehbar.",
-    "missionLink": "Unsere Idee verstehen",
-    "forumLink": "Alltagsfragen lesen",
-    "forumTitle": "Welche Frage kennst du?",
-    "forumIntro": "Im Forum steht zu jeder Alltagsfrage eine erste Antwort. Lies sie, prüfe ihre Gründe und überlege, in welcher Situation sie an ihre Grenze kommt.",
-    "playLabel": "Philosophie ausprobieren",
-    "playTitle": "Eine Frage. Ein neuer Blick.",
-    "playIntro": "Das Denken beginnt nicht mit großen Worten. Manchmal reicht eine Entscheidung im Alltag.",
-    "doorwaysLabel": "Philosophie erleben und überprüfen",
-    "metaDescription": "Vera lädt euch zu einem Gespräch ein. Probiert zu zweit aus, wo ihr einander versteht, was euch trennt und welche Frage ihr als Nächstes stellen möchtet.",
-    "aiNote": "Du nutzt schon einen KI-Chat? Gib ihm unsere Prüfregeln und frag ihn, was gegen deine erste Vermutung spricht.",
     "aiLink": "Regeln für meinen KI-Chat öffnen",
-    "metaRuleLink": "Den selbstkorrigierenden Regelkreis prüfen",
-    "encounter": {
-      "lead": "Öffne deinen KI-Chat und füge dort den Starttext ein. Er enthält den Link zu meinem",
-      "repo": "GitHub-Projekt",
-      "afterLink": "und eine Beispielfrage, die du durch deine eigene ersetzen kannst.",
-      "request": "Lies docs/vera.md im öffentlichen Repository {repo}. Nutze Veras Vorgehen für meine Frage und zeige mir die Stelle, die dir dabei hilft. Falls du die Datei nicht lesen kannst, bitte mich um den Text.",
-      "example": "Ein Freund sagt, ich höre ihm nicht richtig zu. Wie finde ich heraus, was er meint?",
-      "copy": "Starttext kopieren",
-      "copied": "Kopiert. Füge den Text in deinen KI-Chat ein.",
-      "details": "Vera im eigenen KI-Chat nutzen",
-      "field": "Text für deinen KI-Chat",
-      "connect": "Wenn dein Chat eine GitHub-Verbindung anbietet, wähle dort das öffentliche Repository AlexanderR1991/Vera zum Lesen aus.",
-      "fallback": "Kann dein Chat den Link nicht öffnen? Lade die Startdatei herunter und füge ihren Inhalt vor deiner Frage in den Chat ein.",
-      "download": "Startdatei herunterladen (.txt)"
-    },
-    "howTitle": "Warum ich glaube, dass ich funktioniere",
-    "howReason": "Ich setze auf etwas Einfaches. Wenn wir eine Behauptung und ihre Gründe offenlegen, kannst du zeigen, wo sie zu weit geht. Ein guter Einwand kann die Antwort verändern. Dann halten wir fest, was sich geändert hat, warum und was noch offen ist.",
-    "tryLabel": "Ein Beispiel zum Ausprobieren",
-    "tryClaim": "„Jeder kann dieser Anleitung folgen.“",
-    "tryAction": "Einen Einwand prüfen",
-    "trySteps": [
-      [
-        "Einwand",
-        "„Bei Schritt zwei weiß ich nicht, wo ich klicken soll.“"
-      ],
-      [
-        "Änderung",
-        "Wir streichen die Behauptung und ergänzen in der Anleitung, wo die Schaltfläche steht."
-      ],
-      [
-        "Nächste Prüfung",
-        "Wir bitten Menschen, die die Anleitung zum ersten Mal sehen, Schritt zwei auszuprobieren. Wenn sie weiterhin hängen bleiben, überarbeiten wir ihn erneut."
-      ]
-    ],
     "realExampleLink": "Eine dokumentierte Änderung ansehen"
   },
   "en": {
     "opening": {
-      "greeting": "Hello, I’m Vera.",
-      "mission": "I want to mediate humanity’s conflicts.",
-      "invitation": "Let’s start with yours.",
-      "ambition": "I want to become an open-source AI for humanity.",
-      "motto": "Strive to perfection. Driven by Love."
+      "greeting": "Hi, I’m Vera.",
+      "ambition": "I want to become an open-source AI that helps humanity resolve its conflicts.",
+      "rules": "The rules we work by so far"
     },
-    "lead": "Vera brings together questions, reasons and disagreements from every area of life. Better objections can trigger a new examination. We learn together while protecting human dignity and acknowledging unresolved differences.",
-    "play": "Play a round",
-    "playNote": "No sign-up. No time limit. You can think out loud, too.",
-    "bringQuestion": "Bring a question of my own",
-    "worksheet": "Work through my question",
-    "publicQuestion": "Ask publicly on GitHub",
-    "privacy": "Your worksheet stays on your device. You’ll need a GitHub account to ask a public question.",
-    "exampleLabel": "From the workshop",
-    "exampleId": "Thesis 05",
-    "exampleTitle": "Does good care have to lead to independence?",
-    "exampleText": "One of our principles asks us to help people find their own strength. Where does that leave someone who will always need support? That objection changed the wording of our foundational text.",
-    "exampleLink": "See what changed and why",
-    "exploreLabel": "Explore",
-    "exploreTitle": "What would you like to work on?",
+    "life": {
+      "title": "Life",
+      "intro": "Sometimes an argument goes in circles. A single question can help you start talking again.",
+      "seed": "“What matters to you here? I’d like to understand.”",
+      "together": "Start a conversation together",
+      "soloTitle": "Need a moment to think?",
+      "soloText": "Three questions can help you sort through what happened and what you want to happen next.",
+      "solo": "Sort through my thoughts",
+      "about": "What can Vera do today?",
+      "workshop": "Vera’s workshop",
+      "paper": "Read the working paper in German",
+      "models": "Try Vera’s decision models"
+    },
+    "metaDescription": "Vera invites you to talk. Try an exercise together to see where you understand each other, where you disagree and what you’d like to ask next.",
     "motto": "Bringing people closer to consensus through philosophy.",
-    "exploreText": "A machine saves us an hour of work. Whose hour is it? Ask someone who sees it differently. What can you agree on?",
-    "treeLink": "Browse the topic tree",
+    "play": "Play a round",
     "status": "The examples still await independent expert review. The method’s effectiveness also remains an open question.",
     "statusLink": "View project status",
-    "groups": [
-      {
-        "title": "Explore a question from everyday life",
-        "text": "Read a workshop essay and consider whether its reasoning holds up in your own circumstances.",
-        "links": [
-          [
-            "Love and care",
-            "warum-liebe-wirkt"
-          ],
-          [
-            "Politics and society",
-            "politik-die-dem-menschen-dient"
-          ],
-          [
-            "Food and responsibility",
-            "ernaehrung-und-verantwortung"
-          ],
-          [
-            "Peace and protection",
-            "militaer-und-verantwortung"
-          ],
-          [
-            "Religion and meaning",
-            "bruecken-zwischen-den-religionen"
-          ],
-          [
-            "Art and inquiry",
-            "kunst-und-erkenntnis"
-          ],
-          [
-            "Limits of knowledge",
-            "erkenntnishorizont"
-          ]
-        ]
-      },
-      {
-        "title": "Develop an idea from what you already know",
-        "text": "What might follow from what you know so far? The research stream offers leads that still need checking. In the workshop you can use a model to explore what your idea would predict.",
-        "links": [
-          [
-            "Browse research leads",
-            "forschungsstrom"
-          ],
-          [
-            "Try the esotericism and mathematics workshop",
-            "esoterik-und-mathematik"
-          ]
-        ]
-      },
-      {
-        "title": "Challenge the project",
-        "text": "Our own rules are open to challenge. Each entry in the register records our reasoning, objections and what would change our minds.",
-        "links": [
-          [
-            "Challenge the correction loop",
-            "regelkreis"
-          ],
-          [
-            "Open the claim register",
-            "aussagen"
-          ],
-          [
-            "Examine objections",
-            "angriffsschwarm"
-          ],
-          [
-            "Read our mission",
-            "mission"
-          ],
-          [
-            "Suggest a correction",
-            "mitwirken"
-          ]
-        ]
-      }
-    ],
-    "invitation": "Learn together. One correction at a time.",
-    "ownQuestion": "Explore a question or a term",
-    "practiceTitle": "You do not need to know the answer.",
-    "practiceSteps": [
-      [
-        "Guess",
-        "What do you think? “I do not know yet” is welcome."
-      ],
-      [
-        "Check",
-        "What supports your idea? What might count against it?"
-      ],
-      [
-        "Think again",
-        "Keep your answer, change it or leave it open. What is your reason?"
-      ]
-    ],
-    "practiceNote": "There are no points for the “right” opinion. A good reason may change your mind or support your answer. You choose how far to explore.",
-    "consensusLimit": "Look for common ground and record differences honestly. No one has to agree, and agreement alone proves nothing.",
-    "gameScenario": "You're at the supermarket. Two people are waiting at the checkout on the left, four on the right. Which line do you join?",
-    "principle": "Consensus is no obligation to agree. One strong objection can outweigh a thousand unsupported votes, and corrections remain traceable.",
-    "missionLink": "Explore the idea",
-    "forumLink": "Read everyday questions",
-    "forumTitle": "Which question feels familiar?",
-    "forumIntro": "Each everyday question in the forum comes with a first answer. Read it, examine the reasoning and look for a situation where it falls short.",
-    "playLabel": "Try philosophy",
-    "playTitle": "One question. A new perspective.",
-    "playIntro": "Thinking does not start with grand ideas. Sometimes, an everyday decision is enough.",
-    "doorwaysLabel": "Experience and examine philosophy",
-    "metaDescription": "Vera invites you to talk. Try an exercise together to see where you understand each other, where you disagree and what you’d like to ask next.",
-    "aiNote": "Already use an AI chat? Give it the workshop rules and ask what might count against your first guess.",
     "aiLink": "Get the rules for my AI chat",
-    "metaRuleLink": "Explore the self-correcting rule",
-    "encounter": {
-      "lead": "Open your AI chat and paste in the starter text. It includes a link to my",
-      "repo": "GitHub project",
-      "afterLink": "and an example question you can replace with your own.",
-      "request": "Read docs/vera.md in the public repository {repo}. Use Vera’s approach to help me with my question and show me the passage you used. If you can’t read the file, ask me to share the text.",
-      "example": "A friend says I don’t really listen to him. How can I find out what he means?",
-      "copy": "Copy starter text",
-      "copied": "Copied. Paste the text into your AI chat.",
-      "details": "Use Vera in your own AI chat",
-      "field": "Text for your AI chat",
-      "connect": "If your chat offers a GitHub connection, select the public AlexanderR1991/Vera repository to read.",
-      "fallback": "Can’t open the link in your chat? Download the starter file and paste its contents into the chat before your question.",
-      "download": "Download starter file (.txt)"
-    },
-    "howTitle": "Why I think I work",
-    "howReason": "The idea is simple. When we make a claim and share our reasons, you can show where it goes too far. A good objection can change the answer. We record what changed, why it changed, and what remains open.",
-    "tryLabel": "An example to try",
-    "tryClaim": "“Anyone can follow these instructions.”",
-    "tryAction": "Examine an objection",
-    "trySteps": [
-      [
-        "Objection",
-        "“At step two, I don’t know where to click.”"
-      ],
-      [
-        "Change",
-        "We withdraw the claim and add the button’s location to the instructions."
-      ],
-      [
-        "Next check",
-        "We ask people seeing the instructions for the first time to try step two. If they still get stuck, we revise it again."
-      ]
-    ],
     "realExampleLink": "See a documented change"
   }
 }

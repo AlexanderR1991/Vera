@@ -6,10 +6,10 @@ const read=(path)=>readFileSync(new URL("../"+path,import.meta.url),"utf8");
 test("industrial board retains independent DE/EN labels and links to real Vera routes",()=>{
  const board=read("src/components/IndustrialBoard.astro");
  const home=read("src/components/MissionHome.astro");
- for(const id of ["atlas","forum","bridge","engine","workbench","questions","revision","research","esoterik","source"]){
+ for(const id of ["conversation","first-step","everyday","art","military","society","bridge","atlas","counterexample"]){
   assert.match(board,new RegExp('id:"'+id+'"'));
  }
- for(const route of ["atlas","forum","die-bruecke","ki-und-mensch","werkstatt","grundfragen","regelkreis","mitwirken"]){
+ for(const route of ["atlas","forum","die-bruecke","schnittmengen","kunst-und-erkenntnis","militaer-und-verantwortung","gegenprobe-01"]){
   assert.ok(board.includes('route:"'+route+'"'),route+" missing");
  }
  assert.match(board,/const word=\(v\)=>v\[lang\]/);
@@ -20,9 +20,9 @@ test("industrial board retains independent DE/EN labels and links to real Vera r
  assert.match(board,/No matching tile/);
  assert.match(home,/<IndustrialBoard lang=\{lang\}/);
  assert.match(home,/t\.opening\.greeting/);
- assert.match(home,/t\.opening\.motto/);
+ assert.match(home,/t\.opening\.rules/);
  assert.match(home,/t\.status/);
- assert.match(home,/issues\/new\?template=frage\.yml/);
+ assert.match(home,/<FirstAnswer lang=\{lang\}/);
 });
 
 test("industrial palette is bundled through the existing static assets pipeline",()=>{
@@ -43,7 +43,6 @@ test("industrial palette is bundled through the existing static assets pipeline"
 
 test("site and philosophy accurately present an open-source AI goal rather than a finished model",()=>{
  const home=read("src/components/MissionHome.astro");
- const board=read("src/components/IndustrialBoard.astro");
  const mission=read("src/components/MissionPage.astro");
  const ai=read("src/components/AIPhilosophy.astro");
  const site=read("src/layouts/SiteLayout.astro");
@@ -54,8 +53,6 @@ test("site and philosophy accurately present an open-source AI goal rather than 
  assert.ok(home.includes("t.opening.ambition"));
  assert.match(copy.de.opening.ambition,/Open-Source-KI.*werden/);
  assert.match(copy.en.opening.ambition,/want to become an open-source AI/);
- assert.ok(board.includes("Open-Source-KI"));
- assert.ok(board.includes("open-source AI"));
  assert.ok(mission.includes("opensource-ki"));
  assert.ok(mission.includes("Noch keine eigenständig veröffentlichte Vera-KI"));
  assert.ok(ai.includes("kein offenes eigenes Grundmodell"));

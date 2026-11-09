@@ -141,4 +141,4 @@ export const ui = {
     "description": project.english_name + " is an open inquiry workshop. Examine the evidence, test objections and record what would change your mind."
   }
 };
-export const navigation = [["werkstatt",6],["erkenntnisnavigator",7],["forum",8],["mitwirken",5]];
+export const navigation = [["erkenntnisnavigator",7],["forum",8],["mitwirken",5]];

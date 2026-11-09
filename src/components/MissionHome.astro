@@ -9,17 +9,14 @@ import VeraPractice from "./VeraPractice.astro";
 import copy from "../lib/mission-copy.json";
 import {base, pathFor} from "../lib/paths.mjs";
 import {ui} from "../lib/ui.mjs";
-import everydayQuestions from "../../public/knowledge/everyday-questions.json";
 import project from "../../public/project.json" with {type:"json"};
 import protocol from "../../public/protocol/self-correction.v1.json";
 
 const {lang="de",root=false}=Astro.props;
 const t=copy[lang];
 const de=lang==="de";
-const starter=t.encounter.request.replace("{repo}",project.repository)+"\n\n"+t.encounter.example;
-const featuredQuestions=everydayQuestions.questions.slice(0,3);
 ---
-<Layout lang={lang} slug="index" root={root} pageTitle={root?ui[lang].titles.index:undefined} description={t.metaDescription}>
+<Layout lang={lang} slug="index" root={root} pageTitle={t.opening.greeting} description={t.metaDescription}>
   <section class="home-opening" aria-labelledby="home-heading">
     <div class="container home-opening__frame">
       <svg class="home-opening__mark" viewBox="12 12 176 176" aria-hidden="true" focusable="false">
@@ -29,170 +26,88 @@ const featuredQuestions=everydayQuestions.questions.slice(0,3);
       </svg>
       <div class="home-opening__copy">
         <h1 id="home-heading" class="home-opening__title">{t.opening.greeting}</h1>
-        <p class="home-opening__mission">{t.opening.mission}</p>
-        <FirstAnswer lang={lang}/>
-        <a class="home-link" href={pathFor(lang,"schnittmengen","sprachprobe")}>
-          {t.opening.invitation} <span aria-hidden="true">→</span>
+        <p class="home-opening__mission">{t.opening.ambition}</p>
+        <a class="home-link home-opening__rules" href={pathFor(lang,"methode","erkenntnismotor")}>
+          {t.opening.rules} <span aria-hidden="true">↗</span>
         </a>
-        <p class="home-opening__motto" lang="en">{t.opening.motto}</p>
       </div>
     </div>
   </section>
 
-  <IndustrialBoard lang={lang}>
-    <details class="home-chat">
-      <summary>{t.encounter.details}</summary>
-      <div class="home-chat__guide">
-        <p>{t.encounter.lead} <a href={project.repository}>{t.encounter.repo}</a> {t.encounter.afterLink}</p>
-        <label for="inquiry-prompt">{t.encounter.field}</label>
-        <textarea id="inquiry-prompt" readonly rows="6" spellcheck="false">{starter}</textarea>
-        <button class="home-chat__copy" type="button" data-copy-inquiry data-copied={t.encounter.copied} hidden>{t.encounter.copy}</button>
-        <p data-copy-status role="status"></p>
-        <p>{t.encounter.connect}</p>
-        <p>{t.encounter.fallback} <a href={base+`prompts/vera-context.${lang}.txt`} download>{t.encounter.download}</a></p>
+  <section class="home-life" id={de?"leben":"life"} aria-labelledby="life-heading">
+    <div class="container">
+      <div class="home-life__feature">
+        <div class="home-life__story">
+          <h2 id="life-heading">{t.life.title}</h2>
+          <p class="home-life__intro">{t.life.intro}</p>
+          <blockquote>{t.life.seed}</blockquote>
+          <a class="home-life__action" href={pathFor(lang,"schnittmengen","vermittlung")}>
+            {t.life.together} <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <div class="home-life__garden" aria-hidden="true">
+          <svg viewBox="0 0 240 230" focusable="false">
+            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M47 176h146m-126 9h106m-82 9h58" opacity=".24"/>
+              <path d="M119 176c3-30-3-58 9-85 7-15 18-24 29-29M120 143c-8-15-18-22-33-28" stroke-width="1.5"/>
+              <path d="M125 100c-2-24 21-42 53-47-5 29-22 46-53 47Zm-8 38c-5-25-25-36-52-36 7 23 25 39 52 36Z" fill="currentColor" fill-opacity=".12" stroke-width="1.15"/>
+              <path d="M119 177c-3 7-10 14-20 19m21-18c1 10 6 16 14 22m-17-16c-4 9-4 15-3 20" opacity=".4"/>
+            </g>
+            <circle cx="120" cy="176" r="2.6" fill="currentColor"/>
+          </svg>
+        </div>
       </div>
-    </details>
-  </IndustrialBoard>
 
-  <VeraEntity lang={lang}/>
-
-  <VeraErkenntnis lang={lang}/>
-
-  <VeraFirstStep lang={lang}/>
+      <div class="home-life__tools">
+        <div>
+          <FirstAnswer lang={lang}/>
+        </div>
+        <div class="home-life__solo">
+          <h3>{t.life.soloTitle}</h3>
+          <p>{t.life.soloText}</p>
+          <a class="home-link" href={de?"#eigene-frage":"#your-question"}>{t.life.solo} <span aria-hidden="true">↓</span></a>
+          <a class="home-link" href={de?"#vera-fragen":"#ask-vera"} data-vera-entry>{t.life.about} <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <VeraPractice lang={lang}/>
 
-  <section class="home-forum section-shell" aria-labelledby="home-forum-title">
-    <div class="container">
-      <div class="home-section-title">
-        <div><p class="section-kicker">/ {de?"AUS DEM FORUM":"FROM THE FORUM"}</p><h2 id="home-forum-title">{t.forumTitle}</h2></div>
-        <div><p>{t.forumIntro}</p><a class="home-link" href={pathFor(lang,"forum")}>{de?"Alle Diskussionen":"All discussions"} ↗</a></div>
-      </div>
-      <ul class="home-forum__questions" role="list">
-        {featuredQuestions.map((question,index)=><li>
-          <a href={pathFor(lang,"forum","alltag-"+question.id)}>
-            <span class="home-forum__topic">{String(index+1).padStart(2,"0")} / {question.topic[lang]}</span>
-            <span class="home-forum__question">{question.question[lang]}</span>
-            <span class="home-forum__arrow" aria-hidden="true">↗</span>
-          </a>
-        </li>)}
-      </ul>
-    </div>
+  <IndustrialBoard lang={lang}/>
+
+  <section class="home-workshop container" aria-labelledby="practice-title">
+    <h2 id="practice-title" tabindex="-1">{t.life.workshop}</h2>
+    <blockquote class="home-meta-rule">{protocol.motto[lang]}</blockquote>
+    <nav aria-label={t.life.workshop}>
+      <a class="home-link" href={pathFor(lang,"methode","g-005")}>{t.realExampleLink} <span aria-hidden="true">↗</span></a>
+      <a class="home-link" href={base+"papers/warum-ich-glaube-dass-ich-funktioniere/paper.html"} hreflang="de">
+        {t.life.paper} <span aria-hidden="true">↗</span>
+      </a>
+      <a class="home-link" href={pathFor(lang,"fragen-und-ki-prompt","prompt")}>{t.aiLink} <span aria-hidden="true">↗</span></a>
+      <a class="home-link" href={pathFor(lang,"fragen-und-ki-prompt","gastprobe")}>
+        {de?"Mit deiner KI eine Quelle gegenprüfen":"Check a source with your AI"} <span aria-hidden="true">↗</span>
+      </a>
+      <a class="home-link" href={pathFor(lang,"erkenntnisnavigator")}>
+        {de?"Im Wissensnavigator weiterlesen":"Explore the knowledge navigator"} <span aria-hidden="true">↗</span>
+      </a>
+      <a class="home-link" href={pathFor(lang,"spiel")}>{t.play} <span aria-hidden="true">↗</span></a>
+      <a class="home-link" href={project.repository+"/issues/new?template=frage.yml"}>
+        {de?"Eine Frage öffentlich vorschlagen (GitHub)":"Suggest a question publicly (GitHub)"} <span aria-hidden="true">↗</span>
+      </a>
+    </nav>
+    <details>
+      <summary>{t.life.models}</summary>
+      <VeraErkenntnis lang={lang}/>
+      <VeraFirstStep lang={lang}/>
+    </details>
   </section>
 
-  <section class="home-method section-shell" aria-labelledby="practice-title">
-    <div class="container">
-      <div class="home-section-title"><div><p class="section-kicker">/ {de?"DIE METHODE":"THE METHOD"}</p><h2 id="practice-title" tabindex="-1">{t.howTitle}</h2></div>
-        <div>
-          <p>{t.howReason}</p>
-          <a class="home-link" href={base+"papers/warum-ich-glaube-dass-ich-funktioniere/paper.html"} hreflang="de">
-            {de?"Das wissenschaftliche Arbeitspapier lesen":"Read the working paper (in German)"} <span aria-hidden="true">→</span>
-          </a>
-        </div>
-      </div>
-      <ol class="home-method__steps">
-        {t.practiceSteps.map(([title,text],i)=><li>
-          <span class="home-method__number">0{i+1}</span>
-          <h3>{title}</h3>
-          <p>{text}</p>
-        </li>)}
-      </ol>
-      <blockquote class="home-meta-rule">{protocol.motto[lang]}</blockquote>
-      <details class="home-correction-example">
-        <summary>{t.tryLabel} · {t.tryAction}</summary>
-        <blockquote>{t.tryClaim}</blockquote>
-        <dl>
-          {t.trySteps.map(([label,body])=><div><dt>{label}</dt><dd>{body}</dd></div>)}
-        </dl>
-        <a class="home-link" href={pathFor(lang,"methode","g-005")}>{t.realExampleLink} <span aria-hidden="true">↗</span></a>
-      </details>
-      <div class="home-method__links">
-        <a class="home-link" href={pathFor(lang,"methode","erkenntnismotor")}>{de?"Den Regelweg verstehen":"See the examination process"} ↗</a>
-        <a class="home-link" href={pathFor(lang,"werkstatt")}>{t.worksheet} ↗</a>
-        <a class="home-link" href={pathFor(lang,"fragen-und-ki-prompt","prompt")}>{t.aiLink} ↗</a>
-      </div>
-    </div>
-  </section>
+  <VeraEntity lang={lang}/>
 
-  <section class="home-method section-shell" aria-labelledby="collective-home-title">
-    <div class="container">
-      <p class="section-kicker">{lang==="de"?"GRUNDIDEE · KOLLEKTIVE INTELLIGENZ":"FOUNDING IDEA · COLLECTIVE INTELLIGENCE"}</p>
-      <div class="home-section-title"><h2 id="collective-home-title">{de?"Können wir gemeinsam besser denken als allein?":"Can we think better together than alone?"}</h2></div>
-      <p>{lang==="de"?"Unser Atlas verbindet Fragen. Menschen bringen Erfahrungen und Widersprüche ein, das versionierte Werk bewahrt Änderungen, der philosophische Motor prüft Gründe. KI kann Muster und Gegenargumente vorschlagen. Daraus könnte eine neue Form gemeinsamen Lernens entstehen.":"Our atlas connects questions. People bring experience and objections, the versioned work preserves revisions, the philosophical engine examines reasons and AI may suggest patterns and counterarguments. This might enable a new form of collective learning."}</p>
-      <p class="home-collective__limit">{lang==="de"?"Eine prüfbare Architekturhypothese – keine bereits bewiesene kollektive Intelligenz.":"A testable architecture hypothesis – not yet demonstrated collective intelligence."}</p>
-      <a class="home-link" href={pathFor(lang,"kollektive-intelligenz")}>{lang==="de"?"Unsere Grundidee und Gegenproben verstehen":"Explore our founding idea and its challenges"} →</a>
-      <p><a class="home-link" href={pathFor(lang,"fragen-und-ki-prompt","gastprobe")}>{de?"Mit deiner KI eine Quelle gegenprüfen":"Check a source with your AI"} →</a></p>
-    </div>
-  </section>
-
-  <section class="home-doorways container" aria-label={t.doorwaysLabel}>
-    <article class="home-play">
-      <div class="home-tile-top"><span>{t.playLabel}</span><span>01 / 02</span></div>
-      <h2>{t.playTitle}</h2>
-      <p>{t.playIntro}</p>
-      <blockquote class="home-play-scene">{t.gameScenario}</blockquote>
-      <a class="home-link" href={pathFor(lang,"spiel")}>{t.play} ↗</a>
-      <p class="home-note">{t.playNote}</p>
-    </article>
-    <article class="home-example" aria-labelledby="home-example-title">
-      <div class="home-tile-top"><span>{t.exampleLabel}</span><span>{t.exampleId}</span></div>
-      <h2 id="home-example-title">{t.exampleTitle}</h2>
-      <p class="example-body">{t.exampleText}</p>
-      <details>
-        <summary>{de?"Was wurde ergänzt?":"What was added?"}</summary>
-        <blockquote>{de?"Auch dauerhafte Unterstützung ist wertvoll. Würde und Fürsorge dürfen nicht von erreichbarer Selbstständigkeit abhängen.":"Lasting support is valuable too. Dignity and care must not depend on attainable independence."}</blockquote>
-      </details>
-      <div class="home-example__links">
-        <a class="home-link" href={pathFor(lang,"methode")+"#g-005"}>{t.exampleLink} ↗</a>
-        <a class="home-link" href={pathFor(lang,"gegenprobe-01")}>{de?"Gegenbeispiel suchen":"Find a counterexample"} ↗</a>
-      </div>
-    </article>
-  </section>
-
-  <section class="home-explore section-shell" aria-labelledby="explore-title">
-    <div class="container home-pair">
-      <div class="home-explore__intro">
-        <p class="section-kicker">/ {t.exploreLabel}</p>
-        <h2 id="explore-title">{t.exploreTitle}</h2>
-        <p>{t.consensusLimit}</p>
-        <p>{t.exploreText}</p>
-        <div class="home-explore__links">
-          <a class="home-link" href={pathFor(lang,"baum-des-wissens")}>{t.treeLink} ↗</a>
-          <a class="home-link" href={pathFor(lang,"schnittmengen","vermittlung")}>{de?"Einen Streit zu zweit klären":"Work through a disagreement together"} ↗</a>
-          <a class="home-link" href={pathFor(lang,"mission")}>{t.missionLink} ↗</a>
-        </div>
-      </div>
-      <div class="home-groups">
-        <details open>
-          <summary>{t.bringQuestion}</summary>
-          <p>{t.privacy}</p>
-          <ul>
-            <li><a href={pathFor(lang,"erkenntnisnavigator")}>{t.ownQuestion} ↗</a></li>
-            <li><a href={pathFor(lang,"werkstatt")}>{t.worksheet} ↗</a></li>
-            <li><a href={project.repository+"/issues/new?template=frage.yml"}>{t.publicQuestion} ↗</a></li>
-          </ul>
-        </details>
-        {t.groups.map(group=><details>
-          <summary>{group.title}</summary>
-          <p>{group.text}</p>
-          <ul>{group.links.map(([label,slug])=><li><a href={pathFor(lang,slug)}>{label} ↗</a></li>)}</ul>
-        </details>)}
-      </div>
-    </div>
-  </section>
-
-  <aside class="home-ai-identity container" aria-label={de?"Unsere Open-Source-KI-Vision":"Our open-source AI vision"}>
-    <p><strong>{t.opening.ambition}</strong></p>
-    <p>{de?"Heute kannst du in der Werkstatt Fragen prüfen, Beispiele ausprobieren und die Regeln in deinem eigenen KI-Chat nutzen. Ein eigenständig veröffentlichtes Vera-Modell steht noch aus.":"Today you can examine questions, try examples and use the workshop rules in your own AI chat. An independently released Vera model is still to come."}</p>
-    <a class="home-link" href={pathFor(lang,"ki-und-mensch")}>{de?"Idee und Projektstand prüfen":"Explore the goal and project status"} <span aria-hidden="true">↗</span></a>
-    <p>{de?"Forschungsfrage: Kann kollektive Moral wachsen, ohne Menschen in Zahlen zu bewerten?":"Research question: Can collective morality grow without rating people numerically?"} <a class="home-link" href={pathFor(lang,"kollektive-moral")}>{de?"Den Richtungsindex erkunden":"Explore the direction index"} <span aria-hidden="true">↗</span></a></p>
-  </aside>
   <aside class="home-status container">
     <span data-project-version={project.version}>{ui[lang].name} / {project.version}</span>
-    <p>{t.status} {t.principle}</p>
-    {!de&&<a class="home-link" href={pathFor(lang,"projektstatus","sprachfassungen")}>{ui[lang].status} <span aria-hidden="true">↗</span></a>}
-    <a class="home-link" href={pathFor(lang,"projektstatus")}>{t.statusLink} ↗</a>
+    <p>{t.status}</p>
+    <a class="home-link" href={pathFor(lang,"projektstatus")}>{t.statusLink} <span aria-hidden="true">↗</span></a>
   </aside>
 </Layout>
-
-<script>import "../client/copy-inquiry.mjs";</script>
