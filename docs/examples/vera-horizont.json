@@ -1,0 +1,48 @@
+{
+  "checks": [
+    {
+      "id": "synthetic-assisted-appeal",
+      "actor": "Person using reading assistance",
+      "capability": "independent appeal",
+      "scenario": "Fictional pilot with support chosen by the person and Vera offline",
+      "start": "decision received",
+      "targets": ["objection independently reviewed"],
+      "edges": [
+        {
+          "from": "decision received",
+          "to": "objection prepared with chosen assistance",
+          "status": "verified",
+          "evidence": "Synthetic premise: the person can review and approve their own wording with their chosen reader."
+        },
+        {
+          "from": "objection prepared with chosen assistance",
+          "to": "objection independently reviewed",
+          "status": "verified",
+          "evidence": "Synthetic premise: an independent human reviews the approved wording without requiring Vera or the decision owner."
+        }
+      ]
+    },
+    {
+      "id": "vera-owner-appeal",
+      "actor": "Affected person with a GitHub account and a public objection",
+      "capability": "independent review of the repository owner's own decision",
+      "scenario": "Vera's standing editorial process as documented at e36e8be",
+      "start": "owner decision received",
+      "targets": ["objection independently reviewed"],
+      "edges": [
+        {
+          "from": "owner decision received",
+          "to": "public issue submitted",
+          "status": "verified",
+          "evidence": "docs/community-governance.md, section 'Einspruch gegen eine redaktionelle Entscheidung / Appealing an editorial decision', describes the public route for editorial objections."
+        },
+        {
+          "from": "public issue submitted",
+          "to": "objection independently reviewed",
+          "status": "unavailable",
+          "evidence": "The same section identifies independent standing review as an open requirement and excludes the owner's self-review."
+        }
+      ]
+    }
+  ]
+}
