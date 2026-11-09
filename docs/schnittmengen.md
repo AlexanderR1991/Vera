@@ -23,6 +23,10 @@ Die Einstiegsfrage lautet „An welchem Beispiel würden wir merken, ob wir dass
 
 Im Mietbeispiel kann „fair teilen“ bei 900 € und einem Einkommensverhältnis von zwei zu eins entweder 450 € je Person oder 600 € und 300 € bedeuten. Bei gleichem Einkommen und gleicher Nutzung führen beide Maßstäbe zum selben Betrag. Eine Einigung auf diesen begrenzten Fall lässt den Streit über ungleiche Einkommen offen. Die Eingaben bleiben im Browser. Auch eine ausdrücklich bestätigte Tatsachenbehauptung braucht eigene Belege.
 
+## Eine Voraussetzung auf einem anderen Ast prüfen
+
+Würde ein anderes Verfahren etwas daran ändern, ob wir wieder miteinander reden? Die [Vermittlung zu zweit](https://alexanderr1991.github.io/Vera/de/schnittmengen/#vermittlung) lässt beide für denselben Vorschlag heute, unter einer selbst benannten Bedingung und nach deren gemeldeter Umsetzung antworten. Ein Ja zum Zuhören lässt das Sachvotum offen. [Mathematik, Gegenproben und Plan für zwei persönliche KIs](vermittlung.md)
+
 ## Mehrere Teilzusagen zusammenführen
 
 Wer aus mehreren Einigungen einen gemeinsamen Plan ableitet, hält dessen genauen Wortlaut, die Beteiligten und die Bedingungen fest. Zwei Fragen werden getrennt beantwortet.

@@ -1,0 +1,84 @@
+---
+import { pathFor } from "../lib/paths.mjs";
+import { lessons, reviewDraft } from "../lib/mediation-lessons.mjs";
+const { lang = "de" } = Astro.props;
+const t = (de: string, en: string) => lang === "de" ? de : en;
+---
+<section class="section section--paper review" id="rueckblick" aria-labelledby="review-heading" data-dialogue-review data-lang={lang}>
+  <div class="narrow">
+    <p class="section-kicker">{t("Freiwilliger Rückblick", "Optional reflection")}</p>
+    <h2 id="review-heading">{t("Welche Frage nehmen wir mit?", "Which question will we take with us?")}</h2>
+    <p>{t("Diese erfundenen Fälle könnt ihr vor oder nach einem Gespräch durchgehen. Ihr könnt euch eine Prüffrage für das nächste Mal merken. Wer denselben Browser nutzt, kann die gemerkten Fragen sehen und löschen.", "Explore these invented examples before or after a conversation. You can keep a question for next time. Anyone using this browser can see and clear the saved questions.")}</p>
+    <ul class="checks">
+      {lessons.map(lesson => <li><details data-lesson={lesson.id}>
+        <summary>{lesson[lang][0]} <span hidden data-mark>{t("· gemerkt", "· saved")}</span></summary>
+        <p>{lesson[lang][1]}</p>
+        <p><strong>{t("Was Vera anzeigen sollte", "What Vera should show")}</strong><br/>{lesson[lang][2]}</p>
+        <button type="button" class="button button--ghost" data-save hidden>{t("Prüffrage auf diesem Gerät merken", "Save this question on this device")}</button>
+        <details class="draft"><summary>{t("Daraus eine neue Gegenprobe entwickeln", "Develop a new counterexample")}</summary>
+          <p>{t("Ergänze außerhalb dieser Seite einen neuen erfundenen Fall. Über das Mitwirkenden-Feedback kannst du ihn zur Prüfung vorschlagen. Lass Namen und Gesprächsdetails weg.", "Add a new invented case off this page. You can submit it for review through the contributor feedback form. Leave out names and conversation details.")}</p>
+          <pre tabindex="0">{reviewDraft(lesson.id, lang)}</pre>
+          <a class="subtle-link" href={"data:text/plain;charset=utf-8," + encodeURIComponent(reviewDraft(lesson.id, lang))} download={`vera-${lesson.id}-${lang}.txt`}>{t("Text zum Bearbeiten herunterladen", "Download the text to edit")} ↓</a> ·
+          <a class="subtle-link" href={pathFor(lang, "mitwirken", "entwurf")}>{t("Zum Feedbackentwurf", "Open the feedback worksheet")} →</a>
+        </details>
+      </details></li>)}
+    </ul>
+    <button type="button" class="button button--ghost" data-clear hidden>{t("Alle gemerkten Prüffragen löschen", "Clear all saved questions")}</button>
+    <p role="status" data-message></p>
+  </div>
+</section>
+<script>
+  import { rememberedChecks } from "../lib/mediation-lessons.mjs";
+  const key = "vera.mediation.checks.v1";
+  document.querySelectorAll<HTMLElement>("[data-dialogue-review]").forEach(root => {
+    const de = root.dataset.lang === "de";
+    const cards = [...root.querySelectorAll<HTMLDetailsElement>("[data-lesson]")];
+    const clear = root.querySelector<HTMLButtonElement>("[data-clear]")!;
+    const message = root.querySelector<HTMLElement>("[data-message]")!;
+    const render = () => {
+      const saved = rememberedChecks(localStorage.getItem(key));
+      for (const card of cards) {
+        const marked = saved.includes(card.dataset.lesson);
+        card.querySelector<HTMLElement>("[data-mark]")!.hidden = !marked;
+        card.querySelector<HTMLButtonElement>("[data-save]")!.hidden = marked;
+      }
+      clear.hidden = saved.length === 0;
+    };
+    const unavailable = () => {
+      message.textContent = de ? "Der Browser erlaubt das Merken auf diesem Gerät gerade nicht." : "This browser currently prevents saving checks on this device.";
+      clear.hidden = true;
+      for (const card of cards) card.querySelector<HTMLButtonElement>("[data-save]")!.hidden = true;
+    };
+    try { render(); } catch { unavailable(); }
+    root.addEventListener("click", event => {
+      if (!(event.target instanceof Element)) return;
+      const button = event.target.closest<HTMLButtonElement>("button");
+      if (!button) return;
+      try {
+        if (button === clear) {
+          localStorage.removeItem(key);
+          message.textContent = de ? "Die gemerkten Prüffragen wurden gelöscht." : "The saved questions were cleared.";
+        } else if (button.hasAttribute("data-save")) {
+          const id = button.closest<HTMLDetailsElement>("[data-lesson]")!.dataset.lesson;
+          const saved = rememberedChecks(localStorage.getItem(key));
+          const selected = rememberedChecks(JSON.stringify([...saved, id]));
+          localStorage.setItem(key, JSON.stringify(selected));
+          message.textContent = de ? "Prüffrage für das nächste Gespräch auf diesem Gerät gemerkt." : "Question saved on this device for next time.";
+        }
+        render();
+      } catch { unavailable(); }
+    });
+  });
+</script>
+<style>
+  .review{scroll-margin-top:6rem}
+  .review h2{font:400 clamp(32px,4vw,52px)/1.15 var(--serif);margin:.4em 0}
+  .review p,.review pre{line-height:1.6}
+  .checks{list-style:none;padding:0;margin:1.5rem 0}
+  .checks li{border-top:1px solid var(--line);padding:.7rem 0}
+  .checks summary{cursor:pointer;padding:.5rem 0;font-weight:600}
+  .checks [data-mark]{font-weight:400}
+  .draft{margin-top:1rem}
+  .draft pre{white-space:pre-wrap;font:inherit;padding:1rem;border-left:2px solid var(--line)}
+  .review [hidden]{display:none}
+</style>

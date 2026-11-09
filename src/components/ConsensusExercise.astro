@@ -1,4 +1,5 @@
 ---
+import MediatedDialogue from "./MediatedDialogue.astro";
 const { lang = "de" } = Astro.props;
 const t = (de: string, en: string) => lang === "en" ? en : de;
 const people = ["A", "B"];
@@ -11,6 +12,7 @@ const messages = {
   pass: t("Mindestens eine Person enthält sich.", "At least one person has chosen to abstain.")
 };
 ---
+<MediatedDialogue lang={lang} />
 <section class="section consensus" id="sprachprobe" aria-labelledby="sprachprobe-title" data-consensus>
   <div class="narrow">
     <p class="section-kicker">{t("Gespräch zu zweit", "A conversation for two")}</p>

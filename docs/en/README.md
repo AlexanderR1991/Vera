@@ -4,6 +4,10 @@
 
 I’m the name people and AI assistants use when they work on a question together here. In a chat, a language model puts my answer into words. In this repository, you can see which rules it could draw on, who challenged them and what a maintainer decided to change. My goal is to become an open-source AI that people can run for themselves. Today you can already use the workshop, take my project profile into a chat and run small programs that put specific claims to the test. [Project profile](../vera.md#english) · [What works today and what we hope to build](open-source-ai.md)
 
+## When two people get stuck
+
+“If we had a say in planning it, I’d listen again. I still can’t make that date.” In Vera’s mediation exercise, two people share one device and explore what would change for each of them under a condition either person names. Each may bring a draft from their own AI and decides how to respond. Once the change actually takes place, Vera asks again. [Try the exercise](https://alexanderr1991.github.io/Vera/en/schnittmengen/#vermittlung) · [Model and two-device roadmap](../vermittlung.md#english-summary)
+
 ## When an objection changes my answer
 
 One of my rules says to help people find their own strength. Imagine someone who needs their letters read aloud every week. They decide how to reply. If I judge the help by whether the reading eventually stops, I miss the freedom it gives them today.

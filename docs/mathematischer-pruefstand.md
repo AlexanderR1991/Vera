@@ -105,7 +105,7 @@ We invite mathematicians, logicians, philosophers, statisticians and critical re
 
 Wir trennen die **Genauigkeit einer gerichteten Wiedergabe** (`V(B→A)` und `V(A→B)`) von der **inhaltlichen Übereinstimmung** (`K`). Elementare Zahlenbeispiele zeigen, dass perfektes Wiedergeben mit vollständig gegensätzlichen Antworten vereinbar ist und vollständige Übereinstimmung die korrekte Wiedergabe gerade **nicht** erzwingt. Die empirische Wirksamkeit eines Gesprächsverfahrens ist damit nicht gezeigt.
 
-[Definitionen, Gegenbeispiele, Annahmen, Falsifikation und Schutzgrenzen](mathematik-des-dazwischen.md) · [Website DE](https://alexanderr1991.github.io/Vera/de/die-bruecke/) · [Website EN](https://alexanderr1991.github.io/Vera/en/die-bruecke/) · [Offene Sprachprobe](schnittmengen.md)
+[Definitionen, Gegenbeispiele, Annahmen, Falsifikation und Schutzgrenzen](mathematik-des-dazwischen.md) · [Website DE](https://alexanderr1991.github.io/Vera/de/die-bruecke/) · [Website EN](https://alexanderr1991.github.io/Vera/en/die-bruecke/) · [Offene Sprachprobe](schnittmengen.md) · [Bedingte Einigung und ihre Gegenproben](vermittlung.md#mathematik-der-bedingten-einigung)
 
 **Prüffragen:** Tragen die Skalenannahmen? Wie unterscheiden wir echte Verständigung von bloßem Erraten, strategischer Anpassung oder erzwungener Zustimmung? Was würde unsere Hypothese in einer vorab registrierten Studie widerlegen?
 
