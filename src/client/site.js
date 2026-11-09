@@ -66,56 +66,74 @@ if(form){
  });
  form.hidden=false;
 }
-// Shuffle the links themselves so keyboard and visual order stay aligned.
 const board = document.querySelector("[data-board-grid]");
-const boardFilter = document.querySelector("[data-board-filter]");
-if (board && boardFilter) {
- const items = Array.from(board.querySelectorAll("[data-board-card]"));
+if (board) {
+ const search = document.querySelector("[data-board-filter]");
+ const topics = document.querySelector("[data-board-topics]");
+ const filters = [...topics.querySelectorAll("[data-board-topic-filter]")];
  const counter = document.querySelector("[data-board-counter]");
  const empty = document.querySelector("[data-board-empty]");
- for (let i = items.length - 1; i > 0; i--) {
-  const j = Math.floor(Math.random() * (i + 1));
-  [items[i], items[j]] = [items[j], items[i]];
- }
- board.append(...items);
+ const actions = document.querySelector("[data-board-actions]");
+ const more = actions.querySelector("[data-board-more]");
+ const pageSize = 8;
+ const format = new Intl.NumberFormat(document.documentElement.lang);
+ const clean = value => value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replaceAll("ß", "ss");
+ const entries = [...board.querySelectorAll("[data-board-card]")].map(card => ({
+  card,
+  topic: card.dataset.boardTopic,
+  words: clean(card.dataset.boardKeywords ?? ""),
+ }));
+ let topic = "all";
+ let limit = pageSize;
+ let matches = [];
 
- // Sparse grid placement fills the next free column in source order. Resize
- // observations update spans after wrapping, filtering or a viewport change.
- const masonry = typeof ResizeObserver === "function";
- if (masonry) board.dataset.boardMasonry = "";
- function layoutBoard() {
-  if (!masonry) return;
-  const style = getComputedStyle(board);
-  const row = parseFloat(style.gridAutoRows);
-  const gap = parseFloat(style.columnGap);
-  if (!(row > 0) || !Number.isFinite(gap)) return;
-  const spans = items.filter(item => !item.hidden).map(item => {
-   const rows = Math.ceil((item.getBoundingClientRect().height + gap) / row);
-   return [item, "span " + rows];
-  });
-  for (const [item, span] of spans) {
-   if (item.style.gridRowEnd !== span) item.style.gridRowEnd = span;
+ function showMatches() {
+  const shown = Math.min(limit, matches.length);
+  const visible = new Set(matches.slice(0, shown));
+  for (const entry of entries) {
+   const hidden = !visible.has(entry);
+   if (entry.card.hidden !== hidden) entry.card.hidden = hidden;
   }
+  const total = format.format(matches.length);
+  const noun = matches.length === 1 ? (en ? "question" : "Frage") : (en ? "questions" : "Fragen");
+  counter.textContent = shown === matches.length
+   ? total + " " + noun
+   : format.format(shown) + (en ? " of " : " von ") + total + " " + noun;
+  actions.hidden = shown === matches.length;
+  empty.hidden = matches.length !== 0;
  }
- if (masonry) {
-  const observer = new ResizeObserver(layoutBoard);
-  items.forEach(item => observer.observe(item));
- }
- const clean = value => value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
- const searchable = items.map(item => [item, clean(item.dataset.boardKeywords ?? "")]);
+
  function apply() {
-  const query = clean(boardFilter.value.trim());
-  let shown = 0;
-  for (const [item, words] of searchable) {
-   item.hidden = !words.includes(query);
-   if (!item.hidden) shown++;
-  }
-  counter.textContent = shown + " " + (en ? (shown === 1 ? "entry" : "entries") : (shown === 1 ? "Zugang" : "Zugänge"));
-  empty.hidden = shown !== 0;
-  layoutBoard();
+  const terms = clean(search.value.trim()).split(/\s+/).filter(Boolean);
+  limit = pageSize;
+  board.toggleAttribute("data-board-overview", topic === "all" && terms.length === 0);
+  matches = entries.filter(entry => (topic === "all" || entry.topic === topic) &&
+   terms.every(term => entry.words.includes(term)));
+  showMatches();
  }
- boardFilter.addEventListener("input", apply);
- boardFilter.addEventListener("search", apply);
+
+ function selectTopic(next) {
+  topic = next;
+  for (const filter of filters) filter.setAttribute("aria-pressed", String(filter.dataset.boardTopicFilter === topic));
+  apply();
+ }
+
+ for (const filter of filters) filter.addEventListener("click", () => selectTopic(filter.dataset.boardTopicFilter));
+ search.addEventListener("input", apply);
+ more.addEventListener("click", () => {
+  const next = matches[limit];
+  limit += pageSize;
+  showMatches();
+  next?.card.focus();
+ });
+ empty.querySelector("[data-board-reset]").addEventListener("click", () => {
+  search.value = "";
+  selectTopic("all");
+  search.focus();
+ });
+
  apply();
+ search.closest("[data-board-filter-wrap]").hidden = false;
+ topics.hidden = false;
 }
 })();
