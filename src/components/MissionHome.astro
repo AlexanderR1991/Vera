@@ -18,7 +18,7 @@ const t=copy[lang];
 const de=lang==="de";
 const name=ui[lang].name;
 const greeting=`${t.opening.greetingLead} ${name}.`;
-const paperUrl=base+"papers/warum-ich-glaube-dass-ich-funktioniere/paper.html";
+const paperUrl=base+"papers/warum-ich-glaube-dass-ich-funktioniere/paper.html"+(de?"":"#english");
 // Stagger the loops so the field looks active on arrival and wraps continuously.
 const paperWind = Array.from({length:72}, (_, index) => {
   const edge = index < 32;
@@ -56,7 +56,7 @@ const paperWind = Array.from({length:72}, (_, index) => {
           <a class="home-link" href={pathFor(lang,"methode","erkenntnismotor")}>
             {t.opening.rules} <span aria-hidden="true">↗</span>
           </a>
-          <a class="home-link" href={paperUrl} hreflang="de">
+          <a class="home-link" href={paperUrl} hreflang={de?"de":undefined}>
             <span>{t.opening.paper}&nbsp;<span aria-hidden="true">↗</span></span>
           </a>
         </div>
@@ -93,7 +93,7 @@ const paperWind = Array.from({length:72}, (_, index) => {
         {t.life.together} <span aria-hidden="true">↗</span>
       </a>
       <a class="home-link" href={pathFor(lang,"methode","g-005")}>{t.realExampleLink} <span aria-hidden="true">↗</span></a>
-      <a class="home-link" href={paperUrl} hreflang="de">
+      <a class="home-link" href={paperUrl} hreflang={de?"de":undefined}>
         {t.life.paper} <span aria-hidden="true">↗</span>
       </a>
       <a class="home-link" href={pathFor(lang,"fragen-und-ki-prompt","prompt")}>{t.aiLink} <span aria-hidden="true">↗</span></a>

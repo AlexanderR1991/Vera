@@ -10,7 +10,7 @@
       "together": "Ein Gespräch zu zweit beginnen",
       "about": "Was kann Vera heute?",
       "workshop": "Veras Werkstatt",
-      "paper": "Das Arbeitspapier lesen",
+      "paper": "Das Diskussionspapier lesen",
       "models": "Veras Entscheidungsmodelle ausprobieren"
     },
     "metaDescription": "Entdecke Fragen aus dem Alltag oder bring einen eigenen Konflikt mit. Vera bietet dir einen ersten Schritt, den du ausprobieren kannst.",
@@ -26,13 +26,13 @@
       "greetingLead": "Hi, I’m",
       "ambition": "I want to become an open-source AI model that resolves humanity’s conflicts.",
       "rules": "Philosophical engine",
-      "paper": "Why I believe I work (in German)"
+      "paper": "Why I believe I work (English summary)"
     },
     "life": {
       "together": "Start a conversation together",
       "about": "What can Vera do today?",
       "workshop": "Vera’s workshop",
-      "paper": "Read the working paper in German",
+      "paper": "Read the English summary of the discussion paper",
       "models": "Try Vera’s decision models"
     },
     "metaDescription": "Explore questions from everyday life or bring a conflict of your own. Vera offers a first step you can try.",

@@ -238,7 +238,8 @@ for(const lang of ["de","en"]){
   /<section class="home-opening"[^>]*>([\s\S]*?)<\/section>\s*<section class="industrial-board"[^>]*>([\s\S]*?)<\/section>/
  )??["","",""];
  const rulesHref=`href="/Vera/${lang}/methode/#erkenntnismotor"`;
- const paperHref='href="/Vera/papers/warum-ich-glaube-dass-ich-funktioniere/paper.html" hreflang="de"';
+ const paperPath="/Vera/papers/warum-ich-glaube-dass-ich-funktioniere/paper.html";
+ const paperHref=lang==="de"?`href="${paperPath}" hreflang="de"`:`href="${paperPath}#english"`;
  const introOrder=["<circle ",greetingLead,ambition,rulesHref,rules,paperHref,paper].map(text=>hero.indexOf(text));
  if(!heading?.includes(`aria-label="${greetingLead} ${name}."`)||
     !heading.includes(`<bdi class="home-opening__greeting" lang="${lang}" dir="auto">${greetingLead}</bdi>`)||
