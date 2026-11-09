@@ -1,21 +1,71 @@
 ---
 import {base,pathFor} from "../lib/paths.mjs";
 import {ui} from "../lib/ui.mjs";
+import BoardArtwork from "./BoardArtwork.astro";
 import artWorks from "../../public/knowledge/art-works.v1.json";
 const {lang="de"}=Astro.props;
 const de=lang==="de";
 const wave=artWorks.works.find(work=>work.id==="art-01");
 const cards=[
+  {
+    id:"nutrition", art:"nutrition", route:"ernaehrung-und-verantwortung",
+    category:{de:"Ernährung",en:"Nutrition"},
+    title:{de:"Was heißt gut essen?",en:"What does it mean to eat well?"},
+    description:{de:"Was dein Körper braucht, was du dir leisten kannst und was dir wichtig ist.",en:"What your body needs, what you can afford, and what matters to you."},
+    keywords:"essen lebensmittel tierwohl gesundheit kosten food animal welfare health budget"
+  },
+  {
+    id:"politics", art:"politics", route:"politik-die-dem-menschen-dient",
+    category:{de:"Politik",en:"Politics"},
+    title:{de:"Wem dient eine politische Entscheidung?",en:"Who does a political decision serve?"},
+    description:{de:"Schau darauf, wer mitentscheidet und wer die Folgen trägt.",en:"Look at who gets a say and who lives with the consequences."},
+    keywords:"gesellschaft demokratie mitbestimmung rechte staat democracy rights government participation"
+  },
   {id:"conversation",route:"schnittmengen",anchor:{de:"sprachprobe",en:"sprachprobe"},category:{de:"Am Küchentisch",en:"At the kitchen table"},title:{de:"Teilen wir die Miete durch zwei?",en:"Should we split the rent in half?"},description:{de:"Ein Gehalt ist doppelt so hoch wie das andere. Ihr wollt beide fair teilen. Was bedeutet das für jeden von euch?",en:"One of you earns twice as much as the other. You both want to be fair. What does that mean to each of you?"},action:{de:"Gespräch zu zweit ausprobieren",en:"Try the conversation together"},keywords:"gespräch streit konflikt zuhören miete fairness mediation conversation rent disagreement listening"},
   {id:"first-step",route:"index",anchor:{de:"erkenntnis",en:"insight"},category:{de:"Erkenntnis · Ausprobieren",en:"Insight · Try it"},title:{de:"Wie entscheidet Vera?",en:"How does Vera decide?"},description:{de:"Eine neue Seite soll online gehen. Welchen Test würdest du zuerst machen? Vergleiche deine Wahl mit Veras Modell.",en:"A new page is about to go live. What would you check first? Compare your choice with Vera’s model."},action:{de:"Modell ausprobieren",en:"Try the model"},keywords:"einstieg start erkenntnis entscheidung belege insight decision evidence"},
   {id:"everyday",route:"forum",anchor:{de:"alltagsfragen",en:"alltagsfragen"},category:{de:"Aus dem Alltag",en:"Everyday life"},title:{de:"Was beschäftigt dich?",en:"What’s on your mind?"},description:{de:"Muss ich bleiben, wenn ich jemanden liebe? Hier findest du einen ersten Gedanken dazu und einen guten Grund, weiterzufragen.",en:"Do I have to stay if I love someone? Read one possible answer and a question that might change how you see it."},action:{de:"Alltagsfragen lesen",en:"Read everyday questions"},keywords:"liebe arbeit ernährung food work love beziehung"},
   {id:"art",route:"kunst-und-erkenntnis",anchor:{de:"sammlung",en:"sammlung"},category:{de:"Liber Artis · Kunst",en:"Liber Artis · Art"},title:{de:"Wohin schaust du zuerst?",en:"Where does your eye go first?"},description:{de:"Unter Hokusais großer Welle ducken sich Menschen in ihren Booten. Schau einen Moment lang nur auf sie. Wie wirkt die Welle jetzt?",en:"Beneath Hokusai’s great wave, people crouch in their boats. Look just at them for a moment. How does the wave feel now?"},action:{de:"Zur Kunstsammlung",en:"Explore the art collection"},keywords:"kunst art kunstwerk werk malerei musik literatur architektur painting music literature architecture"},
   {id:"military",route:"militaer-und-verantwortung",category:{de:"Liber Custodiae · Frieden",en:"Liber Custodiae · Peace"},title:{de:"Wer lebt neben dem Ziel?",en:"Who lives next to the target?"},description:{de:"Eine Armee soll Menschen schützen. In der Nähe ihres Ziels leben Familien. Was schuldet sie ihnen?",en:"An army has a duty to protect people. Families live near its target. What does it owe them?"},action:{de:"Zum Kapitel",en:"Read the chapter"},keywords:"militär military defence verteidigung frieden peace verantwortung schutz"},
-  {id:"society",route:"politik-die-dem-menschen-dient",category:{de:"Gesellschaft",en:"Society"},title:{de:"Wem gehört der Garten?",en:"Whose garden is it?"},description:{de:"Ein Kind will Fußball spielen, eines Blumen pflanzen, eines lesen. Wie finden sie eine Regel für den Platz, den alle teilen?",en:"One child wants to play football, another to plant flowers, another to read. How can they decide what to do with the space they share?"},keywords:"politik rechte moral demokratie"},
+  {id:"society",route:"politik-die-dem-menschen-dient",anchor:{de:"garten",en:"garten"},category:{de:"Gesellschaft",en:"Society"},title:{de:"Wem gehört der Garten?",en:"Whose garden is it?"},description:{de:"Ein Kind will Fußball spielen, eines Blumen pflanzen, eines lesen. Wie finden sie eine Regel für den Platz, den alle teilen?",en:"One child wants to play football, another to plant flowers, another to read. How can they decide what to do with the space they share?"},keywords:"politik rechte moral demokratie"},
   {id:"bridge",route:"die-bruecke",category:{de:"Die Brücke / M-02",en:"The Bridge / M-02"},title:{de:"Habe ich dich richtig verstanden?",en:"Have I understood you?"},description:{de:"Du kannst die Antwort eines Freundes genau vorhersagen und selbst anders denken. In diesem Modell kannst du beides ausprobieren.",en:"You might know exactly what a friend would say and still disagree. Try those two things side by side in the model."},keywords:"mathematik konsens beziehung dialog"},
   {id:"atlas",route:"atlas",category:{de:"Wissensatlas",en:"Knowledge atlas"},title:{de:"Wo fängt deine Frage an?",en:"Where does your question begin?"},description:{de:"Beim Körper, bei einem Gefühl, bei den Regeln, nach denen wir leben? Sechs Felder laden zum Weiterdenken ein.",en:"With your body, a feeling, or the rules we live by? Explore six ways into a question."},keywords:"wissensbaum erkenntnis felder thema knowledge map"},
   {id:"counterexample",route:"gegenprobe-01",category:{de:"Offene Gegenprobe",en:"Open challenge"},title:{de:"Entscheidest du das für mich?",en:"Would you decide for me?"},description:{de:"Ein Freund bittet dich darum. Wann wäre es fürsorglich, Ja zu sagen? An dieser Frage kannst du unsere Regel über Hilfe prüfen.",en:"A friend asks you to make a choice for them. When would saying yes be an act of care? Try our rule about helping against that case."},action:{de:"Gegenprobe öffnen",en:"Open the challenge"},keywords:"widerspruch einwand hilfe freiheit objection freedom"},
-];
+  {
+    id:"medicine", art:"medicine", route:"medizin",
+    category:{de:"Medizin",en:"Medicine"},
+    title:{de:"Was sagt ein besserer Messwert aus?",en:"What does a better reading tell us?"},
+    description:{de:"Prüfe an einem Fall, ob ein Messwert zeigt, dass es Menschen besser geht.",en:"Use a real case to ask whether a reading shows people are doing better."},
+    keywords:"gesundheit studie evidenz behandlung health study evidence treatment"
+  },
+  {
+    id:"religions", art:"religions", route:"bruecken-zwischen-den-religionen",
+    category:{de:"Religionen",en:"Religions"},
+    title:{de:"Was teilen wir, obwohl wir anders glauben?",en:"What do we share across different beliefs?"},
+    description:{de:"Erkunde Gemeinsamkeiten und Unterschiede zwischen Weltanschauungen.",en:"Explore common ground and differences between worldviews."},
+    keywords:"glaube religion ethik weltanschauung faith belief ethics worldview"
+  },
+  {
+    id:"symbols", art:"symbols", route:"esoterik-katalog",
+    category:{de:"Esoterik",en:"Esotericism"},
+    title:{de:"Was bedeutet ein Zeichen für dich?",en:"What does a sign mean to you?"},
+    description:{de:"Unterscheide persönliche Deutung und überprüfbare Vorhersage.",en:"Separate personal meaning from a prediction you can test."},
+    keywords:"symbol tarot astrologie deutung symbol astrology interpretation"
+  },
+  {
+    id:"dialogue", art:"dialogue", route:"schnittmengen", anchor:{de:"vermittlung",en:"vermittlung"},
+    category:{de:"Vermittlung",en:"Mediation"},
+    title:{de:"Was könnte unser Gespräch wieder öffnen?",en:"What could get us talking again?"},
+    description:{de:"Probiert zu zweit, welche Änderung für euch einen Unterschied machen würde.",en:"Try together to find a change that would make a difference for both of you."},
+    keywords:"streit konflikt gespräch zuhören disagreement conflict dialogue listening"
+  },
+  {
+    id:"rules", art:"rules", route:"philosophischer-motor",
+    category:{de:"Philosophischer Motor",en:"Philosophical engine"},
+    title:{de:"Welche Gründe tragen deine Entscheidung?",en:"What reasons support your decision?"},
+    description:{de:"Schau dir an, wie Vera Aussagen, Werte und Einwände auseinanderhält.",en:"See how Vera distinguishes claims, values and objections."},
+    keywords:"regeln methode mathematik entscheidung models mathematics method rules"
+  },
+] as const;
 const word=(v)=>v[lang];
 ---
 <section class="industrial-board" id={de?"leben":"life"} aria-labelledby="board-title">
@@ -29,19 +79,23 @@ const word=(v)=>v[lang];
         </a>
       </div>
       <div class="board-filter" data-board-filter-wrap>
-        <label for="board-filter-input">{de?"Zugänge filtern":"Filter entries"}</label>
-        <input id="board-filter-input" type="search" placeholder={de?"Thema eingeben …":"Type a topic …"} autocomplete="off" data-board-filter />
+        <label for="board-filter-input">{de?"Pinnwand durchsuchen":"Search the pinboard"}</label>
+        <div class="board-filter__field">
+          <svg viewBox="0 0 20 20" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false">
+            <circle cx="8.6" cy="8.6" r="4.9" /><path d="m12.2 12.2 3.7 3.7" />
+          </svg>
+          <input id="board-filter-input" type="search" placeholder={de?"Ernährung, Politik, Kunst …":"Nutrition, politics, art …"} autocomplete="off" data-board-filter />
+        </div>
         <span class="board-counter" data-board-counter aria-live="polite">{cards.length} {de?"Zugänge":"entries"}</span>
       </div>
     </div>
     <div class="board-grid" data-board-grid>
-      {cards.map((card,index)=><a class:list={["board-tile", "board-tile--"+card.id]}
-        href={card.route==="index"?"#"+card.anchor[lang]:pathFor(lang,card.route,card.anchor?.[lang])}
-        data-board-card data-board-keywords={[word(card.category),word(card.title),word(card.description),card.action?.[lang],card.keywords].join(" ")}>
-        <div class="board-tile__top">
-          <span class="board-tile__number" aria-hidden="true">{String(index+1).padStart(2,"0")}</span>
-          <span>{word(card.category)}</span>
-        </div>
+      {cards.map(card=><a class:list={["board-tile", "board-tile--"+card.id]}
+        href={card.route==="index"?"#"+card.anchor[lang]:pathFor(lang,card.route,"anchor" in card?card.anchor[lang]:undefined)}
+        aria-labelledby={"board-title-"+card.id} aria-describedby={"board-description-"+card.id}
+        data-board-card={card.id}
+        data-board-keywords={[word(card.category),word(card.title),word(card.description),"action" in card?word(card.action):"",card.keywords].join(" ")}>
+        {"art" in card&&<BoardArtwork id={card.art}/>}
         {card.id==="conversation"&&
           <svg class="board-tile__art" data-board-art="table" viewBox="0 0 192 112" aria-hidden="true" focusable="false">
             <g fill="none" stroke="currentColor" stroke-linejoin="round">
@@ -101,13 +155,14 @@ const word=(v)=>v[lang];
               <path d="m89 55 5 6 10-12" stroke-width="1.5"/>
             </g>
           </svg>}
-        <div class="board-tile__bottom">
-          <h3>{word(card.title)}</h3>
-          <p>{word(card.description)}</p>
+        <div class="board-tile__caption">
+          <div class="board-tile__top">
+            <span>{word(card.category)}</span>
+            <span class="board-tile__arrow" aria-hidden="true">{card.route==="index"?"↓":"↗"}</span>
+          </div>
+          <h3 id={"board-title-"+card.id}>{word(card.title)}</h3>
+          <p id={"board-description-"+card.id}>{word(card.description)}</p>
         </div>
-        <span class="board-tile__action">
-          {card.action?.[lang]??(de?"Öffnen":"Explore")} <span aria-hidden="true">{card.route==="index"?"↓":"→"}</span>
-        </span>
       </a>)}
     </div>
     <p class="board-empty" data-board-empty hidden>{de?"Keine passende Kachel. Bitte einen anderen Begriff versuchen.":"No matching tile. Try another term."}</p>
