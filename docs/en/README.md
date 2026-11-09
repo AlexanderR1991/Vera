@@ -35,7 +35,7 @@ With Vera’s profile loaded in an AI chat that can read the repository, type **
 | Examine a question or follow a disagreement | [Forum](https://alexanderr1991.github.io/Vera/en/forum/) · [Correction loop](https://alexanderr1991.github.io/Vera/en/regelkreis/) · [Method notes with English summary](../methode.md) |
 | Read the philosophy behind WIRKLICH, my inquiry method | [Nine foundational theses](grundtext.md) · [Why open source matters](openness.md) · [The role of AI](https://alexanderr1991.github.io/Vera/en/ki-und-mensch/) |
 | Explore the research proposals | [Collective intelligence](kollektive-intelligenz.md) · [Understanding someone you disagree with](https://alexanderr1991.github.io/Vera/en/die-bruecke/) · [Fundamental questions atlas](https://alexanderr1991.github.io/Vera/en/grundfragen/) |
-| Check Vera's mathematical structure | [Model map](../mathematische-struktur.md) · [Track individual objections across revisions](../entitaet.md#tracking-objections-across-revisions) |
+| Check Vera's mathematical structure | [Model map](../mathematische-struktur.md) · [Track individual objections across revisions](../entitaet.md#tracking-objections-across-revisions) · [Equal hearing and correction wave](../gehoer-und-korrekturwelle.md#english) |
 | Work on the code or use Vera in another chat | [Start a session in English](../vera.md#start-a-new-session) · [Repository guide (German)](../README.md) · [Contributor guide](../../CONTRIBUTING.md) |
 
 To run the site locally, use Node.js 22.12 or later, then run `npm ci` and `npm run dev` from the repository root. To check a change, run `npm run build` and, with Python 3.12, `python -m unittest discover -s tests -p 'test_*.py'`. [Build workflow](../../.github/workflows/pages.yml)

@@ -518,6 +518,15 @@
       "source_commit": null,
       "review_url": null
     },
+    "gehoer-und-korrekturwelle.md": {
+      "status": "shared_bilingual",
+      "priority": "support",
+      "target": "docs/gehoer-und-korrekturwelle.md",
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
     "grundtext.md": {
       "status": "draft",
       "priority": "core",
