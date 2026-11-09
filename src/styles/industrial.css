@@ -115,6 +115,146 @@ a:hover { color: var(--gold-bright); }
 }
 .home-question > .first-answer { margin-inline: auto; }
 
+/* Read the pinboard left to right. Wider cards never reorder the links. */
+.industrial-board {
+  --board-rule: var(--vera-line);
+  --board-subtle: var(--text-soft);
+  --board-accent: var(--vera-signal);
+  padding-block: clamp(28px, 5vw, 72px);
+  border-block-start: 1px solid var(--board-rule);
+  scroll-margin-block-start: 64px;
+}
+.industrial-board :focus-visible { outline-color: var(--board-accent); }
+.board-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 20px 32px;
+  margin-bottom: clamp(24px, 3.2vw, 44px);
+}
+.board-heading h2 {
+  margin: 0;
+  font: 700 clamp(2.625rem, 5.6vw, 4.75rem)/1 var(--sans);
+  letter-spacing: -.075em;
+}
+.board-heading > div > p { margin: 12px 0 0; color: var(--board-subtle); font-size: 1rem; }
+.board-own { color: var(--board-accent); }
+.board-filter {
+  display: none;
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
+  gap: 6px 14px;
+  width: min(100%, 320px);
+}
+.has-js .board-filter { display: grid; }
+.board-filter label, .board-counter {
+  color: var(--board-subtle);
+  font: 600 .75rem/1.4 var(--vera-mono);
+}
+.board-counter { font-variant-numeric: tabular-nums; }
+.board-filter input {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  width: 100%;
+  min-height: 44px;
+  padding: 8px 11px;
+  border: 1px solid var(--muted);
+  border-radius: 0;
+  background: var(--vera-panel);
+  color: var(--text);
+  font-size: 1rem;
+}
+.board-filter input::placeholder { color: var(--board-subtle); }
+.board-filter input:focus { border-color: var(--board-accent); }
+.board-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(10px, 1.2vw, 18px); }
+.board-tile {
+  --tile-paper: #292d29;
+  --tile-ink: #f6f1e4;
+  --tile-muted: #d1d3c6;
+  --tile-accent: #e2c5a0;
+  --tile-line: #565c50;
+  --tile-art: #202521;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+  min-height: 186px;
+  padding: clamp(14px, 1.65vw, 24px);
+  border: 1px solid var(--tile-line);
+  background: var(--tile-paper);
+  color: var(--tile-ink);
+}
+.board-tile:hover { color: var(--tile-ink); border-color: var(--tile-accent); }
+.board-tile:hover .board-tile__action { text-decoration: underline; text-underline-offset: 4px; }
+.board-tile--first-step, .board-tile--atlas {
+  --tile-paper: #293432;
+  --tile-art: #222c2a;
+}
+.board-tile--bridge, .board-tile--military {
+  --tile-paper: #30372b;
+  --tile-art: #272e23;
+}
+.board-tile--everyday, .board-tile--art, .board-tile--conversation {
+  --tile-paper: #f1ebdd;
+  --tile-ink: #282b24;
+  --tile-muted: #4c5044;
+  --tile-accent: #754a34;
+  --tile-line: #b8ad99;
+  --tile-art: #eae1cf;
+}
+.board-tile--conversation {
+  --tile-paper: #e9d7be;
+  --tile-line: #ae957b;
+  --tile-art: #f2e5d1;
+}
+.board-tile__art {
+  display: block;
+  width: 100%;
+  height: clamp(108px, 9vw, 132px);
+  margin: 0;
+  background: var(--tile-art);
+  border: 1px solid var(--tile-line);
+}
+.board-tile__art--image {
+  height: clamp(122px, 11vw, 154px);
+  object-fit: cover;
+  object-position: center 46%;
+}
+.board-tile__ink { stroke: var(--tile-accent); }
+.board-tile__top {
+  display: flex;
+  gap: 9px;
+  font: 600 .6875rem/1.45 var(--vera-mono);
+  letter-spacing: .045em;
+  text-transform: uppercase;
+}
+.board-tile__number { color: var(--tile-accent); }
+.board-tile__number::after { content: " /"; }
+.board-tile__bottom { margin-top: auto; }
+.board-tile__bottom h3 {
+  margin: 0 0 7px;
+  font: 700 clamp(1.35rem, 2.15vw, 2rem)/1.1 var(--sans);
+  letter-spacing: -.048em;
+  text-wrap: pretty;
+}
+.board-tile--conversation h3, .board-tile--everyday h3 { font-size: clamp(1.6rem, 2.65vw, 2.6rem); }
+.board-tile__bottom p { max-width: 44ch; margin: 0; color: var(--tile-muted); font-size: .9375rem; line-height: 1.45; }
+.board-tile__action { display: flex; justify-content: space-between; gap: 10px; font-size: .8125rem; font-weight: 700; }
+.board-tile__action span { color: var(--tile-accent); font-size: 1.1em; }
+.board-source {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0 18px;
+  margin-top: 18px;
+  padding-top: 8px;
+  border-top: 1px solid var(--board-rule);
+}
+.board-source p, .board-empty { color: var(--board-subtle); }
+.board-source p { margin: 8px 0; font-size: .875rem; }
+.board-empty { padding: 16px 0; }
+.board-tile[hidden] { display: none; }
 .home-workshop { padding-block: clamp(44px, 6vw, 84px); }
 .home-workshop > h2 { margin: 0 0 16px; font-size: clamp(2rem, 4vw, 3.8rem); line-height: 1.05; }
 .home-meta-rule { margin: 0 0 12px; padding: 8px 14px; border-left: 2px solid var(--vera-signal); color: var(--text); }
@@ -126,8 +266,34 @@ a:hover { color: var(--gold-bright); }
 .home-status p { flex: 1 1 300px; margin: 0; font-size: .875rem; }
 .home-status > span { color: var(--vera-dim); font: 600 .75rem/1.4 var(--vera-mono); text-transform: uppercase; }
 
+@media (min-width: 1120px) {
+  .board-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .board-grid:not(:has(.board-tile[hidden])) :is(.board-tile--conversation, .board-tile--art, .board-tile--bridge) { grid-column: span 2; }
+  .board-grid:not(:has(.board-tile[hidden])) .board-tile--conversation {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, .95fr);
+    grid-template-rows: auto 1fr auto;
+    column-gap: clamp(14px, 2.4vw, 32px);
+  }
+  .board-grid:not(:has(.board-tile[hidden])) .board-tile--conversation .board-tile__art {
+    grid-column: 2;
+    grid-row: 1 / 4;
+    height: 100%;
+  }
+}
 @media (max-width: 960px) {
   html { scroll-padding-top: 20px; }
+}
+@media (max-width: 850px) {
+  .board-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 561px) and (max-width: 850px) {
+  .board-grid:not(:has(.board-tile[hidden])) .board-tile--conversation { grid-column: span 2; }
+}
+@media (max-width: 560px) {
+  .board-heading { flex-wrap: wrap; gap: 12px; }
+  .board-grid { grid-template-columns: 1fr; }
+  .board-tile { min-height: 144px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

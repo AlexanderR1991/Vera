@@ -6,7 +6,7 @@ const read=(path)=>readFileSync(new URL("../"+path,import.meta.url),"utf8");
 test("the bilingual homepage gives the introduction, pinboard and own question distinct places",()=>{
  const home=read("src/components/MissionHome.astro");
  const copy=JSON.parse(read("src/lib/mission-copy.json"));
- const order=["t.opening.greeting","t.opening.ambition","t.opening.rules","<HomePinboard","<FirstAnswer"];
+ const order=["t.opening.greeting","t.opening.ambition","t.opening.rules","<IndustrialBoard","<FirstAnswer"];
  const positions=order.map(token=>home.indexOf(token));
  assert.ok(positions.every((position,index)=>position>=0&&(index===0||position>positions[index-1])));
  assert.equal(copy.de.opening.greeting,"Hi, ich bin Vera.");

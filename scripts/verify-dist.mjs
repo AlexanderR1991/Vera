@@ -234,7 +234,7 @@ for(const lang of ["de","en"]){
  const heading=home.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/)?.[1];
  const {greeting,ambition,rules}=missionCopy[lang].opening;
  const [opening,hero,pinboard]=home.match(
-  /<section class="home-opening"[^>]*>([\s\S]*?)<\/section>\s*<section class="home-pinboard(?: [^"]*)?"[^>]*>([\s\S]*?)<\/section>/
+  /<section class="home-opening"[^>]*>([\s\S]*?)<\/section>\s*<section class="industrial-board"[^>]*>([\s\S]*?)<\/section>/
  )??["","",""];
  const rulesHref=`href="/Vera/${lang}/methode/#erkenntnismotor"`;
  const introOrder=["<circle ",greeting,ambition,rulesHref,rules].map(text=>hero.indexOf(text));
@@ -244,10 +244,12 @@ for(const lang of ["de","en"]){
     hero.includes('id="first-question"'))
    errors.push("Missing Vera circle or dedicated pinboard section for "+lang);
  const entry=lang==="de"?"frag-mich":"ask-me";
- const cards=[...pinboard.matchAll(/<details[^>]*data-home-card="([^"]+)"[^>]*>([\s\S]*?)<\/details>/g)];
- if(!cards.length||cards.length>12||new Set(cards.map(card=>card[1])).size!==cards.length||
-    cards.some(card=>!card[2].includes("<summary")||!card[2].includes("<svg")||!card[2].includes(`href="#${entry}"`)))
-   errors.push("Expected up to twelve distinct illustrated pinboard questions with a correction link for "+lang);
+ const cards=[...pinboard.matchAll(/<a[^>]*class="board-tile board-tile--([^"]+)"[^>]*data-board-card[^>]*>/g)];
+ const expectedCards=["conversation","first-step","everyday","art","military","society","bridge","atlas","counterexample"];
+ if(cards.map(card=>card[1]).join()!==expectedCards.join()||
+    ["table","graph","wave","custodiae"].some(art=>!pinboard.includes(`data-board-art="${art}"`))||
+    !pinboard.includes("data-board-filter"))
+   errors.push("Missing original illustrated pinboard entries or filter for "+lang);
  const question=home.slice(home.indexOf(opening)+opening.length);
  const sampleHref=`href="/Vera/${lang}/forum/#alltag-entscheidung"`;
  if(!pinboard.includes(`href="#${entry}"`)||!question.includes(`id="${entry}"`)||
@@ -263,7 +265,7 @@ for(const lang of ["de","en"]){
     !guide.includes('href="/Vera/prompts/wirklich-regeln.'+lang+'.txt"'))
    errors.push("Missing link to the chat guide, copy action or text-file fallback for "+lang);
  const insight=lang==="de"?"erkenntnis":"insight";
- if(!home.includes('id="'+insight+'"')||
+ if(!pinboard.includes('href="#'+insight+'"')||!home.includes('id="'+insight+'"')||
     !home.includes('data-knowledge-result')||!home.includes('data-knowledge-controls hidden'))
    errors.push("Missing Vera insight entry or static report for "+lang);
  for(const entry of await readdir(join(out,lang),{withFileTypes:true})){

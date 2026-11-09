@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/SiteLayout.astro";
-import HomePinboard from "./HomePinboard.astro";
+import IndustrialBoard from "./IndustrialBoard.astro";
 import FirstAnswer from "./FirstAnswer.astro";
 import VeraEntity from "./VeraEntity.astro";
 import VeraErkenntnis from "./VeraErkenntnis.astro";
@@ -34,7 +34,7 @@ const de=lang==="de";
     </div>
   </section>
 
-  <HomePinboard lang={lang}/>
+  <IndustrialBoard lang={lang}/>
 
   <div class="home-question container">
     <FirstAnswer lang={lang}/>
@@ -46,20 +46,11 @@ const de=lang==="de";
     <h2 id="practice-title" tabindex="-1">{t.life.workshop}</h2>
     <blockquote class="home-meta-rule">{protocol.motto[lang]}</blockquote>
     <nav aria-label={t.life.workshop}>
-      <a class="home-link" href={pathFor(lang,"mitwirken","rueckmeldung")}>
-        {ui[lang].feedbackInvitation} <span aria-hidden="true">↗</span>
-      </a>
       <a class="home-link" href={de?"#vera-fragen":"#ask-vera"} data-vera-entry>
         {t.life.about} <span aria-hidden="true">↓</span>
       </a>
       <a class="home-link" href={pathFor(lang,"schnittmengen","vermittlung")}>
         {t.life.together} <span aria-hidden="true">↗</span>
-      </a>
-      <a class="home-link" href={pathFor(lang,"atlas")}>
-        {de?"Themen im Atlas entdecken":"Explore topics in the atlas"} <span aria-hidden="true">↗</span>
-      </a>
-      <a class="home-link" href={pathFor(lang,"kunst-und-erkenntnis","sammlung")}>
-        {de?"Kunstsammlung öffnen":"Explore the art collection"} <span aria-hidden="true">↗</span>
       </a>
       <a class="home-link" href={pathFor(lang,"methode","g-005")}>{t.realExampleLink} <span aria-hidden="true">↗</span></a>
       <a class="home-link" href={base+"papers/warum-ich-glaube-dass-ich-funktioniere/paper.html"} hreflang="de">
