@@ -233,29 +233,31 @@ for(const lang of ["de","en"]){
  const home=await readFile(join(out,lang,"index.html"),"utf8");
  const heading=home.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/)?.[1];
  const {greeting,ambition,rules}=missionCopy[lang].opening;
- const opening=home.match(/<section class="home-opening"[^>]*>([\s\S]*?)<\/section>\s*<section class="home-life"/)?.[1]??"";
+ const [opening,hero,life]=home.match(
+  /<section class="home-opening"[^>]*>([\s\S]*?)<\/section>\s*<section class="home-life"[^>]*>([\s\S]*?)<\/section>/
+ )??["","",""];
  const rulesHref=`href="/Vera/${lang}/methode/#erkenntnismotor"`;
- const introOrder=["<circle ",greeting,ambition,rulesHref,rules].map(text=>opening.indexOf(text));
+ const exerciseHref=`href="/Vera/${lang}/schnittmengen/#sprachprobe"`;
+ const introOrder=["<circle ",greeting,ambition,rulesHref,rules].map(text=>hero.indexOf(text));
  if(heading?.trim()!==greeting||introOrder.some((position,index)=>position<0||(index>0&&position<=introOrder[index-1])))
    errors.push("Missing or out-of-order Vera introduction for "+lang);
- if(!opening.includes('stroke-dasharray="346 14"')||!opening.includes('transform="rotate(-38 100 100)"')||
-    opening.includes('id="first-question"'))
+ if(!hero.includes('stroke-dasharray="346 14"')||!hero.includes('transform="rotate(-38 100 100)"')||
+    hero.includes('id="first-question"'))
    errors.push("Missing Vera circle or dedicated life section for "+lang);
- const life=home.match(/<section class="home-life"[^>]*>([\s\S]*?)<\/section>/)?.[1]??"";
  const sampleHref=`href="/Vera/${lang}/forum/#alltag-entscheidung"`;
- if(!life.includes('id="first-question"')||!life.includes('for="first-question"')||!life.includes(sampleHref))
+ if(!opening.includes('id="first-question"')||!opening.includes('for="first-question"')||!opening.includes(sampleHref))
    errors.push("Missing first question field or its script-free sample on home "+lang);
  const exercise=await readFile(join(out,lang,"schnittmengen","index.html"),"utf8");
- const exerciseHref=`href="/Vera/${lang}/schnittmengen/#sprachprobe"`;
- if(!exercise.includes('id="sprachprobe"')||!exercise.includes('id="vermittlung"')||
-    !life.includes(`href="/Vera/${lang}/schnittmengen/#vermittlung"`))
+ if(!exercise.includes('id="sprachprobe"')||!home.includes(ambition))
+   errors.push("Missing conversation exercise or open-source ambition for "+lang);
+ const board=home.match(/<section class="industrial-board"[^>]*>([\s\S]*?)<\/section>/)?.[1]??"";
+ if(!exercise.includes('id="vermittlung"')||!life.includes(`href="/Vera/${lang}/schnittmengen/#vermittlung"`))
    errors.push("Missing path from life section to the dialogue exercise for "+lang);
  const guide=await readFile(join(out,lang,"fragen-und-ki-prompt","index.html"),"utf8");
  if(!home.includes(`href="/Vera/${lang}/fragen-und-ki-prompt/#prompt"`)||
     !guide.includes('id="inquiry-prompt"')||!guide.includes("data-copy-inquiry")||
     !guide.includes('href="/Vera/prompts/wirklich-regeln.'+lang+'.txt"'))
    errors.push("Missing link to the chat guide, copy action or text-file fallback for "+lang);
- const board=home.match(/<section class="industrial-board"[^>]*>([\s\S]*?)<\/section>/)?.[1]??"";
  if(!board.includes("data-board-card")||!board.includes('data-board-art="table"')||!board.includes(exerciseHref)||
     !board.includes('data-board-art="graph"')||
     !board.includes('data-board-art="custodiae"')||!board.includes(`href="/Vera/${lang}/militaer-und-verantwortung/"`))
