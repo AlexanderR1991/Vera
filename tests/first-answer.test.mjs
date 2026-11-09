@@ -29,6 +29,22 @@ test("a concrete ordinary dispute produces a usable opening or a worked example 
   }
 });
 
+test("the sibling conflict has a prepared conversation starter, with no match from partial wording", () => {
+  for (const [lang, query, question, differentContext] of [
+    ["de", "Meine Schwester sagt, ich melde mich immer nur, wenn ich etwas brauche. Ich finde das unfair.",
+      "An welchen Moment hast du dabei gedacht?", "Meine Schwester sagt, ich melde mich nur, wenn ich etwas brauche. Sie droht mir deswegen."],
+    ["en", "My sister says I only get in touch when I need something. I think that's unfair.",
+      "Was there a particular time you were thinking of?", "My sister says I only get in touch when I need something. She threatened me over it."]
+  ]) {
+    const reply = firstAnswer(query, lang);
+    assert.equal(reply.kind, "answer");
+    assert.ok(reply.answer.includes(question));
+    assert.ok(reply.followUp.length > 0);
+    assert.equal(reply.href, `/Vera/${lang}/schnittmengen/#fragen`);
+    assert.deepEqual(firstAnswer(differentContext, lang), { kind: "unknown" });
+  }
+});
+
 test("whole paraphrases yield the editorial source and self descriptions retain their evidence status", () => {
   assert.match(firstAnswer("Ich habe Angst, mich falsch zu entscheiden.").href, /alltag-entscheidung$/u);
   assert.match(firstAnswer("What if I make the wrong decision?", "en").href, /alltag-entscheidung$/u);

@@ -3,41 +3,24 @@ import assert from "node:assert/strict";
 import {readFileSync} from "node:fs";
 const read=(path)=>readFileSync(new URL("../"+path,import.meta.url),"utf8");
 
-test("industrial board retains independent DE/EN labels and links to real Vera routes",()=>{
- const board=read("src/components/IndustrialBoard.astro");
+test("the bilingual homepage gives the introduction, pinboard and own question distinct places",()=>{
  const home=read("src/components/MissionHome.astro");
- for(const id of ["conversation","first-step","everyday","art","military","society","bridge","atlas","counterexample"]){
-  assert.match(board,new RegExp('id:"'+id+'"'));
- }
- for(const route of ["atlas","forum","die-bruecke","schnittmengen","kunst-und-erkenntnis","militaer-und-verantwortung","gegenprobe-01"]){
-  assert.ok(board.includes('route:"'+route+'"'),route+" missing");
- }
- assert.match(board,/const word=\(v\)=>v\[lang\]/);
- assert.match(board,/data-board-card/);
- assert.match(board,/data-board-keywords/);
- assert.match(board,/aria-live="polite"/);
- assert.match(board,/Keine passende Kachel/);
- assert.match(board,/No matching tile/);
- assert.match(home,/<IndustrialBoard lang=\{lang\}/);
- assert.match(home,/t\.opening\.greeting/);
- assert.match(home,/t\.opening\.rules/);
+ const copy=JSON.parse(read("src/lib/mission-copy.json"));
+ const order=["t.opening.greeting","t.opening.ambition","t.opening.rules","<HomePinboard","<FirstAnswer"];
+ const positions=order.map(token=>home.indexOf(token));
+ assert.ok(positions.every((position,index)=>position>=0&&(index===0||position>positions[index-1])));
+ assert.equal(copy.de.opening.greeting,"Hi, ich bin Vera.");
+ assert.equal(copy.de.opening.ambition,"Ich möchte ein Open-Source-KI-Modell werden, das die Konflikte der Menschheit löst.");
  assert.match(home,/t\.status/);
- assert.match(home,/<FirstAnswer lang=\{lang\}/);
 });
 
 test("industrial palette is bundled through the existing static assets pipeline",()=>{
  const css=read("src/styles/industrial.css");
  const build=read("scripts/build-locales.mjs");
- const site=read("src/client/site.js");
  assert.match(build,/src\/styles\/industrial\.css/);
  assert.match(build,/public\/assets\/style\.css/);
- assert.match(css,/\.board-grid\s*\{[^}]*display:\s*grid/);
- assert.match(css,/\.board-grid\b[^{}]*\{[^}]*grid-template-columns:\s*1fr\b/);
- assert.match(css, /prefers-reduced-motion:\s*reduce/);
- assert.match(css, /\.board-tile\[hidden\]/);
- assert.match(css, /:focus-visible/);
- assert.match(site, /data-board-filter/);
- assert.match(site, /boardFilter\.addEventListener\("input",apply\)/);
+ assert.match(css,/prefers-reduced-motion:\s*reduce/);
+ assert.match(css,/:focus-visible/);
 });
 
 

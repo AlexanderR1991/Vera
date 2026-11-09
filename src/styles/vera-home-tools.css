@@ -1,7 +1,7 @@
 /* The home tools share an open editorial grid and a clear working surface. */
 body.vera-site--home section.container:is(.entity-lab, .knowledge-gateway, .first-step, .vera-practice) {
-  --tool-field: #101213;
-  --tool-control-line: #777a75;
+  --tool-field: var(--vera-panel);
+  --tool-control-line: var(--muted);
   grid-template-columns: minmax(0, .86fr) minmax(0, 1.14fr);
   align-items: start;
   gap: clamp(2rem, 6vw, 6rem);

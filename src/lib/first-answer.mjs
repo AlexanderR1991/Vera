@@ -16,7 +16,7 @@ const aliases = {
   mehrheit: [["Darf die Mehrheit alles entscheiden?"], ["Can the majority decide everything?"]]
 };
 
-// Short conversation starters grounded in the two exercises linked below.
+// Short conversation starters grounded in the exercises linked below.
 const conversations = [
   {
     path: "schnittmengen/#vermittlung",
@@ -53,6 +53,28 @@ const conversations = [
       answer: "Does fair mean paying the same amount, or the same share of your income? With €900 rent and one income twice the other, that works out to €450 each, or €600 and €300. Concrete amounts make it easier to see what each of you means.",
       followUp: "Which split could you accept if your incomes were the other way round?"
     }
+  },
+  {
+    path: "schnittmengen/#fragen",
+    exactOnly: true,
+    de: {
+      question: "Meine Schwester sagt, ich melde mich nur, wenn ich etwas brauche. Wie reden wir darüber?",
+      aliases: [
+        "Meine Schwester sagt, ich melde mich nur, wenn ich etwas brauche.",
+        "Meine Schwester sagt, ich melde mich immer nur, wenn ich etwas brauche. Ich finde das unfair."
+      ],
+      answer: "„Immer nur“ kann sich wie ein Vorwurf anfühlen. Vielleicht denkt deine Schwester an eine bestimmte Situation, vielleicht fehlt ihr Kontakt zwischendurch. Wenn ihr beide darüber reden möchtet, könntest du sagen: „Als du das gesagt hast, fand ich es unfair. An welchen Moment hast du dabei gedacht?“",
+      followUp: "Wenn sie einen Moment nennt, sag in eigenen Worten, was du verstanden hast. Dann kannst du erzählen, wie du denselben Moment erlebt hast."
+    },
+    en: {
+      question: "My sister says I only get in touch when I need something. How can we talk about it?",
+      aliases: [
+        "My sister says I only get in touch when I need something.",
+        "My sister says I only get in touch when I need something. I think that's unfair."
+      ],
+      answer: "Hearing ‘you only ever’ can feel like an accusation. Your sister might be thinking of a specific moment, or she might miss hearing from you in between. If you both want to talk about it, you could say, ‘That felt unfair to me when you said it. Was there a particular time you were thinking of?’",
+      followUp: "If she names a moment, tell her what you heard in your own words. Then you can say how you experienced that same moment."
+    }
   }
 ];
 
@@ -66,7 +88,9 @@ function entries(lang) {
     href: home + "forum/#alltag-" + entry.id,
     aliases: aliases[entry.id]?.[lang === "en" ? 1 : 0] ?? []
   }));
-  for (const entry of conversations) records.push({ ...entry[lang], href: home + entry.path });
+  for (const entry of conversations) {
+    records.push({ ...entry[lang], href: home + entry.path, exactOnly: entry.exactOnly });
+  }
   return records.map(entry => ({
     ...entry, forms: [entry.question, ...entry.aliases].map(normalize)
   }));
@@ -107,6 +131,7 @@ export function firstAnswer(input, lang = "de") {
   const pause = lang === "de" ? /^(?:nicht|nie|kein\p{L}*|droh\p{L}*|bedroh\p{L}*|gedroht|gewalt\p{L}*|zwang|geschlagen)$/u
     : /^(?:not|never|dont|threat\p{L}*|violence|violent|coerc\p{L}*|hit|abuse|abusive)$/u;
   const choices = catalog[lang].filter(entry => {
+    if (entry.exactOnly) return false;
     if (entry.cues) {
       return !tokens.some(word => pause.test(word)) &&
         entry.cues.every(cue => tokens.some(word => cue.test(word)));

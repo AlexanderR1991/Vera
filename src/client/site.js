@@ -66,22 +66,4 @@ if(form){
  });
  form.hidden=false;
 }
-// The homepage filter only searches its own visible tiles; it is not a site-wide knowledge search.
-const boardFilter=document.querySelector("[data-board-filter]");
-if(boardFilter){
- const items=[...document.querySelectorAll("[data-board-card]")];
- const counter=document.querySelector("[data-board-counter]");
- const empty=document.querySelector("[data-board-empty]");
- const clean=(s)=>String(s||"").toLocaleLowerCase(document.documentElement.lang==="en"?"en":"de").normalize("NFD").replace(/[\u0300-\u036f]/g,"");
- const apply=()=>{
-  const query=clean(boardFilter.value.trim());
-  let shown=0;
-  items.forEach(item=>{const matches=clean(item.dataset.boardKeywords).includes(query);item.hidden=!matches;if(matches)shown++;});
-  if(counter)counter.textContent=shown+" "+(en?(shown===1?"entry":"entries"):(shown===1?"Zugang":"Zugänge"));
-  if(empty)empty.hidden=shown!==0;
- };
- boardFilter.addEventListener("input",apply);
- boardFilter.addEventListener("search",apply);
- apply();
-}
 })();
