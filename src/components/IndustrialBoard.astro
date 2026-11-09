@@ -26,9 +26,16 @@ const cards=[
     description:{de:"Schau darauf, wer mitentscheidet und wer die Folgen trägt.",en:"Look at who gets a say and who lives with the consequences."},
     keywords:"gesellschaft demokratie mitbestimmung rechte staat democracy rights government participation"
   },
+  {
+    id:"justice", drafting:"justice", route:"justiz",
+    category:{de:"Justiz",en:"Justice"},
+    title:{de:"Was macht ein Verfahren fair?",en:"What makes a trial fair?"},
+    description:{de:"Ein Kratzer im Boden. Zwei Aussagen. Welche Belege könnten den Streit um die Kaution klären?",en:"A scratch on the floor. Two accounts. What evidence could resolve the dispute over the deposit?"},
+    keywords:"gericht recht rechtsstaat urteil verfahren beweis kaution judiciary court law trial evidence deposit fairness"
+  },
   {id:"conversation",photo:"table",route:"schnittmengen",anchor:{de:"sprachprobe",en:"sprachprobe"},category:{de:"Am Küchentisch",en:"At the kitchen table"},title:{de:"Teilen wir die Miete durch zwei?",en:"Should we split the rent in half?"},description:{de:"Ein Gehalt ist doppelt so hoch wie das andere. Ihr wollt beide fair teilen. Was bedeutet das für jeden von euch?",en:"One of you earns twice as much as the other. You both want to be fair. What does that mean to each of you?"},action:{de:"Gespräch zu zweit ausprobieren",en:"Try the conversation together"},keywords:"gespräch streit konflikt zuhören miete fairness mediation conversation rent disagreement listening"},
   {
-    id:"parenting", route:"kindererziehung",
+    id:"parenting", drafting:"parenting", route:"kindererziehung",
     category:{de:"Kindererziehung",en:"Parenting"},
     title:{de:"Wer entscheidet, wann wir gehen?",en:"Who decides when it’s time to go?"},
     description:{de:"Dein Kind will noch einmal rutschen. Du willst los. Was ändert sich, wenn ihr den letzten Bus erreichen müsst?",en:"Your child wants one more turn on the slide. You’re ready to leave. What changes if you have to catch the last bus?"},
@@ -108,9 +115,9 @@ const word=(v)=>v[lang];
         data-board-card={card.id}
         data-board-keywords={[word(card.category),word(card.title),word(card.description),"action" in card?word(card.action):"",card.keywords].join(" ")}>
         {"art" in card&&<BoardArtwork id={card.art}/>}
-        {card.id==="parenting"&&
-          <img class="board-tile__art board-tile__art--drafting" data-board-art="parenting"
-            src={pinImages+"parenting.svg"} width="240" height="240" alt="" loading="lazy" decoding="async" />}
+        {"drafting" in card&&
+          <img class="board-tile__art board-tile__art--drafting" data-board-art={card.drafting}
+            src={pinImages+card.drafting+".svg"} width="240" height="240" alt="" loading="lazy" decoding="async" />}
         {"photo" in card&&
           <img class="board-tile__art board-tile__art--image" data-board-art={card.photo}
             src={pinImages+card.photo+"-640.webp"}

@@ -1,0 +1,110 @@
+---
+import Layout from "../layouts/SiteLayout.astro";
+import { base, pathFor } from "../lib/paths.mjs";
+
+const { lang = "de" } = Astro.props;
+const de = lang === "de";
+const t = (german, english) => de ? german : english;
+const description = t(
+  "Was macht ein Gerichtsverfahren fair? Ein fiktiver Streit um die Mietkaution zeigt, warum beide Seiten Gehör finden müssen und wie neue Belege eine Einschätzung verändern können.",
+  "What makes a trial fair? A fictional dispute over a rental deposit shows why both sides need to be heard and how new evidence can change an assessment."
+);
+---
+<Layout lang={lang} slug="justiz" description={description}>
+  <article class="container justice">
+    <a class="subtle-link" href={pathFor(lang, "index", de ? "leben" : "life")}>
+      <span aria-hidden="true">←</span> {t("Zur Pinnwand", "Back to the pinboard")}
+    </a>
+    <header class="justice-hero">
+      <div>
+        <p class="section-kicker">{t("Gesellschaft · Recht und Verfahren", "Society · Law and procedure")}</p>
+        <h1>{t("Justiz", "Justice")}</h1>
+        <p class="justice-lead">{t("Was macht ein Verfahren fair?", "What makes a trial fair?")}</p>
+        <p>{t(
+          "Wer vor Gericht steht, soll die eigene Sicht vorbringen, die Belege der anderen Seite prüfen und verstehen können, warum das Gericht so entschieden hat. Wie gut gelingt das, wenn Geld, Zeit oder Sprachkenntnisse fehlen?",
+          "People in court should be able to tell their side of the story, examine the other side’s evidence and understand the court’s reasons. How well does that work when people have limited money, time or fluency in the language?"
+        )}</p>
+      </div>
+      <img src={base + "images/pinnwand/justice.svg"} width="240" height="240" alt="" />
+    </header>
+
+    <section aria-labelledby="justice-case">
+      <p class="section-kicker">{t("Erfundener Fall", "Fictional case")}</p>
+      <h2 id="justice-case">{t("Der Kratzer im Boden", "The scratch on the floor")}</h2>
+      <p>{t(
+        "Eine Vermieterin behält die Kaution ein. Sie sagt, der Mieter habe einen Kratzer im Boden hinterlassen. Der Mieter sagt, der Kratzer sei schon beim Einzug da gewesen. Im Übergabeprotokoll steht dazu nichts.",
+        "A landlord keeps the deposit. She says the tenant left a scratch on the floor. The tenant says the scratch was already there when he moved in. The move-in report says nothing about it."
+      )}</p>
+      <details id="gegenprobe">
+        <summary>{t("Jetzt taucht ein Foto vom Einzugstag auf. Was ändert sich?", "A photo from move-in day turns up. What changes?")}</summary>
+        <p>{t(
+          "Ein Foto, das denselben Kratzer vor dem Einzug zeigt, würde die Aussage des Mieters stützen. Ist das Aufnahmedatum nachvollziehbar? Zeigt das Foto dieselbe Stelle? Was könnten beide Seiten dazu beitragen, das zu prüfen?",
+          "A photo showing the same scratch before the tenant moved in would support his account. Can we establish when it was taken? Does it show the same spot? What could each side contribute to checking it?"
+        )}</p>
+      </details>
+    </section>
+
+    <section aria-labelledby="justice-questions">
+      <h2 id="justice-questions">{t("Vier Fragen an ein faires Verfahren", "Four questions for a fair trial")}</h2>
+      <ul class="justice-questions">
+        <li><strong>{t("Zugang", "Access")}</strong> {t("Können beide Seiten das Verfahren verstehen, sich Gehör verschaffen und auf die Belege der anderen Seite antworten?", "Can both sides understand the process, be heard and respond to each other’s evidence?")}</li>
+        <li><strong>{t("Unabhängigkeit", "Independence")}</strong> {t("Wer entscheidet, und wie wird diese Person vor Druck geschützt?", "Who decides, and how are they protected from pressure?")}</li>
+        <li><strong>{t("Begründung", "Reasons")}</strong> {t("Was hält das Gericht für belegt, welche Regeln wendet es an und wie erklärt es den Zusammenhang?", "What does the court find established, which rules does it apply, and how does it explain the connection?")}</li>
+        <li><strong>{t("Überprüfung", "Review")}</strong> {t("Wer kann einen möglichen Fehler prüfen, und welche Möglichkeiten gibt es im jeweiligen Verfahren?", "Who can review a possible error, and what options are available in this kind of proceeding?")}</li>
+      </ul>
+      <p>{t(
+        "Betroffene brauchen eine Entscheidung in absehbarer Zeit. Eine sorgfältige Prüfung braucht manchmal länger. Öffentliche Verfahren machen Gerichte überprüfbar. Zugleich können persönliche Angaben Schutz brauchen. Was würdest du offenlegen, damit die Gründe verständlich bleiben?",
+        "People affected need a decision within a reasonable time. Careful review can take longer. Public hearings allow courts to be scrutinized, while personal information may need protection. What would you disclose so the reasons remain understandable?"
+      )}</p>
+    </section>
+
+    <section aria-labelledby="justice-sources">
+      <h2 id="justice-sources">{t("Rechtliche Bezugspunkte", "Legal reference points")}</h2>
+      <p>{t(
+        "Artikel 14 des UN-Zivilpakts verankert unter anderem die Gleichheit vor Gerichten. Artikel 6 der Europäischen Menschenrechtskonvention schützt bei Streitigkeiten über zivilrechtliche Ansprüche und Verpflichtungen sowie bei strafrechtlichen Anklagen ein faires Verfahren vor einem unabhängigen, unparteiischen Gericht.",
+        "Article 14 of the International Covenant on Civil and Political Rights sets out, among other safeguards, equality before courts. Article 6 of the European Convention on Human Rights protects the right to a fair trial before an independent, impartial tribunal when civil rights and obligations or criminal charges are being determined."
+      )}</p>
+      <ul class="justice-sources">
+        <li><a href="https://2covenants.ohchr.org/About-ICCPR.html" hreflang="en">{t("UN-Zivilpakt, Art. 14 (Englisch)", "International Covenant on Civil and Political Rights, Article 14")} <span aria-hidden="true">↗</span></a></li>
+        <li><a href={t("https://www.echr.coe.int/documents/d/echr/convention_deu", "https://www.echr.coe.int/documents/d/echr/convention_eng")}>{t("Europäische Menschenrechtskonvention, Art. 6", "European Convention on Human Rights, Article 6")} <span aria-hidden="true">↗</span></a></li>
+      </ul>
+      <p>{t(
+        "Diese Seite dient dazu, über Verfahren nachzudenken. Rechtsberatung gehört in qualifizierte Hände. Über konkrete Verfahren entscheiden die zuständigen Stellen.",
+        "This page is an exercise in thinking about procedure. Legal advice belongs with qualified professionals. The relevant authorities decide individual cases."
+      )}</p>
+      <nav class="justice-links" aria-label={t("Weiterdenken", "Explore further")}>
+        <a class="subtle-link" href={pathFor(lang, "baum-des-wissens", "ast-politik")}>{t("Recht und Institutionen im Wissensbaum", "Law and institutions in the knowledge tree")} <span aria-hidden="true">↗</span></a>
+        <a class="subtle-link" href={pathFor(lang, "mitwirken", "rueckmeldung")}>{t("Einen Einwand zu dieser Seite formulieren", "Raise an objection to this page")} <span aria-hidden="true">↗</span></a>
+      </nav>
+    </section>
+  </article>
+</Layout>
+
+<style>
+  .justice { max-width: 64rem; padding-block: clamp(2rem, 5vw, 4.5rem); }
+  .justice-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(11rem, 15rem);
+    gap: 1.5rem 3rem;
+    align-items: center;
+    margin-block: 1.5rem 2.5rem;
+  }
+  .justice-hero img { width: 100%; height: auto; border: 1px solid var(--line); border-radius: 3px; }
+  h1 { font-size: clamp(2.35rem, 6vw, 4.65rem); line-height: 1.04; margin-block: .2em .35em; }
+  h2 { font-size: clamp(1.5rem, 3.8vw, 2.2rem); line-height: 1.15; margin-bottom: .7rem; }
+  p, ul { max-width: 68ch; }
+  .justice-lead { color: var(--text); font: clamp(1.15rem, 2.5vw, 1.55rem)/1.45 var(--serif); }
+  .justice > section { border-top: 1px solid var(--line); margin-top: 2rem; padding-top: 1.4rem; }
+  .justice-questions li { margin-block: .5rem; }
+  .justice-questions strong { display: block; }
+  details { border-inline-start: 2px solid var(--gold); padding: .6rem 1rem; margin-block: .6rem 1rem; }
+  details p { margin: .5rem 0 0; }
+  summary { cursor: pointer; color: var(--text); }
+  summary:focus-visible { outline: 2px solid var(--gold-bright); outline-offset: .2rem; }
+  .justice-sources a { text-decoration: underline; text-underline-offset: .18em; }
+  .justice-links { display: flex; flex-wrap: wrap; gap: .6rem 1.4rem; }
+  @media (max-width: 40rem) {
+    .justice-hero { grid-template-columns: minmax(0, 1fr); }
+    .justice-hero img { width: min(45%, 9rem); }
+  }
+</style>
