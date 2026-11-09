@@ -73,3 +73,15 @@ test("empty, unrelated and incidental words do not trigger personal advice", () 
   }
   assert.notEqual(firstAnswer("Wir streiten nicht über Politik.").kind, "answer");
 });
+
+test("a listening complaint opens the voluntary invitation only for a known whole wording", () => {
+  for (const [lang, query, threat] of [
+    ["de", "Die hört mir sowieso nie zu.", "Die hört mir sowieso nie zu. Ich habe Angst vor ihr."],
+    ["en", "She never listens to me anyway.", "She never listens to me anyway. She threatened me."]
+  ]) {
+    const answer = firstAnswer(query, lang);
+    assert.equal(answer.href, "/Vera/" + lang + "/schnittmengen/#zuhoeren");
+    assert.equal(firstAnswer(answer.question, lang).href, answer.href);
+    assert.equal(firstAnswer(threat, lang).kind, "unknown");
+  }
+});

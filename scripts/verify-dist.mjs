@@ -242,6 +242,11 @@ for(const lang of ["de","en"]){
  if(!opening.includes('id="first-question"')||!opening.includes('for="first-question"')||!opening.includes(sampleHref))
    errors.push("Missing first question field or its script-free sample on home "+lang);
  const exercise=await readFile(join(out,lang,"schnittmengen","index.html"),"utf8");
+ if(!opening.includes(`href="/Vera/${lang}/schnittmengen/#zuhoeren"`)||!exercise.includes('id="zuhoeren"')||!exercise.includes("data-care-step"))
+   errors.push("Missing listening invitation or its script-free home link for "+lang);
+ const meal=await readFile(join(out,lang,"bruecken-zwischen-den-religionen","index.html"),"utf8");
+ if(!meal.includes('href="#mahlzeit-anbieten"')||!meal.includes('id="mahlzeit-anbieten"')||!meal.includes("data-care-step"))
+   errors.push("Missing meal invitation or its script-free link for "+lang);
  if(!exercise.includes('id="sprachprobe"')||!home.includes(ambition))
    errors.push("Missing conversation exercise or open-source ambition for "+lang);
  const board=home.match(/<section class="industrial-board"[^>]*>([\s\S]*?)<\/section>/)?.[1]??"";

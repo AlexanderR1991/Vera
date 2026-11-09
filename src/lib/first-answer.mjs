@@ -16,8 +16,32 @@ const aliases = {
   mehrheit: [["Darf die Mehrheit alles entscheiden?"], ["Can the majority decide everything?"]]
 };
 
-// Short conversation starters grounded in the two exercises linked below.
+export const listeningInvitation = {
+  de: "Hast du gerade zwei Minuten? Ich möchte dir sagen, wann ich mich überhört gefühlt habe. Danach würde ich gern hören, wie du das erlebt hast.",
+  en: "Do you have two minutes? I’d like to tell you about a moment when I felt unheard. Then I’d like to hear what it was like for you."
+};
+
+// Short conversation starters grounded in the exercises linked below.
 const conversations = [
+  {
+    path: "schnittmengen/#zuhoeren",
+    de: {
+      question: "Wie kann ich sagen, dass ich mich überhört fühle?",
+      aliases: ["Die hört mir sowieso nie zu.", "Sie hört mir sowieso nie zu.", "Sie hört mir nie zu.", "Ich fühle mich überhört.", "Ich fühle mich überhört. Wie fange ich an?", "Er hört mir sowieso nie zu.", "Er hört mir nie zu.", "Du hörst mir nie zu."],
+      exactOnly: true,
+      action: "Zuhören zu zweit ausprobieren",
+      answer: "Du könntest eine bestimmte Situation ansprechen. Vielleicht passt diese Einladung für dich. „" + listeningInvitation.de + "“",
+      followUp: "Du kannst den Satz ändern oder das Gespräch lassen. Ein Nein oder Schweigen lässt du stehen."
+    },
+    en: {
+      question: "How can I say that I feel unheard?",
+      aliases: ["She never listens to me anyway.", "She never listens to me.", "I feel unheard.", "I feel unheard. How could I start?", "He never listens to me anyway.", "He never listens to me.", "They never listen to me.", "You never listen to me."],
+      exactOnly: true,
+      action: "Try the listening exercise together",
+      answer: "If you want to talk about it, you could start with one moment you remember. You might say, “" + listeningInvitation.en + "”",
+      followUp: "You can change the wording or leave the conversation there. If the other person says no or stays silent, let it rest."
+    }
+  },
   {
     path: "schnittmengen/#vermittlung",
     de: {
@@ -98,7 +122,7 @@ export function firstAnswer(input, lang = "de") {
   const exact = catalog[lang].find(entry => entry.forms.includes(query) || entry.wording?.test(query));
   if (exact) {
     const { question, answer, followUp, href } = exact;
-    return { kind: "answer", question, answer, followUp, href };
+    return { kind: "answer", question, answer, followUp, href, ...(exact.action && { action: exact.action }) };
   }
 
   // Partial wording can only offer a question to choose. Never infer the person's situation from it.
@@ -107,6 +131,7 @@ export function firstAnswer(input, lang = "de") {
   const pause = lang === "de" ? /^(?:nicht|nie|kein\p{L}*|droh\p{L}*|bedroh\p{L}*|gedroht|gewalt\p{L}*|zwang|geschlagen)$/u
     : /^(?:not|never|dont|threat\p{L}*|violence|violent|coerc\p{L}*|hit|abuse|abusive)$/u;
   const choices = catalog[lang].filter(entry => {
+    if (entry.exactOnly) return false;
     if (entry.cues) {
       return !tokens.some(word => pause.test(word)) &&
         entry.cues.every(cue => tokens.some(word => cue.test(word)));

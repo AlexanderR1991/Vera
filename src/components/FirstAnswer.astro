@@ -9,14 +9,14 @@ const example = everyday.questions.find(entry => entry.id === "entscheidung")!;
 <div class="first-answer" id={t("frag-mich", "ask-me")} data-first-answer data-lang={lang}
   data-choices={t("Welche dieser Fragen kommt deiner näher?", "Which question is closer to yours?")}
   data-unknown={t("Dazu habe ich noch keine passende Antwort.", "I don’t have a matching answer for that yet.")}
-  data-retry={t("Wenn du vor einer Entscheidung stehst, frag dich als Erstes, was du noch erfahren könntest, das deine Wahl verändern würde. Eine solche Frage kannst du unten ausprobieren.", "If you’re facing a decision, what could you still find out that might change your choice? You can try a question like that below.")}
+  data-retry={t("Du kannst deine Frage anders formulieren oder sie hier stehenlassen.", "You can rephrase your question or leave it here.")}
   data-empty={t("Schreib zuerst deine Frage ins Feld.", "Type your question first.")}>
   <form hidden autocomplete="off">
     <label for="first-question">{t("Frag mich etwas", "Ask me something")}</label>
     <div class="first-answer__row">
       <input id="first-question" type="text" maxlength="500" required spellcheck="false"
         aria-describedby="first-question-hint"
-        placeholder={t("Wir streiten ständig über Politik.", "We keep arguing about politics.")} />
+        placeholder={t("Die hört mir sowieso nie zu.", "She never listens to me anyway.")} />
       <button type="submit">{t("Fragen", "Ask")}</button>
     </div>
     <p id="first-question-hint">{t("Ich suche in meinen veröffentlichten Antworten. Deine Frage bleibt in deinem Browser.", "I search my published answers. Your question stays in your browser.")}</p>
@@ -25,9 +25,12 @@ const example = everyday.questions.find(entry => entry.id === "entscheidung")!;
     <h2 tabindex="-1"></h2>
     <p data-answer></p>
     <p class="first-answer__follow" data-follow></p>
-    <a data-source>{t("Fundstelle lesen", "Read the source")} <span aria-hidden="true">↗</span></a>
+    <a data-source><span data-source-label>{t("Fundstelle lesen", "Read the source")}</span> <span aria-hidden="true">↗</span></a>
     <ul data-choices-list></ul>
   </div>
+  <a class="first-answer__example" href={pathFor(lang, "schnittmengen", "zuhoeren")}>
+    {t("Ich fühle mich überhört. Wie fange ich an?", "I feel unheard. How could I start?")} <span aria-hidden="true">→</span>
+  </a>
   <a class="first-answer__example" data-first-example={example.question[lang]}
     href={pathFor(lang, "forum", "alltag-" + example.id)}>
     {t("Zum Beispiel", "Try this")} · {example.question[lang]} <span aria-hidden="true">→</span>
@@ -46,6 +49,8 @@ const example = everyday.questions.find(entry => entry.id === "entscheidung")!;
     const answer = result.querySelector<HTMLElement>("[data-answer]")!;
     const follow = result.querySelector<HTMLElement>("[data-follow]")!;
     const source = result.querySelector<HTMLAnchorElement>("[data-source]")!;
+    const sourceLabel = source.querySelector("[data-source-label]")!;
+    const defaultLabel = sourceLabel.textContent;
     const choices = result.querySelector<HTMLElement>("[data-choices-list]")!;
 
     function show(question: string) {
@@ -62,7 +67,10 @@ const example = everyday.questions.find(entry => entry.id === "entscheidung")!;
       follow.textContent = matched ? reply.followUp : "";
       follow.hidden = !follow.textContent;
       source.hidden = !matched;
-      if (matched) source.href = reply.href;
+      if (matched) {
+        source.href = reply.href;
+        sourceLabel.textContent = reply.action ?? defaultLabel;
+      }
       choices.replaceChildren();
       choices.hidden = reply.kind !== "choices";
       if (reply.kind === "choices") {

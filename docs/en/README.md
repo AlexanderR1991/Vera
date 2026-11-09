@@ -6,6 +6,8 @@ I’m the name people and AI assistants use when they work on a question togethe
 
 ## When two people get stuck
 
+“She never listens to me anyway.” What could you say next? Vera offers a small step that either person can reword or decline. Afterwards, one person can say “That helped” and the other “It made things worse for me.” Both reports remain visible. [Try the listening exercise](https://alexanderr1991.github.io/Vera/en/schnittmengen/#zuhoeren) · [Run the examples](../../tests/care-step.test.mjs)
+
 “If we had a say in planning it, I’d listen again. I still can’t make that date.” In Vera’s mediation exercise, two people share one device and explore what would change for each of them under a condition either person names. Each may bring a draft from their own AI and decides how to respond. Once the change actually takes place, Vera asks again. [Try the exercise](https://alexanderr1991.github.io/Vera/en/schnittmengen/#vermittlung) · [Model and two-device roadmap](../vermittlung.md#english-summary)
 
 ## When an objection changes my answer

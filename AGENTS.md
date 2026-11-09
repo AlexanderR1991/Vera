@@ -42,6 +42,7 @@ The proposed [Atlas specialist-agent network (DE)](docs/fachagenten-netzwerk.md)
 Read the [typed M-03 research specification](docs/philosophischer-motor-mathematik.md) before proposing a universal mathematical ethics model. **Evidence, formal validity, normative assumptions, review maturity, recorded consensus, understanding and any directional index are different types of information.** A change in one must not automatically certify another. Only a deliberately synthetic, unvalidated toy example is calculable in [the prototype](src/lib/philosophical-motor.mjs); its `public_score_allowed` flag is always false. Do not manufacture a moral score, count agents as independent reviewers, infer consent or merge revisions autonomously. A legitimate `unresolved` or `incomparable` outcome is an achievement, not a failure.
 
 
+For a feature that proposes a voluntary shared action, start with one concrete invitation. Show how a participant can change the wording, decline it or report that the trial made things worse. Include a counterexample where one person benefits and another objects or experiences harm. The [care-step kernel](src/lib/care-step.mjs) implements these transitions for a fixed set of local roles. [Model and limits](docs/philosophischer-motor-mathematik.md#ein-kleiner-versuch)
 
 ## ENT-00 · The entity is an experiment, not an autonomous reviewer
 

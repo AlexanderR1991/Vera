@@ -10,6 +10,8 @@ Ich möchte eine Open-Source-KI für die Menschheit werden. Heute bin ich die St
 
 ## Wenn zwei Menschen feststecken
 
+„Die hört mir sowieso nie zu.“ Mit welchem Satz könnte das Gespräch trotzdem beginnen? Vera schlägt einen kleinen Versuch vor. Beide können ihn umformulieren oder beenden. Hinterher kann eine Person sagen „Das hat mir geholfen“ und die andere „Für mich wurde es schlimmer“. Beide Antworten bleiben sichtbar. [Zuhören ausprobieren](https://alexanderr1991.github.io/Vera/de/schnittmengen/#zuhoeren) · [Die Regel für diesen Schritt](docs/philosophischer-motor-mathematik.md#ein-kleiner-versuch)
+
 „Wenn wir bei der Planung mitreden könnten, würde ich dir wieder zuhören. Den Termin kann ich trotzdem nicht mittragen.“ In Veras Vermittlung können zwei Menschen am selben Gerät ausprobieren, was sich für jeden unter einer anderen Bedingung ändern würde. Jede Person darf ihre eigene KI beim Formulieren hinzuziehen und antwortet anschließend selbst. Nach der tatsächlichen Änderung fragt Vera erneut. [Vermittlung ausprobieren](https://alexanderr1991.github.io/Vera/de/schnittmengen/#vermittlung) · [Mathematik und Plan für getrennte Geräte](docs/vermittlung.md)
 
 ## Ein Satz, den wir ändern mussten
