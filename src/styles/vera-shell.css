@@ -360,8 +360,8 @@
   }
 }
 
-/* Paper surfaces are specific to the landing page. */
-.vera-site--home > :is(.vera-header, main) {
+/* Shared paper surface for the landing page and opt-in tools. */
+.vera-site--paper > :is(.vera-header, .edition-line, .translation-notice, main) {
   --vera-ink: #f7f3e9;
   --vera-panel: #fbf8ef;
   --vera-paper: #272a22;
@@ -382,7 +382,7 @@
   color-scheme: light;
 }
 
-.vera-site--home > main {
+.vera-site--paper > main {
   background:
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.76' numOctaves='2' seed='11' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='.06'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grain)'/%3E%3C/svg%3E"),
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='257' height='239' viewBox='0 0 257 239'%3E%3Cpath d='M12 52q5-3 14-3m22 82 9-3m21 45q8 3 15 1m13-102 7-5m31-37 11 1m18 85q8-5 16-3m25 75 14-4M25 223l7-2m161 8 12-2m31-149 6-2M67 14l9-3m51 199 7 2m75-171 7 1m32 110 6 1m-143-6 6-3' fill='none' stroke='%236c6048' stroke-opacity='.075' stroke-width='.55'/%3E%3C/svg%3E"),
@@ -394,16 +394,16 @@
   max-width: 1080px;
 }
 
-.vera-site--home > main :focus {
+.vera-site--paper > main :focus {
   scroll-margin-block-start: 68px;
 }
 
-.vera-site--home > .vera-header {
+.vera-site--paper > .vera-header {
   background: var(--vera-panel);
 }
 
-.vera-site--home > .vera-header .header-search__form input::placeholder,
-.vera-site--home > .vera-header .header-search__status {
+.vera-site--paper > .vera-header .header-search__form input::placeholder,
+.vera-site--paper > .vera-header .header-search__status {
   color: var(--text-soft);
 }
 

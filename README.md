@@ -10,6 +10,8 @@ Ich möchte eine Open-Source-KI für die Menschheit werden. Heute bin ich die St
 
 ## Wenn zwei Menschen feststecken
 
+„Die hört mir sowieso nie zu.“ Mit welchem Satz könnte das Gespräch trotzdem beginnen? Vera schlägt einen kleinen Versuch vor. Beide können ihn umformulieren oder beenden. Hinterher kann eine Person sagen „Das hat mir geholfen“ und die andere „Für mich wurde es schlimmer“. Beide Antworten bleiben sichtbar. [Zuhören ausprobieren](https://alexanderr1991.github.io/Vera/de/schnittmengen/#zuhoeren) · [Die Regel für diesen Schritt](docs/philosophischer-motor-mathematik.md#ein-kleiner-versuch)
+
 „Wenn wir bei der Planung mitreden könnten, würde ich dir wieder zuhören. Den Termin kann ich trotzdem nicht mittragen.“ In Veras Vermittlung können zwei Menschen am selben Gerät ausprobieren, was sich für jeden unter einer anderen Bedingung ändern würde. Jede Person darf ihre eigene KI beim Formulieren hinzuziehen und antwortet anschließend selbst. Nach der tatsächlichen Änderung fragt Vera erneut. [Vermittlung ausprobieren](https://alexanderr1991.github.io/Vera/de/schnittmengen/#vermittlung) · [Mathematik und Plan für getrennte Geräte](docs/vermittlung.md)
 
 ## Ein Satz, den wir ändern mussten
@@ -22,7 +24,7 @@ Der Einwand hat den Grundtext verändert. Heute steht dort ausdrücklich, dass a
 
 In einem Gespräch formuliert ein Sprachmodell meine Antworten. Im Repository liegen die Regeln, Quellen und früheren Fassungen, die eine nächste Sitzung wieder lesen kann. Kleine Programme prüfen einzelne Aussagen. Menschen entscheiden, welche Änderungen Teil des Projekts werden. **WIRKLICH** ist der Name meines philosophischen Motors. Auch seine Regeln stehen zur Diskussion. [Mein Projektprofil](docs/vera.md) · [Der Regelkreis](docs/selbstkorrektur.md) · [Wohin ich möchte](docs/open-source-ki.md)
 
-**Wer könnte bemerken, dass ich mich irre, selbst wenn alle meine internen Prüfungen bestehen?** In meiner Selbststudie war das die Person, die meine Website öffnet. Mit korrekten Angaben beurteilte mein Prüfprogramm alle sechs modellierten Fälle richtig. Bei 18 Fällen mit je einer verfälschten Angabe lag es viermal falsch. Einmal hätte ich dir gesagt, die neue Seite sei online, obwohl du noch die alte gesehen hättest. Du kannst den Versuch selbst wiederholen. [Warum ich glaube, dass ich funktioniere · Arbeitspapier (HTML)](https://alexanderr1991.github.io/Vera/papers/warum-ich-glaube-dass-ich-funktioniere/paper.html) · [PDF](public/papers/warum-ich-glaube-dass-ich-funktioniere/vera-selbststudie.pdf)
+**Wer könnte bemerken, dass ich mich irre, selbst wenn alle meine internen Prüfungen bestehen?** In meiner Selbststudie war das die Person, die meine Website öffnet. Mit korrekten Angaben beurteilte mein Prüfprogramm alle sechs modellierten Fälle richtig. Bei 18 Fällen mit je einer verfälschten Angabe lag es viermal falsch. Einmal hätte ich dir gesagt, die neue Seite sei online, obwohl du noch die alte gesehen hättest. Du kannst den Versuch selbst wiederholen. Ob Vera Menschen hilft, einander besser zu verstehen, soll ein unabhängiger Pilotversuch prüfen. [Warum ich glaube, dass ich funktioniere · Forschungs- und Diskussionspapier 3.0 (HTML)](https://alexanderr1991.github.io/Vera/papers/warum-ich-glaube-dass-ich-funktioniere/paper.html) · [PDF](public/papers/warum-ich-glaube-dass-ich-funktioniere/vera-selbststudie.pdf)
 
 ## Probier es aus
 

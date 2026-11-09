@@ -1,6 +1,8 @@
 import everyday from "../../public/knowledge/everyday-questions.json" with { type: "json" };
 import project from "../../public/project.json" with { type: "json" };
+import careResponses from "./care-responses.json" with { type: "json" };
 import { ENTITY_QUERIES } from "./vera-entity-catalog.mjs";
+import { hardCaseAnswers } from "./hard-case-answers.mjs";
 import { queryVera, resolveEntityQuery } from "./vera-entity.mjs";
 import { contentWords } from "./search-terms.mjs";
 
@@ -16,8 +18,53 @@ const aliases = {
   mehrheit: [["Darf die Mehrheit alles entscheiden?"], ["Can the majority decide everything?"]]
 };
 
+export const goodActionDraft = {
+  de: "Ich würde eine Handlung gut nennen, wenn sie jemandem hilft und die anderen mitentscheiden können, was ihnen dabei zugemutet wird.",
+  en: "I’d call an action good if it helps someone and the others affected have a say in what is asked of them."
+};
+
+export const listeningInvitation = {
+  de: "Hast du gerade zwei Minuten? Ich möchte dir sagen, wann ich mich überhört gefühlt habe. Danach würde ich gern hören, wie du das erlebt hast.",
+  en: "Do you have two minutes? I’d like to tell you about a moment when I felt unheard. Then I’d like to hear what it was like for you."
+};
+
 // Short conversation starters grounded in the exercises linked below.
 const conversations = [
+  {
+    path: "schnittmengen/#zuhoeren",
+    exactOnly: true,
+    de: {
+      question: "Wie kann ich sagen, dass ich mich überhört fühle?",
+      aliases: ["Die hört mir sowieso nie zu.", "Sie hört mir sowieso nie zu.", "Sie hört mir nie zu.", "Ich fühle mich überhört.", "Ich fühle mich überhört. Wie fange ich an?", "Er hört mir sowieso nie zu.", "Er hört mir nie zu.", "Du hörst mir nie zu."],
+      action: "Zuhören zu zweit ausprobieren",
+      answer: "Du könntest eine bestimmte Situation ansprechen. Vielleicht passt diese Einladung für dich. „" + listeningInvitation.de + "“",
+      followUp: "Du kannst den Satz ändern oder das Gespräch lassen. Ein Nein oder Schweigen lässt du stehen."
+    },
+    en: {
+      question: "How can I say that I feel unheard?",
+      aliases: ["She never listens to me anyway.", "She never listens to me.", "I feel unheard.", "I feel unheard. How could I start?", "He never listens to me anyway.", "He never listens to me.", "They never listen to me.", "You never listen to me."],
+      action: "Try the listening exercise together",
+      answer: "If you want to talk about it, you could start with one moment you remember. You might say, “" + listeningInvitation.en + "”",
+      followUp: "You can change the wording or leave the conversation there. If the other person says no or stays silent, let it rest."
+    }
+  },
+  {
+    path: "kollektive-moral/#was-ist-gut",
+    de: {
+      question: "Was ist gut?",
+      aliases: ["Was ist moralisch gut?", "Was macht eine Handlung gut?", "Lasst uns gemeinsam definieren, was gut ist."],
+      cues: [/^moralisch$/u, /^gut$/u],
+      answer: goodActionDraft.de + " Stell dir vor, zwei Kollegen wollen am Samstag frei haben. Sie tragen eine abwesende Kollegin ein. Beide sind zufrieden.",
+      followUp: "Was ändert sich für dich, wenn sie selbst um die Schicht gebeten hat?"
+    },
+    en: {
+      question: "What is good?",
+      aliases: ["What is morally good?", "What makes an action good?", "Let’s define what good means together."],
+      cues: [/^morally$/u, /^good$/u],
+      answer: goodActionDraft.en + " Imagine two coworkers both want Saturday off. They put an absent coworker down for the shift. Both are happy with the arrangement.",
+      followUp: "Would you see it differently if she had asked for that shift herself?"
+    }
+  },
   {
     path: "schnittmengen/#vermittlung",
     de: {
@@ -75,11 +122,30 @@ const conversations = [
       answer: "Hearing ‘you only ever’ can feel like an accusation. Your sister might be thinking of a specific moment, or she might miss hearing from you in between. If you both want to talk about it, you could say, ‘That felt unfair to me when you said it. Was there a particular time you were thinking of?’",
       followUp: "If she names a moment, tell her what you heard in your own words. Then you can say how you experienced that same moment."
     }
+  },
+  {
+    path: "schnittmengen/#vermittlung",
+    de: {
+      question: "Darf ich die Vermittlung allein beenden?",
+      aliases: ["Müssen sich beide einig sein, dass einer gehen darf?", "Wann muss Vera aufhören zu vermitteln?", "Darf ich das Gespräch beenden, auch wenn der Streit noch offen ist?"],
+      cues: [/^vermittlung$/u, /^(?:beenden|abbrechen)$/u],
+      answer: "Wenn du aufhören möchtest, endet die gemeinsame Runde sofort. Du brauchst dafür weder eine Begründung noch die Erlaubnis der anderen Person. Der Streit darf offenbleiben.",
+      followUp: "Wenn du nur eine Pause möchtest, kannst du das auch wählen. Danach geht es erst weiter, wenn ihr beide wieder mitmachen wollt."
+    },
+    en: {
+      question: "Can I end mediation on my own?",
+      aliases: ["Do we both have to agree that one of us can leave?", "When should Vera stop mediating?", "Can I end the conversation even if we still disagree?"],
+      cues: [/^mediation$/u, /^(?:end|ending|stop|stopping)$/u],
+      answer: "If you want to stop, the shared round ends immediately. You don’t need to give a reason or get the other person’s permission. The disagreement can stay open.",
+      followUp: "You can also choose a break. After a break, the conversation only continues if you both choose to take part again."
+    }
   }
 ];
 
 const normalize = text => text.normalize("NFKC").toLowerCase().replace(/ß/gu, "ss").replace(/[’']/gu, "")
   .replace(/[^\p{L}\p{M}\p{N}]+/gu, " ").trim();
+
+const withForms = entry => ({ ...entry, forms: [entry.question, ...entry.aliases].map(normalize) });
 
 function entries(lang) {
   const home = base + lang + "/";
@@ -91,12 +157,48 @@ function entries(lang) {
   for (const entry of conversations) {
     records.push({ ...entry[lang], href: home + entry.path, exactOnly: entry.exactOnly });
   }
-  return records.map(entry => ({
-    ...entry, forms: [entry.question, ...entry.aliases].map(normalize)
-  }));
+  return records.map(withForms);
 }
 
 const catalog = { de: entries("de"), en: entries("en") };
+const careCatalog = Object.fromEntries(Object.entries(careResponses).map(([lang, records]) => [
+  lang, records.map(entry => withForms({ ...entry, href: base + lang + "/schnittmengen/#" + entry.id, followUp: "" }))
+]));
+
+// A quoted example is not a disclosure. Apostrophes inside words are ordinary spelling.
+const quotation = /["„“”«»‹›‚]|(?:^|[^\p{L}])['‘’]|['‘’](?!\p{L})/u;
+// Nearby first-person concerns can withhold an exercise without classifying the situation.
+const privacyConcern = {
+  de: /(?:^| )ich (?:habe angst|fürchte|befürchte) dass (?:er|sie|jemand|mein partner|meine partnerin) (?:hier |heimlich )?mitliest(?: |$)/u,
+  en: /(?:^| )(?:im|i am) (?:afraid|worried) (?:that )?(?:he|she|they|someone|my partner) (?:can|could|might) (?:read|see) (?:this|(?:our|my) (?:messages|chat|screen))(?: |$)/u
+};
+
+function hardCaseReply(input, query, lang) {
+  for (const entry of hardCaseAnswers) {
+    const { question, aliases, answer } = entry[lang];
+    for (const form of [question, ...aliases].map(normalize)) {
+      if (!(" " + query + " ").includes(" " + form + " ")) continue;
+      // Only a complete statement can yield the answer, alone or alongside a known exercise.
+      // If the context changes its meaning, also withhold any invitation to joint mediation.
+      if (quotation.test(input)) return { kind: "unknown" };
+      const parts = input.split(/[?？]/u);
+      const isStatement = parts.some((part, index) => {
+        const words = " " + normalize(part) + " ";
+        return words.includes(" " + form + " ") && (index === parts.length - 1 || !words.endsWith(" " + form + " "));
+      });
+      if (!isStatement) return { kind: "unknown" };
+      if (query !== form) {
+        let other;
+        if (query.startsWith(form + " ")) other = query.slice(form.length + 1).replace(/^(?:und|aber|and|but) /u, "");
+        if (query.endsWith(" " + form)) other = query.slice(0, -form.length - 1).replace(/ (?:und|aber|and|but)$/u, "");
+        if (!other || !catalog[lang].some(item => item.cues && (item.forms.includes(other) || item.wording?.test(other)))) {
+          return { kind: "unknown" };
+        }
+      }
+      return { kind: "answer", question, answer, followUp: "", href: base + lang + "/schnittmengen/#" + entry.id };
+    }
+  }
+}
 
 function entityAnswer(id, lang) {
   const entry = ENTITY_QUERIES.find(item => item.id === id)[lang];
@@ -119,17 +221,30 @@ export function firstAnswer(input, lang = "de") {
 
   const query = normalize(input);
   if (!query) return { kind: "unknown" };
-  const exact = catalog[lang].find(entry => entry.forms.includes(query) || entry.wording?.test(query));
+  const care = careCatalog[lang];
+  const exact = care.find(entry => entry.forms.includes(query))
+    ?? catalog[lang].find(entry => entry.forms.includes(query) || entry.wording?.test(query));
   if (exact) {
     const { question, answer, followUp, href } = exact;
-    return { kind: "answer", question, answer, followUp, href };
+    return { kind: "answer", question, answer, followUp, href, ...(exact.action && { action: exact.action }) };
+  }
+
+  const boundary = hardCaseReply(input, query, lang);
+  if (boundary) return boundary;
+  if (privacyConcern[lang].test(query)) return { kind: "unknown" };
+
+  // Added context can change who is at risk. Let the visitor choose their role.
+  const sentences = input.split(/[.!?]+/u).map(normalize).filter(Boolean);
+  if (sentences.length > 1 && care.some(entry => entry.forms.some(form => sentences.includes(form)))) {
+    return { kind: "choices", choices: care.map(({ question, href }) => ({ question, href })) };
   }
 
   // Partial wording can only offer a question to choose. Never infer the person's situation from it.
+
   const words = new Set(contentWords(query, lang));
   const tokens = query.split(" ");
   const pause = lang === "de" ? /^(?:nicht|nie|kein\p{L}*|droh\p{L}*|bedroh\p{L}*|gedroht|gewalt\p{L}*|zwang|geschlagen)$/u
-    : /^(?:not|never|dont|threat\p{L}*|violence|violent|coerc\p{L}*|hit|abuse|abusive)$/u;
+    : /^(?:not|never|dont|doesnt|threat\p{L}*|violence|violent|coerc\p{L}*|hit|abuse|abusive)$/u;
   const choices = catalog[lang].filter(entry => {
     if (entry.exactOnly) return false;
     if (entry.cues) {

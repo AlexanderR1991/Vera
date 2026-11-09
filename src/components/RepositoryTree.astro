@@ -1,0 +1,276 @@
+---
+import Layout from "../layouts/SiteLayout.astro";
+import {publicRepositoryTree, repositoryEntryUrl} from "../lib/repository-tree.mjs";
+import {loadRepositorySnapshot} from "../lib/repository-tree-snapshot.mjs";
+import project from "../../public/project.json" with {type:"json"};
+
+const {lang="de"} = Astro.props;
+const de = lang === "de";
+const t = de ? {
+  title: "Repository-Baum",
+  intro: "Entdecke, wie Vera aufgebaut ist. Wähle einen Ordner im Baum und sieh darunter, welche Dateien und Ordner darin liegen.",
+  scope: "Dateien, die nur im GitHub-Archiv erscheinen, sind über GitHub zugänglich.",
+  graph: "Ordnerbaum des Vera-Repositories",
+  trail: "Ordnerpfad",
+  live: "Live von GitHub",
+  checking: "Rufe main auf GitHub ab …",
+  build: "Stand beim Website-Build",
+  previous: "Zuletzt geladener Stand von main.",
+  unavailable: "GitHub ist gerade nicht erreichbar.",
+  waiting: "Der Repository-Baum ist derzeit über GitHub verfügbar.",
+  refresh: "Stand abrufen",
+  zoomIn: "Vergrößern",
+  zoomOut: "Verkleinern",
+  reset: "Ansicht zurücksetzen",
+  contents: "Inhalt von",
+  folder: "Ordner",
+  file: "Datei",
+  submodule: "Submodul",
+  empty: "Dieser Ordner ist leer.",
+  github: "Auf GitHub ansehen"
+} : {
+  title: "Repository tree",
+  intro: "Explore how Vera is built. Select a folder in the graph to see the files and folders it contains below.",
+  scope: "Files reserved for the GitHub archive are available on GitHub.",
+  graph: "Folder tree of the Vera repository",
+  trail: "Folder path",
+  live: "Live from GitHub",
+  checking: "Checking main on GitHub …",
+  build: "Snapshot from the site build",
+  previous: "Last loaded state of main.",
+  unavailable: "GitHub is currently unavailable.",
+  waiting: "The repository tree is currently available on GitHub.",
+  refresh: "Check for updates",
+  zoomIn: "Zoom in",
+  zoomOut: "Zoom out",
+  reset: "Reset view",
+  contents: "Contents of",
+  folder: "Folder",
+  file: "File",
+  submodule: "Submodule",
+  empty: "This folder is empty.",
+  github: "View on GitHub"
+};
+
+const repository = project.repository;
+const snapshot = publicRepositoryTree(loadRepositorySnapshot());
+const root = {path: "", type: "tree"};
+const ref = snapshot.commit ?? "main";
+const rootEntries = snapshot.entries.filter(entry => !entry.path.includes("/"))
+  .sort((a, b) => Number(b.type === "tree") - Number(a.type === "tree") || a.path.localeCompare(b.path, lang));
+const typeLabel = type => type === "tree" ? t.folder : type === "commit" ? t.submodule : t.file;
+---
+
+<Layout lang={lang} slug="repository" theme="light" pageTitle={t.title} description={t.intro}>
+  <section class="container repository-tree" data-repository={repository} data-snapshot={JSON.stringify(snapshot)} data-copy={JSON.stringify(t)}>
+    <header class="repo-intro">
+      <svg class="repo-mark" viewBox="12 12 176 176" aria-hidden="true" focusable="false">
+        <circle cx="100" cy="100" r="80" pathLength="360" fill="none" stroke="currentColor"
+          stroke-width="3" stroke-dasharray="346 14" transform="rotate(-38 100 100)" />
+      </svg>
+      <p class="repo-kicker">Vera / GitHub / main</p>
+      <h1>{t.title}</h1>
+      <p class="repo-lead">{t.intro}</p>
+    </header>
+
+    <div class="repo-source">
+      <p data-tree-status role="status">{snapshot.commit ? t.build + " · " + snapshot.commit.slice(0, 7) : t.waiting}</p>
+      <button type="button" class="repo-control" data-tree-refresh hidden>{t.refresh}</button>
+    </div>
+    <div class="repo-map" data-tree-map hidden>
+      <svg data-tree-graph role="group" aria-label={t.graph} width="960" height="540"></svg>
+      <div class="repo-map-controls">
+        <button type="button" class="repo-control" data-tree-zoom="in" aria-label={t.zoomIn}>+</button>
+        <button type="button" class="repo-control" data-tree-zoom="out" aria-label={t.zoomOut}>−</button>
+        <button type="button" class="repo-control" data-tree-zoom="reset" aria-label={t.reset}>↺</button>
+      </div>
+    </div>
+
+    <section class="repo-contents" aria-labelledby="repo-content-heading">
+      <nav data-tree-trail class="repo-trail" aria-label={t.trail} hidden></nav>
+      <div class="repo-contents-header">
+        <h2 id="repo-content-heading" data-tree-heading tabindex="-1">{t.contents} Vera</h2>
+        <a class="home-link" data-tree-github href={repositoryEntryUrl(repository, ref, root)}>
+          {t.github} <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+      <ul data-tree-tiles class="repo-tiles">
+        {rootEntries.map(entry => (
+          <li>
+            <a class="repo-tile" data-entry-type={entry.type}
+              data-folder={entry.type === "tree" ? entry.path : undefined}
+              href={repositoryEntryUrl(repository, ref, entry)}>
+              <span class="repo-tile-kind">{typeLabel(entry.type)}</span>
+              <strong>{entry.path}</strong>
+            </a>
+          </li>
+        ))}
+      </ul>
+      <p class="repo-scope">{t.scope}</p>
+    </section>
+  </section>
+</Layout>
+
+<script>
+  import {mountRepositoryTree} from "../client/repository-tree.mjs";
+  const page = document.querySelector("[data-repository][data-snapshot]");
+  if (page) mountRepositoryTree(page);
+</script>
+
+<style>
+  .repository-tree {
+    padding-block: clamp(32px, 6vw, 80px);
+  }
+  .repo-intro {
+    margin: 0 auto clamp(28px, 4vw, 52px);
+    text-align: center;
+  }
+  .repo-mark {
+    display: block;
+    width: 52px;
+    height: 52px;
+    margin: 0 auto 22px;
+  }
+  .repo-kicker, .repo-source, .repo-tile-kind, .repo-trail {
+    font: 500 .78rem/1.5 ui-monospace, monospace;
+    color: var(--text-soft);
+  }
+  .repo-kicker {
+    margin: 0 0 .8rem;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+  }
+  .repo-intro h1 {
+    margin: 0;
+    font: 400 clamp(2.2rem, 6.6vw, 5rem)/1.05 Georgia, serif;
+    letter-spacing: -.055em;
+    text-wrap: balance;
+  }
+  .repo-lead {
+    max-width: 52ch;
+    margin: 1rem auto 0;
+    color: var(--text-soft);
+    text-wrap: pretty;
+  }
+  .repo-source, .repo-contents-header, .repo-trail {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: .25rem 1rem;
+  }
+  .repo-source p { margin: 0; }
+  .repo-source p[data-state="live"] { color: var(--signal); }
+  .repo-control {
+    min-width: 44px;
+    min-height: 44px;
+    padding: .25rem .6rem;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    background: var(--ink2);
+    color: var(--text);
+    font: inherit;
+    cursor: pointer;
+  }
+  .repo-control:hover:enabled { border-color: var(--text); }
+  .repo-control:disabled { opacity: .65; }
+  .repo-map {
+    position: relative;
+    margin-top: .55rem;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    overflow: hidden;
+    background: radial-gradient(circle, #756c5430 1px, transparent 1px) 0 0 / 18px 18px, var(--ink2);
+  }
+  .repo-map svg {
+    display: block;
+    width: 100%;
+    height: clamp(320px, 57vw, 560px);
+    touch-action: pan-y;
+  }
+  .repo-map svg.is-zoomed { touch-action: none; cursor: grab; }
+  .repo-map-controls {
+    position: absolute;
+    top: .5rem;
+    right: .5rem;
+    display: flex;
+    gap: .2rem;
+  }
+  .repo-map-controls .repo-control { font-size: 1.25rem; }
+  .repo-map :global(.repo-graph-edge) {
+    stroke: #ada48f;
+    stroke-width: 1;
+    vector-effect: non-scaling-stroke;
+  }
+  .repo-map :global(.repo-graph-edge.is-ancestor) {
+    stroke: var(--signal);
+    stroke-width: 1.7;
+  }
+  .repo-map :global(.repo-graph-node) { cursor: pointer; }
+  .repo-map :global(.repo-graph-dot) { fill: var(--text-soft); }
+  .repo-map :global(.repo-graph-label) {
+    fill: var(--text);
+    font-family: ui-monospace, monospace;
+    font-weight: 500;
+    paint-order: stroke;
+    stroke: var(--ink2);
+    stroke-width: 4;
+    stroke-linejoin: round;
+  }
+  .repo-map :global(.repo-graph-node:is(.is-selected, .is-ancestor, :hover, :focus-visible) .repo-graph-dot) {
+    fill: var(--signal);
+    stroke: var(--signal);
+    stroke-width: 2;
+  }
+  .repo-map :global(.repo-graph-node.is-selected .repo-graph-label) { font-weight: 750; }
+  .repo-map :global(.repo-graph-focus) { fill: none; stroke: transparent; }
+  .repo-map :global(.repo-graph-node:focus-visible .repo-graph-focus) { stroke: var(--signal); }
+  .repo-contents { margin-top: clamp(20px, 4vw, 48px); }
+  .repo-trail { justify-content: flex-start; }
+  .repo-trail :global(a) { color: inherit; text-underline-offset: .2em; }
+  .repo-trail :global([aria-current]) { overflow-wrap: anywhere; }
+  .repo-contents-header h2 {
+    font: 400 clamp(1.55rem, 3.5vw, 2.4rem)/1.2 Georgia, serif;
+    margin: .3rem 0;
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+  .repo-tiles {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 10.5rem), 1fr));
+    gap: .65rem;
+    padding: 0;
+    margin: .75rem 0 0;
+    list-style: none;
+  }
+  .repo-tiles :global(.repo-tile) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: .65rem;
+    height: 100%;
+    padding: .8rem;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    background: var(--ink2);
+    color: var(--text);
+    text-decoration: none;
+    overflow-wrap: anywhere;
+  }
+  .repo-tiles :global(.repo-tile[data-entry-type="tree"]) {
+    background: var(--ink3);
+    border-inline-start: 3px solid var(--signal);
+  }
+  .repo-tiles :global(.repo-tile:hover) { border-color: var(--text); }
+  .repo-tiles :global(.repo-tile strong) { font: 650 .92rem/1.45 ui-monospace, monospace; }
+  .repo-tiles :global(.repo-tile-kind) {
+    color: var(--text-soft);
+    font: 500 .78rem/1.5 ui-monospace, monospace;
+  }
+  .repo-scope {
+    margin-block: 1rem 0;
+    color: var(--text-soft);
+    font-size: .85rem;
+  }
+  .repository-tree [hidden] { display: none; }
+</style>

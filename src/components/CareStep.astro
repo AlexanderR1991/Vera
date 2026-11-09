@@ -1,0 +1,111 @@
+---
+import { listeningInvitation } from "../lib/first-answer.mjs";
+const { lang = "de", scenario = "listening" } = Astro.props;
+const t = (de: string, en: string) => lang === "en" ? en : de;
+const step = scenario === "meal" ? {
+  id: "mahlzeit-anbieten",
+  kicker: t("Eine Mahlzeit zu zweit teilen", "Sharing a meal with one other person"),
+  title: t("Möchtest du etwas Suppe?", "Would you like some soup?"),
+  intro: t("Lou, Kim und Sam waren ein erfundenes Beispiel. Hier könnt ihr ein eigenes Angebot ausprobieren, wenn eine Person etwas zu essen übrig hat.", "Lou, Kim and Sam were a fictional example. Here you can try an offer of your own when one of you has food to share."),
+  invitation: t("Ich habe Gemüsesuppe übrig. Möchtest du eine Portion? Ich kann dir sagen, was darin ist.", "I have some vegetable soup left. Would you like a portion? I can tell you what’s in it."),
+  boundary: t("Wenn die andere Person Nein sagt oder schweigt, lass es bei dem Angebot. Wer sie annimmt, schuldet dafür keine Gegenleistung.", "If the other person declines or stays silent, leave it at the offer. Accepting a portion comes with no obligation to give anything back."),
+  ready: t("Ihr möchtet es beide versuchen. Wenn die Suppe für euch passt, könnt ihr sie jetzt teilen.", "You both want to try. If the soup suits you both, you can share it now."),
+  question: t("Wie hat sich das Teilen der Mahlzeit für mich ausgewirkt?", "How did sharing the meal affect me?"),
+  helped: t("Das hat mir geholfen", "It helped me"),
+  worse: t("Das hat mich belastet", "It made things harder for me"),
+  offline: t("Ihr könnt euch auch mündlich einigen, ob und was ihr teilen möchtet. Wenn ihr tatsächlich Essen geteilt habt, kann jede Person hinterher sagen, ob es ihr geholfen, sie belastet oder für sie nichts verändert hat.", "You can also ask each other aloud whether and what you would like to share. If you do share food, each of you can say afterwards whether it helped, made things harder or changed nothing for you.")
+} : {
+  id: "zuhoeren",
+  kicker: t("Eine Einladung zum Zuhören", "An invitation to listen"),
+  title: t("„Die hört mir sowieso nie zu.“", "“She never listens to me anyway.”"),
+  intro: t("Denk an einen Moment, in dem du etwas sagen wolltest und nicht zu Ende kamst. Wenn du noch einmal darüber sprechen möchtest, wie würde diese Einladung für dich klingen?", "Think of a moment when you wanted to say something and couldn’t finish. If you’d like to talk about it again, how would this invitation sound to you?"),
+  invitation: listeningInvitation[lang],
+  boundary: t("Du kannst den Satz für dich ausprobieren. Bei einem Nein oder Schweigen lass die Einladung stehen. Falls du dich bedroht fühlst, kannst du das Gespräch hier lassen.", "You can try the wording on your own. If the other person says no or stays silent, let the invitation rest. If you feel threatened, you can leave the conversation here."),
+  ready: t("Beide möchten es versuchen. Wenn ihr wollt, legt das Gerät weg und hört einander zu.", "Both of you want to try. If you wish, put the device down and listen to each other."),
+  question: t("Kam ich bei diesem Versuch zu Wort?", "Was I able to speak during this trial?"),
+  helped: t("Ich kam leichter zu Wort", "It was easier to speak"),
+  worse: t("Für mich wurde es schwieriger", "It was harder for me"),
+  offline: t("Zu zweit geht es auch mündlich. Möchtet ihr es beide versuchen? Fragt euch erst danach einzeln, ob es leichter, genauso leicht oder schwieriger war, zu Wort zu kommen.", "You can also try this together aloud. Do you both want to try? Afterwards, each of you can say whether it was easier, about the same or harder to speak.")
+};
+const messages = {
+  waiting: t("Ihr könnt den Satz ändern, antworten oder die Antwort offenlassen.", "You can edit the invitation, reply or leave your answer open."),
+  ready: step.ready,
+  revise: t("Eine Person möchte etwas ändern. Schreibt den Satz in ihren eigenen Worten neu. Dann antwortet jede Person noch einmal.", "Someone wants to change the invitation. Let them write it in their own words. Then each person can answer again."),
+  stopped: t("Hier endet die Einladung. Wer Nein sagt, schuldet keine Begründung.", "The invitation ends here. No one owes a reason for saying no."),
+  unsafe: t("Hört hier auf. Wenn du dich unter Druck oder bedroht fühlst, kannst du Abstand nehmen und dir Unterstützung holen.", "Stop here. If you feel pressured or threatened, you can step away and seek support."),
+  trying: t("Wie war es für dich? Jede Person kann ihre eigene Erfahrung eintragen oder offenlassen.", "How was it for you? Each person can describe their own experience or leave it open."),
+  review: t("Eine Person sagt, dass es schwieriger wurde. Beendet den Versuch. Wer möchte, kann noch die eigene Erfahrung festhalten.", "Someone says this made things harder. End the trial. Each of you can still record your own experience if you wish."),
+  reported: t("Beide haben ihre Erfahrung eingetragen. Ihr könnt die Antworten nebeneinander lesen.", "Both of you have recorded your experience. You can read the answers side by side."),
+  editing: t("Wenn ihr den neuen Satz übernehmt, werden alle Antworten zurückgesetzt. Stellt ihr den bisherigen Wortlaut wieder her, bleiben die früheren Antworten erhalten.", "Applying new wording clears all previous answers. Restoring the original wording keeps those answers in place."),
+  empty: t("Wie würdest du die Einladung in deinen eigenen Worten formulieren?", "How would you word the invitation?"),
+  ended: t("Die Eingaben wurden gelöscht. Die Übung ist beendet.", "The entries have been cleared. The exercise has ended.")
+};
+const replies = [
+  ["pending", t("Offen", "Open")], ["try", t("Ich möchte es versuchen", "I want to try")],
+  ["correct", t("Ich möchte den Satz ändern", "I want to change the wording")],
+  ["decline", t("Nein, ich möchte aufhören", "No, I want to stop")],
+  ["unsafe", t("Ich fühle mich unter Druck oder unsicher", "I feel pressured or unsafe")]
+];
+const effects = [
+  ["pending", t("Offen", "Open")], ["helped", step.helped],
+  ["unchanged", t("Für mich blieb es gleich", "It felt the same to me")],
+  ["worse", step.worse]
+];
+---
+<section class="section" id={step.id} data-care-step data-messages={JSON.stringify(messages)} aria-labelledby={step.id + "-title"}>
+  <div class="narrow">
+    <p class="section-kicker">{step.kicker}</p>
+    <h2 id={step.id + "-title"}>{step.title}</h2>
+    <p>{step.intro}</p>
+    <blockquote>{step.invitation}</blockquote>
+    <p>{step.boundary}</p>
+    <details data-care-controls hidden>
+      <summary>{t("Zu zweit an einem Gerät ausprobieren", "Try it together on one device")}</summary>
+      <p>{t("Gebt das Gerät weiter. Jede Person antwortet nur für sich. Beide können die Einträge auf diesem Bildschirm lesen. Sie bleiben auf der geöffneten Seite.", "Pass the device between you and answer only for yourself. Both of you can read the entries on this screen. They stay on the open page.")}</p>
+      <label>{t("Unsere Einladung in eigenen Worten", "Our invitation in our own words")}
+        <textarea data-wording rows="3" autocomplete="off" maxlength="500">{step.invitation}</textarea>
+      </label>
+      <button type="button" data-rewrite hidden>{t("Neuen Wortlaut übernehmen", "Use this wording")}</button>
+      <div class="turns">
+        {["A", "B"].map(person => <fieldset>
+          <legend>Person {person}</legend>
+          <label>{t("Möchte ich es so versuchen?", "Do I want to try this?")}
+            <select data-reply={person} autocomplete="off">
+              {replies.map(([value, label]) => <option value={value} disabled={value === "pending"}>{label}</option>)}
+            </select>
+          </label>
+          <label data-effect-label hidden>{step.question}
+            <select data-effect={person} autocomplete="off">
+              {effects.map(([value, label]) => <option value={value} disabled={value === "pending"}>{label}</option>)}
+            </select>
+          </label>
+        </fieldset>)}
+      </div>
+      <button type="button" data-tried hidden>{t("Wir haben es ausprobiert", "We tried it")}</button>
+      <button type="button" data-end>{t("Beenden und Eingaben löschen", "End and clear entries")}</button>
+    </details>
+    <p data-care-result role="status" tabindex="-1"></p>
+    <noscript><p>{step.offline}</p></noscript>
+  </div>
+</section>
+
+<script>
+  import { mountCareStep } from "../client/care-step.mjs";
+  for (const root of document.querySelectorAll("[data-care-step]")) mountCareStep(root);
+</script>
+
+<style>
+  section { scroll-margin-top: 6rem; }
+  h2 { margin: .6rem 0 1rem; font-size: clamp(2rem, 5vw, 3.25rem); line-height: 1.15; }
+  p, blockquote { margin: .8rem 0; line-height: 1.65; }
+  blockquote { padding-left: 1rem; border-left: 2px solid var(--gold); font: 1.25rem/1.55 var(--serif); }
+  details { margin: 1rem 0; }
+  summary, button { cursor: pointer; }
+  summary { padding: .75rem 0; font-weight: 650; }
+  .turns { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); gap: .75rem; margin: 1rem 0; }
+  fieldset { min-width: 0; border: 1px solid var(--line); padding: .75rem; }
+  label { display: grid; gap: .3rem; margin-bottom: .5rem; }
+  textarea, select, button { width: 100%; min-height: 44px; border: 1px solid var(--muted); background: var(--ink); color: var(--text); padding: .55rem; font: inherit; }
+  button { width: auto; margin: .3rem .4rem .3rem 0; }
+  [hidden] { display: none !important; }
+</style>

@@ -3,6 +3,7 @@ import Layout from "../layouts/SiteLayout.astro";
 import ForumSectionLink from "./ForumSectionLink.astro";
 import {forumPlacePath} from "../lib/forum-places.mjs";
 import WorldviewConsensus from "./WorldviewConsensus.astro";
+import CareStep from "./CareStep.astro";
 import {pathFor} from "../lib/paths.mjs";
 const {lang="de"}=Astro.props;
 const t={
@@ -67,11 +68,13 @@ discuss:"Join the dialogue ↗",method:"Our method ↗"
 <h1 id="theology-title">{t.titleA}<br/><em>{t.titleB}</em></h1>
 <p class="theology-lead">{t.lead}</p><p class="theology-note">{t.note}</p>
 <p><a class="subtle-link" href="#weltanschauungen">{lang==="de"?"Eine gemeinsame Mahlzeit planen":"Plan a meal together"} ↓</a></p>
+<p><a class="subtle-link" href="#mahlzeit-anbieten">{lang==="de"?"Jemandem etwas Suppe anbieten":"Offer someone a bowl of soup"} ↓</a></p>
 </div></section>
 <section class="section section--paper theology-simple"><div class="narrow">
 <p class="section-kicker">{t.simpleTag}</p><h2>{t.simpleTitle}</h2><p>{t.simple}</p><blockquote>{t.simpleQuote}</blockquote>
 </div></section>
 <WorldviewConsensus lang={lang} />
+<CareStep lang={lang} scenario="meal" />
 <section class="section theology-principles" id="dialogregeln"><div class="container">
 <p class="section-kicker">{t.rulesTag}</p><h2>{t.rulesTitle}</h2>
 <ForumSectionLink lang={lang} place="bruecken-zwischen-den-religionen" section="dialogregeln" />

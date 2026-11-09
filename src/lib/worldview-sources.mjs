@@ -18,8 +18,8 @@ export const worldviewSources = [
     annotations: {shareFood: "text"},
     url: "https://bible.usccb.org/bible/matthew/25",
     reading: {
-      de: "In Jesu Rede über das Gericht erkennt der König die Hilfe für seine geringsten Geschwister als Hilfe für sich selbst an. Als Beispiel nennt er das Speisen von Hungrigen.",
-      en: "In Jesus’ account of the judgment, the king receives care for the least of his brothers as care for himself. Feeding the hungry is one example."
+      de: "In der Rede über das Gericht erkennt der König die Hilfe für seine geringsten Geschwister als Hilfe für sich selbst an. Als Beispiel nennt er das Speisen von Hungrigen.",
+      en: "In the account of the judgment, the king receives care for the least of his brothers as care for himself. Feeding the hungry is one example."
     },
     kind: "text"
   },
