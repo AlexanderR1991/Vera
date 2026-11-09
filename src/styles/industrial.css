@@ -294,7 +294,8 @@ a:hover { color: var(--gold-bright); }
 }
 :is(.board-tile--everyday, .board-tile--society, .board-tile--counterexample) h3 {
   margin-block-start: .7rem;
-  font: 400 clamp(1.3rem, 2.1vw, 2rem)/1.08 Georgia, serif;
+  font: 400 clamp(1.2rem, 2vw, 1.68rem)/1.08 Georgia, serif;
+  hyphens: auto;
   letter-spacing: -.045em;
 }
 :is(.board-tile--everyday, .board-tile--society, .board-tile--counterexample) :is(.board-tile__top, p) { color: var(--poster-muted); }
