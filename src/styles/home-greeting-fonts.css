@@ -1,0 +1,139 @@
+/* Noto subsets for the characters in home-greetings.mjs. See public/fonts/greetings/OFL.txt. */
+@font-face {
+  font-family: "Vera Greeting Fallback";
+  src: url("../fonts/greetings/arabic.woff2") format("woff2");
+  font-display: swap;
+  unicode-range: U+0627, U+0628, U+062D, U+0631, U+0633, U+0639, U+0644, U+0645, U+064B, U+06A9, U+06CC;
+}
+@font-face {
+  font-family: "Vera Greeting Fallback";
+  src: url("../fonts/greetings/armenian.woff2") format("woff2");
+  font-display: swap;
+  unicode-range: U+0532, U+055C, U+0561, U+0580, U+0587;
+}
+@font-face {
+  font-family: "Vera Greeting Fallback";
+  src: url("../fonts/greetings/bengali.woff2") format("woff2");
+  font-display: swap;
+  unicode-range: U+0986, U+0995, U+09A8, U+09AE, U+09B0, U+09B8, U+09BE, U+09BF, U+09CB, U+09CD, U+09F0;
+}
+@font-face {
+  font-family: "Vera Greeting Fallback";
+  src: url("../fonts/greetings/canadian-aboriginal.woff2") format("woff2");
+  font-display: swap;
+  unicode-range: U+1403, U+140A;
+}
+@font-face {
+  font-family: "Vera Greeting Fallback";
+  src: url("../fonts/greetings/cherokee.woff2") format("woff2");
+  font-display: swap;
+  unicode-range: U+13A3, U+13CF, U+13F2;
+}
+@font-face {
+  font-family: "Vera Greeting Fallback";
+  src: url("../fonts/greetings/cjk.woff2") format("woff2");
+  font-display: swap;
+  unicode-range: U+3053, U+3061, U+306B, U+306F, U+3093, U+4F60, U+4FC2, U+597D, U+6211, U+662F, U+FF01, U+FF0C;
+}
+@font-face {
+  font-family: "Vera Greeting Fallback";
+  src: url("../fonts/greetings/devanagari.woff2") format("woff2");
+  font-display: swap;
+  unicode-range: U+0915, U+0924, U+0928, U+092E, U+0930, U+0938, U+0939, U+093E, U+0947, U+0948, U+094D;
+}
+@font-face {
+  font-family: "Vera Greeting Fallback";
+  src: url("../fonts/greetings/ethiopic.woff2") format("woff2");
+  font-display: swap;
+  unicode-range: U+120B, U+121D, U+1230;
+}
+@font-face {
+  font-family: "Vera Greeting Fallback";
+  src: url("../fonts/greetings/georgian.woff2") format("woff2");
+  font-display: swap;
+  unicode-range: U+10D0, U+10D1, U+10D2, U+10D4, U+10D5, U+10DB, U+10DD, U+10E0, U+10EF;
+}
+@font-face {
+  font-family: "Vera Greeting Fallback";
+  src: url("../fonts/greetings/gujarati.woff2") format("woff2");
+  font-display: swap;
+  unicode-range: U+0AA4, U+0AA8, U+0AAE, U+0AB8, U+0AC7, U+0ACD;
+}
+@font-face {
+  font-family: "Vera Greeting Fallback";
+  src: url("../fonts/greetings/gurmukhi.woff2") format("woff2");
+  font-display: swap;
+  unicode-range: U+0A05, U+0A15, U+0A24, U+0A30, U+0A32, U+0A38, U+0A3E, U+0A40, U+0A4D;
+}
+@font-face {
+  font-family: "Vera Greeting Fallback";
+  src: url("../fonts/greetings/hangul.woff2") format("woff2");
+  font-display: swap;
+  unicode-range: U+B155, U+C138, U+C548, U+C694, U+D558;
+}
+@font-face {
+  font-family: "Vera Greeting Fallback";
+  src: url("../fonts/greetings/hebrew.woff2") format("woff2");
+  font-display: swap;
+  unicode-range: U+05D5, U+05DC, U+05DD, U+05E9;
+}
+@font-face {
+  font-family: "Vera Greeting Fallback";
+  src: url("../fonts/greetings/kannada.woff2") format("woff2");
+  font-display: swap;
+  unicode-range: U+0C95, U+0CA8, U+0CAE, U+0CB0, U+0CB8, U+0CB9, U+0CBE, U+0CC1, U+0CC6, U+0CCD;
+}
+@font-face {
+  font-family: "Vera Greeting Fallback";
+  src: url("../fonts/greetings/khmer.woff2") format("woff2");
+  font-display: swap;
+  unicode-range: U+1781, U+1788, U+1789, U+178F, U+1798, U+179F, U+17B8, U+17BB, U+17BD, U+17C4, U+17C6, U+17C7, U+17D2;
+}
+@font-face {
+  font-family: "Vera Greeting Fallback";
+  src: url("../fonts/greetings/lao.woff2") format("woff2");
+  font-display: swap;
+  unicode-range: U+0E82, U+0E8A, U+0E8D, U+0E94, U+0E9A, U+0EAA, U+0EAD, U+0EB0, U+0EB2, U+0EB5, U+0EB7, U+0EC8, U+0EC9;
+}
+@font-face {
+  font-family: "Vera Greeting Fallback";
+  src: url("../fonts/greetings/malayalam.woff2") format("woff2");
+  font-display: swap;
+  unicode-range: U+0D02, U+0D15, U+0D28, U+0D2E, U+0D30, U+0D38, U+0D3E, U+0D4D;
+}
+@font-face {
+  font-family: "Vera Greeting Fallback";
+  src: url("../fonts/greetings/myanmar.woff2") format("woff2");
+  font-display: swap;
+  unicode-range: U+1002, U+1004, U+1015, U+1019, U+101C, U+102B, U+102C, U+1039, U+103A;
+}
+@font-face {
+  font-family: "Vera Greeting Fallback";
+  src: url("../fonts/greetings/odia.woff2") format("woff2");
+  font-display: swap;
+  unicode-range: U+0B15, U+0B28, U+0B2E, U+0B30, U+0B38, U+0B3E, U+0B4D;
+}
+@font-face {
+  font-family: "Vera Greeting Fallback";
+  src: url("../fonts/greetings/sinhala.woff2") format("woff2");
+  font-display: swap;
+  unicode-range: U+0D86, U+0DB1, U+0DB6, U+0DBA, U+0DC0, U+0DCA, U+0DD4, U+0DDD;
+}
+@font-face {
+  font-family: "Vera Greeting Fallback";
+  src: url("../fonts/greetings/tamil.woff2") format("woff2");
+  font-display: swap;
+  unicode-range: U+0B8E, U+0B95, U+0BA3, U+0BA9, U+0BAA, U+0BAE, U+0BAF, U+0BB0, U+0BB5, U+0BC6, U+0BCD;
+}
+@font-face {
+  font-family: "Vera Greeting Fallback";
+  src: url("../fonts/greetings/telugu.woff2") format("woff2");
+  font-display: swap;
+  unicode-range: U+0C02, U+0C15, U+0C28, U+0C2A, U+0C2E, U+0C30, U+0C38, U+0C3E, U+0C41, U+0C47, U+0C4D;
+}
+@font-face {
+  font-family: "Vera Greeting Fallback";
+  src: url("../fonts/greetings/thai.woff2") format("woff2");
+  font-display: swap;
+  unicode-range: U+0E09, U+0E0A, U+0E14, U+0E19, U+0E27, U+0E2A, U+0E2D, U+0E31, U+0E35, U+0E37, U+0E48;
+}

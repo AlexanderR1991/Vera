@@ -150,6 +150,26 @@ a:hover { color: var(--gold-bright); }
   letter-spacing: -.062em;
   text-wrap: balance;
 }
+.home-opening__greeting-slot {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+}
+.home-opening__greeting-slot::before {
+  content: attr(data-original);
+  visibility: hidden;
+}
+.home-opening__greeting {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: scale(var(--greeting-scale, 1));
+  transform-origin: right center;
+}
+.home-opening__greeting:not(:lang(de)):not(:lang(en)) {
+  font-family: Georgia, "Vera Greeting Fallback", serif;
+  letter-spacing: normal;
+}
 @supports ((background-clip: text) or (-webkit-background-clip: text)) {
   .home-opening__name {
     background-image: linear-gradient(105deg, #2469bf, #6251c0 28%, #a13d90 55%, #b44964 76%, #a64d31);
