@@ -207,8 +207,13 @@ for (const [file, lang, id] of [
  }
  if (!html.includes('href="#' + id + '"')) errors.push("Entity query not linked from " + file);
  const header = html.match(/<header\b[^>]*>[\s\S]*?<\/header>/)?.[0] ?? "";
- if (!header.includes("WIRKLICH") || !header.includes('/' + lang + '/methode/#erkenntnismotor')) {
-  errors.push("Philosophical engine missing from header on " + file);
+ const repositoryPath = `/Vera/${lang}/repository/`;
+ const firstNavLinks = [...header.matchAll(/<nav class="vera-primary"[^>]*>\s*<a href="([^"]+)"/g)];
+ if (firstNavLinks.length !== 2 || firstNavLinks.some(([, href]) => href !== repositoryPath)) {
+  errors.push("Repository tree must be the first link in both header menus on " + file);
+ }
+ if (header.includes(`href="/Vera/${lang}/methode/#erkenntnismotor"`)) {
+  errors.push("Philosophical engine still linked from the header on " + file);
  }
  for (const query of ENTITY_QUERIES) {
   const card = lab.match(new RegExp('<details[^>]*data-entity-question="' + query.id + '"[^>]*>[\\s\\S]*?<\\/details>'))?.[0] ?? "";
@@ -222,7 +227,7 @@ for (const [file, lang, id] of [
  }
 }
 if(errors.length){console.error(errors.join("\n"));process.exit(1);}
-console.log("Verified entity queries, static verdicts and WIRKLICH links on all three home routes.");
+console.log("Verified entity queries, static verdicts and repository tree navigation on all three home routes.");
 
 // Release identity and the new routes must agree with the published source data.
 const {summarizeProject}=await import("../src/lib/project-status.mjs");
@@ -249,6 +254,8 @@ for(const lang of ["de","en"]){
  if(!hero.includes('stroke-dasharray="346 14"')||!hero.includes('transform="rotate(-38 100 100)"')||
     hero.includes('id="first-question"'))
    errors.push("Missing Vera circle or dedicated pinboard section for "+lang);
+ if(hero.includes(`href="/Vera/${lang}/repository/"`))
+   errors.push("Repository tree still linked in the home opening for "+lang);
  const entry=lang==="de"?"frag-mich":"ask-me";
  const cardTags=[...pinboard.matchAll(/<a[^>]*href="([^"]+)"[^>]*data-board-card="([^"]+)"[^>]*>/g)];
  const cards=new Map(cardTags.map(([,href,id])=>[id,href]));

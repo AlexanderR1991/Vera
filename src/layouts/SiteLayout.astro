@@ -17,7 +17,7 @@ const paper=home||Astro.props.theme==="light";
 const discussionPlace=getForumPlaceForSource(slug);
 const primaryLabel=de?"Hauptnavigation":"Main navigation";
 const primaryLinks = [
-  { href: pathFor(lang,"methode","erkenntnismotor"), label: de?"WIRKLICH · Philosophischer Motor":"WIRKLICH · Philosophical engine" },
+  { href: pathFor(lang,"repository"), label: t.titles.repository, current: slug==="repository" },
   { href: home ? (de?"#leben":"#life") : pathFor(lang,"index",de?"leben":"life"), label: de?"Ausprobieren":"Try Vera" },
   ...navigation.map(([destination,i])=>({ href: pathFor(lang,destination), label: t.nav[i], current: slug===destination }))
 ];
