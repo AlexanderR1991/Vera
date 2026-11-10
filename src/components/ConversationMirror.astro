@@ -1,0 +1,174 @@
+---
+import Layout from "../layouts/SiteLayout.astro";
+import ForumSectionLink from "./ForumSectionLink.astro";
+import {pathFor} from "../lib/paths.mjs";
+import {ui} from "../lib/ui.mjs";
+import project from "../../public/project.json" with {type: "json"};
+
+const {lang = "de"} = Astro.props;
+const de = lang === "de";
+const t = (german: string, english: string) => de ? german : english;
+const description = t(
+  "Ein Entwurf für Foren. Verfolge anhand eines fiktiven Threads, wo ein Streit weiterkommt und welche Fragen offenbleiben.",
+  "A proposal for forums. Follow a fictional thread to see where a dispute makes progress and which questions remain open."
+);
+
+const branches = [
+  {
+    id: "deliveries",
+    title: t("Lieferzeiten", "Delivery hours"),
+    status: t("Zwei ausdrückliche Zusagen", "Two explicit yeses"),
+    finding: t(
+      "Zwei Beteiligte würden ein Lieferfenster von 7 bis 10 Uhr sechs Wochen lang testen. Ihre Zusagen gelten für diesen Versuch.",
+      "Two participants would try a 7–10 a.m. delivery window for six weeks. Their agreement applies to this trial."
+    ),
+    replies: [
+      {name: "Mara", text: t("Was haltet ihr von einem Lieferfenster von 7 bis 10 Uhr, probeweise für sechs Wochen?", "How about a 7–10 a.m. delivery window as a six-week trial?")},
+      {name: "Sam", text: t("Ja, genau diesen sechswöchigen Versuch mit Lieferzeiten von 7 bis 10 Uhr würde ich mittragen.", "Yes, I would support that exact six-week trial with deliveries from 7 to 10 a.m.")},
+      {name: "Jo", text: t("Ja, den Versuch in dieser Form würde ich auch mittragen.", "Yes, I would support the trial as written, too.")}
+    ]
+  },
+  {
+    id: "traffic",
+    title: t("Verkehr in Nebenstraßen", "Traffic on side streets"),
+    status: t("Belegfrage offen", "Evidence still needed"),
+    finding: t(
+      "Eine Person erwartet mehr Verkehr in den Nebenstraßen. Eine andere fragt nach Zahlen. Im Beispiel wurde dazu keine Messung angeführt.",
+      "One person expects more traffic on side streets. Another asks for figures. Nobody in the example cites a measurement."
+    ),
+    replies: [
+      {name: "Kim", text: t("Die Autos landen doch alle bei uns in den Nebenstraßen.", "All those cars will end up on our side streets.")},
+      {name: "Noa", text: t("Haben wir dafür Verkehrszählungen oder ist das bisher eine Vermutung?", "Do we have traffic counts for that, or is it still a prediction?")}
+    ]
+  },
+  {
+    id: "access",
+    title: t("Zugang zur Innenstadt", "Access to the city centre"),
+    status: t("Zielkonflikt offen", "Trade-off still open"),
+    finding: t(
+      "Zwei Anliegen stehen nebeneinander. Der Weg von der Haltestelle soll stufenfrei sein. Gleichzeitig soll der Platz möglichst frei von Fahrzeugen bleiben.",
+      "Two concerns remain. The route from the stop should be step-free, and the square should stay as free of vehicles as possible."
+    ),
+    replies: [
+      {name: "Ari", text: t("Von der aktuellen Haltestelle kommt man nur über Stufen zum Platz. Ich brauche eine stufenfreie Verbindung.", "The current stop only connects to the square by steps. I need a step-free route.")},
+      {name: "Robin", text: t("Ein barrierefreier Shuttle könnte helfen. Ich möchte trotzdem, dass der Platz möglichst frei von Fahrzeugen bleibt.", "An accessible shuttle might help. I still want to keep the square as free of vehicles as possible.")}
+    ]
+  },
+  {
+    id: "experience",
+    title: t("Erfahrung aus früheren Runden", "Experience from earlier discussions"),
+    status: t("Frust wurde aufgegriffen", "Frustration was acknowledged"),
+    finding: t(
+      "Ein Beitrag schildert Frust über eine frühere Anhörung. Die Antwort greift das konkrete Anliegen auf. Der weitere Gesprächszweck bleibt offen.",
+      "One reply describes frustration with an earlier consultation. A response picks up the specific concern. What this branch should do next remains open."
+    ),
+    replies: [
+      {name: "Charlie", text: t("Beim letzten Mal habe ich extra eine Stellungnahme geschrieben und nie erfahren, was daraus wurde. Das frustriert mich.", "Last time I took the trouble to send feedback and never heard what happened to it. That frustrates me.")},
+      {name: "Lou", text: t("Du hast dir die Mühe gemacht und keine Rückmeldung bekommen. Ich verstehe, warum du das diesmal anders erleben willst.", "You put in the effort and heard nothing back. I can see why you’d want a different experience this time.")}
+    ]
+  }
+];
+const replyCount = branches.reduce((total, branch) => total + branch.replies.length, 0);
+---
+<Layout lang={lang} slug="gespraechsspiegel" description={description} theme="light">
+  <article class="container mirror-page">
+    <a class="subtle-link" href={pathFor(lang, "index", t("leben", "life"))}>
+      <span aria-hidden="true">←</span> {t("Zur Pinnwand", "Back to the pinboard")}
+    </a>
+
+    <header class="mirror-intro">
+      <p class="section-kicker">{t("Offene Schnittstellen · Entwurf", "Open interfaces · Proposal")}</p>
+      <h1>{ui[lang].titles.gespraechsspiegel}</h1>
+      <p class="mirror-lead">{t(
+        "Ein optionales Feld über einem Forenthread zeigt, worüber ihr gerade streitet, wo ihr euch näherkommt und welche Frage noch offen ist. Jede Einschätzung führt zurück zu den Beiträgen.",
+        "An optional panel above a forum thread shows what you’re debating, where you’re finding common ground and what remains open. Every observation links back to the replies."
+      )}</p>
+      <p class="mirror-note">{t(
+        "Unten kannst du einen erfundenen Thread durchgehen. Die Vorschau verwendet vorbereitete Texte. Eine Einbindung in Reddit oder andere Foren ist eine Idee für einen späteren Pilotversuch.",
+        "Explore a fictional thread below. The preview uses prepared text. Embedding it in Reddit or other forums is an idea for a future pilot."
+      )}</p>
+    </header>
+
+    <section class="mirror-panel" id="beispiel" aria-labelledby="mirror-example-title">
+      <p class="section-kicker">{t("Vorschau · fiktiver Thread", "Preview · fictional thread")}</p>
+      <h2 id="mirror-example-title">{t("Soll die Innenstadt autofrei werden?", "Should the city centre go car-free?")}</h2>
+      <p class="mirror-note">{t(
+        `Grundlage: alle ${replyCount} Antworten dieses Beispiels. Öffne einen Gesprächsast und prüfe seine Fundstellen.`,
+        `Scope: all ${replyCount} replies in this example. Open a branch and check the replies behind it.`
+      )}</p>
+      <div class="mirror-branches">
+        {branches.map(branch => (
+          <details>
+            <summary>
+              <span class="mirror-branch-title">{branch.title}</span>
+              <span class="mirror-note">{branch.status}</span>
+            </summary>
+            <p>{branch.finding}</p>
+            <a class="subtle-link" href={`#beitraege-${branch.id}`}>
+              {t("Zu den Beiträgen", "Jump to replies")} <span aria-hidden="true">↓</span>
+            </a>
+          </details>
+        ))}
+      </div>
+      <p class="mirror-next"><strong>{t("Eine Frage, die weiterhilft", "One question worth asking")}</strong>
+        {t("Wie verändert sich der Verkehr in denselben Nebenstraßen, wenn wir ihn vor und während einer möglichen Probesperrung zu vergleichbaren Zeiten zählen?", "How does traffic on the same side streets change if we count it at comparable times before and during a possible trial closure?")}
+      </p>
+      <a class="subtle-link" href="#spiegel-korrigieren">{t("Spiegel hinterfragen", "Challenge this reading")} <span aria-hidden="true">↓</span></a>
+    </section>
+
+    <section class="mirror-section" aria-labelledby="mirror-replies-title">
+      <h2 id="mirror-replies-title">{t("Die Beiträge im Beispiel", "Replies in the example")}</h2>
+      <div class="mirror-replies">
+        {branches.map(branch => (
+          <section id={`beitraege-${branch.id}`} aria-labelledby={`titel-${branch.id}`}>
+            <h3 id={`titel-${branch.id}`}>{branch.title}</h3>
+            <ol>
+              {branch.replies.map(reply => <li><strong>{reply.name}</strong> <span>{reply.text}</span></li>)}
+            </ol>
+          </section>
+        ))}
+      </div>
+    </section>
+
+    <section class="mirror-section" id="spiegel-korrigieren" aria-labelledby="mirror-design-title">
+      <h2 id="mirror-design-title">{t("Wer entscheidet, was weiterhilft?", "Who decides what counts as progress?")}</h2>
+      <p>{t(
+        "Wer eine Erfahrung teilen will, kann sich durch eine aufmerksame Antwort gehört fühlen. Wer eine Behauptung prüfen will, braucht einen Beleg oder eine Möglichkeit zur Prüfung. Wer gemeinsam entscheiden will, braucht einen konkreten Vorschlag und ausdrückliche Antworten darauf.",
+        "Someone sharing an experience may feel heard after a thoughtful reply. Someone checking a claim needs evidence or a way to test it. People trying to decide together need a specific proposal and explicit responses to it."
+      )}</p>
+      <p>{t(
+        "Im Entwurf soll der philosophische Motor diese Veränderungen für jeden Ast getrennt verfolgen. Er kann wiederholte Argumente bündeln und zeigt, wenn ihm Teile des Threads fehlen. Menschen können eine Deutung anhand der Fundstellen korrigieren und selbst entscheiden, ob sie eine vorgeschlagene Frage aufgreifen.",
+        "In the proposal, the philosophical engine would track these changes separately for each branch. It could group repeated arguments and show where parts of the thread are missing. People can use the original replies to challenge an interpretation and decide for themselves whether to pick up a suggested question."
+      )}</p>
+      <p><a class="subtle-link" href={project.repository + "/blob/main/docs/gespraechsspiegel.md"}>{t("Modell und Pilotentwurf auf GitHub lesen", "Read the model and pilot proposal on GitHub (German)")} <span aria-hidden="true">↗</span></a></p>
+      <ForumSectionLink lang={lang} place="gespraechsspiegel" section="spiegel-korrigieren" />
+    </section>
+  </article>
+</Layout>
+
+<style>
+  .mirror-page { max-width: 62rem; padding-block: clamp(2rem, 5vw, 4.5rem); }
+  .mirror-intro { margin-block: 2rem; }
+  h1 { font-size: clamp(2.2rem, 7vw, 4.65rem); line-height: 1.02; margin-block: .22em .4em; overflow-wrap: anywhere; }
+  h2 { font-size: clamp(1.45rem, 3.8vw, 2.25rem); line-height: 1.14; margin-block: .35em .6em; }
+  h3 { font-size: 1.14rem; margin: 0; }
+  p { max-width: 69ch; }
+  .mirror-lead { color: var(--text); font: clamp(1.15rem, 3vw, 1.55rem)/1.45 var(--serif); }
+  .mirror-note { color: var(--text-soft); font-size: .9rem; }
+  .mirror-panel { padding: clamp(1rem, 4vw, 2.35rem); border: 1px solid var(--line); border-radius: 4px; }
+  .mirror-branches { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .65rem; margin-block: 1.1rem; align-items: start; }
+  .mirror-branches details { border: 1px solid var(--line); border-radius: 3px; padding-inline: .85rem; }
+  .mirror-branches summary { cursor: pointer; min-height: 44px; padding-block: .65rem; }
+  .mirror-branches summary span:last-child { display: block; padding-inline-start: 1.05rem; }
+  .mirror-branch-title { font-weight: 700; }
+  .mirror-branches details[open] { padding-bottom: .85rem; }
+  .mirror-next { margin-block: 1.2rem .85rem; padding-inline-start: .8rem; border-inline-start: 2px solid var(--line); }
+  .mirror-next strong { display: block; }
+  .mirror-section { margin-block-start: 2.4rem; padding-block-start: 1.2rem; border-block-start: 1px solid var(--line); }
+  .mirror-replies > section + section { margin-block-start: 1.35rem; }
+  .mirror-replies ol { max-width: 68ch; margin-block: .5rem 0; padding-inline-start: 1.5rem; }
+  .mirror-replies li + li { margin-block-start: .4rem; }
+  .mirror-replies li strong { margin-inline-end: .3em; }
+  .mirror-page [id] { scroll-margin-top: 6rem; }
+  @media (max-width: 39rem) { .mirror-branches { grid-template-columns: minmax(0, 1fr); } }
+</style>
