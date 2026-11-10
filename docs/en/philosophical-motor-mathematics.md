@@ -25,6 +25,56 @@ For a question \(q\), context \(c\), evidence \(E\), value profiles \(Z\), objec
 
 Empirical claims require evidence and causal scrutiny; formal claims require proofs or countermodels; normative propositions require disclosed value premises and affected perspectives; interpretations demand contextual examination; metaphors suggest questions rather than measurements. R0–R4 is a **record of review**, not the probability of truth. Recorded agreement is **not** evidence of truth.
 
+### Findings, agreement and decisions
+
+**Formal clarification · 10 November 2026 · Definition and design rule, not an empirically validated decision engine.** Voting can govern a collective decision. Whether an alleged effect is supported requires a different examination. A scientific finding alone does not establish a public obligation.
+
+For a specific empirical question \(q\), scope \(c\), available evidence \(E\) and declared examination and modelling assumptions \(M\), write:
+
+\[
+B=F(q,c,E,M).
+\]
+
+\(B\) is a **reasoned finding with uncertainty and limits**, not a truth bit. \(E\) includes relevant observations, prior knowledge and counterevidence with provenance; \(M\) identifies measurement, comparison, analysis and assumptions for causal interpretation. Possession of data alone does not determine \(B\). An effect without adequate support stays open. One person can present a sound finding or communicate an already examined result; its justification rests on inspectable examination.
+
+For a claim or proposed action \(x\), its exact version \(v\) and a named, nonempty participant set \(P\), record separately:
+
+\[
+C(x,v,P)=\{(i,r_i):i\in P\},\qquad
+r_i\in\{\mathrm{yes},\mathrm{no},\mathrm{open}\}.
+\]
+
+**In words:** who supports this exact version? Missing or outdated responses stay open. The record establishes neither voluntariness nor completeness of representation. A majority decision, a unanimous agreement and the consent of everyone affected are different claims.
+
+An accountable action decision also depends on options \(\mathcal A\), findings \(B\), justified value premises \(Z\) and an explicitly identified procedure \(R\):
+
+\[
+D=G_R(\mathcal A,B,Z,C).
+\]
+
+\(R\) identifies authority, decision rules, rights, safeguards and routes to correction. \(G_R\) is a **placeholder for an accountable procedure**, not an implemented optimiser or proof of legitimacy. Outcomes may include a decision under stated uncertainty, deferral or unresolved disagreement. Political decisions do not necessarily require every affected person's individual consent; an agreement described as voluntary cannot convert a refusal into consent.
+
+**Separation rule.** Holding options \(\mathcal A\), values \(Z\) and procedure \(R\) fixed, define the report \(\mathcal S(q,c,E,M,C)=(B,C,D)\) using the rules above. For fixed \(q,c,E,M\) and arbitrary agreement records \(C_1,C_2\):
+
+\[
+\pi_B\mathcal S(q,c,E,M,C_1)=\pi_B\mathcal S(q,c,E,M,C_2)=F(q,c,E,M).
+\]
+
+\(\pi_B\) reads only the finding field. **Reason:** \(C\) is not an argument of \(F\); recounting agreement cannot change the finding while its grounds remain unchanged. This is a chosen interface rule, not a claim of statistical independence between politics and science. If discussion supplies new observations, a reasoned objection or a corrected analysis, \(E\) or \(M\) changes and \(B\) needs re-examination. Expert testimony can also be justified evidence, but its sources, methods and dependencies require scrutiny rather than a headcount.
+
+**Counterchecks within the design:**
+
+**Scope boundary:** if \(q\) asks about agreement itself, recorded responses are relevant observations in \(E\). Changing them violates the fixed-evidence premise. The rule prohibits treating mere vote counts as a substitute for examining an effect; it does not prohibit studying agreement scientifically.
+
+- A million yes responses without adequate evidence leave an effect open. Agreement can still be recorded as agreement.
+- A supported finding can coexist with no consent to a proposed intervention. \(B\) entails neither \(C\) nor a unique decision \(D\) without additional value and procedural premises.
+- The same finding can inform different decisions under different justified goals. This does not make the finding relative to a vote.
+- One person demonstrates an analysis error. Revise \(M\), then \(B\), and re-examine decisions that depend on it. Agreement to a changed proposal must be sought again, not automatically transferred.
+
+**Application and revision boundary.** “Investigate effectiveness / decide on an obligation” requires a precise outcome, population, comparison and uncertainty, alongside a separate justification of the obligation. This example makes no claim about any particular vaccine or the appropriateness of a mandate. Refine the separation rule if it excludes relevant testimony as mere votes or prevents decisions under explicitly stated uncertainty. Scientific examination and democratic legitimacy remain distinct tasks; public criticism and participation can improve conditions for inquiry without guaranteeing correct findings.
+
+This clarifies the existing type separation. It introduces no review grade, changes no claim-register entries and implements no automatic evidence assessment. [Plain-language application](../methode.md#english) · [Methodological background on transparency and reproducibility](https://www.nationalacademies.org/read/25303/chapter/3).
+
 ## 2. Typed, revision-aware knowledge graph
 
 \[

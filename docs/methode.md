@@ -28,6 +28,16 @@ Die [Erkenntnisreife R0–R4](erkenntnisreife.md) ist eine zusätzliche, rückst
 
 **Aussageart, Begründungslage und Prüfstatus** beantworten verschiedene Fragen. Eine Hypothese ist vorläufig. Ein abgeschlossener Review beschreibt eine Tätigkeit und ihren Umfang. Wie belastbar der geprüfte Satz ist, hängt von den Gründen ab. Öffentlich sichtbar wird diese Trennung im [Aussagenregister](aussagenregister.md).
 
+## Beleglage, Zustimmung und Entscheidung
+
+**Was ist belegt? Wer stimmt welcher Fassung zu? Was wird aus welchen Gründen entschieden?** Vera hält diese drei Fragen getrennt. Eine Abstimmung belegt keine Wirkung. Ein wissenschaftlich gestützter Befund begründet allein noch keine Verpflichtung. Eine Entscheidung kann trotz verbleibender Unsicherheit nötig sein; diese bleibt dann sichtbar.
+
+Auch vorhandene Daten müssen zur Frage passen und nachvollziehbar ausgewertet werden. Ein Einzelner kann einen tragfähigen Befund vorlegen oder ein bereits geprüftes Ergebnis vermitteln. Weitere Zustimmung macht das Ergebnis nicht richtiger. Neue Beobachtungen oder ein nachgewiesener Auswertungsfehler können es dagegen verändern. Wissenschaftliche Überprüfung wird dadurch nicht zur Mehrheitsentscheidung. Demokratische Beteiligung und öffentliche Kritik können relevante Informationen erschließen, ersetzen aber keinen Nachweis.
+
+Für die Praxis: Formuliere zuerst die konkrete Wirkungsbehauptung und die Gründe dafür. Halte Zustimmung mit Wortlaut, Version, Beteiligtenkreis und offenen Antworten gesondert fest. Benenne für die Handlung zusätzlich Alternativen, Werte, Rechte, Zuständigkeit und Entscheidungsverfahren. Eine freiwillige Vereinbarung und ein politischer Mehrheitsbeschluss sind verschiedene Verfahren; keiner beweist die zugrunde gelegten Tatsachen. Ein geänderter Vorschlag braucht eine erneute Antwort der Beteiligten.
+
+**Gegenprobe:** Eine Million Zustimmungen ohne belastbare Belege lassen die Wirkung offen. Ein begründeter Einwand einer einzelnen Person kann eine Neubewertung auslösen. Er erzwingt weder Zustimmung zu einer Maßnahme noch allein deren Ablehnung. Die [mathematische Trennungsregel](philosophischer-motor-mathematik.md#befund-zustimmung-und-entscheidung) beschreibt dies als getrennte Felder für Befund, Zustimmung und Entscheidung. Sie ergänzt die bestehende Typisierung und ist kein Nachweis, dass Vera Entscheidungen bereits selbstständig prüfen kann.
+
 ## Vom Messwert zum behaupteten Nutzen
 
 Schreibe auf, was gemessen wurde und welches Ergebnis der Satz verspricht. Fallen beide auseinander, braucht die Verbindung einen Beleg für diesen Einsatz. Im Medizinfall MED-001 ließen sich nach einem Herzinfarkt Extraschläge unterdrücken. Für den untersuchten Nutzen zählte der Vergleich, wie viele Menschen starben oder einen Herzstillstand überlebten. Dieselbe Frage kann man etwa an einen Bildungstest stellen. Was zeigt, dass ein höherer Punktwert auch eine dauerhaft bessere Fähigkeit vorhersagt? Eine Gegenprobe kann die Aussage oder die benutzte Schlussregel zu Fall bringen. [Medizinwerkstatt und CAST-Fall](https://alexanderr1991.github.io/Vera/de/medizin/#cast)
@@ -47,6 +57,10 @@ Die Karten des Navigators sind redaktionelle Entwürfe. Auswahl und Bedingungspr
 ## English
 
 **META-01:** [We are not building a system to be right. We are building a system that must learn from its mistakes.](selbstkorrektur.md) This is a *contestable process rule*, not a guarantee of correct outcomes. An objection triggers careful review, not compulsory agreement.
+
+**Evidence, agreement and decisions.** Ask separately: what is supported, who agrees to which version, and what is decided for which reasons? Voting does not establish an effect; a scientific finding alone does not justify an obligation. Data must fit the question and be analysed transparently. One person can present a sound finding or communicate an already examined result. More agreement does not strengthen it; new observations or a demonstrated analysis error can change it. Scientific examination remains distinct from majority rule, while democratic participation and public criticism may uncover relevant information.
+
+Record agreement by wording, version, participant set and unanswered questions. For action, also identify alternatives, values, rights, authority and the decision procedure. Voluntary agreements and political majority decisions are different procedures; neither establishes the underlying facts. A changed proposal requires new responses. Decisions under explicitly stated uncertainty remain possible. As a countercheck, a million yes responses without adequate evidence leave an effect open; one sound objection can trigger reconsideration without compelling consent or refusal. The [formal separation rule](en/philosophical-motor-mathematics.md#findings-agreement-and-decisions) clarifies the existing types and does not establish an autonomous decision capability.
 
 Record the exact claim, its scope and the version being examined. Separate assumptions about the world from value judgments. Choose a test suited to the claim. Compare evidence for empirical claims, check premises and derivations for formal ones, examine values and affected perspectives for normative ones, compare readings for interpretations and identify the limits of metaphors.
 
