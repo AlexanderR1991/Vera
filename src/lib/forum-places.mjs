@@ -197,6 +197,8 @@ const groups = {
   ],
   project: [
     ["index", "Was möchtest du mit Vera besprechen?", "What would you like to discuss with Vera?", pair("Vera kennenlernen", "Getting to know Vera")],
+    ["warum-ich-glaube-dass-ich-funktioniere", "Welcher Befund trägt, und wo fehlt ein Test?", "Which finding holds up, and where is a test missing?"],
+    ["vera-einfach-erklaert", "Welches Beispiel macht Vera verständlich, und was bleibt unklar?", "Which example makes Vera clear, and what is still hard to follow?"],
     ["gespraechsspiegel", "Wann hilft eine Zusammenfassung einem Streit, und wann verdeckt sie einen Einwand?", "When does a summary help a discussion, and when does it hide an objection?"],
     ["obsidian", "Was würde dir helfen, zwischen deinem Denkraum in Obsidian und Vera zu wechseln?", "What would help you move between your thinking space in Obsidian and Vera?"],
     ["mission", "Welche Aufgabe sollte Vera zuerst für Menschen lösen?", "What should Vera first help people with?"],

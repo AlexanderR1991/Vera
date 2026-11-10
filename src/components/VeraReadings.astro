@@ -1,0 +1,156 @@
+---
+import Layout from "../layouts/SiteLayout.astro";
+import {base, pathFor} from "../lib/paths.mjs";
+import {ui} from "../lib/ui.mjs";
+
+const {lang, simple = false} = Astro.props;
+const de = lang === "de";
+const t = (german: string, english: string) => de ? german : english;
+const overview = "warum-ich-glaube-dass-ich-funktioniere";
+const introduction = "vera-einfach-erklaert";
+const overviewUrl = pathFor(lang, overview);
+const introductionUrl = pathFor(lang, introduction);
+const paperDir = base + "papers/" + overview + "/";
+const introductionPdf = paperDir + "vera-einfach-erklaert.pdf";
+const paperUrl = paperDir + "paper.html" + (de ? "" : "#english");
+const paperPdf = paperDir + "vera-selbststudie.pdf";
+const simpleTitle = ui[lang].titles[introduction];
+const paperTitle = t("Vera als wissenschaftliches Paper", "Vera as a research paper");
+const slug = simple ? introduction : overview;
+const title = ui[lang].titles[slug];
+const lead = simple
+  ? t("Damit aus Streit Verständigung wächst. Vera soll helfen, Fragen zu ordnen, Gründe prüfbar zu machen und gemeinsame Möglichkeiten zu finden.",
+      "So that disagreement can lead to understanding. Vera aims to help people clarify questions, check reasons and find options they can share.")
+  : t("Was Vera für ein Gespräch tun soll und was sich heute prüfen lässt. Zwei Fassungen für dieselbe Frage.",
+      "What Vera aims to do for a conversation and what can be tested today. Two ways into the same question.");
+const chapters = [
+  {
+    id: "gespraech",
+    title: t("Was ein guter Streit braucht", "What makes a disagreement useful"),
+    text: t("Bei einem Streit über Erziehung oder Zusammenleben geht es oft um mehrere Dinge zugleich. Was hat jemand erlebt? Was lässt sich belegen? Welche Werte stehen auf dem Spiel? Vera soll diese Fragen auseinanderhalten und sichtbar machen, wo sich Beteiligte bereits verstehen und was noch offen ist.",
+      "Disagreements about parenting or living together often involve several things at once. What did someone experience? What can be checked? Which values are at stake? Vera aims to separate these questions and show where participants understand one another and what still needs work.")
+  },
+  {
+    id: "spielraum",
+    title: t("Wie gemeinsame Möglichkeiten entstehen", "How to find shared options"),
+    text: t("Zwei Personen teilen 900 Euro Miete. A kann sich 500 bis 650 Euro vorstellen, B 250 bis 350 Euro. Damit kommen für A 550 bis 650 Euro infrage. Ein Vorschlag wären 600 Euro für A und 300 Euro für B. Ob beide ihn wirklich mittragen, entscheiden sie selbst.",
+      "Two people split €900 in rent. A could pay €500 to €650, and B could pay €250 to €350. Their ranges leave €550 to €650 as possible amounts for A. One proposal is €600 for A and €300 for B. Each person decides whether to accept it."),
+    link: {href: pathFor(lang, "die-bruecke"), label: t("Zur Mathematik der Verständigung", "Explore the mathematics of common ground")}
+  },
+  {
+    id: "einwand",
+    title: t("Was ein Einwand verändern kann", "What an objection can change"),
+    text: t("Ein Raum wird empfohlen, weil er kostenlos und vermeintlich stufenlos erreichbar ist. Dann meldet jemand eine Treppe am einzigen Eingang. Die Teilnahme bleibt kostenlos. Ob sich der Raum für das Treffen eignet, muss erneut geprüft werden. Der Entwurf für Vera sieht vor, betroffene Aussagen mit ihren Gründen zu verbinden, damit solche Änderungen auffindbar bleiben.",
+      "A room is recommended because it is free and thought to have step-free access. Someone points out that the only entrance has stairs. Attendance is still free. The room’s suitability needs another look. Vera’s design connects claims with their reasons so changes like this can be traced.")
+  },
+  {
+    id: "fragen",
+    title: t("Wie Gespräche zusammenhängen", "How conversations connect"),
+    text: t("Vera soll viele kleine Gesprächsräume verbinden. In jedem geht es zuerst um eine konkrete Frage. Was dort geklärt wurde, kann anderen helfen, solange die Gründe, Bedingungen und Einwände sichtbar bleiben. Eine Einigung über die Miete lässt sich zum Beispiel nicht ohne Weiteres auf die nächste Wohngemeinschaft übertragen.",
+      "Vera aims to connect many small spaces for discussion. Each starts with a concrete question. What people clarify in one space can help others if the reasons, conditions and objections stay visible. A rent agreement, for example, may need different terms in another household."),
+    link: {href: pathFor(lang, "forum"), label: t("Die Gesprächsräume entdecken", "Explore the discussion spaces")}
+  },
+  {
+    id: "stand",
+    title: t("Was du heute ausprobieren kannst", "What you can try today"),
+    text: t("Die Website bietet lokale Werkzeuge und Beispieldialoge. Der Gesprächsspiegel zeigt anhand eines erfundenen Forenthreads, wie Beobachtungen zu den ursprünglichen Beiträgen führen könnten. Ein eigenes veröffentlichtes Vera-KI-Modell und Studien zur Wirkung in echten Gesprächen stehen aus.",
+      "The website offers local tools and sample dialogues. The conversation mirror uses a fictional forum thread to show how observations could link back to the original replies. A released Vera AI model and studies of its effects in real conversations are still ahead."),
+    link: {href: pathFor(lang, "gespraechsspiegel", "beispiel"), label: t("Das Beispiel im Gesprächsspiegel öffnen", "Open the conversation mirror example")}
+  }
+];
+const editions = [
+  {
+    number: "01",
+    type: t("Einführung", "Introduction"),
+    title: simpleTitle,
+    description: t("Warum Vera entsteht, wie eine gemeinsame Lösung aussehen kann und was ein einzelner Einwand verändert.",
+      "Why Vera is being built, what a shared solution might look like, and what a single objection can change."),
+    href: introductionUrl,
+    label: t("Einführung lesen", "Read the introduction"),
+    pdf: introductionPdf,
+    pdfLabel: t("Original-PDF · 8 Seiten", "Original PDF · 8 pages · German")
+  },
+  {
+    number: "02",
+    type: t("Selbststudie · Fassung 4.0", "Self-study · Version 4.0"),
+    title: paperTitle,
+    description: t("Technische Befunde, reproduzierbare Prüfungen, Grenzen und ein Studienplan für echte Gespräche.",
+      "Technical findings, reproducible checks, limitations and a study protocol for real conversations."),
+    href: paperUrl,
+    label: t("Paper lesen", "Read the English summary"),
+    pdf: paperPdf,
+    pdfLabel: t("Paper als PDF", "Full paper as PDF · German")
+  }
+];
+---
+<Layout lang={lang} slug={slug} pageTitle={title} description={lead} theme="light">
+  <article class="container reading-room">
+    <a class="subtle-link reading-back" href={simple ? overviewUrl : pathFor(lang)}>
+      <span aria-hidden="true">←</span> {simple ? t("Beide Fassungen", "Both editions") : t("Zur Startseite", "Back to the homepage")}
+    </a>
+    <header class="reading-header">
+      <p class="section-kicker">{simple ? t("01 / Einführung", "01 / Introduction") : t("Vera / Selbststudie", "Vera / Self-study")}</p>
+      <h1>{title}</h1>
+      <p class="reading-lead">{lead}</p>
+      {simple && <a class="reading-link" href={introductionPdf} type="application/pdf" hreflang="de">
+        {t("Original-PDF öffnen · 8 Seiten", "Open the original PDF · 8 pages · German")} <span aria-hidden="true">→</span>
+      </a>}
+    </header>
+
+    {simple ? (
+      <div class="reading-chapters">
+        {chapters.map((chapter, index) => (
+          <section class="reading-chapter" aria-labelledby={chapter.id}>
+            <p class="reading-index" aria-hidden="true">0{index + 1}</p>
+            <div>
+              <h2 id={chapter.id}>{chapter.title}</h2>
+              <p>{chapter.text}</p>
+              {chapter.link && <a class="reading-link" href={chapter.link.href}>{chapter.link.label} <span aria-hidden="true">→</span></a>}
+            </div>
+          </section>
+        ))}
+        <p class="reading-next"><a class="reading-link" href={paperUrl}>{t("Weiter zum wissenschaftlichen Paper", "Continue to the English research summary")} <span aria-hidden="true">→</span></a></p>
+      </div>
+    ) : (
+      <div class="reading-editions">
+        {editions.map(edition => (
+          <section class="reading-edition" aria-labelledby={"edition-" + edition.number}>
+            <div class="reading-edition__type"><span class="reading-index" aria-hidden="true">{edition.number}</span><span>{edition.type}</span></div>
+            <h2 id={"edition-" + edition.number}>{edition.title}</h2>
+            <p>{edition.description}</p>
+            <div class="reading-actions">
+              <a class="reading-link reading-link--primary" href={edition.href}>{edition.label} <span aria-hidden="true">→</span></a>
+              <a class="reading-link" href={edition.pdf} type="application/pdf" hreflang="de">{edition.pdfLabel} <span aria-hidden="true">→</span></a>
+            </div>
+          </section>
+        ))}
+      </div>
+    )}
+  </article>
+</Layout>
+
+<style>
+  .reading-room { max-width: 68rem; padding-block: clamp(1.4rem, 4vw, 3.5rem) clamp(3.5rem, 7vw, 6.5rem); }
+  .reading-back { display: inline-flex; align-items: center; gap: .45rem; min-height: 44px; }
+  .reading-header { max-width: 52rem; padding-block: clamp(2rem, 6vw, 4.75rem) clamp(1.8rem, 4vw, 3.4rem); }
+  .reading-header h1 { margin: .35rem 0 .9rem; font-size: clamp(2.4rem, 6.7vw, 5.25rem); line-height: 1.02; letter-spacing: -.055em; text-wrap: balance; }
+  .reading-lead { max-width: 40rem; margin: 0; color: var(--text-soft); font-size: clamp(1.05rem, 2.3vw, 1.4rem); line-height: 1.55; }
+  .reading-header .reading-link { margin-top: .65rem; }
+  .reading-editions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .9rem; }
+  .reading-edition { display: flex; flex-direction: column; background: var(--vera-panel); border: 1px solid var(--vera-line); padding: clamp(1.15rem, 3vw, 2rem); }
+  .reading-edition__type { display: flex; align-items: center; gap: .7rem; color: var(--text-soft); font-size: .78rem; }
+  .reading-index { font: 600 .76rem/1.4 ui-monospace, monospace; color: var(--vera-signal); }
+  .reading-edition h2, .reading-chapter h2 { color: var(--text); font-size: clamp(1.35rem, 3vw, 2.1rem); letter-spacing: -.035em; line-height: 1.16; margin: .7rem 0 .45rem; }
+  .reading-edition p, .reading-chapter p:not(.reading-index) { color: var(--text-soft); line-height: 1.6; margin: 0 0 .9rem; }
+  .reading-actions { display: flex; gap: .25rem .8rem; flex-wrap: wrap; align-items: center; margin-top: auto; padding-top: .3rem; }
+  .reading-link { display: inline-flex; min-height: 44px; align-items: center; gap: .35rem; color: var(--text); font-size: .9rem; text-decoration: underline; text-underline-offset: .24em; }
+  .reading-link--primary { padding-inline: .75rem; border: 1px solid var(--vera-signal); text-decoration: none; font-weight: 650; }
+  .reading-link:hover { color: var(--vera-signal); }
+  .reading-link--primary:hover { background: var(--ink3); }
+  .reading-chapters { max-width: 46rem; }
+  .reading-chapter { display: grid; grid-template-columns: 1.8rem minmax(0, 1fr); gap: .5rem; border-top: 1px solid var(--vera-line); padding-block: 1.3rem; }
+  .reading-chapter .reading-index { margin: .45rem 0 0; }
+  .reading-chapter h2 { margin-top: 0; }
+  .reading-next { border-top: 1px solid var(--vera-line); padding-top: .75rem; }
+  @media (max-width: 640px) { .reading-editions { grid-template-columns: 1fr; } }
+</style>
