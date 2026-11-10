@@ -126,6 +126,13 @@
         "source_commit": null,
         "review_url": null
       },
+      "gespraechsspiegel": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewed_at": null,
+        "source_commit": null,
+        "review_url": null
+      },
       "grundfragen": {
         "status": "draft",
         "reviewer": null,
@@ -547,6 +554,15 @@
       "review_url": null
     },
     "grundfragen-kreislauf.md": {
+      "status": "unassessed",
+      "priority": "support",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "gespraechsspiegel.md": {
       "status": "unassessed",
       "priority": "support",
       "target": null,
