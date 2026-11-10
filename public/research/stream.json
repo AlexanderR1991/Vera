@@ -1,20 +1,97 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-09T22:23:01+00:00",
+  "updated_at": "2026-11-10T07:19:48+00:00",
   "status": "automatic_discovery_not_fact_checked",
   "analysis": "metadata_only",
   "source": "Crossref + arXiv",
   "source_queries": {
-    "Crossref": 6,
+    "Crossref": 7,
     "arXiv": 3
   },
-  "source_queries_succeeded": 9,
-  "new_items": 0,
+  "source_queries_succeeded": 10,
+  "new_items": 5,
   "agents_enabled": false,
-  "errors": [
-    "Crossref/kunst: HTTPError: HTTP Error 429: Too Many Requests"
-  ],
+  "errors": [],
   "items": [
+    {
+      "id": "arxiv:2611.12871v1",
+      "topic": "ki",
+      "title": "Vendi Anomaly Scores for Efficient and Accurate Anomaly Detection",
+      "date": "2026-11-09",
+      "authors": [
+        "Amey Pasarkar",
+        "Adji Bousso Dieng"
+      ],
+      "venue": "arXiv",
+      "url": "https://arxiv.org/abs/2611.12871v1",
+      "source": "arXiv bibliographic metadata",
+      "source_type": "repository_manuscript",
+      "peer_review": "not_verified",
+      "version": "1",
+      "related_doi": "",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "arxiv:2611.12762v1",
+      "topic": "ki",
+      "title": "Sage-Taiyi: A Metacognitive Architecture for Scientific Discovery",
+      "date": "2026-11-09",
+      "authors": [
+        "Weida Wang",
+        "Benteng Chen",
+        "Yigeng Jiang",
+        "Shuchen Pu",
+        "Weiping Shen"
+      ],
+      "venue": "arXiv",
+      "url": "https://arxiv.org/abs/2611.12762v1",
+      "source": "arXiv bibliographic metadata",
+      "source_type": "repository_manuscript",
+      "peer_review": "not_verified",
+      "version": "1",
+      "related_doi": "",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "arxiv:2611.12552v1",
+      "topic": "ki",
+      "title": "SciMARS: Multi-Agent Recursive Self-Improvement for Closed-Loop Scientific Discovery",
+      "date": "2026-11-09",
+      "authors": [
+        "Weimin Wu",
+        "Han Liu"
+      ],
+      "venue": "arXiv",
+      "url": "https://arxiv.org/abs/2611.12552v1",
+      "source": "arXiv bibliographic metadata",
+      "source_type": "repository_manuscript",
+      "peer_review": "not_verified",
+      "version": "1",
+      "related_doi": "",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "10.31091/bbwp.v6i1.695",
+      "topic": "kunst",
+      "title": "The Sacredness of Barong from the Perspective of the Philosophy of Art: Understanding the Relationship between Aesthetics, Ritual, and Spirituality",
+      "date": "2026-11-09",
+      "authors": [
+        "I Putu Ariyasa Darmawan",
+        "I Komang Priantara Putra"
+      ],
+      "venue": "Proceeding Bali-Bhuwana Waskita: Global Art Creativity Conference",
+      "url": "https://doi.org/10.31091/bbwp.v6i1.695",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
     {
       "id": "arxiv:2611.09013v1",
       "topic": "ki",
@@ -663,6 +740,26 @@
       "venue": "The Review of Austrian Economics",
       "url": "https://doi.org/10.1007/s11138-026-00753-2",
       "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "arxiv:2610.01002v2",
+      "topic": "bewusstsein",
+      "title": "What Can Analogy Tell Us About Artificial Consciousness?",
+      "date": "2026-10-01",
+      "authors": [
+        "Keith J. Holyoak",
+        "Martin M. Monti"
+      ],
+      "venue": "arXiv",
+      "url": "https://arxiv.org/abs/2610.01002v2",
+      "source": "arXiv bibliographic metadata",
+      "source_type": "repository_manuscript",
+      "peer_review": "not_verified",
+      "version": "2",
+      "related_doi": "",
       "status": "unreviewed",
       "source_examined": "metadata_only",
       "agent_notes": {}
