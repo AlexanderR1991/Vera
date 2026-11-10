@@ -64,6 +64,8 @@ D=G_R(\mathcal A,B,Z,C).
 
 **Counterchecks within the design:**
 
+**Scope boundary:** if \(q\) asks about agreement itself, recorded responses are relevant observations in \(E\). Changing them violates the fixed-evidence premise. The rule prohibits treating mere vote counts as a substitute for examining an effect; it does not prohibit studying agreement scientifically.
+
 - A million yes responses without adequate evidence leave an effect open. Agreement can still be recorded as agreement.
 - A supported finding can coexist with no consent to a proposed intervention. \(B\) entails neither \(C\) nor a unique decision \(D\) without additional value and procedural premises.
 - The same finding can inform different decisions under different justified goals. This does not make the finding relative to a vote.

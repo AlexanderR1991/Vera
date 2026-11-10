@@ -82,6 +82,8 @@ D=G_R(\mathcal A,B,Z,C).
 
 **Gegenproben innerhalb des Entwurfs:**
 
+**Geltungsgrenze:** Fragt \(q\) nach der Zustimmung selbst, sind dokumentierte Antworten relevante Beobachtungen in \(E\). Ändern sich diese, ist die Voraussetzung gleicher Evidenz nicht erfüllt. Die Regel verbietet, bloße Stimmenzahlen als Ersatz für die Prüfung einer Wirkung zu behandeln; sie verbietet nicht, Zustimmung wissenschaftlich zu untersuchen.
+
 - Eine Million Ja-Antworten ohne tragfähigen Wirkungsbeleg lassen die Wirkung offen. Die Zustimmung ist trotzdem als Zustimmung dokumentierbar.
 - Ein begründeter Befund kann bestehen, obwohl niemand dem daraus vorgeschlagenen Eingriff zustimmt. Aus \(B\) folgt weder \(C\) noch ohne zusätzliche Wert- und Verfahrensannahmen eine eindeutige Entscheidung \(D\).
 - Derselbe Befund kann bei unterschiedlichen begründeten Zielen zu verschiedenen Entscheidungen beitragen. Das macht den Befund nicht relativ zur Abstimmung.
