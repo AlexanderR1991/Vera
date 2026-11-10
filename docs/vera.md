@@ -107,7 +107,7 @@ Das [Projektgedächtnis](vera-memory.v1.json) bewahrt projektbezogene Gegenprobe
 
 Führe im Stammverzeichnis eines vollständigen Checkouts `node scripts/verify-memory.mjs` aus. Der Befehl prüft für jeden Eintrag, ob die referenzierten Dateien im angegebenen Commit oder im geprüften Projektstand vorhanden sind und sich aus dessen Historie erreichen lassen. Ob eine Quelle die notierte Lehre trägt, prüfst du beim Lesen.
 
-Schlage Änderungen per Pull Request vor. Hänge neue Einträge am Ende an. Bei einer späteren Korrektur bleibt der frühere Eintrag mit Status `superseded` und einem Hinweis auf die neue ID erhalten. Die gemeinsame Fassung entsteht durch menschliche Prüfung. Der Sitzungsexport liest diese Daten. Private Chats, persönliche Profile und unbearbeitete externe Einsendungen gehören nicht ins Register. Der [ENT-00-Entwurf](https://github.com/AlexanderR1991/Vera/pull/85) untersucht ein anderes, noch offenes Verfahren für revisionsbezogene Ereignisse.
+Schlage Änderungen per Pull Request vor. Hänge neue Einträge am Ende an. Bei einer späteren Korrektur bleibt der frühere Eintrag mit Status `superseded` und einem Hinweis auf die neue ID erhalten. Die gemeinsame Fassung entsteht durch menschliche Prüfung. Der Sitzungsexport liest diese Daten. Private Chats, persönliche Profile und unbearbeitete externe Einsendungen gehören nicht ins Register. Der [ENT-00-Entwurf](entitaet.md) erprobt revisionsbezogene Ereignisse in einem lokalen Protokoll. Er authentifiziert keine Personen und veröffentlicht keine Entscheidungen.
 
 ## English
 
@@ -206,4 +206,4 @@ In a Git checkout with Node.js, run `node scripts/vera-context.mjs en`. Before s
 
 Run `node scripts/verify-memory.mjs` from the root of a full checkout. It checks that each cited file exists at its specified commit or at the checked revision and is reachable through that revision’s history. Read the source to judge whether it supports the recorded lesson.
 
-Propose changes by pull request. Append new records at the end. When a later correction supersedes an entry, keep the earlier entry with status `superseded` and a pointer to the new ID. Human review determines the shared version. The session export reads these data. Keep private chats, personal profiles and raw external submissions out of the ledger. The [ENT-00 draft](https://github.com/AlexanderR1991/Vera/pull/85) explores a separate, pending process for revision events.
+Propose changes by pull request. Append new records at the end. When a later correction supersedes an entry, keep the earlier entry with status `superseded` and a pointer to the new ID. Human review determines the shared version. The session export reads these data. Keep private chats, personal profiles and raw external submissions out of the ledger. The [ENT-00 draft](entitaet.md#english--ent-00--wirklich--entity) explores revision events in a local ledger. It does not authenticate people or publish decisions.

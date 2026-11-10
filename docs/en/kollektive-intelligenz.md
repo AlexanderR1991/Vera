@@ -21,11 +21,11 @@ It is a revisable **loop**, not a hierarchy of human value or a mechanism for co
 
 ## What exists today
 
-The atlas and topic tree are bilingual static maps; the question atlas has six manually curated examples and no full live sync; the claims register tracks early drafts; the navigator offers editorial pattern cards and local text matching; bounded AI swarms produce research drafts without automatic editorial authority. **No independent evidence of collective learning, autonomous knowledge graph or representative governance exists yet.**
+The atlas and topic tree are bilingual static maps; the question atlas contains manually curated examples and no full live sync; the claims register tracks early drafts; the navigator offers editorial pattern cards and local text matching; bounded AI swarms produce research drafts without automatic editorial authority. **No independent evidence of collective learning, autonomous knowledge graph or representative governance exists yet.**
 
 ## Risks and tests
 
-A crowd can amplify conformity, privilege dominant voices, manufacture false cross-domain analogies and overload attention. A thousand correlated agents do not form a thousand independent reviewers. A separate [moral direction index in open PR #73](https://github.com/AlexanderR1991/Vera/pull/73) is an unvalidated proposal, **not** an automatic output or human ranking.
+A crowd can amplify conformity, privilege dominant voices, manufacture false cross-domain analogies and overload attention. A thousand correlated agents do not form a thousand independent reviewers. A separate [moral direction index](collective-morality.md) is an unvalidated proposal, **not** an automatic output or human ranking.
 
 We must compare real error detection and false alarms against ordinary source checking, test cross-domain matches, preserve consequential minority objections and ask whether later decisions improve rather than merely becoming longer and costlier. Criteria must be specified beforehand. Null or harmful results should narrow or overturn the hypothesis.
 
