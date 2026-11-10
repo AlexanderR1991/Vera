@@ -18,6 +18,7 @@ const t=copy[lang];
 const de=lang==="de";
 const name=ui[lang].name;
 const greeting=`${t.opening.greetingLead} ${name}.`;
+const readingsUrl=pathFor(lang,"warum-ich-glaube-dass-ich-funktioniere");
 const paperUrl=base+"papers/warum-ich-glaube-dass-ich-funktioniere/paper.html"+(de?"":"#english");
 // Stagger the loops so the field looks active on arrival and wraps continuously.
 const paperWind = Array.from({length:72}, (_, index) => {
@@ -56,7 +57,7 @@ const paperWind = Array.from({length:72}, (_, index) => {
           <a class="home-link" href={pathFor(lang,"methode","erkenntnismotor")}>
             {t.opening.rules} <span aria-hidden="true">↗</span>
           </a>
-          <a class="home-link" href={paperUrl} hreflang={de?"de":undefined}>
+          <a class="home-link" href={readingsUrl}>
             <span>{t.opening.paper}&nbsp;<span aria-hidden="true">↗</span></span>
           </a>
         </div>

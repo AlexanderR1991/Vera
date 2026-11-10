@@ -243,8 +243,22 @@ for(const lang of ["de","en"]){
   /<section class="home-opening"[^>]*>([\s\S]*?)<\/section>\s*<section class="industrial-board"[^>]*>([\s\S]*?)<\/section>/
  )??["","",""];
  const rulesHref=`href="/Vera/${lang}/methode/#erkenntnismotor"`;
- const paperPath="/Vera/papers/warum-ich-glaube-dass-ich-funktioniere/paper.html";
- const paperHref=lang==="de"?`href="${paperPath}" hreflang="de"`:`href="${paperPath}#english"`;
+ const studySlug="warum-ich-glaube-dass-ich-funktioniere";
+ const studyPath=`/Vera/${lang}/${studySlug}/`;
+ const paperHref=`href="${studyPath}"`;
+ const paperBase=`/Vera/papers/${studySlug}/`;
+ const introductionPath=`/Vera/${lang}/vera-einfach-erklaert/`;
+ const researchPath=paperBase+"paper.html"+(lang==="de"?"":"#english");
+ const originalPdf=paperBase+"vera-einfach-erklaert.pdf";
+ const researchPdf=paperBase+"vera-selbststudie.pdf";
+ const study=await readFile(join(out,lang,studySlug,"index.html"),"utf8");
+ const introduction=await readFile(join(out,lang,"vera-einfach-erklaert","index.html"),"utf8");
+ const linksTo=(html,path)=>html.includes(`href="${path}"`);
+ if(![introductionPath,researchPath,originalPdf,researchPdf].every(path=>linksTo(study,path))||
+    ![studyPath,originalPdf,researchPath].every(path=>linksTo(introduction,path))||
+    ![studyPath,introductionPath].every(path=>sitemap.includes(path))){
+   errors.push("Missing self-study reading path or download for "+lang);
+ }
  const introOrder=["<circle ",greetingLead,ambition,rulesHref,rules,paperHref,paper].map(text=>hero.indexOf(text));
  if(!heading?.includes(`aria-label="${greetingLead} ${name}."`)||
     !heading.includes(`<bdi class="home-opening__greeting" lang="${lang}" dir="auto">${greetingLead}</bdi>`)||

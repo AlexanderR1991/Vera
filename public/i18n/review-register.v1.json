@@ -126,6 +126,12 @@
         "source_commit": null,
         "review_url": null
       },
+      "warum-ich-glaube-dass-ich-funktioniere": {
+        "status": "draft"
+      },
+      "vera-einfach-erklaert": {
+        "status": "draft"
+      },
       "gespraechsspiegel": {
         "status": "draft",
         "reviewer": null,
