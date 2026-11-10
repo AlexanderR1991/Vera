@@ -6,7 +6,7 @@
 >
 > "Unresolved", "incomparable", "blocked", and "reasoned disagreement" are legitimate outputs.
 
-This specification unifies the existing [M-01 multi-criteria challenge](../mathematischer-pruefstand.md), [M-02 mathematics between minds](../mathematik-des-dazwischen.md), [META-01 correction rule](../selbstkorrektur.md), [R0–R4 review maturity](../erkenntnisreife.md), [fundamental-question loop](../grundfragen-kreislauf.md), [scoped agreements](../schnittmengen.md) and [AI charter](../ki-charta.md). The direction index [PR #73](https://github.com/AlexanderR1991/Vera/pull/73) and expert-agent network [PR #81](https://github.com/AlexanderR1991/Vera/pull/81) remain **unmerged proposals** at the time of this draft. M-03 does not activate them.
+This specification unifies the existing [M-01 multi-criteria challenge](../mathematischer-pruefstand.md), [M-02 mathematics between minds](../mathematik-des-dazwischen.md), [META-01 correction rule](../selbstkorrektur.md), [R0–R4 review maturity](../erkenntnisreife.md), [fundamental-question loop](../grundfragen-kreislauf.md), [scoped agreements](../schnittmengen.md) and [AI charter](../ki-charta.md). The [direction index](collective-morality.md) and [expert-agent network](atlas-specialist-agents.md) are documented in this repository as **unvalidated research proposals**. Their inclusion does not establish effectiveness or activate them. M-03 does not change that status.
 
 [The mathematics of the paths we see](../mathematik-innerer-wege.md#english) adds five fictional cases about speaking up, conversation order, care, lost futures and conflicting assumptions.
 

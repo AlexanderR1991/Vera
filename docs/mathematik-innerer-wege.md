@@ -17,7 +17,7 @@ $$
 
 Der direkte Widerspruch im Meeting hat die Hürde 8. Ein Vorgespräch und ein selbst freigegebener Beitrag haben die Hürden 2 und 4. Bei einem Budget von 5 liegt der zweite Weg im Einzelhürdenmodell mit 4 in Reichweite. Im Summenmodell kostet er 6. Das Summenmodell setzt voraus, dass sich die Hürden sinnvoll addieren lassen. Eine leere Menge bekannter Wege ergibt keinen erreichbaren Weg im Modell. Unbekannte Wege bleiben offen.
 
-**Gegenprobe.** Unter 100 Menschen sind fünf geäußerte Einwände sowohl mit fünf Zweifelnden vereinbar, die alle sprechen, als auch mit 50 Zweifelnden, von denen fünf sprechen. Die Beobachtung allein identifiziert die Zahl der Zweifelnden nicht. Frag freiwillig nach fehlenden Wegen und prüfe, ob die alternative Route dieselben Risiken tatsächlich verändert. Der Ereignishorizont ist hier eine Analogie für Erreichbarkeit. Der [Horizont der Fürsorge](https://github.com/AlexanderR1991/Vera/pull/164) ist ein eigener Entwurf zur institutionellen Erreichbarkeit von Einspruch, Hilfe und Ausstieg.
+**Gegenprobe.** Unter 100 Menschen sind fünf geäußerte Einwände sowohl mit fünf Zweifelnden vereinbar, die alle sprechen, als auch mit 50 Zweifelnden, von denen fünf sprechen. Die Beobachtung allein identifiziert die Zahl der Zweifelnden nicht. Frag freiwillig nach fehlenden Wegen und prüfe, ob die alternative Route dieselben Risiken tatsächlich verändert. Der Ereignishorizont ist hier eine Analogie für Erreichbarkeit. Der [Horizont der Fürsorge](vera-horizont.md) ist ein eigener Entwurf zur institutionellen Erreichbarkeit von Einspruch, Hilfe und Ausstieg.
 
 ### 2. Atmosphäre hat eine Reihenfolge
 
@@ -61,7 +61,7 @@ Two people notice the same error. One objects. The other would have to risk some
 
 Let `P` be the finite set of routes considered for voicing a particular objection. Each route has at least one step. The person estimates the hurdle `r(e) ≥ 0` for each step. Compare the smallest maximum hurdle, `H_max = min_p max_e r(e)`, with the smallest total hurdle, `H_sum = min_p Σ_e r(e)`, over routes `p ∈ P` and their steps. The latter requires a meaningful additive scale. A direct objection costs 8. A private conversation followed by a contribution that the speaker approves costs 2 and 4. With a budget of 5, the route is within reach under the first rule (4) and beyond reach under the second (6). An empty set of routes gives no reachable path in the model. Unknown routes remain open.
 
-**Countercheck.** Five voiced objections in a group of 100 fit both a room with five dissenters who all speak and one with 50 dissenters, five of whom speak. Ask voluntarily about missing routes and check whether an alternative changes the actual exposure. The event horizon is a reachability analogy. The separate [care horizon draft](https://github.com/AlexanderR1991/Vera/pull/164) examines whether people can access institutional routes to appeal, support and exit.
+**Countercheck.** Five voiced objections in a group of 100 fit both a room with five dissenters who all speak and one with 50 dissenters, five of whom speak. Ask voluntarily about missing routes and check whether an alternative changes the actual exposure. The event horizon is a reachability analogy. The separate [care horizon draft](vera-horizont.md#english) examines whether people can access institutional routes to appeal, support and exit.
 
 ### 2. Atmosphere depends on order
 

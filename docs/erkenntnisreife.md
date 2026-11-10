@@ -51,7 +51,7 @@ Wiederholte Meldungen, Like-Zahlen, dieselbe KI-Antwort in hundert Fassungen, Sc
 
 ## Daten und Grenzen des Piloten
 
-Die öffentliche Datenquelle bleibt [public/knowledge/claims.json](../public/knowledge/claims.json). Neu sind je Aussage: `abstraction_level`, `maturity` (level, rationale, independent_checks, adversarial_resolution) und `consensus` (status, note, records). Die Daten werden auf den DE/EN-Registerseiten angezeigt und durch `src/lib/maturity.mjs` und `scripts/validate-claims.mjs` **strukturell** kontrolliert. `tests/maturity.test.mjs` prüft Sperren und Regressionen nur an künstlichen Beispielen. Die drei öffentlich sichtbaren Demonstrationsaussagen bleiben **R0, unbegutachtet, ohne erhobenen Konsens**. Die Einführung der Zusatzfelder änderte ihre inhaltlichen Aussagen nicht.
+Die öffentliche Datenquelle bleibt [public/knowledge/claims.json](../public/knowledge/claims.json). Neu sind je Aussage: `abstraction_level`, `maturity` (level, rationale, independent_checks, adversarial_resolution) und `consensus` (status, note, records). Die Daten werden auf den DE/EN-Registerseiten angezeigt und durch `src/lib/maturity.mjs` und `scripts/validate-claims.mjs` **strukturell** kontrolliert. `tests/maturity.test.mjs` prüft Sperren und Regressionen nur an künstlichen Beispielen. Die öffentlich sichtbaren Demonstrationsaussagen bleiben **R0, unbegutachtet, ohne erhobenen Konsens**. Die Einführung der Zusatzfelder änderte ihre inhaltlichen Aussagen nicht.
 
 Das ist bewusst *kein* globales Ranking von Menschen, Traditionen, Religionen oder Forschungsgebieten. Es gibt keinen universellen Punktescore und keine Garantie, die Wahrheit endgültig ermittelt zu haben.
 

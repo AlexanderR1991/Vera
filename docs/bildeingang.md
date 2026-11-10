@@ -4,7 +4,7 @@ Mit dem lokalen Bildeingang kann ein Foto, eine Zeichnung oder ein Screenshot ei
 
 ## Ein Bild einreichen
 
-Führe den Befehl im Git-Checkout mit Node.js 22.12 oder neuer aus. Unterstützt werden PNG, JPEG und WebP bis 8 MiB. Verwende für `MODELLNAME` den Namen eines bereits installierten, bildfähigen Ollama-Modells. Starte deinen Ollama-Server im lokalen Modus mit `OLLAMA_NO_CLOUD=1`. Der Adapter verbindet sich mit `127.0.0.1:11434`. [Ollama-Konfiguration](https://docs.ollama.com/faq#how-do-i-disable-ollamas-cloud-features)
+Führe den Befehl im Git-Checkout mit Node.js 22.12 oder neuer aus. Unterstützt werden PNG, JPEG und WebP bis 8 MiB. Verwende für `MODELLNAME` den Namen eines bereits installierten, bildfähigen Ollama-Modells. Starte deinen Ollama-Server im lokalen Modus mit `OLLAMA_NO_CLOUD=1`. Der Adapter verbindet sich mit `127.0.0.1:11434`. [Ollama-Konfiguration](https://docs.ollama.com/faq#how-do-i-disable-ollama-cloud-features)
 
 ```sh
 node scripts/vera-bild.mjs bild.png --model MODELLNAME
@@ -29,7 +29,7 @@ Tausche gedanklich das Porträt und den Namen aus. Die Zuschreibung ändert sich
 
 Vera's local image intake turns a photograph, drawing or screenshot into a draft for **WIRKLICH**. It separates visible details, transcribed text and apparent attributions from an interpretation. It also records a question, a strong objection, a check that could overturn the interpretation and related questions from the [philosophical engine](../public/ai/philosophy-engine.v0.json).
 
-From a Git checkout with Node.js 22.12 or newer, pass a PNG, JPEG or WebP file up to 8 MiB. Set `MODEL_NAME` to an installed vision-capable Ollama model. Run the Ollama server in local-only mode with `OLLAMA_NO_CLOUD=1`. The adapter connects to `127.0.0.1:11434`. [Ollama configuration](https://docs.ollama.com/faq#how-do-i-disable-ollamas-cloud-features)
+From a Git checkout with Node.js 22.12 or newer, pass a PNG, JPEG or WebP file up to 8 MiB. Set `MODEL_NAME` to an installed vision-capable Ollama model. Run the Ollama server in local-only mode with `OLLAMA_NO_CLOUD=1`. The adapter connects to `127.0.0.1:11434`. [Ollama configuration](https://docs.ollama.com/faq#how-do-i-disable-ollama-cloud-features)
 
 ```sh
 node scripts/vera-bild.mjs image.png --model MODEL_NAME

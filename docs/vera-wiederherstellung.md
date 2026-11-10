@@ -1,6 +1,6 @@
 # Vera · Wiederherstellungsprobe / Recovery drill
 
-Vera soll aus Fehlern lernen können. Dafür müssen wir einen bekannten Projektstand wiederherstellen und belegen können, welcher Stand zurückkam. Dieses lokale Werkzeug erprobt einen Teil des Schutzprinzips [ERHALT-01](https://github.com/AlexanderR1991/Vera/pull/88). Das Schutzprinzip steht zur menschlichen Prüfung.
+Vera soll aus Fehlern lernen können. Dafür müssen wir einen bekannten Projektstand wiederherstellen und belegen können, welcher Stand zurückkam. Dieses lokale Werkzeug erprobt einen Teil des Schutzprinzips [ERHALT-01](erhalt-01.md). Das Schutzprinzip steht zur menschlichen Prüfung.
 
 ## Einen Stand prüfen
 
@@ -17,11 +17,11 @@ Die Probe läuft ohne Netzwerk und entfernt ihre temporären Dateien beim regul�
 
 Der Vera-Commit [`1001c9604e5b`](https://github.com/AlexanderR1991/Vera/commit/1001c9604e5b3df7d4d95325436e7181790f5164) ließ sich in der lokalen Probe aus einer vollständigen Historie mit identischer Commit-ID wiederherstellen. Im Test mit demselben Commit und `--depth=1` war `HEAD` sichtbar, die Wiederherstellungsprobe lehnte den unvollständigen Checkout ab. **Aus der Commit-ID allein lässt sich die Wiederherstellbarkeit der Historie nicht ableiten.** Bei `shallow: true` ist der nächste Prüfschritt, die Probe aus einem vollständigen Checkout zu wiederholen.
 
-Halte nach einer Probe den Commit, den Umfang, das Ergebnis und den nächsten Prüfschritt fest. Bei einem Fehler bleibt der Befund offen, bis eine Gegenprobe die Korrektur bestätigt. Der [META-01-Regelkreis](selbstkorrektur.md) bestimmt, wie wir diese Gründe für spätere Entscheidungen festhalten. Nur öffentliche Projektdaten gehören in einen Pull Request. Der [Entwurf für das Projektgedächtnis](https://github.com/AlexanderR1991/Vera/pull/100) sieht einen Platz für solche Befunde vor.
+Halte nach einer Probe den Commit, den Umfang, das Ergebnis und den nächsten Prüfschritt fest. Bei einem Fehler bleibt der Befund offen, bis eine Gegenprobe die Korrektur bestätigt. Der [META-01-Regelkreis](selbstkorrektur.md) bestimmt, wie wir diese Gründe für spätere Entscheidungen festhalten. Nur öffentliche Projektdaten gehören in einen Pull Request. Das [Projektgedächtnis](vera.md#was-das-projektgedächtnis-festhält) hält solche Befunde mit Quellen, Grenzen und Status fest.
 
 ## English
 
-Vera should be able to learn from errors. That requires recovering a known project revision and showing exactly what was recovered. This local tool exercises part of the proposed [ERHALT-01 preservation principle](https://github.com/AlexanderR1991/Vera/pull/88), which is pending human review.
+Vera should be able to learn from errors. That requires recovering a known project revision and showing exactly what was recovered. This local tool exercises part of the proposed [ERHALT-01 preservation principle](erhalt-01.md), which is pending human review.
 
 Run these commands inside the Vera checkout with Node.js and Git.
 
@@ -34,4 +34,4 @@ The drill runs offline and removes its temporary files on normal exit. `dirty: f
 
 Vera commit [`1001c9604e5b`](https://github.com/AlexanderR1991/Vera/commit/1001c9604e5b3df7d4d95325436e7181790f5164) was recovered locally from a checkout with full history, with the same commit ID. A `--depth=1` checkout of the same commit still had a visible `HEAD`, but the drill declined to verify the incomplete checkout. **A commit ID alone does not establish that its history can be recovered.** If `shallow: true`, repeat the drill from a full checkout.
 
-Record the commit, scope, outcome and next check. After a failure, keep the result open until a repeat test confirms the correction. Follow [META-01](selbstkorrektur.md#english) to preserve the evidence for later decisions. Keep pull requests limited to public project data. The [draft project memory](https://github.com/AlexanderR1991/Vera/pull/100) is designed to retain findings of this kind.
+Record the commit, scope, outcome and next check. After a failure, keep the result open until a repeat test confirms the correction. Follow [META-01](selbstkorrektur.md#english) to preserve the evidence for later decisions. Keep pull requests limited to public project data. [Project memory](vera.md#what-project-memory-records) retains findings of this kind with sources, limitations and status.

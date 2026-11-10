@@ -1,6 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="200" viewBox="0 0 1100 200">
-  <rect width="1100" height="200" fill="#151718"/>
-  <!-- Same 14-degree opening as the workshop homepage, centered at -45 degrees. -->
-  <circle cx="550" cy="100" r="62" pathLength="360" fill="none" stroke="#f0eee7"
-    stroke-width="1.6" stroke-linecap="butt" stroke-dasharray="346 14" transform="rotate(-38 550 100)"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="280" viewBox="0 0 1200 280" role="img" aria-labelledby="title desc">
+  <title id="title">Vera</title>
+  <desc id="desc">An open circle on a warm paper background.</desc>
+  <rect width="1200" height="280" fill="#f8f5ed"/>
+  <!-- The homepage's 14-degree opening, centered on the upper-right diagonal. -->
+  <circle cx="600" cy="140" r="80" pathLength="360" fill="none" stroke="#292c25"
+    stroke-width="1.4" stroke-linecap="butt" stroke-dasharray="346 14" transform="rotate(-38 600 140)"/>
 </svg>

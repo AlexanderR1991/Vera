@@ -62,7 +62,7 @@ Aus „Wenn Erklärung P zutrifft, folgt Beobachtung Q“ und „Q wurde beobach
 <a id="distribution"></a>
 ### Durchschnitt und Verteilung
 
-Die [frühere Karte v1](https://github.com/AlexanderR1991/Wirklich/blob/8b46f7af121768d35ed0a27a99bf20fa806dbf00/src/lib/navigator.mjs#L61-L76) konnte nach drei Bestätigungen ausgeben, eine Aussage über alle Einzelnen könne wahr sein, obwohl bereits der Durchschnitt sie ausschloss.
+Die [frühere Karte v1](https://github.com/AlexanderR1991/Vera/blob/8b46f7af121768d35ed0a27a99bf20fa806dbf00/src/lib/navigator.mjs#L61-L76) konnte nach drei Bestätigungen ausgeben, eine Aussage über alle Einzelnen könne wahr sein, obwohl bereits der Durchschnitt sie ausschloss.
 
 Karte v2 prüft die Frage „Erreicht jede Menge die vorgegebene Schwelle?“ mit zwei Zahlen in derselben Einheit. Sie gilt für zwei oder mehr nichtnegative Mengen mit exaktem ungewichteten Mittelwert. Liegt er unter der Schwelle, schließt die Rechnung die Behauptung unabhängig von weiteren Verteilungsgrenzen aus. Ein gerundeter Mittelwert braucht eine eigene Prüfung. Eine faire Schwelle festzulegen ist eine Wertfrage.
 
@@ -160,6 +160,6 @@ Feedback can challenge general insights, but a reported outcome is a lead for ex
 
 ## Ergänzender Fragenatlas-Pilot · 7. November 2026
 
-Der Navigator bleibt eine lokale, begrenzte Suche über redaktionelle Musterkarten. Daneben zeigt das [Forum einen kleinen Fragenatlas](https://alexanderr1991.github.io/Vera/de/forum/#fragenatlas): sechs ungeprüfte Beispielfragen, die über stabile IDs, explizite Aussage-Links und begründete Beziehungen verbunden sind. Die Wortsuche und die Offline-Triage verstehen keine allgemeine Semantik. Es gibt weder eine automatische Synchronisation aus GitHub Discussions noch eine Übertragung von Antworten, Konsens oder Erkenntnisreife. [Regel- und Datenvertrag](fragenatlas.md).
+Der Navigator bleibt eine lokale, begrenzte Suche über redaktionelle Musterkarten. Daneben zeigt das [Forum einen kleinen Fragenatlas](https://alexanderr1991.github.io/Vera/de/forum/#fragenatlas): ungeprüfte Beispielfragen, die über stabile IDs, explizite Aussage-Links und begründete Beziehungen verbunden sind. Die Wortsuche und die Offline-Triage verstehen keine allgemeine Semantik. Es gibt weder eine automatische Synchronisation aus GitHub Discussions noch eine Übertragung von Antworten, Konsens oder Erkenntnisreife. [Regel- und Datenvertrag](fragenatlas.md).
 
-**English:** The question atlas supplements the navigator's pattern cards with six editorial examples and traceable links. It does not automatically merge threads or verify claims.
+**English:** The question atlas supplements the navigator's pattern cards with editorial examples and traceable links. It does not automatically merge threads or verify claims.

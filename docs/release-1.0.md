@@ -2,6 +2,8 @@
 
 **5. November 2026 · Erste zusammenhängende Werkzeugfassung**
 
+**Historischer Releasebericht.** Die Namensgebung und Bestandszahlen beziehen sich auf diese erste Fassung. Das Projekt heißt inzwischen **Vera**. [Aktuelle Vorstellung](../README.md) · [Namensgeschichte](versionsgeschichte.md#2026-11-07--vera) · [Aktueller Projektstatus](https://alexanderr1991.github.io/Vera/de/projektstatus/)
+
 WIRKLICH hilft Menschen, aus einer Frage einen nachvollziehbaren Prüfweg und einen begrenzten nächsten Schritt zu machen. Wissenschaft, Philosophie, Kunst, persönliche Erfahrung und KI können beitragen. Welchen Anspruch eine Aussage erhebt, wie sie begründet ist und wer sie geprüft hat, bleibt unterscheidbar.
 
 ## Name und Kontinuität
@@ -43,5 +45,7 @@ Der Ablauf ist absichtlich bescheiden: Ein Feld kann offen bleiben. Ein Gegenarg
 1.0 ist kein Beleg dafür, dass diese Ziele schon erreicht sind. Das ist die erste benutzbare gemeinsame Arbeitsfassung; ihre Qualität soll an nachvollziehbarem Nutzen wachsen.
 
 ## English
+
+**Historical release report.** Names and record counts below describe the first release. The project is now called **Vera**. [Current introduction](en/README.md) · [Current project status](https://alexanderr1991.github.io/Vera/en/projektstatus/)
 
 The English name of the open inquiry workshop is **REALLY?**. Version 1.0 is its first integrated tool release. The former project name remains the title of its philosophical foundation. A local worksheet supports five claim types, explicit objections, revision conditions, optional browser storage and portable text/JSON files. Current exports use worksheet format version 2 to record agreement and disagreement separately from evidence. The workshop accepts version 1 files and leaves the new field empty. The project status derives its counts from published data. The three claim records remain unreviewed; method evaluation, independent appeals and sustainable funding remain work to be done.

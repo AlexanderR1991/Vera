@@ -1,6 +1,6 @@
 # Roadmap · Von der Vision zum belastbaren Erkenntnissystem
 
-**Stand: Vera 1.0.0 · Überarbeitung vom 6. November 2026**
+**Stand: Vera 1.0.0 · Überarbeitung vom 10. November 2026**
 
 Die erste zusammenhängende Werkzeugfassung ist in [Release 1.0](release-1.0.md) beschrieben. Das neue Prüfblatt und die öffentliche Statusseite machen den Arbeitsweg benutzbar. Die folgenden Freigabekriterien betreffen die Qualität des Bestands und die Prüfung der Methode; die Versionsnummer ersetzt sie nicht. P-01 entspricht dem geprüften Bestand, P-02 dem Methodenvergleich und P-03 der tragfähigen Verantwortung.
 
@@ -17,13 +17,13 @@ Der [AGI-Horizont](agi-horizont.md) verbindet diese Etappen mit der langfristige
 - [x] Recherche- und Angriffsschwarm als begrenzte Prototypen; Ergebnisse bleiben ungeprüft
 - [x] Gemeinsame Mission und konzentrierte Startseite statt einer wachsenden Reihe einzelner Ankündigungen
 - [x] Aussagenregister mit stabilen Kennungen, Herkunft, Einwänden, Revisionsbedingungen und JSON-Export
-- [x] Vier Demonstrationseinträge (einschließlich MED-001); **keiner fachlich freigegeben**
+- [x] [Demonstrationseinträge](../public/knowledge/claims.json) mit sichtbarem Prüfstatus; **keiner fachlich freigegeben**
 - [x] Automatische Strukturprüfung des Registers; **keine automatische Wahrheitsprüfung**
-- [x] Reversible Erkenntnisreife R0–R4 als gesonderte Registerangabe, Abstraktion und Konsens unabhängig; Struktur-Sperren, DE/EN-Anzeige, synthetische Tests. **Keine der vier Aussagen aufgestuft.**
+- [x] Reversible Erkenntnisreife R0–R4 als gesonderte Registerangabe, Abstraktion und Konsens unabhängig; Struktur-Sperren, DE/EN-Anzeige, synthetische Tests. **Keine Aussage allein durch diese Strukturprüfung aufgestuft.**
 - [x] Zweisprachiges persönliches Prüfblatt mit Text-/JSON-Export, validiertem Import und optionalem Browserspeicher
 - [x] Öffentlicher Projektstatus mit Bestandszahlen aus den Daten und einheitlichem Versionsprofil
 - [x] [Konkreter Entwurf für den Methodenvergleich](evaluation-v1.md); **noch kein Versuch und keine Vorregistrierung**
-- [x] [Kleiner Fragenatlas-Pilot](fragenatlas.md) mit sechs redaktionellen Beispielfragen, stabilen IDs, begründeten Frage-/Aussage-Links und lokaler Offline-Triage; **keine GitHub-Live-Synchronisation oder semantische Zusammenführung**
+- [x] [Kleiner Fragenatlas-Pilot](fragenatlas.md) mit redaktionellen Beispielfragen, stabilen IDs, begründeten Frage-/Aussage-Links und lokaler Offline-Triage; **keine GitHub-Live-Synchronisation oder semantische Zusammenführung**
 
 ## Sofort und parallel · Verständlicher Einstieg und reale Verantwortung
 
@@ -161,7 +161,8 @@ Die [KI-Charta](ki-charta.md) und der [zweisprachige Prüfkatalog](../public/ai/
 
 - [ ] Weitere Kapitel in das strukturierte Aussagenmodell überführen
 - [ ] Quellenketten und Beziehungen zwischen Aussagen modellieren
-- [ ] Volltextsuche, stabile Versionsansichten und differenzierte offene Schnittstellen ergänzen
+- [x] [Lokale DE/EN-Volltextsuche](https://alexanderr1991.github.io/Vera/de/suche/) für die indizierten Seiten und Register
+- [ ] Stabile Versionsansichten und differenzierte offene Schnittstellen ergänzen
 - [ ] Menschlich überprüfbare Verknüpfung realer GitHub-Fragen und Wiedereröffnung falscher Zusammenführungen testen
 - [ ] Bot-/Moderationsschutz, Aufmerksamkeitsbudget und unabhängige Einspruchswege vor öffentlichen KI-Agenten erproben
 - [ ] Sprachübergreifende semantische Verfahren gegenüber gewöhnlicher Suche unabhängig evaluieren

@@ -6,7 +6,7 @@
 >
 > Ein Motor, der bei Unwissenheit eine Zahl erfindet, erfüllt WIRKLICH nicht. Die mathematisch notwendige Ausgabe kann auch **offen**, **mehrdeutig**, **nicht vergleichbar**, **unzulässig** oder **begründet umstritten** heißen.
 
-**Geltung:** Dieses Dokument vereinheitlicht die bereits veröffentlichten Forschungsbausteine [M-01](mathematischer-pruefstand.md), [M-02](mathematik-des-dazwischen.md), [META-01](selbstkorrektur.md), die [Reifegrade R0–R4](erkenntnisreife.md), den [Grundfragen-Kreislauf](grundfragen-kreislauf.md), die [Schnittmengen](schnittmengen.md) und die [KI-Charta](ki-charta.md). Der Richtungsindex und die Fachagenten sind **zusätzliche, noch offene Vorschläge** aus [PR #73](https://github.com/AlexanderR1991/Vera/pull/73) und [PR #81](https://github.com/AlexanderR1991/Vera/pull/81); sie werden durch M-03 **nicht** automatisch angenommen oder aktiviert.
+**Geltung:** Dieses Dokument vereinheitlicht die bereits veröffentlichten Forschungsbausteine [M-01](mathematischer-pruefstand.md), [M-02](mathematik-des-dazwischen.md), [META-01](selbstkorrektur.md), die [Reifegrade R0–R4](erkenntnisreife.md), den [Grundfragen-Kreislauf](grundfragen-kreislauf.md), die [Schnittmengen](schnittmengen.md) und die [KI-Charta](ki-charta.md). Der [Richtungsindex](kollektive-moral.md) und die [Fachagenten](fachagenten-netzwerk.md) sind im Repository dokumentierte, **fachlich ungeprüfte Forschungsentwürfe**. Ihre Aufnahme belegt keine Wirksamkeit und aktiviert sie nicht. M-03 ändert diesen Status nicht.
 
 Die [Mathematik der inneren Wege](mathematik-innerer-wege.md) ergänzt den Entwurf um fünf fiktive Fälle zu Sagbarkeit, Gesprächsreihenfolge, Fürsorge, verlorenen Zukünften und widersprüchlichen Annahmen.
 
@@ -243,7 +243,7 @@ Sei \(v_t(x)\) die Version eines Knotens \(x\). Ändert sich eine Prämisse, ein
 
 ## 8. Kollektive Intelligenz ohne Scheinmehrheit
 
-Ein thematisches KI-Netz könnte Fachrollen zu den **23 aktuellen Atlas-Fachthemen in sechs übergreifenden Feldern** einsetzen und zusätzlich Quellensichtung, Gegenprüfung, Betroffenenperspektive, Übersetzungsprüfung und Synthese vorsehen (offener AFA-0.1-Vorschlag in [PR #81](https://github.com/AlexanderR1991/Vera/pull/81)).
+Ein thematisches KI-Netz könnte Fachrollen zu den **23 aktuellen Atlas-Fachthemen in sechs übergreifenden Feldern** einsetzen und zusätzlich Quellensichtung, Gegenprüfung, Betroffenenperspektive, Übersetzungsprüfung und Synthese vorsehen ([inaktiver AFA-0.1-Entwurf](fachagenten-netzwerk.md)).
 
 Die mathematisch entscheidende Regel lautet nicht „mehr Modelle = mehr Wahrheit“:
 

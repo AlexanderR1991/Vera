@@ -43,7 +43,7 @@ Dies ist eine **Systemarchitektur und ein Forschungsprogramm**, kein bereits err
 - **Kritik kostet Aufmerksamkeit:** Wir müssen prüfen, ob die Methode im gleichen Zeitbudget echte Fehler findet, ohne Fehlalarme und Überforderung zu steigern.
 - **Eine gute Wissenskarte kann schlechte Politik machen:** Fehlende Betroffene, stillschweigender Konsens und verschleierte Wertgewichte sind eigenständige Risiken.
 
-Der getrennte [Vorschlag eines moralischen Richtungsindex](https://github.com/AlexanderR1991/Vera/pull/73) befindet sich noch als Entwurf in Prüfung. Er wird durch die kollektive Architektur **nicht** automatisch gerechtfertigt. Menschen oder Gruppen erhalten keinen Gesamtwert.
+Der getrennte [Vorschlag eines moralischen Richtungsindex](kollektive-moral.md) ist als fachlich ungeprüfter Forschungsentwurf im Repository dokumentiert. Er wird durch die kollektive Architektur **nicht** automatisch gerechtfertigt. Menschen oder Gruppen erhalten keinen Gesamtwert.
 
 ## Falsifikationsprogramm
 
