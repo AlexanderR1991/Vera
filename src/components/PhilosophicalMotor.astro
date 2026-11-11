@@ -104,6 +104,45 @@ const innerPaths = [
    </div>
   </section>
 
+  <section class="section motor-section" id="befund-zustimmung-entscheidung" aria-labelledby="separation-title">
+   <div class="container">
+    <p class="section-kicker">{t("BELEG, ZUSTIMMUNG, ENTSCHEIDUNG", "EVIDENCE, AGREEMENT, DECISION")}</p>
+    <h2 id="separation-title">{t("Drei Fragen. Drei getrennte Antworten.", "Three questions. Three separate answers.")}</h2>
+    <p class="motor-caption">{t("Ob eine Maßnahme wirkt, wer ihr zustimmt und ob sie eingeführt werden soll, sind verschiedene Fragen. Die folgende Regel präzisiert unseren Entwurf; sie ist keine automatische wissenschaftliche Prüfung.", "Whether a measure works, who agrees to it and whether to introduce it are different questions. This rule clarifies our design; it is not an automatic scientific assessment.")}</p>
+    <div class="motor-grid separation-grid">
+     <article class="motor-card">
+      <h3>{t("1 · Den Befund begründen", "1 · Justify the finding")}</h3>
+      <p class="separation-formula">B = F(q, c, E, M)</p>
+      <p>{t("B ist der begründete Befund mit Unsicherheit. Er hängt von der Frage q, ihrem Geltungsbereich c, der Evidenz E und den Prüfannahmen M ab. Daten müssen zur Frage passen und nachvollziehbar ausgewertet werden.", "B is the reasoned finding with uncertainty. It depends on the question q, its scope c, evidence E and examination assumptions M. Data must fit the question and be analysed transparently.")}</p>
+     </article>
+     <article class="motor-card">
+      <h3>{t("2 · Zustimmung festhalten", "2 · Record agreement")}</h3>
+      <p class="separation-formula">C(x, v, P)</p>
+      <p>{t("C hält fest, wer aus dem benannten Kreis P genau die Fassung v einer Aussage oder eines Vorschlags x mitträgt: Ja, Nein oder offen. Fehlende und veraltete Antworten gelten nicht als Zustimmung.", "C records who in the named group P supports the exact version v of a claim or proposal x: yes, no or open. Missing and outdated responses do not count as agreement.")}</p>
+     </article>
+     <article class="motor-card">
+      <h3>{t("3 · Verantwortlich entscheiden", "3 · Decide accountably")}</h3>
+      <p class="separation-formula">D = G<sub>R</sub>(A, B, Z, C)</p>
+      <p>{t("D berücksichtigt Optionen A, Befunde B, Wertannahmen Z und Zustimmung C nach einem benannten Verfahren R mit Zuständigkeit, Rechten und Korrekturweg. Die Formel bezeichnet das Verfahren; sie berechnet keine richtige Politik.", "D considers options A, findings B, value premises Z and agreement C under a named procedure R with authority, rights and a route to correction. The formula names the procedure; it does not calculate correct policy.")}</p>
+     </article>
+    </div>
+    <div class="motor-formula separation-rule">
+     <p>{t("DIE TRENNUNGSREGEL", "THE SEPARATION RULE")}</p>
+     <p><strong>{t("Gleiche Gründe → gleicher Befund, auch bei anderer Zustimmung.", "Same grounds → same finding, even when agreement changes.")}</strong></p>
+     <p>{t("Bei unveränderter Frage, Evidenz und Methode ändert bloßes Umzählen von Stimmen den Befund nicht. Liefert ein Gespräch neue Beobachtungen oder zeigt einen methodischen Fehler, ändern sich E oder M: Dann wird neu geprüft. Auch fachliche Zeugnisse brauchen eine Prüfung ihrer Gründe und Abhängigkeiten.", "With the question, evidence and method unchanged, recounting votes does not change the finding. If discussion supplies new observations or exposes a methodological error, E or M changes and examination starts again. Expert testimony also requires scrutiny of its grounds and dependencies.")}</p>
+    </div>
+    <div class="motor-paths">
+     <details>
+      <summary>{t("Drei Gegenproben", "Three counterchecks")}</summary>
+      <p>{t("Eine Million Ja-Stimmen ohne tragfähigen Wirkungsbeleg: Zustimmung dokumentiert, Wirkung offen. Ein Einzelner kann dagegen einen tragfähigen Befund vorlegen oder ein bereits geprüftes Ergebnis vermitteln.", "A million yes votes without adequate evidence: agreement recorded, effect unresolved. One person can nevertheless present a sound finding or communicate an already examined result.")}</p>
+      <p>{t("Derselbe Befund, unterschiedliche Ziele: Menschen können die gleiche Wirkung anerkennen und verschiedene Handlungen bevorzugen. Der Befund allein legt weder Zustimmung noch eine Pflicht fest.", "Same finding, different goals: people can acknowledge the same effect and prefer different actions. The finding alone determines neither consent nor an obligation.")}</p>
+      <p>{t("Ein belegter Auswertungsfehler: Befund und davon abhängige Entscheidungen werden neu geprüft. Eine geänderte freiwillige Vereinbarung braucht neue Antworten. Eine politische Entscheidung kann unter ausdrücklich benannter Unsicherheit getroffen werden, ohne diese zu beseitigen.", "A demonstrated analysis error: re-examine the finding and decisions that depend on it. A changed voluntary agreement needs new responses. A political decision can be made under explicitly stated uncertainty without eliminating it.")}</p>
+     </details>
+    </div>
+    <p><a href={project.repository+"/blob/main/docs/"+(en?"en/philosophical-motor-mathematics.md#findings-agreement-and-decisions":"philosophischer-motor-mathematik.md#befund-zustimmung-und-entscheidung")}>{t("Definitionen, Ableitung und Revisionsgrenzen", "Definitions, derivation and revision boundaries")} ↗</a> · <a href={pathFor(lang,"methode","beleglage-und-entscheidung")}>{t("Zur Anwendung in Veras Methode", "Apply this in Vera's method")} →</a></p>
+   </div>
+  </section>
+
   <section class="section section--paper motor-section" id="rechenbeispiele">
    <div class="container">
     <p class="section-kicker">{t("AUSFÜHRBARER PROTOTYP · NUR ERFUNDENE DATEN","EXECUTABLE PROTOTYPE · INVENTED DATA ONLY")}</p>
@@ -203,6 +242,8 @@ const innerPaths = [
 .motor-card small{color:var(--motor-accent)}
 .motor-card h3{margin:.7rem 0 .4rem;font-size:1.25rem}
 .motor-card p{margin:0;color:var(--muted,#b5b7bb)}
+.separation-grid .separation-formula{font:clamp(1.15rem,2.1vw,1.6rem)/1.5 ui-serif,Georgia,serif;color:var(--text);margin:.7rem 0;overflow-wrap:anywhere}
+.separation-rule>p:last-child{max-width:72ch}
 .motor-formula{border-top:1px solid var(--line);margin-top:2.5rem;padding-top:2rem;max-width:58rem}
 .motor-formula>p:first-child{letter-spacing:.12em;font-size:.78rem;color:var(--motor-accent)}
 .motor-formula__main{font-family:ui-serif,Georgia,serif;font-size:clamp(1.8rem,4vw,3.4rem);padding-block:.75rem}

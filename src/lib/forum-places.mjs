@@ -31,6 +31,11 @@ const sections = {
     section("fragen", "Eine eigene Frage", "A question of your own", {anchors: pair("frag-mich", "ask-me")}),
     section("pinnwand", "Die Fragen auf der Pinnwand", "The questions on the pinboard", {anchors: pair("leben", "life")})
   ],
+  gespraechsspiegel: [
+    section("spiegel-korrigieren", "Eine Deutung des Spiegels prüfen", "Challenge the mirror’s reading", {
+      prompt: pair("Welchen Beitrag würdest du anders lesen und was würde sich im Spiegel ändern?", "Which reply would you read differently, and what would that change in the mirror?")
+    })
+  ],
   obsidian: [
     section("note-feedback", "Was müsste die Verbindung können?", "What would make this connection useful?")
   ],
@@ -201,6 +206,9 @@ const groups = {
   ],
   project: [
     ["index", "Was möchtest du mit Vera besprechen?", "What would you like to discuss with Vera?", pair("Vera kennenlernen", "Getting to know Vera")],
+    ["warum-ich-glaube-dass-ich-funktioniere", "Welcher Befund trägt, und wo fehlt ein Test?", "Which finding holds up, and where is a test missing?"],
+    ["vera-einfach-erklaert", "Welches Beispiel macht Vera verständlich, und was bleibt unklar?", "Which example makes Vera clear, and what is still hard to follow?"],
+    ["gespraechsspiegel", "Wann hilft eine Zusammenfassung einem Streit, und wann verdeckt sie einen Einwand?", "When does a summary help a discussion, and when does it hide an objection?"],
     ["obsidian", "Was würde dir helfen, zwischen deinem Denkraum in Obsidian und Vera zu wechseln?", "What would help you move between your thinking space in Obsidian and Vera?"],
     ["mission", "Welche Aufgabe sollte Vera zuerst für Menschen lösen?", "What should Vera first help people with?"],
     ["manifest", "Welche Regel im Grundtext würdest du an einem konkreten Fall prüfen?", "Which rule in the foundational text would you test against a specific case?"],

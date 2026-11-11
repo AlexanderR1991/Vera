@@ -1,6 +1,6 @@
 import { execFileSync } from "node:child_process";
-import { mkdtempSync, rmSync } from "node:fs";
-import { devNull, tmpdir } from "node:os";
+import { mkdtempSync, rmSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
 import { join } from "node:path";
 
 const usage = "Usage: node scripts/vera-preserve.mjs <inspect|drill>";
@@ -42,7 +42,10 @@ function drill(cwd, snapshot) {
     git(cwd, ["bundle", "create", bundle, "HEAD"]);
 
     // Check the restored objects without source refs or user-defined fsck exceptions.
-    const restoreEnv = { ...env, GIT_CONFIG_NOSYSTEM: "1", GIT_CONFIG_GLOBAL: devNull };
+    // Use a real empty file: Git for Windows cannot read Node's device path as config.
+    const emptyConfig = join(temporary, "empty.gitconfig");
+    writeFileSync(emptyConfig, "", {flag: "wx"});
+    const restoreEnv = { ...env, GIT_CONFIG_NOSYSTEM: "1", GIT_CONFIG_GLOBAL: emptyConfig };
     git(temporary, ["clone", "--no-checkout", "--template=", bundle, restored], restoreEnv);
     const restoredRevision = git(restored, ["rev-parse", "--verify", "HEAD^{commit}"], restoreEnv).trim();
     if (restoredRevision !== snapshot.revision) {

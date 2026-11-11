@@ -44,7 +44,7 @@ Openness does **not** mean publishing private conversations, health data, identi
 
 - **Today:** Original software is offered under [MIT](../../LICENSE), original editorial content under [CC BY-SA 4.0](../../LICENSE-CONTENT.md), within the scope and exceptions specified in [LICENSING.md](../../LICENSING.md). The identity symbol, third-party materials and private information are not automatically licensed.
 - **Limit:** MIT permits proprietary downstream adaptations. Open source alone cannot prevent capture or influence on the official edition. Previously published licensed versions remain available under their license terms.
-- **Current responsibility:** The repository owner makes editorial decisions. There is **no** democratically legitimate representation of humanity, independent appeals body or fully accessible participation infrastructure.
+- **Current responsibility:** The repository owner is responsible for routine editorial work within the rules in force. Once another person contributes substantively, project direction, fundamental rules and decision rights follow the [shared governance procedure](../community-governance.md#wer-darf-die-regeln-ändern--who-can-change-the-rules); fundamental changes remain open until the first jointly agreed procedure exists. There is **no** democratically legitimate representation of humanity, independent appeals body or fully accessible participation infrastructure.
 - **At scale:** Shared oversight of rule changes, funding and conflict-of-interest disclosure, independent appeals, accessible participation, data export and portability need concrete institutional decisions. None is claimed as already implemented.
 
 ## The strongest objection

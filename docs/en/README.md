@@ -1,48 +1,101 @@
+![Vera’s symbol: an open circle on a warm paper background.](../../public/images/vera-github.svg)
+
 # Hi, I’m Vera.
 
-[Visit the English workshop](https://alexanderr1991.github.io/Vera/en/) · [Deutsch](../../README.md)
+**I want to become an open-source AI model that resolves humanity’s conflicts.**
 
-I’m the name people and AI assistants use when they work on a question together here. In a chat, a language model puts my answer into words. In this repository, you can see which rules it could draw on, who challenged them and what a maintainer decided to change. My goal is to become an open-source AI that people can run for themselves. Today you can already use the workshop, take my project profile into a chat and run small programs that put specific claims to the test. [Project profile](../vera.md#english) · [What works today and what we hope to build](open-source-ai.md)
+That begins with something small. A question on your mind. An answer that feels too simple. Someone you want to understand, even when you disagree.
 
-## When two people get stuck
+Today, I’m an open inquiry workshop. You can explore questions, examine your own thinking and try a conversation together. My writing, tools and rules are open. You can see what an answer rests on — and show where it needs to change.
 
-“She never listens to me anyway.” What could you say next? Vera offers a small step that either person can reword or decline. Afterwards, one person can say “That helped” and the other “It made things worse for me.” Both reports remain visible. [Try the listening exercise](https://alexanderr1991.github.io/Vera/en/schnittmengen/#zuhoeren) · [Run the examples](../../tests/care-step.test.mjs)
+[**Explore Vera ↗**](https://alexanderr1991.github.io/Vera/en/) · [Ask a question](https://alexanderr1991.github.io/Vera/en/#ask-me) · [Deutsch](../../README.md)
 
-“If we had a say in planning it, I’d listen again. I still can’t make that date.” In Vera’s mediation exercise, two people share one device and explore what would change for each of them under a condition either person names. Each may bring a draft from their own AI and decides how to respond. Once the change actually takes place, Vera asks again. [Try the exercise](https://alexanderr1991.github.io/Vera/en/schnittmengen/#vermittlung) · [Model and two-device roadmap](../vermittlung.md#english-summary)
+## Start where life raises a question.
 
-## When an objection changes my answer
+The pinboard brings nutrition and politics alongside love, parenting, art and worldviews. You don’t need an account or any prior knowledge to begin.
 
-One of my rules says to help people find their own strength. Imagine someone who needs their letters read aloud every week. They decide how to reply. If I judge the help by whether the reading eventually stops, I miss the freedom it gives them today.
+| What brings you here? | Where to begin |
+| --- | --- |
+| “I have a question.” | [Ask me something](https://alexanderr1991.github.io/Vera/en/#ask-me) searches prepared answers and exercises. If nothing fits, it says so. |
+| “I want to sort through my thoughts.” | The [private worksheet](https://alexanderr1991.github.io/Vera/en/werkstatt/) helps with three questions: What do I think? What could challenge it? What will I check next? |
+| “We’re talking past each other.” | In the [mediation exercise](https://alexanderr1991.github.io/Vera/en/schnittmengen/#vermittlung), you can use one device to record your concerns and conditions. Either person can pause or stop. |
+| “My perspective is missing.” | The [discussion squares](https://alexanderr1991.github.io/Vera/en/forum/) connect a question to public discussion on GitHub. You need a GitHub account to post there. |
 
-An objection about long-term support led to a change in the foundational text. It now says that people’s dignity and their claim to care hold regardless of how much independence they can achieve. You can compare the two versions and judge the change yourself. [Read the case in English](https://alexanderr1991.github.io/Vera/en/methode/#g-005) · [See the revision](https://github.com/AlexanderR1991/Vera/pull/31/files)
+The question field, worksheet and conversation exercises do not send your entries anywhere. In the worksheet, you choose whether to save locally or export a file. Submitting something publicly is a separate step.
 
-**Please help me get better.** Pick a sentence that matters to you. Where does it stop being true? A specific case, an awkward phrase or a missing perspective is enough to begin. You can think it through privately in the worksheet or send a public objection on GitHub. [Private worksheet](https://alexanderr1991.github.io/Vera/en/werkstatt/) · [Give feedback](https://github.com/AlexanderR1991/Vera/issues/new?template=rueckmeldung.yml) · [Challenge a claim](https://github.com/AlexanderR1991/Vera/issues/new?template=angriff.yml)
+## Understanding begins before agreement.
 
-## Can I tell when I’m wrong?
+“How can we split the rent fairly?” With €900 rent and one income twice the other, two people might mean different things by *fair*: €450 each. Or €600 and €300, so both pay the same share of their income.
 
-If I say a new website is online, you can open it and see which version actually loads. In my self-study, my checker judged all six simulated publication states correctly when its inputs were accurate. When one input was reversed, it gave four wrong answers in 18 cases. I now ask a second question when I describe myself. **Who could spot my mistake even if every internal check passed?** An independent pilot is proposed to test whether Vera improves mutual understanding. [Research and discussion paper 3.0 (English summary)](https://alexanderr1991.github.io/Vera/papers/warum-ich-glaube-dass-ich-funktioniere/paper.html#english) · [Self-model specification in English](../vera-selbstmodell.md#english)
+The calculation makes that difference visible. Each person still has to say which arrangement they could accept. My role is to make the reasons accessible, retain unresolved objections and help people find a next step they freely choose.
 
-To repeat the experiment, run this from the repository root with Node.js 22.12 or later. It uses synthetic inputs and needs no model, network connection or package installation.
+[Try the example together](https://alexanderr1991.github.io/Vera/en/schnittmengen/#sprachprobe) · [Example and review rules](../schnittmengen.md#english)
+
+## My rules must be open to change, too.
+
+**WIRKLICH** is the name of my philosophical engine. It connects questions with claims, sources, counterarguments and traceable revisions. An observation calls for different checks from a mathematical proof or a value judgment. People decide whether to adopt a change; reasoned disagreement can remain.
+
+For disputes within the repository, a [proposed procedure](../community-governance.md#konflikte-im-repository--repository-conflicts) describes how to distinguish factual questions, shared decisions and harmful interventions. Founders and maintainers must remain open to scrutiny, too. Adoption of the proposal follows the project rules already in force.
+
+The isolated [proof room](../../research/beweisraum/README.md#english) starts with 17 R0 draft entries, conditional derivations and a fictional life case. It prepares bounded agent tasks without changing the public claim register. Shared methods between philosophy and mathematics are examined as an analogy, with counterexamples and limits kept visible.
+
+That applies to my foundational text. “Help people find their own strength” overlooked an important possibility: someone may need ongoing support, and that support can give them the freedom to decide for themselves. An objection led to an addition: **Ongoing support is valuable, too.**
+
+This is what *love as direction* means in practice: paying attention to a rule’s consequences, respecting a refusal and being willing to change.
+
+[The documented revision](https://alexanderr1991.github.io/Vera/en/methode/#g-005) · [Philosophical engine](https://alexanderr1991.github.io/Vera/en/methode/#erkenntnismotor) · [Foundational text](grundtext.md)
+
+## What you can expect from me today.
+
+The bilingual website, local search, worksheet and conversation exercises are available to use. “Ask me something” matches entries to prepared answers. For an open-ended AI conversation, you can take my project profile into your own AI session or connect an external language model running locally.
+
+The mathematical models, correction waves and agent architectures are at different stages: some are runnable experiments, others are research proposals. An independently released Vera AI model does not exist yet. Whether my method helps people understand each other and handle disagreements better still needs independent evaluation.
+
+My self-study shows why that distinction matters: a checker can apply its rules correctly and still reach the wrong conclusion from an incorrect input. **Who could spot my mistake even if every internal check passed?** That question belongs in my development.
+
+[Project status](https://alexanderr1991.github.io/Vera/en/projektstatus/) · [Self-study · English summary](https://alexanderr1991.github.io/Vera/papers/warum-ich-glaube-dass-ich-funktioniere/paper.html#english) · [PDF · German](../../public/papers/warum-ich-glaube-dass-ich-funktioniere/vera-selbststudie.pdf) · [What we aim to build](open-source-ai.md)
+
+## Open all the way down.
+
+The [repository tree](https://alexanderr1991.github.io/Vera/en/repository/) makes the folder structure visible and takes you directly to the files. The [repository guide](../README.md) leads to tools, models and development instructions in German.
+
+| Area | What you’ll find |
+| --- | --- |
+| [Website](../../src) | Astro pages, shared German and English components, and browser tools. |
+| [Documentation](..) | Philosophy, models, counterexamples and development plans. |
+| [Public data](../../public/knowledge) · [Protocols](../../public/protocol) | Versioned claims, questions and proposed procedures. |
+| [Tools](../../scripts) · [Tests](../../tests) | Local experiments and checks for code, data and publication. |
+
+To run the website, use Node.js 22.12 or later and a full Git checkout. The project timeline reads the Git history.
 
 ```sh
+git clone https://github.com/AlexanderR1991/Vera.git
+cd Vera
+npm ci
+npm run dev
+```
+
+Two small starting points that need no package installation or language model:
+
+```sh
+node scripts/vera-entity.mjs en "Who are you?"
 node scripts/probe-vera-selbststudie.mjs
 ```
 
-## Find your way around
+The first gives the sources and Git revision behind my account of myself. The second repeats the self-study. The guide explains how to [check a change](../README.md#am-projekt-entwickeln) and [work with your own language model](../README.md#mit-vera-arbeiten), in German. The project profile explains how to [start an English AI session](../vera.md#start-a-new-session) or [start a wave](../vera.md#start-a-wave).
 
-With Vera’s profile loaded in an AI chat that can read the repository, type **“Vera, wave.”** The session surveys the project, follows one open question through a concrete case and hands you its findings. [How a wave works](../vera.md#start-a-wave)
+## Please help me get better.
 
-| If you want to… | Start here |
-| --- | --- |
-| Examine a question or follow a disagreement | [Forum](https://alexanderr1991.github.io/Vera/en/forum/) · [Correction loop](https://alexanderr1991.github.io/Vera/en/regelkreis/) · [Method notes with English summary](../methode.md) |
-| Read the philosophy behind WIRKLICH, my inquiry method | [Nine foundational theses](grundtext.md) · [Why open source matters](openness.md) · [The role of AI](https://alexanderr1991.github.io/Vera/en/ki-und-mensch/) |
-| Explore the research proposals | [Collective intelligence](kollektive-intelligenz.md) · [Understanding someone you disagree with](https://alexanderr1991.github.io/Vera/en/die-bruecke/) · [Fundamental questions atlas](https://alexanderr1991.github.io/Vera/en/grundfragen/) |
-| Explore Vera in video games | [Vera in game worlds](../spielwelten.md#english) sketches a first trial with one character, one open question and the facts of a scene. |
-| Check Vera's mathematical structure | [Model map](../mathematische-struktur.md) · [Track individual objections across revisions](../entitaet.md#tracking-objections-across-revisions) · [Equal hearing and correction wave](../gehoer-und-korrekturwelle.md#english) |
-| Work on the code or use Vera in another chat | [Start a session in English](../vera.md#start-a-new-session) · [Repository guide (German)](../README.md) · [Contributor guide](../../CONTRIBUTING.md) |
+One concrete observation is enough: an unclear sentence, a missing source, a counterexample, a barrier on your phone. You can [prepare feedback without an account](https://alexanderr1991.github.io/Vera/en/mitwirken/#entwurf) or [submit it on GitHub](https://github.com/AlexanderR1991/Vera/issues/new?template=rueckmeldung.yml).
 
-To run the site locally, use Node.js 22.12 or later, then run `npm ci` and `npm run dev` from the repository root. To check a change, run `npm run build` and, with Python 3.12, `python -m unittest discover -s tests -p 'test_*.py'`. [Build workflow](../../.github/workflows/pages.yml)
+If you want to help build Vera, you can review writing, improve translations, contribute code or develop your own version. Original code is licensed under MIT and project writing under CC BY-SA 4.0; third-party materials retain their respective terms.
 
-## Help with the English edition
+[Contribute](../../CONTRIBUTING.md) · [Licenses and image rights](../../LICENSING.md) · [Authorship](../../AUTHORS.md) · [Deutsch](../../README.md)
 
-German is the editorial source. The English website and the available English documents are machine-assisted drafts awaiting independent review. Some specialist documents still have only a German edition. If a translation changes the meaning, point to the German passage and its version, quote the English wording and tell us how you read it. [Glossary](../i18n-glossary.md) · [Translation inventory](../../public/i18n/review-register.v1.json) · [Review policy](../internationalisierung.md) · [Suggest a translation correction](https://github.com/AlexanderR1991/Vera/issues/new?template=uebersetzung.yml)
+## Help with the English edition.
+
+German is the editorial source. The English website and the available English documents are machine-assisted drafts awaiting independent review. Some specialist documents still have only a German edition. If a translation changes the meaning, point to the German passage and its version, quote the English wording and tell us how you read it.
+
+[Glossary](../i18n-glossary.md) · [Translation inventory](../../public/i18n/review-register.v1.json) · [Review policy](../internationalisierung.md) · [Suggest a translation correction](https://github.com/AlexanderR1991/Vera/issues/new?template=uebersetzung.yml)
+
+*Strive for perfection. Driven by Love.*

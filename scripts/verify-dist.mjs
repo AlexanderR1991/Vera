@@ -207,8 +207,13 @@ for (const [file, lang, id] of [
  }
  if (!html.includes('href="#' + id + '"')) errors.push("Entity query not linked from " + file);
  const header = html.match(/<header\b[^>]*>[\s\S]*?<\/header>/)?.[0] ?? "";
- if (!header.includes("WIRKLICH") || !header.includes('/' + lang + '/methode/#erkenntnismotor')) {
-  errors.push("Philosophical engine missing from header on " + file);
+ const repositoryPath = `/Vera/${lang}/repository/`;
+ const firstNavLinks = [...header.matchAll(/<nav class="vera-primary"[^>]*>\s*<a href="([^"]+)"/g)];
+ if (firstNavLinks.length !== 2 || firstNavLinks.some(([, href]) => href !== repositoryPath)) {
+  errors.push("Repository tree must be the first link in both header menus on " + file);
+ }
+ if (header.includes(`href="/Vera/${lang}/methode/#erkenntnismotor"`)) {
+  errors.push("Philosophical engine still linked from the header on " + file);
  }
  for (const query of ENTITY_QUERIES) {
   const card = lab.match(new RegExp('<details[^>]*data-entity-question="' + query.id + '"[^>]*>[\\s\\S]*?<\\/details>'))?.[0] ?? "";
@@ -222,7 +227,7 @@ for (const [file, lang, id] of [
  }
 }
 if(errors.length){console.error(errors.join("\n"));process.exit(1);}
-console.log("Verified entity queries, static verdicts and WIRKLICH links on all three home routes.");
+console.log("Verified entity queries, static verdicts and repository tree navigation on all three home routes.");
 
 // Release identity and the new routes must agree with the published source data.
 const {summarizeProject}=await import("../src/lib/project-status.mjs");
@@ -238,8 +243,22 @@ for(const lang of ["de","en"]){
   /<section class="home-opening"[^>]*>([\s\S]*?)<\/section>\s*<section class="industrial-board"[^>]*>([\s\S]*?)<\/section>/
  )??["","",""];
  const rulesHref=`href="/Vera/${lang}/methode/#erkenntnismotor"`;
- const paperPath="/Vera/papers/warum-ich-glaube-dass-ich-funktioniere/paper.html";
- const paperHref=lang==="de"?`href="${paperPath}" hreflang="de"`:`href="${paperPath}#english"`;
+ const studySlug="warum-ich-glaube-dass-ich-funktioniere";
+ const studyPath=`/Vera/${lang}/${studySlug}/`;
+ const paperHref=`href="${studyPath}"`;
+ const paperBase=`/Vera/papers/${studySlug}/`;
+ const introductionPath=`/Vera/${lang}/vera-einfach-erklaert/`;
+ const researchPath=paperBase+"paper.html"+(lang==="de"?"":"#english");
+ const originalPdf=paperBase+"vera-einfach-erklaert.pdf";
+ const researchPdf=paperBase+"vera-selbststudie.pdf";
+ const study=await readFile(join(out,lang,studySlug,"index.html"),"utf8");
+ const introduction=await readFile(join(out,lang,"vera-einfach-erklaert","index.html"),"utf8");
+ const linksTo=(html,path)=>html.includes(`href="${path}"`);
+ if(![introductionPath,researchPath,originalPdf,researchPdf].every(path=>linksTo(study,path))||
+    ![studyPath,originalPdf,researchPath].every(path=>linksTo(introduction,path))||
+    ![studyPath,introductionPath].every(path=>sitemap.includes(path))){
+   errors.push("Missing self-study reading path or download for "+lang);
+ }
  const introOrder=["<circle ",greetingLead,ambition,rulesHref,rules,paperHref,paper].map(text=>hero.indexOf(text));
  if(!heading?.includes(`aria-label="${greetingLead} ${name}."`)||
     !heading.includes(`<bdi class="home-opening__greeting" lang="${lang}" dir="auto">${greetingLead}</bdi>`)||
@@ -249,6 +268,8 @@ for(const lang of ["de","en"]){
  if(!hero.includes('stroke-dasharray="346 14"')||!hero.includes('transform="rotate(-38 100 100)"')||
     hero.includes('id="first-question"'))
    errors.push("Missing Vera circle or dedicated pinboard section for "+lang);
+ if(hero.includes(`href="/Vera/${lang}/repository/"`))
+   errors.push("Repository tree still linked in the home opening for "+lang);
  const entry=lang==="de"?"frag-mich":"ask-me";
  const cardTags=[...pinboard.matchAll(/<a[^>]*href="([^"]+)"[^>]*data-board-card="([^"]+)"[^>]*>/g)];
  const cards=new Map(cardTags.map(([,href,id])=>[id,href]));
@@ -262,11 +283,12 @@ for(const lang of ["de","en"]){
   medicine:"medizin/", religions:"bruecken-zwischen-den-religionen/", symbols:"esoterik-katalog/",
   dialogue:"schnittmengen/#vermittlung", rules:"philosophischer-motor/",
   conversation:"schnittmengen/#sprachprobe", everyday:"forum/#alltagsfragen", art:"kunst-und-erkenntnis/#sammlung",
+  "conversation-mirror":"gespraechsspiegel/",
   military:"militaer-und-verantwortung/", society:"politik-die-dem-menschen-dient/#garten", bridge:"die-bruecke/",
   atlas:"atlas/", counterexample:"gegenprobe-01/", parenting:"kindererziehung/", justice:"justiz/",
   "world-model":"welt-mathematisch-abbilden/", obsidian:"obsidian/", disagreement:"streiten/"
  };
- const boardArt=["table","graph","wave","custodiae","atlas","bridge","nutrition","politics","medicine","religions","symbols","dialogue","rules","parenting","justice","world-model","obsidian","disagreement"];
+ const boardArt=["gespraechsspiegel","table","graph","wave","custodiae","atlas","bridge","nutrition","politics","medicine","religions","symbols","dialogue","rules","parenting","justice","world-model","obsidian","disagreement"];
  if(cards.size!==Object.keys(boardRoutes).length+1||
     Object.entries(boardRoutes).some(([id,route])=>cards.get(id)!==`/Vera/${lang}/${route}`)||
     cards.get("first-step")!==(lang==="de"?"#erkenntnis":"#insight")||
@@ -312,12 +334,17 @@ for(const lang of ["de","en"]){
   if(!html.includes(`data-project-version="${project.version}"`)||!html.includes(` · ${name}</title>`)||headerName!==name)errors.push("Release identity mismatch "+file);
   if(html.includes("<title>undefined"))errors.push("Undefined page title "+file);
  }
- for(const slug of ["werkstatt","projektstatus","justiz","obsidian","streiten"]){
+ for(const slug of ["gespraechsspiegel","werkstatt","projektstatus","justiz","obsidian","streiten"]){
   const file=join(out,lang,slug,"index.html"),html=await readFile(file,"utf8");
   if(!html.includes(`<html lang="${lang}"`)||!html.includes('rel="canonical"')||!html.includes('hreflang="en"')||!html.includes('hreflang="de"'))errors.push("Missing release page metadata "+file);
   if(!sitemap.includes('/'+lang+'/'+slug+'/'))errors.push("Release page missing from sitemap "+file);
   const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
   if(new Set(ids).size!==ids.length)errors.push("Duplicate release page anchor "+file);
+ }
+ const mirrorPage=await readFile(join(out,lang,"gespraechsspiegel/index.html"),"utf8");
+ for(const branch of ["deliveries","traffic","access","experience"]){
+  if(!mirrorPage.includes(`href="#beitraege-${branch}"`)||!mirrorPage.includes(`id="beitraege-${branch}"`))
+   errors.push("Missing conversation mirror source link "+lang+"/"+branch);
  }
  const notePage=await readFile(join(out,lang,"obsidian/index.html"),"utf8");
  const templatePath=`templates/vera-denknotiz.${lang}.md`;

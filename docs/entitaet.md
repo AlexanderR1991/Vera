@@ -77,7 +77,7 @@ node --test tests/objection-histories.test.mjs
 
 ## Nächste echte Arbeit
 
-Zunächst die offenen PRs auf Doppelungen und Konflikte prüfen; dann nachvollziehbare Quellen- und Versionierungsbeziehungen anbinden, einen unabhängig gesicherten menschlichen Einspruchsweg schaffen und erst anschließend eng begrenzte Fachagenten testen. Die Wirksamkeit muss in vorab definierten, blind überprüften Fällen gegen eine **einfache Alternative** gemessen werden. Die Zahl von Agenten, Argumenten oder Korrekturen ist selbst kein Erkenntnismaß.
+Die im Repository dokumentierten Forschungsentwürfe auf Doppelungen und Konflikte prüfen; nachvollziehbare Quellen- und Versionierungsbeziehungen anbinden, einen unabhängig gesicherten menschlichen Einspruchsweg schaffen und erst anschließend eng begrenzte Fachagenten testen. Die Wirksamkeit muss in vorab definierten, blind überprüften Fällen gegen eine **einfache Alternative** gemessen werden. Die Zahl von Agenten, Argumenten oder Korrekturen ist selbst kein Erkenntnismaß.
 
 **Nicht implementiert:** autonomer KI-Orchestrator, Live-Wissensgraph, automatische Forum-Synchronisation, unabhängige Peer-Review-Institution oder ein numerischer moralischer Richtungsindex.
 

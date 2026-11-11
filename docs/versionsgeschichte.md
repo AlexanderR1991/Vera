@@ -1,5 +1,17 @@
 # Versionsgeschichte
 
+## 2026-11-11 · Konflikte im Repository · Änderungsvorschlag / Repository conflicts · proposal
+
+Die [Governance-Ergänzung](community-governance.md#konflikte-im-repository--repository-conflicts) verbindet Sachprüfung, Zielentscheidungen und verhaltensbasierten Schutz mit dem bestehenden Änderungsweg. Kriterien werden vor dem Vergleich festgehalten; Entscheidungen beantworten einzelne Einwände und nennen offene Punkte und Wiederaufnahme. Verkürzte Aussagen über die alleinige Maintainerbefugnis werden an die bereits geltende Phasenregel angebunden. META-01 und die gemeinsame Grundsatzentscheidung bleiben erhalten.
+
+Die [lokale Quorumsgegenprobe](../scripts/probe-repository-quorum.mjs) unterscheidet Schutz vor alleiniger Freigabe, mögliche Freigabe durch die übrigen Beteiligten und eine garantiert nichtfehlerhafte Schnittmenge. Zwei von drei erfüllen die letzte Eigenschaft bei einer fehlerhaft handelnden Person nicht. Der [JSON-Entwurf](../public/protocol/repository-conflicts.v0.json) erteilt keine Befugnisse. **Keine Annahme des Vorschlags, unabhängige Begutachtung oder technische Schutzkonfiguration wird damit behauptet.** Menschliche Entscheidung und Wirksamkeitsprüfung bleiben offen.
+
+The [governance proposal](community-governance.md#konflikte-im-repository--repository-conflicts) connects claim review, goal decisions and conduct-based protection to the existing amendment process. Criteria precede comparison; decisions answer individual objections and record open points and reopening conditions. Shortened descriptions of sole maintainer authority are aligned with the existing phase rule. META-01 and shared fundamental decisions remain in place.
+
+The [local quorum countercheck](../scripts/probe-repository-quorum.mjs) separates approval by faulty participants alone, approval by all remaining participants and a guaranteed nonfaulty intersection. Two of three do not guarantee the last property when one participant is faulty. The [JSON proposal](../public/protocol/repository-conflicts.v0.json) grants no authority. **This records neither adoption, independent peer review nor configured technical protection.** Human decision and effectiveness assessment remain open.
+
+Die Prüfwerkzeuge berücksichtigen Windows-Pfade: Der Dokumentlink-Prüfer erkennt Verzeichnisgrenzen und übergeordnete Pfade plattformgerecht. Die lokale Wiederherstellungsprobe nutzt eine echte leere Git-Konfigurationsdatei statt eines unter Windows nicht lesbaren Gerätepfads. / Verification tools handle Windows paths: the document-link checker recognizes directory boundaries and parent escapes across platforms. The local recovery drill uses a real empty Git configuration file rather than a device path Git cannot read on Windows.
+
 ## 2026-11-09 · Fürsorge bei Hass
 
 [These 03 im Grundtext](grundtext.md#these-03-jeder-mensch-besitzt-würde--auch-im-widerspruch) benennt in Arbeitsfassung 0.3, wem Fürsorge im Konflikt gilt. Auch wer Hass äußert, behält seine Würde. Bei einer Drohung hat der Schutz der gefährdeten Person Vorrang. Die [Gegenprobe mit einem erfundenen Gespräch](vera-liebe-als-richtung.md#wenn-jemand-hass-ausspricht) trennt das geäußerte Gefühl von einer konkreten Gewaltankündigung. Ob Veras Antwort im Alltag Hass mindert, bleibt offen.
@@ -48,7 +60,7 @@ In der Gründungsphase kann der Gründer eine Änderung im öffentlichen PR begr
 
 ## 2026-11-06 · Zwei Kisten und ein Dorfkonzert
 
-- Die [Durchschnittskarte](erkenntnisnavigator.md#distribution) prüft die Frage, ob beide Kisten eine Mindestmenge enthalten können. Sechs Portionen schließen zweimal vier aus. Zehn Portionen erlauben sowohl fünf und fünf als auch zwei und acht. Die [frühere Kartenfassung](https://github.com/AlexanderR1991/Wirklich/blob/8b46f7af121768d35ed0a27a99bf20fa806dbf00/src/lib/navigator.mjs#L61-L76) konnte beide Fälle offenlassen.
+- Die [Durchschnittskarte](erkenntnisnavigator.md#distribution) prüft die Frage, ob beide Kisten eine Mindestmenge enthalten können. Sechs Portionen schließen zweimal vier aus. Zehn Portionen erlauben sowohl fünf und fünf als auch zwei und acht. Die [frühere Kartenfassung](https://github.com/AlexanderR1991/Vera/blob/8b46f7af121768d35ed0a27a99bf20fa806dbf00/src/lib/navigator.mjs#L61-L76) konnte beide Fälle offenlassen.
 - Die [Gesprächsübung](schnittmengen.md#mehrere-teilzusagen-zusammenführen) zeigt am Konzertplan, wie man Teilzusagen zusammenführt. Die Beteiligten halten getrennt fest, welche Zusagen gleichzeitig erfüllbar sind und wer dem genauen Gesamtplan zugestimmt hat.
 
 ## 2026-11-06 · Acht Einwände gegen das Verfahren · Änderungsvorschlag

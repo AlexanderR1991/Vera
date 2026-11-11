@@ -6,7 +6,7 @@
 >
 > Ein Motor, der bei Unwissenheit eine Zahl erfindet, erfüllt WIRKLICH nicht. Die mathematisch notwendige Ausgabe kann auch **offen**, **mehrdeutig**, **nicht vergleichbar**, **unzulässig** oder **begründet umstritten** heißen.
 
-**Geltung:** Dieses Dokument vereinheitlicht die bereits veröffentlichten Forschungsbausteine [M-01](mathematischer-pruefstand.md), [M-02](mathematik-des-dazwischen.md), [META-01](selbstkorrektur.md), die [Reifegrade R0–R4](erkenntnisreife.md), den [Grundfragen-Kreislauf](grundfragen-kreislauf.md), die [Schnittmengen](schnittmengen.md) und die [KI-Charta](ki-charta.md). Der Richtungsindex und die Fachagenten sind **zusätzliche, noch offene Vorschläge** aus [PR #73](https://github.com/AlexanderR1991/Vera/pull/73) und [PR #81](https://github.com/AlexanderR1991/Vera/pull/81); sie werden durch M-03 **nicht** automatisch angenommen oder aktiviert.
+**Geltung:** Dieses Dokument vereinheitlicht die bereits veröffentlichten Forschungsbausteine [M-01](mathematischer-pruefstand.md), [M-02](mathematik-des-dazwischen.md), [META-01](selbstkorrektur.md), die [Reifegrade R0–R4](erkenntnisreife.md), den [Grundfragen-Kreislauf](grundfragen-kreislauf.md), die [Schnittmengen](schnittmengen.md) und die [KI-Charta](ki-charta.md). Der [Richtungsindex](kollektive-moral.md) und die [Fachagenten](fachagenten-netzwerk.md) sind im Repository dokumentierte, **fachlich ungeprüfte Forschungsentwürfe**. Ihre Aufnahme belegt keine Wirksamkeit und aktiviert sie nicht. M-03 ändert diesen Status nicht.
 
 Die [Mathematik der inneren Wege](mathematik-innerer-wege.md) ergänzt den Entwurf um fünf fiktive Fälle zu Sagbarkeit, Gesprächsreihenfolge, Fürsorge, verlorenen Zukünften und widersprüchlichen Annahmen.
 
@@ -42,6 +42,56 @@ Das **Fragezeichen** bei Richtung ist wesentlich: Ein Index ist optional, keine 
 | Metaphorisch / spekulativ | Welche Analogie oder Hypothese regt Forschung an? | Begrenzungen, Trennschärfe, daraus abgeleitete prüfbare Fragen | Ähnlichkeit = Beleg für denselben Mechanismus |
 
 **Reife ist kein Wahrheitswahrscheinlichkeitswert:** R0–R4 ordnen den dokumentierten Prüfprozess, **nicht** die Nähe zu 100 % Wahrheit. Abstraktionsstufe, Reife, Aussageart und dokumentierter Konsens werden getrennt gespeichert. KI darf keine Stufe und keine dokumentierte menschliche Zustimmung autonom vergeben.
+
+### Befund, Zustimmung und Entscheidung
+
+**Formale Präzisierung · 10. November 2026 · Definitions- und Entwurfsregel, keine empirisch validierte Entscheidungsmaschine.** Eine Abstimmung kann eine gemeinsame Entscheidung regeln. Ob eine behauptete Wirkung belegt ist, braucht eine andere Prüfung. Auch ein wissenschaftlicher Befund legt allein noch keine gesellschaftliche Pflicht fest.
+
+Für eine konkrete empirische Frage \(q\), ihren Geltungsbereich \(c\), die verfügbare Evidenz \(E\) und offengelegte Prüf- und Modellannahmen \(M\) schreiben wir:
+
+\[
+B=F(q,c,E,M).
+\]
+
+\(B\) ist ein **begründeter Befund mit Unsicherheit und Grenzen**, kein Wahrheitsbit. \(E\) umfasst relevante Beobachtungen, Vorwissen und Gegenbefunde samt Herkunft; \(M\) benennt unter anderem Messung, Vergleich, Auswertung und Voraussetzungen einer kausalen Deutung. Datenbesitz allein bestimmt \(B\) nicht. Fehlt für die untersuchte Wirkung eine tragfähige Grundlage, bleibt sie offen. Ein Einzelner kann einen tragfähigen Befund vorlegen oder einen bereits geprüften Befund vermitteln; beides gewinnt seine Begründung aus der nachvollziehbaren Prüfung.
+
+Für eine Aussage oder einen Handlungsvorschlag \(x\), seine konkrete Fassung \(v\) und einen benannten, nichtleeren Beteiligtenkreis \(P\) erfassen wir davon getrennt:
+
+\[
+C(x,v,P)=\{(i,r_i):i\in P\},\qquad
+r_i\in\{\mathrm{ja},\mathrm{nein},\mathrm{offen}\}.
+\]
+
+**In Worten:** Wer trägt genau diese Fassung mit? Fehlende oder veraltete Antworten bleiben offen. Das Protokoll beweist weder Freiwilligkeit noch Vollständigkeit des Beteiligtenkreises. Ein Mehrheitsbeschluss, eine einstimmige Vereinbarung und die Zustimmung aller Betroffenen sind unterschiedliche Aussagen.
+
+Eine verantwortete Handlungsentscheidung wird zusätzlich abhängig von Optionen \(\mathcal A\), Befunden \(B\), begründeten Wertannahmen \(Z\) und dem ausdrücklich benannten Verfahren \(R\):
+
+\[
+D=G_R(\mathcal A,B,Z,C).
+\]
+
+\(R\) bezeichnet Zuständigkeit, Entscheidungsregel, Rechte, Schutzgrenzen und Korrekturweg. \(G_R\) ist hier ein **Platzhalter für ein verantwortetes Verfahren**, kein implementierter Optimierer und kein Beweis seiner Legitimität. Es kann zu einer Entscheidung unter benannter Unsicherheit, Vertagung oder offenem Dissens kommen. Politische Entscheidungen erfordern nicht notwendig die persönliche Zustimmung jedes Betroffenen; eine als freiwillig bezeichnete Vereinbarung darf dagegen ein Nein nicht in Zustimmung verwandeln.
+
+**Trennungsregel.** Bei festgehaltenen Optionen \(\mathcal A\), Werten \(Z\) und Verfahren \(R\) definieren wir den Bericht \(\mathcal S(q,c,E,M,C)=(B,C,D)\) durch die obigen Regeln. Dann gilt bei festem \(q,c,E,M\) für beliebige Zustimmungsprotokolle \(C_1,C_2\):
+
+\[
+\pi_B\mathcal S(q,c,E,M,C_1)=\pi_B\mathcal S(q,c,E,M,C_2)=F(q,c,E,M).
+\]
+
+\(\pi_B\) liest nur das Befundfeld. **Begründung:** \(C\) ist kein Eingabeargument von \(F\); bloßes Umzählen von Zustimmung kann bei unveränderten Gründen den Befund nicht ändern. Das ist eine gewählte Schnittstellenregel, keine Behauptung statistischer Unabhängigkeit von Politik und Wissenschaft. Liefert ein Gespräch neue Beobachtungen, einen nachvollziehbaren Einwand oder eine korrigierte Auswertung, verändert sich \(E\) oder \(M\); dann muss \(B\) neu geprüft werden. Auch fachliche Zeugnisse können begründete Evidenz sein, müssen aber mit Quelle, Methode und Abhängigkeiten geprüft werden statt nur Stimmen zu zählen.
+
+**Gegenproben innerhalb des Entwurfs:**
+
+**Geltungsgrenze:** Fragt \(q\) nach der Zustimmung selbst, sind dokumentierte Antworten relevante Beobachtungen in \(E\). Ändern sich diese, ist die Voraussetzung gleicher Evidenz nicht erfüllt. Die Regel verbietet, bloße Stimmenzahlen als Ersatz für die Prüfung einer Wirkung zu behandeln; sie verbietet nicht, Zustimmung wissenschaftlich zu untersuchen.
+
+- Eine Million Ja-Antworten ohne tragfähigen Wirkungsbeleg lassen die Wirkung offen. Die Zustimmung ist trotzdem als Zustimmung dokumentierbar.
+- Ein begründeter Befund kann bestehen, obwohl niemand dem daraus vorgeschlagenen Eingriff zustimmt. Aus \(B\) folgt weder \(C\) noch ohne zusätzliche Wert- und Verfahrensannahmen eine eindeutige Entscheidung \(D\).
+- Derselbe Befund kann bei unterschiedlichen begründeten Zielen zu verschiedenen Entscheidungen beitragen. Das macht den Befund nicht relativ zur Abstimmung.
+- Eine einzelne Person weist einen Auswertungsfehler nach. \(M\) und anschließend \(B\) werden revidiert; davon abhängige Entscheidungen müssen erneut geprüft werden. Zustimmung zu einem geänderten Vorschlag ist neu zu erheben, nicht automatisch zu übertragen.
+
+**Anwendung und Revisionsgrenze.** Das Beispiel „Wirksamkeit untersuchen / über eine Verpflichtung entscheiden“ verlangt eine präzise Wirkung, Zielgruppe, Vergleichsbedingung und Unsicherheit sowie eine gesonderte Begründung der Verpflichtung. Es enthält keine Aussage zur Wirksamkeit einer bestimmten Impfung oder zur Angemessenheit einer Impfpflicht. Die Trennungsregel wäre zu präzisieren, wenn sie relevante Zeugnisse als bloße Stimmen ausschlösse oder eine Entscheidung unter ausdrücklich benannter Unsicherheit unmöglich machte. Wissenschaftliche Überprüfung und demokratische Legitimation bleiben verschiedene Aufgaben; öffentliche Kritik und Beteiligung können die Bedingungen der Erkenntnis verbessern, garantieren aber keinen richtigen Befund.
+
+Die Ergänzung formalisiert die vorhandene Typentrennung. Sie führt keinen neuen Prüfgrad ein, verändert keine Einträge im Aussagenregister und implementiert keine automatische Evidenzbewertung. [Verständliche Anwendung](methode.md#beleglage-zustimmung-und-entscheidung) · [Methodischer Hintergrund zu Transparenz und Reproduzierbarkeit](https://www.nationalacademies.org/read/25303/chapter/3).
 
 ## 2. Wissensgraph statt Stimmenmaschine
 
@@ -243,7 +293,7 @@ Sei \(v_t(x)\) die Version eines Knotens \(x\). Ändert sich eine Prämisse, ein
 
 ## 8. Kollektive Intelligenz ohne Scheinmehrheit
 
-Ein thematisches KI-Netz könnte Fachrollen zu den **23 aktuellen Atlas-Fachthemen in sechs übergreifenden Feldern** einsetzen und zusätzlich Quellensichtung, Gegenprüfung, Betroffenenperspektive, Übersetzungsprüfung und Synthese vorsehen (offener AFA-0.1-Vorschlag in [PR #81](https://github.com/AlexanderR1991/Vera/pull/81)).
+Ein thematisches KI-Netz könnte Fachrollen zu den **23 aktuellen Atlas-Fachthemen in sechs übergreifenden Feldern** einsetzen und zusätzlich Quellensichtung, Gegenprüfung, Betroffenenperspektive, Übersetzungsprüfung und Synthese vorsehen ([inaktiver AFA-0.1-Entwurf](fachagenten-netzwerk.md)).
 
 Die mathematisch entscheidende Regel lautet nicht „mehr Modelle = mehr Wahrheit“:
 

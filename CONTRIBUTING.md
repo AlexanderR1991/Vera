@@ -79,9 +79,9 @@ Write new entries in both languages. For older pages, edit the German HTML files
 
 > Wir bauen kein System, das recht behalten soll. Wir bauen ein System, das aus seinen Irrtümern lernen muss.
 
-Dieser [anfechtbare Grundsatz](docs/selbstkorrektur.md) verlangt bei **substanziellen** Änderungsvorschlägen ein kleines Korrekturprotokoll: bisherige Stelle und Version, Aussageart und Geltungsbereich, stärkster bekannter Einwand, Maßstab und Revisionsbedingung, vorgeschlagene Entscheidung (beibehalten, eingrenzen, korrigieren, zurückziehen oder offenlassen), neue Fassung oder offene Frage, Gründe und menschliche Verantwortung. Ein Tippfehler braucht keinen Forschungsbericht. Auch die Leitregel selbst darf kritisiert werden. Die Entscheidung bleibt bis zum Aufbau einer gemeinsamen Governance beim benannten Maintainer.
+Dieser [anfechtbare Grundsatz](docs/selbstkorrektur.md) verlangt bei **substanziellen** Änderungsvorschlägen ein kleines Korrekturprotokoll: bisherige Stelle und Version, Aussageart und Geltungsbereich, stärkster bekannter Einwand, Maßstab und Revisionsbedingung, vorgeschlagene Entscheidung (beibehalten, eingrenzen, korrigieren, zurückziehen oder offenlassen), neue Fassung oder offene Frage, Gründe und menschliche Verantwortung. Ein Tippfehler braucht keinen Forschungsbericht. Auch die Leitregel selbst darf kritisiert werden. Die laufende redaktionelle Verantwortung liegt beim benannten Maintainer. Für Grundsatzentscheidungen gilt das [Phasen- und Gemeinschaftsverfahren](docs/community-governance.md#wer-darf-die-regeln-ändern--who-can-change-the-rules): Ab der ersten weiteren inhaltlich mitwirkenden Person werden sie gemeinsam entschieden; eine fehlende gemeinsame Verfahrensvereinbarung erteilt dem Gründer keine Ersatzbefugnis.
 
-**English:** The [contestable META-01 correction loop](docs/selbstkorrektur.md) asks substantive PRs to trace the old version, claim kind and scope, strongest fair objection, revision test, proposed outcome and accountable editor. Corrections are not guaranteed by objections, votes or AI agreement. Minor copy edits may use a lighter record.
+**English:** The [contestable META-01 correction loop](docs/selbstkorrektur.md) asks substantive PRs to trace the old version, claim kind and scope, strongest fair objection, revision test, proposed outcome and accountable editor. Corrections are not guaranteed by objections, votes or AI agreement. Minor copy edits may use a lighter record. The named maintainer retains ongoing editorial responsibility. Fundamental decisions follow the [existing phase and shared-decision procedure](docs/community-governance.md#wer-darf-die-regeln-ändern--who-can-change-the-rules): they become shared once another person contributes substantively. A missing shared procedural agreement does not return that authority to the founder.
 
 [Einen Git-Stand lokal auf Wiederherstellbarkeit prüfen](docs/vera-wiederherstellung.md) · [Run a local Git recovery drill](docs/vera-wiederherstellung.md#english)
 
@@ -95,6 +95,10 @@ Dieser [anfechtbare Grundsatz](docs/selbstkorrektur.md) verlangt bei **substanzi
 
 Wir müssen nicht zustimmen. Wir müssen unsere Gründe offenlegen. / Agreement is optional. Reasons must be shared.
 
+Für strittige Beiträge schlägt der [Entwurf zum Umgang mit Repo-Konflikten](docs/community-governance.md#konflikte-im-repository--repository-conflicts) vor, zunächst Sachfrage, Zielentscheidung und Verhalten zu unterscheiden. Prüfmaßstab, Geltungsbereich und mögliche Widerlegung werden vor der Auswertung benannt. Wer eine Behauptung aufstellt, begründet sie; eine Kritik darf auf eine fehlende Voraussetzung oder einen fehlenden Beleg hinweisen. Das gilt auch für Aussagen des Gründers und der KI.
+
+For disputed contributions, the [repository-conflict proposal](docs/community-governance.md#konflikte-im-repository--repository-conflicts) starts by distinguishing factual questions, choices of goals and conduct. State the review criterion, scope and possible refutation before evaluating the result. Whoever makes a claim supplies its reasons; criticism may identify a missing premise or evidence. This applies to the founder's and AI's claims too.
+
 ## 4. Prüfung und Freigabe / Review and merging
 
 Ein Issue ist eine Einladung zur Untersuchung. Ein Pull Request ist ein Änderungsvorschlag. Nur die Projektverantwortlichen können Änderungen übernehmen. Es gibt derzeit **kein formales wissenschaftliches Peer-Review-Verfahren**.
@@ -104,6 +108,10 @@ Issues and PRs are public. Maintainers may request clarification, suggest revisi
 **Deinen Einwand wiederfinden.** Nach dem Einreichen führt der Link zum Issue zurück zum öffentlichen Verlauf. Stehen zwei Einwände im selben Issue, kann eine Entscheidung beispielsweise „Punkt 1 geändert, Punkt 2 offen“ mit der Begründung und dem Link zur betroffenen Fassung festhalten. Ein neuer Gegenfall kann in diesem Verlauf auf den betroffenen Punkt verweisen.
 
 **Following your objection.** After submission, the issue link takes you back to the public discussion. If one issue raises two objections, a decision can record “point 1 revised, point 2 open” with the reason and a link to the affected revision. Later counterexamples can refer to that specific point in the thread.
+
+Der Konfliktentwurf ergänzt dazu einen begründeten Abschluss je Einwand, eine Bedingung zur Wiederaufnahme und bei unsicherer Evidenz einen begrenzten, rücknehmbaren Versuch. Bleibender Dissens wird festgehalten. Seine Annahme und Änderungen der Entscheidungsbefugnisse folgen dem bestehenden Governance-Verfahren. Ein vorgeschlagenes Freigabequorum ersetzt weder erforderliche persönliche Einwilligung noch das geltende gemeinsame Entscheidungsverfahren.
+
+The conflict proposal adds a reasoned disposition for each objection, a condition for reopening it and a bounded, reversible trial when evidence is uncertain. Preserve remaining dissent. Adoption and changes to decision rights follow existing governance. A proposed approval quorum replaces neither required personal consent nor the shared-decision procedure already in force.
 
 ## 5. Grenzen und Rechte / Boundaries and rights
 

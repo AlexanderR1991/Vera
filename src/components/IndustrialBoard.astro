@@ -71,6 +71,13 @@ const cards=[
     description:{de:"Nimm eine Frage mit in deinen eigenen Denkraum. Eine Markdown-Notiz reicht.",en:"Take a question into your own space for thinking. All you need is a Markdown note."},
     keywords:"obsidian markdown denknotiz notizen philosophie vault zettelkasten notes philosophy template vorlage"
   },
+  {
+    id:"conversation-mirror", topic:"vera", drafting:"gespraechsspiegel", route:"gespraechsspiegel",
+    category:{de:"Gesprächsspiegel · Entwurf",en:"Conversation mirror · Proposal"},
+    title:{de:"Wohin führt dieser Streit?",en:"Where is this argument going?"},
+    description:{de:"Zwei Forenbeispiele: Positionen verstehen, Kompromisse prüfen und einen Lösungsvorschlag selbst verändern.",en:"Two forum examples: understand positions, examine compromises and edit a proposed solution yourself."},
+    keywords:"gespraechsspiegel gesprächsspiegel reddit forum plugin diskussion streit konsens argument loesung lösung kompromiss solution compromise dialogue discussion thread"
+  },
   {id:"everyday", topic:"everyday", route:"forum",anchor:{de:"alltagsfragen",en:"alltagsfragen"},category:{de:"Aus dem Alltag",en:"Everyday life"},title:{de:"Was beschäftigt dich?",en:"What’s on your mind?"},description:{de:"Muss ich bleiben, wenn ich jemanden liebe? Hier findest du einen ersten Gedanken dazu und einen guten Grund, weiterzufragen.",en:"Do I have to stay if I love someone? Read one possible answer and a question that might change how you see it."},action:{de:"Alltagsfragen lesen",en:"Read everyday questions"},keywords:"liebe arbeit ernährung food work love beziehung"},
   {id:"art", topic:"world", route:"kunst-und-erkenntnis",anchor:{de:"sammlung",en:"sammlung"},category:{de:"Liber Artis · Kunst",en:"Liber Artis · Art"},title:{de:"Wohin schaust du zuerst?",en:"Where does your eye go first?"},description:{de:"Unter Hokusais großer Welle ducken sich Menschen in ihren Booten. Schau einen Moment lang nur auf sie. Wie wirkt die Welle jetzt?",en:"Beneath Hokusai’s great wave, people crouch in their boats. Look just at them for a moment. How does the wave feel now?"},action:{de:"Zur Kunstsammlung",en:"Explore the art collection"},keywords:"kunst art kunstwerk werk malerei musik literatur architektur painting music literature architecture"},
   {id:"military", topic:"society", route:"militaer-und-verantwortung",category:{de:"Liber Custodiae · Frieden",en:"Liber Custodiae · Peace"},title:{de:"Wer lebt neben dem Ziel?",en:"Who lives next to the target?"},description:{de:"Eine Armee soll Menschen schützen. In der Nähe ihres Ziels leben Familien. Was schuldet sie ihnen?",en:"An army has a duty to protect people. Families live near its target. What does it owe them?"},action:{de:"Zum Kapitel",en:"Read the chapter"},keywords:"militär military defence verteidigung frieden peace verantwortung schutz"},
@@ -116,7 +123,7 @@ const cards=[
 ] as const;
 const word=(v)=>v[lang];
 type CardId = typeof cards[number]["id"];
-const opening: CardId[] = ["conversation", "art", "parenting", "disagreement", "nutrition", "politics", "first-step", "world-model", "obsidian", "dialogue", "religions"];
+const opening: CardId[] = ["conversation", "art", "parenting", "disagreement", "nutrition", "politics", "conversation-mirror", "world-model", "obsidian", "first-step", "dialogue", "religions"];
 const orderedCards = [...opening.map(id => cards.find(card => card.id === id)!), ...cards.filter(card => !opening.includes(card.id))];
 const trendCards = orderedCards.map(card => ({
   id: card.id,

@@ -1,6 +1,6 @@
 # Architektur und Gestaltungsprinzipien
 
-**Fortgeschrieben bis zum Erkenntnisnavigator · 6. November 2026**
+**Aktueller Aufbau · 10. November 2026.** Datierte Abschnitte benennen die Herkunft einzelner Bausteine; aktuelle Arbeitswege stehen im [Wegweiser](README.md).
 
 ## Leitgedanke
 Die Schönheit darf zum Denken einladen; sie darf es nicht ersetzen. Gestaltung und Argumentation haben unterschiedliche Aufgaben.
@@ -45,7 +45,7 @@ Die erste Inventur nutzt **kein** autonomes LLM und keine personenbezogenen Date
 
 **Das grundlegende Systembild:** Atlasfelder ordnen Themen; Menschen bringen Fragen, Perspektiven und Gegenbeispiele ein; versionierte Aussagen bilden ein externes Gedächtnis; Navigator und Fragenatlas schlagen Beziehungen vor; META-01 verlangt passende Prüfung; Menschen entscheiden verantwortlich; Folgen und Fehler können spätere Revisionen auslösen. Das ist ein **Rückkopplungsprozess, kein Wahrheitsrang und keine nachgewiesene künstliche Superintelligenz**.
 
-Die sechs Atlasfelder (Wirklichkeit, Leben, Bewusstsein, Mensch, Gesellschaft, Handeln) sind von den **sechs Prozessfunktionen** Aufnehmen, Erinnern, Verbinden, Prüfen, Entscheiden und Rückkoppeln zu unterscheiden. Der Prototyp ist statisch und redaktionell gepflegt; ein verifizierter Live-Beleggraph, autonome Lernfähigkeit, repräsentative Governance und unabhängiger Wirksamkeitsnachweis fehlen. Die im [PR #73](https://github.com/AlexanderR1991/Vera/pull/73) vorgeschlagene Moralrichtung ist gesondert und ungeprüft; keine automatische Ausgabe des Lernprozesses.
+Die sechs Atlasfelder (Wirklichkeit, Leben, Bewusstsein, Mensch, Gesellschaft, Handeln) sind von den **sechs Prozessfunktionen** Aufnehmen, Erinnern, Verbinden, Prüfen, Entscheiden und Rückkoppeln zu unterscheiden. Der Prototyp ist statisch und redaktionell gepflegt; ein verifizierter Live-Beleggraph, autonome Lernfähigkeit, repräsentative Governance und unabhängiger Wirksamkeitsnachweis fehlen. Die [vorgeschlagene Moralrichtung](kollektive-moral.md) ist gesondert und ungeprüft; keine automatische Ausgabe des Lernprozesses.
 
 [Ausgearbeitete Grundidee](kollektive-intelligenz.md) · [Öffentliche DE/EN-Seite](https://alexanderr1991.github.io/Vera/de/kollektive-intelligenz/) · [Versionierter Datenvertrag](../public/protocol/collective-intelligence.v0.json). Eine spätere Evaluation muss Fehlererkennung, falsche Analogien, Inklusion und Kosten gegen brauchbare Alternativen prüfen. Auch CI-0.1 bleibt widerlegbar.
 
@@ -71,7 +71,7 @@ Die [KI-Charta](ki-charta.md) ist ein menschengeprägter, öffentlich angreifbar
 Der [Forschungsentwurf](kollektive-moral.md) ergänzt den Erkenntnismotor um eine **bedingte Richtungslandkarte** mit optionalem späterem Index von −1 bis +1. Die Ebene trennt **Evidenz, Wertprofil, Wirkung, Richtung, Unsicherheit und Dissens**. Sie ersetzt weder Aussagearten, R0–R4 noch Konsens oder menschliche Entscheidung. Die Zahl setzt einen definierten Kontext und Vergleich, unabhängig geprüfte Wirkungsannahmen, offen gelegte Wertgewichte, kalibrierte Unsicherheit, Sensitivitäts- und Rechteprüfung voraus. Wenn plausible Wertprofile die Richtung umkehren, ist **kein allgemeiner Einzelwert** vertretbar. Der mögliche Konvergenzmotor sucht über Themen hinweg stabile **bedingte** Gemeinsamkeiten statt universeller Moralgesetze. Aktuell gibt es **keine tatsächlichen Zahlenwerte**; [DE/EN-Seite](https://alexanderr1991.github.io/Vera/de/kollektive-moral/) und [JSON-Entwurf](../public/knowledge/direction-index.v0.json) zeigen nur das Forschungsprogramm. Der Maßstab selbst bleibt gemäß META-01 korrigierbar.
 
 ## Gestaltung
-- Dunkle Grundflächen, warmes Elfenbein, sparsam Gold und Weinrot.
+- Warme Papierflächen auf der Startseite und ausgewählten Werkzeugen; dunkle Flächen in den vertiefenden Bereichen. Die gemeinsamen Farben und Kontraste liegen in [industrial.css](../src/styles/industrial.css) und [vera-shell.css](../src/styles/vera-shell.css).
 - Klassische Serifenschriften für große Sinnabschnitte, sachliche Sans-Serif für Navigation und Metadaten.
 - Originale geometrische Zeichen; Symbole ersetzen keine Belege.
 - Weißraum, strenge Raster, gedämpfte Bewegung, gute Mobilnutzung.
@@ -91,7 +91,7 @@ Der [Forschungsentwurf](kollektive-moral.md) ergänzt den Erkenntnismotor um ein
 - Spätere Artikel enthalten Status, Version, Quelle, Kritik und Änderungen.
 
 ## Technik
-Aktuell erzeugt Astro eine statische DE/EN-Website für GitHub Pages. Ältere Unterseiten werden aus den Root-HTML-Dateien und Übersetzungsdaten vorbereitet; neuere Kapitel verwenden gemeinsame Astro-Komponenten. Die ursprüngliche Fassung 0.2 bestand aus statischem HTML, CSS und Vanilla-JavaScript. Keine externen Fonts oder Tracker. Ein lokaler Volltextsuchindex, Backend und Anmeldung bleiben mögliche spätere Schritte bei belegtem Bedarf.
+Aktuell erzeugt Astro eine statische DE/EN-Website für GitHub Pages. Ältere Unterseiten werden aus den Root-HTML-Dateien und Übersetzungsdaten vorbereitet; neuere Kapitel verwenden gemeinsame Astro-Komponenten. Die ursprüngliche Fassung 0.2 bestand aus statischem HTML, CSS und Vanilla-JavaScript. Schriften werden lokal ausgeliefert; Tracker werden nicht eingebunden. Die [Suche](https://alexanderr1991.github.io/Vera/de/suche/) verwendet einen beim Build erzeugten DE/EN-Index und wertet Suchbegriffe im Browser aus. Der Produktionsindex enthält auch die Haupttexte der indizierten Seiten. [Indexaufbau](../scripts/build-search-index.mjs) · [Suchlogik](../src/lib/site-search-match.mjs). Ein eigener Backenddienst und eine Anmeldung bleiben mögliche spätere Schritte bei belegtem Bedarf.
 
 ## Schutz
 Private Manuskripte und Gespräche gehören nicht ohne ausdrückliche Freigabe ins Projekt. Keine erfundenen Quellen, Fachreviews oder Projektmitglieder. Texte CC BY-SA 4.0, Software MIT gemäß [LICENSING.md](../LICENSING.md); Rechte an fremdem Material, Projektsignet und redaktionelle Verantwortung vor breiter Verbreitung gesondert klären.
@@ -122,13 +122,13 @@ Das Register wird vor dem Build strukturell geprüft. Der menschliche Prüfstatu
 
 Das ergänzende Organisationsbild verbindet eine Themenordnung mit sechs Arbeitsebenen: Stimmen, Fragen, Aussagen, Prüfung, Zusammenhänge und rückgekoppeltes Handeln. Die sechs Atlasfelder und die fünf Website-Zugänge bleiben davon unterscheidbar. „Nach oben“ bezeichnet mehr Kontext und Verantwortung; keine Kultur, Person oder Aussageart wird dadurch höher eingestuft.
 
-`KnowledgeTree.astro` rendert die gemeinsamen DE/EN-Daten aus `src/lib/tree.mjs`. Die 22 Themen haben Mehrfachzuordnungen und sichtbare Ausarbeitungsstände. Kerninhalte sind ohne JavaScript lesbar; Filter verbessern den Zugang. Vorschläge aus offenen PRs werden als solche verlinkt. Ein erklärtes Gedankenbeispiel zeigt Verbindungstypen; ein automatisch geprüfter Wissensgraph wird damit nicht behauptet.
+`KnowledgeTree.astro` rendert die gemeinsamen DE/EN-Daten aus `src/lib/tree.mjs`. Die Themen haben Mehrfachzuordnungen und sichtbare Ausarbeitungsstände. Kerninhalte sind ohne JavaScript lesbar; Filter verbessern den Zugang. Ein erklärtes Gedankenbeispiel zeigt Verbindungstypen; ein automatisch geprüfter Wissensgraph wird damit nicht behauptet.
 
 [Die Gesamtprüfung](gesamtpruefung-baum.md) dokumentiert den Ausgangsstand, Grenzen, öffentliche Selbstkritik B-01–B-03 und erste Präzisierungen von These 05 und These 09. Die unabhängige Prüfung der Methode und ein tragfähiger Einspruchsweg bleiben offene Arbeit.
 
 ## Erkenntnisreife · 6. November 2026
 
-Das öffentliche Aussagenregister führt jetzt zur vorhandenen Aussageart, Begründung und Reviewtätigkeit zusätzlich eine Abstraktionsstufe, die reversible Erkenntnisreife R0–R4 sowie einen eigenständigen Konsensstatus. Der Validator prüft Pflichtfelder und sperrt unter anderem R1 ohne aktuellen menschlichen Review, R3 ohne dokumentierte unabhängige Gegenprüfung und R4 ohne zwei unterschiedliche Gegenprüfungen plus Einwandbehandlung. **Keines dieser Felder ist ein Wahrheitszertifikat.** Alle drei Demoaussagen bleiben R0 und Konsens „nicht erhoben“. Die Regeln stehen in [Erkenntnisreife](erkenntnisreife.md); eine automatische Weitergabe von Statusänderungen durch einen allgemeinen Wissensgraphen existiert noch nicht.
+Das öffentliche Aussagenregister führt jetzt zur vorhandenen Aussageart, Begründung und Reviewtätigkeit zusätzlich eine Abstraktionsstufe, die reversible Erkenntnisreife R0–R4 sowie einen eigenständigen Konsensstatus. Der Validator prüft Pflichtfelder und sperrt unter anderem R1 ohne aktuellen menschlichen Review, R3 ohne dokumentierte unabhängige Gegenprüfung und R4 ohne zwei unterschiedliche Gegenprüfungen plus Einwandbehandlung. **Keines dieser Felder ist ein Wahrheitszertifikat.** Die Demoaussagen bleiben R0 und Konsens „nicht erhoben“; die aktuellen Bestandszahlen stehen auf der [Projektstatusseite](https://alexanderr1991.github.io/Vera/de/projektstatus/). Die Regeln stehen in [Erkenntnisreife](erkenntnisreife.md); eine automatische Weitergabe von Statusänderungen durch einen allgemeinen Wissensgraphen existiert noch nicht.
 
 ## Erkenntnisnavigator · 6. November 2026
 
@@ -143,7 +143,7 @@ Eine KI-Suche quer durch alle Äste sowie ein allgemeiner Wissensgraph mit versi
 
 ## Fragenatlas und Aufmerksamkeitsgrenze · Pilot 7. November 2026
 
-Das Forum nutzt weiterhin GitHub Discussions (Agora), aussagegebundene Issues (Stoa) und geprüfte Pull Requests (Curia). Der neue **kleine Fragenatlas** unter `public/knowledge/questions.json` sammelt sechs redaktionelle, ungeprüfte Beispielfragen mit stabilen IDs, Links zum Aussagenregister und begründeten Kanten. `src/lib/questions.mjs` prüft Datenstruktur, Bezüge und zyklische Teilfragen; `src/components/Forum.astro` zeigt die Verbindungen und eine lokale Wortsuche. Der Themenbaum verlinkt den Pilotbereich.
+Das Forum nutzt weiterhin GitHub Discussions (Agora), aussagegebundene Issues (Stoa) und geprüfte Pull Requests (Curia). Der neue **kleine Fragenatlas** unter `public/knowledge/questions.json` sammelt redaktionelle, ungeprüfte Beispielfragen mit stabilen IDs, Links zum Aussagenregister und begründeten Kanten. `src/lib/questions.mjs` prüft Datenstruktur, Bezüge und zyklische Teilfragen; `src/components/Forum.astro` zeigt die Verbindungen und eine lokale Wortsuche. Der Themenbaum verlinkt den Pilotbereich.
 
 Die Offline-Triage (max. 50 `ai_draft`-Kandidaten je Lauf) schlägt nur mögliche Dopplungen oder lexikalische Nachbarn vor; sie ruft keine KI auf und veröffentlicht nichts. Die vorhandenen Schwarm-Workflows schreiben weiterhin ausschließlich in begrenzte, ungeprüfte Forschungsdateien. Ein vollständig semantischer oder automatisch aktualisierter Wissensgraph ist **nicht** vorhanden. [Vertrag, Grenzen und Eskalationsregeln](fragenatlas.md).
 
@@ -153,4 +153,4 @@ Die Offline-Triage (max. 50 `ai_draft`-Kandidaten je Lauf) schlägt nur möglich
 
 Die [Entität](entitaet.md) bezeichnet einen **experimentellen, kollektiven Erkenntniskreislauf**, keine lebende oder bewusste KI: **Frage → Typ → Perspektiven → starker Einwand → Prüfung → Revisionsentwurf → menschliche Entscheidung → Versionierung → neue Frage.** Das [maschinenlesbare ENT-00-Protokoll](../public/protocol/entity-loop.v0.json), das deterministische [JS-Modul](../src/lib/entity-core.mjs) und die [bilinguale lokale Demo](https://alexanderr1991.github.io/Vera/de/entitaet/) binden vorhandene Grundsätze zusammen, statt konkurrierende Prüfgrade einzuführen.
 
-Die Demo kann ungeprüfte Einwände nur **privat im Browser** hinzufügen und als JSON exportieren; sie besitzt keinen verifizierten menschlichen Review, keinen aktiven Agentenschwarm und keinen Richtungsindex. Entwürfe und Hinweise ändern weder öffentliche Thesen noch R0–R4 oder Konsens. Ein menschlicher Statuswechsel benötigt einen **extern authentifizierten** Freigabepfad, der hier nicht implementiert ist. Die PRs zu kollektiver Intelligenz, vorwärtsgerichteter Entität, Agenten, Richtungsindex und Mathematik bleiben separate, offen zu prüfende Vorschläge. „Fortschritt“ ist keine garantierte Eigenschaft einer Änderung; auch Rückzug, Pause und Dissens sind zulässig. [META-01](selbstkorrektur.md) bleibt selbst anfechtbar.
+Die Demo kann ungeprüfte Einwände nur **privat im Browser** hinzufügen und als JSON exportieren; sie besitzt keinen verifizierten menschlichen Review, keinen aktiven Agentenschwarm und keinen Richtungsindex. Entwürfe und Hinweise ändern weder öffentliche Thesen noch R0–R4 oder Konsens. Ein menschlicher Statuswechsel benötigt einen **extern authentifizierten** Freigabepfad, der hier nicht implementiert ist. Die dokumentierten Entwürfe zu kollektiver Intelligenz, vorwärtsgerichteter Entität, Agenten, Richtungsindex und Mathematik bleiben fachlich ungeprüfte Vorschläge. „Fortschritt“ ist keine garantierte Eigenschaft einer Änderung; auch Rückzug, Pause und Dissens sind zulässig. [META-01](selbstkorrektur.md) bleibt selbst anfechtbar.

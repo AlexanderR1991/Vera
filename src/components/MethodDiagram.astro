@@ -24,6 +24,15 @@ const steps = [
       </li>)}</ol>
       <figcaption><span aria-hidden="true">↺</span> {t("Zurück zur Frage. Ein neuer Einwand oder eine unerwartete Folge kann die nächste Prüfung auslösen.", "Back to the question. A new objection or an unexpected outcome can set the next review in motion.")}</figcaption>
     </figure>
+    <div class="evidence-decision" id="beleglage-und-entscheidung">
+      <h3>{t("Was ist belegt, wer stimmt zu, was entscheiden wir?", "What is supported, who agrees, what do we decide?")}</h3>
+      <p>{t("Diese drei Fragen brauchen getrennte Antworten. Eine Abstimmung belegt keine Wirkung. Ein wissenschaftlich gestützter Befund legt allein noch keine gemeinsame Verpflichtung fest.", "These three questions need separate answers. A vote does not establish an effect. A scientifically supported finding alone does not establish a collective obligation.")}</p>
+      <p><strong>{t("Beleglage.", "Evidence.")}</strong> {t("Welche Daten und Gegenbefunde liegen vor? Passen Messung, Auswertung und Geltungsbereich zur Behauptung? Ein Einzelner kann einen tragfähigen Befund vorlegen oder ein geprüftes Ergebnis vermitteln.", "What data and counterevidence are available? Do measurement, analysis and scope fit the claim? One person can present a sound finding or communicate an examined result.")}</p>
+      <p><strong>{t("Zustimmung.", "Agreement.")}</strong> {t("Wer trägt genau diese Fassung mit? Ein Nein, eine offene Antwort und fehlende Betroffene bleiben sichtbar. Zustimmung macht einen Befund nicht wahrer.", "Who supports this exact version? Refusals, unanswered questions and missing affected groups stay visible. Agreement does not make a finding truer.")}</p>
+      <p><strong>{t("Entscheidung.", "Decision.")}</strong> {t("Welche Handlung wählen die Verantwortlichen angesichts der Befunde, Werte, Rechte und Alternativen? Eine freiwillige Vereinbarung und ein politischer Mehrheitsbeschluss folgen unterschiedlichen Regeln. Verbleibende Unsicherheit muss auch nach einer Entscheidung sichtbar bleiben.", "What action do those responsible choose given the findings, values, rights and alternatives? A voluntary agreement and a political majority decision follow different rules. Remaining uncertainty must stay visible after a decision.")}</p>
+      <p>{t("Gedankenbeispiel: Auch eine Million Ja-Stimmen belegt keine ungeprüfte Wirkung. Ein nachgewiesener Auswertungsfehler einer einzelnen Person kann dagegen eine neue Prüfung verlangen. Öffentliche Diskussion kann solche Gründe erschließen; ihre Stimmenzahl ersetzt sie nicht.", "Thought experiment: even a million yes votes do not establish an unexamined effect. One person's demonstration of an analysis error can require renewed examination. Public discussion can uncover such reasons; its headcount cannot replace them.")}</p>
+      <a class="subtle-link" href={pathFor(lang,"philosophischer-motor","befund-zustimmung-entscheidung")}>{t("Die Trennung mathematisch nachvollziehen", "Explore the mathematical separation")} →</a>
+    </div>
     <details><summary>{t("Was übernehmen Werkzeuge und KI, was entscheiden Menschen?", "Where do tools and AI help, and who makes decisions?")}</summary>
       <ul>
         <li><a href={pathFor(lang, "erkenntnisnavigator")}>{t("Erkenntnisnavigator", "Knowledge navigator")}</a> · {t("Redaktionelle Musterkarten verbinden Fragen aus verschiedenen Themen. Du prüfst selbst, ob die Voraussetzungen im eigenen Fall gelten.", "Editorial pattern cards connect questions across subjects. You check whether their conditions hold in your case.")}</li>
@@ -62,6 +71,8 @@ const steps = [
   details ul { max-width: 72ch; padding-inline-start: 1.25rem; }
   details li + li { margin-top: .65rem; }
   details a { color: var(--gold-bright); text-decoration: underline; }
+  .evidence-decision { max-width: 72ch; margin-block: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--line); scroll-margin-top: 7rem; }
+  .evidence-decision h3 { font-size: clamp(1.4rem, 3vw, 2rem); }
   @media (max-width: 48rem) {
     ol { --gap: 1.75rem; grid-template-columns: minmax(0, 1fr); }
     ol li:nth-child(n) { grid-area: auto; }

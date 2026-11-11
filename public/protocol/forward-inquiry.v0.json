@@ -4,8 +4,8 @@
   "id": "FWD-01",
   "status": "proposed_not_implemented",
   "updated_at": "2026-11-07",
-  "source": "https://github.com/AlexanderR1991/Wirklich/blob/main/docs/vorwaertsgerichtete-entitaet.md",
-  "translation": "https://github.com/AlexanderR1991/Wirklich/blob/main/docs/en/forward-inquiry.md",
+  "source": "https://github.com/AlexanderR1991/Vera/blob/main/docs/vorwaertsgerichtete-entitaet.md",
+  "translation": "https://github.com/AlexanderR1991/Vera/blob/main/docs/en/forward-inquiry.md",
   "builds_on": [
     "META-01",
     "AI-P08"
