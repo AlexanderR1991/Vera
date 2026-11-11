@@ -1,10 +1,21 @@
 # Vera Gesprächsspiegel
 
-**Entwurf 0.1 · Fiktive Website-Demo · Forumseinbindung als Konzept**
+**Entwurf 0.2 · Fiktive Website-Demos · Forumseinbindung als Konzept**
 
-Ein aufklappbares Feld über einem Forenthread zeigt, wie sich das Gespräch entwickelt. Wer dazustößt, sieht die Ausgangsfrage, die wichtigsten Abzweigungen, belegte Annäherungen und offene Einwände. Jede Beobachtung führt zur betreffenden Stelle im Thread. Wer sich falsch wiedergegeben sieht, kann genau diese Stelle zur Korrektur markieren. Die Demo zeigt einen vorbereiteten Fall. Eine Einbindung bei Reddit oder anderen Foren setzt eine spätere Zusammenarbeit voraus.
+Ein aufklappbares Feld über einem Forenthread zeigt, wie sich das Gespräch entwickelt. Wer dazustößt, sieht die Ausgangsfrage, die wichtigsten Abzweigungen, belegte Annäherungen und offene Einwände. Jede Beobachtung führt zur betreffenden Stelle im Thread. Wer sich falsch wiedergegeben sieht, kann genau diese Stelle zur Korrektur markieren. Die Website zeigt vorbereitete, fiktive Beispiele. Eine Einbindung bei Reddit oder anderen Foren setzt eine spätere Zusammenarbeit voraus.
 
-## Beispiel · Soll die Innenstadt autofrei werden?
+## Zwei Forenansichten mit angepinntem Plugin
+
+Die deutsche und englische Website zeigen den Gesprächsspiegel unmittelbar über den zugehörigen Beispielbeiträgen. Das Panel lässt sich auf- und zuklappen. Verweise verbinden seine Einordnung mit den fiktiven Originalbeiträgen. Die Ansichten veranschaulichen die geplante Einbindung; sie analysieren keinen echten Thread.
+
+| Beispiel | Was im angepinnten Panel sichtbar wird |
+| --- | --- |
+| Autofreie Innenstadt | Position A möchte mehr Raum für Menschen, Position B braucht Lieferzugang. Vera stellt die Anliegen getrennt dar, hält Maras Vorschlag eines Lieferfensters fest und fragt nach einem Versuch, der auch den stufenfreien Zugang berücksichtigt. Maras Vorschlag ist keine Zustimmung der Beteiligten und löst den offenen Zugangskonflikt noch nicht. |
+| KI im Schulunterricht | Vier Beiträge stellen besseres Verstehen und bloßes Kopieren gegenüber. Die letzten beiden wiederholen die Ausgangspositionen. Vera benennt die Wiederholung in diesem Ausschnitt und lädt dazu ein, an einer konkreten Aufgabe zu vergleichen, was ein Schüler anschließend selbst erklären kann. Absichten der Beteiligten und eine grundsätzliche Unlösbarkeit des Streits werden daraus nicht abgeleitet. |
+
+Die Einladung bleibt freiwillig. Die Vorschau macht sichtbar, wie Beteiligte den Wortlaut ändern, ablehnen oder pausieren könnten und wie ein Versuch trotz eines Vorteils für eine Person für eine andere schlechter ausgehen kann. Ein solcher Einwand bleibt offen; die vorgeschlagene Frage zählt nicht als bereits erfolgte Einigung. Beiträge, Einordnungen und mögliche Fortsetzungen sind vorbereitete Texte, keine Ergebnisse einer laufenden Analyse.
+
+## Vertiefung · Soll die Innenstadt autofrei werden?
 
 | Ast | Was der Spiegel im fiktiven Thread anzeigt |
 | --- | --- |

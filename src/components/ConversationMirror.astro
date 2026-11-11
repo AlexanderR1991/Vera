@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/SiteLayout.astro";
 import ForumSectionLink from "./ForumSectionLink.astro";
+import ForumMirrorExamples from "./ForumMirrorExamples.astro";
 import {pathFor} from "../lib/paths.mjs";
 import {ui} from "../lib/ui.mjs";
 import project from "../../public/project.json" with {type: "json"};
@@ -9,8 +10,8 @@ const {lang = "de"} = Astro.props;
 const de = lang === "de";
 const t = (german: string, english: string) => de ? german : english;
 const description = t(
-  "Ein Entwurf für Foren. Verfolge anhand eines fiktiven Threads, wo ein Streit weiterkommt und welche Fragen offenbleiben.",
-  "A proposal for forums. Follow a fictional thread to see where a dispute makes progress and which questions remain open."
+  "Zwei fiktive Foren zeigen, wie ein angepinntes Vera-Plugin Positionen sortieren und bei einem festgefahrenen Streit weiterhelfen könnte.",
+  "Two fictional forums show how a pinned Vera plugin could map positions and help when a discussion gets stuck."
 );
 
 const branches = [
@@ -80,21 +81,25 @@ const replyCount = branches.reduce((total, branch) => total + branch.replies.len
       <p class="section-kicker">{t("Offene Schnittstellen · Entwurf", "Open interfaces · Proposal")}</p>
       <h1>{ui[lang].titles.gespraechsspiegel}</h1>
       <p class="mirror-lead">{t(
-        "Ein optionales Feld über einem Forenthread zeigt, worüber ihr gerade streitet, wo ihr euch näherkommt und welche Frage noch offen ist. Jede Einschätzung führt zurück zu den Beiträgen.",
-        "An optional panel above a forum thread shows what you’re debating, where you’re finding common ground and what remains open. Every observation links back to the replies."
+        "Mitten im Forum. Über eurem Gespräch. Ein angepinnter Spiegel hält Positionen fair fest und zeigt, welche Frage euch weiterbringen könnte.",
+        "Right in the forum. Above your conversation. A pinned mirror records positions fairly and suggests a question that could help you move forward."
       )}</p>
       <p class="mirror-note">{t(
-        "Unten kannst du einen erfundenen Thread durchgehen. Die Vorschau verwendet vorbereitete Texte. Eine Einbindung in Reddit oder andere Foren ist eine Idee für einen späteren Pilotversuch.",
-        "Explore a fictional thread below. The preview uses prepared text. Embedding it in Reddit or other forums is an idea for a future pilot."
+        "So könnte es aussehen: zwei erfundene Foren, vorbereitete Auswertungen. Die Live-Analyse und eine Einbindung in Reddit oder andere Foren sind Ideen für einen späteren Pilotversuch.",
+        "Here’s how it could look: two fictional forums with prepared interpretations. Live analysis and embedding in Reddit or other forums are ideas for a future pilot."
       )}</p>
     </header>
 
+    <ForumMirrorExamples lang={lang} />
+
+    <details class="mirror-depth">
+      <summary>{t("Genauer hinsehen: einzelne Gesprächsäste und ihre Belege", "Take a closer look: individual branches and their sources")}</summary>
     <section class="mirror-panel" id="beispiel" aria-labelledby="mirror-example-title">
-      <p class="section-kicker">{t("Vorschau · fiktiver Thread", "Preview · fictional thread")}</p>
+      <p class="section-kicker">{t("Vertiefung · ein weiterer fiktiver Thread", "A closer look · another fictional thread")}</p>
       <h2 id="mirror-example-title">{t("Soll die Innenstadt autofrei werden?", "Should the city centre go car-free?")}</h2>
       <p class="mirror-note">{t(
-        `Grundlage: alle ${replyCount} Antworten dieses Beispiels. Öffne einen Gesprächsast und prüfe seine Fundstellen.`,
-        `Scope: all ${replyCount} replies in this example. Open a branch and check the replies behind it.`
+        `Dieser separate Beispielthread enthält ${replyCount} Antworten. Öffne einen Gesprächsast und prüfe seine Fundstellen.`,
+        `This separate example thread contains ${replyCount} replies. Open a branch and check the replies behind it.`
       )}</p>
       <div class="mirror-branches">
         {branches.map(branch => (
@@ -130,6 +135,8 @@ const replyCount = branches.reduce((total, branch) => total + branch.replies.len
       </div>
     </section>
 
+    </details>
+
     <section class="mirror-section" id="spiegel-korrigieren" aria-labelledby="mirror-design-title">
       <h2 id="mirror-design-title">{t("Wer entscheidet, was weiterhilft?", "Who decides what counts as progress?")}</h2>
       <p>{t(
@@ -155,6 +162,11 @@ const replyCount = branches.reduce((total, branch) => total + branch.replies.len
   p { max-width: 69ch; }
   .mirror-lead { color: var(--text); font: clamp(1.15rem, 3vw, 1.55rem)/1.45 var(--serif); }
   .mirror-note { color: var(--text-soft); font-size: .9rem; }
+  .mirror-depth { margin-top: 3rem; border-block: 1px solid var(--line); padding-block: .4rem; }
+  .mirror-depth > summary { cursor: pointer; min-height: 44px; padding-block: .65rem; font-size: .9rem; font-weight: 600; }
+  .mirror-depth[open] { padding-bottom: 1.3rem; }
+  .mirror-depth .mirror-panel { margin-top: .8rem; }
+  .mirror-page summary:focus-visible { outline: 2px solid #385f4c; outline-offset: 4px; }
   .mirror-panel { padding: clamp(1rem, 4vw, 2.35rem); border: 1px solid var(--line); border-radius: 4px; }
   .mirror-branches { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .65rem; margin-block: 1.1rem; align-items: start; }
   .mirror-branches details { border: 1px solid var(--line); border-radius: 3px; padding-inline: .85rem; }
