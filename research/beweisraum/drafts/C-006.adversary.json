@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "review_status": "unreviewed_ai_draft",
+  "evidence_maturity": "R0",
+  "target": "C-006",
+  "room_sha256": "7b3f4ea1b81b1ad8c8b859b0ecf99113311d4d28cddac801cd76634723f62356",
+  "role": "adversary",
+  "origin_group": "codex_session_shared_model_no_independent_evidence",
+  "coordinator_summary": true,
+  "finding": "Die bereits eingegrenzte Gemeinsamkeitsbehauptung wurde nicht entscheidend widerlegt. C-007 trifft nur die stärkere Identitätsthese. Der vollständige gemeinsame Prämissensatz beseitigt den zuvor beanstandeten Fehler isolierter Beweiskanten. Das belegt weder gelungene Übersetzungen noch praktischen Nutzen.",
+  "objection": "Gleiche Werkzeugnamen können unterschiedliche Prüfmaßstäbe verdecken. Ein mathematisches Gegenmodell hält Definitionen fest; ein normativer Gegenfall kann gerade ihre Angemessenheit bestreiten. Die Analogie bleibt ohne konkrete Zuordnung wenig trennscharf und die Gleichheitsformel missverständlich.",
+  "next_test": "Im fiktiven Mietfall vier Schritte vergleichen: Begriffsarbeit, Annahmen, Schluss und Gegenbeispiel. Je gemeinsame Funktion, unterschiedlichen Prüfmaßstab und Bedeutungsverschiebung benennen. Nach Ergänzung des Bedarfs von 1100 Euro getrennt prüfen, welche Rechnung korrekt bleibt und welche Anwendung bestritten wird.",
+  "revision_trigger": "Die konkrete Übertragung eingrenzen, sobald ein Bedeutungswechsel oder eine verschwiegene Wertannahme nötig wird. Ein gescheiterter Versuch widerlegt nicht jede schwache Methodenähnlichkeit. Eine Zuordnung bei erhaltenem Wertkonflikt würde den Einwand mangelnder Trennschärfe schwächen.",
+  "proposed_disposition": "retain",
+  "source_checks": [
+    {
+      "locator": "research/beweisraum/room.json :: alle 17 Knoten, insbesondere C-006, C-007, Q-001 und Mietmodell",
+      "status": "inspected",
+      "note": "Vom adversarialen Agenten gelesen, Brief und Hash bestätigt; Koordinator hat diese Erstbeurteilung gekürzt."
+    },
+    {
+      "locator": "research/beweisraum/GRUNDLAGEN.md; research/beweisraum/LEBENSFALL.md; research/beweisraum/README.md",
+      "status": "inspected",
+      "note": "Lokale Fassungen selbst gelesen; historische externe Belege in diesem Auftrag nicht geprüft."
+    },
+    {
+      "locator": "docs/philosophischer-motor-mathematik.md :: Aussagearten; Wissensgraph; Grenzen der Sätze",
+      "status": "inspected",
+      "note": "Lokale Fassung zuvor gelesen; Webfassung nicht gesondert verglichen."
+    },
+    {
+      "locator": "research/beweisraum/PRUEFPLAN.md",
+      "status": "not_inspected",
+      "note": "War zum Zeitpunkt dieses Erstauftrags noch nicht vorhanden; die Vorlage stammte direkt aus dem Brief. Ein anderer Rollenentwurf hat den später angelegten Prüfplan gelesen."
+    }
+  ]
+}

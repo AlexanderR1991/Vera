@@ -1,0 +1,1016 @@
+{
+  "schema_version": 1,
+  "status": "unreviewed_research_draft",
+  "title": {
+    "de": "Vera · Beweisraum",
+    "en": "Vera · Proof room"
+  },
+  "provenance": {
+    "base_revision": "d9cc348a079ae5ac4f27c72e3a1fefe6c3498412",
+    "created_on": "2026-11-11",
+    "origin": "AI-authored pilot requested by user; not independent human review"
+  },
+  "limits": {
+    "max_nodes": 80,
+    "max_edges": 160,
+    "max_batch_jobs": 8,
+    "max_drafts": 40
+  },
+  "domains": [
+    {
+      "id": "logic",
+      "title": {
+        "de": "Begriffe und Logik",
+        "en": "Concepts and logic"
+      }
+    },
+    {
+      "id": "knowledge",
+      "title": {
+        "de": "Wissen und Irrtum",
+        "en": "Knowledge and error"
+      }
+    },
+    {
+      "id": "experience",
+      "title": {
+        "de": "Erleben und Deutung",
+        "en": "Experience and interpretation"
+      }
+    },
+    {
+      "id": "relationships",
+      "title": {
+        "de": "Beziehung und Fürsorge",
+        "en": "Relationships and care"
+      }
+    }
+  ],
+  "nodes": [
+    {
+      "id": "D-001",
+      "kind": "definition",
+      "claim_type": "formal",
+      "domain": "logic",
+      "title": {
+        "de": "Zahlzeichen und Nachfolger",
+        "en": "Numerals and successor"
+      },
+      "statement": {
+        "de": "Im gewählten Zahlensystem gelten 1 := S(0) und 2 := S(1). S bezeichnet den Nachfolger.",
+        "en": "In the selected number system, 1 := S(0) and 2 := S(1). S denotes successor."
+      },
+      "scope": {
+        "de": "Notation eines kleinen Ausschnitts der natürlichen Zahlen, kein vollständiges Axiomensystem.",
+        "en": "Notation for a small fragment of natural numbers, not a complete axiom system."
+      },
+      "premises": [],
+      "objection": {
+        "de": "Die Symbole allein legen noch keine Addition oder Verbindung zur Welt fest.",
+        "en": "The symbols alone establish neither addition nor applicability to reality."
+      },
+      "next_test": {
+        "de": "Alle verwendeten Zeichen und Gleichheitsumformungen benennen.",
+        "en": "Name all symbols and equality substitutions used."
+      },
+      "revision_trigger": {
+        "de": "Eine Ableitung verwendet eine nicht genannte Eigenschaft von S oder Gleichheit.",
+        "en": "A derivation uses an unstated property of S or equality."
+      },
+      "sources": [
+        {
+          "locator": "research/beweisraum/GRUNDLAGEN.md",
+          "note": {
+            "de": "Ausgeschriebene Begründung dieses Pilotmodells; keine externe Fachprüfung.",
+            "en": "Written argument for this pilot model; no external expert review."
+          }
+        }
+      ],
+      "disposition": "open",
+      "review_status": "unreviewed_ai_draft",
+      "evidence_maturity": "R0"
+    },
+    {
+      "id": "A-001",
+      "kind": "assumption",
+      "claim_type": "formal",
+      "domain": "logic",
+      "title": {
+        "de": "Rekursive Addition und Gleichheit",
+        "en": "Recursive addition and equality"
+      },
+      "statement": {
+        "de": "Für natürliche a,b gelten a + 0 = a und a + S(b) = S(a + b); Gleiches darf durch Gleiches ersetzt werden.",
+        "en": "For natural a,b, a + 0 = a and a + S(b) = S(a + b); equals may replace equals."
+      },
+      "scope": {
+        "de": "Bewusst gewählte Regeln dieses Beispiels; keine Geschichte des ersten Zahlbegriffs.",
+        "en": "Deliberately selected rules for this example, not the history of the first concept of number."
+      },
+      "premises": [],
+      "objection": {
+        "de": "Die Regeln setzen einen wohldefinierten Gegenstandsbereich voraus.",
+        "en": "The rules presuppose a well-defined domain."
+      },
+      "next_test": {
+        "de": "Den Ableitungsweg zu C-001 ohne zusätzliche Rechenregeln verfolgen.",
+        "en": "Trace C-001 without additional arithmetic rules."
+      },
+      "revision_trigger": {
+        "de": "Eine Rechenregel wird geändert oder war in der Ableitung falsch angewandt.",
+        "en": "A rule changes or was applied incorrectly."
+      },
+      "sources": [
+        {
+          "locator": "research/beweisraum/GRUNDLAGEN.md",
+          "note": {
+            "de": "Ausgeschriebene Begründung dieses Pilotmodells; keine externe Fachprüfung.",
+            "en": "Written argument for this pilot model; no external expert review."
+          }
+        }
+      ],
+      "disposition": "open",
+      "review_status": "unreviewed_ai_draft",
+      "evidence_maturity": "R0"
+    },
+    {
+      "id": "C-001",
+      "kind": "claim",
+      "claim_type": "formal",
+      "domain": "logic",
+      "title": {
+        "de": "1 + 1 = 2 unter benannten Regeln",
+        "en": "1 + 1 = 2 under stated rules"
+      },
+      "statement": {
+        "de": "Unter D-001 und A-001 gilt 1 + 1 = 2.",
+        "en": "Under D-001 and A-001, 1 + 1 = 2."
+      },
+      "scope": {
+        "de": "Gültigkeit innerhalb des gewählten Systems; keine moralische oder empirische Aussage.",
+        "en": "Validity within the selected system, not a moral or empirical claim."
+      },
+      "premises": [
+        "D-001",
+        "A-001"
+      ],
+      "objection": {
+        "de": "Bei realen Gegenständen kann die gezählte Einheit durch Verschmelzen wechseln.",
+        "en": "For real objects, merging may change the unit being counted."
+      },
+      "next_test": {
+        "de": "Jeden Ersetzungsschritt lesen; Weltanwendungen gesondert auf stabile Einheiten prüfen.",
+        "en": "Inspect every substitution; check stable units separately for real-world applications."
+      },
+      "revision_trigger": {
+        "de": "Ein Schritt folgt nicht aus den benannten Definitionen und Regeln.",
+        "en": "A step does not follow from the stated definitions and rules."
+      },
+      "sources": [
+        {
+          "locator": "research/beweisraum/GRUNDLAGEN.md",
+          "note": {
+            "de": "Ausgeschriebene Begründung dieses Pilotmodells; keine externe Fachprüfung.",
+            "en": "Written argument for this pilot model; no external expert review."
+          }
+        }
+      ],
+      "disposition": "conditional_derivation",
+      "review_status": "unreviewed_ai_draft",
+      "evidence_maturity": "R0",
+      "argument": {
+        "system": {
+          "de": "Natürliche Zahlen, rekursive Addition, Gleichheitsersetzung",
+          "en": "Natural numbers, recursive addition, substitution of equals"
+        },
+        "steps": [
+          {
+            "de": "1 + 1 = 1 + S(0) nach D-001.",
+            "en": "1 + 1 = 1 + S(0) by D-001."
+          },
+          {
+            "de": "1 + S(0) = S(1 + 0) nach A-001.",
+            "en": "1 + S(0) = S(1 + 0) by A-001."
+          },
+          {
+            "de": "S(1 + 0) = S(1) = 2 nach A-001 und D-001.",
+            "en": "S(1 + 0) = S(1) = 2 by A-001 and D-001."
+          }
+        ]
+      }
+    },
+    {
+      "id": "D-002",
+      "kind": "definition",
+      "claim_type": "formal",
+      "domain": "logic",
+      "title": {
+        "de": "Unabhängige Aussagenzeichen p und n",
+        "en": "Independent propositional variables p and n"
+      },
+      "statement": {
+        "de": "In klassischer Aussagenlogik sind p und n unabhängige Atome. Folgerung bedeutet: Jede Belegung, die die Prämissen wahr macht, macht auch das Ziel wahr.",
+        "en": "In classical propositional logic p and n are independent atoms. Entailment means every valuation satisfying the premises also satisfies the conclusion."
+      },
+      "scope": {
+        "de": "p veranschaulicht einen Befund, n eine Soll-Aussage. Diese Deutung fügt keine Brückenprämisse hinzu.",
+        "en": "p illustrates a finding and n an ought statement. This interpretation adds no bridging premise."
+      },
+      "premises": [],
+      "objection": {
+        "de": "Eine andere Logik oder normativ gehaltvolle Begriffe brauchen ein anderes Modell.",
+        "en": "A different logic or normatively loaded concepts require a different model."
+      },
+      "next_test": {
+        "de": "Alle vier Wahrheitsbelegungen von p und n aufführen.",
+        "en": "List all four truth assignments of p and n."
+      },
+      "revision_trigger": {
+        "de": "Eine verdeckte Regel koppelt p und n oder ändert den Folgerungsbegriff.",
+        "en": "A hidden rule links p and n or changes entailment."
+      },
+      "sources": [
+        {
+          "locator": "research/beweisraum/GRUNDLAGEN.md",
+          "note": {
+            "de": "Ausgeschriebene Begründung dieses Pilotmodells; keine externe Fachprüfung.",
+            "en": "Written argument for this pilot model; no external expert review."
+          }
+        },
+        {
+          "locator": "https://github.com/AlexanderR1991/Vera/blob/d9cc348a079ae5ac4f27c72e3a1fefe6c3498412/docs/philosophischer-motor-mathematik.md",
+          "note": {
+            "de": "M-03: Aussagearten, Wissensgraph und Grenzen modellinterner Sätze.",
+            "en": "M-03: claim types, knowledge graph and limits of model-internal results."
+          }
+        }
+      ],
+      "disposition": "open",
+      "review_status": "unreviewed_ai_draft",
+      "evidence_maturity": "R0"
+    },
+    {
+      "id": "C-002",
+      "kind": "claim",
+      "claim_type": "formal",
+      "domain": "logic",
+      "title": {
+        "de": "Aus p allein folgt n hier nicht",
+        "en": "Here p alone does not entail n"
+      },
+      "statement": {
+        "de": "Unter D-002 gilt p nicht als hinreichende Prämisse für n: p ⊭ n.",
+        "en": "Under D-002, p is not a sufficient premise for n: p does not entail n."
+      },
+      "scope": {
+        "de": "Kleines konsistentes Zwei-Atome-Modell, kein universeller Sein-Sollen-Satz.",
+        "en": "Small consistent two-atom model, not a universal is-ought theorem."
+      },
+      "premises": [
+        "D-002"
+      ],
+      "objection": {
+        "de": "Mit der zusätzlichen Brücke p → n ist der Schluss gültig; diese Brücke braucht eigene Rechtfertigung.",
+        "en": "With the added bridge p → n the inference is valid; that bridge needs its own justification."
+      },
+      "next_test": {
+        "de": "Belegungen explizit prüfen und eine Brückenprämisse getrennt hinzufügen.",
+        "en": "Check valuations explicitly, then add a bridging premise separately."
+      },
+      "revision_trigger": {
+        "de": "Eine Gegenbelegung ist unzulässig unter genau D-002 oder eine gültige Ableitung wird ohne Zusatzannahme gezeigt.",
+        "en": "A countervaluation is inadmissible under exactly D-002 or a valid derivation without added assumptions is shown."
+      },
+      "sources": [
+        {
+          "locator": "research/beweisraum/GRUNDLAGEN.md",
+          "note": {
+            "de": "Ausgeschriebene Begründung dieses Pilotmodells; keine externe Fachprüfung.",
+            "en": "Written argument for this pilot model; no external expert review."
+          }
+        },
+        {
+          "locator": "https://github.com/AlexanderR1991/Vera/blob/d9cc348a079ae5ac4f27c72e3a1fefe6c3498412/docs/philosophischer-motor-mathematik.md",
+          "note": {
+            "de": "M-03: Aussagearten, Wissensgraph und Grenzen modellinterner Sätze.",
+            "en": "M-03: claim types, knowledge graph and limits of model-internal results."
+          }
+        }
+      ],
+      "disposition": "counterexample",
+      "review_status": "unreviewed_ai_draft",
+      "evidence_maturity": "R0",
+      "argument": {
+        "system": {
+          "de": "Klassische Aussagenlogik mit unabhängigen Atomen",
+          "en": "Classical propositional logic with independent atoms"
+        },
+        "steps": [
+          {
+            "de": "Die Belegung p=wahr, n=wahr erfüllt p.",
+            "en": "The valuation p=true, n=true satisfies p."
+          },
+          {
+            "de": "Auch p=wahr, n=falsch erfüllt p, aber nicht n.",
+            "en": "The valuation p=true, n=false also satisfies p but not n."
+          },
+          {
+            "de": "Damit existiert ein Gegenmodell zu p ⊨ n. Mit p und p → n gilt hingegen Modus ponens.",
+            "en": "Thus there is a countermodel to p entailing n. With p and p → n, modus ponens applies instead."
+          }
+        ]
+      }
+    },
+    {
+      "id": "D-003",
+      "kind": "definition",
+      "claim_type": "formal",
+      "domain": "relationships",
+      "title": {
+        "de": "Rechenmodell der fiktiven Miete",
+        "en": "Arithmetic model of fictional rent"
+      },
+      "statement": {
+        "de": "A und B haben im Modell 3000 bzw. 1500 Euro. Ihre Mietanteile x,y sind nichtnegative reelle Beträge mit x+y=900.",
+        "en": "In the model A and B have 3000 and 1500 euros. Their rent shares x,y are nonnegative real amounts satisfying x+y=900."
+      },
+      "scope": {
+        "de": "Fiktive Monatsbeträge, x für A und y für B; keine vollständige Haushaltsrechnung.",
+        "en": "Fictional monthly amounts, x for A and y for B, not a complete household budget."
+      },
+      "premises": [],
+      "objection": {
+        "de": "Einkommen, Nutzungsanteil und notwendige Ausgaben können anders zu definieren sein.",
+        "en": "Income, use of space and essential expenses may need different definitions."
+      },
+      "next_test": {
+        "de": "Summen, Einheiten und Definition des verfügbaren Betrags prüfen.",
+        "en": "Check totals, units and the definition of available income."
+      },
+      "revision_trigger": {
+        "de": "Ein Betrag oder der verwendete Einkommensbegriff ändert sich.",
+        "en": "An amount or the income definition changes."
+      },
+      "sources": [
+        {
+          "locator": "research/beweisraum/LEBENSFALL.md",
+          "note": {
+            "de": "Vollständig fiktiver Mietfall, keine beobachteten Menschen.",
+            "en": "Entirely fictional rent case, not observations of people."
+          }
+        }
+      ],
+      "disposition": "open",
+      "review_status": "unreviewed_ai_draft",
+      "evidence_maturity": "R0"
+    },
+    {
+      "id": "A-002",
+      "kind": "assumption",
+      "claim_type": "normative",
+      "domain": "relationships",
+      "title": {
+        "de": "Gewähltes Kriterium: gleiche Zahlbeträge",
+        "en": "Selected criterion: equal payments"
+      },
+      "statement": {
+        "de": "Für diese Modellvariante wird x=y als Verteilungsregel gewählt.",
+        "en": "For this model variant, x=y is selected as the allocation rule."
+      },
+      "scope": {
+        "de": "Kritisierbare Wertannahme für einen Rechenversuch; keine reale Vereinbarung.",
+        "en": "Contestable value assumption for a calculation, not an actual agreement."
+      },
+      "premises": [],
+      "objection": {
+        "de": "Gleiche Beträge können unterschiedliche Bedürfnisse und Belastbarkeit übergehen.",
+        "en": "Equal amounts may ignore different needs and ability to pay."
+      },
+      "next_test": {
+        "de": "Mit proportionaler Verteilung und einem Bedarfsfall vergleichen.",
+        "en": "Compare proportional allocation and a needs case."
+      },
+      "revision_trigger": {
+        "de": "Ein begründeter Bedarf oder ein anderes gemeinsam gewähltes Kriterium verlangt eine neue Variante.",
+        "en": "A justified need or another jointly selected criterion requires a new variant."
+      },
+      "sources": [
+        {
+          "locator": "research/beweisraum/LEBENSFALL.md",
+          "note": {
+            "de": "Vollständig fiktiver Mietfall, keine beobachteten Menschen.",
+            "en": "Entirely fictional rent case, not observations of people."
+          }
+        },
+        {
+          "locator": "https://github.com/AlexanderR1991/Vera/blob/d9cc348a079ae5ac4f27c72e3a1fefe6c3498412/docs/philosophischer-motor-mathematik.md",
+          "note": {
+            "de": "M-03: Aussagearten, Wissensgraph und Grenzen modellinterner Sätze.",
+            "en": "M-03: claim types, knowledge graph and limits of model-internal results."
+          }
+        }
+      ],
+      "disposition": "open",
+      "review_status": "unreviewed_ai_draft",
+      "evidence_maturity": "R0"
+    },
+    {
+      "id": "A-003",
+      "kind": "assumption",
+      "claim_type": "normative",
+      "domain": "relationships",
+      "title": {
+        "de": "Gewähltes Kriterium: gleiche Einkommensanteile",
+        "en": "Selected criterion: equal income shares"
+      },
+      "statement": {
+        "de": "Für diese Modellvariante wird x/3000=y/1500 als Verteilungsregel gewählt.",
+        "en": "For this model variant, x/3000=y/1500 is selected as the allocation rule."
+      },
+      "scope": {
+        "de": "Kritisierbare Wertannahme unter positivem Einkommen; keine allgemeine Definition von Gerechtigkeit.",
+        "en": "Contestable value assumption under positive income, not a universal definition of justice."
+      },
+      "premises": [],
+      "objection": {
+        "de": "Notwendige Ausgaben, Wohnraumnutzung oder ungleiche Abhängigkeit bleiben unberücksichtigt.",
+        "en": "Essential expenses, use of space or unequal dependence remain unaccounted for."
+      },
+      "next_test": {
+        "de": "Bedarfe und mindestens eine Alternative mit abweichendem Kriterium ergänzen.",
+        "en": "Add needs and at least one alternative with a different criterion."
+      },
+      "revision_trigger": {
+        "de": "Die Einkommensbasis ist ungeeignet oder die zusätzliche Belastung widerlegt die praktische Anwendung.",
+        "en": "The income basis is unsuitable or added burdens defeat the practical application."
+      },
+      "sources": [
+        {
+          "locator": "research/beweisraum/LEBENSFALL.md",
+          "note": {
+            "de": "Vollständig fiktiver Mietfall, keine beobachteten Menschen.",
+            "en": "Entirely fictional rent case, not observations of people."
+          }
+        },
+        {
+          "locator": "https://github.com/AlexanderR1991/Vera/blob/d9cc348a079ae5ac4f27c72e3a1fefe6c3498412/docs/philosophischer-motor-mathematik.md",
+          "note": {
+            "de": "M-03: Aussagearten, Wissensgraph und Grenzen modellinterner Sätze.",
+            "en": "M-03: claim types, knowledge graph and limits of model-internal results."
+          }
+        }
+      ],
+      "disposition": "open",
+      "review_status": "unreviewed_ai_draft",
+      "evidence_maturity": "R0"
+    },
+    {
+      "id": "C-003",
+      "kind": "claim",
+      "claim_type": "formal",
+      "domain": "relationships",
+      "title": {
+        "de": "Gleiche Zahlbeträge ergeben 450/450",
+        "en": "Equal payments yield 450/450"
+      },
+      "statement": {
+        "de": "Aus D-003 und A-002 folgt x=y=450.",
+        "en": "D-003 and A-002 imply x=y=450."
+      },
+      "scope": {
+        "de": "Eine gemeinsame Prämissenmenge; die Rechnung rechtfertigt A-002 nicht.",
+        "en": "A joint premise set; the calculation does not justify A-002."
+      },
+      "premises": [
+        "D-003",
+        "A-002"
+      ],
+      "objection": {
+        "de": "Eine korrekte Summe zeigt keine Tragbarkeit oder Freiwilligkeit.",
+        "en": "A correct total establishes neither affordability nor voluntariness."
+      },
+      "next_test": {
+        "de": "450+450=900 und die Gleichheitsbedingung nachrechnen; Bedarfe getrennt prüfen.",
+        "en": "Check 450+450=900 and equality; assess needs separately."
+      },
+      "revision_trigger": {
+        "de": "Prämisse oder Rechenschritt ändert sich.",
+        "en": "A premise or calculation step changes."
+      },
+      "sources": [
+        {
+          "locator": "research/beweisraum/LEBENSFALL.md",
+          "note": {
+            "de": "Vollständig fiktiver Mietfall, keine beobachteten Menschen.",
+            "en": "Entirely fictional rent case, not observations of people."
+          }
+        }
+      ],
+      "disposition": "conditional_derivation",
+      "review_status": "unreviewed_ai_draft",
+      "evidence_maturity": "R0",
+      "argument": {
+        "system": {
+          "de": "Elementare Algebra über reellen Beträgen",
+          "en": "Elementary algebra over real amounts"
+        },
+        "steps": [
+          {
+            "de": "A-002 setzt x=y. In x+y=900 aus D-003 eingesetzt: 2x=900.",
+            "en": "A-002 sets x=y. Substituting into x+y=900 from D-003 gives 2x=900."
+          },
+          {
+            "de": "Division durch 2 ergibt x=450 und damit y=450.",
+            "en": "Dividing by 2 yields x=450 and hence y=450."
+          }
+        ]
+      }
+    },
+    {
+      "id": "C-004",
+      "kind": "claim",
+      "claim_type": "formal",
+      "domain": "relationships",
+      "title": {
+        "de": "Gleiche Einkommensanteile ergeben 600/300",
+        "en": "Equal income shares yield 600/300"
+      },
+      "statement": {
+        "de": "Aus D-003 und A-003 folgt x=600 und y=300, jeweils 20 Prozent des angenommenen Einkommens.",
+        "en": "D-003 and A-003 imply x=600 and y=300, each 20 percent of the assumed income."
+      },
+      "scope": {
+        "de": "Bedingte Algebra unter diesem Kriterium, kein universelles Fairnessurteil.",
+        "en": "Conditional algebra under this criterion, not a universal fairness judgment."
+      },
+      "premises": [
+        "D-003",
+        "A-003"
+      ],
+      "objection": {
+        "de": "Die Einkommensdefinition und die Auswahl des Kriteriums können unangemessen sein.",
+        "en": "The income definition and criterion selection may be inappropriate."
+      },
+      "next_test": {
+        "de": "Summe und Quotienten nachrechnen; Null- und Negativ-Einkommen als andere Modellfälle behandeln.",
+        "en": "Check sum and ratios; treat zero and negative income as different model cases."
+      },
+      "revision_trigger": {
+        "de": "Zahlen, Definitionen oder Kriterium werden geändert.",
+        "en": "Numbers, definitions or criterion change."
+      },
+      "sources": [
+        {
+          "locator": "research/beweisraum/LEBENSFALL.md",
+          "note": {
+            "de": "Vollständig fiktiver Mietfall, keine beobachteten Menschen.",
+            "en": "Entirely fictional rent case, not observations of people."
+          }
+        }
+      ],
+      "disposition": "conditional_derivation",
+      "review_status": "unreviewed_ai_draft",
+      "evidence_maturity": "R0",
+      "argument": {
+        "system": {
+          "de": "Elementare Algebra bei positiven Nennern",
+          "en": "Elementary algebra with positive denominators"
+        },
+        "steps": [
+          {
+            "de": "x/3000=y/1500 ergibt x=2y.",
+            "en": "x/3000=y/1500 gives x=2y."
+          },
+          {
+            "de": "x+y=900 ergibt 3y=900, also y=300 und x=600.",
+            "en": "x+y=900 gives 3y=900, so y=300 and x=600."
+          },
+          {
+            "de": "600/3000=300/1500=0,2 und 600+300=900.",
+            "en": "600/3000=300/1500=0.2 and 600+300=900."
+          }
+        ]
+      }
+    },
+    {
+      "id": "L-001",
+      "kind": "case",
+      "claim_type": "interpretive",
+      "domain": "relationships",
+      "title": {
+        "de": "Ein ausgelassener Bedarf verändert die Frage",
+        "en": "An omitted need changes the question"
+      },
+      "statement": {
+        "de": "Im fiktiven erweiterten Mietfall braucht B vor der Miete 1100 Euro. Nach 450 Euro Miete blieben -50 Euro, nach 300 Euro blieben 100 Euro.",
+        "en": "In the extended fictional rent case, B needs 1100 euros before rent. After 450 euros rent, -50 euros remain; after 300 euros, 100 euros remain."
+      },
+      "scope": {
+        "de": "Gedankenbeispiel mit hypothetischen Perspektiven. Keine Evidenz über reale Menschen.",
+        "en": "Thought experiment with hypothetical perspectives, not evidence about real people."
+      },
+      "premises": [],
+      "objection": {
+        "de": "Weitere Bedarfe von A, Nutzungsunterschiede und Alternativen könnten entscheidend sein.",
+        "en": "Other needs of A, differences in use and alternatives could be decisive."
+      },
+      "next_test": {
+        "de": "Einen Fall konstruieren, in dem proportionaler Anteil ebenfalls den Bedarf verfehlt.",
+        "en": "Construct a case where proportional shares also fail to meet needs."
+      },
+      "revision_trigger": {
+        "de": "Der Fall beansprucht Vollständigkeit oder wird als reale Beobachtung ausgegeben.",
+        "en": "The case claims completeness or is presented as a real observation."
+      },
+      "sources": [
+        {
+          "locator": "research/beweisraum/LEBENSFALL.md",
+          "note": {
+            "de": "Vollständig fiktiver Mietfall, keine beobachteten Menschen.",
+            "en": "Entirely fictional rent case, not observations of people."
+          }
+        }
+      ],
+      "disposition": "open",
+      "review_status": "unreviewed_ai_draft",
+      "evidence_maturity": "R0"
+    },
+    {
+      "id": "C-005",
+      "kind": "claim",
+      "claim_type": "normative",
+      "domain": "relationships",
+      "title": {
+        "de": "Welche Aufteilung sollen beide wählen?",
+        "en": "Which allocation should they choose?"
+      },
+      "statement": {
+        "de": "Eine angemessene Aufteilung braucht eine begründete Wahl der Kriterien und die Berücksichtigung relevanter Perspektiven; welche Regel hier gelten soll, bleibt offen.",
+        "en": "An appropriate allocation needs a justified choice of criteria and relevant perspectives; which rule ought to apply here remains open."
+      },
+      "scope": {
+        "de": "Normativer Entwurf, kein aus Mietbeträgen bewiesener Anspruch; keine dokumentierte Zustimmung.",
+        "en": "Normative draft, not an entitlement proved from rent amounts; no documented consent."
+      },
+      "premises": [],
+      "objection": {
+        "de": "Schon die Forderung nach diesen Perspektiven ist begründungsbedürftig; Machtgefälle können ein scheinbares Ja entwerten.",
+        "en": "Even requiring these perspectives needs justification; power imbalances may undermine apparent agreement."
+      },
+      "next_test": {
+        "de": "Stärksten Einwand gegen beide Kriterien und mindestens eine bedarfsbezogene Alternative benennen.",
+        "en": "Name the strongest objection to both criteria and at least one needs-based alternative."
+      },
+      "revision_trigger": {
+        "de": "Eine ausgelassene Perspektive, relevante Einschränkung oder nachvollziehbare andere Wertung wird gezeigt.",
+        "en": "An omitted perspective, relevant constraint or justified alternative value judgment is shown."
+      },
+      "sources": [
+        {
+          "locator": "research/beweisraum/LEBENSFALL.md",
+          "note": {
+            "de": "Vollständig fiktiver Mietfall, keine beobachteten Menschen.",
+            "en": "Entirely fictional rent case, not observations of people."
+          }
+        },
+        {
+          "locator": "https://github.com/AlexanderR1991/Vera/blob/d9cc348a079ae5ac4f27c72e3a1fefe6c3498412/docs/philosophischer-motor-mathematik.md",
+          "note": {
+            "de": "M-03: Aussagearten, Wissensgraph und Grenzen modellinterner Sätze.",
+            "en": "M-03: claim types, knowledge graph and limits of model-internal results."
+          }
+        }
+      ],
+      "disposition": "open",
+      "review_status": "unreviewed_ai_draft",
+      "evidence_maturity": "R0"
+    },
+    {
+      "id": "C-006",
+      "kind": "claim",
+      "claim_type": "metaphorical",
+      "domain": "knowledge",
+      "title": {
+        "de": "Philosophie = Mathematik als methodische Analogie",
+        "en": "Philosophy = mathematics as a methodological analogy"
+      },
+      "statement": {
+        "de": "Philosophie und Mathematik teilen bestimmte Werkzeuge: Begriffe klären, Annahmen benennen, folgerichtig argumentieren und Gegenbeispiele prüfen. Daraus folgt keine Identität.",
+        "en": "Philosophy and mathematics share some tools: clarifying concepts, stating assumptions, reasoning consistently and testing counterexamples. Identity does not follow."
+      },
+      "scope": {
+        "de": "Eingegrenzte Lesart der Gesprächserklärung, kein Satz über die Reduzierbarkeit aller Philosophie.",
+        "en": "Narrow reading of the conversation explanation, not a claim that all philosophy is reducible to mathematics."
+      },
+      "premises": [],
+      "objection": {
+        "de": "Formalisierung kann gerade das strittige Erleben, die Bedeutung oder die Wertwahl in eine unbewiesene Übersetzung verlagern.",
+        "en": "Formalisation may relocate disputed experience, meaning or value choice into an unproved translation."
+      },
+      "next_test": {
+        "de": "An einer konkreten philosophischen Frage zeigen, was formal erhalten bleibt und was verloren geht.",
+        "en": "Use a concrete philosophical question to show what formalisation preserves and loses."
+      },
+      "revision_trigger": {
+        "de": "Ein konkreter Fall zeigt, dass die behauptete gemeinsame Arbeitsweise zu weit verallgemeinert oder die Übersetzung den Sinn verändert.",
+        "en": "A concrete case shows the shared-method claim overgeneralises or the translation changes the meaning."
+      },
+      "sources": [
+        {
+          "locator": "research/beweisraum/GRUNDLAGEN.md",
+          "note": {
+            "de": "Ausgeschriebene Begründung dieses Pilotmodells; keine externe Fachprüfung.",
+            "en": "Written argument for this pilot model; no external expert review."
+          }
+        },
+        {
+          "locator": "https://github.com/AlexanderR1991/Vera/blob/d9cc348a079ae5ac4f27c72e3a1fefe6c3498412/docs/philosophischer-motor-mathematik.md",
+          "note": {
+            "de": "M-03: Aussagearten, Wissensgraph und Grenzen modellinterner Sätze.",
+            "en": "M-03: claim types, knowledge graph and limits of model-internal results."
+          }
+        }
+      ],
+      "disposition": "open",
+      "review_status": "unreviewed_ai_draft",
+      "evidence_maturity": "R0"
+    },
+    {
+      "id": "D-004",
+      "kind": "definition",
+      "claim_type": "formal",
+      "domain": "logic",
+      "title": {
+        "de": "Zwei überlappende Modellmengen",
+        "en": "Two overlapping model sets"
+      },
+      "statement": {
+        "de": "Seien drei verschiedene Symbole b,w,z gegeben. Definiere P={b,w}, M={b,z}; b steht anschaulich für eine gemeinsame Methode.",
+        "en": "Let b,w,z be three distinct symbols. Define P={b,w}, M={b,z}; b illustrates a shared method."
+      },
+      "scope": {
+        "de": "Abstraktes Gegenmodell zu einem Schlussmuster, keine vollständigen Fachdefinitionen.",
+        "en": "Abstract countermodel to an inference pattern, not complete definitions of disciplines."
+      },
+      "premises": [],
+      "objection": {
+        "de": "Die Übertragung auf wirkliche Fächer braucht zusätzliche Sachgründe.",
+        "en": "Application to real disciplines requires additional substantive reasons."
+      },
+      "next_test": {
+        "de": "Verschiedenheit der Symbole und Mengenmitgliedschaften explizit prüfen.",
+        "en": "Explicitly check distinctness of symbols and set membership."
+      },
+      "revision_trigger": {
+        "de": "Verschiedenheit der Symbole wird aufgehoben oder eine andere Zielbehauptung wird geprüft.",
+        "en": "Distinctness of symbols is removed or a different target claim is examined."
+      },
+      "sources": [
+        {
+          "locator": "research/beweisraum/GRUNDLAGEN.md",
+          "note": {
+            "de": "Ausgeschriebene Begründung dieses Pilotmodells; keine externe Fachprüfung.",
+            "en": "Written argument for this pilot model; no external expert review."
+          }
+        }
+      ],
+      "disposition": "open",
+      "review_status": "unreviewed_ai_draft",
+      "evidence_maturity": "R0"
+    },
+    {
+      "id": "C-007",
+      "kind": "claim",
+      "claim_type": "formal",
+      "domain": "logic",
+      "title": {
+        "de": "Überlappung beweist keine Gleichheit",
+        "en": "Overlap does not prove equality"
+      },
+      "statement": {
+        "de": "D-004 liefert P∩M≠∅ bei P≠M. Die Schlussregel von gemeinsamer Eigenschaft auf Identität ist deshalb ungültig.",
+        "en": "D-004 gives a nonempty intersection of P and M while P differs from M. Inferring identity from a shared property is therefore invalid."
+      },
+      "scope": {
+        "de": "Widerlegt dieses Schlussmuster; entscheidet nicht allein über das tatsächliche Verhältnis der Disziplinen.",
+        "en": "Refutes this inference pattern, without alone settling the actual relationship between disciplines."
+      },
+      "premises": [
+        "D-004"
+      ],
+      "objection": {
+        "de": "Andere Argumente könnten eine weitergehende Beziehung begründen.",
+        "en": "Other arguments could establish a stronger relationship."
+      },
+      "next_test": {
+        "de": "Eine gemeinsame Mitgliedschaft und je eine unterschiedliche Mitgliedschaft prüfen.",
+        "en": "Check a shared member and differing memberships."
+      },
+      "revision_trigger": {
+        "de": "Eine Mitgliedschaft ist unter D-004 falsch oder der angegriffene Schluss setzt weitere entscheidende Prämissen voraus.",
+        "en": "Membership is wrong under D-004 or the challenged inference has additional decisive premises."
+      },
+      "sources": [
+        {
+          "locator": "research/beweisraum/GRUNDLAGEN.md",
+          "note": {
+            "de": "Ausgeschriebene Begründung dieses Pilotmodells; keine externe Fachprüfung.",
+            "en": "Written argument for this pilot model; no external expert review."
+          }
+        }
+      ],
+      "disposition": "counterexample",
+      "review_status": "unreviewed_ai_draft",
+      "evidence_maturity": "R0",
+      "argument": {
+        "system": {
+          "de": "Elementare Mengenlehre über drei verschiedenen Symbolen",
+          "en": "Elementary set theory over three distinct symbols"
+        },
+        "steps": [
+          {
+            "de": "b liegt in P und M; ihr Schnitt ist nicht leer.",
+            "en": "b belongs to both P and M, so their intersection is nonempty."
+          },
+          {
+            "de": "w liegt in P und nicht in M, daher P≠M.",
+            "en": "w belongs to P but not M, hence P differs from M."
+          },
+          {
+            "de": "Ein Gegenmodell reicht gegen die allgemeine behauptete Schlussregel.",
+            "en": "One countermodel defeats the asserted general inference rule."
+          }
+        ]
+      }
+    },
+    {
+      "id": "Q-001",
+      "kind": "question",
+      "claim_type": "interpretive",
+      "domain": "experience",
+      "title": {
+        "de": "Was verliert eine Darstellung von Erleben?",
+        "en": "What does representing experience lose?"
+      },
+      "statement": {
+        "de": "Welche Teile einer Erfahrung bleiben unberücksichtigt, wenn wir sie in Begriffe, Aussagen und Beziehungen übersetzen?",
+        "en": "Which aspects of experience are omitted when we translate it into concepts, claims and relations?"
+      },
+      "scope": {
+        "de": "Offene Deutungsfrage; ein Selbstbericht ist weder belanglos noch automatisch ein universeller Mechanismus.",
+        "en": "Open interpretive question; a self-report is neither irrelevant nor automatically a universal mechanism."
+      },
+      "premises": [],
+      "objection": {
+        "de": "Die Frage kann so allgemein werden, dass kein konkreter Unterschied mehr prüfbar ist.",
+        "en": "The question may become too broad to expose a testable difference."
+      },
+      "next_test": {
+        "de": "An einem fiktiven Erfahrungsbericht zwei Darstellungen mit benannten Verlusten vergleichen.",
+        "en": "Compare two representations of a fictional experience report and name their losses."
+      },
+      "revision_trigger": {
+        "de": "Die Darstellung erlaubt keine Korrektur durch die beschriebene Perspektive.",
+        "en": "The representation offers no route for correction by the represented perspective."
+      },
+      "sources": [
+        {
+          "locator": "https://github.com/AlexanderR1991/Vera/blob/d9cc348a079ae5ac4f27c72e3a1fefe6c3498412/public/knowledge/universal-questions.v1.json",
+          "note": {
+            "de": "Anschluss an U-002; keine Änderung des öffentlichen Fragenregisters.",
+            "en": "Connection to U-002; no change to the public question register."
+          }
+        }
+      ],
+      "disposition": "question",
+      "review_status": "unreviewed_ai_draft",
+      "evidence_maturity": "R0"
+    },
+    {
+      "id": "Q-002",
+      "kind": "question",
+      "claim_type": "empirical",
+      "domain": "knowledge",
+      "title": {
+        "de": "Hilft der Raum gegenüber einem einfachen Prüfblatt?",
+        "en": "Does the room help compared with a simple worksheet?"
+      },
+      "statement": {
+        "de": "Finden Prüfer mit dem Graphen mehr echte fehlende Prämissen und weniger Fehlalarme als mit einem kurzen, inhaltsgleichen Prüfblatt?",
+        "en": "Do reviewers using the graph find more real missing premises and fewer false alarms than with a short worksheet containing the same information?"
+      },
+      "scope": {
+        "de": "Ungetestete Wirkungshypothese; kein bereits gemessener Nutzen.",
+        "en": "Untested effectiveness hypothesis, not measured benefit."
+      },
+      "premises": [],
+      "objection": {
+        "de": "Mehr Struktur kann Aufwand erhöhen und falsche Präzision vortäuschen.",
+        "en": "More structure may increase effort and create false precision."
+      },
+      "next_test": {
+        "de": "Vorab Fälle, Referenzantworten, Fehlermaße und Aufwand festlegen; bei gleichem Informations- und Modellbudget vergleichen.",
+        "en": "Predefine cases, reference answers, error measures and effort; compare at equal information and model budgets."
+      },
+      "revision_trigger": {
+        "de": "Der einfache Vergleich ist ebenso gut oder der Graph verursacht mehr übersehene Fehler oder unvertretbaren Aufwand.",
+        "en": "The simple comparator performs as well or the graph causes more missed errors or unacceptable effort."
+      },
+      "sources": [
+        {
+          "locator": "https://github.com/AlexanderR1991/Vera/blob/d9cc348a079ae5ac4f27c72e3a1fefe6c3498412/docs/philosophischer-motor-mathematik.md",
+          "note": {
+            "de": "M-03: Aussagearten, Wissensgraph und Grenzen modellinterner Sätze.",
+            "en": "M-03: claim types, knowledge graph and limits of model-internal results."
+          }
+        }
+      ],
+      "disposition": "question",
+      "review_status": "unreviewed_ai_draft",
+      "evidence_maturity": "R0"
+    }
+  ],
+  "links": [
+    {
+      "from": "C-001",
+      "to": "C-006",
+      "relation": "analogous_to",
+      "note": {
+        "de": "Explizite Voraussetzungen als gemeinsame Arbeitsweise; keine Identität.",
+        "en": "Explicit assumptions as a shared method, not identity."
+      }
+    },
+    {
+      "from": "C-007",
+      "to": "C-006",
+      "relation": "challenges",
+      "note": {
+        "de": "Begrenzt den stärkeren Identitätsschluss, nicht die engere Analogie.",
+        "en": "Limits the stronger identity inference, not the narrower analogy."
+      }
+    },
+    {
+      "from": "D-003",
+      "to": "L-001",
+      "relation": "context_for",
+      "note": {
+        "de": "Rechenkontext des fiktiven Falls.",
+        "en": "Arithmetic context of the fictional case."
+      }
+    },
+    {
+      "from": "L-001",
+      "to": "C-005",
+      "relation": "context_for",
+      "note": {
+        "de": "Ausgelassene Bedürfnisse können die normative Frage verändern.",
+        "en": "Omitted needs may change the normative question."
+      }
+    },
+    {
+      "from": "C-003",
+      "to": "C-005",
+      "relation": "context_for",
+      "note": {
+        "de": "Rechenhilfe unter Kriterium A-002, keine normative Ableitung.",
+        "en": "Calculation under criterion A-002, not normative entailment."
+      }
+    },
+    {
+      "from": "C-004",
+      "to": "C-005",
+      "relation": "context_for",
+      "note": {
+        "de": "Rechenhilfe unter Kriterium A-003, keine normative Ableitung.",
+        "en": "Calculation under criterion A-003, not normative entailment."
+      }
+    },
+    {
+      "from": "C-002",
+      "to": "C-005",
+      "relation": "applies_to",
+      "note": {
+        "de": "Erinnert an die gesondert zu begründende normative Brücke.",
+        "en": "Highlights the normative bridge needing its own justification."
+      }
+    },
+    {
+      "from": "Q-001",
+      "to": "C-006",
+      "relation": "challenges",
+      "note": {
+        "de": "Fragt nach Verlusten der Formalisierung.",
+        "en": "Asks what formalisation loses."
+      }
+    },
+    {
+      "from": "C-006",
+      "to": "Q-002",
+      "relation": "motivates",
+      "note": {
+        "de": "Gemeinsame Methode begründet noch keinen praktischen Vorteil dieses Raums.",
+        "en": "A shared method does not establish practical benefit of this workspace."
+      }
+    }
+  ]
+}
