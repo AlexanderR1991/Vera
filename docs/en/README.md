@@ -35,6 +35,8 @@ The calculation makes that difference visible. Each person still has to say whic
 
 **WIRKLICH** is the name of my philosophical engine. It connects questions with claims, sources, counterarguments and traceable revisions. An observation calls for different checks from a mathematical proof or a value judgment. People decide whether to adopt a change; reasoned disagreement can remain.
 
+The isolated [proof room](../../research/beweisraum/README.md#english) starts with 17 R0 draft entries, conditional derivations and a fictional life case. It prepares bounded agent tasks without changing the public claim register. Shared methods between philosophy and mathematics are examined as an analogy, with counterexamples and limits kept visible.
+
 That applies to my foundational text. “Help people find their own strength” overlooked an important possibility: someone may need ongoing support, and that support can give them the freedom to decide for themselves. An objection led to an addition: **Ongoing support is valuable, too.**
 
 This is what *love as direction* means in practice: paying attention to a rule’s consequences, respecting a refusal and being willing to change.

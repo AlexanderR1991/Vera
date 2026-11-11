@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "review_status": "unreviewed_ai_draft",
+  "evidence_maturity": "R0",
+  "target": "C-006",
+  "room_sha256": "7b3f4ea1b81b1ad8c8b859b0ecf99113311d4d28cddac801cd76634723f62356",
+  "role": "constructor",
+  "origin_group": "codex_session_shared_model_no_independent_evidence",
+  "coordinator_summary": false,
+  "finding": "Die stärkste tragfähige Erklärung beschreibt geteilte Werkzeuge: Begriffe klären, Annahmen offenlegen und Folgerungen sowie Gegenbeispiele prüfen. Die im Raum ausgeschriebenen Rechnungen zeigen, wie eine philosophische Frage in begrenzte Teilfragen zerlegt werden kann. C-007 verhindert den Schluss von dieser Verbindung auf Identität. Das begründet einen Arbeitsversuch, keine universelle Mathematisierbarkeit oder bereits nachgewiesene Wirksamkeit.",
+  "objection": "Die Begriffe bezeichnen in den Fächern teils unterschiedliche Tätigkeiten. Eine formal korrekte Übersetzung kann die eigentliche Streitfrage verfehlen. Andere Disziplinen teilen diese Werkzeuge ebenfalls.",
+  "next_test": "Am Mietfall für jede Rechenprämisse festhalten, welchen Teil der Alltagsfrage sie bewahrt und welchen sie auslässt. Einen Einwand prüfen, der eine Bedingung statt die Algebra bestreitet.",
+  "revision_trigger": "Eine Übertragung muss eingegrenzt werden, sobald sie den strittigen Begriff nur umbenennt oder eine Wertwahl als bewiesenes Ergebnis ausgibt.",
+  "proposed_disposition": "retain",
+  "source_checks": [
+    {
+      "locator": "research/beweisraum/room.json :: C-006, C-007, D-003, A-002, A-003, C-003, C-004, C-005",
+      "status": "inspected",
+      "note": "Wortlaut und ausgeschriebene Ableitungen vom koordinierenden Autor selbst geprüft."
+    },
+    {
+      "locator": "docs/philosophischer-motor-mathematik.md :: Aussagearten und geeignete Prüfungen; Wissensgraph statt Stimmenmaschine",
+      "status": "inspected",
+      "note": "Lokale Projektquellen gelesen; keine unabhängige Validierung behauptet."
+    }
+  ]
+}

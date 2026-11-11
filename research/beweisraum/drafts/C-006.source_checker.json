@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "review_status": "unreviewed_ai_draft",
+  "evidence_maturity": "R0",
+  "target": "C-006",
+  "room_sha256": "7b3f4ea1b81b1ad8c8b859b0ecf99113311d4d28cddac801cd76634723f62356",
+  "role": "source_checker",
+  "origin_group": "codex_session_shared_model_no_independent_evidence",
+  "coordinator_summary": true,
+  "finding": "Gelesene Originalbeispiele zeigen verwandte Arbeitstechniken: Platons Menon prüft Begriffe und zugestandene Prämissen; Euklid I.1 nennt Postulate, Definitionen und eine gemeinsame Annahme. Das sind begrenzte Beispiele, keine Belege der Identität beider Fächer oder der Überlegenheit jeder Formalisierung. M-03 und Grundlagen sind abhängige Projektquellen. Die historischen Quellen geben Kontext, beweisen C-006 jedoch nicht.",
+  "objection": "Auch andere Fächer teilen diese Werkzeuge. Die im Zielknoten aufgeführten Quellen sind bislang intern. Die zusätzlich gelesenen Originalbeispiele untersuchen nicht alle philosophischen Traditionen oder alle vier Werkzeuge systematisch. Die Beleglücke bleibt sichtbar.",
+  "next_test": "Für die vier genannten Werkzeuge eine Quellenmatrix mit genau benannten mathematischen und philosophischen Originalpassagen erstellen. Je Funktion, Voraussetzungen, Unterschiede und fehlende Belege ausweisen.",
+  "revision_trigger": "Die Analogie eingrenzen, wenn nur der Werkzeugname übereinstimmt oder die gemeinsame Praxis nur für ausdrücklich ausgewählte Argumenttypen belegt ist. Aussagen über Identität, universelle Formalisierbarkeit oder praktische Überlegenheit revidieren.",
+  "proposed_disposition": "retain",
+  "source_checks": [
+    {
+      "locator": "research/beweisraum/GRUNDLAGEN.md :: historische Einordnung; methodische Analogie; C-007",
+      "status": "inspected",
+      "note": "Selbst gelesen; interne Begründung, keine unabhängige Bestätigung."
+    },
+    {
+      "locator": "https://github.com/AlexanderR1991/Vera/blob/d9cc348a079ae5ac4f27c72e3a1fefe6c3498412/docs/philosophischer-motor-mathematik.md :: Zeilen 13–17, 34–44, 96–113",
+      "status": "inspected",
+      "note": "Exaktes Git-Objekt lokal mit git show selbst gelesen. Der Web-Blob war nicht abrufbar."
+    },
+    {
+      "locator": "https://classics.mit.edu/Plato/meno.html :: Tugenddefinition als Herrschaftsmacht; Gegenfall Kind/versklavte Person; zugestandene Prämissen",
+      "status": "inspected",
+      "note": "Primärtext in Jowetts Übersetzung selbst gelesen. Begrenztes Textbeispiel; historische Wertannahmen werden nicht übernommen."
+    },
+    {
+      "locator": "https://www.claymath.org/euclid_index/triangles-parallels-and-area/?chapter=0; ?chapter=1; ?chapter=3",
+      "status": "inspected",
+      "note": "Definitionen, Postulate und I.1 in englischer Originaltextübersetzung gelesen. I.1 nennt Postulate 1/3, Definition 15 und gemeinsame Annahme 1."
+    },
+    {
+      "locator": "https://www.metmuseum.org/art/collection/search/327385 :: Objektbeschreibung und Datierung",
+      "status": "inspected",
+      "note": "Selbst gelesen: Objekt etwa 3100–2900 v. Chr.; Einführung nennt früheste Tafeln wahrscheinlich um 3300 v. Chr. Kein Geburtsdatum mathematischen Denkens."
+    },
+    {
+      "locator": "https://www.claymath.org/library/historical/euclid/index.html :: Einleitung",
+      "status": "inspected",
+      "note": "Selbst gelesen: Elemente ungefähr 300 v. Chr.; erhaltene Abschrift von 888 n. Chr. getrennt."
+    },
+    {
+      "locator": "https://www.asut.unito.it/peano/cronologia.html :: 1889",
+      "status": "not_inspected",
+      "note": "Nur Suchindex-Auszug gelesen; direkter Volltextabruf HTTP 403. Originalabschnitt oder weitere institutionelle Quelle bleibt nachzuprüfen."
+    }
+  ]
+}
