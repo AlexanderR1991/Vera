@@ -1,21 +1,42 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-10T19:44:27+00:00",
+  "updated_at": "2026-11-11T06:23:11+00:00",
   "status": "automatic_discovery_not_fact_checked",
   "analysis": "metadata_only",
   "source": "Crossref + arXiv",
   "source_queries": {
-    "Crossref": 5,
+    "Crossref": 6,
     "arXiv": 3
   },
-  "source_queries_succeeded": 8,
-  "new_items": 0,
+  "source_queries_succeeded": 9,
+  "new_items": 2,
   "agents_enabled": false,
   "errors": [
-    "Crossref/liebe: HTTPError: HTTP Error 429: Too Many Requests",
-    "Crossref/ki: HTTPError: HTTP Error 429: Too Many Requests"
+    "Crossref/gesellschaft: HTTPError: HTTP Error 429: Too Many Requests"
   ],
   "items": [
+    {
+      "id": "arxiv:2611.14514v1",
+      "topic": "ki",
+      "title": "Contrastive Discovery: Open-Ended Scientific Discovery over Competing Explanations",
+      "date": "2026-11-10",
+      "authors": [
+        "Ziang Liu",
+        "James J. Kim",
+        "Yijia Dai",
+        "Jennifer J. Sun"
+      ],
+      "venue": "arXiv",
+      "url": "https://arxiv.org/abs/2611.14514v1",
+      "source": "arXiv bibliographic metadata",
+      "source_type": "repository_manuscript",
+      "peer_review": "not_verified",
+      "version": "1",
+      "related_doi": "",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
     {
       "id": "arxiv:2611.12871v1",
       "topic": "ki",
@@ -91,6 +112,29 @@
       "venue": "Proceeding Bali-Bhuwana Waskita: Global Art Creativity Conference",
       "url": "https://doi.org/10.31091/bbwp.v6i1.695",
       "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "arxiv:2611.12958v1",
+      "topic": "ki",
+      "title": "Embodied Science Agents: Making Embodied Experimental Design Learnable",
+      "date": "2026-11-07",
+      "authors": [
+        "Yihang Che",
+        "Zhongwei Yu",
+        "Yang Li",
+        "Xingyu Lu",
+        "Hongxia Yu"
+      ],
+      "venue": "arXiv",
+      "url": "https://arxiv.org/abs/2611.12958v1",
+      "source": "arXiv bibliographic metadata",
+      "source_type": "repository_manuscript",
+      "peer_review": "not_verified",
+      "version": "1",
+      "related_doi": "",
       "status": "unreviewed",
       "source_examined": "metadata_only",
       "agent_notes": {}
