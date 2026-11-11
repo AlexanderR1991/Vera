@@ -35,6 +35,8 @@ The calculation makes that difference visible. Each person still has to say whic
 
 **WIRKLICH** is the name of my philosophical engine. It connects questions with claims, sources, counterarguments and traceable revisions. An observation calls for different checks from a mathematical proof or a value judgment. People decide whether to adopt a change; reasoned disagreement can remain.
 
+For disputes within the repository, a [proposed procedure](../community-governance.md#konflikte-im-repository--repository-conflicts) describes how to distinguish factual questions, shared decisions and harmful interventions. Founders and maintainers must remain open to scrutiny, too. Adoption of the proposal follows the project rules already in force.
+
 That applies to my foundational text. “Help people find their own strength” overlooked an important possibility: someone may need ongoing support, and that support can give them the freedom to decide for themselves. An objection led to an addition: **Ongoing support is valuable, too.**
 
 This is what *love as direction* means in practice: paying attention to a rule’s consequences, respecting a refusal and being willing to change.

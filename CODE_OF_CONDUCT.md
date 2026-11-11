@@ -18,6 +18,12 @@ Vier mögliche Entscheidungen: **öffentlich stehen lassen – mit Kontext verse
 
 **English:** Offense, an unpopular viewpoint or criticism of Vera is not itself grounds for removal. Protect people from credible threats, targeted harassment, violations of privacy and unlawful content with the least restrictive effective response. Contextualize when sufficient; restrict pending human review when urgent; stop public distribution when required. Do not publicly repeat harmful material just to preserve a record. See the [challengeable REDE-01 proposal](docs/redefreiheit-und-schutz.md). No dedicated private reporting service is in operation yet.
 
+## Konflikte im Repository / Repository conflicts
+
+Der [Verfahrensentwurf für Repo-Konflikte](docs/community-governance.md#konflikte-im-repository--repository-conflicts) schützt auch scharfe Kritik am Projekt, Gründer und Maintainer. Vermutungen über ein verletztes Ego oder eine Zerstörungsabsicht reichen für Sanktionen nicht aus. Maßgeblich sind nachvollziehbare Handlungen und konkrete Risiken, etwa unerlaubtes Löschen oder Umgehen von Freigaben. Schutzmaßnahmen sollen wirksam, verhältnismäßig, datensparsam begründet und überprüfbar sein. Seine Annahme folgt den geltenden Regeln; der Entwurf richtet keine unabhängige Beschwerdestelle ein.
+
+The [repository-conflict proposal](docs/community-governance.md#konflikte-im-repository--repository-conflicts) protects sharp criticism of the project, founder and maintainers. Suspicions about wounded pride or an intent to destroy are insufficient grounds for sanctions. Assess documented conduct and concrete risks, such as unauthorized deletion or bypassing approvals. Protective measures should be effective, proportionate, explained with minimal personal data and open to review. Adoption follows existing rules; the proposal does not establish an independent complaints service.
+
 ## Schnittmengen im tiefen Streit / Common ground in deep conflict
 
 Unser Ziel ist, auch zwischen Menschen mit starker gegenseitiger Ablehnung freiwillige, konkrete Vereinbarungen zu ermöglichen. Eine Gemeinsamkeit wird nur nach ausdrücklicher Bestätigung aller Beteiligten so bezeichnet. Ein Vorschlag, Schweigen und KI-Ausgaben ersetzen keine Zustimmung.

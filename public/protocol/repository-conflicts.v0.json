@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "protocol_version": "0.1.0",
+  "status": "normative_proposal",
+  "date": "2026-11-11",
+  "source": "https://github.com/AlexanderR1991/Vera/blob/main/docs/community-governance.md#konflikte-im-repository--repository-conflicts",
+  "operational_authority": false,
+  "purpose": {
+    "de": "Interne Konflikte prüfbar bearbeiten und die Korrekturfähigkeit auch gegenüber Gründern und Maintainerentscheidungen erhalten.",
+    "en": "Examine internal disputes and preserve the capacity for correction, including challenges to founders and maintainer decisions."
+  },
+  "adoption": {
+    "de": "Annahme nach geltendem Governance-Verfahren. Gemeinsame Grundsatzentscheidungen und erforderliche Einwilligung werden nicht durch diesen Entwurf ersetzt.",
+    "en": "Adoption follows the governance procedure in force. This proposal replaces neither shared fundamental decisions nor required consent."
+  },
+  "conflict_kinds": ["substantive_claim", "goal_or_process", "conduct_or_access"],
+  "review": {
+    "de": "Vor dem Vergleich Frage, Fassung, Geltungsbereich, Kriterien, Revisionsbedingung, Alternativen und Zuständigkeit dokumentieren. Bei geänderten Kriterien Alternativen erneut prüfen. Einwände einzeln beantworten und Dissens erhalten.",
+    "en": "Before comparison, record the question, revision, scope, criteria, revision condition, alternatives and authority. Reassess alternatives if criteria change. Answer objections individually and preserve dissent."
+  },
+  "record_fields": [
+    "source_revision", "conflict_kind", "question", "scope", "criteria_revision",
+    "revision_condition", "alternatives", "governing_procedure",
+    "objection_responses", "decision", "reason", "remaining_dissent",
+    "accountable_human", "reopening_or_appeal_route"
+  ],
+  "decision_options": ["retain", "narrow", "correct", "withdraw", "open"],
+  "deadlock": {
+    "de": "Ein beantworteter Einwand bleibt nachvollziehbar. Neue Belege, übergangene Punkte und Verfahrensfehler können Wiederprüfung begründen. Schweigen, Abwesenheit und Fristablauf schaffen keine erforderliche Zustimmung; fehlende gemeinsame Grundsatzverfahren bleiben offen.",
+    "en": "Keep answered objections traceable. New evidence, overlooked points and procedural errors can justify reconsideration. Silence, absence and deadlines supply no required consent; missing shared fundamental procedures remain open."
+  },
+  "quorum_model": {
+    "status": "threshold_analysis_only",
+    "module": "src/lib/repository-quorum.mjs",
+    "probe": "scripts/probe-repository-quorum.mjs",
+    "assumptions": {
+      "de": "n unabhängig entscheidende menschliche Berechtigte, höchstens f fehlerhaft, q verschiedene Zustimmungen zum selben versionierten Vorschlag, verlässliche Zuordnung und technisch durchgesetzte Rechte. Diese Voraussetzungen werden hier nicht geprüft.",
+      "en": "n independently deciding authorized humans, at most f faulty, q distinct endorsements of the same versioned proposal, reliable attribution and enforced permissions. Those assumptions are not verified here."
+    },
+    "bounds": {
+      "faulty_alone_cannot_approve": "f < q",
+      "others_can_approve_without_faulty": "q <= n - f",
+      "quorums_share_nonfaulty": "2*q > n + f"
+    },
+    "examples": [
+      {"n": 3, "f": 1, "q": 2, "faulty_alone_cannot_approve": true, "others_can_approve_without_faulty": true, "quorums_share_nonfaulty": false},
+      {"n": 4, "f": 1, "q": 3, "faulty_alone_cannot_approve": true, "others_can_approve_without_faulty": true, "quorums_share_nonfaulty": true}
+    ],
+    "limitations": {
+      "de": "Keine Authentifizierung, echte Stimmenauswertung, Merge-Freigabe, Wahrheitsbewertung, R0–R4-Prüfung oder vollständiges Konsensprotokoll. KI-Ausgaben zählen nicht als unabhängige menschliche Prüfung.",
+      "en": "No authentication, actual vote tally, merge authorization, truth assessment, R0–R4 review or complete consensus protocol. AI outputs do not count as independent human review."
+    }
+  },
+  "amendment": {
+    "de": "Die dokumentierte menschliche Annahme nach den geltenden Regeln entscheidet über die neue Fassung. Ein Entwurf erleichtert seine eigene Annahme nicht und erzeugt keine neuen Rechte.",
+    "en": "Documented human adoption under the rules in force determines the new revision. A proposal cannot relax its own adoption conditions or create new authority."
+  },
+  "protection": {
+    "de": "Maßnahmen nach beobachtbaren Handlungen und konkreten Risiken, nicht nach vermutetem Ego oder bloßem Widerspruch. Befugnis, Umfang, Überprüfung, Befangenheit und Einspruch dokumentieren; bestehende unabhängige Prüfwege nicht vortäuschen.",
+    "en": "Base measures on observable acts and concrete risk, not suspected ego or mere disagreement. Record authority, scope, review, conflicts and appeal; do not invent independent review arrangements."
+  },
+  "references": [
+    "docs/community-governance.md", "docs/selbstkorrektur.md",
+    "docs/redefreiheit-und-schutz.md", "docs/erhalt-01.md",
+    "docs/vera-wiederherstellung.md"
+  ]
+}

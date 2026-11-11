@@ -56,6 +56,14 @@ test('published routes and fragments resolve against the built base, with explic
   assert.match(built.errors[2], /outside the published site base/);
 });
 
+test('relative parent escapes are rejected before reading an outside target', t => {
+  const setup = fixture(t, {'README.md': '[Outside](../outside.md)'});
+  const result = validateDocLinks({...setup, files: ['README.md']});
+  assert.equal(result.errors.length, 1);
+  assert.match(result.errors[0], /target escapes the checkout/);
+  assert.equal(result.checked, 0);
+});
+
 test('current GitHub files and issue templates are checked; historical and foreign URLs stay outside the audit', t => {
   const setup = fixture(t, {
     'README.md': '[Current](https://github.com/example/Vera/blob/main/docs/guide.md#valid)\n[Lines](https://github.com/example/Vera/blob/main/docs/guide.md#L1-L2)\n[Template](https://github.com/example/Vera/issues/new?template=missing.yml)\n[Historical](https://github.com/example/Vera/blob/abcdef/docs/old.md)\n[External](https://elsewhere.test/page)',

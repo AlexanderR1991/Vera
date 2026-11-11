@@ -46,6 +46,7 @@ export function rulePack(lang) {
   const sourceFiles = [
     "docs/grundtext.md",
     "docs/selbstkorrektur.md",
+    "docs/community-governance.md",
     ...(en ? ["src/i18n/shared.en.json"] : []),
     "docs/methode.md",
     "docs/ki-charta.md",

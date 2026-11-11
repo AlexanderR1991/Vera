@@ -44,6 +44,18 @@ Die folgenden Punkte sind **eine Checkliste, keine Behauptung bereits aktivierte
 - [ ] Wiederherstellung regelmäßig praktisch testen und dokumentieren; keine Behauptung „gesichert“, solange der Test fehlt.
 - [ ] Schreibrechte und Automation-Token auf das notwendige Minimum beschränken und kritische Änderungen protokollieren.
 
+### Teilprüfung vom 11. November 2026 / Partial check on 11 November 2026
+
+Das über die GitHub-Verbindung lesbare [aktive Ruleset 26677571](https://github.com/AlexanderR1991/Vera/rules/26677571) gilt für den Standardbranch und enthält Schutz gegen Löschung sowie nicht-fast-forward Änderungen. Im ausgelesenen Ruleset stehen keine verpflichtenden PR-Reviews oder Statusprüfungen; Ausnahmen sind dort nicht eingetragen. Der separate Endpunkt für klassischen Branch-Schutz war mit dieser Verbindung nicht lesbar (403). Das ist eine Teilprüfung, kein Nachweis aller möglichen Schutzkonfigurationen. Unabhängige Backups und ihre Wiederherstellung wurden dabei nicht überprüft. Einstellungen wurden nicht verändert.
+
+The [active ruleset 26677571](https://github.com/AlexanderR1991/Vera/rules/26677571), readable through the GitHub connection, applies to the default branch and prevents deletion and non-fast-forward changes. The retrieved ruleset lists no required PR reviews or status checks and no bypass actors. This connection could not read the separate classic branch-protection endpoint (403). This is a partial inspection, not verification of every possible protection setting. Independent backups and restoration were not checked. No settings were changed.
+
+### Schutz während eines Konflikts / Protection during a dispute
+
+Nach dem [Konfliktentwurf](community-governance.md#konflikte-im-repository--repository-conflicts) wird ein Eingriff anhand beobachtbarer Handlungen und konkreter Risiken beurteilt. Ein scharfer Einwand oder vermutetes Ego rechtfertigt keinen Rechteentzug. Befugte Menschen begrenzen nötige Schutzmaßnahmen nach Umfang und benanntem Überprüfungszeitpunkt, dokumentieren mögliche Befangenheit und halten einen Einspruchsweg offen. Vorhandene Zugriffsrechte erteilen keine Befugnis, gemeinsame Grundsatzentscheidungen zu umgehen. Ein Konflikt schafft weder einen Auftrag zur heimlichen Sicherung noch zur unbegrenzten Speicherung privater Daten. Die Annahme dieser Ergänzung folgt der geltenden Governance.
+
+Under the [conflict proposal](community-governance.md#konflikte-im-repository--repository-conflicts), assess interventions by observable acts and concrete risks. Harsh objections or suspected ego do not justify revoking rights. Authorized humans limit necessary measures in scope and specify a review point, disclose possible conflicts and preserve a route to appeal. Existing access rights do not authorize bypassing shared fundamental decisions. A conflict creates no instruction to make secret backups or retain private data indefinitely. Adoption follows existing governance.
+
 ## 5. Gegenproben / Challenge cases
 
 | Fall / Case | Erwartetes Verhalten / Expected response |

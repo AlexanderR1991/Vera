@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "protocol_version": "0.1.0",
+  "protocol_version": "0.1.1",
   "status": "editorial_normative_draft",
   "principle_id": "META-01",
-  "date": "2026-11-07",
+  "date": "2026-11-11",
   "motto": {
     "de": "Wir bauen kein System, das recht behalten soll. Wir bauen ein System, das aus seinen Irrtümern lernen muss.",
     "en": "We are not building a system to be right. We are building a system that must learn from its mistakes."
@@ -223,6 +223,15 @@
     "human_responsible",
     "date"
   ],
+  "conflict_review": {
+    "status": "normative_proposal",
+    "source": "https://github.com/AlexanderR1991/Vera/blob/main/docs/community-governance.md#konflikte-im-repository--repository-conflicts",
+    "protocol": "public/protocol/repository-conflicts.v0.json",
+    "scope": {
+      "de": "Sachfragen, Ziele und Verhalten getrennt prüfen; Kriterien vor dem Vergleich dokumentieren und geänderte Maßstäbe erneut anwenden. Antworten, Dissens und Wiederaufnahme erhalten. Quoren ersetzen keine gemeinsame Grundsatzentscheidung oder Einwilligung; Annahme nach geltenden Regeln.",
+      "en": "Separate substantive claims, goals and conduct; record criteria before comparison and reassess changed criteria. Preserve responses, dissent and reopening. Quorums replace neither shared fundamental decisions nor consent; adoption follows the rules in force."
+    }
+  },
   "limitations": {
     "de": "Normativer Verfahrensentwurf, keine bewiesene Erkenntnismaschine. Ein Review, eine Einigung oder eine KI-Antwort beweist keine Wahrheit. Veröffentlichungen und Regeländerungen benötigen menschliche Verantwortung.",
     "en": "Normative process draft, not a validated truth engine. Review, agreement or AI output do not prove truth. Publication and rule changes require accountable human decisions."
