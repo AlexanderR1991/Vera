@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/SiteLayout.astro";
 import ForumSectionLink from "./ForumSectionLink.astro";
+import ForumMirrorExamples from "./ForumMirrorExamples.astro";
 import {pathFor} from "../lib/paths.mjs";
 import {ui} from "../lib/ui.mjs";
 import project from "../../public/project.json" with {type: "json"};
@@ -9,8 +10,8 @@ const {lang = "de"} = Astro.props;
 const de = lang === "de";
 const t = (german: string, english: string) => de ? german : english;
 const description = t(
-  "Ein Entwurf für Foren. Verfolge anhand eines fiktiven Threads, wo ein Streit weiterkommt und welche Fragen offenbleiben.",
-  "A proposal for forums. Follow a fictional thread to see where a dispute makes progress and which questions remain open."
+  "Zwei fiktive Foren zeigen, wie Vera Positionen sortieren, Lösungen vorschlagen und Kompromisse mit den Beteiligten prüfbar machen könnte.",
+  "Two fictional forums show how Vera could map positions, suggest solutions and help people examine compromises."
 );
 
 const branches = [
@@ -80,21 +81,36 @@ const replyCount = branches.reduce((total, branch) => total + branch.replies.len
       <p class="section-kicker">{t("Offene Schnittstellen · Entwurf", "Open interfaces · Proposal")}</p>
       <h1>{ui[lang].titles.gespraechsspiegel}</h1>
       <p class="mirror-lead">{t(
-        "Ein optionales Feld über einem Forenthread zeigt, worüber ihr gerade streitet, wo ihr euch näherkommt und welche Frage noch offen ist. Jede Einschätzung führt zurück zu den Beiträgen.",
-        "An optional panel above a forum thread shows what you’re debating, where you’re finding common ground and what remains open. Every observation links back to the replies."
+        "Mitten im Forum. Über eurem Gespräch. Vera hält Positionen fair fest und schlägt vor, was funktionieren könnte. Ihr prüft die Gründe, ändert den Vorschlag und entscheidet selbst.",
+        "Right in the forum. Above your conversation. Vera records positions fairly and suggests what could work. You examine the reasons, change the proposal and decide for yourselves."
       )}</p>
       <p class="mirror-note">{t(
-        "Unten kannst du einen erfundenen Thread durchgehen. Die Vorschau verwendet vorbereitete Texte. Eine Einbindung in Reddit oder andere Foren ist eine Idee für einen späteren Pilotversuch.",
-        "Explore a fictional thread below. The preview uses prepared text. Embedding it in Reddit or other forums is an idea for a future pilot."
+        "Zwei erfundene Foren mit vorbereiteten Vorschlägen. Du kannst Beispielantworten lokal ausprobieren. Live-Analyse und die Einbindung in echte Foren sind Ideen für einen späteren Pilotversuch.",
+        "Two fictional forums with prepared proposals. You can try example responses locally. Live analysis and embedding in real forums are ideas for a future pilot."
       )}</p>
     </header>
 
+    <ForumMirrorExamples lang={lang} />
+
+    <section class="mirror-section" id="loesungswege" aria-labelledby="solution-paths-title">
+      <p class="section-kicker">{t("Vom Verstehen zum Vorschlag", "From understanding to a proposal")}</p>
+      <h2 id="solution-paths-title">{t("Es gibt mehr als die Mitte zwischen A und B.", "There is more than a midpoint between A and B.")}</h2>
+      <div class="solution-paths">
+        <div><h3>{t("Gemeinsame Lösung", "Joint solution")}</h3><p>{t("Eine dritte Möglichkeit könnte mehrere Anliegen zugleich erfüllen. Ob sie das wirklich tut, müssen die Betroffenen prüfen.", "A third approach could meet several needs at once. The people affected need to check whether it really does.")}</p></div>
+        <div><h3>{t("Kompromiss", "Compromise")}</h3><p>{t("Jemand gibt etwas nach. Sichtbar bleibt, wer welchen Nachteil oder Aufwand trägt und ob diese Person ihn freiwillig mittragen möchte.", "Someone gives something up. The costs and disadvantages stay visible, along with whether the person bearing them would accept them voluntarily.")}</p></div>
+        <div><h3>{t("Kleiner Versuch", "Small trial")}</h3><p>{t("Bei unklaren Folgen hilft ein begrenzter, umkehrbarer Schritt mit einer konkreten Prüfung und Bedingungen zum Ändern oder Stoppen.", "When effects are uncertain, a limited, reversible step can help, with a specific check and conditions for changing or stopping it.")}</p></div>
+      </div>
+      <p>{t("Eine Sachfrage braucht Belege. Ein Wertkonflikt braucht nachvollziehbare Abwägung. Eine Einigung entsteht erst durch ausdrückliche Antworten der Betroffenen zur selben Fassung. Eine offene Frage oder ein begründetes Nein darf bestehen bleiben.", "A factual question needs evidence. A value conflict needs reasons and trade-offs. Agreement requires explicit responses from those affected to the same wording. A question can remain open, and a reasoned no can stand.")}</p>
+    </section>
+
+    <details class="mirror-depth">
+      <summary>{t("Genauer hinsehen: einzelne Gesprächsäste und ihre Belege", "Take a closer look: individual branches and their sources")}</summary>
     <section class="mirror-panel" id="beispiel" aria-labelledby="mirror-example-title">
-      <p class="section-kicker">{t("Vorschau · fiktiver Thread", "Preview · fictional thread")}</p>
+      <p class="section-kicker">{t("Vertiefung · ein weiterer fiktiver Thread", "A closer look · another fictional thread")}</p>
       <h2 id="mirror-example-title">{t("Soll die Innenstadt autofrei werden?", "Should the city centre go car-free?")}</h2>
       <p class="mirror-note">{t(
-        `Grundlage: alle ${replyCount} Antworten dieses Beispiels. Öffne einen Gesprächsast und prüfe seine Fundstellen.`,
-        `Scope: all ${replyCount} replies in this example. Open a branch and check the replies behind it.`
+        `Dieser separate Beispielthread enthält ${replyCount} Antworten. Öffne einen Gesprächsast und prüfe seine Fundstellen.`,
+        `This separate example thread contains ${replyCount} replies. Open a branch and check the replies behind it.`
       )}</p>
       <div class="mirror-branches">
         {branches.map(branch => (
@@ -130,6 +146,8 @@ const replyCount = branches.reduce((total, branch) => total + branch.replies.len
       </div>
     </section>
 
+    </details>
+
     <section class="mirror-section" id="spiegel-korrigieren" aria-labelledby="mirror-design-title">
       <h2 id="mirror-design-title">{t("Wer entscheidet, was weiterhilft?", "Who decides what counts as progress?")}</h2>
       <p>{t(
@@ -137,8 +155,8 @@ const replyCount = branches.reduce((total, branch) => total + branch.replies.len
         "Someone sharing an experience may feel heard after a thoughtful reply. Someone checking a claim needs evidence or a way to test it. People trying to decide together need a specific proposal and explicit responses to it."
       )}</p>
       <p>{t(
-        "Im Entwurf soll der philosophische Motor diese Veränderungen für jeden Ast getrennt verfolgen. Er kann wiederholte Argumente bündeln und zeigt, wenn ihm Teile des Threads fehlen. Menschen können eine Deutung anhand der Fundstellen korrigieren und selbst entscheiden, ob sie eine vorgeschlagene Frage aufgreifen.",
-        "In the proposal, the philosophical engine would track these changes separately for each branch. It could group repeated arguments and show where parts of the thread are missing. People can use the original replies to challenge an interpretation and decide for themselves whether to pick up a suggested question."
+        "Im Entwurf soll der philosophische Motor diese Veränderungen für jeden Ast getrennt verfolgen. Er kann wiederholte Argumente bündeln und Lösungsvorschläge mit ihren Gründen, offenen Einwänden und Prüfbedingungen zeigen. Menschen können die Deutung korrigieren, eine Alternative vorschlagen, ablehnen oder pausieren. Die Rollendemo oben erfasst keine echten Zustimmungen und ersetzt keine Entscheidung der betroffenen Menschen oder der verantwortlichen Community.",
+        "In the proposal, the philosophical engine would track changes separately for each branch. It could group repeated arguments and show solution proposals with their reasons, unresolved objections and conditions for checking them. People can challenge an interpretation, suggest an alternative, decline or pause. The role demo above records no real agreement and does not replace decisions by the people affected or the responsible community."
       )}</p>
       <p><a class="subtle-link" href={project.repository + "/blob/main/docs/gespraechsspiegel.md"}>{t("Modell und Pilotentwurf auf GitHub lesen", "Read the model and pilot proposal on GitHub (German)")} <span aria-hidden="true">↗</span></a></p>
       <ForumSectionLink lang={lang} place="gespraechsspiegel" section="spiegel-korrigieren" />
@@ -155,6 +173,11 @@ const replyCount = branches.reduce((total, branch) => total + branch.replies.len
   p { max-width: 69ch; }
   .mirror-lead { color: var(--text); font: clamp(1.15rem, 3vw, 1.55rem)/1.45 var(--serif); }
   .mirror-note { color: var(--text-soft); font-size: .9rem; }
+  .mirror-depth { margin-top: 3rem; border-block: 1px solid var(--line); padding-block: .4rem; }
+  .mirror-depth > summary { cursor: pointer; min-height: 44px; padding-block: .65rem; font-size: .9rem; font-weight: 600; }
+  .mirror-depth[open] { padding-bottom: 1.3rem; }
+  .mirror-depth .mirror-panel { margin-top: .8rem; }
+  .mirror-page summary:focus-visible { outline: 2px solid #385f4c; outline-offset: 4px; }
   .mirror-panel { padding: clamp(1rem, 4vw, 2.35rem); border: 1px solid var(--line); border-radius: 4px; }
   .mirror-branches { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .65rem; margin-block: 1.1rem; align-items: start; }
   .mirror-branches details { border: 1px solid var(--line); border-radius: 3px; padding-inline: .85rem; }
@@ -165,10 +188,13 @@ const replyCount = branches.reduce((total, branch) => total + branch.replies.len
   .mirror-next { margin-block: 1.2rem .85rem; padding-inline-start: .8rem; border-inline-start: 2px solid var(--line); }
   .mirror-next strong { display: block; }
   .mirror-section { margin-block-start: 2.4rem; padding-block-start: 1.2rem; border-block-start: 1px solid var(--line); }
+  .solution-paths { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; margin-block: 1.4rem; }
+  .solution-paths h3 { font-size: 1rem; font-weight: 600; }
+  .solution-paths p { font-size: .85rem; line-height: 1.6; margin: .5rem 0 0; }
   .mirror-replies > section + section { margin-block-start: 1.35rem; }
   .mirror-replies ol { max-width: 68ch; margin-block: .5rem 0; padding-inline-start: 1.5rem; }
   .mirror-replies li + li { margin-block-start: .4rem; }
   .mirror-replies li strong { margin-inline-end: .3em; }
   .mirror-page [id] { scroll-margin-top: 6rem; }
-  @media (max-width: 39rem) { .mirror-branches { grid-template-columns: minmax(0, 1fr); } }
+  @media (max-width: 39rem) { .mirror-branches, .solution-paths { grid-template-columns: minmax(0, 1fr); } }
 </style>

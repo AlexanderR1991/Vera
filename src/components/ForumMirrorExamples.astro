@@ -1,0 +1,222 @@
+---
+import ConversationProposal from "./ConversationProposal.astro";
+const {lang = "de"} = Astro.props;
+const de = lang === "de";
+const t = (german: string, english: string) => de ? german : english;
+const examples = [
+  {
+    id: "positionen", number: "01", tone: "sage", forum: "stadtgespräch", initials: "sg",
+    category: t("Stadt & Mobilität", "City & mobility"),
+    heading: t("Zwei Positionen. Beide kommen vor.", "Two positions. Both get heard."),
+    intro: t("Vera hält die Anliegen nebeneinander fest. So wird sichtbar, worauf ein Vorschlag antworten müsste.", "Vera sets the concerns alongside each other, showing what a proposal would need to address."),
+    title: t("Soll unser Marktplatz autofrei werden?", "Should our market square go car-free?"),
+    status: t("Anliegen sortiert · Entscheidung offen", "Concerns mapped · decision open"),
+    reading: t("Mehr Platz und notwendiger Zugang: Hier stehen zwei Anliegen, die ein Vorschlag berücksichtigen muss.", "More space and necessary access: a proposal needs to address both concerns."),
+    positions: [
+      {letter: "A", name: "Mara", post: 1, title: t("Mehr Raum für Menschen", "More room for people"), text: t("Weniger Autos, mehr Platz zum Gehen und Verweilen.", "Fewer cars, more space to walk and spend time.")},
+      {letter: "B", name: "Sam", post: 2, title: t("Lieferungen ermöglichen", "Keep deliveries possible"), text: t("Der Laden braucht morgens eine verlässliche Zufahrt.", "The shop needs reliable vehicle access in the morning.")}
+    ],
+    finding: t("Ein Lieferfenster ist vorgeschlagen. Zugesagt hat noch niemand. Aris Einwand zum stufenfreien Zugang bleibt offen.", "A delivery window has been proposed. Nobody has agreed yet. Ari’s concern about step-free access remains open."),
+    proposal: {
+      kind: t("Kompromiss · als kleinen Versuch prüfen", "Compromise · test in a small trial"),
+      text: t("Den Marktplatz sechs Wochen überwiegend autofrei testen. Lieferungen bleiben von 7 bis 10 Uhr möglich. Der Versuch beginnt erst mit einem von den Betroffenen geprüften stufenfreien Zugang. Vorher und währenddessen werden Verkehr und Zugänglichkeit verglichen; bei schlechterem Zugang wird pausiert.", "Try a mostly car-free market square for six weeks, allowing deliveries from 7 to 10 a.m. The trial begins only once the people affected have checked a step-free route. Compare traffic and accessibility before and during the trial; pause if access gets worse."),
+      benefit: t("Maras Wunsch nach mehr Aufenthaltsraum, Sams Lieferzugang und Aris Bedarf an einem stufenfreien Weg werden gemeinsam aufgegriffen.", "The proposal addresses Mara’s wish for more public space, Sam’s delivery access and Ari’s need for a step-free route together."),
+      cost: t("Mara müsste morgens Fahrzeuge dulden, Sam Lieferzeiten begrenzen. Ein stufenfreier Weg kann Aufwand verursachen; wer ihn tragen würde, ist ungeklärt.", "Mara would accept vehicles in the morning; Sam would limit delivery hours. Providing a step-free route may take work and resources; who would bear that cost is unresolved."),
+      open: t("Ob der Zugang so umsetzbar ist und wer den Aufwand trägt. Die drei haben diesem Gesamtvorschlag noch nicht zugestimmt; weitere Betroffene können fehlen.", "Whether the route is feasible and who would bear the cost. The three have not agreed to this full proposal; other affected people may be missing."),
+      check: t("Vor Beginn die Route mit Betroffenen prüfen. Verkehr zu vergleichbaren Zeiten zählen und Erfahrungen zum Zugang vor und während des Versuchs festhalten.", "Check the route with the people affected before starting. Count traffic at comparable times and record experiences of access before and during the trial."),
+      stop: t("Bei schlechterer Zugänglichkeit pausieren. Übersehene Nachteile oder neue Einwände prüfen, bevor eine geänderte Fassung erneut zur Zustimmung vorgelegt wird.", "Pause if accessibility gets worse. Review overlooked disadvantages or new objections before presenting revised wording for agreement."),
+      alternative: t("Zuerst gemeinsam eine stufenfreie Verbindung planen und ihre Umsetzbarkeit prüfen. Bis diese Frage geklärt ist, keine Probesperrung beginnen. Danach Lieferzeiten und einen begrenzten Versuch neu besprechen.", "First plan a step-free route together and check its feasibility. Do not start a trial closure until that question is resolved. Then revisit delivery hours and a limited trial."),
+      roles: [{id: "mara", name: "Mara"}, {id: "sam", name: "Sam"}, {id: "ari", name: "Ari"}]
+    },
+    posts: [
+      {name: "Mara", letter: "A", text: t("Ich möchte weniger Autos auf dem Platz. Dann wäre dort mehr Raum zum Gehen und Verweilen.", "I want fewer cars on the square. That would leave more room to walk and spend time.")},
+      {name: "Sam", letter: "B", text: t("Mein Laden braucht morgens Lieferungen. Ohne Zufahrt ist der Vorschlag für mich nicht tragbar.", "My shop needs morning deliveries. Without vehicle access, I cannot support this proposal.")},
+      {name: "Mara", letter: "A", text: t("Könnten wir sechs Wochen lang ein Lieferfenster von 7 bis 10 Uhr testen?", "Could we test a 7–10 a.m. delivery window for six weeks?")},
+      {name: "Ari", letter: "C", text: t("Dem Laden könnte das helfen. Ich komme mit meinem Rollstuhl von der Haltestelle aber nur über Stufen zum Platz. Dieses Problem löst das Lieferfenster für mich noch nicht.", "That might help the shop. But the route from the stop to the square has steps, and I use a wheelchair. The delivery window does not solve that problem for me.")}
+    ]
+  },
+  {
+    id: "sackgasse", number: "02", tone: "ochre", forum: "lernraum", initials: "lr",
+    category: t("Schule & KI", "School & AI"),
+    heading: t("Wenn sich ein Streit im Kreis dreht.", "When a debate goes in circles."),
+    intro: t("Manchmal braucht es eine andere Frage. Vera zeigt, was sich im Ausschnitt wiederholt, und bietet einen möglichen Ausweg an.", "Sometimes a different question helps. Vera shows what repeats in the excerpt and offers a possible way forward."),
+    title: t("Sollten wir KI für Hausaufgaben nutzen?", "Should we use AI for homework?"),
+    status: t("In diesem Ausschnitt: Wiederholung", "In this excerpt: repetition"),
+    reading: t("Die letzten beiden Antworten wiederholen die Ausgangspositionen. Eine konkrete Aufgabe, an der beide ihre Sicht prüfen, fehlt bisher.", "The last two replies repeat the opening positions. There is no specific task yet on which both could test their views."),
+    positions: [
+      {letter: "A", name: "Lena", post: 1, title: t("Beim Verstehen helfen", "Help with understanding"), text: t("Lena berichtet, mit Erklärungen der KI besser weiterzukommen.", "Lena reports making more progress with AI explanations.")},
+      {letter: "B", name: "Tom", post: 2, title: t("Eigenes Lernen erhalten", "Keep learning independent"), text: t("Tom berichtet von kopierten Antworten bei einer Gruppenaufgabe.", "Tom reports copied answers in a group assignment.")}
+    ],
+    finding: t("Beide schildern Erfahrungen. Ob sie auf dieselbe Nutzung von KI schauen, bleibt offen.", "Both describe experiences. Whether they mean the same use of AI remains open."),
+    proposal: {
+      kind: t("Kleiner Versuch · gemeinsam prüfen", "Small trial · check together"),
+      text: t("Wählt freiwillig eine konkrete Matheaufgabe. Eine KI darf einen Lösungsweg erklären; anschließend erklärt jede Person den Weg ohne KI in eigenen Worten. Haltet fest, was verständlicher wurde und wo bloßes Übernehmen passiert. Danach entscheidet ihr, ob ein weiterer Versuch sinnvoll ist.", "Voluntarily choose one specific maths task. AI may explain a solution; afterwards, each person explains the reasoning in their own words without AI. Record what became clearer and where answers were merely copied. Then decide whether another trial is worth trying."),
+      benefit: t("Lenas Erfahrung mit hilfreichen Erklärungen und Toms Sorge um selbstständiges Verstehen bekommen einen gemeinsamen Prüfpunkt.", "Lena’s experience of helpful explanations and Tom’s concern about independent understanding get a shared point to examine."),
+      cost: t("Der Versuch kostet Zeit. Für Tom kann es nach zusätzlicher Kontrolle aussehen; für Lena kann das Erklären Druck erzeugen. Beide dürfen ablehnen.", "The trial takes time. Tom may experience it as extra checking; explaining may put Lena under pressure. Both can decline."),
+      open: t("Eine einzelne Aufgabe klärt weder die allgemeine Lernwirkung noch die Frage, welche Regeln die Schule festlegen sollte.", "A single task establishes neither the general effect on learning nor which rules the school should adopt."),
+      check: t("Vorher gemeinsam benennen, was als Verstehen zählt. Danach prüfen, ob der Lösungsweg eigenständig erklärt werden kann, und beide Erfahrungen festhalten.", "Agree beforehand on what understanding means for this task. Afterwards check whether the reasoning can be explained independently, recording both experiences."),
+      stop: t("Bei Druck, Unwohlsein oder einem schlechteren Verlauf pausieren. Eine neue Aufgabe oder andere Methode braucht eine neue freiwillige Absprache.", "Pause if anyone feels pressured, uncomfortable or worse off. A new task or method needs a fresh voluntary agreement."),
+      alternative: t("Ohne neuen KI-Versuch beginnen: Lena und Tom bringen je eine vorhandene Aufgabe mit. Gemeinsam schauen sie, wo eine Erklärung geholfen hat und wo Antworten nur übernommen wurden. Danach bleibt die Entscheidung über weitere Versuche offen.", "Start without a new AI trial: Lena and Tom each bring an existing task. Together they look at where an explanation helped and where answers were merely copied. The decision about further trials remains open."),
+      roles: [{id: "lena", name: "Lena"}, {id: "tom", name: "Tom"}]
+    },
+    posts: [
+      {name: "Lena", letter: "A", text: t("Wenn ich mir Mathe von der KI erklären lasse, komme ich besser weiter. Das sollten wir nutzen dürfen.", "When I ask AI to explain maths, I make more progress. We should be allowed to use it.")},
+      {name: "Tom", letter: "B", text: t("Bei unserer Gruppenaufgabe wurden nur KI-Antworten kopiert. Danach konnte niemand die Lösung erklären.", "In our group assignment, people just copied AI answers. Afterwards nobody could explain the solution.")},
+      {name: "Lena", letter: "A", text: t("Aber mir hilft es eben beim Verstehen.", "But it does help me understand.")},
+      {name: "Tom", letter: "B", text: t("Und bei uns wurde eben nur abgeschrieben.", "And in our group, people just copied.")}
+    ]
+  }
+];
+---
+
+<nav class="example-nav" aria-label={t("Forenbeispiele", "Forum examples")}>
+  <a href="#positionen"><span>01</span> {t("Position A & B", "Positions A & B")} <span aria-hidden="true">↓</span></a>
+  <a href="#sackgasse"><span>02</span> {t("Streit festgefahren?", "Debate stuck?")} <span aria-hidden="true">↓</span></a>
+</nav>
+
+{examples.map(example => (
+  <section class="forum-example" id={example.id} aria-labelledby={`${example.id}-heading`}>
+    <header class="example-heading">
+      <p class="example-number">{example.number} / {t("SO KÖNNTE ES AUSSEHEN", "HOW IT COULD LOOK")}</p>
+      <h2 id={`${example.id}-heading`}>{example.heading}</h2>
+      <p>{example.intro}</p>
+    </header>
+
+    <figure class:list={["forum-window", example.tone]}>
+      <div class="forum-chrome">
+        <div class="forum-brand"><span class="forum-logo" aria-hidden="true">{example.initials}</span><strong>{example.forum}</strong></div>
+        <span class="fiction-label">{t("Fiktives Forum", "Fictional forum")}</span>
+      </div>
+      <div class="forum-content">
+        <header class="thread-heading">
+          <p class="thread-breadcrumb">{t("Diskussion", "Discussion")} <span aria-hidden="true">/</span> {example.category}</p>
+          <h3>{example.title}</h3>
+          <p class="thread-meta">{t("4 Beiträge · vorbereiteter Beispielthread", "4 posts · prepared example thread")}</p>
+        </header>
+
+        <details class="pinned-mirror" open>
+          <summary class="plugin-bar">
+            <span class="plugin-identity"><svg class="vera-ring" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M26 9a12 12 0 1 0 2 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span><strong>Vera</strong>{" "}<span class="plugin-subtitle">{t("Gesprächsspiegel", "Conversation Mirror")}</span></span></span>
+            <span class="pin-label"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m12 3 5 5-3 1-3 5-2-2-5 5m1-10 5-3 1-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>{t("Angepinnt", "Pinned")}</span>
+            <span class="plugin-chevron" aria-hidden="true">⌄</span>
+          </summary>
+          <div class="plugin-body">
+            <p class="mirror-status"><span aria-hidden="true"></span>{example.status}</p>
+            <p class="plugin-reading">{example.reading}</p>
+            <div class="position-pair">
+              {example.positions.map(position => (
+                <a class:list={["position-card", `position-${position.letter.toLowerCase()}`]} href={`#${example.id}-beitrag-${position.post}`}>
+                  <span class="position-label"><span>{position.letter}</span>{t("Position", "Position")} {position.letter} · {position.name}</span>
+                  <strong>{position.title}</strong>
+                  <span class="position-copy">{position.text}</span>
+                  <span class="source-link">{t("Zum Beitrag", "View post")} {position.post.toString().padStart(2, "0")} <svg class="direction-arrow" width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 12 12 4M4 4h8v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                </a>
+              ))}
+            </div>
+            <p class="open-concern">{example.finding} <span class="finding-sources">{[3, 4].map(post => <a href={`#${example.id}-beitrag-${post}`}>{t("Beitrag", "Post")} {post.toString().padStart(2, "0")} <span aria-hidden="true">↓</span></a>)}</span></p>
+
+            <ConversationProposal lang={lang} id={example.id} proposal={example.proposal} />
+            <div class="plugin-footer"><span>{t("Grundlage: alle 4 Beiträge unten", "Scope: all 4 posts below")}</span><a href="#spiegel-korrigieren">{t("Deutung hinterfragen", "Challenge this reading")} <svg class="direction-arrow" width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 12 12 4M4 4h8v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+          </div>
+        </details>
+
+        <div class="thread-divider"><span>{t("Die Diskussion", "The discussion")}</span><span>{t("4 Beiträge", "4 posts")}</span></div>
+        <ol class="forum-posts" aria-label={t("Beiträge des fiktiven Threads", "Posts in the fictional thread")}>
+          {example.posts.map((post, index) => (
+            <li class:list={["forum-post", `post-${post.letter.toLowerCase()}`, index > 1 && "is-reply"]} id={`${example.id}-beitrag-${index + 1}`}>
+              <span class="avatar" aria-hidden="true">{post.name.slice(0, 1)}</span>
+              <div class="post-content"><div class="post-header"><strong>{post.name}</strong><span>{t("Beitrag", "Post")} {(index + 1).toString().padStart(2, "0")}{index > 1 && t(" · Antwort", " · Reply")}</span></div><p>{post.text}</p></div>
+            </li>
+          ))}
+        </ol>
+      </div>
+      <figcaption>{t("Gestaltungsentwurf mit erfundenen Beiträgen und vorbereiteter Auswertung. So könnte Vera in einem Forum aussehen; es wird kein Gespräch live analysiert.", "Design proposal with fictional posts and a prepared interpretation. This is how Vera could look in a forum; no conversation is being analysed live.")}</figcaption>
+    </figure>
+  </section>
+))}
+
+<style>
+  .example-nav { display: flex; flex-wrap: wrap; gap: .65rem; margin-block: 1.6rem 3.8rem; }
+  .example-nav a { display: inline-flex; align-items: center; gap: .7rem; min-height: 44px; padding: .6rem .9rem; border: 1px solid var(--line); border-radius: 3px; font-size: .85rem; font-weight: 600; }
+  .example-nav a > span:first-child { color: #6a716a; font: .7rem var(--vera-mono, monospace); }
+  .example-nav a:hover { color: #214e44; border-color: #547869; }
+  .forum-example + .forum-example { margin-top: 4.5rem; }
+  .example-heading { max-width: 42rem; margin-block-end: 1.5rem; }
+  .example-number { color: #62695e; font: 600 .68rem/1.5 var(--vera-mono, monospace); letter-spacing: .1em; margin-bottom: .8rem; }
+  h2 { font-size: clamp(1.7rem, 4.4vw, 2.7rem); line-height: 1.12; letter-spacing: -.03em; margin-block: 0 .65rem; }
+  .example-heading > p:last-child { font-size: 1rem; line-height: 1.6; }
+  .forum-window { --accent: #2c5b4c; --accent-tint: #edf3ed; --accent-border: #c5d5c8; margin: 0; border: 1px solid #d0d2c8; border-radius: 12px; background: #fdfdf9; color: #262e29; box-shadow: 0 18px 50px -32px #223e3545; overflow: clip; }
+  .forum-window.ochre { --accent: #765022; --accent-tint: #f8f1e4; --accent-border: #decfae; }
+  .forum-chrome { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: .9rem 1.4rem; background: #f0f1ea; border-bottom: 1px solid #dfe1d7; }
+  .forum-brand { display: flex; align-items: center; gap: .6rem; }
+  .forum-brand strong { font: 650 .95rem var(--sans); letter-spacing: -.025em; }
+  .forum-logo { width: 28px; height: 28px; display: grid; place-items: center; background: #34493e; color: #fff; border-radius: 8px; font: 600 .7rem var(--sans); }
+  .ochre .forum-logo { background: #786044; }
+  .fiction-label { color: #596155; font: .7rem/1.4 var(--sans); text-align: end; }
+  .forum-content { padding: clamp(1rem, 3.8vw, 2.2rem); }
+  .thread-breadcrumb, .thread-meta { color: #626a60; font: .75rem/1.5 var(--sans); }
+  .thread-breadcrumb { display: flex; gap: .5rem; margin-bottom: .65rem; }
+  .thread-heading h3 { color: #222d25; font: 650 clamp(1.25rem, 3.3vw, 1.8rem)/1.25 var(--sans); letter-spacing: -.035em; margin: 0 0 .55rem; }
+  .thread-meta { margin-bottom: 1.5rem; }
+  .pinned-mirror { border: 1px solid var(--accent-border); border-radius: 8px; background: var(--accent-tint); }
+  summary { cursor: pointer; }
+  .plugin-bar { display: flex; align-items: center; gap: .75rem; padding: .8rem 1.1rem; color: var(--accent); list-style: none; min-height: 60px; }
+  .plugin-bar::-webkit-details-marker { display: none; }
+  .plugin-identity { display: flex; align-items: center; gap: .55rem; margin-inline-end: auto; }
+  .vera-ring { width: 32px; height: 32px; flex-shrink: 0; }
+  .plugin-identity strong { font: 650 1rem var(--sans); letter-spacing: -.04em; }
+  .plugin-subtitle { margin-inline-start: .5rem; font-size: .75rem; }
+  .pin-label { display: flex; align-items: center; gap: .35rem; font: 600 .68rem var(--sans); }
+  .pin-label svg { width: 17px; height: 17px; }
+  .plugin-chevron { font: 1.2rem/1 var(--sans); transition: transform .15s; }
+  details[open] > .plugin-bar .plugin-chevron { transform: rotate(180deg); }
+  .plugin-body { padding: 0 1.1rem; border-top: 1px solid var(--accent-border); }
+  .mirror-status { display: flex; align-items: baseline; gap: .5rem; margin: 1rem 0 .45rem; color: var(--accent); font: 650 .72rem/1.5 var(--sans); }
+  .mirror-status > span { width: 6px; height: 6px; flex-shrink: 0; border-radius: 50%; background: currentColor; }
+  .plugin-reading { color: #303b31; font: 500 1.02rem/1.5 var(--sans); max-width: 66ch; margin: 0 0 1rem; }
+  .position-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .65rem; }
+  .position-card { display: flex; flex-direction: column; align-items: flex-start; gap: .5rem; padding: .9rem; background: #fffefa; border: 1px solid #d9ded3; border-radius: 5px; border-top: 2px solid #718a9a; }
+  .position-b { border-top-color: #977a9b; }
+  .position-card:hover { color: #263c31; background: #fff; border-color: var(--accent); }
+  .position-label { display: flex; align-items: center; gap: .4rem; color: #58645a; font: 500 .68rem var(--sans); }
+  .position-label > span { width: 21px; height: 21px; display: grid; place-items: center; background: #e8eef3; color: #38566b; border-radius: 50%; font-weight: 700; }
+  .position-b .position-label > span { color: #68436e; background: #f0eaf1; }
+  .position-card > strong { font: 650 .95rem/1.3 var(--sans); letter-spacing: -.02em; }
+  .position-copy { color: #586157; font: .82rem/1.5 var(--sans); }
+  .direction-arrow { display: inline-block; width: 12px; height: 12px; flex-shrink: 0; vertical-align: -.05em; }
+  .source-link { margin-top: auto; padding-top: .25rem; font: 600 .68rem/1.5 var(--sans); text-decoration: underline; text-underline-offset: 3px; }
+  .open-concern { color: #505d4f; font: .8rem/1.55 var(--sans); margin: .85rem 0; }
+  .open-concern a { text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; }
+  .finding-sources { display: inline-flex; flex-wrap: wrap; gap: .65rem; }
+  .plugin-footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .2rem 1rem; margin-top: .65rem; font: .65rem/1.5 var(--sans); color: #55624f; }
+  .plugin-footer > span, .plugin-footer > a { display: inline-flex; align-items: center; gap: .3rem; min-height: 44px; }
+  .plugin-footer a { text-decoration: underline; text-underline-offset: 3px; }
+  .thread-divider { display: flex; justify-content: space-between; margin-top: 1.7rem; padding-bottom: .65rem; border-bottom: 1px solid #e0e3d9; color: #646d61; font: .7rem var(--sans); }
+  .forum-posts { list-style: none; padding: 0; margin: 0; }
+  .forum-post { display: flex; align-items: flex-start; gap: .7rem; padding-top: 1rem; }
+  .avatar { display: grid; place-items: center; width: 28px; height: 28px; flex-shrink: 0; background: #e8eef3; color: #38566b; border-radius: 50%; font: 650 .7rem var(--sans); }
+  .post-b .avatar { color: #68436e; background: #f0eaf1; }
+  .post-c .avatar { color: #67532e; background: #f3eddd; }
+  .post-header { display: flex; flex-wrap: wrap; align-items: baseline; gap: .3rem .65rem; font: .7rem/1.5 var(--sans); }
+  .post-header strong { font-size: .8rem; }
+  .post-header > span { color: #697063; font-size: .65rem; }
+  .post-content { min-width: 0; }
+  .post-content p { color: #4c574d; font: .85rem/1.6 var(--sans); margin: .3rem 0 0; max-width: 72ch; }
+  .is-reply { margin-inline-start: 14px; border-inline-start: 1px solid #d5dbce; padding-inline-start: 1.4rem; }
+  .forum-window figcaption { padding: .9rem clamp(1rem, 3.8vw, 2.2rem); border-top: 1px solid #e0e3d9; background: #f6f6ef; color: #61695d; font: .7rem/1.55 var(--sans); }
+  .forum-example [id], .forum-example[id] { scroll-margin-top: 6rem; }
+  .forum-post:target .post-content { background: #fcf2cb; outline: 4px solid #fcf2cb; border-radius: 2px; }
+  a:focus-visible, summary:focus-visible { outline: 2px solid #385f4c; outline-offset: 4px; }
+  @media (max-width: 39rem) {
+    .example-nav { margin-bottom: 2.6rem; }
+    .forum-chrome { padding-inline: 1rem; }
+    .position-pair { grid-template-columns: minmax(0, 1fr); }
+    .plugin-bar { padding-inline: .8rem; gap: .35rem; }
+    .plugin-identity { gap: .3rem; }
+    .plugin-subtitle { display: block; margin: .15rem 0 0; font-size: .6rem; }
+    .pin-label { font-size: .6rem; gap: .2rem; }
+    .plugin-body { padding-inline: .8rem; }
+    .is-reply { padding-inline-start: .7rem; }
+  }
+  @media (prefers-reduced-motion: reduce) { .plugin-chevron { transition: none; } }
+</style>

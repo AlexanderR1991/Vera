@@ -1,10 +1,35 @@
 # Vera Gesprächsspiegel
 
-**Entwurf 0.1 · Fiktive Website-Demo · Forumseinbindung als Konzept**
+**Entwurf 0.3 · Fiktive Website-Demos · Forumseinbindung als Konzept**
 
-Ein aufklappbares Feld über einem Forenthread zeigt, wie sich das Gespräch entwickelt. Wer dazustößt, sieht die Ausgangsfrage, die wichtigsten Abzweigungen, belegte Annäherungen und offene Einwände. Jede Beobachtung führt zur betreffenden Stelle im Thread. Wer sich falsch wiedergegeben sieht, kann genau diese Stelle zur Korrektur markieren. Die Demo zeigt einen vorbereiteten Fall. Eine Einbindung bei Reddit oder anderen Foren setzt eine spätere Zusammenarbeit voraus.
+Ein aufklappbares Feld über einem Forenthread zeigt, wie sich das Gespräch entwickelt. Wer dazustößt, sieht die Ausgangsfrage, die wichtigsten Abzweigungen, belegte Annäherungen und offene Einwände. Jede Beobachtung führt zur betreffenden Stelle im Thread. Wer sich falsch wiedergegeben sieht, kann genau diese Stelle zur Korrektur markieren. Die Website zeigt vorbereitete, fiktive Beispiele. Eine Einbindung bei Reddit oder anderen Foren setzt eine spätere Zusammenarbeit voraus.
 
-## Beispiel · Soll die Innenstadt autofrei werden?
+## Zwei Forenansichten mit angepinntem Plugin
+
+Die deutsche und englische Website zeigen den Gesprächsspiegel unmittelbar über den zugehörigen Beispielbeiträgen. Das Panel lässt sich auf- und zuklappen. Verweise verbinden seine Einordnung mit den fiktiven Originalbeiträgen. Die Ansichten veranschaulichen die geplante Einbindung; sie analysieren keinen echten Thread.
+
+| Beispiel | Was im angepinnten Panel sichtbar wird |
+| --- | --- |
+| Autofreie Innenstadt | Position A möchte mehr Raum für Menschen, Position B braucht Lieferzugang. Aufbauend auf Maras Lieferfenster schlägt Vera einen begrenzten Versuch mit gesichertem stufenfreiem Zugang vor. Lieferfähigkeit und Aufenthaltsraum könnten davon profitieren; Zufahrten, Aufwand und Aris offener Einwand bleiben sichtbar. Vor einem möglichen Start wären der Zugang und danach die Auswirkungen auf Lieferungen und Platznutzung zu prüfen. Ein gescheiterter Zugang kann den Versuch stoppen. Der Vorschlag enthält noch keine Zustimmung. |
+| KI im Schulunterricht | Vier Beiträge stellen besseres Verstehen und bloßes Kopieren gegenüber. Die letzten beiden wiederholen die Ausgangspositionen. Als kleinen Versuch schlägt Vera vor, eine konkrete Aufgabe mit einer KI-Erklärung durchzuarbeiten und danach ohne KI selbst zu erklären. Das könnte die unterschiedlichen Erfahrungen genauer prüfen; Hilfen können Lernenden nützen, während Kopieren oder zusätzlicher Prüfaufwand andere belasten. Die eigene Erklärung dient als begrenzte Prüfung, nicht als Nachweis für sämtliche Unterrichtssituationen. Nachteile oder eine Verschlechterung können den Versuch stoppen. |
+
+Die Einladung bleibt freiwillig. Ein Vorteil für eine Person beseitigt den Einwand einer anderen nicht. Beiträge, Einordnungen und Vorschläge sind vorbereitete Texte; Absichten der Beteiligten, eine grundsätzliche Unlösbarkeit des Streits oder eine bereits erfolgte Einigung werden daraus nicht abgeleitet.
+
+## Was könnte funktionieren?
+
+Der Entwurf unterscheidet drei mögliche Wege. Welcher passt, hängt von den Anliegen, dem Sachstand und den verbleibenden Einwänden ab.
+
+| Weg | Was ein Vorschlag offenlegen muss |
+| --- | --- |
+| Mögliche gemeinsame Lösung | Wie die betroffenen Anliegen zugleich erfüllt werden könnten und welche Voraussetzungen dafür noch fehlen. Zustimmung bleibt gesondert einzuholen. |
+| Ausdrücklicher Kompromiss | Wer welchen Vorteil erhält, wer welche Kosten oder Einschränkungen trägt und welche Einwände bestehen bleiben. Die Beteiligten können diese Verteilung ablehnen. |
+| Kleiner umkehrbarer Versuch | Eine begrenzte Handlung, eine überprüfbare Erwartung, Dauer oder Prüfzeitpunkt sowie Bedingungen zum Pausieren oder Abbrechen. |
+
+Eine Tatsachenfrage wird nicht durch die Mitte zwischen zwei Behauptungen entschieden. Quellen, Unsicherheit und eine geeignete Prüfung bleiben von Wertentscheidungen und Zustimmung getrennt. Auch kein tragfähiger Vorschlag, begründeter Dissens oder eine Pause sind mögliche Ergebnisse.
+
+Die Website bietet dazu eine lokale Rollendemonstration: Lesende können für fiktive Rollen zustimmen, ablehnen, pausieren oder eine Verschlechterung melden. Änderungen am Wortlaut oder der Wechsel zu einer Alternative erhöhen die Fassung und setzen die beispielhaften Zusagen zurück. Eine gemeldete Verschlechterung hält den Versuch in der Demo an. Diese Bedienung erfasst keine tatsächliche Zustimmung; Eingaben bleiben ohne Speicherung und ohne Übertragung im aktuellen Seitenzustand. Sie erteilt keine Befugnis für einen echten Versuch oder eine Moderationsentscheidung.
+
+## Vertiefung · Soll die Innenstadt autofrei werden?
 
 | Ast | Was der Spiegel im fiktiven Thread anzeigt |
 | --- | --- |
@@ -30,6 +55,7 @@ Ob eine Änderung hilft, hängt vom benannten Ziel ab. Eine erstmals aufgegriffe
 | Threadstand | Vertragsschema, Regel- oder Modellfassung, Thread-ID, Stand und Zeitpunkt, erlaubter Ausschnitt sowie Abdeckung. Bei bekannter Gesamtzahl sind erfasste und bekannte Gesamtzahl sichtbar. Sonst steht dort „Abdeckung unbekannt“. |
 | Fundstelle | Beitrag-ID, Fassung, Eltern-ID und Link. Vor der Anzeige wird geprüft, ob die angeführte Fassung im freigegebenen Ausschnitt noch zugänglich ist. |
 | Beobachtung | Ast, Typ, kurzer Befund, Fundstellen, Unsicherheit, relevantes Gesprächsziel und gegebenenfalls eine nächste Frage. Jede Beobachtung kann bestätigt, angefochten, korrigiert oder zurückgezogen werden. |
+| Lösungsvorschlag | ID und Fassung, Urheber oder Herkunft, Typ des Wegs, genauer Wortlaut, Begründung mit Fundstellen, Evidenzstatus und Unsicherheit, Begünstigte und Belastete, Kosten, verbleibende Einwände sowie Prüfung und Stoppbedingungen. Ein Vorschlag ist weder ein Beleg für seine Wirkung noch eine Zustimmung. |
 | Teilübereinstimmung | Genau formulierter Vorschlag mit Fassung, ausdrückliche Zustimmungsstellen, beteiligte Personen nur im nötigen Geltungsbereich und offene Einwände. Schweigen, Reaktionen, Wiederholungen und Modellvorschläge bleiben aus der Zustimmungserhebung heraus. Änderungen am Wortlaut erfordern neue Zustimmungen. |
 
 Eine Bearbeitung oder Löschung entzieht abgeleiteten Befunden mit dieser Fundstelle ihre bisherige Grundlage. Die Anzeige zieht diese Befunde zurück, bis ihre Quellen erneut geprüft sind. Gelöschte Inhalte und daraus rekonstruierbare Textteile werden aus Zwischenspeichern und Ausgaben entfernt. Bei einer Lücke steht „Zu wenig Kontext“. Korrekturen nennen die betroffene Beobachtung und den Grund der Änderung, soweit dieser ohne entfernte oder schutzbedürftige Angaben auskommt. Menschen entscheiden über begründete Einwände und öffentliche Korrekturen. [META-01](selbstkorrektur.md) · [REDE-01](redefreiheit-und-schutz.md)
