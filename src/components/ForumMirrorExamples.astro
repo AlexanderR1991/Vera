@@ -1,4 +1,5 @@
 ---
+import ConversationProposal from "./ConversationProposal.astro";
 const {lang = "de"} = Astro.props;
 const de = lang === "de";
 const t = (german: string, english: string) => de ? german : english;
@@ -16,7 +17,17 @@ const examples = [
       {letter: "B", name: "Sam", post: 2, title: t("Lieferungen ermöglichen", "Keep deliveries possible"), text: t("Der Laden braucht morgens eine verlässliche Zufahrt.", "The shop needs reliable vehicle access in the morning.")}
     ],
     finding: t("Ein Lieferfenster ist vorgeschlagen. Zugesagt hat noch niemand. Aris Einwand zum stufenfreien Zugang bleibt offen.", "A delivery window has been proposed. Nobody has agreed yet. Ari’s concern about step-free access remains open."),
-    question: t("Wie könnte ein Versuch Lieferungen ermöglichen und zugleich einen stufenfreien Zugang sichern?", "How could a trial allow deliveries while also ensuring step-free access?"),
+    proposal: {
+      kind: t("Kompromiss · als kleinen Versuch prüfen", "Compromise · test in a small trial"),
+      text: t("Den Marktplatz sechs Wochen überwiegend autofrei testen. Lieferungen bleiben von 7 bis 10 Uhr möglich. Der Versuch beginnt erst mit einem von den Betroffenen geprüften stufenfreien Zugang. Vorher und währenddessen werden Verkehr und Zugänglichkeit verglichen; bei schlechterem Zugang wird pausiert.", "Try a mostly car-free market square for six weeks, allowing deliveries from 7 to 10 a.m. The trial begins only once the people affected have checked a step-free route. Compare traffic and accessibility before and during the trial; pause if access gets worse."),
+      benefit: t("Maras Wunsch nach mehr Aufenthaltsraum, Sams Lieferzugang und Aris Bedarf an einem stufenfreien Weg werden gemeinsam aufgegriffen.", "The proposal addresses Mara’s wish for more public space, Sam’s delivery access and Ari’s need for a step-free route together."),
+      cost: t("Mara müsste morgens Fahrzeuge dulden, Sam Lieferzeiten begrenzen. Ein stufenfreier Weg kann Aufwand verursachen; wer ihn tragen würde, ist ungeklärt.", "Mara would accept vehicles in the morning; Sam would limit delivery hours. Providing a step-free route may take work and resources; who would bear that cost is unresolved."),
+      open: t("Ob der Zugang so umsetzbar ist und wer den Aufwand trägt. Die drei haben diesem Gesamtvorschlag noch nicht zugestimmt; weitere Betroffene können fehlen.", "Whether the route is feasible and who would bear the cost. The three have not agreed to this full proposal; other affected people may be missing."),
+      check: t("Vor Beginn die Route mit Betroffenen prüfen. Verkehr zu vergleichbaren Zeiten zählen und Erfahrungen zum Zugang vor und während des Versuchs festhalten.", "Check the route with the people affected before starting. Count traffic at comparable times and record experiences of access before and during the trial."),
+      stop: t("Bei schlechterer Zugänglichkeit pausieren. Übersehene Nachteile oder neue Einwände prüfen, bevor eine geänderte Fassung erneut zur Zustimmung vorgelegt wird.", "Pause if accessibility gets worse. Review overlooked disadvantages or new objections before presenting revised wording for agreement."),
+      alternative: t("Zuerst gemeinsam eine stufenfreie Verbindung planen und ihre Umsetzbarkeit prüfen. Bis diese Frage geklärt ist, keine Probesperrung beginnen. Danach Lieferzeiten und einen begrenzten Versuch neu besprechen.", "First plan a step-free route together and check its feasibility. Do not start a trial closure until that question is resolved. Then revisit delivery hours and a limited trial."),
+      roles: [{id: "mara", name: "Mara"}, {id: "sam", name: "Sam"}, {id: "ari", name: "Ari"}]
+    },
     posts: [
       {name: "Mara", letter: "A", text: t("Ich möchte weniger Autos auf dem Platz. Dann wäre dort mehr Raum zum Gehen und Verweilen.", "I want fewer cars on the square. That would leave more room to walk and spend time.")},
       {name: "Sam", letter: "B", text: t("Mein Laden braucht morgens Lieferungen. Ohne Zufahrt ist der Vorschlag für mich nicht tragbar.", "My shop needs morning deliveries. Without vehicle access, I cannot support this proposal.")},
@@ -37,7 +48,17 @@ const examples = [
       {letter: "B", name: "Tom", post: 2, title: t("Eigenes Lernen erhalten", "Keep learning independent"), text: t("Tom berichtet von kopierten Antworten bei einer Gruppenaufgabe.", "Tom reports copied answers in a group assignment.")}
     ],
     finding: t("Beide schildern Erfahrungen. Ob sie auf dieselbe Nutzung von KI schauen, bleibt offen.", "Both describe experiences. Whether they mean the same use of AI remains open."),
-    question: t("Wollt ihr an einer konkreten Aufgabe schauen, was jemand danach ohne KI selbst erklären kann?", "Would you look at one specific task and what someone can explain independently afterwards, without AI?"),
+    proposal: {
+      kind: t("Kleiner Versuch · gemeinsam prüfen", "Small trial · check together"),
+      text: t("Wählt freiwillig eine konkrete Matheaufgabe. Eine KI darf einen Lösungsweg erklären; anschließend erklärt jede Person den Weg ohne KI in eigenen Worten. Haltet fest, was verständlicher wurde und wo bloßes Übernehmen passiert. Danach entscheidet ihr, ob ein weiterer Versuch sinnvoll ist.", "Voluntarily choose one specific maths task. AI may explain a solution; afterwards, each person explains the reasoning in their own words without AI. Record what became clearer and where answers were merely copied. Then decide whether another trial is worth trying."),
+      benefit: t("Lenas Erfahrung mit hilfreichen Erklärungen und Toms Sorge um selbstständiges Verstehen bekommen einen gemeinsamen Prüfpunkt.", "Lena’s experience of helpful explanations and Tom’s concern about independent understanding get a shared point to examine."),
+      cost: t("Der Versuch kostet Zeit. Für Tom kann es nach zusätzlicher Kontrolle aussehen; für Lena kann das Erklären Druck erzeugen. Beide dürfen ablehnen.", "The trial takes time. Tom may experience it as extra checking; explaining may put Lena under pressure. Both can decline."),
+      open: t("Eine einzelne Aufgabe klärt weder die allgemeine Lernwirkung noch die Frage, welche Regeln die Schule festlegen sollte.", "A single task establishes neither the general effect on learning nor which rules the school should adopt."),
+      check: t("Vorher gemeinsam benennen, was als Verstehen zählt. Danach prüfen, ob der Lösungsweg eigenständig erklärt werden kann, und beide Erfahrungen festhalten.", "Agree beforehand on what understanding means for this task. Afterwards check whether the reasoning can be explained independently, recording both experiences."),
+      stop: t("Bei Druck, Unwohlsein oder einem schlechteren Verlauf pausieren. Eine neue Aufgabe oder andere Methode braucht eine neue freiwillige Absprache.", "Pause if anyone feels pressured, uncomfortable or worse off. A new task or method needs a fresh voluntary agreement."),
+      alternative: t("Ohne neuen KI-Versuch beginnen: Lena und Tom bringen je eine vorhandene Aufgabe mit. Gemeinsam schauen sie, wo eine Erklärung geholfen hat und wo Antworten nur übernommen wurden. Danach bleibt die Entscheidung über weitere Versuche offen.", "Start without a new AI trial: Lena and Tom each bring an existing task. Together they look at where an explanation helped and where answers were merely copied. The decision about further trials remains open."),
+      roles: [{id: "lena", name: "Lena"}, {id: "tom", name: "Tom"}]
+    },
     posts: [
       {name: "Lena", letter: "A", text: t("Wenn ich mir Mathe von der KI erklären lasse, komme ich besser weiter. Das sollten wir nutzen dürfen.", "When I ask AI to explain maths, I make more progress. We should be allowed to use it.")},
       {name: "Tom", letter: "B", text: t("Bei unserer Gruppenaufgabe wurden nur KI-Antworten kopiert. Danach konnte niemand die Lösung erklären.", "In our group assignment, people just copied AI answers. Afterwards nobody could explain the solution.")},
@@ -94,15 +115,7 @@ const examples = [
             </div>
             <p class="open-concern">{example.finding} <span class="finding-sources">{[3, 4].map(post => <a href={`#${example.id}-beitrag-${post}`}>{t("Beitrag", "Post")} {post.toString().padStart(2, "0")} <span aria-hidden="true">↓</span></a>)}</span></p>
 
-            <details class="way-forward" open={example.id === "sackgasse"}>
-              <summary>{t("Was könnte jetzt helfen?", "What could help now?")} <svg class="direction-arrow" width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 12 12 4M4 4h8v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
-              <div class="way-forward-body">
-                <p class="proposal-label">{t("Vera schlägt als Frage vor", "Vera suggests a question")}</p>
-                <p class="next-question">{example.question}</p>
-                <p>{example.id === "positionen" ? t("Der Versuch müsste Aris Zugang berücksichtigen. Mara und Sam können den Vorschlag ändern oder ablehnen; bisher ist er keine gemeinsame Entscheidung.", "The trial would need to address Ari’s access. Mara and Sam can change or decline the proposal; it is not a shared decision yet.") : t("Zum Beispiel: eine Erklärung mit KI durcharbeiten, dann die Aufgabe ohne KI erläutern. Das könnte die beiden Erfahrungen genauer unterscheidbar machen. Über den Einsatz im Unterricht wäre damit noch nicht entschieden.", "For example: work through an AI explanation, then explain the task without AI. That could help distinguish the two experiences. It would not settle whether AI should be used in class.")}</p>
-                <p class="choice-note">{t("Ihr könnt die Frage ändern, Nein sagen oder pausieren. Wenn ein Versuch jemandem schadet oder das Gespräch verschlechtert, könnt ihr ihn abbrechen und den Einwand festhalten.", "You can change the question, say no or pause. If a trial harms someone or makes the conversation worse, you can stop and record the objection.")}</p>
-              </div>
-            </details>
+            <ConversationProposal lang={lang} id={example.id} proposal={example.proposal} />
             <div class="plugin-footer"><span>{t("Grundlage: alle 4 Beiträge unten", "Scope: all 4 posts below")}</span><a href="#spiegel-korrigieren">{t("Deutung hinterfragen", "Challenge this reading")} <svg class="direction-arrow" width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 12 12 4M4 4h8v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
           </div>
         </details>
@@ -175,15 +188,6 @@ const examples = [
   .open-concern { color: #505d4f; font: .8rem/1.55 var(--sans); margin: .85rem 0; }
   .open-concern a { text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; }
   .finding-sources { display: inline-flex; flex-wrap: wrap; gap: .65rem; }
-  .way-forward { margin-top: 1rem; border: 1px solid var(--accent-border); border-radius: 5px; background: #fffefa; }
-  .way-forward > summary { display: flex; align-items: center; justify-content: space-between; min-height: 46px; gap: .8rem; padding: .65rem .85rem; color: var(--accent); font: 650 .82rem/1.4 var(--sans); list-style: none; }
-  .way-forward > summary::-webkit-details-marker { display: none; }
-  .way-forward[open] > summary > svg { transform: rotate(90deg); }
-  .way-forward-body { padding: .4rem .85rem .1rem; }
-  .way-forward-body p { color: #485448; font: .85rem/1.6 var(--sans); }
-  .way-forward-body .proposal-label { color: var(--accent); font-size: .65rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; margin: 0 0 .35rem; }
-  .way-forward-body .next-question { color: #253f2e; font: 1.2rem/1.4 var(--serif); }
-  .way-forward-body .choice-note { padding-top: .7rem; border-top: 1px solid #e0e2d8; font-size: .75rem; }
   .plugin-footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .2rem 1rem; margin-top: .65rem; font: .65rem/1.5 var(--sans); color: #55624f; }
   .plugin-footer > span, .plugin-footer > a { display: inline-flex; align-items: center; gap: .3rem; min-height: 44px; }
   .plugin-footer a { text-decoration: underline; text-underline-offset: 3px; }

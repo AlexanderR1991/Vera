@@ -1,0 +1,117 @@
+---
+const {lang = "de", id, proposal} = Astro.props;
+const de = lang === "de";
+const t = (german: string, english: string) => de ? german : english;
+const labels = {
+  pending: t("Demo: noch offen", "Demo: pending"),
+  agree: t("Demo: würde diese Fassung mittragen", "Demo: would support this wording"),
+  decline: t("Demo: lehnt diese Fassung ab", "Demo: declines this wording"),
+  pause: t("Demo: möchte pausieren", "Demo: wants to pause"),
+  worse: t("Demo: meldet eine Verschlechterung", "Demo: reports a worse outcome"),
+  changed: t("Neue Demofassung. Frühere Antworten gelten dafür nicht mehr.", "New demo wording. Earlier responses no longer apply."),
+  recorded: t("Beispielantwort nur für diese Rolle und diese Fassung festgehalten. Daraus folgt kein gemeinsamer Beschluss.", "Example response recorded only for this role and wording. This does not establish a shared decision."),
+  stopped: t("Demofall angehalten: Eine Rolle meldet eine Verschlechterung. Der Einwand bleibt sichtbar und muss vor einem neuen Versuch geprüft werden.", "Demo case halted: a role reports a worse outcome. The objection stays visible and needs review before another trial."),
+  empty: t("Bitte einen konkreten Vorschlag eintragen.", "Please enter a specific proposal."),
+  local: t("Nur ein Rollenspiel auf diesem Gerät. Antworten werden weder gespeichert noch gesendet.", "A role-play on this device only. Responses are neither saved nor sent."),
+  previous: t("Frühere Demofassung", "Earlier demo wording"),
+  noHistory: t("Bisher keine frühere Demofassung.", "No earlier demo wording yet."),
+  editedKind: t("Lösungsweg neu zu prüfen", "Approach needs fresh review"),
+  originalOrigin: t("Vorbereiteter Vorschlag von Vera", "Prepared proposal from Vera"),
+  editedOrigin: t("Bearbeitete Demofassung", "Edited demo wording"),
+  needsReview: t("Die Begründung unten gehört zur Ausgangsfassung. Nach einer Änderung müssen Nutzen, Einwände und Bedingungen erneut geprüft werden.", "The reasoning below belongs to the original wording. After an edit, benefits, objections and conditions need to be checked again.")
+};
+---
+
+<section class="conversation-proposal" data-conversation-proposal data-labels={JSON.stringify(labels)} aria-labelledby={`${id}-proposal-title`}>
+  <div class="proposal-heading"><h4 id={`${id}-proposal-title`}>{t("Was könnte funktionieren?", "What could work?")}</h4><span class="proposal-kind" data-proposal-kind>{proposal.kind}</span></div>
+  <div class="proposal-meta"><span data-proposal-origin>{labels.originalOrigin}</span><span>{t("Fassung", "Version")} <span data-proposal-revision>1</span></span></div>
+  <p class="proposal-wording" data-proposal-text>{proposal.text}</p>
+  <p class="proposal-open"><strong>{t("In der Ausgangsfassung noch offen:", "Still open in the original wording:")}</strong> {proposal.open}</p>
+  <p class="proposal-review" data-proposal-review></p>
+
+  <details class="proposal-reasoning">
+    <summary>{t("Begründung und Bedingungen zur Ausgangsfassung", "Reasoning and conditions for the original wording")}</summary>
+    <dl>
+      <div><dt>{t("Welche Anliegen berücksichtigt das?", "Which concerns does it address?")}</dt><dd>{proposal.benefit}</dd></div>
+      <div><dt>{t("Wer trägt Nachteile oder Aufwand?", "Who bears costs or disadvantages?")}</dt><dd>{proposal.cost}</dd></div>
+      <div><dt>{t("Woran würdet ihr es prüfen?", "How would you check it?")}</dt><dd>{proposal.check}</dd></div>
+      <div><dt>{t("Wann ändern oder stoppen?", "When should it change or stop?")}</dt><dd>{proposal.stop}</dd></div>
+    </dl>
+  </details>
+
+  <div data-proposal-controls hidden>
+    <div class="proposal-edit-actions">
+      <details class="proposal-editor" data-proposal-edit>
+        <summary>{t("Vorschlag ändern", "Edit proposal")}</summary>
+        <label for={`${id}-proposal-input`}>{t("Deine Demofassung", "Your demo wording")}</label>
+        <textarea id={`${id}-proposal-input`} data-proposal-input rows="5" maxlength="2400">{proposal.text}</textarea>
+        <button type="button" data-proposal-save>{t("Neue Fassung übernehmen", "Use new wording")}</button>
+      </details>
+      <button type="button" data-proposal-alternative data-alternative-text={proposal.alternative}>{t("Andere Möglichkeit ansehen", "Try another approach")}</button>
+    </div>
+
+    <details class="proposal-roleplay">
+      <summary>{t("Eine Antwort ausprobieren", "Try a response")}</summary>
+      <p class="roleplay-note">{t("Du spielst eine erfundene Rolle. Auch ein Ja hier ist keine echte Zustimmung der Beteiligten.", "You are playing a fictional role. Even a yes here is not real agreement from the people involved.")}</p>
+      <label for={`${id}-proposal-role`}>{t("Beispielrolle", "Example role")}</label>
+      <select id={`${id}-proposal-role`} data-proposal-role>{proposal.roles.map(role => <option value={role.id}>{role.name}</option>)}</select>
+      <div class="response-actions">
+        <button type="button" data-proposal-response="agree">{t("Würde ich mittragen", "I would support this")}</button>
+        <button type="button" data-proposal-response="decline">{t("Lehne ich ab", "I decline")}</button>
+        <button type="button" data-proposal-response="pause">{t("Ich möchte pausieren", "I want to pause")}</button>
+        <button type="button" data-proposal-response="worse">{t("Verlauf: schlechter geworden", "Outcome: things got worse")}</button>
+      </div>
+      <p class="roleplay-note">{t("Die letzte Antwort spielt eine Rückmeldung nach einem gedachten Versuch durch. Es wird kein echter Versuch gestartet.", "The last response simulates feedback after an imagined trial. No real trial is started.")}</p>
+      <ul class="role-responses">{proposal.roles.map(role => <li><strong>{role.name}</strong><span data-proposal-role-status={role.id}>{labels.pending}</span></li>)}</ul>
+    </details>
+    <p class="proposal-status" data-proposal-status role="status" aria-live="polite">{labels.local}</p>
+    <details class="proposal-history"><summary>{t("Verlauf der Demofassungen", "Demo wording history")}</summary><p data-proposal-history>{t("Bisher keine frühere Demofassung.", "No earlier demo wording yet.")}</p></details>
+    <button class="proposal-reset" type="button" data-proposal-reset>{t("Demo zurücksetzen", "Reset demo")}</button>
+  </div>
+  <noscript><p class="roleplay-note">{t("Die Vorschläge und ihre Bedingungen sind ohne JavaScript lesbar. Zum Bearbeiten und Ausprobieren der Beispielantworten ist JavaScript nötig.", "Proposals and conditions are readable without JavaScript. Editing and trying example responses require JavaScript.")}</p></noscript>
+</section>
+
+<script>
+  import {mountConversationProposals} from "../client/conversation-proposal.mjs";
+  mountConversationProposals();
+</script>
+
+<style>
+  .conversation-proposal { margin-top: 1.2rem; padding: 1rem; border: 1px solid var(--accent-border, #c5d5c8); border-radius: 6px; background: #fffefa; color: #303b31; }
+  .proposal-heading { display: flex; flex-wrap: wrap; align-items: baseline; gap: .4rem 1rem; margin-bottom: .65rem; }
+  h4 { margin: 0; font: 650 1.05rem/1.35 var(--sans); letter-spacing: -.025em; }
+  .proposal-kind { font: 500 .7rem/1.4 var(--sans); color: var(--accent, #2c5b4c); }
+  .proposal-meta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .4rem; color: #63705e; font: .65rem/1.5 var(--sans); }
+  .proposal-wording { margin: .6rem 0 .85rem; color: #294031; font: 1.15rem/1.5 var(--serif); white-space: pre-wrap; overflow-wrap: anywhere; }
+  .proposal-open { font: .8rem/1.55 var(--sans); color: #535e4f; margin-bottom: .65rem; }
+  .proposal-review { color: #765022; font: .75rem/1.55 var(--sans); }
+  .proposal-review:empty { display: none; }
+  summary { cursor: pointer; min-height: 44px; padding-block: .65rem; color: var(--accent, #2c5b4c); font: 600 .8rem/1.45 var(--sans); }
+  .proposal-reasoning { border-block: 1px solid #dce2d4; }
+  dl { margin: .3rem 0 1rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  dt { font: 650 .78rem/1.45 var(--sans); }
+  dd { margin: .3rem 0 0; color: #586153; font: .78rem/1.6 var(--sans); }
+  .proposal-edit-actions { display: flex; flex-wrap: wrap; align-items: flex-start; gap: .5rem; margin-top: .75rem; }
+  .proposal-editor { flex: 1 1 12rem; }
+  .proposal-editor[open] { flex-basis: 100%; }
+  .proposal-editor > summary { border: 1px solid #c7d3c0; padding: .65rem .75rem; border-radius: 4px; }
+  button { min-height: 44px; padding: .65rem .75rem; border: 1px solid #c7d3c0; border-radius: 4px; background: #f4f6ef; color: #34553c; font: 600 .75rem/1.4 var(--sans); text-align: start; }
+  button:hover, .proposal-editor > summary:hover { border-color: #54754c; background: #eaf0e3; }
+  label { display: block; margin: .85rem 0 .4rem; color: #46563f; font: 600 .75rem/1.4 var(--sans); }
+  textarea, select { width: 100%; min-height: 44px; color: #303b31; background: #fff; border: 1px solid #b6c1b1; border-radius: 3px; padding: .6rem; font: .85rem/1.5 var(--sans); }
+  textarea { resize: vertical; margin-bottom: .4rem; }
+  select { max-width: 16rem; }
+  .proposal-roleplay { margin-top: .5rem; }
+  .roleplay-note, .proposal-status { color: #586353; font: .75rem/1.55 var(--sans); }
+  .response-actions { display: flex; flex-wrap: wrap; gap: .5rem; margin: .7rem 0; }
+  .role-responses { list-style: none; padding: .3rem 0 0; margin: 0; }
+  .role-responses li { display: flex; flex-wrap: wrap; gap: .3rem .7rem; padding-block: .4rem; border-top: 1px solid #e1e6d9; font: .75rem/1.5 var(--sans); }
+  .role-responses li span { color: #586353; }
+  .proposal-status { margin: .8rem 0 .2rem; }
+  .proposal-history > summary { font-size: .7rem; min-height: 40px; color: #5c6854; }
+  [data-proposal-history] { white-space: pre-wrap; overflow-wrap: anywhere; font: .75rem/1.6 var(--sans); color: #586353; }
+  .proposal-reset { padding-inline: 0; border: 0; background: none; color: #586353; text-decoration: underline; font-size: .65rem; }
+  .proposal-reset:hover { background: none; }
+  :is(button, summary, textarea, select):focus-visible { outline: 2px solid #385f4c; outline-offset: 3px; }
+  @media (max-width: 39rem) { dl { grid-template-columns: 1fr; } .conversation-proposal { padding: .8rem; } }
+</style>
