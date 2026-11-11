@@ -32,6 +32,13 @@ Für **inhaltliche** Änderungen (nicht für einfache Tippfehler): Ziel ist nich
 - **Begründung, verbleibender Dissens / Rationale and unresolved dissent:**
 - **Verantwortliche Person und Datum / Accountable human editor and date:** (Maintainer ergänzt bei Entscheidung / maintainer fills at decision)
 
+Bei einem Streit kann der [Konfliktentwurf / conflict proposal](../docs/community-governance.md#konflikte-im-repository--repository-conflicts) diese Angaben ergänzen. Seine Annahme folgt den geltenden Regeln. / For a dispute, the proposal can supplement this record; its adoption follows existing rules.
+
+- **Konfliktart / Conflict kind:** Sachfrage / factual question · Zielentscheidung / choice of goals · Verhalten / conduct (gegebenenfalls getrennte Vorgänge / separate records where appropriate)
+- **Vorab benannter Prüfmaßstab und mögliche Widerlegung / Review criterion stated beforehand and possible refutation:**
+- **Begrenzter Versuch und Rücknahmeweg / Bounded trial and rollback:** (falls sinnvoll / where useful)
+- **Geltende Entscheidungsregel und Bedingung zur Wiederaufnahme / Existing decision rule and reopening condition:** (kein neues Quorum oder Einverständnis voraussetzen / do not assume a new quorum or consent)
+
 ### Freiwillige Leseprobe bei öffentlichen Regeln und Anleitungen / Optional first-time reader check for public rules and instructions
 
 Bitte eine Person, die den Text erstmals liest, die Regel in eigenen Worten zu erklären und eine konkrete Stelle zu nennen, an der sie widersprechen würde. Halte die Beobachtung ohne persönliche Angaben fest. [Ablauf der Leseprobe](../docs/selbstkorrektur.md#verständlichkeit-beim-ersten-lesen-erproben)

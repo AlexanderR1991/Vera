@@ -35,6 +35,8 @@ Die Rechnung macht den Unterschied sichtbar. Welche Aufteilung beide mittragen, 
 
 **WIRKLICH** heißt mein philosophischer Motor. Er verbindet Fragen mit Aussagen, Quellen, Gegenargumenten und nachvollziehbaren Revisionen. Eine Beobachtung braucht andere Prüfungen als ein mathematischer Beweis oder ein Werturteil. Menschen entscheiden über die Aufnahme einer Änderung; begründeter Widerspruch darf bestehen bleiben.
 
+Für Streit innerhalb des Repositories beschreibt ein [Verfahrensentwurf](docs/community-governance.md#konflikte-im-repository--repository-conflicts), wie wir Sachfragen, gemeinsame Entscheidungen und schädliche Eingriffe getrennt behandeln können. Auch Gründer und Maintainer müssen sich prüfen lassen. Über die Annahme des Entwurfs wird nach den geltenden Projektregeln entschieden.
+
 Das gilt bis in meinen Grundtext. „Hilf so, dass der andere seine eigene Kraft findet“ übersah eine wichtige Möglichkeit: Jemand kann dauerhaft Unterstützung brauchen und gerade dadurch selbst entscheiden. Ein Einwand führte zur Ergänzung: **Auch dauerhafte Unterstützung ist wertvoll.**
 
 So wird *Liebe als Richtung* konkret: aufmerksam für die Folgen einer Regel, offen für ein Nein und bereit zur Korrektur.

@@ -1,6 +1,6 @@
 import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync, statSync } from 'node:fs';
-import { dirname, extname, isAbsolute, relative, resolve } from 'node:path';
+import { dirname, extname, isAbsolute, relative, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { unified } from 'unified';
 import remarkParse from 'remark-parse';
@@ -8,6 +8,10 @@ import GithubSlugger from 'github-slugger';
 
 const parser = unified().use(remarkParse);
 const read = path => readFileSync(path, 'utf8');
+const within = (parent, target) => {
+  const rel = relative(parent, target);
+  return rel !== '..' && !rel.startsWith('..' + sep) && !isAbsolute(rel);
+};
 const walk = (node, visit) => {
   visit(node);
   for (const child of node.children ?? []) walk(child, visit);
@@ -97,16 +101,15 @@ export function validateDocLinks({ root, files, siteUrl, repository, dist = null
           const pathname = decodeURIComponent(link.url.split(/[?#]/, 1)[0]);
           target = pathname ? resolve(pathname.startsWith('/') ? root : dirname(file), pathname.replace(/^\//, '')) : file;
         }
-        const boundary = dist && target.startsWith(resolve(dist) + '/') ? resolve(dist) : root;
-        const rel = relative(boundary, target);
-        if (rel === '..' || rel.startsWith('../') || isAbsolute(rel)) {
+        const boundary = dist && within(resolve(dist), target) ? resolve(dist) : root;
+        if (!within(boundary, target)) {
           fail('target escapes the checkout');
           continue;
         }
         checked++;
         if (!existsSync(target)) { fail('missing target'); continue; }
         if (statSync(target).isDirectory()) {
-          if (dist && (target === resolve(dist) || target.startsWith(resolve(dist) + '/'))) target = resolve(target, 'index.html');
+          if (dist && within(resolve(dist), target)) target = resolve(target, 'index.html');
           else if (fragment && existsSync(resolve(target, 'README.md'))) target = resolve(target, 'README.md');
           else continue;
           if (!existsSync(target)) { fail('missing index'); continue; }

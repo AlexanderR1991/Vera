@@ -94,6 +94,12 @@ The new [evidence-maturity rules](docs/erkenntnisreife.md) keep R0–R4 separate
 }
 ```
 
+## Repository conflicts / Konflikte im Repository
+
+For internal disputes, consult the [conflict proposal](docs/community-governance.md#konflikte-im-repository--repository-conflicts). Separate substantive claims, goal decisions and conduct. State criteria before comparing results; preserve changes to criteria and reassess affected alternatives. Apply the same scrutiny to founders and AI outputs. Suspected ego or mere disagreement is no evidence of sabotage. The local quorum analysis grants no authority, consent or review maturity. Adoption follows the existing shared-decision and amendment procedure.
+
+Bei internem Streit den [Konfliktentwurf](docs/community-governance.md#konflikte-im-repository--repository-conflicts) heranziehen. Sachfragen, Zielentscheidungen und Verhalten getrennt prüfen. Kriterien vor dem Ergebnis benennen; spätere Änderungen und erneute Vergleiche dokumentieren. Gründer und KI-Ausgaben nach demselben Maßstab prüfen. Vermutetes Ego und bloßer Widerspruch belegen keine Sabotage. Die Quorumsrechnung verleiht weder Befugnisse noch Einwilligung oder Erkenntnisreife. Die Annahme folgt dem bestehenden gemeinsamen Entscheidungs- und Änderungsverfahren.
+
 ## Rules of engagement
 
 - Critique **ideas**, never target persons, private data, credentials or infrastructure. No denial-of-service, account probing, exploit attempts, harassment or automated issue spam.
