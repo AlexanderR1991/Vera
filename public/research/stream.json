@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-11T06:23:11+00:00",
+  "updated_at": "2026-11-11T19:37:14+00:00",
   "status": "automatic_discovery_not_fact_checked",
   "analysis": "metadata_only",
   "source": "Crossref + arXiv",
@@ -9,10 +9,10 @@
     "arXiv": 3
   },
   "source_queries_succeeded": 9,
-  "new_items": 2,
+  "new_items": 1,
   "agents_enabled": false,
   "errors": [
-    "Crossref/gesellschaft: HTTPError: HTTP Error 429: Too Many Requests"
+    "Crossref/leben: HTTPError: HTTP Error 429: Too Many Requests"
   ],
   "items": [
     {
@@ -528,6 +528,21 @@
       ],
       "venue": "PLOS Complex Systems",
       "url": "https://doi.org/10.1371/journal.pcsy.0000122",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "10.1111/ejop.70130",
+      "topic": "wirklichkeit",
+      "title": "Realism, Idealism, and the Paradox of Subjectivity in Transcendental Phenomenology",
+      "date": "2026-10-22",
+      "authors": [
+        "Tyeson Davies‐Barton"
+      ],
+      "venue": "European Journal of Philosophy",
+      "url": "https://doi.org/10.1111/ejop.70130",
       "source": "Crossref bibliographic metadata",
       "status": "unreviewed",
       "source_examined": "metadata_only",
