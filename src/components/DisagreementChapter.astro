@@ -1,0 +1,128 @@
+---
+import Layout from "../layouts/SiteLayout.astro";
+import ForumSectionLink from "./ForumSectionLink.astro";
+import { base, pathFor } from "../lib/paths.mjs";
+import { ui } from "../lib/ui.mjs";
+
+const { lang = "de" } = Astro.props;
+const de = lang === "de";
+const t = (german, english) => de ? german : english;
+const slug = "streiten";
+const description = t(
+  "Ein Streit in einer WG zeigt, wie ihr eine Bitte aussprecht, einander zuhört und mit einem offenen Einwand weiterkommt.",
+  "A disagreement between flatmates shows how to make a request, hear each other out and handle an objection that remains open."
+);
+---
+<Layout lang={lang} slug={slug} description={description} theme="light">
+  <article class="container disagreement">
+    <a class="subtle-link" href={pathFor(lang, "index", de ? "leben" : "life")}>
+      <span aria-hidden="true">←</span> {t("Zur Pinnwand", "Back to the pinboard")}
+    </a>
+
+    <header class="disagreement-hero">
+      <div>
+        <p class="section-kicker">{t("Miteinander", "Life together")}</p>
+        <h1>{ui[lang].titles[slug]}</h1>
+        <p class="disagreement-lead">{t(
+          "Ihr streitet schon wieder über dieselbe Sache. Wie kannst du sagen, was dich ärgert, und zugleich herausfinden, worum es der anderen Person geht?",
+          "You’re arguing about the same thing again. How can you say what’s bothering you and find out what matters to the other person?"
+        )}</p>
+      </div>
+      <img src={base + "images/pinnwand/disagreement.svg"} width="240" height="240" alt="" />
+    </header>
+
+    <section aria-labelledby="streit-beispiel">
+      <p class="section-kicker">{t("Ein erfundenes Beispiel", "A fictional example")}</p>
+      <h2 id="streit-beispiel">{t("Nach zehn in der WG", "After ten in a shared flat")}</h2>
+      <p>{t(
+        "Dein Mitbewohner telefoniert abends in der Küche. Du musst am nächsten Morgen früh raus.",
+        "Your flatmate talks on the phone in the kitchen at night. You have to be up early the next morning."
+      )}</p>
+      <div class="disagreement-lines">
+        <div>
+          <h3>{t("Der erste Impuls", "The first impulse")}</h3>
+          <blockquote><p>{t("„Du denkst immer nur an dich.“", "“You only ever think about yourself.”")}</p></blockquote>
+        </div>
+        <div>
+          <h3>{t("Ein möglicher Anfang", "One way to start")}</h3>
+          <blockquote><p>{t(
+            "„Gestern nach zehn habe ich dein Telefonat im Schlafzimmer gehört. Ich lag noch lange wach. Können wir ab zehn die Küchentür schließen?“",
+            "“After ten last night I could hear your call from my bedroom. I was awake for ages. Could we close the kitchen door from ten onwards?”"
+          )}</p></blockquote>
+        </div>
+      </div>
+      <details>
+        <summary>{t("Wie könnte dein Mitbewohner antworten?", "How might your flatmate respond?")}</summary>
+        <p>{t(
+          "„Du brauchst ab zehn mehr Ruhe. Habe ich dich richtig verstanden? Ich möchte abends mit meiner Schwester telefonieren können. Lass uns ausprobieren, ob die geschlossene Tür reicht.“",
+          "“You need it to be quieter after ten. Have I got that right? I’d like to be able to call my sister in the evenings. Let’s see if closing the door is enough.”"
+        )}</p>
+      </details>
+      <ForumSectionLink lang={lang} place={slug} section="streit-beispiel" />
+    </section>
+
+    <section aria-labelledby="streit-offen">
+      <h2 id="streit-offen">{t("Was darf offenbleiben?", "What can stay unresolved?")}</h2>
+      <p>{t(
+        "Am nächsten Abend hörst du das Telefonat trotz geschlossener Tür. Dein Mitbewohner möchte weiter in der Küche telefonieren. Du möchtest ab zehn Ruhe. Ihr habt beide gehört, was der anderen Person wichtig ist. Welche Regel ihr auf Dauer tragen könnt, ist weiter offen.",
+        "The next evening, you can still hear the call with the door closed. Your flatmate wants to keep making calls in the kitchen. You want quiet after ten. You’ve each heard what matters to the other person. You’re still figuring out what arrangement you can both live with."
+      )}</p>
+      <p>{t(
+        "Vielleicht hilft eine andere Lösung. Fragt euch, was ihr freiwillig ausprobieren wollt und wann ihr gemeinsam schaut, wie es für euch war. Auch wenn eine Person Nein sagt, könnt ihr festhalten, wo genau ihr euch uneinig seid.",
+        "There may be another solution. Ask what each of you is willing to try and when you’ll check how it worked for both of you. If one person says no, you can still name exactly where you disagree."
+      )}</p>
+      <ForumSectionLink lang={lang} place={slug} section="streit-offen" />
+    </section>
+
+    <section aria-labelledby="streit-ausprobieren">
+      <h2 id="streit-ausprobieren">{t("Für euren nächsten Streit", "For your next disagreement")}</h2>
+      <ol class="disagreement-steps">
+        <li>{t("Beschreibe einen konkreten Moment. Sag, wie er dich getroffen hat und worum du bittest.", "Describe one specific moment. Say how it affected you and what you’re asking for.")}</li>
+        <li>{t("Frag, wie die andere Person es erlebt hat. Gib ihre Sicht in deinen Worten wieder und lass dich korrigieren.", "Ask how the other person experienced it. Put their view into your own words and let them correct you.")}</li>
+        <li>{t("Sagt, was ihr beide versuchen wollt und welcher Einwand noch offen ist.", "Say what you’re both willing to try and which objection still stands.")}</li>
+      </ol>
+      <p class="disagreement-pause">{t(
+        "Wenn du eine Pause brauchst, sag es direkt. „Ich brauche gerade Abstand. Können wir heute Abend noch einmal reden?“ Macht weiter, wenn ihr beide wollt. Bei Drohungen oder Zwang hat Schutz Vorrang.",
+        "If you need a break, say so. “I need some space right now. Could we talk again this evening?” Continue when you both want to. If there are threats or coercion, safety comes first."
+      )}</p>
+      <a class="subtle-link disagreement-exercise" href={pathFor(lang, "schnittmengen", "sprachprobe")}>
+        {t("Gespräch zu zweit ausprobieren", "Try the conversation exercise together")} <span aria-hidden="true">→</span>
+      </a>
+    </section>
+  </article>
+</Layout>
+
+<style>
+  .disagreement { max-width: 64rem; padding-block: clamp(2rem, 5vw, 4.5rem); }
+  .disagreement-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(10rem, 14rem);
+    align-items: center;
+    gap: 1rem 3rem;
+    margin-block: 1.75rem 2.5rem;
+  }
+  .disagreement-hero img { width: 100%; height: auto; border: 1px solid var(--line); border-radius: 3px; }
+  h1 { font-size: clamp(2rem, 5vw, 3.8rem); line-height: 1.06; letter-spacing: -.035em; margin-block: .2em .35em; }
+  h2 { font-size: clamp(1.45rem, 3.4vw, 2.15rem); line-height: 1.15; margin-block: .25rem .65rem; }
+  p, ol, details { max-width: 65ch; }
+  .disagreement-lead { color: var(--text); font: clamp(1.15rem, 2.3vw, 1.4rem)/1.48 var(--serif); }
+  .disagreement > section { border-top: 1px solid var(--line); padding-block-start: 1.45rem; margin-block: 1.85rem 0; }
+  .disagreement-lines { display: grid; grid-template-columns: 2fr 3fr; gap: .75rem; max-width: 46rem; margin-block: 1.15rem; }
+  .disagreement-lines > div { background: var(--ink2); border: 1px solid var(--line); padding: .9rem 1rem; }
+  .disagreement-lines > div:last-child { border-inline-start: 2px solid var(--signal); }
+  .disagreement-lines h3 { font: 650 .95rem/1.35 var(--sans); margin-block: 0 .45rem; }
+  .disagreement-lines blockquote { border: 0; margin: 0; padding: 0; }
+  .disagreement-lines p { color: var(--text); font: 1.1rem/1.45 var(--serif); margin: 0; }
+  details { padding-inline: .85rem; border-inline-start: 2px solid var(--line); margin-block: .65rem; }
+  summary { color: var(--text); cursor: pointer; min-height: 44px; padding-block: .6rem; }
+  details p { margin: 0; padding-block-end: .75rem; }
+  .disagreement-steps { padding-inline-start: 1.4rem; margin-block: .75rem 1.2rem; }
+  .disagreement-steps li { padding-inline-start: .25rem; margin-block: .35rem; }
+  .disagreement-pause { border-inline-start: 2px solid var(--signal); padding-inline-start: .85rem; }
+  .disagreement-exercise { display: inline-block; padding-block: .7rem; }
+  @media (max-width: 42rem) {
+    .disagreement-hero { grid-template-columns: minmax(0, 1fr); margin-block-end: 1.55rem; }
+    .disagreement-hero img { width: 7rem; }
+    .disagreement-lines { grid-template-columns: minmax(0, 1fr); }
+  }
+</style>

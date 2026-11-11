@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-09",
+  "updated_at": "2026-11-10",
   "source_language": "de",
   "target_language": "en",
   "scope": "Language coverage and editorial review. Draft and unassessed are not independently approved.",
@@ -287,6 +287,13 @@
         "review_url": null
       },
       "schnittmengen": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewed_at": null,
+        "source_commit": null,
+        "review_url": null
+      },
+      "streiten": {
         "status": "draft",
         "reviewer": null,
         "reviewed_at": null,

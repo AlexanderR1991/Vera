@@ -43,6 +43,13 @@ const cards=[
   },
   {id:"conversation", topic:"together", photo:"table",route:"schnittmengen",anchor:{de:"sprachprobe",en:"sprachprobe"},category:{de:"Am Küchentisch",en:"At the kitchen table"},title:{de:"Teilen wir die Miete durch zwei?",en:"Should we split the rent in half?"},description:{de:"Ein Gehalt ist doppelt so hoch wie das andere. Ihr wollt beide fair teilen. Was bedeutet das für jeden von euch?",en:"One of you earns twice as much as the other. You both want to be fair. What does that mean to each of you?"},action:{de:"Gespräch zu zweit ausprobieren",en:"Try the conversation together"},keywords:"gespräch streit konflikt zuhören miete fairness mediation conversation rent disagreement listening"},
   {
+    id:"disagreement", topic:"together", drafting:"disagreement", route:"streiten",
+    category:{de:"Streitkultur",en:"Disagreement"},
+    title:{de:ui.de.titles.streiten,en:ui.en.titles.streiten},
+    description:{de:"Du willst schlafen. Dein Mitbewohner telefoniert. Wie fängst du das Gespräch am nächsten Morgen an?",en:"You’re trying to sleep. Your flatmate is on the phone. How do you start the conversation the next morning?"},
+    keywords:"streit streiten konflikt gespräch zuhören wg nachtruhe argument disagreement listening flatmate"
+  },
+  {
     id:"parenting", topic:"together", drafting:"parenting", route:"kindererziehung",
     category:{de:"Kindererziehung",en:"Parenting"},
     title:{de:"Wer entscheidet, wann wir gehen?",en:"Who decides when it’s time to go?"},
@@ -116,7 +123,7 @@ const cards=[
 ] as const;
 const word=(v)=>v[lang];
 type CardId = typeof cards[number]["id"];
-const opening: CardId[] = ["conversation", "art", "parenting", "nutrition", "politics", "conversation-mirror", "first-step", "world-model", "obsidian", "dialogue", "religions"];
+const opening: CardId[] = ["conversation", "art", "parenting", "disagreement", "nutrition", "politics", "conversation-mirror", "world-model", "obsidian", "first-step", "dialogue", "religions"];
 const orderedCards = [...opening.map(id => cards.find(card => card.id === id)!), ...cards.filter(card => !opening.includes(card.id))];
 const trendCards = orderedCards.map(card => ({
   id: card.id,

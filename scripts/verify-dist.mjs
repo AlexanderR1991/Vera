@@ -286,9 +286,9 @@ for(const lang of ["de","en"]){
   "conversation-mirror":"gespraechsspiegel/",
   military:"militaer-und-verantwortung/", society:"politik-die-dem-menschen-dient/#garten", bridge:"die-bruecke/",
   atlas:"atlas/", counterexample:"gegenprobe-01/", parenting:"kindererziehung/", justice:"justiz/",
-  "world-model":"welt-mathematisch-abbilden/", obsidian:"obsidian/"
+  "world-model":"welt-mathematisch-abbilden/", obsidian:"obsidian/", disagreement:"streiten/"
  };
- const boardArt=["gespraechsspiegel","table","graph","wave","custodiae","atlas","bridge","nutrition","politics","medicine","religions","symbols","dialogue","rules","parenting","justice","world-model","obsidian"];
+ const boardArt=["gespraechsspiegel","table","graph","wave","custodiae","atlas","bridge","nutrition","politics","medicine","religions","symbols","dialogue","rules","parenting","justice","world-model","obsidian","disagreement"];
  if(cards.size!==Object.keys(boardRoutes).length+1||
     Object.entries(boardRoutes).some(([id,route])=>cards.get(id)!==`/Vera/${lang}/${route}`)||
     cards.get("first-step")!==(lang==="de"?"#erkenntnis":"#insight")||
@@ -334,7 +334,7 @@ for(const lang of ["de","en"]){
   if(!html.includes(`data-project-version="${project.version}"`)||!html.includes(` · ${name}</title>`)||headerName!==name)errors.push("Release identity mismatch "+file);
   if(html.includes("<title>undefined"))errors.push("Undefined page title "+file);
  }
- for(const slug of ["gespraechsspiegel","werkstatt","projektstatus","justiz","obsidian"]){
+ for(const slug of ["gespraechsspiegel","werkstatt","projektstatus","justiz","obsidian","streiten"]){
   const file=join(out,lang,slug,"index.html"),html=await readFile(file,"utf8");
   if(!html.includes(`<html lang="${lang}"`)||!html.includes('rel="canonical"')||!html.includes('hreflang="en"')||!html.includes('hreflang="de"'))errors.push("Missing release page metadata "+file);
   if(!sitemap.includes('/'+lang+'/'+slug+'/'))errors.push("Release page missing from sitemap "+file);
@@ -351,6 +351,7 @@ for(const lang of ["de","en"]){
  const template=await readFile(join(out,templatePath),"utf8");
  const questionPath=`/Vera/${lang}/#${entry}`;
  const openingCards=[...cards.keys()].slice(0,9);
+ if(!openingCards.includes("disagreement"))errors.push("Missing disagreement card in the opening pinboard for "+lang);
  if(!openingCards.includes("obsidian")||!openingCards.includes("world-model")||
     !notePage.includes(`href="/Vera/${templatePath}" download`)||
     !notePage.includes(`href="${questionPath}"`)||
