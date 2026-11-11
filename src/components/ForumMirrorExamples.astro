@@ -88,14 +88,14 @@ const examples = [
                   <span class="position-label"><span>{position.letter}</span>{t("Position", "Position")} {position.letter} · {position.name}</span>
                   <strong>{position.title}</strong>
                   <span class="position-copy">{position.text}</span>
-                  <span class="source-link">{t("Zum Beitrag", "View post")} {position.post.toString().padStart(2, "0")} <svg class="direction-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 12 12 4M4 4h8v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="source-link">{t("Zum Beitrag", "View post")} {position.post.toString().padStart(2, "0")} <svg class="direction-arrow" width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 12 12 4M4 4h8v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
                 </a>
               ))}
             </div>
             <p class="open-concern">{example.finding} <span class="finding-sources">{[3, 4].map(post => <a href={`#${example.id}-beitrag-${post}`}>{t("Beitrag", "Post")} {post.toString().padStart(2, "0")} <span aria-hidden="true">↓</span></a>)}</span></p>
 
             <details class="way-forward" open={example.id === "sackgasse"}>
-              <summary>{t("Was könnte jetzt helfen?", "What could help now?")} <svg class="direction-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 12 12 4M4 4h8v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+              <summary>{t("Was könnte jetzt helfen?", "What could help now?")} <svg class="direction-arrow" width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 12 12 4M4 4h8v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
               <div class="way-forward-body">
                 <p class="proposal-label">{t("Vera schlägt als Frage vor", "Vera suggests a question")}</p>
                 <p class="next-question">{example.question}</p>
@@ -103,7 +103,7 @@ const examples = [
                 <p class="choice-note">{t("Ihr könnt die Frage ändern, Nein sagen oder pausieren. Wenn ein Versuch jemandem schadet oder das Gespräch verschlechtert, könnt ihr ihn abbrechen und den Einwand festhalten.", "You can change the question, say no or pause. If a trial harms someone or makes the conversation worse, you can stop and record the objection.")}</p>
               </div>
             </details>
-            <div class="plugin-footer"><span>{t("Grundlage: alle 4 Beiträge unten", "Scope: all 4 posts below")}</span><a href="#spiegel-korrigieren">{t("Deutung hinterfragen", "Challenge this reading")} <svg class="direction-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 12 12 4M4 4h8v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+            <div class="plugin-footer"><span>{t("Grundlage: alle 4 Beiträge unten", "Scope: all 4 posts below")}</span><a href="#spiegel-korrigieren">{t("Deutung hinterfragen", "Challenge this reading")} <svg class="direction-arrow" width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 12 12 4M4 4h8v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
           </div>
         </details>
 
@@ -170,7 +170,7 @@ const examples = [
   .position-b .position-label > span { color: #68436e; background: #f0eaf1; }
   .position-card > strong { font: 650 .95rem/1.3 var(--sans); letter-spacing: -.02em; }
   .position-copy { color: #586157; font: .82rem/1.5 var(--sans); }
-  .direction-arrow { display: inline-block; width: .85em; height: .85em; flex-shrink: 0; vertical-align: -.05em; }
+  .direction-arrow { display: inline-block; width: 12px; height: 12px; flex-shrink: 0; vertical-align: -.05em; }
   .source-link { margin-top: auto; padding-top: .25rem; font: 600 .68rem/1.5 var(--sans); text-decoration: underline; text-underline-offset: 3px; }
   .open-concern { color: #505d4f; font: .8rem/1.55 var(--sans); margin: .85rem 0; }
   .open-concern a { text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; }
