@@ -1,17 +1,20 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-12T07:12:25+00:00",
+  "updated_at": "2026-11-12T19:55:15+00:00",
   "status": "automatic_discovery_not_fact_checked",
   "analysis": "metadata_only",
   "source": "Crossref + arXiv",
   "source_queries": {
-    "Crossref": 7,
+    "Crossref": 5,
     "arXiv": 3
   },
-  "source_queries_succeeded": 10,
-  "new_items": 0,
+  "source_queries_succeeded": 8,
+  "new_items": 1,
   "agents_enabled": false,
-  "errors": [],
+  "errors": [
+    "Crossref/bewusstsein: HTTPError: HTTP Error 429: Too Many Requests",
+    "Crossref/liebe: HTTPError: HTTP Error 429: Too Many Requests"
+  ],
   "items": [
     {
       "id": "arxiv:2611.14514v1",
@@ -415,6 +418,21 @@
       ],
       "venue": "Philosophies",
       "url": "https://doi.org/10.3390/philosophies11060203",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "10.1016/j.ailsci.2026.100194",
+      "topic": "ki",
+      "title": "Evaluating the ultimate impact of artificial intelligence on drug discovery",
+      "date": "2026-11-01",
+      "authors": [
+        "Jürgen Bajorath"
+      ],
+      "venue": "Artificial Intelligence in the Life Sciences",
+      "url": "https://doi.org/10.1016/j.ailsci.2026.100194",
       "source": "Crossref bibliographic metadata",
       "status": "unreviewed",
       "source_examined": "metadata_only",
