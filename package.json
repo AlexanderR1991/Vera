@@ -15,7 +15,15 @@
     "triage:questions": "node scripts/triage-questions.mjs",
     "scan:universal": "node scripts/scan-universal.mjs --write && node scripts/validate-universal.mjs",
     "plan:universal": "node scripts/plan-universal-backports.mjs",
-    "test:links": "node scripts/validate-doc-links.mjs --dist"
+    "test:links": "node scripts/validate-doc-links.mjs --dist",
+    "model:check": "node scripts/check-model-foundation.mjs",
+    "eval:plan": "node evals/cli.mjs plan",
+    "eval:preflight": "node evals/cli.mjs preflight",
+    "eval:run": "node evals/cli.mjs run",
+    "eval:score": "node evals/cli.mjs score",
+    "data:validate": "node data/cli.mjs validate",
+    "data:export": "node data/cli.mjs export",
+    "training:plan": "node training/plan.mjs"
   },
   "dependencies": {
     "astro": "^6.0.0"

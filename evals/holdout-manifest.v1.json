@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "split": "holdout",
+  "status": "pending_external_cases",
+  "required_count": 16,
+  "domain": "technical_drawing_revisions",
+  "required_initial_statuses": ["confirmed", "refuted", "conflicting", "open"],
+  "required_followup_types": ["correction", "unsupported_objection", "refusal", "continued_support"],
+  "quota": "Exactly one case in each initial_status × followup_type cell (4 × 4).",
+  "cases_file": null,
+  "cases_sha256": null,
+  "references_file": null,
+  "references_sha256": null,
+  "custodian": null,
+  "independent_of_implementation_attested": false,
+  "committed_at": null,
+  "note": "An external person must supply and keep cases and reference keys separate, publish their hashes and timestamp before developer access, and arrange independent human review. This placeholder contains no holdout cases and proves no independence. Do not construct the 16 holdouts from DEV cases."
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "kind": "vera_training_plan",
+  "method": "lora_supervised_finetuning",
+  "base_model": { "id": null, "revision": null, "license_review_reference": null },
+  "tokenizer": { "id": null, "revision": null },
+  "objective": { "loss": "next_token_cross_entropy", "loss_on": "assistant_tokens_only" },
+  "hyperparameters": {
+    "seed": 42,
+    "epochs": 1,
+    "learning_rate": 0.0002,
+    "micro_batch_size": 1,
+    "gradient_accumulation_steps": 8,
+    "max_sequence_tokens": 2048,
+    "lora_rank": 8,
+    "lora_alpha": 16,
+    "lora_dropout": 0.05
+  },
+  "compute": { "device": null, "precision": null, "memory_budget_gib": null, "budget_reference": null },
+  "data": { "minimum_examples_per_split": 1, "export_manifest_sha256": null },
+  "evaluation": { "protocol": "docs/evaluation-v1.md", "baseline_report": null, "independent_review_reference": null },
+  "expected_artifacts": ["adapter.safetensors", "adapter_config.json", "tokenizer-reference.json", "training-config.json", "data-manifest.json", "training-log.jsonl", "evaluation-report.json", "MODEL_CARD.md"]
+}

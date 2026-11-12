@@ -35,6 +35,8 @@ Fachlicher Ausgangspunkt für theoriebasierte Indikatoren und ihre Grenzen ist [
 
 ## Der Aufbauweg – nicht als erledigt ausgeben
 
+Die [technische Modellgrundlage](modellentwicklung.md) ergänzt diesen Weg um eine gemeinsame Laufzeit, ausführbare Vergleiche, Datenprüfung und Trainingsplanung. Der Trainingskorpus startet leer. Ein Trainingsbackend, eigene Modellgewichte und unabhängige Ergebnisdaten werden dadurch noch nicht bereitgestellt.
+
 | Schritt | Was überprüfbar sein muss | Stand |
 | --- | --- | --- |
 | 1. Philosophische Grundlagen und öffentliche Werkstatt | Fragen, Gründe, Widerspruch, Versionen und menschliche Redaktion | **Im Aufbau / teilweise nutzbar** |

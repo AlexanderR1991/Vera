@@ -8,6 +8,25 @@ Die Reihenfolge folgt überprüfbaren Voraussetzungen. Die Kapitel bleiben erhal
 
 Der [AGI-Horizont](agi-horizont.md) verbindet diese Etappen mit der langfristigen Forschung zu allgemeiner Intelligenz. Der nächste Beitrag dazu ist ein begrenzter Transfervergleich in [P-02](evaluation-v1.md), bei dem dieselbe Methode in einer neuen Domäne bestehen muss.
 
+## Technische Entwicklungslinie zum eigenen Modell · 12. November 2026
+
+Die [Modellgrundlage](modellentwicklung.md) ergänzt die inhaltlichen Etappen um eine gesonderte technische Linie. Ausführbare Infrastruktur und nachgewiesene Modellverbesserung bleiben getrennte Meilensteine.
+
+- [x] Gemeinsame lokale Inferenzschnittstelle und begrenzten Quellenabruf aus der Ask-CLI herauslösen
+- [x] T0/T1/T2-Vergleich mit öffentlichen Entwicklungsfällen, Laufprotokollen und getrennter Bewertung ausführbar vorbereiten
+- [x] Datenherkunft, Nutzungsfreigabe, Prüfstatus und Überschneidungen zwischen Datenaufteilungen validieren; geeignete Lernbeispiele exportieren
+- [x] Trainingskonfiguration und Planungsprüfung mit fehlenden Voraussetzungen anlegen; **kein Training durchgeführt**
+- [ ] Ein festgehaltenes lokales Modell auf Entwicklungsfällen betreiben und Ressourcenverbrauch dokumentieren
+- [ ] Modellabhängige Zählung des vollständigen Inputs einschließlich Chat-Template prüfen; bis dahin externe Holdout-Läufe sperren
+- [ ] Externe 16-Fall-Transferprobe mit unabhängigen Bezugslösungen und Bewertungen durchführen
+- [ ] Inhaltlich geprüften, für Training geeigneten Korpus mit getrennten Trainings-, Validierungs- und Prüfdaten aufbauen
+- [ ] Basismodell, Tokenizer, Lizenzumfang, Backend und Rechenbudget für einen begrenzten Lernlauf auswählen
+- [ ] Trainingsbackend implementieren, Lauf und Adapter beziehungsweise Modellgewichte reproduzierbar speichern
+- [ ] Ausgangsmodell und angepasste Fassung auf neuen Fällen vergleichen; Rückschritte und Nullbefunde berichten
+- [ ] Modellkarte, zulässige Datendokumentation und reproduzierbare Betriebsanleitung vor einer Modellveröffentlichung bereitstellen
+
+**Freigabekriterium:** Eine fehlerfreie Datenprüfung oder simulierte Inferenz beweist keine Lernleistung. Erweiterungen brauchen nachgewiesenen Nutzen gegenüber einem einfachen Vergleich sowie die bestehenden menschlichen Freigaben.
+
 ## Bereits vorhanden
 
 - [x] Zweisprachige statische Website mit Atlas, Bibliothek, neun Leitsätzen und Beitragswegen
@@ -177,6 +196,8 @@ Die Wikipedia-Vision ist ein langfristiger Entwicklungsanspruch. Sie bedeutet ke
 Systematische Recherche, unabhängiges Fachreview, belastbare Gegenpositionen und laufende Aktualisierung bleiben für Liebe, Ernährung, Politik, Militär, Theologie und Erkenntnis nötig. Veröffentlichte Kapitel sind Arbeitsentwürfe; ihre Existenz ersetzt diese Arbeit nicht.
 
 ## English
+
+The [technical model-development track](modellentwicklung.md#english) now separates executable runtime, evaluation infrastructure, learning-data validation and training planning from future model training. The corpus starts empty; independent held-out cases, a verified full-input token counter, real model results, compute and a training backend remain prerequisites. No trained Vera weights or efficacy result is claimed.
 
 The next milestone is a small corpus of ten fully examined claims, not more unchecked volume. Independent evaluation of the method comes next, alongside accountable governance and sustainable funding. The [contribution page](https://alexanderr1991.github.io/Vera/en/mitwirken/#unterstuetzen) lists Alexander Radke’s PayPal address for voluntary support. Broader coverage and more autonomy require demonstrated benefit. The register shows the review status of each record; no entry in the current pilot has independent expert approval.
 

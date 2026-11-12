@@ -2,6 +2,8 @@
 
 **Protokollentwurf 3 · 8. November 2026 · Kein Versuch, keine Vorregistrierung und keine Ergebnisdaten**
 
+**Technische Vorbereitung · 12. November 2026:** Der [Vergleichsrunner](../evals/README.md) bereitet die unten beschriebene Transferprobe als lokalen Arbeitsablauf vor. Vier öffentliche Entwicklungsfälle und Tests mit simulierten Antworten prüfen die Infrastruktur. Die 16 unabhängigen Prüffälle, extern geprüfte Bezugslösungen, menschliche Bewertungen und ein verifizierter Zähler für den vollständigen Modellinput stehen weiter aus. Externe Holdout-Läufe bleiben ohne diese Voraussetzungen gesperrt. Diese Ergänzung meldet keinen durchgeführten Versuch und ändert die Entscheidungsregeln nicht. [Technischer Aufbauweg](modellentwicklung.md).
+
 Unsere Arbeitsfrage lautet: Hilft das strukturierte Prüfblatt Menschen bei begrenzten Aufgaben — und welchen zusätzlichen Nutzen oder Schaden bringt KI-Gegenkritik? Die Existenz einer Website beantwortet diese Frage nicht. Das Protokoll konkretisiert auch die öffentliche Selbstprüfung [B-03](https://github.com/AlexanderR1991/Vera/issues/30).
 
 ## META-01 als testbare Arbeitshypothese

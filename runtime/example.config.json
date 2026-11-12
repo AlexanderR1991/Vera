@@ -1,0 +1,9 @@
+{
+  "model": "replace-with-an-installed-local-model",
+  "modelDigest": null,
+  "port": 11434,
+  "options": { "num_ctx": 8192, "num_predict": 512, "temperature": 0, "seed": 42 },
+  "timeoutMs": 90000,
+  "maxInputBytes": 1048576,
+  "maxResponseBytes": 4194304
+}

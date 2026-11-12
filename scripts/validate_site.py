@@ -12,7 +12,7 @@ from xml.etree import ElementTree
 
 ROOT = Path(__file__).resolve().parents[1]
 DIST = ROOT / "dist"
-SITE = json.loads((ROOT / "public/project.json").read_text())["website"]
+SITE = json.loads((ROOT / "public/project.json").read_text(encoding="utf8"))["website"]
 BASE = urlsplit(SITE)
 
 
@@ -47,15 +47,16 @@ class Page(HTMLParser):
 
 
 def check_rule_pack(lang, errors):
-    pack = (DIST / "prompts" / f"wirklich-regeln.{lang}.txt").read_text()
-    prompt = (ROOT / "public" / "prompts" / f"erkenntnisprompt-v1.{lang}.txt").read_text()
-    guide = (DIST / lang / "fragen-und-ki-prompt" / "index.html").read_text()
-    worksheet = (DIST / lang / "werkstatt" / "index.html").read_text()
+    pack = (DIST / "prompts" / f"wirklich-regeln.{lang}.txt").read_text(encoding="utf8")
+    prompt = (ROOT / "public" / "prompts" / f"erkenntnisprompt-v1.{lang}.txt").read_text(encoding="utf8")
+    guide = (DIST / lang / "fragen-und-ki-prompt" / "index.html").read_text(encoding="utf8")
+    worksheet = (DIST / lang / "werkstatt" / "index.html").read_text(encoding="utf8")
     preview = re.search(r'<textarea\b[^>]*\bid="inquiry-prompt"[^>]*>(.*?)</textarea>', guide, re.S)
     embedded = re.search(r'<script\b[^>]*\bdata-inquiry-rules\b[^>]*>(.*?)</script>', worksheet, re.S)
     if not preview or unescape(preview[1]) != pack:
         errors.append(f"{lang}: manual copy and rule pack download differ")
-    if not embedded or json.loads(embedded[1]) != pack:
+    # read_text normalizes line endings; JSON escape sequences retain CRLF.
+    if not embedded or json.loads(embedded[1]).replace("\r\n", "\n") != pack:
         errors.append(f"{lang}: worksheet export uses different rules")
     label = "These" if lang == "de" else "Thesis"
     numbers = re.findall(rf"^{label} (\d+):", pack, re.M)

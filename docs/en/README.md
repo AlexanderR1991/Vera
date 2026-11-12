@@ -66,6 +66,8 @@ The [repository tree](https://alexanderr1991.github.io/Vera/en/repository/) make
 | [Public data](../../public/knowledge) · [Protocols](../../public/protocol) | Versioned claims, questions and proposed procedures. |
 | [Tools](../../scripts) · [Tests](../../tests) | Local experiments and checks for code, data and publication. |
 
+The [technical path toward a Vera model](../modellentwicklung.md#english) connects the shared runtime, comparison runner, learning-data validation and training plan. Model weights and independent comparison results remain future work.
+
 To run the website, use Node.js 22.12 or later and a full Git checkout. The project timeline reads the Git history.
 
 ```sh
