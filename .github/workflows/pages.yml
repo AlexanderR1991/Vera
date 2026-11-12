@@ -37,6 +37,8 @@ jobs:
           python -m json.tool public/research/angriffe.json > /dev/null
       - name: Verify project memory against Git history
         run: node scripts/verify-memory.mjs
+      - name: Validate model-development contracts (offline, no training)
+        run: node scripts/check-model-foundation.mjs
       - name: Show questions affected by this claim revision
         if: github.event_name == 'pull_request'
         continue-on-error: true # Older registers may predate the schema this reader understands.

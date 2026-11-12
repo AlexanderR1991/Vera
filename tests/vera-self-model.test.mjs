@@ -90,7 +90,7 @@ test("scope and source validation reject malformed observations", () => {
 test("the documented CLI example, a conflicting extension and an invalid input produce distinct outcomes", () => {
   const script = fileURLToPath(new URL("../scripts/vera-self-model.mjs", import.meta.url));
   const doc = readFileSync(new URL("../docs/vera-selbstmodell.md", import.meta.url), "utf8");
-  const example = doc.match(/<<'JSON'\n([\s\S]+?)\nJSON/)[1];
+  const example = doc.match(/<<'JSON'\r?\n([\s\S]+?)\r?\nJSON/)[1];
   const run = input => spawnSync(process.execPath, [script], { input, encoding: "utf8" });
 
   const open = run(example);

@@ -11,3 +11,6 @@ __pycache__/
 
 public/search/
 public/research/universal-scan.v1.json
+
+# Local model runs, private evaluation packets, exports and future checkpoints.
+work/

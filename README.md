@@ -64,6 +64,8 @@ Der [Repository-Baum](https://alexanderr1991.github.io/Vera/de/repository/) mach
 | [Öffentliche Daten](public/knowledge) · [Protokolle](public/protocol) | Versionierte Aussagen, Fragen und Verfahrensentwürfe. |
 | [Werkzeuge](scripts) · [Tests](tests) | Lokale Versuche und Prüfungen für Code, Daten und Veröffentlichung. |
 
+Der [technische Aufbauweg zum eigenen Modell](docs/modellentwicklung.md) führt zu gemeinsamer Laufzeit, Vergleichsrunner, Lerndatenprüfung und Trainingsplanung. Modellgewichte und unabhängige Vergleichsergebnisse stehen noch aus.
+
 Für die Website brauchst du Node.js ab 22.12 und einen vollständigen Git-Checkout. Die Projektchronik liest die Git-Historie.
 
 ```sh

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-10",
+  "updated_at": "2026-11-12",
   "source_language": "de",
   "target_language": "en",
   "scope": "Language coverage and editorial review. Draft and unassessed are not independently approved.",
@@ -984,6 +984,15 @@
       "status": "draft",
       "priority": "core",
       "target": "docs/en/philosophical-motor-mathematics.md",
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "modellentwicklung.md": {
+      "status": "partial",
+      "priority": "support",
+      "target": null,
       "reviewer": null,
       "reviewed_at": null,
       "source_commit": null,

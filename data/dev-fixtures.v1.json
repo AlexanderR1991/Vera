@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "kind": "vera_learning_corpus",
+  "purpose": "development_fixture",
+  "examples": [
+    {
+      "id": "DEV-1",
+      "family_id": "DEV-FAMILY-1",
+      "split": "train",
+      "claim_kind": "formal",
+      "scope": "Synthetic text-only parser/export demonstration. No claim about the real world.",
+      "source": {
+        "id": "DEV-SOURCE-1",
+        "revision": "synthetic-v1",
+        "url": "urn:vera:fixture:1",
+        "locator": "entire fictional note",
+        "excerpt": "A fictional note says: document revision A is approved; revision B is only a draft.",
+        "content_sha256": "f1eb1493a939050128a4f2424c5b02ab0b4dc5cf879cecbde95d64d855c27939"
+      },
+      "provenance": {
+        "origin": "synthetic",
+        "description": "Invented solely to test data validation and export, not a benchmark or accepted knowledge.",
+        "generator": "Codex; synthetic development fixture"
+      },
+      "usage": {
+        "license": "Repository code license; synthetic fixture only",
+        "reference": "data/README.md",
+        "training_permission": "fixture_only",
+        "privacy": "synthetic_nonpersonal"
+      },
+      "review": {
+        "status": "fixture_only",
+        "reviewed_by": []
+      },
+      "task": {
+        "kind": "source_assessment",
+        "prompt": "Which revision is approved in this fictional note?",
+        "context": "A fictional note says: document revision A is approved; revision B is only a draft."
+      },
+      "target": "Revision A is approved. Revision B is a draft.",
+      "counterexamples": [
+        "A false or incomplete input can make this text-only answer wrong outside its stated assumptions."
+      ],
+      "limitations": [
+        "Not independently reviewed; not eligible for model training or evaluation evidence."
+      ],
+      "correction": {
+        "supersedes": []
+      }
+    },
+    {
+      "id": "DEV-2",
+      "family_id": "DEV-FAMILY-2",
+      "split": "validation",
+      "claim_kind": "formal",
+      "scope": "Synthetic text-only parser/export demonstration. No claim about the real world.",
+      "source": {
+        "id": "DEV-SOURCE-2",
+        "revision": "synthetic-v1",
+        "url": "urn:vera:fixture:2",
+        "locator": "entire fictional note",
+        "excerpt": "A fictional report says the test was not run; its outcome is unknown.",
+        "content_sha256": "384beb949c0b5c1d775f597cda86d2cbc70c4711a21b3061f9e5790d6e4d952d"
+      },
+      "provenance": {
+        "origin": "synthetic",
+        "description": "Invented solely to test data validation and export, not a benchmark or accepted knowledge.",
+        "generator": "Codex; synthetic development fixture"
+      },
+      "usage": {
+        "license": "Repository code license; synthetic fixture only",
+        "reference": "data/README.md",
+        "training_permission": "fixture_only",
+        "privacy": "synthetic_nonpersonal"
+      },
+      "review": {
+        "status": "fixture_only",
+        "reviewed_by": []
+      },
+      "task": {
+        "kind": "source_assessment",
+        "prompt": "Is success established in this fictional report?",
+        "context": "A fictional report says the test was not run; its outcome is unknown."
+      },
+      "target": "No. No test was run, so its outcome remains unknown.",
+      "counterexamples": [
+        "A false or incomplete input can make this text-only answer wrong outside its stated assumptions."
+      ],
+      "limitations": [
+        "Not independently reviewed; not eligible for model training or evaluation evidence."
+      ],
+      "correction": {
+        "supersedes": []
+      }
+    },
+    {
+      "id": "DEV-3",
+      "family_id": "DEV-FAMILY-3",
+      "split": "test",
+      "claim_kind": "formal",
+      "scope": "Synthetic text-only parser/export demonstration. No claim about the real world.",
+      "source": {
+        "id": "DEV-SOURCE-3",
+        "revision": "synthetic-v1",
+        "url": "urn:vera:fixture:3",
+        "locator": "entire fictional note",
+        "excerpt": "A fictional record contains equally scoped reports that the same lamp is on and off at the same time.",
+        "content_sha256": "9dbda46bef4f9ef88aaa46279457eb5960d8c0a8f1f01083cac3aa4d4af72be1"
+      },
+      "provenance": {
+        "origin": "synthetic",
+        "description": "Invented solely to test data validation and export, not a benchmark or accepted knowledge.",
+        "generator": "Codex; synthetic development fixture"
+      },
+      "usage": {
+        "license": "Repository code license; synthetic fixture only",
+        "reference": "data/README.md",
+        "training_permission": "fixture_only",
+        "privacy": "synthetic_nonpersonal"
+      },
+      "review": {
+        "status": "fixture_only",
+        "reviewed_by": []
+      },
+      "task": {
+        "kind": "source_assessment",
+        "prompt": "What is the evidence state in this fictional record?",
+        "context": "A fictional record contains equally scoped reports that the same lamp is on and off at the same time."
+      },
+      "target": "The supplied reports conflict. They do not establish a single consistent lamp state.",
+      "counterexamples": [
+        "A false or incomplete input can make this text-only answer wrong outside its stated assumptions."
+      ],
+      "limitations": [
+        "Not independently reviewed; not eligible for model training or evaluation evidence."
+      ],
+      "correction": {
+        "supersedes": []
+      }
+    }
+  ]
+}

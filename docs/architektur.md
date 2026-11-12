@@ -1,6 +1,6 @@
 # Architektur und Gestaltungsprinzipien
 
-**Aktueller Aufbau · 10. November 2026.** Datierte Abschnitte benennen die Herkunft einzelner Bausteine; aktuelle Arbeitswege stehen im [Wegweiser](README.md).
+**Aktueller Aufbau · 12. November 2026.** Datierte Abschnitte benennen die Herkunft einzelner Bausteine; aktuelle Arbeitswege stehen im [Wegweiser](README.md).
 
 ## Leitgedanke
 Die Schönheit darf zum Denken einladen; sie darf es nicht ersetzen. Gestaltung und Argumentation haben unterschiedliche Aufgaben.
@@ -91,6 +91,9 @@ Der [Forschungsentwurf](kollektive-moral.md) ergänzt den Erkenntnismotor um ein
 - Spätere Artikel enthalten Status, Version, Quelle, Kritik und Änderungen.
 
 ## Technik
+
+Die [Modellgrundlage](modellentwicklung.md) ergänzt die Website um getrennte Entwicklungsbereiche: [Laufzeit](../runtime/README.md), [Vergleich](../evals/README.md), [Lerndaten](../data/README.md) und [Trainingsplanung](../training/README.md). Die lokale Ask-CLI nutzt die gemeinsame Modell- und Werkzeuggrenze. Entwicklungsfälle und simulierte Antworten prüfen zunächst Software; externe Prüffälle, echte Modellmessungen und ein trainiertes Vera-Modell bleiben offen. Die sechs Themenfelder werden dadurch weder zu Gehirnarealen noch zu neuronalen Experten. Die vorhandenen Prüfkerne und menschlichen Freigaben behalten ihre Aufgaben.
+
 Aktuell erzeugt Astro eine statische DE/EN-Website für GitHub Pages. Ältere Unterseiten werden aus den Root-HTML-Dateien und Übersetzungsdaten vorbereitet; neuere Kapitel verwenden gemeinsame Astro-Komponenten. Die ursprüngliche Fassung 0.2 bestand aus statischem HTML, CSS und Vanilla-JavaScript. Schriften werden lokal ausgeliefert; Tracker werden nicht eingebunden. Die [Suche](https://alexanderr1991.github.io/Vera/de/suche/) verwendet einen beim Build erzeugten DE/EN-Index und wertet Suchbegriffe im Browser aus. Der Produktionsindex enthält auch die Haupttexte der indizierten Seiten. [Indexaufbau](../scripts/build-search-index.mjs) · [Suchlogik](../src/lib/site-search-match.mjs). Ein eigener Backenddienst und eine Anmeldung bleiben mögliche spätere Schritte bei belegtem Bedarf.
 
 ## Schutz

@@ -35,6 +35,8 @@ For a research starting point on theory-based indicators and their limitations, 
 
 ## Milestones — not claims of completion
 
+The [technical model foundation](../modellentwicklung.md#english) adds a shared runtime, executable comparisons, data validation and training planning. The training corpus starts empty. A training backend, original model weights and independent results remain future work.
+
 | Milestone | Evidence required | Status |
 | --- | --- | --- |
 | Philosophical foundations and open workshop | Human questions, objections, versions and editorial responsibility | **In development / partly usable** |

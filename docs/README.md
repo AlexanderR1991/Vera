@@ -16,6 +16,7 @@
 | Eine Forschungsfrage ausprobieren | [Die Brücke](mathematik-des-dazwischen.md) fragt, wie gut zwei Menschen einander verstehen, wenn sie sich uneinig sind. Der [Metaphernversuch](metaphern-lernen.md) zeigt, wie ein vertrautes Bild eine prüfbare Vorhersage anregen kann. |
 | Veras Struktur mathematisch prüfen | Die [mathematische Landkarte](mathematische-struktur.md) verbindet die Bereiche mit ihren Modellen und Gegenproben. Im [Einwandsprotokoll](entitaet.md#einwände-über-fassungen-verfolgen) lässt sich prüfen, wer nach einer Entscheidung noch auf eine Antwort wartet. |
 | Philosophische Beweise und Gegenmodelle suchen | Der abgegrenzte [Beweisraum](../research/beweisraum/README.md) beginnt mit 17 R0-Einträgen, bedingten Ableitungen und einem fiktiven Lebensfall. Agentenaufträge bleiben begrenzte Entwürfe. |
+| An einem eigenen Vera-Modell arbeiten | Die [technische Modellgrundlage](modellentwicklung.md) verbindet Laufzeit, Vergleich, Lerndaten und Trainingsplanung. Ein eigenes trainiertes Modell und unabhängige Ergebnisdaten fehlen noch. |
 | Einen Forenstreit nachvollziehen | Der [Vera Gesprächsspiegel](gespraechsspiegel.md) entwirft ein aufklappbares Feld mit Fundstellen, offenen Einwänden und möglichen nächsten Fragen. Die [Website-Vorschau](https://alexanderr1991.github.io/Vera/de/gespraechsspiegel/) zeigt einen fiktiven Thread. |
 | Konflikte im Repository klären | Der [Verfahrensentwurf](community-governance.md#konflikte-im-repository--repository-conflicts) trennt Sachfragen, gemeinsame Entscheidungen und schädliche Eingriffe. Er beschreibt Prüfmaßstäbe, bleibenden Dissens und Grenzen eines Freigabequorums; seine Annahme folgt den geltenden Regeln. |
 | Verfolgen, was ein Einwand verändert | [Gleiches Gehör und Korrekturwelle](gehoer-und-korrekturwelle.md) zeigt mit einem lokalen Versuch, wie Vera Beiträge einzeln verfolgt und betroffene Schlüsse neu berechnet. |
@@ -51,6 +52,14 @@ node scripts/probe-vera-selbststudie.mjs
 node scripts/vera-swarm.mjs de entity
 ```
 
+**Die Modellgrundlage prüfen.** Die Offline-Prüfung validiert die Daten- und Vergleichsverträge und nennt offene Trainingsvoraussetzungen. Sie startet kein Modell. Ein gültiger Plan darf ausdrücklich `blocked` melden. Für echte Entwicklungsversuche und die gesondert vorbereitete externe Prüfung stehen die Befehle im [Vergleichsleitfaden](../evals/README.md); für Export und Training in [data](../data/README.md) und [training](../training/README.md).
+
+```sh
+npm run model:check
+npm run data:validate
+npm run training:plan
+```
+
 ## Am Projekt entwickeln
 
 | Ort | Was liegt dort? |
@@ -58,6 +67,8 @@ node scripts/vera-swarm.mjs de entity
 | [src/pages](../src/pages) · [src/components](../src/components) | Routen und Bausteine der Astro-Website. Die deutsche und die englische Startseite verwenden dieselbe [Startseitenkomponente](../src/components/MissionHome.astro). |
 | [src/lib](../src/lib) | Prüfprogramme und gemeinsame Seitendaten, darunter die [DE/EN-Startseitentexte](../src/lib/mission-copy.json) und die [wechselnden Begrüßungen](../src/lib/home-greetings.mjs). |
 | [public/knowledge](../public/knowledge) · [public/protocol](../public/protocol) | Öffentliche Aussagen, Fragen und Verfahrensregeln als versionierte Daten. |
+| [runtime](../runtime/README.md) · [evals](../evals/README.md) | Gemeinsame lokale Modellanbindung und reproduzierbarer T0/T1/T2-Vergleich. |
+| [data](../data/README.md) · [training](../training/README.md) | Validierung zulässiger Lerndaten, Export und Trainingsplanung mit offenen Voraussetzungen. |
 | [scripts](../scripts) · [tests](../tests) | Terminalwerkzeuge, Build-Prüfungen und ausführbare Gegenproben. |
 
 Die Vorschau lässt sich nach der Installation mit `npm run dev` starten. Vorschau und Produktionsbuild brauchen einen Checkout mit vollständiger Git-Historie, weil die Projektchronik daraus Tagesstände rekonstruiert. Für einen Prüfablauf wie in CI nutze Node.js ab 22.12 und Python 3.12. [Build-Workflow](../.github/workflows/pages.yml)
