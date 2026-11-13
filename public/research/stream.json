@@ -1,21 +1,99 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-12T19:55:15+00:00",
+  "updated_at": "2026-11-13T06:46:50+00:00",
   "status": "automatic_discovery_not_fact_checked",
   "analysis": "metadata_only",
   "source": "Crossref + arXiv",
   "source_queries": {
-    "Crossref": 5,
+    "Crossref": 7,
     "arXiv": 3
   },
-  "source_queries_succeeded": 8,
-  "new_items": 1,
+  "source_queries_succeeded": 10,
+  "new_items": 6,
   "agents_enabled": false,
-  "errors": [
-    "Crossref/bewusstsein: HTTPError: HTTP Error 429: Too Many Requests",
-    "Crossref/liebe: HTTPError: HTTP Error 429: Too Many Requests"
-  ],
+  "errors": [],
   "items": [
+    {
+      "id": "10.11648/j.sdai.20260104.11",
+      "topic": "ki",
+      "title": "Artificial Intelligence and the Decline of Source Verification Practices in Higher Education in Western Uganda",
+      "date": "2026-11-12",
+      "authors": [
+        "Kimulya Adorable"
+      ],
+      "venue": "Science Discovery Artificial Intelligence",
+      "url": "https://doi.org/10.11648/j.sdai.20260104.11",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "arxiv:2611.15653v1",
+      "topic": "ki",
+      "title": "A Mechanistic Interpretability Study of an Astronomy Foundation Model",
+      "date": "2026-11-11",
+      "authors": [
+        "Rachel C. Zhang",
+        "Alberto Bietti",
+        "Wes Gurnee",
+        "Alessandro Favero",
+        "Miles Cranmer"
+      ],
+      "venue": "arXiv",
+      "url": "https://arxiv.org/abs/2611.15653v1",
+      "source": "arXiv bibliographic metadata",
+      "source_type": "repository_manuscript",
+      "peer_review": "not_verified",
+      "version": "1",
+      "related_doi": "",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "arxiv:2611.15049v1",
+      "topic": "ki",
+      "title": "Science Prediction Universe",
+      "date": "2026-11-11",
+      "authors": [
+        "Zengji Tu",
+        "Xiang Liu",
+        "Jiarui Sun",
+        "Ruoyu Wu",
+        "Zhihui Qi"
+      ],
+      "venue": "arXiv",
+      "url": "https://arxiv.org/abs/2611.15049v1",
+      "source": "arXiv bibliographic metadata",
+      "source_type": "repository_manuscript",
+      "peer_review": "not_verified",
+      "version": "1",
+      "related_doi": "",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "arxiv:2611.14777v1",
+      "topic": "ki",
+      "title": "Mach2: Scientific Discovery Platform with Deterministic Execution Constraints",
+      "date": "2026-11-10",
+      "authors": [
+        "Vansh Sharma",
+        "Venkat Raman"
+      ],
+      "venue": "arXiv",
+      "url": "https://arxiv.org/abs/2611.14777v1",
+      "source": "arXiv bibliographic metadata",
+      "source_type": "repository_manuscript",
+      "peer_review": "not_verified",
+      "version": "1",
+      "related_doi": "",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
     {
       "id": "arxiv:2611.14514v1",
       "topic": "ki",
@@ -581,6 +659,23 @@
       "agent_notes": {}
     },
     {
+      "id": "10.1007/s10516-026-09819-z",
+      "topic": "wirklichkeit",
+      "title": "When “Human” Stops Tracking: An Epistemology of Boundary-Eroding Biotechnology",
+      "date": "2026-10-20",
+      "authors": [
+        "Xufeng Zhang",
+        "Shenghui Bao",
+        "Han Li"
+      ],
+      "venue": "Global Philosophy",
+      "url": "https://doi.org/10.1007/s10516-026-09819-z",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
       "id": "10.1093/jaac/kpag040",
       "topic": "kunst",
       "title": "Kant and Bad Art",
@@ -629,6 +724,23 @@
       "peer_review": "not_verified",
       "version": "1",
       "related_doi": "",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "10.3389/fcpxs.2026.1868587",
+      "topic": "leben",
+      "title": "Detecting historical turning points in Italian media: a complex systems approach to a diachronic news corpus",
+      "date": "2026-10-14",
+      "authors": [
+        "Dario Zarcone",
+        "Salvatore Miccichè",
+        "David Sánchez"
+      ],
+      "venue": "Frontiers in Complex Systems",
+      "url": "https://doi.org/10.3389/fcpxs.2026.1868587",
+      "source": "Crossref bibliographic metadata",
       "status": "unreviewed",
       "source_examined": "metadata_only",
       "agent_notes": {}
