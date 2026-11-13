@@ -1,18 +1,36 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-13T06:46:50+00:00",
+  "updated_at": "2026-11-13T19:43:18+00:00",
   "status": "automatic_discovery_not_fact_checked",
   "analysis": "metadata_only",
   "source": "Crossref + arXiv",
   "source_queries": {
-    "Crossref": 7,
+    "Crossref": 5,
     "arXiv": 3
   },
-  "source_queries_succeeded": 10,
-  "new_items": 6,
+  "source_queries_succeeded": 8,
+  "new_items": 1,
   "agents_enabled": false,
-  "errors": [],
+  "errors": [
+    "Crossref/liebe: HTTPError: HTTP Error 429: Too Many Requests",
+    "Crossref/ki: HTTPError: HTTP Error 429: Too Many Requests"
+  ],
   "items": [
+    {
+      "id": "10.1093/aesthj/ayag025",
+      "topic": "kunst",
+      "title": "The Art and Philosophy of the Garden",
+      "date": "2026-11-13",
+      "authors": [
+        "Jasmine Nihmey Vasdi"
+      ],
+      "venue": "British Journal of Aesthetics",
+      "url": "https://doi.org/10.1093/aesthj/ayag025",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
     {
       "id": "10.11648/j.sdai.20260104.11",
       "topic": "ki",
