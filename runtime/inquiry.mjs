@@ -25,6 +25,7 @@ export async function runInquiry({ adapter, messages, searchProject, options, si
     const result = await adapter.generate({ messages: conversation, tools, options, signal });
     trace.push({ kind: "generation", model: result.model, options: result.options,
       usage: result.usage, finishReason: result.finishReason, durationMs: result.durationMs });
+    if (result.finishReason !== "stop") throw new Error("Inference returned no complete generation; finishReason must be stop.");
     return result;
   };
   try {
