@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-12",
+  "updated_at": "2026-11-14",
   "source_language": "de",
   "target_language": "en",
   "scope": "Language coverage and editorial review. Draft and unassessed are not independently approved.",
@@ -1001,6 +1001,15 @@
     "spielwelten.md": {
       "status": "shared_bilingual",
       "priority": "support",
+      "target": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "source_commit": null,
+      "review_url": null
+    },
+    "vera-mathematisch.md": {
+      "status": "partial",
+      "priority": "core",
       "target": null,
       "reviewer": null,
       "reviewed_at": null,
