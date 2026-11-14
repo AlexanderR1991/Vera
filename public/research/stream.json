@@ -1,19 +1,18 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-13T19:43:18+00:00",
+  "updated_at": "2026-11-14T06:24:31+00:00",
   "status": "automatic_discovery_not_fact_checked",
   "analysis": "metadata_only",
   "source": "Crossref + arXiv",
   "source_queries": {
-    "Crossref": 5,
+    "Crossref": 6,
     "arXiv": 3
   },
-  "source_queries_succeeded": 8,
-  "new_items": 1,
+  "source_queries_succeeded": 9,
+  "new_items": 2,
   "agents_enabled": false,
   "errors": [
-    "Crossref/liebe: HTTPError: HTTP Error 429: Too Many Requests",
-    "Crossref/ki: HTTPError: HTTP Error 429: Too Many Requests"
+    "Crossref/bewusstsein: HTTPError: HTTP Error 429: Too Many Requests"
   ],
   "items": [
     {
@@ -812,6 +811,24 @@
       "agent_notes": {}
     },
     {
+      "id": "10.1038/s42003-026-11161-4",
+      "topic": "leben",
+      "title": "Self-regulated emergence of heavy-tailed weight distributions in evolving complex network architectures",
+      "date": "2026-10-12",
+      "authors": [
+        "Jia Li",
+        "Cees van Leeuwen",
+        "Roman Bauer",
+        "Ilias Rentzeperis"
+      ],
+      "venue": "Communications Biology",
+      "url": "https://doi.org/10.1038/s42003-026-11161-4",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
       "id": "arxiv:2610.12845v1",
       "topic": "kunst",
       "title": "Towards Defining, Measuring, and Leveraging Creativity in AI Applications",
@@ -933,6 +950,21 @@
       "peer_review": "not_verified",
       "version": "1",
       "related_doi": "",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "10.16997/jdd.2190",
+      "topic": "gesellschaft",
+      "title": "Rethinking Climate Assemblies Within Complex Democratic Systems: Coupling and Pathways of Influence Beyond Policy Uptake",
+      "date": "2026-10-02",
+      "authors": [
+        "Mads Ejsing"
+      ],
+      "venue": "Journal of Deliberative Democracy",
+      "url": "https://doi.org/10.16997/jdd.2190",
+      "source": "Crossref bibliographic metadata",
       "status": "unreviewed",
       "source_examined": "metadata_only",
       "agent_notes": {}
