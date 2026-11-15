@@ -105,15 +105,23 @@ if (root) {
     }
     catch { report(t("Browserspeicher konnte nicht gelöscht werden. Die Felder bleiben erhalten.", "Browser storage could not be cleared. Your fields are preserved.")); }
   });
+  let importRevision = 0;
   root.querySelector("[data-import]").addEventListener("change", async event => {
     const file = event.target.files?.[0];
     if (!file) return;
+    const revision = ++importRevision;
     try {
       if (file.size > maxInquiryFileSize) throw new Error("Too large");
-      const note = parseInquiry(await file.text());
+      const raw = await file.text();
+      // A newer selection supersedes this read, including its errors.
+      if (revision !== importRevision) return;
+      const note = parseInquiry(raw);
       write(note);
       report(t("Prüfblatt importiert. Eigene Prüfung und öffentliche Einreichung bleiben getrennte Schritte.", "Worksheet imported. Your review and public submission remain separate steps."));
-    } catch { report(t("Import nicht möglich: Verwende einen Vera-JSON-Export bis 1 MiB. Dein bisheriger Entwurf bleibt erhalten.", "Use a worksheet exported as JSON, up to 1 MiB. Your existing draft is preserved.")); }
+    } catch {
+      if (revision !== importRevision) return;
+      report(t("Import nicht möglich: Verwende einen Vera-JSON-Export bis 1 MiB. Dein bisheriger Entwurf bleibt erhalten.", "Use a worksheet exported as JSON, up to 1 MiB. Your existing draft is preserved."));
+    }
     event.target.value = "";
   });
   root.querySelector("[data-load-example]").addEventListener("click", () => {

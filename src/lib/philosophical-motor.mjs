@@ -55,7 +55,7 @@ export function validateSyntheticScenario(input) {
     errors.push("At least two explicitly different value profiles are required");
   }
   if (!Array.isArray(input.safeguards) || input.safeguards.length === 0 ||
-      input.safeguards.some(x => !filled(x?.id) || !["pass", "fail", "unknown"].includes(x.status))) {
+      Array.from(input.safeguards).some(x => !filled(x?.id) || !["pass", "fail", "unknown"].includes(x.status))) {
     errors.push("Safeguards must explicitly be pass, fail, or unknown");
   }
   return errors;
@@ -166,14 +166,15 @@ export function provenanceAudit(records) {
 export function assessScopedAgreement(input) {
   const allowedStances = ["yes", "no", "abstain", "pending"];
   if (!filled(input?.version) || !Array.isArray(input.parties) ||
-      !input.parties.length || !input.parties.every(filled) ||
+      !input.parties.length || !Array.from(input.parties).every(filled) ||
       new Set(input.parties).size !== input.parties.length ||
       !Array.isArray(input.responses) ||
       !["pass", "fail", "unknown"].includes(input.rights) ||
       !["yes", "no", "unknown"].includes(input.feasibility)) return "invalid_input";
   const perParty = new Map();
   for (const response of input.responses) {
-    if (!input.parties.includes(response.party) || perParty.has(response.party) ||
+    if (!response || typeof response !== "object" || Array.isArray(response) ||
+        !input.parties.includes(response.party) || perParty.has(response.party) ||
         !allowedStances.includes(response.stance) || !filled(response.version)) {
       return "invalid_input";
     }

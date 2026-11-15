@@ -55,6 +55,42 @@ test("rights safeguards are noncompensatory and cannot be bought by a score",()=
   assert.equal(result.public_score_allowed,false);
 });
 
+test("missing safeguard slots never count as explicit protective declarations",()=>{
+  const pass={id:"rights",status:"pass"};
+  for(const safeguards of [new Array(1),new Array(2),[pass,,],[,pass],[null],[undefined]]) {
+    const sample={...plurality,safeguards};
+    assert.ok(validateSyntheticScenario(sample).length>0);
+    const result=examineDirection(sample);
+    assert.equal(result.status,"invalid_input");
+    assert.equal(result.safeguard_status,"not_assessed");
+    assert.deepEqual(result.profile_results,[]);
+    assert.equal(result.public_score_allowed,false);
+  }
+});
+
+test("84 finite safeguard lists distinguish gaps, failure, uncertainty and declared passes",()=>{
+  const choices=["hole","pass","fail","unknown"];
+  let checked=0;
+  for(let length=1;length<=3;length++) for(let code=0;code<4**length;code++) {
+    const selected=Array.from({length},(_,i)=>choices[Math.floor(code/4**i)%4]);
+    const safeguards=new Array(length);
+    selected.forEach((status,i)=>{if(status!=="hole") safeguards[i]={id:"s"+i,status};});
+    const result=examineDirection({...plurality,safeguards});
+    if(selected.includes("hole")) {
+      assert.equal(result.status,"invalid_input");
+      assert.equal(result.safeguard_status,"not_assessed");
+      assert.deepEqual(result.profile_results,[]);
+    } else {
+      const expected=selected.includes("fail")?"blocked":selected.includes("unknown")?"pending":"declared_pass";
+      assert.equal(result.status,"illustrative_only");
+      assert.equal(result.safeguard_status,expected);
+    }
+    assert.equal(result.public_score_allowed,false);
+    checked++;
+  }
+  assert.equal(checked,84);
+});
+
 test("absent evidence does not silently turn into numerical zero",()=>{
   const result=examineDirection(missing);
   assert.equal(result.status,"missing_data");
@@ -115,6 +151,37 @@ test("a consent applies only to the exact version and all named parties",()=>{
   assert.equal(assessScopedAgreement({...proposal,responses:proposal.responses.map(r=>({...r,version:"v2"}))}),"agreement_on_exact_version");
   assert.equal(assessScopedAgreement({...proposal,rights:"fail"}),"blocked");
   assert.equal(assessScopedAgreement({...proposal,feasibility:"no"}),"infeasible");
+});
+
+test("missing party slots cannot manufacture agreement and malformed responses fail explicitly",()=>{
+  const base={version:"v2",parties:["A"],rights:"pass",feasibility:"yes",responses:[{party:"A",stance:"yes",version:"v2"}]};
+  for(const parties of [new Array(1),["A",,],[,"A"],["A",undefined],["A",null]]) {
+    assert.equal(assessScopedAgreement({...base,parties}),"invalid_input");
+  }
+  const fields={party:"A",stance:"yes",version:"v2"};
+  for(const response of [null,undefined,0,"yes",[],{},Object.assign([],fields),Object.assign(()=>{},fields)]) {
+    assert.equal(assessScopedAgreement({...base,responses:[response]}),"invalid_input");
+  }
+  assert.equal(assessScopedAgreement({...base,responses:new Array(1)}),"invalid_input");
+  assert.equal(assessScopedAgreement({...base,responses:[]}),"proposed_or_open");
+  assert.equal(assessScopedAgreement(base),"agreement_on_exact_version");
+});
+
+test("agreement requires every explicit current yes across 1944 finite cases",()=>{
+  const parties=["A","B","C"];
+  const choices=[null,["yes","v2"],["no","v2"],["abstain","v2"],["pending","v2"],["yes","v1"]];
+  let checked=0;
+  for(const a of choices) for(const b of choices) for(const c of choices) {
+    const selected=[a,b,c];
+    const responses=selected.flatMap((answer,i)=>answer?[{party:parties[i],stance:answer[0],version:answer[1]}]:[]);
+    for(const rights of ["pass","fail","unknown"]) for(const feasibility of ["yes","no","unknown"]) {
+      const expected=rights==="pass"&&feasibility==="yes"&&selected.every(answer=>answer?.[0]==="yes"&&answer[1]==="v2");
+      const actual=assessScopedAgreement({version:"v2",parties,responses,rights,feasibility});
+      assert.equal(actual==="agreement_on_exact_version",expected,JSON.stringify({responses,rights,feasibility}));
+      checked++;
+    }
+  }
+  assert.equal(checked,1944);
 });
 
 test("same median estimates do not imply robust positive orientation",()=>{
