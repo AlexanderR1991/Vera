@@ -20,6 +20,16 @@ export function createInquiryDraftRecord({ id, question, draft, at, lang = "de",
   if (draft.content.length > entityLimits.text || (typeof draft.message?.content === "string" && draft.message.content.length > entityLimits.text)) {
     throw new Error(`Answer exceeds ENT-00's ${entityLimits.text}-character text limit; nothing was truncated or recorded.`);
   }
+  // Check supplied text representations, not authenticity. Runtime content trims
+  // only trailing whitespace; an operator import may omit message/history.
+  const rawAnswer = draft.message?.content;
+  const lastAnswer = Array.isArray(draft.messages) ? draft.messages.at(-1) : undefined;
+  if ((draft.message !== undefined && (typeof rawAnswer !== "string" || rawAnswer.trimEnd() !== draft.content)) ||
+      (draft.messages !== undefined && (!Array.isArray(draft.messages) || lastAnswer?.role !== "assistant" ||
+        typeof lastAnswer.content !== "string" || lastAnswer.content.trimEnd() !== draft.content ||
+        (rawAnswer !== undefined && lastAnswer.content !== rawAnswer)))) {
+    throw new Error("Recorded inquiry answer text must match the supplied message and final assistant entry.");
+  }
   const binding = boundQuestion(question, draft.messages);
   const searched = draft.trace.filter(event => event.kind === "project-search");
   const retrieved = searched.flatMap(event => {
