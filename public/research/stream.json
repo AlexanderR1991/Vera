@@ -1,20 +1,18 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-14T22:25:08+00:00",
+  "updated_at": "2026-11-15T06:33:56+00:00",
   "status": "automatic_discovery_not_fact_checked",
   "analysis": "metadata_only",
   "source": "Crossref + arXiv",
   "source_queries": {
-    "Crossref": 4,
+    "Crossref": 6,
     "arXiv": 3
   },
-  "source_queries_succeeded": 7,
-  "new_items": 0,
+  "source_queries_succeeded": 9,
+  "new_items": 4,
   "agents_enabled": false,
   "errors": [
-    "Crossref/bewusstsein: HTTPError: HTTP Error 429: Too Many Requests",
-    "Crossref/liebe: HTTPError: HTTP Error 429: Too Many Requests",
-    "Crossref/ki: HTTPError: HTTP Error 429: Too Many Requests"
+    "Crossref/gesellschaft: HTTPError: HTTP Error 429: Too Many Requests"
   ],
   "items": [
     {
@@ -388,6 +386,23 @@
       "agent_notes": {}
     },
     {
+      "id": "10.1108/mhsi-10-2026-0413",
+      "topic": "liebe",
+      "title": "Financial stress and mental well-being among older adults: an extended conceptual framework of financial vulnerability, self-efficacy and social support",
+      "date": "2026-11-04",
+      "authors": [
+        "Taru Maheshwari",
+        "Purwa Srivastava",
+        "Siya Singhal"
+      ],
+      "venue": "Mental Health and Social Inclusion",
+      "url": "https://doi.org/10.1108/mhsi-10-2026-0413",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
       "id": "arxiv:2611.05439v1",
       "topic": "ki",
       "title": "Learning Implicit Solves for Dynamic Simulations",
@@ -582,6 +597,25 @@
       "agent_notes": {}
     },
     {
+      "id": "10.3389/fnins.2026.1879145",
+      "topic": "bewusstsein",
+      "title": "Effects of auditory sensory stimulation on consciousness and physiological parameters among individuals with disorders of consciousness: a systematic review and meta-analysis",
+      "date": "2026-10-28",
+      "authors": [
+        "Jinqin Zhang",
+        "Xinyue Yan",
+        "Fubiao Huang",
+        "Yudi Huang",
+        "Jiawen Wang"
+      ],
+      "venue": "Frontiers in Neuroscience",
+      "url": "https://doi.org/10.3389/fnins.2026.1879145",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
       "id": "10.20318/eunomia.2026.10855",
       "topic": "gesellschaft",
       "title": "Democracia deliberativa",
@@ -671,6 +705,21 @@
       ],
       "venue": "European Journal of Philosophy",
       "url": "https://doi.org/10.1111/ejop.70130",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "10.1108/mhsi-10-2026-0412",
+      "topic": "liebe",
+      "title": "Mental health support during ongoing substance use: are people being asked to get well before they can access help?",
+      "date": "2026-10-22",
+      "authors": [
+        "Lisa Ogilvie"
+      ],
+      "venue": "Mental Health and Social Inclusion",
+      "url": "https://doi.org/10.1108/mhsi-10-2026-0412",
       "source": "Crossref bibliographic metadata",
       "status": "unreviewed",
       "source_examined": "metadata_only",
@@ -893,6 +942,22 @@
       ],
       "venue": "Journal of Deliberative Democracy",
       "url": "https://doi.org/10.16997/jdd.2051",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "10.1111/fare.70382",
+      "topic": "liebe",
+      "title": "Cultivating Connection: How Social‐Emotional Abilities Are Associated With Relationship and Family Well‐Being in Married Adults",
+      "date": "2026-10-08",
+      "authors": [
+        "Cheolwoo Park",
+        "Victor W. Harris"
+      ],
+      "venue": "Family Relations",
+      "url": "https://doi.org/10.1111/fare.70382",
       "source": "Crossref bibliographic metadata",
       "status": "unreviewed",
       "source_examined": "metadata_only",
