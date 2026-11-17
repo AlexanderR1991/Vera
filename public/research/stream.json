@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-17T07:55:45+00:00",
+  "updated_at": "2026-11-17T20:56:20+00:00",
   "status": "automatic_discovery_not_fact_checked",
   "analysis": "metadata_only",
   "source": "Crossref + arXiv",
@@ -13,6 +13,52 @@
   "agents_enabled": false,
   "errors": [],
   "items": [
+    {
+      "id": "10.65214/2164-7992.1831",
+      "topic": "gesellschaft",
+      "title": "What Is This Democracy We Are Teaching For? A Response to “Why We Should Keep the Discussion Going: Agonism, Deliberative Democracy, and Democratic Education”",
+      "date": "2026-11-16",
+      "authors": [
+        "Emma N Tysklind"
+      ],
+      "venue": "Democracy & Education",
+      "url": "https://doi.org/10.65214/2164-7992.1831",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "10.65214/2164-7992.1815",
+      "topic": "gesellschaft",
+      "title": "Children as Deliberators in the Present. A Book Review of <em>Children, Democracy, and Education: A Deliberative Reconsideration</em>",
+      "date": "2026-11-16",
+      "authors": [
+        "Gilbert Burgh"
+      ],
+      "venue": "Democracy & Education",
+      "url": "https://doi.org/10.65214/2164-7992.1815",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "10.65214/2164-7992.1804",
+      "topic": "gesellschaft",
+      "title": "Why We Should Keep the Discussion Going: Agonism, Deliberative Democracy, and Democratic Education",
+      "date": "2026-11-16",
+      "authors": [
+        "Henri Huttunen",
+        "Samuel Iinatti"
+      ],
+      "venue": "Democracy & Education",
+      "url": "https://doi.org/10.65214/2164-7992.1804",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
     {
       "id": "arxiv:2611.20031v1",
       "topic": "ki",
@@ -1402,55 +1448,6 @@
       ],
       "venue": "Public Administration and Civil Service",
       "url": "https://doi.org/10.52123/1994-2370-2026-1776",
-      "source": "Crossref bibliographic metadata",
-      "status": "unreviewed",
-      "source_examined": "metadata_only",
-      "agent_notes": {}
-    },
-    {
-      "id": "10.1038/s41540-026-00825-w",
-      "topic": "leben",
-      "title": "Stochastic modeling of BMP heterodimer-receptor interactions shows emergence of low-pass filtering behavior",
-      "date": "2026-09-28",
-      "authors": [
-        "Nissa J. Larson",
-        "Aasakiran Madamanchi",
-        "Linlin Li",
-        "David M. Umulis"
-      ],
-      "venue": "npj Systems Biology and Applications",
-      "url": "https://doi.org/10.1038/s41540-026-00825-w",
-      "source": "Crossref bibliographic metadata",
-      "status": "unreviewed",
-      "source_examined": "metadata_only",
-      "agent_notes": {}
-    },
-    {
-      "id": "10.1017/psa.2026.10280",
-      "topic": "wirklichkeit",
-      "title": "The Benchmarking Epistemology: Validity Theory for Evaluating Machine Learning Models",
-      "date": "2026-09-28",
-      "authors": [
-        "Timo Freiesleben",
-        "Sebastian Zezulka"
-      ],
-      "venue": "Philosophy of Science",
-      "url": "https://doi.org/10.1017/psa.2026.10280",
-      "source": "Crossref bibliographic metadata",
-      "status": "unreviewed",
-      "source_examined": "metadata_only",
-      "agent_notes": {}
-    },
-    {
-      "id": "10.1007/s11153-026-10038-0",
-      "topic": "wirklichkeit",
-      "title": "Purified proper function: Sufi epistemology and the possibility of Islamic Reformed Epistemology",
-      "date": "2026-09-28",
-      "authors": [
-        "Enis Doko"
-      ],
-      "venue": "International Journal for Philosophy of Religion",
-      "url": "https://doi.org/10.1007/s11153-026-10038-0",
       "source": "Crossref bibliographic metadata",
       "status": "unreviewed",
       "source_examined": "metadata_only",
