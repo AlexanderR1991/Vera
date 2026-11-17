@@ -1,21 +1,59 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-16T22:03:29+00:00",
+  "updated_at": "2026-11-17T07:55:45+00:00",
   "status": "automatic_discovery_not_fact_checked",
   "analysis": "metadata_only",
   "source": "Crossref + arXiv",
   "source_queries": {
-    "Crossref": 5,
+    "Crossref": 7,
     "arXiv": 3
   },
-  "source_queries_succeeded": 8,
-  "new_items": 0,
+  "source_queries_succeeded": 10,
+  "new_items": 3,
   "agents_enabled": false,
-  "errors": [
-    "Crossref/bewusstsein: HTTPError: HTTP Error 429: Too Many Requests",
-    "Crossref/gesellschaft: HTTPError: HTTP Error 429: Too Many Requests"
-  ],
+  "errors": [],
   "items": [
+    {
+      "id": "arxiv:2611.20031v1",
+      "topic": "ki",
+      "title": "Towards Agentic Scientific Discovery in Distributed Systems",
+      "date": "2026-11-15",
+      "authors": [
+        "Rashmita Soni",
+        "Abhirup Ghosh",
+        "Soumya Banerjee"
+      ],
+      "venue": "arXiv",
+      "url": "https://arxiv.org/abs/2611.20031v1",
+      "source": "arXiv bibliographic metadata",
+      "source_type": "repository_manuscript",
+      "peer_review": "not_verified",
+      "version": "1",
+      "related_doi": "",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "arxiv:2611.19794v1",
+      "topic": "ki",
+      "title": "Eliciting Research Taste in LLMs through Future Research Direction Choice",
+      "date": "2026-11-15",
+      "authors": [
+        "Dhruv Trehan",
+        "Paras Chopra"
+      ],
+      "venue": "arXiv",
+      "url": "https://arxiv.org/abs/2611.19794v1",
+      "source": "arXiv bibliographic metadata",
+      "source_type": "repository_manuscript",
+      "peer_review": "not_verified",
+      "version": "1",
+      "related_doi": "",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
     {
       "id": "10.1177/00483931261505199",
       "topic": "wirklichkeit",
@@ -726,6 +764,21 @@
       "agent_notes": {}
     },
     {
+      "id": "10.16997/jdd.1792",
+      "topic": "gesellschaft",
+      "title": "Municipal Bureaucratic Drivers of Mini-Publics: A Case Study of Municipalities in the Tokyo Area",
+      "date": "2026-10-23",
+      "authors": [
+        "Motoki Nagano"
+      ],
+      "venue": "Journal of Deliberative Democracy",
+      "url": "https://doi.org/10.16997/jdd.1792",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
       "id": "10.1371/journal.pcsy.0000122",
       "topic": "leben",
       "title": "Beyond learning and reasoning: Meta-cognition for AI working inside complex systems",
@@ -1398,37 +1451,6 @@
       ],
       "venue": "International Journal for Philosophy of Religion",
       "url": "https://doi.org/10.1007/s11153-026-10038-0",
-      "source": "Crossref bibliographic metadata",
-      "status": "unreviewed",
-      "source_examined": "metadata_only",
-      "agent_notes": {}
-    },
-    {
-      "id": "10.16995/zygon.24448",
-      "topic": "wirklichkeit",
-      "title": "Ibn Sīnā’s Philosophy as Framework for Understanding Artificial Intelligence: Ontology, Epistemology, and Machine Cognition’s Boundaries",
-      "date": "2026-09-27",
-      "authors": [
-        "Hasan Shahab",
-        "Cipta Bakti Gama"
-      ],
-      "venue": "Zygon: Journal of Religion and Science",
-      "url": "https://doi.org/10.16995/zygon.24448",
-      "source": "Crossref bibliographic metadata",
-      "status": "unreviewed",
-      "source_examined": "metadata_only",
-      "agent_notes": {}
-    },
-    {
-      "id": "10.47571/sanatyorum.1823621",
-      "topic": "kunst",
-      "title": "From the Aesthetics of Nomadism to the Irony of Displacement: Dede Korkut and Ezel Akay",
-      "date": "2026-09-25",
-      "authors": [
-        "Meryem Gürbüz"
-      ],
-      "venue": "Art and Interpretation",
-      "url": "https://doi.org/10.47571/sanatyorum.1823621",
       "source": "Crossref bibliographic metadata",
       "status": "unreviewed",
       "source_examined": "metadata_only",
