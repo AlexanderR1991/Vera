@@ -1,18 +1,66 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-17T20:56:20+00:00",
+  "updated_at": "2026-11-18T07:30:00+00:00",
   "status": "automatic_discovery_not_fact_checked",
   "analysis": "metadata_only",
   "source": "Crossref + arXiv",
   "source_queries": {
-    "Crossref": 7,
+    "Crossref": 6,
     "arXiv": 3
   },
-  "source_queries_succeeded": 10,
-  "new_items": 3,
+  "source_queries_succeeded": 9,
+  "new_items": 2,
   "agents_enabled": false,
-  "errors": [],
+  "errors": [
+    "Crossref/gesellschaft: HTTPError: HTTP Error 429: Too Many Requests"
+  ],
   "items": [
+    {
+      "id": "arxiv:2611.22965v1",
+      "topic": "ki",
+      "title": "High-Dimensional Black-Box Optimization via Guidance Sampling of Diffusion Models",
+      "date": "2026-11-17",
+      "authors": [
+        "Xiaoyan Hu",
+        "Rohit Sonker",
+        "Jalal Butt",
+        "Jiayu Chen",
+        "Egemen Kolemen"
+      ],
+      "venue": "arXiv",
+      "url": "https://arxiv.org/abs/2611.22965v1",
+      "source": "arXiv bibliographic metadata",
+      "source_type": "repository_manuscript",
+      "peer_review": "not_verified",
+      "version": "1",
+      "related_doi": "",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "arxiv:2611.21847v1",
+      "topic": "ki",
+      "title": "Inventa: Decentralized Self-Improving Agents for Autonomous Scientific Discovery",
+      "date": "2026-11-16",
+      "authors": [
+        "Prithwish Jana",
+        "Nikos Kanakaris",
+        "Purak Jain",
+        "Anoop Deoras",
+        "Sahika Genc"
+      ],
+      "venue": "arXiv",
+      "url": "https://arxiv.org/abs/2611.21847v1",
+      "source": "arXiv bibliographic metadata",
+      "source_type": "repository_manuscript",
+      "peer_review": "not_verified",
+      "version": "1",
+      "related_doi": "",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
     {
       "id": "10.65214/2164-7992.1831",
       "topic": "gesellschaft",
@@ -1416,38 +1464,6 @@
       ],
       "venue": "International Journal of Business and Management",
       "url": "https://doi.org/10.5539/ijbm.v21n5p183",
-      "source": "Crossref bibliographic metadata",
-      "status": "unreviewed",
-      "source_examined": "metadata_only",
-      "agent_notes": {}
-    },
-    {
-      "id": "10.54097/z1pdjc09",
-      "topic": "kunst",
-      "title": "Cross-cultural Interpretation of Visual Symbols and Aesthetic Translation in K-pop MV from the Perspective of Multimodal AI",
-      "date": "2026-09-29",
-      "authors": [
-        "Chenyuan Zhang"
-      ],
-      "venue": "Academic Journal of Art and Design",
-      "url": "https://doi.org/10.54097/z1pdjc09",
-      "source": "Crossref bibliographic metadata",
-      "status": "unreviewed",
-      "source_examined": "metadata_only",
-      "agent_notes": {}
-    },
-    {
-      "id": "10.52123/1994-2370-2026-1776",
-      "topic": "gesellschaft",
-      "title": "Social trust in state institutions as a factor of social governance effectiveness",
-      "date": "2026-09-29",
-      "authors": [
-        "Gulayim Tilepova",
-        "Iroda Eshmanova",
-        "Mansur Bekmurodov"
-      ],
-      "venue": "Public Administration and Civil Service",
-      "url": "https://doi.org/10.52123/1994-2370-2026-1776",
       "source": "Crossref bibliographic metadata",
       "status": "unreviewed",
       "source_examined": "metadata_only",
