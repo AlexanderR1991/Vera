@@ -1,20 +1,37 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-18T07:30:00+00:00",
+  "updated_at": "2026-11-18T20:31:30+00:00",
   "status": "automatic_discovery_not_fact_checked",
   "analysis": "metadata_only",
   "source": "Crossref + arXiv",
   "source_queries": {
-    "Crossref": 6,
+    "Crossref": 4,
     "arXiv": 3
   },
-  "source_queries_succeeded": 9,
-  "new_items": 2,
+  "source_queries_succeeded": 7,
+  "new_items": 1,
   "agents_enabled": false,
   "errors": [
-    "Crossref/gesellschaft: HTTPError: HTTP Error 429: Too Many Requests"
+    "Crossref/bewusstsein: HTTPError: HTTP Error 429: Too Many Requests",
+    "Crossref/liebe: HTTPError: HTTP Error 429: Too Many Requests",
+    "Crossref/ki: HTTPError: HTTP Error 429: Too Many Requests"
   ],
   "items": [
+    {
+      "id": "10.1515/fs-2026-0038",
+      "topic": "kunst",
+      "title": "Feminist Art in Resistance. Aesthetics, Methods and Politics of Art in Turkey",
+      "date": "2026-11-18",
+      "authors": [
+        "Anita Moser"
+      ],
+      "venue": "feministische studien",
+      "url": "https://doi.org/10.1515/fs-2026-0038",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
     {
       "id": "arxiv:2611.22965v1",
       "topic": "ki",
@@ -1449,22 +1466,6 @@
       "peer_review": "not_verified",
       "version": "1",
       "related_doi": "",
-      "status": "unreviewed",
-      "source_examined": "metadata_only",
-      "agent_notes": {}
-    },
-    {
-      "id": "10.5539/ijbm.v21n5p183",
-      "topic": "leben",
-      "title": "Temporal Entrainment of Leadership and Cultural Emergence in Healthcare Complex Adaptive Systems: A Study Protocol",
-      "date": "2026-09-29",
-      "authors": [
-        "Ee Ai Lim",
-        "Rashad Yazdanifard"
-      ],
-      "venue": "International Journal of Business and Management",
-      "url": "https://doi.org/10.5539/ijbm.v21n5p183",
-      "source": "Crossref bibliographic metadata",
       "status": "unreviewed",
       "source_examined": "metadata_only",
       "agent_notes": {}
