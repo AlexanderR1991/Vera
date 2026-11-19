@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-19T07:27:45+00:00",
+  "updated_at": "2026-11-19T20:38:19+00:00",
   "status": "automatic_discovery_not_fact_checked",
   "analysis": "metadata_only",
   "source": "Crossref + arXiv",
@@ -12,11 +12,26 @@
   "new_items": 1,
   "agents_enabled": false,
   "errors": [
-    "Crossref/leben: HTTPError: HTTP Error 429: Too Many Requests",
     "Crossref/liebe: HTTPError: HTTP Error 429: Too Many Requests",
+    "Crossref/gesellschaft: HTTPError: HTTP Error 429: Too Many Requests",
     "Crossref/kunst: HTTPError: HTTP Error 429: Too Many Requests"
   ],
   "items": [
+    {
+      "id": "10.20517/ces.2026.28",
+      "topic": "leben",
+      "title": "Climate change calls for adapting energy systems and addressing resource adequacy risks",
+      "date": "2026-11-19",
+      "authors": [
+        "Peter D. Lund"
+      ],
+      "venue": "Complex Engineering Systems",
+      "url": "https://doi.org/10.20517/ces.2026.28",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
     {
       "id": "arxiv:2611.24711v1",
       "topic": "ki",
@@ -1442,29 +1457,6 @@
       "venue": "Academia Mental Health and Well-Being",
       "url": "https://doi.org/10.20935/mhealthwellb8498",
       "source": "Crossref bibliographic metadata",
-      "status": "unreviewed",
-      "source_examined": "metadata_only",
-      "agent_notes": {}
-    },
-    {
-      "id": "arxiv:2609.38577v1",
-      "topic": "kunst",
-      "title": "Conditional Generation of Creative Chess Puzzles with Diffusion Models",
-      "date": "2026-09-29",
-      "authors": [
-        "Aatu Selkee",
-        "Severi Rissanen",
-        "Xidong Feng",
-        "Tom Zahavy",
-        "Eric Malmi"
-      ],
-      "venue": "arXiv",
-      "url": "https://arxiv.org/abs/2609.38577v1",
-      "source": "arXiv bibliographic metadata",
-      "source_type": "repository_manuscript",
-      "peer_review": "not_verified",
-      "version": "1",
-      "related_doi": "",
       "status": "unreviewed",
       "source_examined": "metadata_only",
       "agent_notes": {}
