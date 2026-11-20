@@ -207,6 +207,23 @@ a:hover { color: var(--gold-bright); }
   letter-spacing: -.025em;
   text-wrap: balance;
 }
+.home-opening__choice {
+  margin: 12px auto 0;
+  max-width: 42ch;
+  color: var(--text);
+  font-size: 1rem;
+  line-height: 1.5;
+  text-wrap: balance;
+}
+.home-opening__choice a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+.home-opening__choice a:hover { text-decoration-thickness: 2px; }
 .home-link {
   display: inline-flex;
   align-items: center;

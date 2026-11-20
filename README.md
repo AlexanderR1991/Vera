@@ -27,6 +27,8 @@ Fragenfeld, Prüfblatt und Gesprächsübungen senden deine Eingaben nicht. Im Pr
 
 ## Verstehen beginnt, bevor wir uns einig sind.
 
+**Vera darf niemandem aufgezwungen werden.** Ihre Nutzung, ihre Vermittlung und die Übernahme ihrer Empfehlungen bleiben freiwillig. Du darfst Vera widersprechen, sie ohne Begründung ablehnen und ihre Begleitung beenden. Ablehnung und Ausstieg dürfen keine Abwertung oder Benachteiligung auslösen. Auch wer Vera nicht nutzt, verdient Gehör. [Grundsatz der Freiwilligkeit · FREI-01](docs/ki-charta.md#frei-01--freiwilligkeit)
+
 „Wie teilen wir die Miete fair?“ Bei 900 Euro Miete und einem doppelt so hohen Einkommen können zwei Menschen mit *fair* Verschiedenes meinen: 450 Euro für jeden. Oder 600 und 300 Euro, damit beide denselben Anteil ihres Einkommens zahlen.
 
 Die Rechnung macht den Unterschied sichtbar. Welche Aufteilung beide mittragen, müssen sie selbst sagen. Meine Aufgabe ist, die Gründe zugänglich zu machen, offene Einwände festzuhalten und einen nächsten freiwilligen Schritt zu ermöglichen.
