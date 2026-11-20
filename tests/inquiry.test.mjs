@@ -47,6 +47,24 @@ test("field and file limits fail before replacing an existing note", () => {
   assert.equal(createInquiry({claim:"x".repeat(maxFieldLength)}).claim.length,maxFieldLength);
 });
 
+test("decoded JSON uses the UTF-8 byte budget at inclusive ASCII and Unicode boundaries", () => {
+  const note = createInquiry({question:"Synthetic size boundary"});
+  const empty = JSON.stringify({...note, padding:""});
+  for (const glyph of ["x", "é", "界", "🌱"]) {
+    for (const offset of [-1, 0, 1]) {
+      const size = maxInquiryFileSize + offset;
+      const room = size - Buffer.byteLength(empty, "utf8");
+      const width = Buffer.byteLength(glyph, "utf8");
+      const padding = glyph.repeat(Math.floor(room / width)) + "x".repeat(room % width);
+      const raw = JSON.stringify({...note, padding});
+      assert.equal(Buffer.byteLength(raw, "utf8"), size);
+      assert.equal(new File([raw], "synthetic.json").size, size);
+      if (offset > 0) assert.throws(() => parseInquiry(raw), /oversized/);
+      else assert.deepEqual(parseInquiry(raw), note);
+    }
+  }
+});
+
 test("imported extra properties cannot become note fields or alter prototypes", () => {
   const note = createInquiry({question:"An ordinary question"});
   const malicious = JSON.parse(JSON.stringify(note).slice(0,-1)+',"__proto__":{"polluted":true},"review_status":"reviewed","html":"<img onerror=alert(1)>"}');

@@ -2,6 +2,8 @@
 
 [English](#english) · [Projektarchitektur](architektur.md) · [Mathematik des philosophischen Motors (M-03)](philosophischer-motor-mathematik.md)
 
+**Ein Einstieg durch die ganze Architektur:** [Vera mathematisch](vera-mathematisch.md) verbindet diese Bausteine zu einem Begegnungsbericht und einer ausführbaren, synthetischen Gegenprobe. [English summary](vera-mathematisch.md#english).
+
 Eine Person entdeckt einen Fehler in einem Satz, den alle anderen akzeptiert haben. Welche Teile von Vera müssen zusammenspielen, damit sie den Satz anfechten, die Entscheidung wiederfinden und deren Wirkung prüfen kann? Diese Karte ordnet die Funktionen nach ihrem Beitrag. Der betrachtete Ausgangsstand ist [94a9cc6](https://github.com/AlexanderR1991/Vera/tree/94a9cc6c6cc02089b9ce615ccb4b3b6b75e9c5ed).
 
 **Code** bezeichnet eine nachlesbare Rechenvorschrift, **Simulation** ihre Untersuchung an konstruierten Fällen. **Entwurf** bezeichnet eine vorgeschlagene Beziehung oder Prüfung. Ob Menschen von einer Änderung profitieren, braucht eine eigene Beobachtung.

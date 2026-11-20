@@ -81,6 +81,38 @@ const decision = {id: "H-001", at, based_on_version: 1, outcome: "retain", revie
 // In these unit tests this stub stands in for the trusted host.
 const permit = () => true;
 
+test("impossible calendar days fail on append and replay without changing records", () => {
+  for (const bad of ["2026-02-30", "2026-02-29", "1900-02-29", "2100-02-29", "2026-04-31", "0099-02-29"]) {
+    const invalidAt = bad + "T12:00:00Z";
+    const record = seed();
+    const before = structuredClone(record);
+    let authorizations = 0;
+    assert.throws(() => addEntityDraft(record, {...objection, at: invalidAt}), /invalid UTC/);
+    assert.throws(() => recordEntityDecision(record, {...decision, at: invalidAt}, () => { authorizations++; return true; }), /invalid UTC/);
+    assert.equal(authorizations, 0);
+    assert.deepEqual(record, before);
+    for (const history of [addEntityDraft(record, objection), recordEntityDecision(record, decision, permit)]) {
+      history.events[0].at = invalidAt;
+      const imported = JSON.parse(JSON.stringify(history));
+      const saved = structuredClone(imported);
+      assert.throws(() => inspectEntityRecord(imported), /invalid event history/);
+      assert.deepEqual(imported, saved);
+    }
+  }
+});
+
+test("calendar validation preserves leap days, supported precision and end-of-day notation", () => {
+  for (const validAt of ["2000-02-29T12:00:00Z", "2024-02-29T12:00:00.123Z", "2400-02-29T12:00:00Z",
+    "0000-02-29T12:00:00Z", "0099-11-18T12:00:00Z", "2026-11-18T12:00:00.000Z",
+    "2026-11-18T24:00:00Z", "2026-11-18T24:00:00.000Z"]) {
+    const drafted = addEntityDraft(seed(), {...objection, at: validAt});
+    const reviewed = recordEntityDecision(seed(), {...decision, at: validAt}, permit);
+    assert.equal(drafted.events[0].at, validAt);
+    assert.equal(inspectEntityRecord(drafted).draft_counts.objection, 1);
+    assert.equal(inspectEntityRecord(reviewed).last_decision.at, validAt);
+  }
+});
+
 test("only linked objections leave the open set, including across a wording change", () => {
   let record = addEntityDraft(seed(), objection);
   record = addEntityDraft(record, {...objection, id: "E-002", origin: "human_submission"});
@@ -166,5 +198,38 @@ test("the bilingual public contract and synthetic fixture stay consistent", () =
     assert.ok(result.draft_counts.objection > 0);
     assert.ok(result.draft_counts.revision_proposal > 0);
     assert.equal(result.direction_index, null);
+  }
+});
+
+
+test("replayed draft sources obey the same admission boundary before further actions", () => {
+  const invalid = ["http://example.test/source", "javascript:void(0)", "data:text/plain,synthetic",
+    "file:///synthetic", "ftp://example.test/source", "/source", "https://", " ", {url: "https://example.test/source"}];
+  for (const kind of entityDraftKinds) for (const source_url of invalid) {
+    assert.throws(() => addEntityDraft(seed(), {...objection, kind, source_url}), /invalid draft/);
+    const history = JSON.parse(JSON.stringify(addEntityDraft(seed(), {...objection, kind})));
+    history.events[0].source_url = source_url;
+    const before = structuredClone(history);
+    let authorizations = 0;
+    assert.throws(() => inspectEntityRecord(history), /invalid draft history/);
+    assert.throws(() => addEntityDraft(history, {...objection, id: "E-002"}), /invalid draft history/);
+    assert.throws(() => recordEntityDecision(history, decision, () => { authorizations++; return true; }), /invalid draft history/);
+    assert.equal(authorizations, 0);
+    assert.deepEqual(history, before);
+  }
+});
+
+test("replay preserves admitted source values and missing legacy fields", () => {
+  for (const source_url of [undefined, "", "https://example.test/source", "HTTPS://EXAMPLE.TEST/source", null, false, 0, ["https://example.test/source"]]) {
+    const history = JSON.parse(JSON.stringify(addEntityDraft(seed(), objection)));
+    if (source_url === undefined) delete history.events[0].source_url;
+    else history.events[0].source_url = source_url;
+    const before = structuredClone(history);
+    assert.equal(inspectEntityRecord(history).draft_counts.objection, 1);
+    const appended = addEntityDraft(history, {...objection, id: "E-002"});
+    const reviewed = recordEntityDecision(history, decision, permit);
+    assert.deepEqual(appended.events[0], history.events[0]);
+    assert.deepEqual(reviewed.events[0], history.events[0]);
+    assert.deepEqual(history, before);
   }
 });

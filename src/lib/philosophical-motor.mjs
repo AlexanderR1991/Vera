@@ -117,7 +117,7 @@ export function traceRevisionImpact(graph, changedId) {
   const nodes = graph?.nodes;
   const edges = graph?.edges;
   if (!Array.isArray(nodes) || !Array.isArray(edges) ||
-      !nodes.every(filled) || new Set(nodes).size !== nodes.length ||
+      !Array.from(nodes).every(filled) || new Set(nodes).size !== nodes.length ||
       !nodes.includes(changedId)) throw new TypeError("Invalid graph or changed claim");
   for (const edge of edges) {
     if (!["depends_on", "supports", "attacks", "analogous_to"].includes(edge?.type) ||

@@ -1,0 +1,87 @@
+{
+  "kind": "synthetic",
+  "participation": "active",
+  "question": "Kann unser Verein einen für beide zugänglichen Raum ausprobieren?",
+  "access": {
+    "entry": "yes",
+    "source": "yes",
+    "objection": "yes"
+  },
+  "claim": {
+    "id": "room-access",
+    "version": "1",
+    "wording": "Raum Nord hat einen stufenlosen Eingang.",
+    "type": "empirical"
+  },
+  "proposal": {
+    "id": "visit",
+    "version": "1",
+    "wording": "Wir besuchen Raum Nord gemeinsam für zehn Minuten."
+  },
+  "bridge": {
+    "a": [
+      0,
+      0
+    ],
+    "b": [
+      4,
+      4
+    ],
+    "aEstimatesB": [
+      4,
+      4
+    ],
+    "bEstimatesA": [
+      0,
+      0
+    ]
+  },
+  "evidence": [
+    {
+      "id": "notice",
+      "claim_key": "[\"room-access\",\"1\",\"Raum Nord hat einen stufenlosen Eingang.\",\"empirical\"]",
+      "source_id": "fictional-notice",
+      "dependency_group_id": "notice-origin",
+      "origin": "editorial",
+      "polarity": "supports"
+    }
+  ],
+  "agreement": {
+    "parties": [
+      "A",
+      "B"
+    ],
+    "responses": [
+      {
+        "party": "A",
+        "proposal_key": "[\"visit\",\"1\",\"Wir besuchen Raum Nord gemeinsam für zehn Minuten.\",null]",
+        "stance": "yes"
+      },
+      {
+        "party": "B",
+        "proposal_key": "[\"visit\",\"1\",\"Wir besuchen Raum Nord gemeinsam für zehn Minuten.\",null]",
+        "stance": "no"
+      }
+    ],
+    "rights": "pass",
+    "feasibility": "yes"
+  },
+  "revision": null,
+  "bridge_items": [
+    {
+      "id": "visit-today",
+      "question": "Wie wichtig ist dir, Raum Nord heute selbst zu prüfen?"
+    },
+    {
+      "id": "inspect-before-booking",
+      "question": "Wie wichtig ist dir, den Eingang vor jeder Buchung selbst zu sehen?"
+    }
+  ],
+  "bridge_scale": [
+    "0: unwichtig",
+    "1: wenig wichtig",
+    "2: mittel",
+    "3: wichtig",
+    "4: unverzichtbar"
+  ]
+}

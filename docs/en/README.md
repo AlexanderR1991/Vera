@@ -10,6 +10,8 @@ Today, I’m an open inquiry workshop. You can explore questions, examine your o
 
 [**Explore Vera ↗**](https://alexanderr1991.github.io/Vera/en/) · [Ask a question](https://alexanderr1991.github.io/Vera/en/#ask-me) · [Deutsch](../../README.md)
 
+**Vera in mathematics:** [From first access to reasoned correction](../vera-mathematisch.md#english). The blueprint connects access, evidence, restatement, agreement and revision. A runnable countercheck shows how accurate understanding can coexist with disagreement.
+
 ## Start where life raises a question.
 
 The pinboard brings nutrition and politics alongside love, parenting, art and worldviews. You don’t need an account or any prior knowledge to begin.

@@ -6,7 +6,7 @@ import {maturityErrors} from "../src/lib/maturity.mjs";
 const types=new Set(["empirical","formal","normative","interpretive","metaphor"]);
 const states=new Set(["unreviewed","in_review","reviewed","disputed","withdrawn"]);
 const support=new Set(["value_commitment","conceptual_model","open_hypothesis","source_supported","formal_proof"]);
-const date=s=>typeof s==="string"&&/^\d{4}-\d{2}-\d{2}$/.test(s)&&!Number.isNaN(Date.parse(s));
+const date=s=>typeof s==="string"&&/^\d{4}-\d{2}-\d{2}$/.test(s)&&!Number.isNaN(Date.parse(s))&&new Date(s).toISOString().slice(0,10)===s;
 const present=s=>typeof s==="string"&&s.trim().length>0;
 const bilingual=o=>o&&present(o.de)&&present(o.en);
 
@@ -31,7 +31,7 @@ export function validateRegister(data){
   if(c.type==="normative"&&c.epistemic_status!=="value_commitment")fail("normative claims require value justification, not proof promotion");
   if(c.type==="metaphor"&&c.epistemic_status!=="conceptual_model")fail("metaphors cannot acquire empirical proof status");
   for(const field of ["statement","scope","rationale","revision_condition","evidence_note","uncertainty"]){if(!bilingual(c[field]))fail(`missing bilingual ${field}`);}
-  if(!Array.isArray(c.counterarguments)||!c.counterarguments.length||!c.counterarguments.every(bilingual))fail("missing bilingual counterarguments");
+  if(!Array.isArray(c.counterarguments)||!c.counterarguments.length||!Array.from(c.counterarguments).every(bilingual))fail("missing bilingual counterarguments");
   if(!Array.isArray(c.sources))fail("sources must be an array");
   else for(const s of c.sources){
    let validURL=false;try{validURL=new URL(s.url).protocol==="https:";}catch{}
@@ -47,7 +47,7 @@ export function validateRegister(data){
   if(!c.ai_assistance||typeof c.ai_assistance.used!=="boolean"||!bilingual(c.ai_assistance.task)||!(c.ai_assistance.model===null||present(c.ai_assistance.model)))fail("incomplete AI provenance");
   if(!Array.isArray(c.history)||c.history.length!==c.version)fail("history must preserve each version");
   else {
-   c.history.forEach((h,i)=>{if(h.version!==i+1||!date(h.date)||!bilingual(h.change))fail("invalid revision history");});
+   Array.from(c.history).forEach((h,i)=>{if(h?.version!==i+1||!date(h.date)||!bilingual(h.change))fail("invalid revision history");});
    if(c.history.at(-1)?.date!==c.updated_at)fail("latest revision date differs from update date");
   }
  }

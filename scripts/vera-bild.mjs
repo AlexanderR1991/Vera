@@ -30,9 +30,9 @@ async function readLocalFile(path, maxBytes) {
 async function readSuppliedAnalysis(path) {
   const bytes = await readLocalFile(path, 128 * 1024);
   try {
-    return JSON.parse(bytes.toString("utf8"));
+    return JSON.parse(new TextDecoder("utf-8", { fatal: true, ignoreBOM: true }).decode(bytes));
   } catch {
-    throw new Error("The supplied analysis is not valid JSON.");
+    throw new Error("The supplied analysis is not valid UTF-8 JSON.");
   }
 }
 

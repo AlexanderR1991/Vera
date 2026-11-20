@@ -6,6 +6,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { test } from "node:test";
 import { fileURLToPath } from "node:url";
+import { buildImageDraft, imageReadingPrompt } from "../src/lib/vera-bild.mjs";
 
 const script = fileURLToPath(new URL("../scripts/vera-bild.mjs", import.meta.url));
 const engine = JSON.parse(readFileSync(new URL("../public/ai/philosophy-engine.v0.json", import.meta.url), "utf8"));
@@ -113,4 +114,85 @@ test("the standalone image-analysis prompt includes the input fields and motor r
   assert.match(result.stdout, /attributions/);
   assert.match(result.stdout, /strongestObjection/);
   assert.match(result.stdout, /AI-P01/);
+});
+
+test("direct image drafts reject missing observation and attribution slots", () => {
+  for (const field of ["observations", "attributions"]) {
+    const entry = { region: "Fixture", text: "Synthetic observation." };
+    const leadingHole = new Array(2); leadingHole[1] = entry;
+    const trailingHole = new Array(2); trailingHole[0] = entry;
+    for (const entries of [new Array(1), leadingHole, trailingHole, [undefined], [null]]) {
+      assert.throws(() => buildImageDraft({}, { ...reading, [field]: entries }, { method: "supplied" }), /must contain exactly these fields/);
+    }
+  }
+  const result = buildImageDraft({}, { ...reading, attributions: [], principleIds: [] }, { method: "supplied" });
+  assert.deepEqual(result.observations, reading.observations);
+  assert.deepEqual(result.attributions, []);
+  assert.deepEqual(result.principleChecks, []);
+});
+
+test("direct image drafts require a known principle ID in every supplied slot", () => {
+  const leadingHole = new Array(2); leadingHole[1] = "AI-P01";
+  const trailingHole = new Array(2); trailingHole[0] = "AI-P01";
+  for (const principleIds of [new Array(1), leadingHole, trailingHole, [undefined], [null]]) {
+    assert.throws(() => buildImageDraft({}, { ...reading, principleIds }, { method: "supplied" }), /distinct, known AI principle IDs/);
+  }
+});
+
+test("editing a draft principle title does not alter other drafts or the prompt", () => {
+  const draft = buildImageDraft({}, reading, { method: "supplied" });
+  const other = buildImageDraft({}, reading, { method: "supplied" });
+  const expected = structuredClone(other.principleChecks);
+  const prompt = imageReadingPrompt();
+  const original = { ...draft.principleChecks[0].title };
+  try {
+    draft.principleChecks[0].title.de = "Synthetic edited title";
+    draft.principleChecks[0].title.en = "Another synthetic edit";
+    assert.equal(imageReadingPrompt(), prompt);
+    assert.deepEqual(other.principleChecks, expected);
+    assert.deepEqual(buildImageDraft({}, reading, {}).principleChecks, expected);
+    assert.equal(draft.principleChecks[0].title.de, "Synthetic edited title");
+  } finally {
+    Object.assign(draft.principleChecks[0].title, original);
+  }
+});
+
+test("editing a draft principle question remains local to that draft", () => {
+  const draft = buildImageDraft({}, reading, { method: "supplied" });
+  const other = buildImageDraft({}, reading, { method: "supplied" });
+  const expected = structuredClone(other.principleChecks);
+  const original = { ...draft.principleChecks[0].test_question };
+  try {
+    draft.principleChecks[0].test_question.de = "Synthetic edited question?";
+    draft.principleChecks[0].test_question.en = "Another synthetic question?";
+    assert.deepEqual(other.principleChecks, expected);
+    assert.deepEqual(buildImageDraft({}, reading, {}).principleChecks, expected);
+    assert.equal(draft.principleChecks[0].test_question.de, "Synthetic edited question?");
+  } finally {
+    Object.assign(draft.principleChecks[0].test_question, original);
+  }
+});
+
+
+test("supplied readings reject malformed UTF-8 without rejecting literal replacement characters", (t) => {
+  const input=fixture(t);
+  const readingPath=join(input.root,"reading.json");
+  const marker="UTF8_TEST_MARKER";
+  const json=Buffer.from(JSON.stringify({...reading,interpretation:marker}),"utf8");
+  const start=json.indexOf(marker);
+  assert.ok(start>=0);
+  const runBytes=bytes=>{
+    writeFileSync(readingPath,bytes);
+    return input.run(input.imagePath,"--reading",readingPath);
+  };
+  for (const malformed of [[0xc3],[0x80],[0xff],[0xc0,0xaf],[0xed,0xa0,0x80],[0xe2,0x82]]) {
+    const result=runBytes(Buffer.concat([json.subarray(0,start),Buffer.from(malformed),json.subarray(start+marker.length)]));
+    assertRejected(result);
+    assert.match(result.stderr,/UTF-8/);
+  }
+  for (const text of ["Literal � bleibt erhalten.","Öl und Äpfel.","Öl".normalize("NFD")]) {
+    const draft=parseDraft(runBytes(Buffer.from(JSON.stringify({...reading,interpretation:text}),"utf8")));
+    assert.equal(draft.interpretation,text);
+  }
+  assertRejected(runBytes(Buffer.concat([Buffer.from([0xef,0xbb,0xbf]),Buffer.from(JSON.stringify(reading),"utf8")])));
 });

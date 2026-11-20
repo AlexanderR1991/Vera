@@ -46,7 +46,8 @@ const t = (de: string, en: string) => lang === "de" ? de : en;
     };
     const unavailable = () => {
       message.textContent = de ? "Der Browser erlaubt das Merken auf diesem Gerät gerade nicht." : "This browser currently prevents saving checks on this device.";
-      clear.hidden = true;
+      // A failed write does not imply that removing an existing selection fails.
+      // Preserve the clear button's last rendered visibility.
       for (const card of cards) card.querySelector<HTMLButtonElement>("[data-save]")!.hidden = true;
     };
     try { render(); } catch { unavailable(); }

@@ -4,6 +4,44 @@ import {createCorrectionWave} from "../src/lib/correction-wave.mjs";
 
 const rule = (id, premises, conclusion) => ({id, premises, conclusion});
 
+test("sparse ID arrays cannot introduce a missing fact or prerequisite", () => {
+  for (const invalid of [Array(1), [undefined], [null], [""], "first", new Set(["first"])]) {
+    assert.throws(() => createCorrectionWave({facts: invalid}), TypeError);
+    assert.throws(() => createCorrectionWave({rules: [rule("r", invalid, "x")]}), TypeError);
+  }
+  assert.throws(() => createCorrectionWave({facts: Array(1), rules: [rule("r", Array(1), "x")]}), TypeError);
+  const mixed = ["first", "second"];
+  delete mixed[1];
+  assert.throws(() => createCorrectionWave({facts: mixed}), TypeError);
+  assert.throws(() => createCorrectionWave({facts: ["first"], rules: [rule("r", mixed, "x")]}), TypeError);
+});
+
+test("invalid ID slots reject an entire revision before changing facts or explanations", () => {
+  const original = rule("basis", ["first"], "result");
+  for (const field of ["addFacts", "removeFacts", "removeRules", "premises"]) {
+    const graph = createCorrectionWave({facts: ["first"], rules: [original]});
+    const ids = ["first", "second", "result", "other", undefined];
+    const snapshot = () => ids.map(id => ({id, has: graph.has(id), support: graph.explain(id)}));
+    const before = snapshot();
+    const patch = {addFacts: ["second"], removeFacts: ["first"],
+      addRules: [rule("next", ["second"], "other")]};
+    if (field === "premises") patch.addRules[0].premises = Array(1);
+    else patch[field] = Array(1);
+    assert.throws(() => graph.revise(patch), TypeError, field);
+    assert.deepEqual(snapshot(), before, field);
+    assert.deepEqual(graph.revise({}).affected, []);
+  }
+});
+
+test("an explicitly empty prerequisite list still differs from a missing slot", () => {
+  const graph = createCorrectionWave({rules: [rule("unconditional", [], "given") ]});
+  assert.equal(graph.has("given"), true);
+  assert.equal(graph.has(undefined), false);
+  graph.revise({addFacts: ["second", "first"],
+    addRules: [rule("ordered", ["second", "first", "first"], "result")]});
+  assert.deepEqual(graph.explain("result").rules, [rule("ordered", ["first", "second"], "result")]);
+});
+
 test("a single checked counterexample withdraws its dependents and preserves independent grounds", () => {
   const alternative = rule("alternative", ["independent"], "still-supported");
   const graph = createCorrectionWave({

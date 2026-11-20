@@ -31,7 +31,7 @@ test("Vera sends the committed context and question separately to a local model"
     for await (const chunk of req) chunks.push(chunk);
     received.push({ method: req.method, url: req.url, payload: JSON.parse(Buffer.concat(chunks)) });
     res.setHeader("Content-Type", "application/json");
-    res.end(JSON.stringify({ message: { role: "assistant", content: "Model response." }, done: true }));
+    res.end(JSON.stringify({ message: { role: "assistant", content: "Model response." }, done: true, done_reason: "stop" }));
   });
 
   for (const [language, question, label] of [
@@ -72,7 +72,7 @@ test("Vera performs a model-initiated search and returns the actual committed pa
     const message = requests.length === 1
       ? { content: "", tool_calls: [searchCall(term)] }
       : { content: JSON.parse(payload.messages.at(-1).content).passages[0]?.excerpt ?? "Offen." };
-    res.end(JSON.stringify({ message, done: true }));
+    res.end(JSON.stringify({ message, done: true, done_reason: "stop" }));
   });
 
   const { stdout, stderr } = await run(process.execPath, [ask, "de", "test-model", "Was prüft M-02?"], options);
@@ -103,7 +103,7 @@ test("Vera can start with open questions and reports an empty search without inv
     const message = requests.length === 1
       ? { content: "", tool_calls: [searchCall("--vera-test-missing-d74fa1")] }
       : { content: "The question remains open." };
-    res.end(JSON.stringify({ message, done: true }));
+    res.end(JSON.stringify({ message, done: true, done_reason: "stop" }));
   });
 
   const { stdout, stderr } = await run(process.execPath, [ask, "en", "test-model", "--explore"], options);
@@ -120,7 +120,7 @@ test("Vera rejects multiple tool requests without a follow-up", async (t) => {
   const options = await serve(t, (req, res) => {
     req.resume();
     calls += 1;
-    res.end(JSON.stringify({ message: { tool_calls: [searchCall("test"), searchCall("test")] }, done: true }));
+    res.end(JSON.stringify({ message: { tool_calls: [searchCall("test"), searchCall("test")] }, done: true, done_reason: "stop" }));
   });
 
   await assert.rejects(run(process.execPath, [ask, "de", "test-model", "Was ist offen?"], options), {
@@ -140,7 +140,7 @@ test("The operator can disable search and the model cannot enable it", async (t)
     const message = requests.length === 1
       ? { content: "A draft from the supplied context." }
       : { content: "I searched.", tool_calls: [searchCall("test")] };
-    res.end(JSON.stringify({ message, done: true }));
+    res.end(JSON.stringify({ message, done: true, done_reason: "stop" }));
   });
   const args = [ask, "en", "test-model", "What is open?", "--no-search"];
 
@@ -169,7 +169,7 @@ test("Vera rejects malformed or unauthorized tool calls after the one project se
     const message = calls % 2 === 1
       ? { tool_calls: [searchCall("test")] }
       : { content: "I published.", tool_calls: calls === 2 ? unauthorized : [unauthorized] };
-    res.end(JSON.stringify({ message, done: true }));
+    res.end(JSON.stringify({ message, done: true, done_reason: "stop" }));
   });
   const args = [ask, "en", "test-model", "What is open?"];
 

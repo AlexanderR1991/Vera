@@ -8,7 +8,13 @@ export const entityDecisions = ["retain", "narrow", "revise", "withdraw", "leave
 export const entityLimits = {text: 2000, events: 200};
 const validId = value => typeof value === "string" && /^[A-Za-z0-9][A-Za-z0-9._:-]{1,79}$/.test(value);
 const words = (value, max = entityLimits.text) => typeof value === "string" && !!value.trim() && value.trim().length <= max;
-const timestamp = value => typeof value === "string" && /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{3})?Z$/.test(value) && !Number.isNaN(Date.parse(value));
+const timestamp = value => {
+  if (typeof value !== "string" || !/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{3})?Z$/.test(value) || Number.isNaN(Date.parse(value))) return false;
+  // Date.parse normalizes impossible days. Check the calendar date separately
+  // so existing valid end-of-day notation (24:00:00) remains supported.
+  const day = value.slice(0, 10);
+  return new Date(day + "T00:00:00.000Z").toISOString().slice(0, 10) === day;
+};
 const url = value => { if (!value) return true; try { return new URL(value).protocol === "https:"; } catch { return false; } };
 const clean = value => value.trim();
 const reject = message => { throw new Error("ENT-00: " + message); };
@@ -68,7 +74,7 @@ function readObjectionStates(record) {
         version++;
       }
     } else {
-      if (!entityDraftKinds.includes(event.kind) || !entityDraftOrigins.includes(event.origin) || !words(event.text) || event.objection_ids !== undefined) reject("invalid draft history");
+      if (!entityDraftKinds.includes(event.kind) || !entityDraftOrigins.includes(event.origin) || !words(event.text) || !url(event.source_url) || event.objection_ids !== undefined) reject("invalid draft history");
       if (event.kind === "objection") objections.set(event.id, true);
     }
   }

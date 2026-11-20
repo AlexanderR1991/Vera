@@ -10,6 +10,8 @@ Heute bin ich eine offene Erkenntniswerkstatt. Du kannst Fragen erkunden, eigene
 
 [**Vera entdecken ↗**](https://alexanderr1991.github.io/Vera/de/) · [Eine Frage stellen](https://alexanderr1991.github.io/Vera/de/#frag-mich) · [English](docs/en/README.md)
 
+**Vera mathematisch:** [Vom ersten Zugang zur begründeten Korrektur](docs/vera-mathematisch.md). Der Bauplan verbindet Zugang, Belege, Wiedergabe, Zustimmung und Revision. Eine ausführbare Gegenprobe zeigt, wie genaues Verstehen und bleibender Widerspruch zusammenpassen.
+
 ## Fang dort an, wo das Leben eine Frage stellt.
 
 Auf der Pinnwand liegen Ernährung und Politik neben Liebe, Kindererziehung, Kunst und Weltbildern. Du brauchst kein Vorwissen und kein Konto, um einzusteigen.
