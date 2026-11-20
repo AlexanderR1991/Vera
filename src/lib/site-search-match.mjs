@@ -5,10 +5,10 @@ const stop = new Set(("der die das den dem des ein eine einer einem eines einen 
   "ich du wir ihr sie er es was wie wer wo wenn warum welche welcher welches " +
   "kann können sollte soll muss man mir mich uns sich meine meine dein ihre " +
   "the a an and or but with for to of in on at by is are was were it its " +
-  "i you he she we they what why where which who when how should would could").split(/\s+/));
+  "i you he she we they what why where which who when how should would could").split(/\s+/).map(normalizeSearch));
 
 export function normalizeSearch(value) {
-  return String(value ?? "").toLocaleLowerCase()
+  return String(value ?? "").toLowerCase().normalize("NFC")
     .replace(/ä/g, "ae").replace(/ö/g, "oe").replace(/ü/g, "ue").replace(/ß/g, "ss")
     .normalize("NFD").replace(/\p{M}/gu, "")
     .replace(/[^\p{L}\p{N}]+/gu, " ").trim().replace(/\s+/g, " ");

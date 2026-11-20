@@ -4,6 +4,8 @@ const header = document.querySelector("[data-site-search]");
 if (header) {
   const en = header.dataset.lang === "en";
   const t = (de, english) => en ? english : de;
+  const timeoutMessage = t("Der Suchindex wurde nicht rechtzeitig geladen. Du kannst erneut suchen.",
+    "The search index did not finish loading in time. You can search again.");
   const form = header.querySelector("form");
   const input = header.querySelector("[data-site-search-input]");
   const panel = header.querySelector("[data-site-search-panel]");
@@ -19,7 +21,12 @@ if (header) {
   };
   let indexPromise;
   const index = () => {
-    if (!indexPromise) indexPromise = fetch(header.dataset.indexUrl, {credentials:"same-origin"})
+    if (!indexPromise) {
+      const controller = typeof AbortController === "function" ? new AbortController() : null;
+      let timer;
+      const loading = fetch(header.dataset.indexUrl, {
+        credentials:"same-origin", ...(controller ? {signal:controller.signal} : {})
+      })
       .then(response => {
         if (!response.ok) throw Error("Search index unavailable: " + response.status);
         return response.json();
@@ -27,6 +34,19 @@ if (header) {
         if (!Array.isArray(data.entries) || data.lang !== header.dataset.lang) throw Error("Invalid search index");
         return prepareSearchEntries(data.entries);
       });
+      const deadline = new Promise((_, reject) => {
+        timer = setTimeout(() => {
+          const error = new Error("Search index load timed out");
+          error.name = "TimeoutError";
+          reject(error);
+          controller?.abort();
+        }, 15000);
+      });
+      indexPromise = Promise.race([loading, deadline]).catch(error => {
+        indexPromise = undefined;
+        throw error;
+      }).finally(() => clearTimeout(timer));
+    }
     return indexPromise;
   };
   const element = (tag, content, className) => {
@@ -60,8 +80,9 @@ if (header) {
       status.textContent = matches.length
         ? t("Passende Einträge", "Matching entries")
         : t("Keine Treffer. Versuche einen anderen Begriff.", "No matches. Try another term.");
-    } catch {
-      status.textContent = t("Suche vorübergehend nicht verfügbar.", "Search temporarily unavailable.");
+    } catch (error) {
+      status.textContent = error?.name === "TimeoutError" ? timeoutMessage
+        : t("Suche vorübergehend nicht verfügbar.", "Search temporarily unavailable.");
     }
   }
   input.addEventListener("input", suggest);
@@ -97,8 +118,9 @@ if (header) {
               : matches.length + t(" Treffer für „", " matches for “") + query + "”")
           : t("Keine Treffer für „", "No matches for “") + query + "”. " +
             t("Versuche ein anderes Stichwort.", "Try another keyword.");
-      }).catch(() => {
-        pageStatus.textContent = t("Der Suchindex konnte nicht geladen werden.",
+      }).catch(error => {
+        pageStatus.textContent = error?.name === "TimeoutError" ? timeoutMessage
+          : t("Der Suchindex konnte nicht geladen werden.",
           "The search index could not be loaded.");
       });
     }

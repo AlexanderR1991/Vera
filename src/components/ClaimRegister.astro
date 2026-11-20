@@ -95,7 +95,7 @@ const support={value_commitment:t("Wertentscheidung","Value commitment"),concept
  const result=document.querySelector<HTMLElement>("[data-claim-count]");
  const empty=document.querySelector<HTMLElement>("[data-claim-empty]");
  const en=document.documentElement.lang==="en";
- const normalize=(s:string)=>s.toLocaleLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
+ const normalize=(s:string)=>s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
  const update=()=>{
   let count=0;const query=normalize(search?.value.trim()||"");
   for(const card of cards){const show=(!filter||filter.value==="all"||filter.value===card.dataset.kind)&&normalize(card.textContent||"").includes(query);card.hidden=!show;if(show)count++;}

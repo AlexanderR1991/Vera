@@ -14,7 +14,7 @@ export const consensusLabels={
 };
 const present=v=>typeof v==="string"&&v.trim().length>0;
 const bilingual=v=>v&&present(v.de)&&present(v.en);
-const date=v=>typeof v==="string"&&/^\d{4}-\d{2}-\d{2}$/.test(v)&&!Number.isNaN(Date.parse(v));
+const date=v=>typeof v==="string"&&/^\d{4}-\d{2}-\d{2}$/.test(v)&&!Number.isNaN(Date.parse(v))&&new Date(v).toISOString().slice(0,10)===v;
 const https=v=>{try{return new URL(v).protocol==="https:";}catch{return false;}};
 
 // These are minimum *structural* gates, NOT automatic source evaluation.
@@ -30,6 +30,7 @@ export function maturityErrors(claim){
  else{
   const seen=new Set();
   for(const check of checks){
+   if(check==null){errors.push("invalid independent review record");continue;}
    if(!present(check?.reviewer)||!date(check.date)||!https(check.url)||!bilingual(check.scope)||!bilingual(check.conflicts))errors.push("invalid independent review record");
    if(seen.has(check.reviewer))errors.push("independent reviewers must be distinct");
    seen.add(check.reviewer);

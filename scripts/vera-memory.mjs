@@ -27,7 +27,7 @@ export function validateMemory(ledger) {
     seen.add(entry.id);
     if (!states.has(entry.status)) throw new Error(`${label} has an invalid status.`);
     if (!Array.isArray(entry.sources) || entry.sources.length < 1 || entry.sources.length > 4 ||
-      !entry.sources.every((source) =>
+      !Array.from(entry.sources).every((source) =>
         typeof source?.path === "string" && source.path.length <= 240 && pathPattern.test(source.path) &&
         (source.revision === undefined ||
           (typeof source.revision === "string" && revisionPattern.test(source.revision))))) {

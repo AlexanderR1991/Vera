@@ -68,13 +68,35 @@ const de=lang==="de";
         if (className) el.className = className;
         return el;
       };
+      // Precision describes the supplied metadata, not historical certainty.
+      const dateLabel = item => {
+        const value = String(item.date || "");
+        if (!value) return "";
+        if (item.date_precision === "year") return value.slice(0, 4) + (de?" (Jahresangabe)":" (year only)");
+        if (item.date_precision === "month") return value.slice(0, 7) + (de?" (Monatsangabe)":" (month only)");
+        if (item.date_precision === "day") return value;
+        return value + (de?" (Genauigkeit nicht dokumentiert)":" (precision not recorded)");
+      };
       const labels = {
         methodologist: de ? "Methodenfrage" : "Method question",
         skeptic: de ? "Gegenhypothese" : "Counterhypothesis",
         synthesizer: de ? "Nächster Schritt" : "Next verification",
       };
-      fetch(endpoint, {cache:"no-store"})
-        .then(r => {if (!r.ok) throw Error("HTTP "+r.status); return r.json();})
+      // Bound this display attempt, including the response body, not source truth.
+      const controller = typeof AbortController === "function" ? new AbortController() : null;
+      let timedOut = false;
+      let timer;
+      const deadline = new Promise((_, reject) => {
+        timer = setTimeout(() => {
+          timedOut = true;
+          controller?.abort();
+          reject(Error("Research loading deadline exceeded"));
+        }, 15000);
+      });
+      const response = fetch(endpoint, {cache:"no-store", signal:controller?.signal})
+        .then(r => {if (!r.ok) throw Error("HTTP "+r.status); return r.json();});
+      // Late results cannot render after this race has selected the deadline.
+      Promise.race([response, deadline])
         .then(data => {
           if (!Array.isArray(data.items)) throw Error("Invalid data");
           const when = data.updated_at
@@ -94,8 +116,9 @@ const de=lang==="de";
             meta.append(txt("p", de?"Dieser Datenstand weist noch keine getrennten Quellenkanäle aus.":"This dataset does not yet report separate source channels."));
           }
           if (Array.isArray(data.errors) && data.errors.length) {
-            meta.append(txt("p", de?"Einige Abfragen sind fehlgeschlagen. Ältere Einträge bleiben erhalten; die Liste kann unvollständig sein.":"Some queries failed. Older entries are retained; the list may be incomplete."));
+            meta.append(txt("p", de?"Einige Abfragen sind fehlgeschlagen. Die Liste kann unvollständig sein.":"Some queries failed. The list may be incomplete."));
           }
+          meta.append(txt("p", de?"Die Liste zeigt höchstens 80 Einträge; ältere Einträge samt KI-Notizen können aus der aktuellen Auswahl fallen.":"The list shows at most 80 entries; older entries and their AI notes may drop out of the current selection."));
           if (!data.items.length) {
             list.append(txt("p", data.updated_at
               ? (de?"Derzeit sind keine passenden Literaturhinweise gespeichert.":"No matching literature leads are currently stored.")
@@ -108,7 +131,7 @@ const de=lang==="de";
               " / " + (de?"UNGEPRÜFT":"UNREVIEWED"), "stream-tag"));
             const heading = txt("h3", item.title || (de?"Ohne Titel":"Untitled"));
             card.append(heading);
-            const info = [item.date,item.venue,(item.authors||[]).slice(0,3).join(", ")].filter(Boolean).join(" · ");
+            const info = [dateLabel(item),item.venue,(item.authors||[]).slice(0,3).join(", ")].filter(Boolean).join(" · ");
             card.append(txt("p", info, "stream-detail"));
             card.append(txt("p", item.source || (de?"Quelle nicht ausgewiesen":"Source unspecified"), "stream-detail"));
             const arxiv = typeof item.url === "string" && /^https:\/\/arxiv\.org\/abs\/(?:\d{4}\.\d{4,5}|[a-z][a-z.\-]+\/\d{7})v[1-9]\d*$/i.test(item.url);
@@ -136,11 +159,13 @@ const de=lang==="de";
           }
         })
         .catch(() => {
-          status.textContent = de
-            ? "Aktuell keine Forschungsdaten abrufbar. Keine Ergebnisse werden erfunden."
-            : "Research signals currently unavailable. No results are fabricated.";
+          status.textContent = timedOut
+            ? (de?"Die Forschungsdaten wurden nicht rechtzeitig geladen. Bitte versuche es später erneut.":"Research data did not finish loading in time. Please try again later.")
+            : (de?"Aktuell keine Forschungsdaten abrufbar. Keine Ergebnisse werden erfunden.":"Research signals currently unavailable. No results are fabricated.");
           meta.textContent = "";
-        });
+          list.textContent = "";
+        })
+        .finally(() => clearTimeout(timer));
     })();
   </script>
 </Layout>

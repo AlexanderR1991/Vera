@@ -60,7 +60,7 @@ export function createOllamaAdapter({ model, modelDigest = null, port = 11434,
         finishReason: result?.done_reason ?? null,
         durationMs: Math.round(performance.now() - started)
       };
-      if (result?.done !== true || result.done_reason === "length" || !result.message || typeof result.message !== "object") {
+      if (result?.done !== true || result.done_reason !== "stop" || !result.message || typeof result.message !== "object") {
         throw Object.assign(new Error("Ollama returned no complete text answer."), { inference: record });
       }
       if (settings.num_predict !== undefined && record.usage.outputTokens !== null && record.usage.outputTokens > settings.num_predict) {

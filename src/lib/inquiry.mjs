@@ -36,6 +36,8 @@ export function createInquiry(values = {}, lang = "de") {
 
 export function parseInquiry(raw) {
   if (typeof raw !== "string" || raw.length > maxInquiryFileSize) throw new Error("Invalid or oversized file");
+  // Bound decoded JSON by its UTF-8 size; field limits remain UTF-16 code units.
+  if (new Blob([raw]).size > maxInquiryFileSize) throw new Error("Invalid or oversized file");
   const data = JSON.parse(raw);
   if (!data || Array.isArray(data) || ![1, 2, inquirySchema].includes(data.schema_version) || data.kind !== "inquiry_note") throw new Error("Unsupported inquiry format");
   if (!["de", "en"].includes(data.lang)) throw new Error("Unsupported language");

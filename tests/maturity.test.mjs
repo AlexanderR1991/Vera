@@ -1,4 +1,5 @@
 import test from "node:test";
+import {maturityErrors} from "../src/lib/maturity.mjs";
 import assert from "node:assert/strict";
 import {readFile} from "node:fs/promises";
 import {validateRegister} from "../scripts/validate-claims.mjs";
@@ -116,4 +117,48 @@ test("abstraction never upgrades maturity",()=>{
  assert.deepEqual(validateRegister(data),[]);
  claim.abstraction_level="supreme_truth";
  assert.ok(validateRegister(data).some(e=>e.includes("invalid abstraction level")));
+});
+
+
+test("independent review dates must exist without narrowing the year range",()=>{
+ for(const [level,slot]of [[3,0],[4,0],[4,1]]){
+  const make=date=>{
+   const {data,claim}=example("G-005");claim.maturity.level=level;
+   claim.maturity.independent_checks=Array.from({length:level===3?1:2},(_,i)=>independent("Synthetic independent "+i,"https://example.invalid/review-"+i));
+   claim.maturity.independent_checks[slot].date=date;
+   if(level===4)claim.maturity.adversarial_resolution={de:"Nur Test",en:"Synthetic fixture only"};
+   review(claim);return {data,claim};
+  };
+  for(const date of ["2026-02-29","2026-02-30","2026-02-31","2026-04-31","2026-06-31","2026-09-31","2026-11-31","1900-02-29","2100-02-29","2026-13-01","2026-00-01"]){
+   const {data,claim}=make(date),before=structuredClone(data);
+   assert.ok(maturityErrors(claim).includes("invalid independent review record"),date);
+   assert.ok(validateRegister(data).some(error=>error.includes("invalid independent review record")),date);
+   assert.deepEqual(data,before);
+  }
+  for(const date of ["2026-02-28","2026-04-30","2026-11-30","1900-02-28","2000-02-29","2024-02-29","2400-02-29","0000-02-29","9999-12-31"]){
+   const {data,claim}=make(date);
+   assert.deepEqual(maturityErrors(claim),[],date);assert.deepEqual(validateRegister(data),[],date);
+  }
+ }
+});
+
+
+test("missing independent review slots return diagnostics without aborting other checks",()=>{
+ for(const level of [0,3,4])for(const kind of ["hole","undefined","null","json"]){
+  const {data,claim}=example("G-005");claim.maturity.level=level;
+  claim.maturity.independent_checks=[independent("Synthetic A","https://example.invalid/a"),independent("Synthetic A","https://example.invalid/a"),null];
+  if(kind==="hole"||kind==="json")delete claim.maturity.independent_checks[2];
+  if(kind==="undefined")claim.maturity.independent_checks[2]=undefined;
+  if(kind==="json")claim.maturity.independent_checks=JSON.parse(JSON.stringify(claim.maturity.independent_checks));
+  // Missing R4 objection response is deliberate: collect later diagnostics too.
+  if(level>0)review(claim);
+  const before=structuredClone(data);
+  for(const validate of [()=>maturityErrors(claim),()=>validateRegister(data)]){
+   let errors;assert.doesNotThrow(()=>{errors=validate();});
+   assert.ok(errors.some(error=>error.includes("invalid independent review record")));
+   assert.ok(errors.some(error=>error.includes("independent reviewers must be distinct")));
+   if(level===4)assert.ok(errors.some(error=>error.includes("R4 requires bilingual treatment")));
+  }
+  assert.deepEqual(data,before);
+ }
 });

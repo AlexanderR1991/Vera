@@ -86,18 +86,24 @@ if (root) {
     try { localStorage.setItem(storeKey, JSON.stringify(update())); report(t("Entwurf in diesem Browser gespeichert. Du kannst ihn löschen oder als Datei exportieren.", "Draft saved in this browser. You can delete it or export a file.")); }
     catch { report(t("Speichern im Browser ist nicht möglich. Nutze den Dateiexport.", "Browser storage is unavailable. Use the file export.")); }
   });
+  let importRevision = 0;
   root.querySelector("[data-local-load]").addEventListener("click", () => {
     try {
       const raw = localStorage.getItem(storeKey);
       if (!raw) { report(t("Kein gespeicherter Entwurf vorhanden.", "No saved draft found.")); return; }
-      write(parseInquiry(raw));
+      const note = parseInquiry(raw);
+      ++importRevision;
+      root.querySelector("[data-import]").value = "";
+      write(note);
       report(t("Gespeicherten Entwurf geöffnet.", "Saved draft opened."));
     } catch { report(t("Dieser Entwurf konnte nicht geöffnet werden. Versuche einen JSON-Import.", "This draft could not be opened. Try importing a JSON file.")); }
   });
   root.querySelector("[data-local-clear]").addEventListener("click", () => {
     try {
       localStorage.removeItem(storeKey);
+      ++importRevision;
       form.reset();
+      root.querySelector("[data-import]").value = "";
       previousAction = readAction();
       update();
       root.dispatchEvent(new Event("inquiry-sheet-change"));
@@ -105,14 +111,14 @@ if (root) {
     }
     catch { report(t("Browserspeicher konnte nicht gelöscht werden. Die Felder bleiben erhalten.", "Browser storage could not be cleared. Your fields are preserved.")); }
   });
-  let importRevision = 0;
   root.querySelector("[data-import]").addEventListener("change", async event => {
     const file = event.target.files?.[0];
     if (!file) return;
     const revision = ++importRevision;
     try {
       if (file.size > maxInquiryFileSize) throw new Error("Too large");
-      const raw = await file.text();
+      // Reject malformed UTF-8 before it can silently replace note characters.
+      const raw = new TextDecoder("utf-8", {fatal: true}).decode(await file.arrayBuffer());
       // A newer selection supersedes this read, including its errors.
       if (revision !== importRevision) return;
       const note = parseInquiry(raw);
@@ -120,13 +126,16 @@ if (root) {
       report(t("Prüfblatt importiert. Eigene Prüfung und öffentliche Einreichung bleiben getrennte Schritte.", "Worksheet imported. Your review and public submission remain separate steps."));
     } catch {
       if (revision !== importRevision) return;
-      report(t("Import nicht möglich: Verwende einen Vera-JSON-Export bis 1 MiB. Dein bisheriger Entwurf bleibt erhalten.", "Use a worksheet exported as JSON, up to 1 MiB. Your existing draft is preserved."));
+      report(t("Import nicht möglich: Verwende einen Vera-JSON-Export in UTF-8 bis 1 MiB. Dein bisheriger Entwurf bleibt erhalten.", "Use a worksheet exported as JSON in UTF-8, up to 1 MiB. Your existing draft is preserved."));
     }
     event.target.value = "";
   });
   root.querySelector("[data-load-example]").addEventListener("click", () => {
     const example = JSON.parse(root.querySelector("[data-inquiry-example]").textContent);
-    write(createInquiry(example, lang));
+    const note = createInquiry(example, lang);
+    ++importRevision;
+    root.querySelector("[data-import]").value = "";
+    write(note);
     report(t("Erfundenes Beispiel geladen. Es beschreibt keine tatsächlichen Busfahrten.", "Fictional example loaded. It does not describe actual bus journeys."));
   });
   // Persistence and importing require an explicit user action. No automatic restore.

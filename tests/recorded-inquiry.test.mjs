@@ -9,14 +9,14 @@ const revision = "a".repeat(40);
 const question = "What supports this claim?";
 const messages = [{ role: "user", content: question }];
 const model = { provider: "test-only", model: "synthetic-model", digestVerified: false };
-const reply = content => ({ message: { role: "assistant", content }, model, usage: { inputTokens: 5, outputTokens: 2 } });
+const reply = content => ({ message: { role: "assistant", content }, finishReason: "stop", model, usage: { inputTokens: 5, outputTokens: 2 } });
 
 test("opt-in inference records AI draft and only retrieved source hints while retaining original provenance", async () => {
   let calls = 0;
   const source = { url: `https://github.com/example/project/blob/${revision}/docs/source.md#L1`, excerpt: "A retrieved passage; its truth remains unverified." };
   const wrapper = await runRecordedInquiry({ id: "REC-001", question, at, inquiry: { revision, messages,
     searchProject: () => [source], adapter: { generate: async () => ++calls === 1 ? {
-      message: { role: "assistant", content: "", tool_calls: [{ function: { name: "search_project", arguments: { gap: "A source is needed.", term: "claim" } } }] }, model
+      message: { role: "assistant", content: "", tool_calls: [{ function: { name: "search_project", arguments: { gap: "A source is needed.", term: "claim" } } }] }, finishReason: "stop", model
     } : reply("An unreviewed answer. A model-mentioned https://example.invalid/invented citation is not a retrieved hint.") }
   } });
   assert.equal(calls, 2);
@@ -59,4 +59,16 @@ test("record conversion rejects overlong answers, forged source hints and mismat
   let generated = false;
   await assert.rejects(runRecordedInquiry({ id: "REC-006", at, question: "A different question", inquiry: { messages, adapter: { generate: async () => { generated = true; return reply("Never generated"); } } } }), /differs/);
   assert.equal(generated, false);
+});
+
+test("recorded inference cannot convert an incomplete generation into a ledger entry", async () => {
+  for (const finishReason of ["error", "length", undefined, "provider_specific_unknown"]) {
+    await assert.rejects(runRecordedInquiry({ id: "REC-INCOMPLETE", at,
+      inquiry: { messages, adapter: { generate: async () => ({ ...reply("An unfinished answer"), finishReason }) } }
+    }), error => {
+      assert.equal(error.trace.length, 1);
+      assert.equal(error.trace[0].finishReason, finishReason);
+      return /finishReason must be stop/.test(error.message);
+    });
+  }
 });

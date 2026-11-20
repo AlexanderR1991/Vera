@@ -5,10 +5,15 @@ function requireId(value) {
   return value;
 }
 
+function requireIds(values) {
+  if (!Array.isArray(values)) throw new TypeError('Expected an array of claim or rule IDs');
+  return Array.from(values, requireId);
+}
+
 function normalizeRule({ id, premises, conclusion }) {
   return {
     id: requireId(id),
-    premises: [...new Set(premises.map(requireId))].sort(),
+    premises: [...new Set(requireIds(premises))].sort(),
     conclusion: requireId(conclusion),
   };
 }
@@ -94,9 +99,9 @@ export function createCorrectionWave({ facts = [], rules = [] } = {}) {
       if (!supportedFields.includes(key)) throw new Error(`Unknown revision field: ${key}`);
     }
     const { addFacts = [], removeFacts = [], addRules = [], removeRules = [] } = patch;
-    const addedFacts = new Set(addFacts.map(requireId));
-    const removedFacts = new Set(removeFacts.map(requireId));
-    const removedRules = new Set(removeRules.map(requireId));
+    const addedFacts = new Set(requireIds(addFacts));
+    const removedFacts = new Set(requireIds(removeFacts));
+    const removedRules = new Set(requireIds(removeRules));
     const addedRules = new Map();
 
     for (const claim of addedFacts) {

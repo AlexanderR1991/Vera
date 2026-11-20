@@ -76,6 +76,66 @@ test("Inference respects operator cancellation and refuses invalid generation op
   await assert.rejects(adapter.generate({ messages, options: { arbitrary_setting: 1 } }), /Unsupported/);
 });
 
+test("Inference rejects error, truncated, missing and unknown completion reasons with metadata", async t => {
+  for (const finishReason of ["error", "length", undefined, "provider_specific_unknown"]) {
+    await t.test(String(finishReason), async t => {
+      const port = await serve(t, (_body, res) => {
+        res.end(JSON.stringify({ done: true, done_reason: finishReason,
+          message: { role: "assistant", content: "An unfinished answer" }, prompt_eval_count: 8, eval_count: 4 }));
+      });
+      await assert.rejects(createOllamaAdapter({ model: "example", port }).generate({ messages }), error => {
+        assert.equal(error.inference.finishReason, finishReason ?? null);
+        assert.deepEqual(error.inference.usage, { inputTokens: 8, outputTokens: 4 });
+        assert.equal(error.inference.message.content, "An unfinished answer");
+        return /no complete/.test(error.message);
+      });
+    });
+  }
+});
+
+test("Inquiry rejects incomplete alternate-adapter generations before any search or continuation", async () => {
+  for (const finishReason of ["error", "length", undefined, "provider_specific_unknown"]) {
+    for (const message of [{ content: "An unfinished answer" }, { content: "", tool_calls: [searchCall] }]) {
+      let searches = 0, generations = 0;
+      await assert.rejects(runInquiry({ messages,
+        searchProject: () => { searches++; return []; },
+        adapter: { generate: async () => {
+          generations++;
+          return { message, finishReason, usage: { inputTokens: 8, outputTokens: 4 } };
+        } }
+      }), error => {
+        assert.equal(error.trace.length, 1);
+        assert.equal(error.trace[0].finishReason, finishReason);
+        assert.deepEqual(error.trace[0].usage, { inputTokens: 8, outputTokens: 4 });
+        return /finishReason must be stop/.test(error.message);
+      });
+      assert.equal(generations, 1);
+      assert.equal(searches, 0);
+    }
+  }
+});
+
+test("Inquiry rejects an incomplete answer after one completed project search and retains its trace", async () => {
+  for (const finishReason of ["error", "length", undefined, "provider_specific_unknown"]) {
+    let searches = 0, generations = 0;
+    await assert.rejects(runInquiry({ messages,
+      searchProject: () => { searches++; return [{ url: "https://example.invalid/source", excerpt: "A retrieved source." }]; },
+      adapter: { generate: async () => ++generations === 1
+        ? { message: { content: "", tool_calls: [searchCall] }, finishReason: "stop" }
+        : { message: { content: "An unfinished answer" }, finishReason }
+      }
+    }), error => {
+      assert.deepEqual(error.trace.map(event => event.kind), ["generation", "project-search", "generation"]);
+      assert.equal(error.trace[0].finishReason, "stop");
+      assert.equal(error.trace[2].finishReason, finishReason);
+      assert.equal(error.trace[1].passages[0].excerpt, "A retrieved source.");
+      return /finishReason must be stop/.test(error.message);
+    });
+    assert.equal(generations, 2);
+    assert.equal(searches, 1);
+  }
+});
+
 test("Inquiry records one bounded search, preserves caller state and returns only an unreviewed draft", async () => {
   const original = structuredClone(messages);
   let generations = 0;
@@ -83,7 +143,7 @@ test("Inquiry records one bounded search, preserves caller state and returns onl
   const adapter = { generate: async request => {
     requests.push(structuredClone(request));
     return { message: ++generations === 1 ? { content: "", tool_calls: [searchCall] } : { content: "A sourced draft.\n" },
-      model: { model: "mock", digestVerified: false }, usage: { inputTokens: 4, outputTokens: 2 } };
+      finishReason: "stop", model: { model: "mock", digestVerified: false }, usage: { inputTokens: 4, outputTokens: 2 } };
   } };
   const draft = await runInquiry({ adapter, messages, revision: "b".repeat(40),
     searchProject: term => [{ url: "https://example.invalid/committed-source", excerpt: term }] });
@@ -99,7 +159,7 @@ test("Inquiry records one bounded search, preserves caller state and returns onl
 });
 
 test("Inquiry fails closed on disabled, arbitrary or repeated tools and preserves the failure trace", async () => {
-  const adapterFor = replies => ({ generate: async () => ({ message: replies.shift() }) });
+  const adapterFor = replies => ({ generate: async () => ({ message: replies.shift(), finishReason: "stop" }) });
   await assert.rejects(runInquiry({ messages, adapter: adapterFor([{ tool_calls: [searchCall] }]) }), /disabled/);
   let searches = 0;
   const searchProject = () => { searches++; return []; };

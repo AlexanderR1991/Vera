@@ -39,7 +39,7 @@ function imageNotes(value, label, minimum) {
   if (!Array.isArray(value) || value.length < minimum || value.length > 12) {
     throw new Error(`${label} must be an array with ${minimum} to 12 entries.`);
   }
-  return value.map((entry, index) => {
+  return Array.from(value, (entry, index) => {
     const path = `${label}[${index}]`;
     requireFields(entry, ["region", "text"], path);
     return { region: boundedText(entry.region, `${path}.region`, 120), text: boundedText(entry.text, `${path}.text`) };
@@ -57,12 +57,12 @@ export function buildImageDraft(source, reading, readingOrigin) {
   }
   const ids = reading.principleIds;
   if (!Array.isArray(ids) || ids.length > principleById.size ||
-      ids.some(id => !principleById.has(id)) || new Set(ids).size !== ids.length) {
+      Array.from(ids).some(id => !principleById.has(id)) || new Set(ids).size !== ids.length) {
     throw new Error("principleIds must contain distinct, known AI principle IDs.");
   }
   const principleChecks = ids.map(id => {
     const { title, test_question } = principleById.get(id);
-    return { id, title, test_question };
+    return structuredClone({ id, title, test_question });
   });
   return {
     schemaVersion: 1,

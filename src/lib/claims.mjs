@@ -5,6 +5,7 @@ const bilingual=value=>!!value&&present(value.de)&&present(value.en);
 export function hasHumanReviewRecord(review){
  return !!review&&present(review.reviewer)&&typeof review.date==="string"&&
   /^\d{4}-\d{2}-\d{2}$/.test(review.date)&&!Number.isNaN(Date.parse(review.date))&&
+  new Date(review.date).toISOString().slice(0,10)===review.date&&
   bilingual(review.method)&&bilingual(review.decision);
 }
 

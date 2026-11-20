@@ -23,6 +23,7 @@ export function mountMediation(root) {
   const unobserve = get("[data-unobserve]");
   const result = get("[data-result]");
   let state = createDialogue();
+  let currentCopyAttempt = null;
 
   function render(revised = false) {
     const assessment = assessDialogue(state);
@@ -133,6 +134,7 @@ export function mountMediation(root) {
   });
 
   function clearControls() {
+    currentCopyAttempt = null;
     for (const field of frames) field.value = "";
     actor.value = "";
     phase.value = "today";
@@ -155,12 +157,16 @@ export function mountMediation(root) {
   const copyButton = get("[data-copy-prompt]");
   copyButton.hidden = false;
   copyButton.addEventListener("click", async () => {
+    // Feedback belongs to this attempt, not an older completion or cleared round.
+    const attempt = {};
+    currentCopyAttempt = attempt;
+    get("[data-copy-status]").textContent = "";
     const prompt = get("[data-prompt]").textContent;
     try {
       await navigator.clipboard.writeText(prompt);
-      get("[data-copy-status]").textContent = texts.copied;
+      if (currentCopyAttempt === attempt) get("[data-copy-status]").textContent = texts.copied;
     } catch {
-      get("[data-copy-status]").textContent = texts.selectCopy;
+      if (currentCopyAttempt === attempt) get("[data-copy-status]").textContent = texts.selectCopy;
     }
   });
   clearControls();

@@ -49,6 +49,22 @@ test("Vera rejects invalid IDs, statuses, sources and bilingual records", () => 
   assert.throws(() => validateMemory({ schemaVersion: 2, entries: [entry] }), /schema/);
 });
 
+test("Vera rejects missing source slots before validating or exporting memory", () => {
+  for (let length = 1; length <= 4; length++) {
+    for (let mask = 0; mask < (1 << length) - 1; mask++) {
+      const sources = Array(length);
+      for (let index = 0; index < length; index++) {
+        if (mask & (1 << index)) sources[index] = { path: "docs/vera.md" };
+      }
+      const ledger = { schemaVersion: 1, entries: [{ ...record(1), sources }] };
+      assert.throws(() => validateMemory(ledger), /invalid source/);
+      for (const language of ["de", "en"]) {
+        assert.throws(() => formatMemory(ledger, { ...options, language }), /invalid source/);
+      }
+    }
+  }
+});
+
 test("Vera projects the newest active records with immutable source URLs", () => {
   const entries = Array.from({ length: 10 }, (_, index) => record(index + 1));
   entries.push(record(11, "superseded"));

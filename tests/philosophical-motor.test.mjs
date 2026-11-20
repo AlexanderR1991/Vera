@@ -117,6 +117,29 @@ test("a claim revision queues dependents, not unrelated claims or truth updates"
   assert.deepEqual(traceRevisionImpact(graph,"A"),["B","C"]);
 });
 
+test("dependency graphs reject holes as well as explicit missing node IDs",()=>{
+  const edges=[{from:"A",to:"B",type:"depends_on"}];
+  for(const nodes of [[,"A","B"],["A",,"B"],["A","B",,],
+    [undefined,"A","B"],["A",undefined,"B"],["A","B",undefined],
+    [null,"A","B"],["A",null,"B"],["A","B",null]]) {
+    assert.throws(()=>traceRevisionImpact({nodes,edges},"A"),{
+      name:"TypeError",message:/Invalid graph or changed claim/
+    });
+  }
+  assert.throws(()=>traceRevisionImpact({nodes:new Array(1),edges:[]},undefined),{
+    name:"TypeError",message:/Invalid graph or changed claim/
+  });
+  const throughMissing={nodes:["A",,"B"],edges:[
+    {from:"A",to:undefined,type:"depends_on"},
+    {from:undefined,to:"B",type:"depends_on"}
+  ]};
+  const before=structuredClone(throughMissing);
+  assert.throws(()=>traceRevisionImpact(throughMissing,"A"),{
+    name:"TypeError",message:/Invalid graph or changed claim/
+  });
+  assert.deepEqual(throughMissing,before);
+});
+
 test("100 echoed model opinions do not become 100 independent sources",()=>{
   const records=Array.from({length:100},(_,i)=>({source_id:"STUDY-01",dependency_group_id:"family-1",origin:"ai",role:i}));
   const audit=provenanceAudit(records);
