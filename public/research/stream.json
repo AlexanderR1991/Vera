@@ -1,22 +1,41 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-19T20:38:19+00:00",
+  "updated_at": "2026-11-20T07:17:33+00:00",
   "status": "automatic_discovery_not_fact_checked",
   "analysis": "metadata_only",
   "source": "Crossref + arXiv",
   "source_queries": {
-    "Crossref": 4,
+    "Crossref": 7,
     "arXiv": 3
   },
-  "source_queries_succeeded": 7,
-  "new_items": 1,
+  "source_queries_succeeded": 10,
+  "new_items": 3,
   "agents_enabled": false,
-  "errors": [
-    "Crossref/liebe: HTTPError: HTTP Error 429: Too Many Requests",
-    "Crossref/gesellschaft: HTTPError: HTTP Error 429: Too Many Requests",
-    "Crossref/kunst: HTTPError: HTTP Error 429: Too Many Requests"
-  ],
+  "errors": [],
   "items": [
+    {
+      "id": "arxiv:2611.26343v1",
+      "topic": "ki",
+      "title": "DeepQuest: From Knowledge Gaps to Scientific Discovery in Alzheimer's Disease",
+      "date": "2026-11-19",
+      "authors": [
+        "Chunbo Jiang",
+        "Yifei Chen",
+        "Beining Wu",
+        "Fuyou Mao",
+        "Weihong Chen"
+      ],
+      "venue": "arXiv",
+      "url": "https://arxiv.org/abs/2611.26343v1",
+      "source": "arXiv bibliographic metadata",
+      "source_type": "repository_manuscript",
+      "peer_review": "not_verified",
+      "version": "1",
+      "related_doi": "",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
     {
       "id": "10.20517/ces.2026.28",
       "topic": "leben",
@@ -28,6 +47,29 @@
       "venue": "Complex Engineering Systems",
       "url": "https://doi.org/10.20517/ces.2026.28",
       "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "arxiv:2611.25214v1",
+      "topic": "ki",
+      "title": "Steering Automated Scientific Discovery via Audited Epistemic Exploration",
+      "date": "2026-11-18",
+      "authors": [
+        "Fangxu Yu",
+        "Tao Feng",
+        "Xuying Ning",
+        "Haolin Yang",
+        "Jiaxuan You"
+      ],
+      "venue": "arXiv",
+      "url": "https://arxiv.org/abs/2611.25214v1",
+      "source": "arXiv bibliographic metadata",
+      "source_type": "repository_manuscript",
+      "peer_review": "not_verified",
+      "version": "1",
+      "related_doi": "",
       "status": "unreviewed",
       "source_examined": "metadata_only",
       "agent_notes": {}
@@ -47,6 +89,21 @@
       "peer_review": "not_verified",
       "version": "1",
       "related_doi": "",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "10.58806/ijsshmr.2026.v5i11n06",
+      "topic": "liebe",
+      "title": "The Effects of Being A First-Born Child on Mental Well-Being and Identity Development: A Qualitative Study",
+      "date": "2026-11-18",
+      "authors": [
+        "Zeynep Pınar Köker"
+      ],
+      "venue": "INTERNATIONAL JOURNAL OF SOCIAL SCIENCE HUMANITY & MANAGEMENT RESEARCH",
+      "url": "https://doi.org/10.58806/ijsshmr.2026.v5i11n06",
+      "source": "Crossref bibliographic metadata",
       "status": "unreviewed",
       "source_examined": "metadata_only",
       "agent_notes": {}
@@ -1408,54 +1465,6 @@
       ],
       "venue": "European Journal of Theoretical and Applied Sciences",
       "url": "https://doi.org/10.59324/ejtas.2026.4(5).23",
-      "source": "Crossref bibliographic metadata",
-      "status": "unreviewed",
-      "source_examined": "metadata_only",
-      "agent_notes": {}
-    },
-    {
-      "id": "10.5897/ijpc2026.0730",
-      "topic": "liebe",
-      "title": "Mother-daughter attachment and mental well-being: The interpersonal role of niceness in a Dyadic approach",
-      "date": "2026-09-30",
-      "authors": [
-        "Oral Tuncay"
-      ],
-      "venue": "International Journal of Psychology and Counselling",
-      "url": "https://doi.org/10.5897/ijpc2026.0730",
-      "source": "Crossref bibliographic metadata",
-      "status": "unreviewed",
-      "source_examined": "metadata_only",
-      "agent_notes": {}
-    },
-    {
-      "id": "10.20935/mhealthwellb8562",
-      "topic": "liebe",
-      "title": "Positive mental health and well-being in Kenya: a scoping review",
-      "date": "2026-09-30",
-      "authors": [
-        "Anne C. Mwendwa",
-        "Maria Mwakanyi",
-        "Arjun K. Dinesh",
-        "Manasi Kumar"
-      ],
-      "venue": "Academia Mental Health and Well-Being",
-      "url": "https://doi.org/10.20935/mhealthwellb8562",
-      "source": "Crossref bibliographic metadata",
-      "status": "unreviewed",
-      "source_examined": "metadata_only",
-      "agent_notes": {}
-    },
-    {
-      "id": "10.20935/mhealthwellb8498",
-      "topic": "liebe",
-      "title": "Well-being in Poland: internal resources, meaning, and psychosocial factors",
-      "date": "2026-09-30",
-      "authors": [
-        "Ewa Dobiała"
-      ],
-      "venue": "Academia Mental Health and Well-Being",
-      "url": "https://doi.org/10.20935/mhealthwellb8498",
       "source": "Crossref bibliographic metadata",
       "status": "unreviewed",
       "source_examined": "metadata_only",
