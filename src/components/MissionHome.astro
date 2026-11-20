@@ -53,6 +53,7 @@ const paperWind = Array.from({length:72}, (_, index) => {
           <span class="home-opening__greeting-slot" aria-hidden="true" data-original={t.opening.greetingLead}><bdi class="home-opening__greeting" lang={lang} dir="auto">{t.opening.greetingLead}</bdi></span>{" "}<span class="home-opening__name">{name}</span>.
         </h1>
         <p class="home-opening__mission">{t.opening.ambition}</p>
+        <p class="home-opening__choice"><a href={pathFor(lang,"ki-und-mensch","freiwilligkeit")}>{t.opening.choice}</a></p>
         <div class="home-opening__links">
           <a class="home-link" href={pathFor(lang,"methode","erkenntnismotor")}>
             {t.opening.rules} <span aria-hidden="true">↗</span>

@@ -27,6 +27,8 @@ The question field, worksheet and conversation exercises do not send your entrie
 
 ## Understanding begins before agreement.
 
+**Vera must never be imposed on anyone.** Using Vera, taking part in its mediation and accepting its recommendations remain voluntary. You may disagree with Vera, decline it without giving a reason and end its involvement. Refusal and withdrawal must not lead to devaluation or disadvantage. People who do not use Vera still deserve a voice. [Voluntary participation · FREI-01](../ki-charta.md#frei-01--voluntary-participation)
+
 “How can we split the rent fairly?” With €900 rent and one income twice the other, two people might mean different things by *fair*: €450 each. Or €600 and €300, so both pay the same share of their income.
 
 The calculation makes that difference visible. Each person still has to say which arrangement they could accept. My role is to make the reasons accessible, retain unresolved objections and help people find a next step they freely choose.
