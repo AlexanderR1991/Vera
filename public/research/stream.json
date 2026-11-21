@@ -1,21 +1,19 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-20T20:21:55+00:00",
+  "updated_at": "2026-11-21T07:09:45+00:00",
   "status": "automatic_discovery_not_fact_checked",
   "analysis": "metadata_only",
   "source": "Crossref + arXiv",
   "source_queries": {
-    "Crossref": 3,
+    "Crossref": 5,
     "arXiv": 3
   },
-  "source_queries_succeeded": 6,
-  "new_items": 0,
+  "source_queries_succeeded": 8,
+  "new_items": 1,
   "agents_enabled": false,
   "errors": [
     "Crossref/leben: HTTPError: HTTP Error 429: Too Many Requests",
-    "Crossref/liebe: HTTPError: HTTP Error 429: Too Many Requests",
-    "Crossref/gesellschaft: HTTPError: HTTP Error 429: Too Many Requests",
-    "Crossref/ki: HTTPError: HTTP Error 429: Too Many Requests"
+    "Crossref/liebe: HTTPError: HTTP Error 429: Too Many Requests"
   ],
   "items": [
     {
@@ -841,6 +839,26 @@
       "agent_notes": {}
     },
     {
+      "id": "10.1016/j.jocn.2026.112222",
+      "topic": "bewusstsein",
+      "title": "Domain-specific recovery profiles of consciousness after surgically treated intracerebral hemorrhage: A multicenter analysis of the six CRS-R subscales",
+      "date": "2026-11-01",
+      "date_precision": "month",
+      "authors": [
+        "Kaiwen Wang",
+        "Yinghe Feng",
+        "Kaige Zheng",
+        "Qingyuan Liu",
+        "Shuo Wang"
+      ],
+      "venue": "Journal of Clinical Neuroscience",
+      "url": "https://doi.org/10.1016/j.jocn.2026.112222",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
       "id": "10.1016/j.ailsci.2026.100194",
       "topic": "ki",
       "title": "Evaluating the ultimate impact of artificial intelligence on drug discovery",
@@ -1455,21 +1473,6 @@
       ],
       "venue": "Engineering Applications of Artificial Intelligence",
       "url": "https://doi.org/10.1016/j.engappai.2026.115827",
-      "source": "Crossref bibliographic metadata",
-      "status": "unreviewed",
-      "source_examined": "metadata_only",
-      "agent_notes": {}
-    },
-    {
-      "id": "10.59324/ejtas.2026.4(5).23",
-      "topic": "bewusstsein",
-      "title": "Neuroscience, Consciousness and Thought Field",
-      "date": "2026-09-30",
-      "authors": [
-        "Yi-Fang Chang"
-      ],
-      "venue": "European Journal of Theoretical and Applied Sciences",
-      "url": "https://doi.org/10.59324/ejtas.2026.4(5).23",
       "source": "Crossref bibliographic metadata",
       "status": "unreviewed",
       "source_examined": "metadata_only",
