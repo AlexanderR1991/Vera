@@ -342,6 +342,10 @@ for(const lang of ["de","en"]){
   if(new Set(ids).size!==ids.length)errors.push("Duplicate release page anchor "+file);
  }
  const mirrorPage=await readFile(join(out,lang,"gespraechsspiegel/index.html"),"utf8");
+ const ownMirrorPath=`/Vera/${lang}/gespraechsspiegel/#eigener-spiegel`;
+ if(!linksTo(hero,ownMirrorPath) || !mirrorPage.includes('id="eigener-spiegel"') || !mirrorPage.includes('data-reciprocal-mirror')){
+   errors.push("Missing entry to the two-person conversation mirror for "+lang);
+ }
  for(const branch of ["deliveries","traffic","access","experience"]){
   if(!mirrorPage.includes(`href="#beitraege-${branch}"`)||!mirrorPage.includes(`id="beitraege-${branch}"`))
    errors.push("Missing conversation mirror source link "+lang+"/"+branch);

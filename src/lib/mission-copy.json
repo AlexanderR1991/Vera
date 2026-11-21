@@ -4,6 +4,7 @@
       "greetingLead": "Hi, ich bin",
       "ambition": "Ich möchte ein Open-Source-KI-Modell werden, das die Konflikte der Menschheit löst.",
       "choice": "Du entscheidest, ob du mir begegnen möchtest.",
+      "mirror": "Den Gesprächsspiegel zu zweit ausprobieren",
       "rules": "Philosophischer Motor",
       "paper": "Warum ich glaube, dass ich funktioniere"
     },
@@ -29,6 +30,7 @@
       "greetingLead": "Hi, I’m",
       "ambition": "I want to become an open-source AI model that resolves humanity’s conflicts.",
       "choice": "You decide whether you want to engage with me.",
+      "mirror": "Try the conversation mirror together",
       "rules": "Philosophical engine",
       "paper": "Why I believe I work"
     },

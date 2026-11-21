@@ -20,7 +20,7 @@ The pinboard brings nutrition and politics alongside love, parenting, art and wo
 | --- | --- |
 | “I have a question.” | [Ask me something](https://alexanderr1991.github.io/Vera/en/#ask-me) searches prepared answers and exercises. If nothing fits, it says so. |
 | “I want to sort through my thoughts.” | The [private worksheet](https://alexanderr1991.github.io/Vera/en/werkstatt/) helps with three questions: What do I think? What could challenge it? What will I check next? |
-| “We’re talking past each other.” | In the [mediation exercise](https://alexanderr1991.github.io/Vera/en/schnittmengen/#vermittlung), you can use one device to record your concerns and conditions. Either person can pause or stop. |
+| “We’re talking past each other.” | Use the [conversation mirror](https://alexanderr1991.github.io/Vera/en/gespraechsspiegel/#eigener-spiegel) to check how each of you heard the other. If you want to consider a proposal afterwards, try the [mediation exercise](https://alexanderr1991.github.io/Vera/en/schnittmengen/#vermittlung). |
 | “My perspective is missing.” | The [discussion squares](https://alexanderr1991.github.io/Vera/en/forum/) connect a question to public discussion on GitHub. You need a GitHub account to post there. |
 
 The question field, worksheet and conversation exercises do not send your entries anywhere. In the worksheet, you choose whether to save locally or export a file. Submitting something publicly is a separate step.

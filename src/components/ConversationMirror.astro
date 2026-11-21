@@ -2,6 +2,7 @@
 import Layout from "../layouts/SiteLayout.astro";
 import ForumSectionLink from "./ForumSectionLink.astro";
 import ForumMirrorExamples from "./ForumMirrorExamples.astro";
+import ReciprocalMirror from "./ReciprocalMirror.astro";
 import {pathFor} from "../lib/paths.mjs";
 import {ui} from "../lib/ui.mjs";
 import project from "../../public/project.json" with {type: "json"};
@@ -10,8 +11,8 @@ const {lang = "de"} = Astro.props;
 const de = lang === "de";
 const t = (german: string, english: string) => de ? german : english;
 const description = t(
-  "Zwei fiktive Foren zeigen, wie Vera Positionen sortieren, Lösungen vorschlagen und Kompromisse mit den Beteiligten prüfbar machen könnte.",
-  "Two fictional forums show how Vera could map positions, suggest solutions and help people examine compromises."
+  "Zwei Menschen können ihre Sicht schildern, einander wiedergeben und Missverständnisse korrigieren. Fiktive Foren zeigen weitere Einsatzmöglichkeiten.",
+  "Two people can share their views, restate each other’s position and correct misunderstandings. Fictional forums illustrate other possible uses."
 );
 
 const branches = [
@@ -78,18 +79,18 @@ const replyCount = branches.reduce((total, branch) => total + branch.replies.len
     </a>
 
     <header class="mirror-intro">
-      <p class="section-kicker">{t("Offene Schnittstellen · Entwurf", "Open interfaces · Proposal")}</p>
+      <p class="section-kicker">{t("Vera 2.0 · Lokaler Prototyp", "Vera 2.0 · Local prototype")}</p>
       <h1>{ui[lang].titles.gespraechsspiegel}</h1>
       <p class="mirror-lead">{t(
-        "Mitten im Forum. Über eurem Gespräch. Vera hält Positionen fair fest und schlägt vor, was funktionieren könnte. Ihr prüft die Gründe, ändert den Vorschlag und entscheidet selbst.",
-        "Right in the forum. Above your conversation. Vera records positions fairly and suggests what could work. You examine the reasons, change the proposal and decide for yourselves."
-      )}</p>
-      <p class="mirror-note">{t(
-        "Zwei erfundene Foren mit vorbereiteten Vorschlägen. Du kannst Beispielantworten lokal ausprobieren. Live-Analyse und die Einbindung in echte Foren sind Ideen für einen späteren Pilotversuch.",
-        "Two fictional forums with prepared proposals. You can try example responses locally. Live analysis and embedding in real forums are ideas for a future pilot."
+        "„Habe ich dich richtig verstanden?“ Vera gibt euch Raum, diese Frage zu beantworten. Auch wenn ihr am Ende verschiedener Meinung seid.",
+        "“Have I understood you?” Vera gives you room to answer that question, even if you still disagree in the end."
       )}</p>
     </header>
 
+    <ReciprocalMirror lang={lang} />
+
+    <h2>{t("Wie könnte das in einem Forum aussehen?", "How could this work in a forum?")}</h2>
+    <p class="mirror-note">{t("Zwei erfundene Foren mit vorbereiteten Vorschlägen. Eine Live-Analyse und die Einbindung in echte Foren sind Ideen für einen späteren Pilotversuch.", "Two fictional forums with prepared proposals. Live analysis and embedding in real forums are ideas for a future pilot.")}</p>
     <ForumMirrorExamples lang={lang} />
 
     <section class="mirror-section" id="loesungswege" aria-labelledby="solution-paths-title">

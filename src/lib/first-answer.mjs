@@ -49,6 +49,42 @@ const conversations = [
     }
   },
   {
+    path: "gespraechsspiegel/#eigener-spiegel",
+    exactOnly: true,
+    de: {
+      question: "Ich wurde falsch verstanden. Was kann ich tun?",
+      aliases: ["Ich fühle mich missverstanden.", "Jemand hat mich falsch verstanden.", "Wie kann ich ein Missverständnis aufklären?"],
+      action: "Meine Aussage im Gesprächsspiegel klären",
+      answer: "Du kannst bei dem Satz anfangen, der anders angekommen ist. Zum Beispiel „Als ich sagte, dass ich um acht gehen muss, meinte ich die Uhrzeit. Ich möchte gern dabei sein.“ Wenn ihr beide möchtet, kann dein Gegenüber noch einmal in eigenen Worten sagen, was angekommen ist.",
+      followUp: "Du entscheidest, ob die Wiedergabe passt. Auch eine zweite Fassung darfst du zurückweisen. Ihr könnt den Punkt offenlassen."
+    },
+    en: {
+      question: "Someone misunderstood me. What can I do?",
+      aliases: ["I feel misunderstood.", "Someone misunderstood me.", "How can I clear up a misunderstanding?"],
+      action: "Clarify what I meant in the conversation mirror",
+      answer: "Start with the sentence that came across differently. For example, “When I said I had to leave at eight, I meant that’s when I need to head home. I’d love to come.” If you both want to, the other person can tell you in their own words what they heard.",
+      followUp: "You decide whether their wording captures your point. You can reject a second version too, or leave the question open."
+    }
+  },
+  {
+    path: "gespraechsspiegel/#eigener-spiegel",
+    exactOnly: true,
+    de: {
+      question: "Wie kann ich prüfen, ob ich dich richtig verstanden habe?",
+      aliases: ["Wie kann ich prüfen, ob ich jemanden richtig verstanden habe?", "Wie prüfe ich meine Wiedergabe?", "Habe ich dich richtig verstanden?"],
+      action: "Eine Wiedergabe im Gesprächsspiegel prüfen",
+      answer: "Wenn dein Gegenüber mag, gib einen seiner Gedanken in deinen Worten wieder. Frag dann „Trifft das, was du meintest? Was fehlt?“ Lass die Person selbst sagen, ob es passt. Ihr könnt euch gut verstanden haben und in der Sache weiter uneinig sein.",
+      followUp: "Frage vor einem neuen Versuch, ob die Person weitermachen möchte. Ihr Einwand darf auch nach mehreren Versuchen stehen bleiben."
+    },
+    en: {
+      question: "How can I check whether I understood you correctly?",
+      aliases: ["How can I check whether I understood someone correctly?", "How do I check my paraphrase?", "Did I understand you correctly?"],
+      action: "Check a paraphrase in the conversation mirror",
+      answer: "If the other person is willing, put one of their points in your own words. Ask, “Does that capture what you meant? What did I miss?” Let them say whether it fits. You can understand each other and still disagree on the issue.",
+      followUp: "Before trying again, ask if they want to continue. Their objection can stand even after several attempts."
+    }
+  },
+  {
     path: "kollektive-moral/#was-ist-gut",
     de: {
       question: "Was ist gut?",

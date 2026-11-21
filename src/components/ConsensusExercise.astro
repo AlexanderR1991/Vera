@@ -1,5 +1,6 @@
 ---
 import MediatedDialogue from "./MediatedDialogue.astro";
+import { pathFor } from "../lib/paths.mjs";
 const { lang = "de" } = Astro.props;
 const t = (de: string, en: string) => lang === "en" ? en : de;
 const people = ["A", "B"];
@@ -26,6 +27,9 @@ const messages = {
     <fieldset>
       <legend>1. {t("Habe ich dich richtig verstanden?", "Have I understood you?")}</legend>
       <p>{t("Gebt den Gedanken der anderen Person in eigenen Worten wieder. Fragt nach und korrigiert die Formulierung, bis die Person sich darin wiedererkennt.", "Restate the other person’s view in your own words. Ask them what to change until they recognise their view.")}</p>
+      <a class="subtle-link" href={pathFor(lang, "gespraechsspiegel", "eigener-spiegel")}>
+        {t("Diesen Schritt im Gesprächsspiegel üben", "Practise this step in the conversation mirror")} <span aria-hidden="true">→</span>
+      </a>
       <div class="pair">
         {people.map((person, i) => <label>{person} · {t("So verstehe ich", "My understanding of")} {people[1-i]}
           <textarea rows="2" autocomplete="off" data-context></textarea>
