@@ -1,24 +1,38 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-21T19:16:22+00:00",
+  "updated_at": "2026-11-22T06:49:37+00:00",
   "status": "automatic_discovery_not_fact_checked",
   "analysis": "metadata_only",
   "source": "Crossref + arXiv",
   "source_queries": {
-    "Crossref": 2,
+    "Crossref": 4,
     "arXiv": 3
   },
-  "source_queries_succeeded": 5,
-  "new_items": 0,
+  "source_queries_succeeded": 7,
+  "new_items": 2,
   "agents_enabled": false,
   "errors": [
-    "Crossref/leben: HTTPError: HTTP Error 429: Too Many Requests",
+    "Crossref/bewusstsein: HTTPError: HTTP Error 429: Too Many Requests",
     "Crossref/liebe: HTTPError: HTTP Error 429: Too Many Requests",
-    "Crossref/gesellschaft: HTTPError: HTTP Error 429: Too Many Requests",
-    "Crossref/ki: HTTPError: HTTP Error 429: Too Many Requests",
-    "Crossref/kunst: HTTPError: HTTP Error 429: Too Many Requests"
+    "Crossref/gesellschaft: HTTPError: HTTP Error 429: Too Many Requests"
   ],
   "items": [
+    {
+      "id": "10.1093/jaac/kpag047",
+      "topic": "kunst",
+      "title": "On Moral Profundity",
+      "date": "2026-11-21",
+      "date_precision": "day",
+      "authors": [
+        "Juhan Yoon"
+      ],
+      "venue": "The Journal of Aesthetics and Art Criticism",
+      "url": "https://doi.org/10.1093/jaac/kpag047",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
     {
       "id": "arxiv:2611.26343v1",
       "topic": "ki",
@@ -38,6 +52,23 @@
       "peer_review": "not_verified",
       "version": "1",
       "related_doi": "",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "10.3390/systems14111500",
+      "topic": "leben",
+      "title": "A Systems Thinking Method for Strategic Decision-Making in Complex Adaptive Supply Chains",
+      "date": "2026-11-19",
+      "date_precision": "day",
+      "authors": [
+        "Maja Rosi",
+        "Marina Nikšić"
+      ],
+      "venue": "Systems",
+      "url": "https://doi.org/10.3390/systems14111500",
+      "source": "Crossref bibliographic metadata",
       "status": "unreviewed",
       "source_examined": "metadata_only",
       "agent_notes": {}
@@ -1445,38 +1476,6 @@
       "peer_review": "not_verified",
       "version": "1",
       "related_doi": "",
-      "status": "unreviewed",
-      "source_examined": "metadata_only",
-      "agent_notes": {}
-    },
-    {
-      "id": "10.1016/j.neubiorev.2026.106871",
-      "topic": "bewusstsein",
-      "title": "Big-tent versus small-tent views of the brain mechanisms underlying consciousness",
-      "date": "2026-10-01",
-      "authors": [
-        "Nelson Cowan",
-        "Leonel A. Gomez"
-      ],
-      "venue": "Neuroscience & Biobehavioral Reviews",
-      "url": "https://doi.org/10.1016/j.neubiorev.2026.106871",
-      "source": "Crossref bibliographic metadata",
-      "status": "unreviewed",
-      "source_examined": "metadata_only",
-      "agent_notes": {}
-    },
-    {
-      "id": "10.1016/j.engappai.2026.115827",
-      "topic": "ki",
-      "title": "Generative Artificial Intelligence and Diffusion models in Drug Discovery: A Critical Review",
-      "date": "2026-10-01",
-      "authors": [
-        "Dipti Mishra",
-        "Garvita Dalmia"
-      ],
-      "venue": "Engineering Applications of Artificial Intelligence",
-      "url": "https://doi.org/10.1016/j.engappai.2026.115827",
-      "source": "Crossref bibliographic metadata",
       "status": "unreviewed",
       "source_examined": "metadata_only",
       "agent_notes": {}
