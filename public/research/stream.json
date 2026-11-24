@@ -1,22 +1,58 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-23T23:55:06+00:00",
+  "updated_at": "2026-11-24T09:55:22+00:00",
   "status": "automatic_discovery_not_fact_checked",
   "analysis": "metadata_only",
   "source": "Crossref + arXiv",
   "source_queries": {
-    "Crossref": 4,
+    "Crossref": 5,
     "arXiv": 3
   },
-  "source_queries_succeeded": 7,
-  "new_items": 0,
+  "source_queries_succeeded": 8,
+  "new_items": 4,
   "agents_enabled": false,
   "errors": [
     "Crossref/leben: HTTPError: HTTP Error 429: Too Many Requests",
-    "Crossref/gesellschaft: HTTPError: HTTP Error 429: Too Many Requests",
-    "Crossref/ki: HTTPError: HTTP Error 429: Too Many Requests"
+    "Crossref/liebe: HTTPError: HTTP Error 429: Too Many Requests"
   ],
   "items": [
+    {
+      "id": "arxiv:2611.30070v1",
+      "topic": "ki",
+      "title": "Stable but Hidden: Identifiability and Experimental Design under Missing Compositional Support",
+      "date": "2026-11-23",
+      "date_precision": "day",
+      "authors": [
+        "Harry Sevi",
+        "Joonatan E. M. Laulainen"
+      ],
+      "venue": "arXiv",
+      "url": "https://arxiv.org/abs/2611.30070v1",
+      "source": "arXiv bibliographic metadata",
+      "source_type": "repository_manuscript",
+      "peer_review": "not_verified",
+      "version": "1",
+      "related_doi": "",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "10.1080/02691728.2026.2747050",
+      "topic": "wirklichkeit",
+      "title": "Types of Expert Disagreement in Public Scientific-Technological Controversies: Insights from STS Case Studies",
+      "date": "2026-11-23",
+      "date_precision": "day",
+      "authors": [
+        "Camila López Echagüe"
+      ],
+      "venue": "Social Epistemology",
+      "url": "https://doi.org/10.1080/02691728.2026.2747050",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
     {
       "id": "10.1093/jaac/kpag047",
       "topic": "kunst",
@@ -29,6 +65,30 @@
       "venue": "The Journal of Aesthetics and Art Criticism",
       "url": "https://doi.org/10.1093/jaac/kpag047",
       "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "arxiv:2611.26343v2",
+      "topic": "ki",
+      "title": "DeepQuest: From Knowledge Gaps to Scientific Discovery in Alzheimer's Disease",
+      "date": "2026-11-19",
+      "date_precision": "day",
+      "authors": [
+        "Chunbo Jiang",
+        "Yifei Chen",
+        "Beining Wu",
+        "Fuyou Mao",
+        "Weihong Chen"
+      ],
+      "venue": "arXiv",
+      "url": "https://arxiv.org/abs/2611.26343v2",
+      "source": "arXiv bibliographic metadata",
+      "source_type": "repository_manuscript",
+      "peer_review": "not_verified",
+      "version": "2",
+      "related_doi": "",
       "status": "unreviewed",
       "source_examined": "metadata_only",
       "agent_notes": {}
@@ -84,6 +144,30 @@
       "venue": "Complex Engineering Systems",
       "url": "https://doi.org/10.20517/ces.2026.28",
       "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "arxiv:2611.25214v2",
+      "topic": "ki",
+      "title": "Steering Automated Scientific Discovery via Audited Epistemic Exploration",
+      "date": "2026-11-18",
+      "date_precision": "day",
+      "authors": [
+        "Fangxu Yu",
+        "Tao Feng",
+        "Xuying Ning",
+        "Haolin Yang",
+        "Jiaxuan You"
+      ],
+      "venue": "arXiv",
+      "url": "https://arxiv.org/abs/2611.25214v2",
+      "source": "arXiv bibliographic metadata",
+      "source_type": "repository_manuscript",
+      "peer_review": "not_verified",
+      "version": "2",
+      "related_doi": "",
       "status": "unreviewed",
       "source_examined": "metadata_only",
       "agent_notes": {}
@@ -1401,76 +1485,6 @@
       ],
       "venue": "arXiv",
       "url": "https://arxiv.org/abs/2610.04057v1",
-      "source": "arXiv bibliographic metadata",
-      "source_type": "repository_manuscript",
-      "peer_review": "not_verified",
-      "version": "1",
-      "related_doi": "",
-      "status": "unreviewed",
-      "source_examined": "metadata_only",
-      "agent_notes": {}
-    },
-    {
-      "id": "10.16997/jdd.2190",
-      "topic": "gesellschaft",
-      "title": "Rethinking Climate Assemblies Within Complex Democratic Systems: Coupling and Pathways of Influence Beyond Policy Uptake",
-      "date": "2026-10-02",
-      "authors": [
-        "Mads Ejsing"
-      ],
-      "venue": "Journal of Deliberative Democracy",
-      "url": "https://doi.org/10.16997/jdd.2190",
-      "source": "Crossref bibliographic metadata",
-      "status": "unreviewed",
-      "source_examined": "metadata_only",
-      "agent_notes": {}
-    },
-    {
-      "id": "10.1007/s11138-026-00753-2",
-      "topic": "wirklichkeit",
-      "title": "Moral tradition as a discovery procedure: Hayek and the social epistemology of moral realism",
-      "date": "2026-10-02",
-      "authors": [
-        "Valentino Pellegrino"
-      ],
-      "venue": "The Review of Austrian Economics",
-      "url": "https://doi.org/10.1007/s11138-026-00753-2",
-      "source": "Crossref bibliographic metadata",
-      "status": "unreviewed",
-      "source_examined": "metadata_only",
-      "agent_notes": {}
-    },
-    {
-      "id": "arxiv:2610.01002v2",
-      "topic": "bewusstsein",
-      "title": "What Can Analogy Tell Us About Artificial Consciousness?",
-      "date": "2026-10-01",
-      "authors": [
-        "Keith J. Holyoak",
-        "Martin M. Monti"
-      ],
-      "venue": "arXiv",
-      "url": "https://arxiv.org/abs/2610.01002v2",
-      "source": "arXiv bibliographic metadata",
-      "source_type": "repository_manuscript",
-      "peer_review": "not_verified",
-      "version": "2",
-      "related_doi": "",
-      "status": "unreviewed",
-      "source_examined": "metadata_only",
-      "agent_notes": {}
-    },
-    {
-      "id": "arxiv:2610.01002v1",
-      "topic": "bewusstsein",
-      "title": "What Can Analogy Tell Us About Artificial Consciousness?",
-      "date": "2026-10-01",
-      "authors": [
-        "Keith J. Holyoak",
-        "Martin M. Monti"
-      ],
-      "venue": "arXiv",
-      "url": "https://arxiv.org/abs/2610.01002v1",
       "source": "arXiv bibliographic metadata",
       "source_type": "repository_manuscript",
       "peer_review": "not_verified",
