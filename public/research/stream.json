@@ -1,19 +1,18 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-24T09:55:22+00:00",
+  "updated_at": "2026-11-24T22:27:17+00:00",
   "status": "automatic_discovery_not_fact_checked",
   "analysis": "metadata_only",
   "source": "Crossref + arXiv",
   "source_queries": {
-    "Crossref": 5,
+    "Crossref": 6,
     "arXiv": 3
   },
-  "source_queries_succeeded": 8,
-  "new_items": 4,
+  "source_queries_succeeded": 9,
+  "new_items": 2,
   "agents_enabled": false,
   "errors": [
-    "Crossref/leben: HTTPError: HTTP Error 429: Too Many Requests",
-    "Crossref/liebe: HTTPError: HTTP Error 429: Too Many Requests"
+    "Crossref/gesellschaft: HTTPError: HTTP Error 429: Too Many Requests"
   ],
   "items": [
     {
@@ -897,6 +896,22 @@
       "agent_notes": {}
     },
     {
+      "id": "10.54254/2753-7048/2027.kl38541",
+      "topic": "bewusstsein",
+      "title": "Neuroscience of Consciousness: What Lucid Dreaming Can—and Cannot—Tell Us",
+      "date": "2026-11-03",
+      "date_precision": "day",
+      "authors": [
+        "Elliot Dumont"
+      ],
+      "venue": "Lecture Notes in Education Psychology and Public Media",
+      "url": "https://doi.org/10.54254/2753-7048/2027.kl38541",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
       "id": "arxiv:2611.04087v1",
       "topic": "ki",
       "title": "ScienceVision: Can AI Observe and Reason Like a Scientist?",
@@ -1161,6 +1176,24 @@
       ],
       "venue": "Mental Health and Social Inclusion",
       "url": "https://doi.org/10.1108/mhsi-10-2026-0412",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
+      "id": "10.1080/13674676.2026.2745868",
+      "topic": "liebe",
+      "title": "Religiosity as compensatory capital in shaping the connection between income and well-being: a study using world values survey data",
+      "date": "2026-10-22",
+      "date_precision": "day",
+      "authors": [
+        "Ângela Leite",
+        "Catarina Vieira da Silva",
+        "Paulo César Dias"
+      ],
+      "venue": "Mental Health, Religion & Culture",
+      "url": "https://doi.org/10.1080/13674676.2026.2745868",
       "source": "Crossref bibliographic metadata",
       "status": "unreviewed",
       "source_examined": "metadata_only",
@@ -1455,41 +1488,6 @@
       "venue": "Frontiers in Psychology",
       "url": "https://doi.org/10.3389/fpsyg.2026.1952709",
       "source": "Crossref bibliographic metadata",
-      "status": "unreviewed",
-      "source_examined": "metadata_only",
-      "agent_notes": {}
-    },
-    {
-      "id": "10.1007/s40747-026-02517-8",
-      "topic": "leben",
-      "title": "Artificial neural networks as discrete complex systems: native vector-ternary training via the leech lattice $$\\Lambda _{24}$$",
-      "date": "2026-10-05",
-      "authors": [
-        "Alexander Lavicka"
-      ],
-      "venue": "Complex & Intelligent Systems",
-      "url": "https://doi.org/10.1007/s40747-026-02517-8",
-      "source": "Crossref bibliographic metadata",
-      "status": "unreviewed",
-      "source_examined": "metadata_only",
-      "agent_notes": {}
-    },
-    {
-      "id": "arxiv:2610.04057v1",
-      "topic": "bewusstsein",
-      "title": "MEM as an Extension of Recurrent Processing Theory: Toward a Motivational Account of Consciousness",
-      "date": "2026-10-02",
-      "authors": [
-        "Wiesław L. Galus",
-        "Janusz A. Starzyk"
-      ],
-      "venue": "arXiv",
-      "url": "https://arxiv.org/abs/2610.04057v1",
-      "source": "arXiv bibliographic metadata",
-      "source_type": "repository_manuscript",
-      "peer_review": "not_verified",
-      "version": "1",
-      "related_doi": "",
       "status": "unreviewed",
       "source_examined": "metadata_only",
       "agent_notes": {}
