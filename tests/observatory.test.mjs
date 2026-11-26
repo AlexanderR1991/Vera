@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import {execFileSync} from "node:child_process";
-import {mkdtempSync, mkdirSync, rmSync, writeFileSync} from "node:fs";
-import {tmpdir} from "node:os";
+import {mkdtempSync, mkdirSync, rmSync, readFileSync, writeFileSync} from "node:fs";
+import {tmpdir, devNull} from "node:os";
 import {dirname, join} from "node:path";
 import {pathToFileURL} from "node:url";
 import test from "node:test";
@@ -87,5 +87,67 @@ test("editorial milestones have bilingual text and distinct, chronological sourc
     assert.ok(!seen.has(kind + number));
     seen.add(kind + number);
     previous = at;
+  }
+});
+
+
+test("commit snapshots ignore local replacement refs and graft views", t => {
+  const cwd = mkdtempSync(join(tmpdir(), "observatory-raw-"));
+  t.after(() => rmSync(cwd, {recursive: true, force: true}));
+  const git = (args, date, input) => execFileSync("git", ["--no-replace-objects", "-c", "advice.graftFileDeprecated=false", ...args], {
+    cwd, input, encoding: "utf8", env: {...process.env, GIT_GRAFT_FILE: devNull,
+      ...(date ? {GIT_COMMITTER_DATE: date, GIT_AUTHOR_DATE: date} : {})}
+  }).trim();
+  git(["init", "--quiet", "-b", "main"]);
+  git(["config", "user.name", "Synthetic fixture"]);
+  git(["config", "user.email", "synthetic@example.test"]);
+  git(["config", "commit.gpgsign", "false"]);
+  const stream = "public/research/stream.json";
+  mkdirSync(dirname(join(cwd, stream)), {recursive: true});
+  const commit = (count, date) => {
+    writeFileSync(join(cwd, stream), JSON.stringify({schema: 1, items: Array.from({length: count}, () => ({}))}));
+    git(["add", "."]);
+    git(["commit", "--quiet", "-m", "synthetic"], date);
+    return git(["rev-parse", "HEAD"]);
+  };
+  const first = commit(1, "2026-01-01T12:00:00Z");
+  const head = commit(2, "2026-01-02T12:00:00Z");
+  const oldBlob = git(["rev-parse", head + ":" + stream]);
+  writeFileSync(join(cwd, stream), JSON.stringify({schema: 1, items: Array.from({length: 7}, () => ({}))}));
+  git(["add", stream]);
+  const fakeTree = git(["write-tree"]), fakeBlob = git(["hash-object", "-w", stream]);
+  const fakeCommit = git(["commit-tree", fakeTree, "-p", first], "2026-01-03T12:00:00Z", "synthetic replacement\n");
+  // All objects already exist; only local projection settings change below.
+  const expected = getObservatory(cwd);
+  assert.deepEqual(expected.days.map(day => [day.date, day.discovery]), [["2026-01-01", 1], ["2026-01-02", 2]]);
+  const unchanged = () => {
+    assert.deepEqual(getObservatory(cwd), expected);
+    assert.equal(git(["rev-parse", "HEAD"]), head);
+    assert.equal(git(["rev-parse", head + ":" + stream]), oldBlob);
+  };
+  git(["replace", head, fakeCommit]);
+  unchanged();
+  assert.equal(git(["replace", "-l"]), head);
+  git(["replace", "-d", head]);
+  git(["replace", oldBlob, fakeBlob]);
+  unchanged();
+  assert.equal(git(["replace", "-l"]), oldBlob);
+  git(["replace", "-d", oldBlob]);
+  const graft = join(cwd, ".git", "info", "grafts");
+  writeFileSync(graft, head + "\n");
+  unchanged();
+  assert.equal(readFileSync(graft, "utf8"), head + "\n");
+  rmSync(graft);
+  const inherited = join(cwd, "synthetic-grafts");
+  writeFileSync(inherited, head + "\n");
+  const previous = process.env.GIT_GRAFT_FILE;
+  try {
+    process.env.GIT_GRAFT_FILE = inherited;
+    unchanged();
+    assert.equal(process.env.GIT_GRAFT_FILE, inherited);
+    assert.equal(readFileSync(inherited, "utf8"), head + "\n");
+  } finally {
+    if (previous === undefined) delete process.env.GIT_GRAFT_FILE;
+    else process.env.GIT_GRAFT_FILE = previous;
   }
 });

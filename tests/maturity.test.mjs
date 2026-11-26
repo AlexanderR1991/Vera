@@ -162,3 +162,38 @@ test("missing independent review slots return diagnostics without aborting other
   assert.deepEqual(data,before);
  }
 });
+
+
+test("review and consensus URL fields require strings without changing HTTPS string admission",()=>{
+ const url="https://example.invalid/synthetic-review";
+ for(const field of ["independent","consensus"]){
+  for(const value of [[url],[[url]],[url,null],[],{},null,42,true]){
+   const {data,claim}=example("G-005");
+   if(field==="independent"){
+    claim.maturity.level=3;
+    claim.maturity.independent_checks=[independent("Synthetic independent",value)];
+    review(claim);
+   }else{
+    claim.consensus.status="documented_agreement";
+    claim.consensus.records=[{stance:"agree",url:value,context:{de:"Nur Test",en:"Synthetic only"}}];
+   }
+   const before=structuredClone(data);
+   const expected=field==="independent"?"invalid independent review record":"invalid documented position";
+   assert.ok(maturityErrors(claim).includes(expected));
+   assert.ok(validateRegister(data).some(error=>error.includes(expected)));
+   assert.deepEqual(data,before);
+  }
+  for(const value of [url,url+"#scope","HTTPS://EXAMPLE.INVALID/Prüfung?q=1"]){
+   const {data,claim}=example("G-005");
+   if(field==="independent"){
+    claim.maturity.level=3;
+    claim.maturity.independent_checks=[independent("Synthetic independent",value)];review(claim);
+   }else{
+    claim.consensus.status="documented_agreement";
+    claim.consensus.records=[{stance:"agree",url:value,context:{de:"Nur Test",en:"Synthetic only"}}];
+   }
+   assert.deepEqual(maturityErrors(claim),[]);
+   assert.deepEqual(validateRegister(data),[]);
+  }
+ }
+});

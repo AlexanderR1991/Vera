@@ -21,8 +21,8 @@ export function createOllamaAdapter({ model, modelDigest = null, port = 11434,
       validateMessages(messages);
       const settings = { ...defaults, ...overrides };
       validateOptions(settings);
-      if (tools !== undefined && (!Array.isArray(tools) || tools.some(tool =>
-        tool?.type !== "function" || typeof tool.function?.name !== "string" || !tool.function.name.trim()))) {
+      if (tools !== undefined && (!Array.isArray(tools) || tools.findIndex(tool =>
+        tool?.type !== "function" || typeof tool.function?.name !== "string" || !tool.function.name.trim()) !== -1)) {
         throw new Error("Expected function tool definitions.");
       }
       const body = JSON.stringify({ model, messages, tools, stream: false, options: settings });

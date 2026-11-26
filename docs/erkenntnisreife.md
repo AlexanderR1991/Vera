@@ -53,6 +53,8 @@ Wiederholte Meldungen, Like-Zahlen, dieselbe KI-Antwort in hundert Fassungen, Sc
 
 Die öffentliche Datenquelle bleibt [public/knowledge/claims.json](../public/knowledge/claims.json). Neu sind je Aussage: `abstraction_level`, `maturity` (level, rationale, independent_checks, adversarial_resolution) und `consensus` (status, note, records). Die Daten werden auf den DE/EN-Registerseiten angezeigt und durch `src/lib/maturity.mjs` und `scripts/validate-claims.mjs` **strukturell** kontrolliert. `tests/maturity.test.mjs` prüft Sperren und Regressionen nur an künstlichen Beispielen. Die öffentlich sichtbaren Demonstrationsaussagen bleiben **R0, unbegutachtet, ohne erhobenen Konsens**. Die Einführung der Zusatzfelder änderte ihre inhaltlichen Aussagen nicht.
 
+`maturity.independent_checks[*].url` und `consensus.records[*].url` enthalten jeweils eine einzelne HTTPS-Adresse als JSON-String. Listen und andere Nicht-Textwerte werden nicht implizit in Adressen umgewandelt. Diese Formatprüfung belegt weder Erreichbarkeit noch Quellenqualität oder Unabhängigkeit.
+
 Das ist bewusst *kein* globales Ranking von Menschen, Traditionen, Religionen oder Forschungsgebieten. Es gibt keinen universellen Punktescore und keine Garantie, die Wahrheit endgültig ermittelt zu haben.
 
 ---
@@ -72,6 +74,8 @@ The system separates **claim type**, **abstraction** (case, pattern, disciplinar
 | R4 | Robust under criticism | At least two distinct traceable independent checks and a documented response to the strongest objections, with discipline-specific quality requirements |
 
 These are **necessary, not sufficient**, gates. The validator cannot authenticate reviewers, verify source quality, or guarantee truth. High-stakes subjects need stronger external standards. R4 must never mean unquestionable. Metaphors do not become facts; moral claims do not become theorems. Well-defended disagreement may be the outcome.
+
+Each `maturity.independent_checks[*].url` and `consensus.records[*].url` contains one HTTPS address as a JSON string. Arrays and other non-string values are not implicitly converted to addresses. This format check establishes neither availability nor source quality or independence.
 
 To change a level: identify the exact bilingual version; test sources and the strongest objections; document the accountable human decision in a PR; increment version and history; renew the review **only after actual reassessment** of the changed content; keep previous versions traceable. Verified counterevidence can justify narrowing, demotion, dispute or withdrawal regardless of popularity. Mere disagreement prompts investigation, not automatic demotion. Withdrawn claims return to R0. Dependent claims must be examined, but automatic dependency propagation is not yet built.
 

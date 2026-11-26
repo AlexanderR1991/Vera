@@ -64,6 +64,53 @@ test("source integrity, immutable revision and strict field boundaries are check
   assert.throws(() => validateCorpus(corpus([example(1), example(1)])), /duplicate example ID/);
 });
 
+test("moving source revision labels remain rejected with surrounding whitespace without rewriting revisions", () => {
+  for (const label of ["main", "MASTER", "HeAd", "latest"]) {
+    for (const revision of [label, ` ${label} `, `\t${label}\t`, `\n${label}\r\n`, `\u00a0${label}\u00a0`]) {
+      const input = structuredClone(fixtures);
+      input.examples[0].source.revision = revision;
+      const before = structuredClone(input);
+      assert.throws(() => validateCorpus(input), /moving branch/);
+      assert.throws(() => buildSupervisedExport(input, { allowDevFixtures: true }), /moving branch/);
+      assert.deepEqual(input, before);
+    }
+  }
+  for (const revision of ["synthetic-v1", "main-v1", "latest-release", " fixed-v1 "]) {
+    const input = structuredClone(fixtures);
+    input.examples[0].source.revision = revision;
+    const before = structuredClone(input);
+    const exported = buildSupervisedExport(input, { allowDevFixtures: true });
+    assert.equal(exported.manifest.sources.find(item => item.example_id === input.examples[0].id).source.revision, revision);
+    assert.deepEqual(input, before);
+  }
+});
+
+test("learning CLI rejects malformed UTF-8 without replacing bytes and keeps genuine replacement characters", () => {
+  temporary(directory => {
+    const input = structuredClone(fixtures);
+    input.examples[0].scope = "Synthetic BYTE_SITE text only.";
+    const bytes = Buffer.from(JSON.stringify(input));
+    const site = bytes.indexOf("BYTE_SITE");
+    assert.ok(site >= 0);
+    const insert = value => Buffer.concat([bytes.subarray(0, site), value, bytes.subarray(site + 9)]);
+    const valid = insert(Buffer.from("\ufffd"));
+    for (const [name, data, accepted] of [["replacement", valid, true], ["invalid", insert(Buffer.from([0xff])), false], ["bom", Buffer.concat([Buffer.from([0xef, 0xbb, 0xbf]), valid]), false]]) {
+      const file = join(directory, `${name}.json`);
+      writeFileSync(file, data);
+      for (const command of ["validate", "export"]) {
+        const output = join(directory, `${name}-${command}`);
+        const result = run("data/cli.mjs", [command, "--input", file, ...(command === "export" ? ["--out", output, "--allow-dev-fixtures"] : [])]);
+        assert.equal(result.status, accepted ? 0 : 2, result.stderr);
+        assert.deepEqual(readFileSync(file), data);
+        if (command === "export") {
+          if (accepted) assert.equal(JSON.parse(readFileSync(join(output, "manifest.json"), "utf8")).sources[0].scope, "Synthetic \ufffd text only.");
+          else assert.throws(() => readFileSync(join(output, "manifest.json")), { code: "ENOENT" });
+        }
+      }
+    }
+  });
+});
+
 test("unreviewed AI drafts and missing use permission are quarantined and excluded", () => {
   const ai = example(1, "quarantine");
   ai.provenance.origin = "ai_draft";
@@ -227,4 +274,152 @@ test("training CLI reports missing prerequisites; a plan cannot fabricate a trai
     pinned.tokenizer.revision = immutableRevision;
     assert.deepEqual(buildTrainingPlan(pinned, dataset).missing.map(item => item.code), ["trainer_not_implemented"]);
   }
+});
+
+
+test("rendered user messages cannot leak across field boundaries or splits", () => {
+  const delimiter = "\n\nContext:\n";
+  const make = (number, split, prompt, context) => {
+    const item = structuredClone(fixtures.examples[0]);
+    item.id = `RENDER-${number}`;
+    item.family_id = `RENDER-FAMILY-${number}`;
+    item.split = split;
+    item.source.id = `RENDER-SOURCE-${number}`;
+    item.source.url = `urn:vera:fixture:render-${number}`;
+    item.source.excerpt += ` Render fixture ${number}.`;
+    item.source.content_sha256 = sha256(item.source.excerpt);
+    item.task = { ...item.task, prompt, context };
+    return item;
+  };
+  const pack = examples => ({ ...fixtures, examples });
+  for (const left of ["train", "validation", "test"]) {
+    for (const right of ["train", "validation", "test"]) {
+      const a = make(1, left, "Question", "Middle" + delimiter + "Tail");
+      const b = make(2, right, "Question" + delimiter + "Middle", "Tail");
+      const exportedInput = item => JSON.parse(buildSupervisedExport(pack([item]), { allowDevFixtures: true }).files[`${item.split}.jsonl`]).messages[0].content;
+      assert.equal(exportedInput(a), exportedInput(b));
+      for (const ordered of [[a, b], [b, a]]) {
+        if (left === right) assert.doesNotThrow(() => validateCorpus(pack(ordered)));
+        else assert.throws(() => validateCorpus(pack(ordered)), /split leakage/);
+      }
+    }
+  }
+  // Retain the old conservative field-pair guard as well as the rendered guard.
+  const a = make(1, "train", "Question", "Middle\nTail");
+  const b = make(2, "test", "Question\nMiddle", "Tail");
+  assert.throws(() => validateCorpus(pack([a, b])), /split leakage/);
+  b.task.prompt = "Different question";
+  assert.doesNotThrow(() => validateCorpus(pack([a, b])));
+});
+
+
+test("source identity preserves revision and locator boundaries without inventing conflicts", () => {
+  const make = number => {
+    const item = structuredClone(fixtures.examples[0]);
+    item.id = `SOURCE-KEY-${number}`;
+    item.family_id = `SOURCE-KEY-FAMILY-${number}`;
+    item.split = "train";
+    item.source.id = "SOURCE-KEY-SHARED";
+    item.source.excerpt += ` Wholly synthetic excerpt ${number}.`;
+    item.source.content_sha256 = sha256(item.source.excerpt);
+    return item;
+  };
+  const a = make(1), b = make(2);
+  a.source.revision = "fixture-v1#Annex";
+  a.source.locator = "p1";
+  b.source.revision = "fixture-v1";
+  b.source.locator = "Annex#p1";
+  const pack = examples => ({ ...fixtures, examples });
+  for (const ordered of [[a, b], [b, a]]) {
+    assert.doesNotThrow(() => validateCorpus(pack(ordered)));
+    assert.equal(buildSupervisedExport(pack(ordered), { allowDevFixtures: true }).manifest.counts.exported, 2);
+  }
+  b.source.revision = a.source.revision;
+  b.source.locator = a.source.locator;
+  for (const ordered of [[a, b], [b, a]]) {
+    assert.throws(() => validateCorpus(pack(ordered)), /conflicting source content/);
+  }
+  b.source.excerpt = a.source.excerpt;
+  b.source.content_sha256 = a.source.content_sha256;
+  assert.doesNotThrow(() => validateCorpus(pack([a, b])));
+  b.split = "test";
+  assert.throws(() => validateCorpus(pack([a, b])), /split leakage/);
+});
+
+
+test("valid correction chains at the corpus limit do not depend on input order", () => {
+  const chain = Array.from({ length: 10000 }, (_, index) => {
+    const item = structuredClone(fixtures.examples[0]);
+    item.id = `DEPTH-${index}`;
+    item.family_id = "DEPTH-FAMILY";
+    item.split = "train";
+    item.target = `Wholly synthetic target ${index}.`;
+    item.correction = { supersedes: index ? [`DEPTH-${index - 1}`] : [], rationale: index ? "Synthetic correction edge." : "" };
+    return item;
+  });
+  const run = examples => buildSupervisedExport({ ...fixtures, examples }, { allowDevFixtures: true });
+  const forward = run(chain), reverse = run([...chain].reverse());
+  for (const result of [forward, reverse]) {
+    assert.deepEqual(result.manifest.splits.train.ids, ["DEPTH-9999"]);
+    assert.equal(result.manifest.counts.superseded, 9999);
+  }
+  assert.equal(forward.files["train.jsonl"], reverse.files["train.jsonl"]);
+  // The corpus hash intentionally binds the supplied array order.
+  assert.notEqual(forward.manifest.corpus_sha256, reverse.manifest.corpus_sha256);
+  chain[0].correction = { supersedes: ["DEPTH-9999"], rationale: "Deliberate synthetic cycle." };
+  assert.throws(() => validateCorpus({ ...fixtures, examples: chain }), /contains a cycle/);
+});
+
+
+test("export metadata is isolated from its input and other exports without freezing the result", () => {
+  const input = structuredClone(fixtures);
+  const initialInput = structuredClone(input);
+  const first = buildSupervisedExport(input, { allowDevFixtures: true });
+  const second = buildSupervisedExport(input, { allowDevFixtures: true });
+  const snapshot = structuredClone(first.manifest);
+  assert.deepEqual(input, initialInput);
+  assert.deepEqual(first.manifest, JSON.parse(first.files["manifest.json"]));
+  input.examples[0].source.locator += " Caller input edit.";
+  input.examples[0].review.reviewed_by.push("Synthetic note, no real reviewer.");
+  input.examples[0].limitations.push("Caller input note.");
+  assert.deepEqual(first.manifest, snapshot);
+  assert.deepEqual(second.manifest, snapshot);
+  const afterInputEdit = structuredClone(input);
+  first.manifest.sources[0].source.locator += " Own result edit.";
+  first.manifest.sources[0].review.reviewed_by.push("Synthetic result note.");
+  first.manifest.sources[0].correction.supersedes.push("OWN-RESULT-EDIT");
+  first.manifest.sources[0].counterexamples.push("Own counterexample note.");
+  assert.deepEqual(input, afterInputEdit);
+  assert.deepEqual(second.manifest, snapshot);
+  // Deliberate edits to an owned manifest do not rewrite the original file bytes.
+  assert.notDeepEqual(first.manifest, JSON.parse(first.files["manifest.json"]));
+  assert.deepEqual(JSON.parse(first.files["manifest.json"]), snapshot);
+});
+
+test("source excerpts reject unpaired UTF-16 surrogates before checksum acceptance", () => {
+  temporary(directory => {
+    for (const [name, excerpt, accepted] of [
+      ["high", "x\ud800y", false], ["other-high", "x\ud801y", false],
+      ["low", "x\udc00y", false], ["reverse", "x\udc00\ud800y", false],
+      ["replacement", "x\ufffdy", true], ["pair", "x\ud83d\ude00y", true], ["ascii", "xy", true]
+    ]) {
+      const input = structuredClone(fixtures);
+      input.examples[0].source.excerpt = excerpt;
+      input.examples[0].source.content_sha256 = sha256(excerpt);
+      const before = structuredClone(input);
+      if (accepted) assert.equal(validateCorpus(input), input);
+      else assert.throws(() => validateCorpus(input), /source.excerpt must be well-formed Unicode/);
+      assert.deepEqual(input, before);
+      const path = join(directory, `${name}.json`);
+      writeFileSync(path, JSON.stringify(input)); // Valid UTF-8 JSON can contain escaped lone surrogates.
+      const bytes = readFileSync(path);
+      for (const command of ["validate", "export"]) {
+        const output = join(directory, `${name}-${command}`);
+        const result = run("data/cli.mjs", [command, "--input", path, ...(command === "export" ? ["--out", output, "--allow-dev-fixtures"] : [])]);
+        assert.equal(result.status, accepted ? 0 : 2, result.stderr);
+        assert.deepEqual(readFileSync(path), bytes);
+        if (!accepted && command === "export") assert.throws(() => readFileSync(join(output, "manifest.json")), { code: "ENOENT" });
+      }
+    }
+  });
 });

@@ -233,3 +233,36 @@ test("replay preserves admitted source values and missing legacy fields", () => 
     assert.deepEqual(history, before);
   }
 });
+
+
+test("admitted JSON source arrays do not couple caller and history snapshots", () => {
+  const sources = [["https://example.test/source"], [["https://example.test/source"]], ["https://example.test/source", {note: "original"}]];
+  for (const value of sources) for (const mode of ["caller", "draft", "decision"]) {
+    const draft = {...objection, source_url: structuredClone(value)};
+    const prior = addEntityDraft(seed(), draft);
+    const before = structuredClone(prior);
+    const callerBefore = structuredClone(draft.source_url);
+    const sibling = mode === "draft" ? addEntityDraft(prior, {...objection, id: "E-002"})
+      : mode === "decision" ? recordEntityDecision(prior, {id: "H-001", at, based_on_version: 1,
+        outcome: "retain", reviewer: "Synthetic stub", rationale: "Check copy isolation."}, () => true) : null;
+    const target = mode === "caller" ? draft.source_url : sibling.events[0].source_url;
+    if (Array.isArray(target[0])) target[0][0] = "https://changed.example.test/source";
+    else if (target.length > 1) target[1].note = "changed";
+    else target[0] = "https://changed.example.test/source";
+    assert.deepEqual(prior, before);
+    if (mode !== "caller") assert.deepEqual(draft.source_url, callerBefore);
+    assert.equal(inspectEntityRecord(prior).open_objection_ids.length, 1);
+  }
+});
+
+test("source copying preserves legacy non-JSON admission and missing fields", () => {
+  for (const source_url of [new URL("https://example.test/source"), ["https://example.test/source", () => 0]]) {
+    const first = addEntityDraft(seed(), {...objection, source_url});
+    assert.doesNotThrow(() => inspectEntityRecord(first));
+    assert.doesNotThrow(() => addEntityDraft(first, {...objection, id: "E-002"}));
+  }
+  const legacy = addEntityDraft(seed(), objection);
+  delete legacy.events[0].source_url;
+  const next = addEntityDraft(legacy, {...objection, id: "E-002"});
+  assert.equal(Object.hasOwn(next.events[0], "source_url"), false);
+});

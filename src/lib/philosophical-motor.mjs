@@ -39,6 +39,7 @@ export function validateSyntheticScenario(input) {
   for (const profile of (Array.isArray(input.value_profiles) ? input.value_profiles : [])) {
     if (!filled(profile?.id) || profileIds.has(profile.id)) {
       errors.push("Value profile IDs must be unique and nonempty");
+      continue;
     } else profileIds.add(profile.id);
     const weights = profile?.weights;
     if (!weights || typeof weights !== "object" || Array.isArray(weights) ||

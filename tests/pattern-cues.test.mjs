@@ -51,3 +51,21 @@ test("a rejected interpretation remains only a pair of textual cues", () => {
     {id: "interpretation", cues: ["stayed silent", "must be angry"]}
   ]);
 });
+
+test("the input budget preserves original Unicode word boundaries", () => {
+  for (const [lang, id, first, last] of [
+    ["de", "distribution", "Zusammen reicht es. ", "jeder genug"],
+    ["en", "interpretation", "He stayed silent. ", "must be angry"]
+  ]) {
+    const at = end => first + " ".repeat(end - first.length - last.length) + last;
+    for (const continuation of ["x", "\u0301", "2", "_", "\u{10400}"]) {
+      assert.deepEqual(detectPatternCues(at(6000) + continuation, lang), []);
+    }
+    assert.deepEqual(detectPatternCues(at(5999) + "\u{10400}", lang), []);
+    for (const ending of ["", ".", " ", "\u{1F642}"]) {
+      const end = ending === "\u{1F642}" ? 5999 : 6000;
+      assert.deepEqual(detectPatternCues(at(end) + ending, lang), [{id, cues: [first.trim().replace(/\.$/, "").replace(/^He /, ""), last]}]);
+    }
+    assert.deepEqual(detectPatternCues(at(6001) + ".", lang), []);
+  }
+});

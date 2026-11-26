@@ -9,9 +9,12 @@ export function createGitProjectSource({ root, language = "de", revision } = {})
     encoding: "utf8", stdio: ["ignore", "pipe", "pipe"], timeout: 5000
   });
   const pinned = revision ?? git("rev-parse", "--verify", "HEAD^{commit}").trim();
-  if (!revisionPattern.test(pinned)) throw new Error("Expected a full Git commit revision.");
+  if (typeof pinned !== "string" || !revisionPattern.test(pinned)) throw new Error("Expected a full Git commit revision.");
+  if (git("cat-file", "-t", pinned).trim() !== "commit" ||
+      git("rev-parse", "--verify", `${pinned}^{commit}`).trim() !== pinned) throw new Error("Expected a full Git commit revision.");
   const { repository } = JSON.parse(git("show", `${pinned}:public/project.json`));
-  if (typeof repository !== "string" || !/^https:\/\/github\.com\/[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+$/.test(repository)) {
+  if (typeof repository !== "string" || !/^https:\/\/github\.com\/[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+$/.test(repository) ||
+      repository.split("/").some(segment => segment === "." || segment === "..")) {
     throw new Error("Expected the public project repository URL.");
   }
   return {
@@ -25,16 +28,20 @@ export function createGitProjectSource({ root, language = "de", revision } = {})
         : [":(glob)docs/**/*.md", ":(exclude,glob)docs/en/**", ":(exclude,glob)docs/archiv/**"];
       let output;
       try {
-        output = git("grep", "-F", "-i", "-I", "-n", "-z", "-m", "1", "-e", term, pinned, "--", ...paths);
+        output = git("grep", "--no-color", "--no-column", "-F", "-i", "-I", "-n", "-z", "-m", "1", "-e", term, pinned, "--", ...paths);
       } catch (error) {
         if (error.status === 1 && !error.stderr) return [];
         throw error;
       }
-      return output.trimEnd().split("\n").slice(0, 3).map(match => {
-        const [source, line, excerpt] = match.split("\0");
+      const passages = [];
+      // -z separates source and line with NUL; only the excerpt ends at LF.
+      for (const [, source, line, excerpt] of output.matchAll(/([^\0]+)\0(\d+)\0([^\n]*)(?:\n|$)/g)) {
         const path = source.slice(pinned.length + 1);
-        return { url: `${repository}/blob/${pinned}/${path}#L${line}`, excerpt: excerpt.slice(0, 400) };
-      });
+        const encodedPath = path.split("/").map(encodeURIComponent).join("/");
+        passages.push({ url: `${repository}/blob/${pinned}/${encodedPath}#L${line}`, excerpt: excerpt.slice(0, 400) });
+        if (passages.length === 3) break;
+      }
+      return passages;
     }
   };
 }

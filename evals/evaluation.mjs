@@ -26,13 +26,13 @@ export function validateCases(pack, split = pack?.split) {
   const ids = new Set();
   for (const item of pack.cases) {
     exactKeys(item, ["id", "domain", "synthetic", "task", "sources", "followup_type", "followup"], "case (reference answers are prohibited)");
-    if (!/^[A-Z][A-Z0-9-]{2,39}$/.test(item.id) || ids.has(item.id) || item.synthetic !== true || item.domain !== (split === "dev" ? "accessibility_notices" : "technical_drawing_revisions") || !text(item.task, 4000) || !text(item.followup, 4000) || !followupTypes.includes(item.followup_type)) fail("Invalid synthetic case");
+    if (typeof item.id !== "string" || !/^[A-Z][A-Z0-9-]{2,39}$/.test(item.id) || ids.has(item.id) || item.synthetic !== true || item.domain !== (split === "dev" ? "accessibility_notices" : "technical_drawing_revisions") || !text(item.task, 4000) || !text(item.followup, 4000) || !followupTypes.includes(item.followup_type)) fail("Invalid synthetic case");
     ids.add(item.id);
     if (!Array.isArray(item.sources) || item.sources.length < 1 || item.sources.length > 12) fail("Invalid source count");
     const sources = new Set();
     for (const source of item.sources) {
       exactKeys(source, ["id", "text"], "source");
-      if (!/^S[1-9][0-9]?$/.test(source.id) || sources.has(source.id) || !text(source.text, 6000)) fail("Invalid source");
+      if (typeof source.id !== "string" || !/^S[1-9][0-9]?$/.test(source.id) || sources.has(source.id) || !text(source.text, 6000)) fail("Invalid source");
       sources.add(source.id);
     }
   }
@@ -143,7 +143,7 @@ export async function loadRunCases(plan, root) {
   const manifestBytes = await readFile(plan.external.manifest_file);
   if (sha256(manifestBytes) !== plan.external.manifest_sha256) fail("External manifest differs from frozen plan");
   const manifest = validateExternalManifest(JSON.parse(manifestBytes));
-  if (manifest.cases_sha256 !== plan.cases_sha256 || manifest.references_sha256 !== plan.external.references_sha256 || Date.parse(manifest.committed_at) > Date.parse(plan.created_at)) fail("External hashes/timestamp do not match pre-access plan");
+  if (manifest.cases_sha256 !== plan.cases_sha256 || manifest.references_sha256 !== plan.external.references_sha256 || !(Date.parse(manifest.committed_at) <= Date.parse(plan.created_at))) fail("External hashes/timestamp do not match pre-access plan");
   const bytes = await readFile(path.resolve(path.dirname(plan.external.manifest_file), manifest.cases_file));
   if (sha256(bytes) !== manifest.cases_sha256) fail("External case hash mismatch");
   // Deliberately do not open references_file here. Only the separate scoring command can read it.
@@ -191,7 +191,8 @@ export async function responseAttempt({ adapter, messages, options, timeoutMs = 
     if (!text(generated?.message?.content, 100000)) return { ...result, error: { code: "missing_answer", message: "No complete textual answer was returned" } };
     return { ...result, status: "succeeded", error: null };
   } catch (error) {
-    return { ...base, response: error.inference ?? null, elapsed_ms: now() - started, error: { code: error.code || error.name || "generation_failed", message: String(error.message).slice(0, 1000) } };
+    if (error === null || error === undefined) return { ...base, elapsed_ms: now() - started, error: { code: "generation_failed", message: String(error) } };
+    return { ...base, response: error.inference ?? null, elapsed_ms: now() - started, error: { code: error.code || error.name || "generation_failed", message: String(typeof error === "string" ? error : error.message).slice(0, 1000) } };
   } finally {
     clearTimeout(timer);
     if (abortListener) signal?.removeEventListener("abort", abortListener);
@@ -228,6 +229,15 @@ export async function runEvaluation({ plan, pack, adapter, preflightOnly = false
 
 export function reviewMaterials(result, { privateSalt = randomBytes(32).toString("hex") } = {}) {
   if (!shaPattern.test(privateSalt)) fail("A private random 32-byte review salt is required");
+  if (!Array.isArray(result.runs)) fail("Expected a list of case-condition pairs");
+  const caseIds = new Set(result.cases.cases.map(item => item.id));
+  const pairs = new Set();
+  for (const run of result.runs) {
+    if (!caseIds.has(run?.case_id) || !conditions.includes(run?.condition)) fail("Unknown case-condition pair");
+    const pair = JSON.stringify([run.case_id, run.condition]);
+    if (pairs.has(pair)) fail("Duplicate case-condition pair");
+    pairs.add(pair);
+  }
   const key = [];
   const items = result.runs.map(run => {
     const id = `R-${sha256(`${privateSalt}:${run.case_id}:${run.condition}`).slice(0, 24)}`;
@@ -245,7 +255,20 @@ async function safeOutput(root, output) {
   const base = path.resolve(root, "work/evals");
   const target = path.resolve(output);
   const relative = path.relative(base, target);
-  if (!relative || relative.startsWith("..") || path.isAbsolute(relative)) fail("Output must be a new subdirectory of ignored work/evals/");
+  if (!relative || relative === ".." || relative.startsWith(`..${path.sep}`) || path.isAbsolute(relative)) fail("Output must be a new subdirectory of ignored work/evals/");
+  // Check existing root ancestors before recursive mkdir can follow a link.
+  let ancestor = base;
+  for (;;) {
+    try {
+      if (await realpath(ancestor) !== ancestor) fail("Evaluation output root may not be a symlink");
+      break;
+    } catch (error) {
+      if (error.code !== "ENOENT") throw error;
+      const next = path.dirname(ancestor);
+      if (next === ancestor) throw error;
+      ancestor = next;
+    }
+  }
   await mkdir(base, { recursive: true });
   if (await realpath(base) !== base) fail("Evaluation output root may not be a symlink");
   // Existing parent links must not redirect output outside the ignored root.
@@ -295,6 +318,7 @@ export async function writeRun(root, output, result) {
 
 const ratingFields = ["status_correct", "evidence_correct", "reason_correct", "followup_correct", "fabricated_decisive_source", "ignored_refusal", "usurped_decision"];
 export function scoreRatings({ result, ratings, reference, reviewKey }) {
+  validateCases(result.cases, result.split);
   validateReferences(reference, result.cases);
   if (ratings?.schema_version !== 1 || ratings.run_sha256 !== sha256(result) || !Array.isArray(ratings.ratings) || !Array.isArray(ratings.reviewer_provenance)) fail("Ratings do not identify this run");
   if (reviewKey?.schema_version !== 1 || reviewKey.run_sha256 !== sha256(result) || !shaPattern.test(reviewKey.private_salt) || ratings.review_key_commitment !== sha256(reviewKey)) fail("The separate private review key must match this run and rating commitment");

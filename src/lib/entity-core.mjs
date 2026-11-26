@@ -45,8 +45,17 @@ function checkDecision(outcome, reviewer, rationale, newStatement, priorStatemen
   } else if (newStatement) reject("new wording is only allowed for narrow or revise");
 }
 
+function copySource(value) {
+  if (!Array.isArray(value)) return value;
+  // Own admitted JSON array data without narrowing legacy non-JSON admission.
+  try { return structuredClone(value); } catch { return value; }
+}
+
 function copyEvent(event) {
-  return event.objection_ids === undefined ? {...event} : {...event, objection_ids: [...event.objection_ids]};
+  const copy = {...event};
+  if (Object.hasOwn(event, "source_url")) copy.source_url = copySource(event.source_url);
+  if (event.objection_ids !== undefined) copy.objection_ids = [...event.objection_ids];
+  return copy;
 }
 
 // Replay in append order. Inspection can check consistency, not the authenticity of imported JSON.
@@ -100,7 +109,7 @@ export function addEntityDraft(record, {id, kind, origin, text, at, based_on_ver
     id, kind, origin, text: clean(text), at, based_on_version,
     source_url: source_url || "", domain: domain ? clean(domain) : ""
   };
-  return {...record, versions: record.versions.map(v => ({...v})), events: [...record.events.map(copyEvent), event]};
+  return {...record, versions: record.versions.map(v => ({...v})), events: [...record.events.map(copyEvent), copyEvent(event)]};
 }
 
 export function recordEntityDecision(record, {

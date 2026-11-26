@@ -1,11 +1,17 @@
 // This contract describes inference, not training or authority to act.
 export const runtimeSchemaVersion = 1;
 
+export function assertNotAborted(signal) {
+  if (signal?.aborted) {
+    throw Object.assign(new Error("Inquiry interrupted.", { cause: signal.reason }), { name: "AbortError" });
+  }
+}
+
 export function validateMessages(messages) {
-  if (!Array.isArray(messages) || !messages.length || messages.some(message =>
+  if (!Array.isArray(messages) || !messages.length || messages.findIndex(message =>
     !message || !["system", "user", "assistant", "tool"].includes(message.role) ||
     typeof message.content !== "string" ||
-    (message.tool_calls !== undefined && !Array.isArray(message.tool_calls)))) {
+    (message.tool_calls !== undefined && !Array.isArray(message.tool_calls))) !== -1) {
     throw new Error("Expected nonempty chat messages with a role and text content.");
   }
 }

@@ -1,6 +1,16 @@
 const objectId = /^(?:[0-9a-f]{40}|[0-9a-f]{64})$/i;
 const entryTypes = new Set(["tree", "blob", "commit"]);
 
+export function normalizeRepositoryCommit(payload) {
+  const commit = payload?.sha;
+  const tree = payload?.commit?.tree?.sha;
+  if (typeof commit !== "string" || !objectId.test(commit) ||
+      typeof tree !== "string" || !objectId.test(tree)) {
+    throw new Error("Invalid repository commit.");
+  }
+  return {commit, tree};
+}
+
 export function normalizeRepositoryTree(payload) {
   if (payload?.truncated === true) throw new Error("GitHub returned a partial repository tree.");
   if (typeof payload?.sha !== "string" || !objectId.test(payload.sha) ||

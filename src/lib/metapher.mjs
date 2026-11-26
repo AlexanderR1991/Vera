@@ -20,7 +20,7 @@ function validateCase(item, training) {
     throw new TypeError("Each case needs an id and a routes array.");
   }
   for (const route of item.routes) {
-    if (!Array.isArray(route) || route.some(id => typeof id !== "string" || !id.trim() || id !== id.trim()) ||
+    if (!Array.isArray(route) || Array.from(route).some(id => typeof id !== "string" || !id.trim() || id !== id.trim()) ||
         new Set(route).size !== route.length) {
       throw new TypeError(`Each route in ${item.id} must list distinct nonempty dependency names.`);
     }

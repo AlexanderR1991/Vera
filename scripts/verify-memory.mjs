@@ -1,10 +1,11 @@
 import { execFileSync } from "node:child_process";
+import { devNull } from "node:os";
 import { memoryPath, validateMemory } from "./vera-memory.mjs";
 
 function git(...args) {
   return execFileSync("git", ["--no-replace-objects", ...args], {
     encoding: "utf8", stdio: ["ignore", "pipe", "pipe"],
-    env: { ...process.env, GIT_NO_LAZY_FETCH: "1", GIT_ALLOW_PROTOCOL: "file" }
+    env: { ...process.env, GIT_NO_LAZY_FETCH: "1", GIT_ALLOW_PROTOCOL: "file", GIT_GRAFT_FILE: devNull }
   }).trimEnd();
 }
 

@@ -128,3 +128,37 @@ test("the memory audit resolves the ledger and its sources at the cited commits"
   commit();
   assert.equal(audit().status, 0);
 });
+
+test("the memory audit ignores locally grafted parents", (t) => {
+  const cwd = mkdtempSync(join(tmpdir(), "vera-memory-grafts-"));
+  t.after(() => rmSync(cwd, { recursive: true, force: true }));
+  const git = (...args) => execFileSync("git", ["-C", cwd, ...args], { encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] }).trim();
+  const commit = () => {
+    git("add", "-A");
+    git("-c", "user.name=Vera Test", "-c", "user.email=vera@example.invalid",
+      "-c", "commit.gpgsign=false", "commit", "-qm", "Synthetic source history");
+    return git("rev-parse", "HEAD");
+  };
+  const script = fileURLToPath(new URL("../scripts/verify-memory.mjs", import.meta.url));
+  const audit = (env = process.env) => spawnSync(process.execPath, [script], { cwd, env, encoding: "utf8" });
+  git("init", "-q");
+  writeFileSync(join(cwd, "source.md"), "Synthetic source");
+  const sourceRevision = commit();
+  git("checkout", "--orphan", "separate-history");
+  mkdirSync(join(cwd, "docs"));
+  const entry = record(1);
+  entry.sources = [{ path: "source.md", revision: sourceRevision }];
+  writeFileSync(join(cwd, memoryPath), JSON.stringify({ schemaVersion: 1, entries: [entry] }));
+  const head = commit();
+  assert.equal(audit().status, 1, "a separate root is not a source ancestor");
+  const graft = `${head} ${sourceRevision}\n`;
+  writeFileSync(join(cwd, ".git", "info", "grafts"), graft);
+  const local = audit();
+  assert.equal(local.status, 1, "local graft parents must not certify source ancestry");
+  assert.match(local.stderr, /cannot verify/);
+  const external = join(cwd, "external-grafts");
+  writeFileSync(external, graft);
+  const inherited = audit({ ...process.env, GIT_GRAFT_FILE: external });
+  assert.equal(inherited.status, 1, "inherited graft parents must not certify source ancestry");
+  assert.match(inherited.stderr, /cannot verify/);
+});

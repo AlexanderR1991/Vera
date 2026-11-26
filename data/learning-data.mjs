@@ -26,7 +26,8 @@ function sourceLocation(value, fixture) {
   return url.href;
 }
 const normalized = value => value.normalize("NFKC").trim().replace(/\s+/gu, " ").toLowerCase();
-const sourceKey = example => `${example.source.id}@${example.source.revision}#${example.source.locator}`;
+const renderInput = example => `${example.task.prompt}\n\nContext:\n${example.task.context}`;
+const sourceKey = example => JSON.stringify([example.source.id, example.source.revision, example.source.locator]);
 
 // This checks declarations and internal consistency. A JSON field cannot authenticate
 // a reviewer, establish copyright permission, or independently verify source truth.
@@ -40,6 +41,7 @@ export function validateCorpus(corpus) {
   const sourceVersions = new Map();
   const groups = new Map();
   const inputs = new Map();
+  const renderedInputs = new Map();
   for (const example of corpus.examples) {
     keys(example, ["id", "family_id", "split", "claim_kind", "scope", "source", "provenance", "usage", "review", "task", "target", "counterexamples", "limitations", "correction"], "example");
     id(example.id, "example.id");
@@ -52,10 +54,12 @@ export function validateCorpus(corpus) {
     keys(example.source, ["id", "revision", "url", "locator", "excerpt", "content_sha256"], `${example.id}.source`);
     id(example.source.id, "source.id");
     text(example.source.revision, "source.revision", 200);
-    if (/^(main|master|head|latest)$/i.test(example.source.revision)) fail("source.revision must be immutable, not a moving branch");
+    if (/^(main|master|head|latest)$/i.test(example.source.revision.trim())) fail("source.revision must be immutable, not a moving branch");
     const location = sourceLocation(example.source.url, fixture);
     text(example.source.locator, "source.locator", 500);
     text(example.source.excerpt, "source.excerpt");
+    // UTF-8 encoding would silently replace unpaired UTF-16 surrogates before hashing.
+    if (!example.source.excerpt.isWellFormed()) fail("source.excerpt must be well-formed Unicode");
     if (example.source.content_sha256 !== sha256(example.source.excerpt)) fail(`${example.id} source excerpt checksum mismatch`);
     const key = sourceKey(example);
     if (sourceVersions.has(key) && sourceVersions.get(key) !== example.source.content_sha256) fail(`${key} has conflicting source content; use a distinct source ID for a different excerpt`);
@@ -107,6 +111,11 @@ export function validateCorpus(corpus) {
     const priorInput = inputs.get(inputKey);
     if (priorInput && priorInput !== example.split) fail(`split leakage: duplicate input in ${priorInput} and ${example.split}`);
     inputs.set(inputKey, example.split);
+    // Check the same text that the model receives, including the context delimiter.
+    const renderedKey = sha256(normalized(renderInput(example)));
+    const priorRendered = renderedInputs.get(renderedKey);
+    if (priorRendered && priorRendered !== example.split) fail(`split leakage: duplicate rendered input in ${priorRendered} and ${example.split}`);
+    renderedInputs.set(renderedKey, example.split);
   }
   for (const example of examples.values()) {
     for (const previousId of example.correction.supersedes) {
@@ -119,12 +128,22 @@ export function validateCorpus(corpus) {
   const visiting = new Set();
   const visited = new Set();
   function visit(example) {
-    if (visiting.has(example.id)) fail("correction lineage contains a cycle");
-    if (visited.has(example.id)) return;
-    visiting.add(example.id);
-    for (const previousId of example.correction.supersedes) visit(examples.get(previousId));
-    visiting.delete(example.id);
-    visited.add(example.id);
+    const pending = [{ id: example.id, exiting: false }];
+    while (pending.length) {
+      const { id, exiting } = pending.pop();
+      if (exiting) {
+        visiting.delete(id);
+        visited.add(id);
+        continue;
+      }
+      if (visited.has(id)) continue;
+      if (visiting.has(id)) fail("correction lineage contains a cycle");
+      visiting.add(id);
+      pending.push({ id, exiting: true });
+      for (const previousId of examples.get(id).correction.supersedes) {
+        pending.push({ id: previousId, exiting: false });
+      }
+    }
   }
   for (const example of examples.values()) visit(example);
   return corpus;
@@ -140,23 +159,18 @@ export function buildSupervisedExport(corpus, { allowDevFixtures = false } = {})
   // but unpermitted/quarantined correction must not silently remove usable data.
   // Follow lineage only through exportable intermediates. A quarantined draft's
   // own supersedes links cannot retire otherwise usable older targets.
-  const byId = new Map(corpus.examples.map(e => [e.id, e]));
-  const candidateIds = new Set(candidates.map(e => e.id));
   const superseded = new Set();
-  function retireAncestors(example) {
-    for (const previousId of example.correction.supersedes) {
-      if (superseded.has(previousId)) continue;
-      superseded.add(previousId);
-      if (candidateIds.has(previousId)) retireAncestors(byId.get(previousId));
-    }
+  // Every exportable candidate is already a root. Their direct references are
+  // the full retirement set; following candidate edges again adds nothing.
+  for (const example of candidates) {
+    for (const previousId of example.correction.supersedes) superseded.add(previousId);
   }
-  for (const example of candidates) retireAncestors(example);
   const eligible = candidates.filter(e => !superseded.has(e.id)).sort((a, b) => a.id.localeCompare(b.id, "en"));
   const files = {};
   const splits = {};
   for (const split of learningSplits) {
     const rows = eligible.filter(e => e.split === split);
-    const content = rows.map(e => canonicalJson({ id: e.id, messages: [{ role: "user", content: `${e.task.prompt}\n\nContext:\n${e.task.context}` }, { role: "assistant", content: e.target }] })).join("\n") + (rows.length ? "\n" : "");
+    const content = rows.map(e => canonicalJson({ id: e.id, messages: [{ role: "user", content: renderInput(e) }, { role: "assistant", content: e.target }] })).join("\n") + (rows.length ? "\n" : "");
     const name = `${split}.jsonl`;
     files[name] = content;
     splits[split] = { file: name, examples: rows.length, ids: rows.map(e => e.id), sha256: sha256(content) };
@@ -170,6 +184,8 @@ export function buildSupervisedExport(corpus, { allowDevFixtures = false } = {})
     sources: eligible.map(e => ({ example_id: e.id, family_id: e.family_id, source: e.source, provenance: e.provenance, usage: e.usage, review: e.review, claim_kind: e.claim_kind, scope: e.scope, correction: e.correction, counterexamples: e.counterexamples, limitations: e.limitations })),
     splits
   };
+  // Result metadata belongs to this export, independently of caller-owned JSON.
+  manifest.sources = structuredClone(manifest.sources);
   files["manifest.json"] = `${canonicalJson(manifest)}\n`;
   return { files, manifest };
 }

@@ -15,6 +15,21 @@ test("The published cross-domain catalogue has valid traceable questions and no 
  assert.equal(catalogue.questions.length,16);
  assert.equal(findings.findings.length,0);
 });
+for (const [field, kind] of [["questions", "question"], ["relations", "relation"], ["findings", "finding"]]) {
+ test(`Non-object ${field} records produce indexed errors without mutating the data`, () => {
+  for (const value of [null, false, 17, "synthetic record", []]) {
+   const copy = structuredClone(catalogue), ledgerCopy = structuredClone(findings);
+   const records = field === "findings" ? ledgerCopy.findings : copy[field];
+   const index = records.length;
+   records.push(JSON.parse(JSON.stringify(value)));
+   const before = JSON.stringify([copy, ledgerCopy]);
+   let errors;
+   assert.doesNotThrow(() => { errors = validateUniversal(copy, ledgerCopy, ...args); });
+   assert.ok(errors.some(error => error.includes(`Invalid ${kind} record at ${field}[${index}]`)));
+   assert.equal(JSON.stringify([copy, ledgerCopy]), before);
+  }
+ });
+}
 test("Every domain only sees questions mapped to that route",()=>{
  for(const route of args[1]){
   const items=questionsForRoute(catalogue,route);
@@ -22,6 +37,31 @@ test("Every domain only sees questions mapped to that route",()=>{
   assert.ok(items.every(q=>q.return_routes.includes(route)));
  }
  assert.ok(questionsForRoute(catalogue,"die-bruecke").some(q=>q.id==="U-003"));
+});
+test("findings report invalid referenced route fields without aborting validation", () => {
+ const q = catalogue.questions[0];
+ // Complete synthetic metadata is only a structural control, not a real review.
+ const answer = {schema_version: 1, findings: [{
+  id: "UF-001", question_id: q.id, version: 1, status: "reviewed", claim_type: "empirical",
+  answer: {de: "Synthetische Antwort", en: "Synthetic answer"},
+  scope: {de: "Synthetischer Bereich", en: "Synthetic scope"},
+  dissent: {de: "Synthetischer Einwand", en: "Synthetic dissent"},
+  revision_condition: {de: "Synthetische Gegenprobe", en: "Synthetic counterexample"},
+  reviewer: "Synthetic reviewer", reviewed_at: "2026-11-01", source_commit: catalogue.source_revision,
+  review_url: "https://github.com/synthetic/project/pull/1",
+  evidence_paths: [q.source_paths[0]], return_routes: [q.return_routes[0]]
+ }]};
+ assert.deepEqual(validateUniversal(catalogue, answer, ...args), []);
+ for (const value of [null, false, 0, 17, {}, q.return_routes[0]]) {
+  const copy = structuredClone(catalogue);
+  copy.questions[0].return_routes = value;
+  const before = JSON.stringify(copy);
+  let errors;
+  assert.doesNotThrow(() => { errors = validateUniversal(copy, answer, ...args); });
+  assert.ok(errors.some(error => error.includes("Invalid answer return destinations")));
+  assert.ok(errors.some(error => error.includes("Finding may return only")));
+  assert.equal(JSON.stringify(copy), before);
+ }
 });
 test("A finding must not be projected without review and matching destination",()=>{
  const bad={...findings,findings:[{id:"UF-001",question_id:"U-003",status:"ai_draft",return_routes:["die-bruecke"]}]};
@@ -50,4 +90,118 @@ test("Review metadata is necessary even if an answer is plausible",()=>{
  evidence_paths:["docs/schnittmengen.md"],return_routes:["die-bruecke"]
  }]};
  assert.ok(validateUniversal(catalogue,answer,...args).length>=3);
+});
+
+test("finding review dates must be calendar-valid strings in the existing 20xx range", () => {
+ const q = catalogue.questions[0];
+ const synthetic = {schema_version: 1, findings: [{
+  id: "UF-001", question_id: q.id, version: 1, status: "reviewed", claim_type: "empirical",
+  answer: {de: "Synthetische Antwort", en: "Synthetic answer"},
+  scope: {de: "Synthetischer Bereich", en: "Synthetic scope"},
+  dissent: {de: "Synthetischer Einwand", en: "Synthetic dissent"},
+  revision_condition: {de: "Synthetische Gegenprobe", en: "Synthetic counterexample"},
+  reviewer: "Synthetic reviewer", reviewed_at: "2026-11-01", source_commit: catalogue.source_revision,
+  review_url: "https://github.com/synthetic/project/pull/1",
+  evidence_paths: [q.source_paths[0]], return_routes: [q.return_routes[0]]
+ }]};
+ // These fixtures assert structure only; none records a real human review.
+ for (const date of ["2000-02-29", "2024-02-29", "2096-02-29", "2026-02-28", "2026-04-30", "2026-11-30", "2099-12-31"]) {
+  const copy = structuredClone(synthetic);
+  copy.findings[0].reviewed_at = date;
+  assert.deepEqual(validateUniversal(catalogue, copy, ...args), []);
+ }
+ for (const date of ["2026-02-30", "2025-02-29", "2026-04-31", "2026-00-01", "2026-13-01", "2026-01-00", "2026-01-32", "1999-12-31", "2100-01-01", ["2026-11-01"], null]) {
+  const copy = JSON.parse(JSON.stringify(synthetic));
+  copy.findings[0].reviewed_at = date;
+  const before = JSON.stringify(copy);
+  assert.ok(validateUniversal(catalogue, copy, ...args).some(error => error.includes("Finding needs a review date")), JSON.stringify(date));
+  assert.equal(JSON.stringify(copy), before);
+ }
+});
+
+test("source commits must be scalar SHA strings without JSON array coercion", () => {
+ const q = catalogue.questions[0];
+ const synthetic = {schema_version: 1, findings: [{
+  id: "UF-001", question_id: q.id, version: 1, status: "reviewed", claim_type: "empirical",
+  answer: {de: "Synthetische Antwort", en: "Synthetic answer"},
+  scope: {de: "Synthetischer Bereich", en: "Synthetic scope"},
+  dissent: {de: "Synthetischer Einwand", en: "Synthetic dissent"},
+  revision_condition: {de: "Synthetische Gegenprobe", en: "Synthetic counterexample"},
+  reviewer: "Synthetic reviewer", reviewed_at: "2026-11-01", source_commit: catalogue.source_revision,
+  review_url: "https://github.com/synthetic/project/pull/1",
+  evidence_paths: [q.source_paths[0]], return_routes: [q.return_routes[0]]
+ }]};
+ for (const field of ["source_revision", "source_commit"]) {
+  for (const value of [catalogue.source_revision, "0".repeat(40), [catalogue.source_revision], [[catalogue.source_revision]], [[[catalogue.source_revision]]], null, {}, false, 7, "a".repeat(39), "A".repeat(40)]) {
+   const copy = structuredClone(catalogue), ledgerCopy = structuredClone(synthetic);
+   if (field === "source_revision") copy.source_revision = value;
+   else ledgerCopy.findings[0].source_commit = value;
+   const before = JSON.stringify([copy, ledgerCopy]);
+   const errors = validateUniversal(copy, ledgerCopy, ...args);
+   if (typeof value === "string" && /^[a-f0-9]{40}$/.test(value)) assert.deepEqual(errors, []);
+   else assert.ok(errors.some(error => error.includes(field === "source_revision" ? "Catalog requires a traceable source revision" : "Finding requires an immutable source commit")), `${field}: ${JSON.stringify(value)}`);
+   assert.equal(JSON.stringify([copy, ledgerCopy]), before);
+  }
+ }
+});
+
+test("finding review links must be scalar strings without JSON array coercion", () => {
+ const q = catalogue.questions[0];
+ const synthetic = {schema_version: 1, findings: [{
+  id: "UF-001", question_id: q.id, version: 1, status: "reviewed", claim_type: "empirical",
+  answer: {de: "Synthetische Antwort", en: "Synthetic answer"},
+  scope: {de: "Synthetischer Bereich", en: "Synthetic scope"},
+  dissent: {de: "Synthetischer Einwand", en: "Synthetic dissent"},
+  revision_condition: {de: "Synthetische Gegenprobe", en: "Synthetic counterexample"},
+  reviewer: "Synthetic reviewer", reviewed_at: "2026-11-01", source_commit: catalogue.source_revision,
+  review_url: "https://github.com/synthetic/project/pull/1",
+  evidence_paths: [q.source_paths[0]], return_routes: [q.return_routes[0]]
+ }]};
+ const url = synthetic.findings[0].review_url;
+ for (const value of [url, "https://github.com/synthetic/project/pull/42"]) {
+  const copy = structuredClone(synthetic);
+  copy.findings[0].review_url = value;
+  assert.deepEqual(validateUniversal(catalogue, copy, ...args), []);
+ }
+ for (const value of [[url], [[url]], [[[url]]], [url, url], [], null, {}, false, 1, "", "https://invalid.test/pull/1"]) {
+  const copy = JSON.parse(JSON.stringify(synthetic));
+  copy.findings[0].review_url = value;
+  const before = JSON.stringify(copy);
+  assert.ok(validateUniversal(catalogue, copy, ...args).some(error => error.includes("Finding requires a traceable PR review")), JSON.stringify(value));
+  assert.equal(JSON.stringify(copy), before);
+ }
+});
+
+test("non-string identifiers produce indexed diagnostics without coercing JSON objects", () => {
+ const q = catalogue.questions[0];
+ const synthetic = {schema_version: 1, findings: [{
+  id: "UF-001", question_id: q.id, version: 1, status: "reviewed", claim_type: "empirical",
+  answer: {de: "Synthetische Antwort", en: "Synthetic answer"},
+  scope: {de: "Synthetischer Bereich", en: "Synthetic scope"},
+  dissent: {de: "Synthetischer Einwand", en: "Synthetic dissent"},
+  revision_condition: {de: "Synthetische Gegenprobe", en: "Synthetic counterexample"},
+  reviewer: "Synthetic reviewer", reviewed_at: "2026-11-01", source_commit: catalogue.source_revision,
+  review_url: "https://github.com/synthetic/project/pull/1",
+  evidence_paths: [q.source_paths[0]], return_routes: [q.return_routes[0]]
+ }]};
+ const targets = [
+  ["question", "id", "questions[0].id"],
+  ["finding", "id", "findings[0].id"],
+  ["relation", "from", "relations[0].from"],
+  ["relation", "to", "relations[0].to"],
+  ["relation", "type", "relations[0].type"]
+ ];
+ assert.deepEqual(validateUniversal(catalogue, synthetic, ...args), []);
+ for (const [kind, field, location] of targets) {
+  for (const value of [null, false, 7, {}, [], {toString: null}, [{toString: null}]]) {
+   const copy = JSON.parse(JSON.stringify(catalogue)), ledgerCopy = structuredClone(synthetic);
+   const record = kind === "question" ? copy.questions[0] : kind === "relation" ? copy.relations[0] : ledgerCopy.findings[0];
+   record[field] = value;
+   const before = JSON.stringify([copy, ledgerCopy]);
+   let errors;
+   assert.doesNotThrow(() => { errors = validateUniversal(copy, ledgerCopy, ...args); });
+   assert.ok(errors.some(error => error.includes(location)), `${location}: ${JSON.stringify(value)}`);
+   assert.equal(JSON.stringify([copy, ledgerCopy]), before);
+  }
+ }
 });

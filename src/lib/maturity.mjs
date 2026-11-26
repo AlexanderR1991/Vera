@@ -15,7 +15,7 @@ export const consensusLabels={
 const present=v=>typeof v==="string"&&v.trim().length>0;
 const bilingual=v=>v&&present(v.de)&&present(v.en);
 const date=v=>typeof v==="string"&&/^\d{4}-\d{2}-\d{2}$/.test(v)&&!Number.isNaN(Date.parse(v))&&new Date(v).toISOString().slice(0,10)===v;
-const https=v=>{try{return new URL(v).protocol==="https:";}catch{return false;}};
+const https=v=>{if(typeof v!=="string")return false;try{return new URL(v).protocol==="https:";}catch{return false;}};
 
 // These are minimum *structural* gates, NOT automatic source evaluation.
 // No AI, majority vote or count of checks establishes truth.
