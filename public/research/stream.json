@@ -1,18 +1,19 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-26T08:18:50+00:00",
+  "updated_at": "2026-11-26T21:33:12+00:00",
   "status": "automatic_discovery_not_fact_checked",
   "analysis": "metadata_only",
   "source": "Crossref + arXiv",
   "source_queries": {
-    "Crossref": 6,
+    "Crossref": 5,
     "arXiv": 3
   },
-  "source_queries_succeeded": 9,
-  "new_items": 1,
+  "source_queries_succeeded": 8,
+  "new_items": 0,
   "agents_enabled": false,
   "errors": [
-    "Crossref/leben: HTTPError: HTTP Error 429: Too Many Requests"
+    "Crossref/leben: HTTPError: HTTP Error 429: Too Many Requests",
+    "Crossref/gesellschaft: HTTPError: HTTP Error 429: Too Many Requests"
   ],
   "items": [
     {
