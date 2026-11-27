@@ -1,4 +1,4 @@
-import { runtimeSchemaVersion, validateMessages } from "./contract.mjs";
+import { runtimeSchemaVersion, validateMessages, assertNotAborted } from "./contract.mjs";
 
 export const projectSearchName = "search_project";
 export const projectSearchTool = {
@@ -22,6 +22,7 @@ export async function runInquiry({ adapter, messages, searchProject, options, si
   const trace = [];
   const sources = [];
   const generate = async tools => {
+    assertNotAborted(signal);
     const result = await adapter.generate({ messages: conversation, tools, options, signal });
     trace.push({ kind: "generation", model: result.model, options: result.options,
       usage: result.usage, finishReason: result.finishReason, durationMs: result.durationMs });
@@ -41,14 +42,16 @@ export async function runInquiry({ adapter, messages, searchProject, options, si
       if (call?.name !== projectSearchName || !gap || gap.length > 350 || !term || term.length > 80 || /[\u0000-\u001f\u007f]/.test(term)) {
         throw new Error("Ollama returned an invalid project search.");
       }
+      assertNotAborted(signal);
       const passages = await searchProject(term);
-      if (!Array.isArray(passages) || passages.length > 3 || passages.some(p =>
+      if (!Array.isArray(passages) || passages.length > 3 || Array.from(passages).some(p =>
         typeof p?.url !== "string" || typeof p.excerpt !== "string" || p.excerpt.length > 400)) {
         throw new Error("Project search returned invalid passages.");
       }
       sources.push(...passages);
       const search = { kind: "project-search", revision, gap, term, passages };
       trace.push(search);
+      assertNotAborted(signal);
       if (onSearch) await onSearch(search);
       conversation.push({ role: "assistant", content: reply.content ?? "", tool_calls: calls },
         { role: "tool", tool_name: projectSearchName, content: JSON.stringify({ passages }) });
@@ -59,11 +62,14 @@ export async function runInquiry({ adapter, messages, searchProject, options, si
     if (!Array.isArray(remainingCalls) || remainingCalls.length || typeof reply?.content !== "string" || !reply.content.trim()) {
       throw new Error("Ollama returned no complete text answer.");
     }
+    assertNotAborted(signal);
     conversation.push({ role: "assistant", content: reply.content });
     return { schemaVersion: runtimeSchemaVersion, status: "unreviewed-ai-draft", revision,
       content: reply.content.trimEnd(), message: reply, messages: conversation, model: result.model,
       sources, trace, usage: result.usage, authority: { publish: false, humanDecision: false, updateWeights: false } };
-  } catch (error) {
+  } catch (reason) {
+    const error = reason instanceof Error ? reason
+      : new Error("Inquiry dependency rejected with a non-Error value.", { cause: reason });
     if (error.inference) trace.push({ kind: "generation-failure", ...error.inference });
     error.trace = trace;
     throw error;

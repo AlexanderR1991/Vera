@@ -85,10 +85,16 @@ if (header) {
         : t("Suche vorübergehend nicht verfügbar.", "Search temporarily unavailable.");
     }
   }
+  let returningFocus = false;
   input.addEventListener("input", suggest);
-  input.addEventListener("focus", () => {if (input.value.trim().length > 1) void suggest();});
+  input.addEventListener("focus", () => {if (!returningFocus && input.value.trim().length > 1) void suggest();});
   document.addEventListener("keydown", event => {
-    if (event.key === "Escape" && !panel.hidden) {hide();input.focus();}
+    if (event.key === "Escape" && !panel.hidden) {
+      hide();
+      // Returning focus dismisses suggestions; it is not another search request.
+      returningFocus = true;
+      try { input.focus(); } finally { returningFocus = false; }
+    }
     if (event.key === "ArrowDown" && document.activeElement === input && !panel.hidden) {
       const first = list.querySelector("a");
       if (first) {event.preventDefault();first.focus();}

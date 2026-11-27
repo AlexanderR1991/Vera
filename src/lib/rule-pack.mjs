@@ -40,9 +40,10 @@ export function rulePack(lang) {
   if (aiSections.length !== 2 || aiSections.some(section => !section.trim())) {
     throw Error("Expected DE and EN sections in docs/ki-charta.md");
   }
-  const localCharter = aiSections[en ? 1 : 0].trim();
   const revision = process.env.GITHUB_SHA || "main";
   const source = `${project.repository}/blob/${revision}/`;
+  const localCharter = aiSections[en ? 1 : 0].trim().replace(/\]\(([^)\s]+)\)/g,
+    (_, target) => `](${new URL(target, source + "docs/ki-charta.md").href})`);
   const sourceFiles = [
     "docs/grundtext.md",
     "docs/selbstkorrektur.md",

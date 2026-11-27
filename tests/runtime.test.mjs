@@ -8,7 +8,9 @@ import { join } from "node:path";
 import { test } from "node:test";
 import { createOllamaAdapter } from "../runtime/ollama.mjs";
 import { runInquiry } from "../runtime/inquiry.mjs";
+import { runRecordedInquiry } from "../runtime/recorded-inquiry.mjs";
 import { createGitProjectSource } from "../runtime/project-source.mjs";
+import { validateMessages } from "../runtime/contract.mjs";
 
 const messages = [{ role: "user", content: "Check this source." }];
 const searchCall = { function: { name: "search_project", arguments: { gap: "The source is missing.", term: "META-01" } } };
@@ -24,6 +26,29 @@ async function serve(t, responder) {
   t.after(() => { server.closeAllConnections(); server.close(); });
   return server.address().port;
 }
+
+test("Message admission rejects sparse and empty arrays before any adapter call", async () => {
+  for (let length = 0; length <= 3; length++) for (let mask = 0; mask < 2 ** length; mask++) {
+    const input = new Array(length);
+    for (let i = 0; i < length; i++) if (mask & (1 << i)) input[i] = Object.freeze({ role: "user", content: `Message ${i}.` });
+    Object.freeze(input);
+    const snapshot = structuredClone(input);
+    let calls = 0;
+    const adapter = { async generate() { calls++; return { finishReason: "stop", message: { content: "A draft." } }; } };
+    if (length > 0 && mask === 2 ** length - 1) {
+      assert.doesNotThrow(() => validateMessages(input));
+      const draft = await runInquiry({ adapter, messages: input });
+      assert.equal(draft.content, "A draft.");
+      assert.equal(calls, 1);
+      assert.deepEqual(draft.messages.slice(0, length), input);
+    } else {
+      assert.throws(() => validateMessages(input), /Expected nonempty chat messages/);
+      await assert.rejects(runInquiry({ adapter, messages: input }), /Expected nonempty chat messages/);
+      assert.equal(calls, 0);
+    }
+    assert.deepEqual(input, snapshot);
+  }
+});
 
 test("Inference records effective options and measured usage without claiming a verified model digest", async t => {
   let received;
@@ -42,6 +67,40 @@ test("Inference records effective options and measured usage without claiming a 
   assert.equal(result.model.reported, "example:tag");
   assert.equal(result.finishReason, "stop");
   assert.equal(result.message.content, "A draft.");
+});
+
+test("Inference rejects sparse tool declarations before HTTP and preserves empty or omitted lists", async t => {
+  const received = [];
+  const port = await serve(t, (body, res) => {
+    received.push(body);
+    res.end(JSON.stringify({ done: true, done_reason: "stop", message: { content: "A draft." } }));
+  });
+  const adapter = createOllamaAdapter({ model: "synthetic", port });
+  const cases = [];
+  for (let length = 0; length <= 3; length++) for (let mask = 0; mask < 2 ** length; mask++) {
+    const tools = new Array(length);
+    for (let i = 0; i < length; i++) if (mask & (1 << i)) tools[i] = Object.freeze({
+      type: "function", function: Object.freeze({ name: `synthetic_${i}` })
+    });
+    Object.freeze(tools);
+    cases.push({ tools, valid: mask === 2 ** length - 1 });
+  }
+  cases.push({ tools: undefined, valid: true }, { tools: null, valid: false });
+  for (const { tools, valid } of cases) {
+    const before = received.length;
+    const snapshot = structuredClone(tools);
+    if (valid) {
+      const record = await adapter.generate({ messages, tools });
+      assert.equal(record.finishReason, "stop");
+      assert.equal(received.length, before + 1);
+      if (tools === undefined) assert.equal(Object.hasOwn(received.at(-1), "tools"), false);
+      else assert.deepEqual(received.at(-1).tools, tools);
+    } else {
+      await assert.rejects(adapter.generate({ messages, tools }), /Expected function tool definitions/);
+      assert.equal(received.length, before);
+    }
+    assert.deepEqual(tools, snapshot);
+  }
 });
 
 test("Inference rejects truncation, excess output and byte overflow and exposes available failure metadata", async t => {
@@ -74,6 +133,55 @@ test("Inference respects operator cancellation and refuses invalid generation op
   await assert.rejects(adapter.generate({ messages, signal: controller.signal }), { name: "AbortError" });
   await assert.rejects(adapter.generate({ messages, options: { num_ctx: -1 } }), /positive integer/);
   await assert.rejects(adapter.generate({ messages, options: { arbitrary_setting: 1 } }), /Unsupported/);
+});
+
+test("Inquiry abort checkpoints prevent new steps and retain completed traces", async () => {
+  for (const reason of [undefined, "Synthetic stop", null, 7]) {
+    const controller = new AbortController();
+    controller.abort(reason);
+    let invoked = false;
+    await assert.rejects(runInquiry({ messages, signal: controller.signal, adapter: { generate() { invoked = true; } } }), error => {
+      assert.equal(error.name, "AbortError");
+      assert.equal(error.cause, controller.signal.reason);
+      assert.deepEqual(error.trace, []);
+      return true;
+    });
+    assert.equal(invoked, false);
+  }
+  for (const boundary of ["text", "search", "callback"]) {
+    const controller = new AbortController();
+    let generations = 0, callbacks = 0;
+    await assert.rejects(runInquiry({ messages, signal: controller.signal,
+      adapter: { generate() {
+        generations++;
+        if (boundary === "text") controller.abort("Synthetic stop");
+        return { finishReason: "stop", message: boundary === "text" ? { content: "Synthetic answer" } : { content: "", tool_calls: [searchCall] } };
+      } },
+      searchProject() { if (boundary === "search") controller.abort("Synthetic stop"); return []; },
+      onSearch() { callbacks++; controller.abort("Synthetic stop"); }
+    }), error => {
+      assert.equal(error.name, "AbortError");
+      assert.deepEqual(error.trace.map(item => item.kind), boundary === "text" ? ["generation"] : ["generation", "project-search"]);
+      return true;
+    });
+    assert.equal(generations, 1);
+    assert.equal(callbacks, boundary === "callback" ? 1 : 0);
+  }
+});
+
+test("Recorded inquiry rechecks cancellation before converting a completed draft", async () => {
+  const controller = new AbortController();
+  await assert.rejects(runRecordedInquiry({ id: "ABORT-RECORD", at: "2026-11-24T00:00:00Z", inquiry: {
+    messages, signal: controller.signal, adapter: { generate() {
+      queueMicrotask(() => queueMicrotask(() => queueMicrotask(() => controller.abort("Synthetic conversion stop"))));
+      return { finishReason: "stop", message: { role: "assistant", content: "Synthetic answer" } };
+    } }
+  } }), error => {
+    assert.equal(error.name, "AbortError");
+    assert.equal(error.cause, "Synthetic conversion stop");
+    assert.deepEqual(error.trace.map(item => item.kind), ["generation"]);
+    return true;
+  });
 });
 
 test("Inference rejects error, truncated, missing and unknown completion reasons with metadata", async t => {
@@ -158,6 +266,37 @@ test("Inquiry records one bounded search, preserves caller state and returns onl
   assert.deepEqual(draft.authority, { publish: false, humanDecision: false, updateWeights: false });
 });
 
+test("Inquiry rejects every sparse passage array before callbacks or continuation", async () => {
+  for (let length = 0; length <= 3; length++) for (let mask = 0; mask < 2 ** length; mask++) {
+    const passages = new Array(length);
+    for (let i = 0; i < length; i++) if (mask & (1 << i)) passages[i] = Object.freeze({ url: `https://example.invalid/${i}`, excerpt: `Source ${i}.` });
+    Object.freeze(passages);
+    const snapshot = structuredClone(passages);
+    let generations = 0, callbacks = 0;
+    const operation = runInquiry({ messages, searchProject: () => passages,
+      onSearch: () => { callbacks++; },
+      adapter: { async generate() {
+        return { finishReason: "stop", message: ++generations === 1 ? { content: "", tool_calls: [searchCall] } : { content: "A draft." } };
+      } }
+    });
+    if (mask === 2 ** length - 1) {
+      const draft = await operation;
+      assert.deepEqual(draft.sources, passages);
+      assert.equal(generations, 2);
+      assert.equal(callbacks, 1);
+    } else {
+      await assert.rejects(operation, error => {
+        assert.equal(error.message, "Project search returned invalid passages.");
+        assert.deepEqual(error.trace.map(event => event.kind), ["generation"]);
+        return true;
+      });
+      assert.equal(generations, 1);
+      assert.equal(callbacks, 0);
+    }
+    assert.deepEqual(passages, snapshot);
+  }
+});
+
 test("Inquiry fails closed on disabled, arbitrary or repeated tools and preserves the failure trace", async () => {
   const adapterFor = replies => ({ generate: async () => ({ message: replies.shift(), finishReason: "stop" }) });
   await assert.rejects(runInquiry({ messages, adapter: adapterFor([{ tool_calls: [searchCall] }]) }), /disabled/);
@@ -193,4 +332,159 @@ test("Project source pins committed prose and excludes later working-tree text",
   assert.ok(passages[0].url.endsWith(`/blob/${source.revision}/docs/source.md#L1`));
   assert.deepEqual(source.search("private marker"), []);
   assert.throws(() => source.search("bad\nterm"), /literal project search term/);
+});
+
+
+test("Inquiry retains non-Error native cancellation reasons without mutating them", async () => {
+  for (const recorded of [false, true]) {
+    for (const reason of [null, "Synthetic stop", 7, { code: "synthetic-stop" }, Object.freeze({ code: "frozen-stop" })]) {
+      const controller = new AbortController();
+      const before = reason && typeof reason === "object" ? Reflect.ownKeys(reason) : null;
+      let generations = 0, searches = 0;
+      const inquiry = { messages, signal: controller.signal,
+        searchProject: () => { searches++; return [{ url: "https://example.invalid/source", excerpt: "Synthetic source." }]; },
+        adapter: { async generate({ signal }) {
+          generations++;
+          if (generations === 1) return { finishReason: "stop", message: { content: "", tool_calls: [searchCall] } };
+          controller.abort(reason);
+          signal.throwIfAborted();
+        } }
+      };
+      const promise = recorded ? runRecordedInquiry({ id: "REJECTION-227", at: "2026-11-24T00:00:00Z", inquiry }) : runInquiry(inquiry);
+      await assert.rejects(promise, error => {
+        assert.equal(error.name, "Error");
+        assert.equal(error.message, "Inquiry dependency rejected with a non-Error value.");
+        assert.equal(error.cause, reason);
+        assert.deepEqual(error.trace.map(event => event.kind), ["generation", "project-search"]);
+        assert.equal(error.trace[1].passages[0].excerpt, "Synthetic source.");
+        return true;
+      });
+      assert.equal(generations, 2);
+      assert.equal(searches, 1);
+      if (before) assert.deepEqual(Reflect.ownKeys(reason), before);
+    }
+  }
+});
+
+
+test("Project source preserves UTF-8 filenames and literal lines in citations", t => {
+  const root = mkdtempSync(join(tmpdir(), "vera-paths-"));
+  t.after(() => rmSync(root, { recursive: true, force: true }));
+  mkdirSync(join(root, "public"));
+  const repository = "https://github.com/example/vera";
+  writeFileSync(join(root, "public/project.json"), JSON.stringify({ repository }));
+  const names = ["ordinary.md", "space name.md", "hash#name.md", "query?name.md", "percent%name.md", "literal%20name.md", "tab\tname.md", "line\nname.md", "unicode-ä-字.md"];
+  const batchNames = ["0\nfirst.md", "1-middle#?.md", "2-last%.md", "3-extra.md"];
+  const batch = "Batch needle " + "x".repeat(450);
+  for (const lang of ["de", "en"]) {
+    const dir = join(root, "docs", ...(lang === "en" ? ["en"] : []));
+    mkdirSync(dir, { recursive: true });
+    names.forEach((name, i) => writeFileSync(join(dir, name), `Intro\nTarget-${i} literal  \n`));
+    batchNames.forEach(name => writeFileSync(join(dir, name), batch + "\n"));
+  }
+  const git = (...args) => execFileSync("git", ["-C", root, ...args], { encoding: "utf8", stdio: "pipe" });
+  git("init", "-q"); git("add", ".");
+  git("-c", "user.name=Vera Test", "-c", "user.email=vera@example.invalid", "-c", "commit.gpgsign=false", "commit", "-qm", "UTF-8 path fixtures");
+  for (const language of ["de", "en"]) {
+    const source = createGitProjectSource({ root, language });
+    const prefix = language === "en" ? "docs/en/" : "docs/";
+    const expectedURL = (name, line) => `${repository}/blob/${source.revision}/${(prefix + name).split("/").map(encodeURIComponent).join("/")}#L${line}`;
+    names.forEach((name, i) => assert.deepEqual(source.search(`Target-${i}`), [{ url: expectedURL(name, 2), excerpt: `Target-${i} literal  ` }]));
+    assert.deepEqual(source.search("Batch needle"), batchNames.slice(0, 3).map(name => ({ url: expectedURL(name, 1), excerpt: batch.slice(0, 400) })));
+  }
+});
+
+
+test("Project source isolates machine passages from local Git display settings", t => {
+  const root = mkdtempSync(join(tmpdir(), "vera-grep-display-"));
+  t.after(() => rmSync(root, { recursive: true, force: true }));
+  mkdirSync(join(root, "public"));
+  const repository = "https://github.com/example/vera";
+  writeFileSync(join(root, "public/project.json"), JSON.stringify({ repository }));
+  for (const directory of ["docs", "docs/en"]) {
+    mkdirSync(join(root, directory), { recursive: true });
+    for (const name of ["a.md", "b\nline.md"]) writeFileSync(join(root, directory, name), "Intro\nSynthetic needle evidence  \n");
+  }
+  const git = (...args) => execFileSync("git", ["-C", root, ...args], { encoding: "utf8", stdio: "pipe" });
+  git("init", "-q"); git("add", ".");
+  git("-c", "user.name=Vera Test", "-c", "user.email=vera@example.invalid", "-c", "commit.gpgsign=false", "commit", "-qm", "Display fixture");
+  const variants = [{}, { "grep.column": "true" }, { "color.grep": "always" }, { "grep.heading": "true" },
+    { "grep.break": "true" }, { "grep.fullName": "true" },
+    { "grep.column": "true", "color.grep": "always", "grep.heading": "true", "grep.break": "true", "grep.fullName": "true" }];
+  const keys = [...new Set(variants.flatMap(settings => Object.keys(settings)))];
+  for (const settings of variants) {
+    for (const key of keys) git("config", "--local", key, settings[key] ?? (key === "color.grep" ? "never" : "false"));
+    const before = git("config", "--local", "--list");
+    for (const language of ["de", "en"]) {
+      const source = createGitProjectSource({ root, language });
+      const directory = language === "en" ? "docs/en" : "docs";
+      assert.deepEqual(source.search("needle"), ["a.md", "b\nline.md"].map(name => ({
+        url: `${repository}/blob/${source.revision}/${directory}/${encodeURIComponent(name)}#L2`,
+        excerpt: "Synthetic needle evidence  "
+      })));
+    }
+    assert.equal(git("config", "--local", "--list"), before);
+  }
+});
+
+test("Project source rejects repository dot segments without rewriting ordinary names", t => {
+  const ordinary = ["https://github.com/SyntheticFixture/Vera", "https://github.com/SyntheticFixture/Vera.docs_v2-1", "https://github.com/SyntheticFIXTURE/VeRa"];
+  const invalid = [];
+  for (const owner of ["SyntheticFixture", ".", ".."]) for (const repo of ["Vera", ".", ".."]) {
+    if (owner !== "SyntheticFixture" || repo !== "Vera") invalid.push(`https://github.com/${owner}/${repo}`);
+  }
+  for (const repository of [...ordinary, ...invalid]) {
+    const root = mkdtempSync(join(tmpdir(), "vera-repository-url-"));
+    t.after(() => rmSync(root, { recursive: true, force: true }));
+    mkdirSync(join(root, "public")); mkdirSync(join(root, "docs/en"), { recursive: true });
+    writeFileSync(join(root, "public/project.json"), JSON.stringify({ repository }));
+    for (const path of ["docs/source.md", "docs/en/source.md"]) writeFileSync(join(root, path), "Committed needle.\n");
+    const git = (...args) => execFileSync("git", ["-C", root, ...args], { encoding: "utf8", stdio: "pipe" });
+    git("init", "-q"); git("add", ".");
+    git("-c", "user.name=Vera Test", "-c", "user.email=vera@example.invalid", "-c", "commit.gpgsign=false", "commit", "-qm", "Repository URL fixture");
+    for (const language of ["de", "en"]) {
+      if (invalid.includes(repository)) {
+        assert.throws(() => createGitProjectSource({ root, language }), /Expected the public project repository URL/);
+      } else {
+        const source = createGitProjectSource({ root, language });
+        assert.equal(source.repository, repository);
+        const url = `${repository}/blob/${source.revision}/docs/${language === "en" ? "en/" : ""}source.md#L1`;
+        assert.deepEqual(source.search("needle"), [{ url, excerpt: "Committed needle." }]);
+        assert.equal(new URL(url).href, url);
+      }
+    }
+  }
+});
+
+test("Project source admits only full primitive actual commit IDs", t => {
+  for (const format of ["sha1", "sha256"]) {
+    const root = mkdtempSync(join(tmpdir(), "vera-commit-id-"));
+    t.after(() => rmSync(root, { recursive: true, force: true }));
+    mkdirSync(join(root, "public")); mkdirSync(join(root, "docs"));
+    writeFileSync(join(root, "public/project.json"), JSON.stringify({ repository: "https://github.com/example/vera" }));
+    writeFileSync(join(root, "docs/source.md"), "COMMITTED needle.\n");
+    const git = (...args) => execFileSync("git", ["--no-replace-objects", "-C", root, ...args], { encoding: "utf8", stdio: "pipe" });
+    git("init", "-q", `--object-format=${format}`); git("add", ".");
+    git("-c", "user.name=Vera Test", "-c", "user.email=vera@example.invalid", "-c", "commit.gpgsign=false", "commit", "-qm", "Committed source fixture");
+    const commit = git("rev-parse", "HEAD").trim();
+    const tree = git("rev-parse", "HEAD^{tree}").trim();
+    const blob = git("rev-parse", "HEAD:docs/source.md").trim();
+    git("-c", "user.name=Vera Test", "-c", "user.email=vera@example.invalid", "-c", "tag.gpgsign=false", "tag", "-a", "fixture-tag", "-m", "Synthetic annotated tag");
+    const tag = git("rev-parse", "fixture-tag").trim();
+    writeFileSync(join(root, "docs/source.md"), "STAGED_UNCOMMITTED needle.\n"); git("add", "docs/source.md");
+    const staged = git("write-tree").trim();
+    for (const revision of [commit, undefined, null]) {
+      const source = createGitProjectSource({ root, revision });
+      assert.equal(source.revision, commit);
+      assert.equal(typeof source.revision, "string");
+      assert.equal(source.search("needle")[0].excerpt, "COMMITTED needle.");
+    }
+    let coerced = 0;
+    const sentinel = { toString() { coerced++; return commit; } };
+    for (const revision of [staged, tree, tag, blob, [commit], new String(commit), sentinel, ...(format === "sha256" ? [commit.slice(0, 40)] : [])]) {
+      assert.throws(() => createGitProjectSource({ root, revision }), /Expected a full Git commit revision/);
+    }
+    assert.equal(coerced, 0);
+    assert.equal(git("rev-parse", "HEAD").trim(), commit);
+  }
 });

@@ -5,8 +5,8 @@ import {impactPaths} from "./impact-paths.mjs";
 export const relationTypes = Object.freeze(["subquestion_of","depends_on","related_to","alternative_framing","possible_duplicate"]);
 const questionTypes = new Set(["empirical","formal","normative","interpretive","conceptual","methodological"]);
 const bilingual = x => x && ["de","en"].every(lang => typeof x[lang] === "string" && x[lang].trim().length > 0);
-const date = x => typeof x === "string" && /^\d{4}-\d{2}-\d{2}$/.test(x) && !Number.isNaN(Date.parse(x));
-const validURL = x => {try {return new URL(x).protocol === "https:";} catch {return false;}};
+const date = x => typeof x === "string" && /^\d{4}-\d{2}-\d{2}$/.test(x) && !Number.isNaN(Date.parse(x)) && new Date(x).toISOString().slice(0,10) === x;
+const validURL = x => {try {return typeof x === "string" && new URL(x).protocol === "https:";} catch {return false;}};
 
 // Static publication contract. AI candidates are not valid public records.
 // This checks shape and references, not factual truth or reviewer identity.
@@ -107,7 +107,7 @@ export function triageQuestionCandidates(candidates, atlas, lang = "de") {
   ids.add(candidate.id);
   const text = candidate.question[lang], exact = existing.find(q => normalized(q.text) === normalized(text));
   const suggestions = existing.map(q => ({id:q.id, score:similarity(text,q.text)}))
-   .filter(q => q.score >= 0.45).sort((a,b) => b.score - a.score || a.id.localeCompare(b.id)).slice(0,3);
+   .filter(q => q.score >= 0.45).sort((a,b) => b.score - a.score || (a.id < b.id ? -1 : a.id > b.id ? 1 : 0)).slice(0,3);
   const result = {candidate_id:candidate.id, review:exact ? "possible_duplicate" : "needs_human_triage",
                   exact_match_id:exact?.id ?? null, lexical_neighbors:suggestions};
   // Same-run matching is advisory, too; candidates are never added to the atlas.

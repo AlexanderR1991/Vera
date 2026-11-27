@@ -63,11 +63,25 @@ function mount(language, loads, {clock, pageMode = false, abortAvailable = true}
     assert(pageControls.has(selector), selector); return pageControls.get(selector);
   };
   const document = new Element("document");
+  const wireFocus = node => {
+    node.focus = () => {
+      if (document.activeElement === node) return;
+      document.activeElement = node;
+      node.emit("focus");
+    };
+    return node;
+  };
+  wireFocus(input);
+  wireFocus(all);
+  results.querySelector = selector => {
+    assert.equal(selector, "a");
+    return results.children[0]?.children.find(child => child.tag === "a") ?? null;
+  };
   document.querySelector = selector => {
     if (selector === "[data-site-search]") return header;
     assert.equal(selector, "[data-search-page]"); return pageMode ? page : null;
   };
-  document.createElement = tag => new Element(tag);
+  document.createElement = tag => wireFocus(new Element(tag));
   const calls = [], requestOptions = [];
   const fetch = (url, options) => {
     assert.equal(url, header.dataset.indexUrl);
@@ -82,7 +96,13 @@ function mount(language, loads, {clock, pageMode = false, abortAvailable = true}
     ...(abortAvailable ? {AbortController} : {})});
   runInContext(core.replace(/export function /g, "function "), context);
   runInContext(client.replace(/^import .*;\s*$/gm, ""), context);
-  return {calls, requestOptions, results, status, pageStatus, pageResults, enter(query, event = "input") { input.value = query; input.emit(event); }};
+  return {calls, requestOptions, results, status, pageStatus, pageResults, panel, input, all,
+    focused() { return document.activeElement; },
+    key(key) {
+      for (const handler of document.listeners.get("keydown") ?? []) handler({key, preventDefault() {}});
+    },
+    focusOutside() { document.activeElement = new Element(); },
+    enter(query, event = "input") { input.value = query; input.emit(event); }};
 }
 
 const response = language => Promise.resolve({ok: true, status: 200, json: async () => ({
@@ -206,5 +226,51 @@ test("timeout remains the reported outcome when abort synchronously rejects the 
     search.enter("quarzraum"); await settle(); await clock.advance(15000);
     assert.equal(search.status.textContent, timeoutMessage(language));
     assert.equal(search.calls.length, 1); assert.equal(clock.timers.size, 0);
+  }
+});
+
+
+test("Escape after keyboard navigation dismisses suggestions while returning input focus", async () => {
+  for (const language of ["de", "en"]) {
+    const search = mount(language, [() => response(language)]);
+    search.enter("quarzraum"); await settle();
+    search.input.focus(); await settle();
+    assert.equal(search.panel.hidden, false);
+    search.key("ArrowDown");
+    assert.equal(search.focused(), search.results.querySelector("a"));
+    search.key("Escape");
+    assert.equal(search.focused(), search.input);
+    assert.equal(search.panel.hidden, true, "Focus returned by Escape must not reopen suggestions");
+    await settle();
+    assert.equal(search.panel.hidden, true);
+    search.enter("quarz"); await settle();
+    assert.equal(search.panel.hidden, false, "New input remains available");
+    assertResult(search, language);
+    search.key("Escape"); await settle();
+    assert.equal(search.panel.hidden, true, "Escape in the input also closes suggestions");
+    search.focusOutside(); search.input.focus(); await settle();
+    assert.equal(search.panel.hidden, false, "A later deliberate focus remains available");
+    assert.equal(search.calls.length, 1, "Successful cache remains shared");
+  }
+});
+
+
+test("Escape focus return neither retries a failed load nor reopens a pending search", async () => {
+  for (const language of ["de", "en"]) for (const mode of ["pending", "failed"]) {
+    let release;
+    const pending = new Promise(resolve => { release = resolve; });
+    const first = mode === "pending" ? () => pending : failures[0];
+    const search = mount(language, [first, () => response(language)]);
+    search.enter("quarzraum"); await settle();
+    search.all.focus(); search.key("Escape");
+    assert.equal(search.focused(), search.input);
+    assert.equal(search.panel.hidden, true);
+    assert.equal(search.calls.length, 1, "Escape must not request a retry");
+    if (mode === "pending") { release(await response(language)); await settle(); }
+    assert.equal(search.panel.hidden, true, "A pending completion must respect dismissal");
+    search.enter("quarzraum"); await settle();
+    assert.equal(search.panel.hidden, false);
+    assertResult(search, language);
+    assert.equal(search.calls.length, mode === "pending" ? 1 : 2);
   }
 });

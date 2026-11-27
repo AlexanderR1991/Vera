@@ -40,7 +40,7 @@ class AdversarialContractTest(unittest.TestCase):
             with patch.object(a, "API_KEY", "offline-test-key"), \
                  patch.object(a, "AI_ENABLED", False), \
                  patch.object(a, "OUTPUT", output), \
-                 patch.object(a.urllib.request, "urlopen") as request:
+                 patch.object(a, "open_response") as request:
                 self.assertEqual(a.main(), 0)
                 with self.assertRaises(RuntimeError):
                     a.api_call("adversary", {})
@@ -49,10 +49,10 @@ class AdversarialContractTest(unittest.TestCase):
 
     def test_each_request_caps_generated_tokens(self):
         answer = {key: "Unverified question" for key in a.ROLE_FIELDS["adversary"]}
-        response = {"choices": [{"message": {"content": json.dumps(answer)}}]}
+        response = {"choices": [{"finish_reason": "stop", "message": {"content": json.dumps(answer)}}]}
         with patch.object(a, "API_KEY", "offline-test-key"), \
              patch.object(a, "AI_ENABLED", True), \
-             patch.object(a.urllib.request, "urlopen") as request:
+             patch.object(a, "open_response") as request:
             request.return_value.__enter__.return_value = io.StringIO(json.dumps(response))
             a.api_call("adversary", {"claim": "Fictional test"})
             body = json.loads(request.call_args.args[0].data)

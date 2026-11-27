@@ -1,4 +1,5 @@
 import {execFileSync} from "node:child_process";
+import {devNull} from "node:os";
 import {reviewMatchesClaim} from "./claims.mjs";
 
 const sources = [
@@ -27,8 +28,10 @@ function streamCount(data) {
 }
 
 export function getObservatory(cwd = process.cwd()) {
-  const git = (args, input) => execFileSync("git", args, {
-    cwd, input, encoding: "utf8", maxBuffer: 64 * 1024 * 1024
+  // Commit links describe stored objects, not a locally replaced or grafted view.
+  const git = (args, input) => execFileSync("git", ["--no-replace-objects", "-c", "advice.graftFileDeprecated=false", ...args], {
+    cwd, input, encoding: "utf8", maxBuffer: 64 * 1024 * 1024,
+    env: {...process.env, GIT_GRAFT_FILE: devNull}
   }).trimEnd();
   if (git(["rev-parse", "--is-shallow-repository"]) === "true") {
     throw new Error("Project observatory requires full Git history. Run git fetch --unshallow or use actions/checkout with fetch-depth: 0.");

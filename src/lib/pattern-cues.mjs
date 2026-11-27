@@ -55,7 +55,15 @@ const rules = {
 
 export function detectPatternCues(query, lang = "de") {
   if (typeof query !== "string") return [];
-  const paragraphs = query.slice(0, 6000).split(/\n\s*\n/u);
+  let end = Math.min(query.length, 6000);
+  // Keep original code-point boundaries when the UTF-16 budget splits a pair.
+  if (end < query.length && /[\uD800-\uDBFF]/u.test(query[end - 1]) && /[\uDC00-\uDFFF]/u.test(query[end])) end--;
+  let bounded = query.slice(0, end);
+  if (end < query.length && /[\p{L}\p{M}\p{N}_]/u.test(String.fromCodePoint(query.codePointAt(end)))) {
+    // A cut word cannot acquire a new right boundary just because input ends.
+    bounded = bounded.replace(/[\p{L}\p{M}\p{N}_]+$/u, "");
+  }
+  const paragraphs = bounded.split(/\n\s*\n/u);
   const matches = [];
   for (const [id, pair] of Object.entries(rules[lang === "en" ? "en" : "de"])) {
     for (const paragraph of paragraphs) {

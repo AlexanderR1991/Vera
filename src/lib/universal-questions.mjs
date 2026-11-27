@@ -7,6 +7,9 @@ const validId=x=>typeof x==="string"&&/^U-[0-9]{3,}$/.test(x);
 const bilingual=x=>x&&typeof x==="object"&&["de","en"].every(lang=>typeof x[lang]==="string"&&x[lang].trim().length>0);
 const unique=a=>new Set(a).size===a.length;
 const strings=a=>Array.isArray(a)&&a.every(v=>typeof v==="string"&&v.trim());
+const sourceCommit=x=>typeof x==="string"&&/^[a-f0-9]{40}$/.test(x);
+const record=x=>x!==null&&typeof x==="object"&&!Array.isArray(x);
+const reviewDate=x=>typeof x==="string"&&/^20\d\d-\d\d-\d\d$/.test(x)&&!Number.isNaN(Date.parse(x))&&new Date(x).toISOString().slice(0,10)===x;
 
 export function questionsForRoute(catalogue,route,limit=3){
  return catalogue.questions.filter(q=>q.return_routes.includes(route)).slice(0,limit);
@@ -23,7 +26,7 @@ export function validateUniversal(catalogue,ledger,topicIds,routeIds,sourcePaths
  const check=(ok,msg)=>{if(!ok)errors.push(msg);};
  check(catalogue?.schema_version===1,"Catalog schema_version must be 1");
  check(ledger?.schema_version===1,"Findings schema_version must be 1");
- check(/^[a-f0-9]{40}$/.test(catalogue?.source_revision??""),"Catalog requires a traceable source revision");
+ check(sourceCommit(catalogue?.source_revision),"Catalog requires a traceable source revision");
  check(catalogue?.status==="unreviewed_editorial_cross_domain_synthesis","Catalog must not claim external review");
  check(bilingual(catalogue?.scope)&&bilingual(catalogue?.method),"Scope and method must be bilingual");
  check(Array.isArray(catalogue?.questions),"Questions must be an array");
@@ -31,7 +34,10 @@ export function validateUniversal(catalogue,ledger,topicIds,routeIds,sourcePaths
  check(Array.isArray(ledger?.findings),"Findings must be an array");
  if(!Array.isArray(catalogue?.questions)||!Array.isArray(catalogue?.relations)||!Array.isArray(ledger?.findings))return errors;
  const questions=new Map(), ids=[];
- for(const q of catalogue.questions){
+ // Invalid records stay errors; skipping field access never accepts them.
+ for(const [index,q] of catalogue.questions.entries()){
+   if(!record(q)){errors.push(`Invalid question record at questions[${index}]`);continue;}
+   if(typeof q.id!=="string"){errors.push(`Invalid question ID type at questions[${index}].id`);continue;}
    const id=q?.id;
    check(validId(id),"Bad universal question ID: "+id);
    check(!questions.has(id),"Duplicate question ID: "+id);
@@ -48,7 +54,10 @@ export function validateUniversal(catalogue,ledger,topicIds,routeIds,sourcePaths
  }
  check(ids.length>0,"Empty universal question corpus");
  const edgeKeys=new Set(),dependency=new Map();
- for(const r of catalogue.relations){
+ for(const [index,r] of catalogue.relations.entries()){
+   if(!record(r)){errors.push(`Invalid relation record at relations[${index}]`);continue;}
+   const badIdentifier=["from","to","type"].find(key=>typeof r[key]!=="string");
+   if(badIdentifier){errors.push(`Invalid relation identifier at relations[${index}].${badIdentifier}`);continue;}
    const edgeKey=r?.from+"|"+r?.to+"|"+r?.type;
    check(!edgeKeys.has(edgeKey),"Duplicate universal relation: "+edgeKey);edgeKeys.add(edgeKey);
    check(questions.has(r.from)&&questions.has(r.to)&&r.from!==r.to,"Invalid relation endpoints: "+edgeKey);
@@ -65,7 +74,9 @@ export function validateUniversal(catalogue,ledger,topicIds,routeIds,sourcePaths
  }
  for(const id of questions.keys())walk(id);
  const findingIds=new Set();
- for(const f of ledger.findings){
+ for(const [index,f] of ledger.findings.entries()){
+   if(!record(f)){errors.push(`Invalid finding record at findings[${index}]`);continue;}
+   if(typeof f.id!=="string"){errors.push(`Invalid finding ID type at findings[${index}].id`);continue;}
    check(typeof f.id==="string"&&/^UF-[0-9]{3,}$/.test(f.id)&&!findingIds.has(f.id),"Invalid or duplicate finding ID: "+f.id);
    findingIds.add(f.id);
    const q=questions.get(f.question_id);
@@ -74,11 +85,11 @@ export function validateUniversal(catalogue,ledger,topicIds,routeIds,sourcePaths
    check(bilingual(f.answer)&&bilingual(f.scope)&&bilingual(f.dissent)&&bilingual(f.revision_condition),"Finding must include bilingual answer, scope, dissent and revision trigger: "+f.id);
    check(supportedQuestionTypes.has(f.claim_type),"Finding must identify its claim type: "+f.id);
    check(typeof f.reviewer==="string"&&f.reviewer.trim().length>2&&f.reviewer!=="AI","Finding requires an accountable human reviewer: "+f.id);
-   check(/^20\d\d-\d\d-\d\d$/.test(f.reviewed_at??""),"Finding needs a review date: "+f.id);
-   check(/^[a-f0-9]{40}$/.test(f.source_commit??""),"Finding requires an immutable source commit: "+f.id);
-   check(/^https:\/\/github\.com\/[A-Za-z0-9-]+\/[A-Za-z0-9_.-]+\/pull\/\d+$/.test(f.review_url??""),"Finding requires a traceable PR review: "+f.id);
+   check(reviewDate(f.reviewed_at),"Finding needs a review date: "+f.id);
+   check(sourceCommit(f.source_commit),"Finding requires an immutable source commit: "+f.id);
+   check(typeof f.review_url==="string"&&/^https:\/\/github\.com\/[A-Za-z0-9-]+\/[A-Za-z0-9_.-]+\/pull\/\d+$/.test(f.review_url),"Finding requires a traceable PR review: "+f.id);
    check(strings(f.evidence_paths)&&f.evidence_paths.length>0&&unique(f.evidence_paths)&&f.evidence_paths.every(p=>sourcePaths.has(p)),"Finding evidence references unavailable public documents: "+f.id);
-   check(strings(f.return_routes)&&f.return_routes.length>0&&unique(f.return_routes)&&f.return_routes.every(r=>q?.return_routes.includes(r)),"Finding may return only to its question's listed routes: "+f.id);
+   check(strings(f.return_routes)&&f.return_routes.length>0&&unique(f.return_routes)&&Array.isArray(q?.return_routes)&&f.return_routes.every(r=>q.return_routes.includes(r)),"Finding may return only to its question's listed routes: "+f.id);
  }
  if(!ledger.findings.length)check(ledger.status==="no_independently_reviewed_findings","Empty findings must be described as no independently reviewed findings");
  return errors;

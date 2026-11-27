@@ -3,11 +3,14 @@
 from __future__ import annotations
 
 import datetime as dt
+import http.client
 import json
 import os
 from pathlib import Path
 import re
+import subprocess
 import sys
+import tempfile
 import urllib.error
 import urllib.request
 
@@ -17,6 +20,7 @@ API_KEY = os.getenv("OPENAI_API_KEY", "").strip()
 # A stored key alone must never opt this repository into paid automation.
 AI_ENABLED = os.getenv("WIRKLICH_AI_ENABLED", "").strip().lower() == "true"
 MAX_COMPLETION_TOKENS = 1800
+MAX_RESPONSE_BYTES = 1_000_000
 MODEL = os.getenv("ATTACK_MODEL", "gpt-4.1-mini")
 UTC_NOW = dt.datetime.now(dt.timezone.utc)
 
@@ -43,12 +47,76 @@ DISPOSITIONS = {
 }
 
 
-def source_text(path: str) -> str:
+class StrictHTTPResponse(http.client.HTTPResponse):
+    def _read_next_chunk_size(self):
+        # CPython accepts signed hexadecimal values here. A negative size
+        # would otherwise reach fp.read(negative), which reads until EOF.
+        size = super()._read_next_chunk_size()
+        if size < 0:
+            raise ValueError("Negative HTTP chunk size")
+        return size
+
+
+class StrictHTTPConnection(http.client.HTTPConnection):
+    response_class = StrictHTTPResponse
+
+
+class StrictHTTPSConnection(http.client.HTTPSConnection):
+    response_class = StrictHTTPResponse
+
+
+class StrictHTTPHandler(urllib.request.HTTPHandler):
+    def http_open(self, req):
+        return self.do_open(StrictHTTPConnection, req)
+
+
+class StrictHTTPSHandler(urllib.request.HTTPSHandler):
+    def https_open(self, req):
+        return self.do_open(StrictHTTPSConnection, req, context=self._context)
+
+
+class RejectRedirects(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        # The API endpoint is fixed. Default redirect handling drains an
+        # unbounded intermediate body before api_call can apply its budget.
+        return None
+
+
+def open_response(req, timeout=60):
+    opener = urllib.request.build_opener(
+        StrictHTTPHandler(), StrictHTTPSHandler(), RejectRedirects())
+    try:
+        return opener.open(req, timeout=timeout)
+    except urllib.error.HTTPError as error:
+        error.close()  # Do not read error or refused-redirect bodies.
+        raise
+
+
+def git_bytes(*args: str) -> bytes:
+    try:
+        return subprocess.check_output(
+            ["git", "-C", str(ROOT), *args], stderr=subprocess.DEVNULL)
+    except (OSError, subprocess.CalledProcessError) as error:
+        raise ValueError("Committed source unavailable; no working-tree fallback") from error
+
+
+def resolve_source_commit(commit: str | None = None) -> str:
+    ref = commit if commit is not None else os.getenv("GITHUB_SHA", "").strip()
+    if ref and not re.fullmatch(r"[0-9a-fA-F]{40}|[0-9a-fA-F]{64}", ref):
+        raise ValueError("Expected an exact source commit")
+    return git_bytes("rev-parse", "--verify", (ref or "HEAD") + "^{commit}").decode("ascii").strip()
+
+
+def source_text(path: str, commit: str | None = None) -> str:
     """Reject unexpected source paths (no private files, no arbitrary traversal)."""
     allowed = {"docs/grundtext.md", *(row[1] for row in PROGRAM_SECTIONS)}
     if path not in allowed:
         raise ValueError("Not an allowlisted source")
-    return (ROOT / path).read_text(encoding="utf-8")
+    commit = resolve_source_commit(commit)
+    entry = git_bytes("ls-tree", commit, "--", path).split()
+    if len(entry) != 4 or entry[0] not in (b"100644", b"100755") or entry[1] != b"blob":
+        raise ValueError("Expected a committed regular source file")
+    return git_bytes("cat-file", "blob", entry[2].decode("ascii")).decode("utf-8")
 
 
 def section(body: str, heading: str) -> str:
@@ -65,7 +133,8 @@ def section(body: str, heading: str) -> str:
 
 
 def cases() -> list[dict[str, str]]:
-    base = source_text("docs/grundtext.md")
+    commit = resolve_source_commit()
+    base = source_text("docs/grundtext.md", commit)
     headings = re.findall(r"(?m)^## (These (\d{2}):[^\n]+)$", base)
     if len(headings) != 9:
         raise ValueError("Expected nine named theses in docs/grundtext.md")
@@ -73,12 +142,13 @@ def cases() -> list[dict[str, str]]:
         {"id": "grundtext-" + number,
          "source": "docs/grundtext.md",
          "heading": heading,
-         "excerpt": section(base, heading)}
+         "excerpt": section(base, heading), "source_commit": commit}
         for heading, number in headings
     ]
     for ident, path, heading in PROGRAM_SECTIONS:
         result.append({"id": ident, "source": path, "heading": heading,
-                       "excerpt": section(source_text(path), heading)})
+                       "excerpt": section(source_text(path, commit), heading),
+                       "source_commit": commit})
     return result
 
 
@@ -140,9 +210,25 @@ def api_call(role: str, payload: dict) -> dict[str, str]:
                  "Content-Type": "application/json"},
         method="POST",
     )
-    with urllib.request.urlopen(req, timeout=60) as response:
-        obj = json.load(response)
-    answer = json.loads(obj["choices"][0]["message"]["content"])
+    with open_response(req, timeout=60) as response:
+        try:
+            body = response.read(MAX_RESPONSE_BYTES + 1)
+        except http.client.IncompleteRead as error:
+            raise ValueError(f"{role}: incomplete HTTP response") from error
+        remaining = getattr(response, "length", None)
+    if len(body) > MAX_RESPONSE_BYTES:
+        raise ValueError(f"{role}: response exceeds body size limit")
+    if remaining is not None and remaining > 0:
+        raise ValueError(f"{role}: incomplete HTTP response")
+    obj = json.loads(body)
+    choices = obj.get("choices") if isinstance(obj, dict) else None
+    if not isinstance(choices, list) or not choices or not isinstance(choices[0], dict):
+        raise ValueError(f"{role}: missing completion result")
+    choice = choices[0]
+    # Valid JSON alone does not establish a regular technical completion.
+    if choice.get("finish_reason") != "stop":
+        raise ValueError(f"{role}: response did not finish normally")
+    answer = json.loads(choice["message"]["content"])
     if not isinstance(answer, dict):
         raise ValueError(f"{role}: expected JSON object")
     fields = {}
@@ -162,6 +248,9 @@ def main() -> int:
     if not (AI_ENABLED and API_KEY):
         print("Paid AI disabled or key absent. No requests, no output change.")
         return 0
+    prior = json.loads(OUTPUT.read_text(encoding="utf-8"))
+    if not isinstance(prior, dict) or not isinstance(prior.get("items"), list):
+        raise ValueError("Malformed prior attack archive")
     selected = available[UTC_NOW.date().toordinal() % len(available)]
     print(f"Reviewing {selected['id']} ({selected['source']})")
     # Keep roles separate, but be explicit: these are NOT independent labs.
@@ -169,14 +258,11 @@ def main() -> int:
     defense = api_call("defender", {"claim": selected, "attack": attack})
     assessment = api_call("assessor", {
         "claim": selected, "attack": attack, "defense": defense})
-    prior = json.loads(OUTPUT.read_text(encoding="utf-8"))
-    if not isinstance(prior, dict) or not isinstance(prior.get("items"), list):
-        raise ValueError("Malformed prior attack archive")
     record = {
         "id": selected["id"],
         "source": selected["source"],
         "heading": selected["heading"],
-        "source_commit": os.getenv("GITHUB_SHA", "local"),
+        "source_commit": selected["source_commit"],
         "excerpt": selected["excerpt"][:800],
         "generated_at": UTC_NOW.isoformat(timespec="seconds"),
         "review_status": "unverified_ai_draft",
@@ -200,8 +286,18 @@ def main() -> int:
         "source_access": "public_repository_excerpt_only",
         "items": items,
     }
-    OUTPUT.write_text(json.dumps(output, indent=2, ensure_ascii=False) + "\n",
-                      encoding="utf-8")
+    text = json.dumps(output, indent=2, ensure_ascii=False) + "\n"
+    temporary = None
+    try:
+        with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8", dir=OUTPUT.parent,
+                                         prefix=".angriffe-", suffix=".tmp", delete=False) as handle:
+            temporary = Path(handle.name)
+            handle.write(text)
+        temporary.chmod(OUTPUT.stat().st_mode & 0o777)
+        os.replace(temporary, OUTPUT)
+    finally:
+        if temporary is not None:
+            temporary.unlink(missing_ok=True)
     print(f"Wrote unverified challenge for {selected['id']}; {len(items)} archived")
     return 0
 
@@ -211,6 +307,6 @@ if __name__ == "__main__":
         sys.exit(main())
     except (OSError, ValueError, KeyError, TimeoutError,
             urllib.error.URLError, json.JSONDecodeError) as error:
-        print(f"Attack run failed; existing archive unchanged: {type(error).__name__}: {error}",
+        print(f"Attack run failed; check archive state: {type(error).__name__}: {error}",
               file=sys.stderr)
         sys.exit(1)

@@ -70,7 +70,7 @@ The [claim register](https://alexanderr1991.github.io/Vera/en/aussagen/#pruefpfa
 
 1. **Herkunft dokumentieren:** Eingang durch Menschen im Forum/Issue oder als `ai_draft` im separaten Labor. Keine vertraulichen Daten in öffentliche Warteschlangen übertragen.
 2. **Aufmerksamkeit schützen:** Die Offline-Triage akzeptiert **höchstens 50** Entwurfskandidaten pro Lauf; dieser Grenzwert ist ein Pilotbudget, kein universeller Sicherheitsnachweis. Forschungsmodelle sind separat freiwillig und kostenbegrenzt konfigurierbar.
-3. **Vorsichtig vergleichen:** Exakt normalisierte Fragen werden als mögliche Dopplungen, lexikalisch ähnliche als Nachbarn vorgeschlagen. Das System versteht weder Synonyme noch Negationen zuverlässig. Es fügt Fragen **nicht** automatisch zusammen, verwirft sie nicht und öffnet keine Diskussionen.
+3. **Vorsichtig vergleichen:** Exakt normalisierte Fragen werden als mögliche Dopplungen, lexikalisch ähnliche als Nachbarn vorgeschlagen. Bei gleichen Ähnlichkeitswerten entscheidet eine feste Stringreihenfolge der Kennungen, unabhängig vom Hostgebietsschema. Sie bedeutet keine inhaltliche Priorität. Das System versteht weder Synonyme noch Negationen zuverlässig. Es fügt Fragen **nicht** automatisch zusammen, verwirft sie nicht und öffnet keine Diskussionen.
 4. **Menschlich prüfen:** Redaktion vergleicht die ursprünglichen Formulierungen und Geltungsbedingungen, nennt den Unterschied, die Gegenposition und die Gründe einer Verbindung. Das Original und die Quelle müssen auffindbar bleiben. Ein qualifizierter Minderheiteneinwand kann die Zuordnung erneut öffnen.
 5. **Versionieren:** Nur ein prüfbarer PR ändert das öffentliche Register. Ein Mehrheitsvotum oder tausend identische Modellantworten rechtfertigen keine höhere Erkenntnisreife; R0–R4 bleiben eigenständig und rückstufbar.
 6. **Auswerten:** Beobachten, wie oft vorgeschlagene Dopplungen falsch sind, Unterschiede übersehen werden, Menschen keinen Treffer finden oder eine Prüfung wegen eines Einwands wieder aufgenommen wird. Vor der Skalierung mit einer normalen Liste oder Suche vergleichen.
@@ -78,6 +78,8 @@ The [claim register](https://alexanderr1991.github.io/Vera/en/aussagen/#pruefpfa
 ## Datenformat und lokale Triage
 
 Das öffentliche Register `public/knowledge/questions.json` führt `schema_version: 1` und stabile IDs `Q-001` usw. Nach Veröffentlichung darf eine ID nicht neu vergeben werden. Die `origin`-Werte sind `editorial_draft` und `human_submission`. **KI-Entwürfe (`ai_draft`) sind im öffentlichen Register durch den Validator verboten.** Der Prüfstand jeder Frage steht im Feld `review_status`. Ein ungeprüfter Eintrag trägt den Wert `unreviewed`. `human_curated` benötigt einen namentlichen und datierten Review-Eintrag, dessen Echtheit ein Strukturskript allein nicht sicherstellen kann.
+
+`source_url` enthält einen einzelnen HTTPS-URL-String. Arrays und Objekte werden nicht stillschweigend in einen Herkunftslink umgewandelt. Diese Feldprüfung bestätigt weder Erreichbarkeit noch Quelleninhalt oder tatsächliche Herkunft.
 
 Für die Offline-Triage lässt sich eine lokale (nicht automatisch publizierte) JSON-Datei anlegen:
 
@@ -107,3 +109,7 @@ Offizielle Agenten imitieren keine Menschen, erzeugen keine Scheinmehrheit und d
 ---
 
 **English summary:** The bilingual question atlas is a small, unreviewed editorial pilot. Human discussions, bounded AI research drafts and the question graph are separated. Offline lexical triage never auto-posts, merges, deletes, promotes claims or counts model agreement as evidence. Stable IDs, original wording, provenance, minority objections and reversible editorial links take precedence over volume. Live GitHub ingestion, a semantic graph and independent moderation remain future work.
+
+Equal similarity scores use a fixed identifier string order, independent of the host locale. This technical tie-break does not express semantic priority.
+
+`source_url` must be a single HTTPS URL string. Arrays and objects are not implicitly converted into a provenance link. This field check establishes neither availability, source content nor actual provenance.

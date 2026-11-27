@@ -1,6 +1,7 @@
 import { readFileSync, mkdirSync, writeFileSync, existsSync } from "node:fs";
 import { resolve, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { TextDecoder } from "node:util";
 import { validateCorpus, buildSupervisedExport, canonicalJson, sha256 } from "./learning-data.mjs";
 
 const defaultInput = fileURLToPath(new URL("./corpus.v1.json", import.meta.url));
@@ -18,7 +19,7 @@ export function runDataCli(args) {
     else throw new Error(`Unknown or incomplete option: ${flag}`);
   }
   if (command === "validate" && (options.out || options.allowDevFixtures)) throw new Error("validate accepts only --input");
-  const corpus = validateCorpus(JSON.parse(readFileSync(options.input, "utf8")));
+  const corpus = validateCorpus(JSON.parse(new TextDecoder("utf-8", { fatal: true, ignoreBOM: true }).decode(readFileSync(options.input))));
   if (command === "validate") return { valid: true, purpose: corpus.purpose, examples: corpus.examples.length, corpus_sha256: sha256(canonicalJson(corpus)), declarations_are_not_authentication: true };
   if (!options.out) throw new Error("export requires an explicit --out directory");
   const result = buildSupervisedExport(corpus, options);

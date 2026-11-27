@@ -1,4 +1,4 @@
-import {normalizeRepositoryTree, publicRepositoryTree, repositoryEntryUrl} from "../lib/repository-tree.mjs";
+import {normalizeRepositoryCommit, normalizeRepositoryTree, publicRepositoryTree, repositoryEntryUrl} from "../lib/repository-tree.mjs";
 import {createRepositoryGraph} from "./repository-tree-graph.mjs";
 
 const root = {path: "", type: "tree"};
@@ -118,23 +118,29 @@ export function mountRepositoryTree(page) {
     const timeout = setTimeout(() => request.abort(), 12000);
     try {
       const name = new URL(repository).pathname.replace(/^\/+|\/+$/g, "");
-      const response = await fetch("https://api.github.com/repos/" + name + "/git/trees/main?recursive=1", {
+      const endpoint = "https://api.github.com/repos/" + name;
+      const options = {
         credentials: "omit",
         referrerPolicy: "no-referrer",
         cache: "no-cache",
         signal: request.signal
-      });
-      if (!response.ok) throw new Error("GitHub tree request failed");
-      const next = publicRepositoryTree(normalizeRepositoryTree(await response.json()));
-      if (snapshot.sha !== next.sha) {
-        snapshot = next;
-        ref = "main";
+      };
+      const response = await fetch(endpoint + "/commits/main", options);
+      if (!response.ok) throw new Error("GitHub commit request failed");
+      const head = normalizeRepositoryCommit(await response.json());
+      const treeResponse = await fetch(endpoint + "/git/trees/" + head.tree + "?recursive=1", options);
+      if (!treeResponse.ok) throw new Error("GitHub tree request failed");
+      const next = publicRepositoryTree(normalizeRepositoryTree(await treeResponse.json()));
+      if (next.sha !== head.tree) throw new Error("Repository commit and tree disagree");
+      if (snapshot.sha !== next.sha || ref !== head.commit) {
+        snapshot = {...next, commit: head.commit};
+        ref = head.commit;
         indexTree();
         const active = document.activeElement;
         showFolder(selected, tiles.contains(active) || trail.contains(active));
       }
       hasLiveTree = true;
-      setStatus("live", copy.live + " · main");
+      setStatus("live", copy.live + " · main · " + ref.slice(0, 7));
     } catch {
       const fallback = hasLiveTree ? copy.previous : snapshot.commit ? copy.build + " · " + snapshot.commit.slice(0, 7) : "";
       setStatus("fallback", [copy.unavailable, fallback].filter(Boolean).join(" "));

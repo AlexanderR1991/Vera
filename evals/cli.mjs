@@ -7,7 +7,15 @@ import { readOllamaIdentity, compareIdentitySnapshots } from "./model-identity.m
 
 const root = fileURLToPath(new URL("../", import.meta.url));
 const usage = "node evals/cli.mjs plan|preflight|run|score [--model name] [--model-digest sha256] [--split dev|holdout] [--manifest file] [--seed integer] [--plan-file file] [--run-file file] [--ratings file] [--review-key file] [--port integer] [--out work/evals/new-directory]";
-const readJson = async file => JSON.parse(await readFile(file, "utf8"));
+const readJson = async file => {
+  const contents = await readFile(file, "utf8");
+  try {
+    return JSON.parse(contents);
+  } catch (error) {
+    if (!(error instanceof SyntaxError)) throw error;
+    throw new SyntaxError(`Invalid JSON in ${JSON.stringify(file)}: ${error.message}`, { cause: error });
+  }
+};
 const json = value => JSON.stringify(value, null, 2) + "\n";
 
 export function parseArguments(args) {
@@ -95,5 +103,10 @@ export async function runCli(args) {
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   try { const result = await runCli(process.argv.slice(2)); console.log(json(result.output)); process.exitCode = result.exitCode; }
-  catch (error) { console.error(error.message); process.exitCode = 2; }
+  catch (error) {
+    const message = String(error.message).replace(/[\u0000-\u001f\u007f-\u009f\u2028\u2029]/g,
+      character => `\\u${character.charCodeAt(0).toString(16).padStart(4, "0")}`);
+    console.error(message);
+    process.exitCode = 2;
+  }
 }

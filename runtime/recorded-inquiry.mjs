@@ -1,5 +1,5 @@
 import { createEntityRecord, addEntityDraft, inspectEntityRecord, entityLimits } from "../src/lib/entity-core.mjs";
-import { runtimeSchemaVersion } from "./contract.mjs";
+import { runtimeSchemaVersion, assertNotAborted } from "./contract.mjs";
 import { runInquiry } from "./inquiry.mjs";
 
 // Opt-in, in-memory bridge from an inference draft to ENT-00. No persistence,
@@ -59,5 +59,11 @@ export async function runRecordedInquiry({ id, question, at, lang = "de", claim_
   const binding = boundQuestion(question, inquiry?.messages);
   if (binding.binding !== "exact_last_user_message") throw new Error("A recorded inference requires a user message to bind the question.");
   const draft = await runInquiry(inquiry);
+  try {
+    assertNotAborted(inquiry.signal);
+  } catch (error) {
+    error.trace = draft.trace;
+    throw error;
+  }
   return createInquiryDraftRecord({ id, question: binding.question, at, lang, claim_type, scope, draft });
 }

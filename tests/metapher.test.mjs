@@ -42,3 +42,20 @@ test("missing information, disagreement and conflicting observations stay distin
   assert.throws(() => learnMetaphor([{ ...sample, observed: "yes" }], []), TypeError);
   assert.throws(() => learnMetaphor([], [{ ...sample, routes: [["a", "a"]] }]), TypeError);
 });
+
+
+test("missing dependency slots are rejected in observations and transfer cases", () => {
+  for (let length = 1; length <= 3; length++) for (let gap = 0; gap < length; gap++) {
+    const sparse = new Array(length);
+    for (let i = 0; i < length; i++) if (i !== gap) sparse[i] = "part-" + i;
+    const explicitUndefined = Array.from(sparse);
+    const explicitNull = Array.from(sparse, value => value === undefined ? null : value);
+    for (const route of [sparse, explicitUndefined, explicitNull]) {
+      const sample = {id: "incomplete", routes: [route], observed: true};
+      const before = structuredClone(sample);
+      assert.throws(() => learnMetaphor([sample], []), TypeError);
+      assert.throws(() => learnMetaphor(demoMetaphor().observations, [sample]), TypeError);
+      assert.deepEqual(sample, before);
+    }
+  }
+});

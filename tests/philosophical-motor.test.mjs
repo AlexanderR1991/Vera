@@ -228,3 +228,21 @@ test("public claim records are read without rating, fictitious consensus or R pr
   }
   assert.equal(describePublishedClaim({id:"fake"}).status,"invalid_claim");
 });
+
+
+test("invalid JSON profile IDs return diagnostics even when weights are malformed",()=>{
+  const ids=[null,false,0,"",{},[],{toString:null},{toString:"x"},{toString:[]},[ {toString:null} ]];
+  for(const id of ids) for(const index of [0,1]) for(const invalidWeights of [false,true]) {
+    const sample=structuredClone(plurality);
+    sample.value_profiles[index].id=structuredClone(id);
+    if(invalidWeights) sample.value_profiles[index].weights={};
+    const before=structuredClone(sample);
+    assert.ok(validateSyntheticScenario(sample).includes("Value profile IDs must be unique and nonempty"));
+    const result=examineDirection(sample);
+    assert.equal(result.status,"invalid_input");
+    assert.equal(result.direction,"undetermined");
+    assert.deepEqual(result.profile_results,[]);
+    assert.equal(result.public_score_allowed,false);
+    assert.deepEqual(sample,before);
+  }
+});
