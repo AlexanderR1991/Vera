@@ -1,5 +1,11 @@
 # Versionsgeschichte
 
+## 2.0.0 · 2026-11-21 · Einander beim Wort nehmen / Checking how our words are heard
+
+Im [Gesprächsspiegel für zwei Personen](gespraechsspiegel.md#ein-eigenes-gespräch) bekommt jede Seite das letzte Wort darüber, ob die andere ihre Aussage getroffen hat. Beide können eine Wiedergabe bestätigen, eine Änderung erbitten oder das Gespräch beenden. Wer seine Aussage ändert, öffnet die zugehörige Wiedergabe erneut. Die andere Seite behält ihren Stand.
+
+In the two-person conversation mirror, each speaker can check how the other person understood them, ask for a correction or stop. Revising one account reopens its review. Two confirmed restatements can coexist with disagreement about what to do. This version number refers to the tools. The effect on real conversations remains an open question.
+
 ## 2026-11-11 · Konflikte im Repository · Änderungsvorschlag / Repository conflicts · proposal
 
 Die [Governance-Ergänzung](community-governance.md#konflikte-im-repository--repository-conflicts) verbindet Sachprüfung, Zielentscheidungen und verhaltensbasierten Schutz mit dem bestehenden Änderungsweg. Kriterien werden vor dem Vergleich festgehalten; Entscheidungen beantworten einzelne Einwände und nennen offene Punkte und Wiederaufnahme. Verkürzte Aussagen über die alleinige Maintainerbefugnis werden an die bereits geltende Phasenregel angebunden. META-01 und die gemeinsame Grundsatzentscheidung bleiben erhalten.

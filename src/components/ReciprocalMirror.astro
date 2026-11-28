@@ -1,0 +1,159 @@
+---
+import { pathFor } from "../lib/paths.mjs";
+const { lang = "de" } = Astro.props;
+const t = (de: string, en: string) => lang === "de" ? de : en;
+const messages = {
+  waiting: t("Möchtet ihr beide mitmachen?", "Would you both like to take part?"),
+  paused: t("Die Runde ruht.", "The round is paused."),
+  pausedHint: t("Die Texte bleiben verborgen. Wenn ihr weitermachen möchtet, entscheidet jede Person erneut.", "The entries are hidden. If you want to continue, each person chooses again."),
+  choose: t("Gebt das Gerät weiter. Jede Person wählt ihren eigenen Buchstaben.", "Pass the device. Each person chooses their own letter."),
+  pending: t("{person} möchte mitmachen. Die Entscheidung von {other} ist offen.", "{person} wants to take part. {other} has yet to decide."),
+  turn: t("Du bist {person}.", "You are {person}."),
+  handoff: t("An {other} weitergeben", "Pass to {other}"),
+  needs_original: t("Aussage von {person} offen", "Waiting for {person}’s words"),
+  needs_reflection: t("Wiedergabe von {other} offen", "Waiting for {other}’s restatement"),
+  needs_review: t("{person} kann die Wiedergabe prüfen", "Ready for {person} to review"),
+  changes_requested: t("{person} bittet um eine neue Formulierung", "{person} asked for different wording"),
+  confirmed: t("Für {person} trifft die Wiedergabe zu", "{person} confirmed this wording"),
+  confirmedBoth: t("Beide erkennen ihre Sicht in den Worten des Gegenübers wieder. Ob ihr in der Sache übereinstimmt, bleibt offen.", "Each of you recognises your view in the other person’s words. Where you stand on the issue remains open."),
+  note: t("Hinweis von {person}", "Note from {person}"),
+};
+---
+<section class="reciprocal" id="eigener-spiegel" aria-labelledby="reciprocal-title" data-reciprocal-mirror data-copy={JSON.stringify(messages)}>
+  <header class="intro">
+    <h2 id="reciprocal-title">{t("Euer eigener Gesprächsspiegel", "Your own conversation mirror")}</h2>
+    <p>{t("Schreibt auf einem gemeinsamen Gerät, was euch wichtig ist. Gebt die Sicht des Gegenübers in eigenen Worten wieder. Jede Person prüft selbst, ob sie sich darin wiedererkennt.", "On one shared device, write down what matters to you. Put the other person’s view into your own words. Each of you decides how well those words reflect your view.")}</p>
+  </header>
+
+  <details class="example">
+    <summary>{t("Ein erfundenes Beispiel lesen", "Read a fictional example")}</summary>
+    <dl>
+      <dt>Alex</dt><dd>{t("„Wenn abends eine Nachricht kommt, habe ich das Gefühl, sofort antworten zu müssen.“", "“When a message comes in at night, I feel I have to reply straight away.”")}</dd>
+      <dt>Jo</dt><dd>{t("„Du möchtest, dass ich abends gar nichts mehr schreibe?“", "“You want me to stop sending messages in the evening?”")}</dd>
+      <dt>Alex</dt><dd>{t("„Mir geht es um die Erwartung. Ich möchte erst morgens antworten können.“", "“It’s the expectation that bothers me. I’d like to be able to reply in the morning.”")}</dd>
+      <dt>Jo</dt><dd>{t("„Du willst selbst entscheiden, wann du antwortest.“", "“You want to decide for yourself when to reply.”")}</dd>
+      <dt>Alex</dt><dd>{t("„Ja, genau.“", "“Yes, exactly.”")}</dd>
+    </dl>
+    <p>{t("Ob das Team feste Nachrichtenzeiten braucht, sehen die beiden weiter unterschiedlich.", "They still disagree about whether the team needs set messaging hours.")}</p>
+  </details>
+
+  <p class="privacy">{t("Beide können alle Einträge lesen. Eure Texte bleiben in diesem Tab. Beenden oder Verlassen der Seite leert die Runde.", "Both of you can read all entries. Your words stay in this tab. Ending the round or leaving the page clears it.")}</p>
+  <noscript><p>{t("Ihr könnt das auch mündlich ausprobieren. Beginnt, wenn beide möchten. Eine Person spricht, die andere gibt das Gehörte wieder. Die erste Person bestätigt oder korrigiert. Dann wechselt ihr. Jede Person kann jederzeit aufhören.", "You can try this aloud. Begin when you both want to. One person speaks and the other restates what they heard. The first person confirms or corrects the wording. Then switch. Either of you can stop at any time.")}</p></noscript>
+
+  <div data-interactive hidden>
+    <div data-gate>
+      <h3 tabindex="-1" data-gate-title></h3>
+      <p data-gate-hint></p>
+      <div class="actions">
+        {["A", "B"].map(person => <button class="join" type="button" data-ready={person}>{t("Ich mache als " + person + " mit", "I’ll take part as " + person)}</button>)}
+      </div>
+      <p class="gate-status" role="status" tabindex="-1" data-ready-status></p>
+    </div>
+
+    <div data-workspace hidden>
+      <div class="turn">
+        <h3 data-turn-title tabindex="-1"></h3>
+        <button data-turn type="button"></button>
+      </div>
+      <div class="pairs">
+        {["A", "B"].map(person => {
+          const other = person === "A" ? "B" : "A";
+          return <section class="pair" data-pair={person} aria-labelledby={`reciprocal-${person}`}>
+            <div class="pair-head">
+              <h4 id={`reciprocal-${person}`}>{t("Sicht von ", "View from ")}{person}</h4>
+              <p class="status" data-status role="status" tabindex="-1"></p>
+            </div>
+            <div class="statement">
+              <label for={`own-${person}`}>{t(person + " in eigenen Worten", person + "’s own words")}</label>
+              <textarea id={`own-${person}`} rows="2" data-original autocomplete="off" spellcheck="false"></textarea>
+              <p data-original-value class="quotation" hidden></p>
+              <p class="edit-hint" data-edit-hint hidden>{t("Wenn du deine Aussage änderst, werden die Wiedergabe und die Rückmeldung dazu gelöscht.", "Editing this statement clears its restatement and review.")}</p>
+            </div>
+            <div data-restatement>
+              <label for={`restated-${person}`}>{t("So versteht " + other + " diese Aussage", "How " + other + " understands this")}</label>
+              <textarea id={`restated-${person}`} rows="2" data-reflection autocomplete="off" spellcheck="false"></textarea>
+              <p data-reflection-value class="quotation" hidden></p>
+            </div>
+            <aside data-feedback hidden>
+              <strong data-note-label></strong>
+              <p class="quotation" data-note-value></p>
+            </aside>
+            <div data-review hidden>
+              <details data-note-box>
+                <summary>{t("Einen Hinweis zur Korrektur ergänzen", "Add an optional correction note")}</summary>
+                <label for={`correction-${person}`}>{t("Was ist anders gemeint? (freiwillig)", "What did you mean instead? (optional)")}</label>
+                <textarea id={`correction-${person}`} rows="2" data-note autocomplete="off" spellcheck="false"></textarea>
+              </details>
+              <div class="actions">
+                <button class="confirm" data-confirm type="button">{t("Ja, so meine ich es", "Yes, that’s what I mean")}</button>
+                <button data-request type="button">{t("Bitte anders formulieren", "Please rephrase")}</button>
+                <button data-reopen type="button">{t("Rückmeldung zurücknehmen", "Withdraw my response")}</button>
+              </div>
+            </div>
+          </section>;
+        })}
+      </div>
+      <p class="outcome" role="status" data-outcome></p>
+      <div data-next-exercise hidden>
+        <a class="subtle-link" href={pathFor(lang, "schnittmengen", "vermittlung")}>{t("Einen gemeinsamen Vorschlag prüfen", "Explore a proposal together")} →</a>
+        <p class="privacy">{t("Der Link öffnet eine neue Übung. Beim Wechsel werden die Einträge dieser Runde gelöscht.", "This link opens a new exercise. Leaving this page clears the entries from this round.")}</p>
+      </div>
+    </div>
+
+    <div data-boundaries class="actions boundaries" hidden>
+      <button data-pause type="button">{t("Runde pausieren", "Pause this round")}</button>
+      <button data-stop type="button">{t("Beenden und Einträge löschen", "End and clear entries")}</button>
+    </div>
+    <div data-ended hidden>
+      <h3 tabindex="-1">{t("Die Runde ist beendet.", "The round has ended.")}</h3>
+      <p>{t("Alle Einträge aus dieser Runde sind gelöscht.", "All entries from this round have been cleared.")}</p>
+      <button type="button" data-new>{t("Neue Runde beginnen", "Start a new round")}</button>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { mountReciprocalMirror } from "../client/reciprocal-mirror.mjs";
+  for (const root of document.querySelectorAll("[data-reciprocal-mirror]")) mountReciprocalMirror(root);
+</script>
+
+<style>
+  .reciprocal { margin: 0 0 clamp(2rem, 6vw, 4rem); padding: clamp(1.15rem, 4vw, 2.3rem); border: 1px solid var(--line); border-top: 3px solid #3c604e; background: #fcfaf4; scroll-margin-top: 6rem; }
+  .reciprocal [hidden] { display: none !important; }
+  .reciprocal p { max-width: 68ch; margin: .4rem 0 .75rem; }
+  h2, h3, h4 { margin: 0; line-height: 1.18; }
+  h2 { font-size: clamp(1.6rem, 4vw, 2.6rem); }
+  h3 { font-size: 1.25rem; }
+  h4 { font-size: 1.06rem; }
+  .intro p { margin-top: .6rem; }
+  .example { margin-block: .5rem; }
+  summary { cursor: pointer; width: fit-content; min-height: 44px; padding: .6rem 0; font-size: .9rem; font-weight: 600; }
+  dl { display: grid; grid-template-columns: auto 1fr; gap: .45rem 1rem; max-width: 62ch; margin: .25rem 0 1rem; }
+  dt { font-weight: 650; }
+  dd { margin: 0; }
+  .edit-hint, .privacy, [data-gate-hint], .gate-status, .status, aside, .example p { font-size: .9rem; color: var(--text-soft); }
+  [data-interactive] { margin-top: 1.2rem; padding-top: 1.2rem; border-top: 1px solid var(--line); }
+  button { min-height: 44px; padding: .52rem .85rem; border: 1px solid #849184; border-radius: 3px; background: transparent; color: #243f31; font: 600 .9rem/1.35 var(--sans); cursor: pointer; }
+  button:hover, button:focus-visible { background-color: #ecf0e7; }
+  button:disabled { color: #666c65; background: #eeeee7; border-color: #c4c8bf; cursor: default; }
+  .join:not(:disabled), .confirm { background: #2b4b39; color: #fff; border-color: #2b4b39; }
+  .join:not(:disabled):hover, .confirm:hover { background: #395e49; }
+  .actions, .turn { display: flex; gap: .5rem; flex-wrap: wrap; align-items: center; }
+  .turn { justify-content: space-between; padding-bottom: .9rem; }
+  .pairs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem; }
+  .pair { min-width: 0; padding: clamp(.8rem, 2vw, 1.1rem); border: 1px solid #ccd1c6; background: #fffcf5; }
+  .pair[data-current] { border-top: 3px solid #496c56; padding-top: calc(clamp(.8rem, 2vw, 1.1rem) - 2px); }
+  .pair-head { margin-bottom: .85rem; }
+  .pair .status { margin: .35rem 0 0; color: #36563e; }
+  label { display: block; margin-block: .5rem .25rem; font-size: .86rem; font-weight: 650; }
+  textarea { display: block; width: 100%; box-sizing: border-box; resize: vertical; min-height: 60px; padding: .48rem .6rem; border: 1px solid #849184; border-radius: 2px; background: white; color: #202820; font: inherit; line-height: 1.45; }
+  .quotation { white-space: pre-wrap; overflow-wrap: anywhere; color: var(--text); }
+  aside { margin-block: .7rem; padding-left: .7rem; border-left: 2px solid #9e7f48; }
+  .reciprocal .outcome:not(:empty) { margin-top: .9rem; font-weight: 650; color: #2b4b39; }
+  [data-note-box] { margin: .65rem 0; }
+  .boundaries { margin-top: 1.1rem; }
+  .boundaries button { font-weight: 500; }
+  .gate-status:empty, .outcome:empty { display: none; }
+  :is(button, textarea, summary, [tabindex]):focus-visible { outline: 2px solid #385f4c; outline-offset: 3px; }
+  @media (max-width: 41rem) { .pairs { grid-template-columns: minmax(0, 1fr); } }
+</style>

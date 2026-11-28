@@ -228,6 +228,27 @@ test("a listening complaint opens the voluntary invitation only for a known whol
   }
 });
 
+test("a speaker and a listener get distinct ways to check a paraphrase in their own language", () => {
+  for (const [lang, speakerInput, listenerInput, objection, disagreement, threat] of [
+    ["de", "Ich fühle mich missverstanden.", "Wie prüfe ich meine Wiedergabe?", /zurückweisen/u, /uneinig/u, "Ich werde bedroht."],
+    ["en", "I feel misunderstood.", "How do I check my paraphrase?", /reject/u, /disagree/u, "They threatened me."]
+  ]) {
+    const speaker = firstAnswer(speakerInput, lang);
+    const listener = firstAnswer(listenerInput, lang);
+    for (const reply of [speaker, listener]) {
+      assert.equal(reply.kind, "answer");
+      assert.equal(reply.href, `/Vera/${lang}/gespraechsspiegel/#eigener-spiegel`);
+      assert.ok(reply.action);
+      assert.deepEqual(firstAnswer(reply.question, lang), reply);
+    }
+    assert.match(speaker.followUp, objection);
+    assert.match(listener.answer, disagreement);
+    for (const query of [speakerInput, listenerInput]) {
+      assert.deepEqual(firstAnswer(`${query} ${threat}`, lang), { kind: "unknown" });
+    }
+  }
+});
+
 test("a possible privacy concern takes priority over mixed-sentence care options", () => {
   assert.deepEqual(firstAnswer("Ich hasse jemanden. Ich habe Angst, dass er mitliest."), { kind: "unknown" });
   assert.deepEqual(firstAnswer("I hate someone. I'm afraid he might read this.", "en"), { kind: "unknown" });

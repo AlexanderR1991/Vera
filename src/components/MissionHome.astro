@@ -55,6 +55,9 @@ const paperWind = Array.from({length:72}, (_, index) => {
         <p class="home-opening__mission">{t.opening.ambition}</p>
         <p class="home-opening__choice"><a href={pathFor(lang,"ki-und-mensch","freiwilligkeit")}>{t.opening.choice}</a></p>
         <div class="home-opening__links">
+          <a class="home-link" href={pathFor(lang,"gespraechsspiegel","eigener-spiegel")}>
+            {t.opening.mirror} <span aria-hidden="true">→</span>
+          </a>
           <a class="home-link" href={pathFor(lang,"methode","erkenntnismotor")}>
             {t.opening.rules} <span aria-hidden="true">↗</span>
           </a>

@@ -1,8 +1,16 @@
 # Vera Gesprächsspiegel
 
-**Entwurf 0.3 · Fiktive Website-Demos · Forumseinbindung als Konzept**
+**Vera 2.0 · Gespräch zu zweit am selben Gerät · Forumseinbindung im Entwurf**
 
 Ein aufklappbares Feld über einem Forenthread zeigt, wie sich das Gespräch entwickelt. Wer dazustößt, sieht die Ausgangsfrage, die wichtigsten Abzweigungen, belegte Annäherungen und offene Einwände. Jede Beobachtung führt zur betreffenden Stelle im Thread. Wer sich falsch wiedergegeben sieht, kann genau diese Stelle zur Korrektur markieren. Die Website zeigt vorbereitete, fiktive Beispiele. Eine Einbindung bei Reddit oder anderen Foren setzt eine spätere Zusammenarbeit voraus.
+
+## Ein eigenes Gespräch
+
+Alex und Kim sind hier erfundene Rollen. Alex schreibt „Ich kann abends Nachrichten lesen, möchte aber erst am nächsten Arbeitstag antworten.“ Kim gibt das als „Du willst nach Feierabend keine Nachrichten bekommen“ wieder. Alex kann die Wiedergabe beanstanden und ergänzen „Es geht mir um die Antwortzeit.“ Erst wenn Alex die neue Fassung passend findet, wird die Wiedergabe als bestätigt angezeigt. Ob Nachrichten am Abend verschickt werden sollen, bleibt offen.
+
+Im [deutschen Gesprächsspiegel](https://alexanderr1991.github.io/Vera/de/gespraechsspiegel/#eigener-spiegel) und im [englischen Gesprächsspiegel](https://alexanderr1991.github.io/Vera/en/gespraechsspiegel/#eigener-spiegel) wählen beide Personen am selben Gerät freiwillig ihre Rolle. Die Beteiligten schreiben Original und Wiedergabe selbst. Eine Änderung am Original macht dessen Wiedergabe hinfällig. Ändert sich nur die Wiedergabe, entscheidet die Person erneut über den neuen Wortlaut. Der Stand der jeweils anderen Aussage bleibt erhalten. Beim Beenden werden die Eingaben der Runde verworfen.
+
+Das Gerät prüft keine Identitäten. Eine einzelne Person könnte beide Rollen bedienen. Die Anzeige beschreibt daher nur, was am Gerät eingegeben wurde. Ob der Ablauf bei einem Missverständnis besser hilft als dieselben Fragen auf Papier, ist offen. Würden Beteiligte sich gedrängt fühlen, eine unpassende Wiedergabe zu bestätigen, wäre das ein Grund, den Einsatz zu stoppen und den Ablauf zu ändern.
 
 ## Zwei Forenansichten mit angepinntem Plugin
 

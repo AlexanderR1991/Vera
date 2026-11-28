@@ -7,15 +7,15 @@
     "de": "WIRKLICH",
     "en": "REALLY?"
   },
-  "version": "1.0.0",
-  "release_date": "2026-11-05",
+  "version": "2.0.0",
+  "release_date": "2026-11-21",
   "subtitle": {
     "de": "Die offene Erkenntniswerkstatt",
     "en": "The open inquiry workshop"
   },
   "release_scope": {
-    "de": "Erste zusammenhängende Werkzeugfassung. Fachprüfung und Wirksamkeitsnachweis der Methode bleiben offen.",
-    "en": "First integrated tool release. Expert review and evaluation of the method remain pending."
+    "de": "Werkzeugfassung mit einem lokalen Gesprächsspiegel für zwei Personen. Beide können die Wiedergabe ihrer eigenen Worte prüfen und korrigieren. Die Wirkung in echten Gesprächen ist offen.",
+    "en": "Tool release with a local conversation mirror for two people. Each can review and correct how their own words were understood. Its effect in real conversations remains untested."
   },
   "repository": "https://github.com/AlexanderR1991/Vera",
   "website": "https://alexanderr1991.github.io/Vera/",

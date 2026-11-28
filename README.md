@@ -20,7 +20,7 @@ Auf der Pinnwand liegen Ernährung und Politik neben Liebe, Kindererziehung, Kun
 | --- | --- |
 | „Ich habe eine Frage.“ | [Frag mich etwas](https://alexanderr1991.github.io/Vera/de/#frag-mich) durchsucht vorbereitete Antworten und Übungen. Wenn nichts passt, bleibt das sichtbar. |
 | „Ich möchte meine Gedanken sortieren.“ | Das [private Prüfblatt](https://alexanderr1991.github.io/Vera/de/werkstatt/) hilft mit drei Fragen: Was denke ich? Was spricht dagegen? Was prüfe ich als Nächstes? |
-| „Wir reden aneinander vorbei.“ | In der [Vermittlung](https://alexanderr1991.github.io/Vera/de/schnittmengen/#vermittlung) könnt ihr am selben Gerät eure Anliegen und Bedingungen festhalten. Jede Person kann pausieren oder aufhören. |
+| „Wir reden aneinander vorbei.“ | Im [Gesprächsspiegel](https://alexanderr1991.github.io/Vera/de/gespraechsspiegel/#eigener-spiegel) prüft jeder, wie seine Worte beim anderen angekommen sind. Wer anschließend einen Vorschlag prüfen möchte, kann die [Vermittlung](https://alexanderr1991.github.io/Vera/de/schnittmengen/#vermittlung) nutzen. |
 | „Hier fehlt meine Perspektive.“ | Die [Themenplätze im Forum](https://alexanderr1991.github.io/Vera/de/forum/) führen von einer Frage zur öffentlichen Diskussion auf GitHub. Zum Schreiben brauchst du dort ein Konto. |
 
 Fragenfeld, Prüfblatt und Gesprächsübungen senden deine Eingaben nicht. Im Prüfblatt entscheidest du selbst, ob du lokal speicherst oder eine Datei exportierst. Öffentliche Beiträge reichst du gesondert ein.
