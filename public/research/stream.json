@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-27T21:17:27+00:00",
+  "updated_at": "2026-11-28T07:50:11+00:00",
   "status": "automatic_discovery_not_fact_checked",
   "analysis": "metadata_only",
   "source": "Crossref + arXiv",
@@ -9,13 +9,29 @@
     "arXiv": 3
   },
   "source_queries_succeeded": 8,
-  "new_items": 0,
+  "new_items": 2,
   "agents_enabled": false,
   "errors": [
-    "Crossref/liebe: HTTPError: HTTP Error 429: Too Many Requests",
-    "Crossref/gesellschaft: HTTPError: HTTP Error 429: Too Many Requests"
+    "Crossref/gesellschaft: HTTPError: HTTP Error 429: Too Many Requests",
+    "Crossref/kunst: HTTPError: HTTP Error 429: Too Many Requests"
   ],
   "items": [
+    {
+      "id": "10.1111/ejn.70764",
+      "topic": "bewusstsein",
+      "title": "Effects of Bimodal Divided Attention on Cortical Representations of Linguistic Context During Continuous Speech Perception in Noise",
+      "date": "2026-11-27",
+      "date_precision": "day",
+      "authors": [
+        "Zilong Xie"
+      ],
+      "venue": "European Journal of Neuroscience",
+      "url": "https://doi.org/10.1111/ejn.70764",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
     {
       "id": "arxiv:2611.34222v1",
       "topic": "ki",
@@ -1011,6 +1027,25 @@
       "agent_notes": {}
     },
     {
+      "id": "10.1016/j.neures.2026.105158",
+      "topic": "bewusstsein",
+      "title": "Serial dependence in haptic perception during active manual exploration",
+      "date": "2026-11-01",
+      "date_precision": "month",
+      "authors": [
+        "Yunshan Zhang",
+        "Tatsuhiro Nakamura",
+        "Takashi Hanakawa",
+        "Tatsuya Umeda"
+      ],
+      "venue": "Neuroscience Research",
+      "url": "https://doi.org/10.1016/j.neures.2026.105158",
+      "source": "Crossref bibliographic metadata",
+      "status": "unreviewed",
+      "source_examined": "metadata_only",
+      "agent_notes": {}
+    },
+    {
       "id": "10.1016/j.jocn.2026.112222",
       "topic": "bewusstsein",
       "title": "Domain-specific recovery profiles of consciousness after surgically treated intracerebral hemorrhage: A multicenter analysis of the six CRS-R subscales",
@@ -1456,38 +1491,6 @@
       ],
       "venue": "BMC Psychology",
       "url": "https://doi.org/10.1186/s40359-026-05673-1",
-      "source": "Crossref bibliographic metadata",
-      "status": "unreviewed",
-      "source_examined": "metadata_only",
-      "agent_notes": {}
-    },
-    {
-      "id": "10.16997/jdd.2051",
-      "topic": "gesellschaft",
-      "title": "Reforming Institutionalised Citizen Deliberation: An Update on the Permanent Citizens’ Dialogue in Eastbelgium",
-      "date": "2026-10-08",
-      "authors": [
-        "Christoph Niessen",
-        "Min Reuchamps"
-      ],
-      "venue": "Journal of Deliberative Democracy",
-      "url": "https://doi.org/10.16997/jdd.2051",
-      "source": "Crossref bibliographic metadata",
-      "status": "unreviewed",
-      "source_examined": "metadata_only",
-      "agent_notes": {}
-    },
-    {
-      "id": "10.1111/fare.70382",
-      "topic": "liebe",
-      "title": "Cultivating Connection: How Social‐Emotional Abilities Are Associated With Relationship and Family Well‐Being in Married Adults",
-      "date": "2026-10-08",
-      "authors": [
-        "Cheolwoo Park",
-        "Victor W. Harris"
-      ],
-      "venue": "Family Relations",
-      "url": "https://doi.org/10.1111/fare.70382",
       "source": "Crossref bibliographic metadata",
       "status": "unreviewed",
       "source_examined": "metadata_only",
